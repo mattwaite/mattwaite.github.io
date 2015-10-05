@@ -1,0 +1,32 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="jumbotron">
+    <h1>{{ headline }}</h1>
+	<h4>{{ deck }}</h4>
+	{{ image|safe }}
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Cost</th>
+                  <th>Year</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in cost %}<tr>
+                  <td>{{ row.year }}</td>
+                  <td>{{ row.cost }}</td>
+                </tr>{% endfor %}
+              </tbody>
+</table>
+</div>
+
+
+    <p>Learn more on the <a href="_example.html">example page</a>.</p>
+  </div>
+</div>
+{% endblock content %}
+
