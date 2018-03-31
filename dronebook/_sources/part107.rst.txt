@@ -1,0 +1,121 @@
+Part 107
+********
+
+In June 2016, the FAA published the final version of what will become Part 107 of the Federal Aviation Regulations. It is a broad document that covers everything from who can fly a drone commercially, where, when and how. A significant portion of the test will be on the contents of Part 107. We'll go through it piece by piece:
+
+Subpart A
+=========
+
+**107.3 Definitions**: You should review these. None are surprising.
+
+**107.5 Falsification, reproduction or alteration**: If you falsify any information to the FAA under Part 107, you could have three things happen:
+
+* Your application for a remote pilot certificate could be denied.
+* Your existing remote pilot certificate could be revoked.
+* You could face a civil penalty.
+
+**107.7 Inspection, testing and demonstration of compliance**: A section like this exists for all pilots, but in short, it says you must produce all Part 107 or Part 48 related documents if asked. Part 107 says The Administrator but they mean any FAA designated person. Most often this will be in the form of the local Flight Standards District Office (FSDO). You must also allow The Administrator to conduct a test or inspection of the drone, the pilot in command or the visual observer. NOTE: Part 61, which governs manned aircraft pilots, also adds that you have to provide your documents to federal, state and local law enforcement. That is NOT in Part 107, but common sense tells you it would be wise to have those documents on you at all times, and that local law enforcement will be your most likely first point of contact.
+
+**107.9 Accident reporting**: No later than 10 days, you must report accidents to the FAA that result in "serious injury to any person or any loss of consciousness," or property damage exceeds $500 (to repair or replace). The damage amount does not include your drone. It's to someone else's property.
+
+Subpart B
+=========
+
+**107.12 Requirement for a remote pilot certificate with a small UAS rating**: This section just says you must have a remote pilot certificate if you fly for non-hobby purposes OR you must be under the direct supervision of someone who does have a certificate who can take control immediately if needed.
+
+**107.15 Condition for safe operation**: No one may operate a drone under 107 that isn't in a safe condition to operated. It is the pilot in command's responsibility to do a pre-flight check to ensure it is safe. No flight may continue if the pilot in command has reason to believe it's no longer safe. In short: Don't fly if something seems wrong, and don't continue if you notice something isn't right.
+
+**107.17 Medical condition**:  If you have a medical condition that would interfere with safe operations, you can't fly the drone.
+
+**107.19 Remote pilot in command**: You must designate a pilot in command. They are the final authority and responsible party for the operation. They must ensure no undue hazard to people, aircraft or property in the event of a loss of control. The pilot also must be able to to fly the drone in compliance with Part 107.
+
+**107.21 In-flight emergency**: In an in-flight emergency, a pilot in command can deviate from any Part 107 rule "to the extent necessary to meet that emergency." If you do so, the Administrator may request a written report that you must submit.
+
+**107.23 Hazardous operation**: You may not operate in a "careless or reckless manner so as to endanger the life or property of another" or drop anything from your drone that creates an undue hazard to persons or property. NOTE: Careless or reckless manner will be on the test somewhere, almost guaranteed. The FAA has been pushing this reckless operations idea for years now.
+
+**107.25 Operations from a moving vehicle or aircraft**: You can't operate from a moving aircraft. You CAN operate from a moving car or boat IF you are in a sparsely populated area and not transporting property for hire. So from a boat in the open? Fine. From a tractor in a field? Fine. From a helicopter in flight? Nope. And you can't deliver a sandwich (or anything not yours) doing it.
+
+**107.27 Alcohol or drugs**: Must comply with 14CFR Part 91.17 and 91.19. The important parts: ALCOHOL: 8 hours bottle to throttle is how all pilots remember it. It regularly appears on the pilot's knowledge exam. If you've had alcohol within the previous 8 hours, or are under the influence of alcohol or using drugs (prescription or otherwise) that may affect your faculties, you may not fly. If the FAA believes you flew drunk or on drugs, you must provide results of a test taken within 4 hours of acting or attempting to act as the pilot in command. 91.19 says you may not transport illegal drugs with your drone, unless you are a law enforcement officer (in case you were wondering).
+
+**107.29 Daylight operation**: No night operations. You can operate in civil twilight with anti-collision lighting "visible for at least 3 statute miles". Civil twilight is 30 minutes before official sunrise or 30 minutes after official sunset (except in Alaska).
+
+**107.31 Visual line of sight operations**: The pilot in command and the visual observer must be able to see the device unaided to 1) know the aircraft's location 2) determine altitude, attitude, direction of flight 3) observe the airspace for other air traffic or hazards 4) determine the aircraft is not endangering life or property.
+
+**107.33 Visual observer**: You are not required to use a visual observer. But if you do, they must 1) maintain effective communication with each other at all times 2) be able to see the aircraft at all times. Their job is to help scan the airspace for any potential collision hazard and to maintain awareness of the position of the aircraft.
+
+**107.35 Operation of multiple small unmanned aircraft**: Can't do it. One pilot, one aircraft.
+
+**107.36 Carriage of hazardous materials**: Can't do it.
+
+**107.37 Operation near aircraft, right-of-way rules**: The drone gives way to the manned aircraft always. You may not operate so close to an aircraft to create a collision hazard.
+
+**107.39 Operation over human beings**: No operations over people unless they are directly participating in the operation of the craft (i.e. pilot or observer) or they are under a covered structure or inside a stationary vehicle that can provide reasonable protection.
+
+**107.41 Operations in certain airspace**: No operation in Class B, C or D or E airspace without ATC authorization.
+
+**107.43 Operation in the vicinity of airports**: You may not interfere with operations and traffic patterns at any airport, heliport or seaplane base.
+
+**107.45 Operation in prohibited or restricted areas**: Can't do it unless you have permission of the controlling agency.
+
+**107.47 Flight restrictions in the proximity of certain areas designated by notice to airmen**: You must comply with 91.137 through 91.145 and 99.7. Let's split this up:
+
+* **99.7 Special security instructions**: It says if you fly in an air defense identified zone, you have to comply with instructions from both the military and the FAA to protect national security.
+
+* **91.137-91.145 Temporary flight restrictions**: The summary of these sections are that if a NOTAM has been issued restricting flight in an area, you may not fly there unless you get permission from ATC and comply with a list of rules that is going to make it very hard for drones to get permission. 91.137 is about natural disasters. It allows flights in support of hazard operations, Instrument Flight Rules flight plans, which drones can't do, or is carrying "properly accredited" news representatives and a flight plan has been filed with the appropriate FAA or ATC facility specified in the NOTAM. 91.138 only deals with disasters in Hawaii. It's identical to 91.137 except that the NOTAM can be cancelled at the request of the Hawaii government. 91.140 just establishes that the FAA will use NOTAMs to control airspace if needed. 91.141 says no flying near the president or vice president, and there is no ATC permission here. 91.143 says no flying near space flight operations. 91.144 allows the FAA to issue TFRs in unusually high barometric pressure conditions. 91.145 says the FAA will issue a NOTAM around a long list of sporting events and large air shows. You can fly there with ATC permission.
+
+**107.49 Preflight familiarization, inspection and actions for aircraft operation**: First things first: This is the pilot in command's job and responsibility. They will ask. Prior to the flight, the PIC must:
+
+* Assess the operating environment to ensure it's safe, to include weather, airspace, TFRs, where people or property are and other ground hazards.
+* Brief everyone about the operations, conditions, emergency procedures, contingency plans, roles, responsibilities and potential hazards.
+* Ensure control linkages between ground and aircraft work.
+* Ensure there's enough battery power for the proposed flight
+* Ensure anything attached to the drone is secure and doesn't affect the controls.
+
+**107.51 Operating limitations for small unmanned aircraft**: These are easy to summarize:
+
+* Can't go faster than 87 knots/100 miles per hour.
+* 400 feet is the maximum altitude UNLESS you are flying within 400 feet of a building and you don't fly higher than 400 feet of the top of the building. Manned pilots have to remain 1,000 feet from tall structures or must be 500 feet above the structure.
+* 3 statute miles of visibility at your location.
+* 500 feet below clouds. So a cloud ceiling of 700 feet will limit your maximum altitude to 200 feet.
+* 2,000 feet horizontally from clouds.
+
+
+Subpart C
+=========
+
+**107.57 Offenses involving alcohol or drugs**: A drug conviction is grounds for denying, suspending or revoking your remote pilot certificate.
+
+**107.59 Refusal to submit to an alcohol test or furnish test results**: Grounds for denying, suspending or revoking your remote pilot certificate.
+
+**107.61 Eligibility**: To get a remote pilot certificate with small UAS rating, you must: Be at least 16, be able to read, speak, write and understand English, not have a mental or physical condition that would affect your ability to fly safe, and be able to pass the Part 107 test.
+
+**107.63 Issuance of a remote pilot certificate with a small UAS rating**: You have to apply, online or on paper. You must include evidence that you passed the test. Your test center will help you with this.
+
+**107.64 Temporary Certificate**: A temporary certificate will be issued that's valid for 120 days or until a permanent certificate will be issued by the FAA.
+
+**107.65 Aeronautical knowledge recency**: You'll have to take a recurrent knowledge test every 24 months after you pass the initial test.
+
+**107.67 Knowledge test: general procedures and passing grades**: Bring proper ID -- a driver's license works -- that has a photo, a signature, a DOB and a permanent mailing address. Passing score is a 70 percent, but that is not specified in Part 107.
+
+**107.69 Knowledge tests: Cheating or other unauthorized conduct**: Don't cheat. Read the rest for details.
+
+**107.71 Retesting after failure**: You can retake the test if you fail, but not for 14 days.
+
+**107.73 Initial and recurrent knowledge tests**: The subjects covered are:
+
+* Regulations covering small unmanned system rating privileges, limitations and flight operation
+* Airspace, operating requirements and flight restrictions for UAS
+* Aviation weather sources and effects on weather on small unmanned aircraft performance
+* Small unmanned aircraft loading
+* Emergency procedures
+* Crew resource management
+* Radio communications procedures
+* Determining performance of small unmanned aircraft
+* Physiological effects of drugs and alcohol
+* Aeronautical decision-making and judgment
+* Airport operations
+* Maintenance and pre-flight procedures
+
+**107.200 Waivers**: You can request a waiver from these rules and if the FAA determines you can do it safely, they can grant it. But you can only deviate how they authorize and you must follow it.
+
+**107.205 List of regulations subject to waiver**: 107.25 operations from a moving vehicle; 107.29 Daylight operations; 107.31 Visual line of sight aircraft operation; 107.33 Visual observer; 107.35 Operation of multiple small unmanned aircraft systems; 107.37(a) Yielding the right of way; 107.39 operation over people; 107.41 operation in certain airspace; 107.51 operating limitations for small unmanned aircraft.

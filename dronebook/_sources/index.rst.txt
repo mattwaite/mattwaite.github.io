@@ -1,0 +1,39 @@
+.. Getting Started with Drone Journalism documentation master file, created by
+   sphinx-quickstart on Fri Mar  9 11:10:26 2018.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Getting Started with Drone Journalism
+=================================================================
+
+In their simplest form, drones are cameras that fly. And they come with all the problems that both a camera and a flying object involve. The problems with cameras -- the ethical issues and the privacy issues -- are ones that are well worn. We've been talking about them since at least the Civil War. The flying parts are newer -- since 1903 -- but never before has a flying camera become more accessible.
+
+Before we get to the laws governing flying cameras, what could you do with one? Our answer: give people a view of something they've never had before, and give them the context they need to understand how big something really is.
+
+But to do that, you have to understand the history and the law before you put a flying robot into the skies.
+
+.. toctree::
+   :maxdepth: 2
+
+   history.rst
+   part48.rst
+   part107.rst
+   airspace.rst
+   weather.rst
+   weightandbalance.rst
+   emergencies.rst
+   physiology.rst
+   crewresourcemanagement.rst
+   airportops.rst
+   basicops.rst
+   ethics.rst
+   practice.rst
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
