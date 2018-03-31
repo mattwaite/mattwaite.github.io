@@ -131,7 +131,7 @@ These are the top 10 causes of accidents in manned flight. Most of them will be 
 * Mismanagement of fuel
 * Improper in-flight decisions or planning
 * Misjudgment of distance and speed
-* Selection of unsuitable terraine
+* Selection of unsuitable terrain
 * Improper operation of of flight controls.
 
 
