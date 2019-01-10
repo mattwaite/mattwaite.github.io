@@ -9,13 +9,13 @@ iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
 #write.first-line-indent p { text-indent: 2em; }
 #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
 #write.first-line-indent li { margin-left: 2em; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
-.typora-export .footnote-line, .typora-export p { white-space: pre-wrap; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
 @media screen and (max-width: 500px) { 
   body.typora-export { padding-left: 0px; padding-right: 0px; }
   .CodeMirror-sizer { margin-left: 0px !important; }
@@ -49,7 +49,7 @@ figure > table { margin: 0px !important; }
 tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 80px; }
+table.md-table td { min-width: 32px; }
 .CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
 .CodeMirror { text-align: left; }
 .CodeMirror-placeholder { opacity: 0.3; }
@@ -80,10 +80,10 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print { 
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid-page; break-before: avoid-page; }
-  #write { margin-top: 0px; border-color: transparent !important; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
   html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid-page; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid-page; }
   .typora-export #write::after { height: 0px; }
   @page { margin: 20mm 0px; }
 }
@@ -129,6 +129,7 @@ kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 
 code { text-align: left; }
 a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
 .md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
 .md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
 .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
 .MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
@@ -380,7 +381,7 @@ tt {
 
 code {
     background-color: #f3f4f4;
-    padding: 0 4px 2px 4px;
+    padding: 0 2px 0 2px;
 }
 
 .md-fences {
@@ -516,10 +517,10 @@ header, .context-menu, .megamenu-content, footer{
     border-color: #e5e5e5;
 }
 
- .typora-export p, .typora-export .footnote-line {white-space: normal;} 
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
 </style>
 </head>
 <body class='typora-export' >
-<div  id='write'  class = 'is-mac'><h1><a name='header-n0' class='md-header-anchor '></a>Data analysis and visualization in sports</h1><p><strong>Spreadsheets</strong></p><p><a href='http://mattwaite.github.io/sports/BasicSpreadsheets.html'>Basic spreadsheets</a></p><p><a href='http://mattwaite.github.io/sports/MoreComplicatedSpreadsheets.html'>More complicated spreadsheets</a></p><p>&nbsp;</p><p><strong>R</strong></p><p><a href='http://mattwaite.github.io/sports/0_VeryBasics.html'>0 - The very basics</a></p><p><a href='http://mattwaite.github.io/sports/1_Aggregates.html'>1 - Aggregates</a></p><p><a href='http://mattwaite.github.io/sports/2_MutatingData.html'>2 - Mutating data</a></p><p><a href='http://mattwaite.github.io/sports/3_WorkingWithDates.html'>3 - Working with dates</a></p><p><a href='http://mattwaite.github.io/sports/4_FiltersSelections.html'>4 - Filters and selections</a></p><p><a href='http://mattwaite.github.io/sports/5_TransformingData.html'>5 - Transforming data</a></p><p><a href='http://mattwaite.github.io/sports/6_Introtoggplot.html'>6 - Intro to ggplot</a></p><p><a href='http://mattwaite.github.io/sports/7_StackedBarCharts.html'>7 - Stacked bar charts</a></p><p><a href='http://mattwaite.github.io/sports/8_LineCharts.html'>8 - Line charts</a></p><p><a href='http://mattwaite.github.io/sports/9_Scatterplots.html'>9 - Scatterplots</a></p><p><a href='http://mattwaite.github.io/sports/10_WaffleCharts.html'>10 - Waffle charts</a></p><p><a href='http://mattwaite.github.io/sports/11_FacetWraps.html'>11 - Facet Wraps</a></p><p><a href='http://mattwaite.github.io/sports/12_AnimatedVisualization.html'>12 - Animated visualizations</a></p><p><a href='http://mattwaite.github.io/sports/13_Zscores.html'>13 - Z scores</a></p><p>14 - More with Z scores (coming later)</p><p><a href='http://mattwaite.github.io/sports/15_SoccerAnalysis.html'>15 - Soccer analysis</a></p><p><a href='http://mattwaite.github.io/sports/16_FinishingTouches.html'>16 - Finishing touches</a></p><p><a href='http://mattwaite.github.io/sports/17_Residuals.html'>17 - Residuals</a></p><p><a href='http://mattwaite.github.io/sports/18_Simulations.html'>18 - Simulations</a></p><p><a href='http://mattwaite.github.io/sports/19_Tables.html'>19- Tables</a></p><p><a href='http://mattwaite.github.io/sports/20_MoreFinishingTouches.html'>20 - More finishing touches</a></p><p>&nbsp;</p><p>&nbsp;</p></div>
+<div  id='write'  class = 'is-mac'><h1><a name='header-n0' class='md-header-anchor '></a>Data analysis and visualization in sports</h1><p><strong>Spreadsheets</strong></p><p><a href='http://mattwaite.github.io/sports/BasicSpreadsheets.html'>Basic spreadsheets</a></p><p><a href='http://mattwaite.github.io/sports/MoreComplicatedSpreadsheets.html'>More complicated spreadsheets</a></p><p><a href='http://mattwaite.github.io/sports/SpreadsheetsAndReplication.html'>Spreadsheets and replication</a></p><p>&nbsp;</p><p><strong>R</strong></p><p><a href='http://mattwaite.github.io/sports/0_VeryBasics.html'>0 - The very basics</a></p><p><a href='http://mattwaite.github.io/sports/1_Aggregates.html'>1 - Aggregates</a></p><p><a href='http://mattwaite.github.io/sports/2_MutatingData.html'>2 - Mutating data</a></p><p><a href='http://mattwaite.github.io/sports/3_WorkingWithDates.html'>3 - Working with dates</a></p><p><a href='http://mattwaite.github.io/sports/4_FiltersSelections.html'>4 - Filters and selections</a></p><p><a href='http://mattwaite.github.io/sports/5_TransformingData.html'>5 - Transforming data</a></p><p><a href='http://mattwaite.github.io/sports/6_Introtoggplot.html'>6 - Intro to ggplot</a></p><p><a href='http://mattwaite.github.io/sports/7_StackedBarCharts.html'>7 - Stacked bar charts</a></p><p><a href='http://mattwaite.github.io/sports/8_LineCharts.html'>8 - Line charts</a></p><p><a href='http://mattwaite.github.io/sports/9_Scatterplots.html'>9 - Scatterplots</a></p><p><a href='http://mattwaite.github.io/sports/10_WaffleCharts.html'>10 - Waffle charts</a></p><p><a href='http://mattwaite.github.io/sports/11_FacetWraps.html'>11 - Facet Wraps</a></p><p><a href='http://mattwaite.github.io/sports/12_AnimatedVisualization.html'>12 - Animated visualizations</a></p><p><a href='http://mattwaite.github.io/sports/13_Zscores.html'>13 - Z scores</a></p><p>14 - More with Z scores (coming later)</p><p><a href='http://mattwaite.github.io/sports/15_SoccerAnalysis.html'>15 - Soccer analysis</a></p><p><a href='http://mattwaite.github.io/sports/16_FinishingTouches.html'>16 - Finishing touches</a></p><p><a href='http://mattwaite.github.io/sports/17_Residuals.html'>17 - Residuals</a></p><p><a href='http://mattwaite.github.io/sports/18_Simulations.html'>18 - Simulations</a></p><p><a href='http://mattwaite.github.io/sports/19_Tables.html'>19- Tables</a></p><p><a href='http://mattwaite.github.io/sports/20_MoreFinishingTouches.html'>20 - More finishing touches</a></p><p>&nbsp;</p><p>&nbsp;</p></div>
 </body>
 </html>
