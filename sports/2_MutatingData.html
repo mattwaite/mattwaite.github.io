@@ -96,6 +96,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -103,14 +106,74 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -139,927 +202,93 @@ $(document).ready(function () {
 <pre><code>## The following objects are masked from 'package:base':
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<p>Now we’ll import a common and simple dataset of total attendance at NCAA football games over the last few seasons.</p>
-<pre class="r"><code>attendance &lt;- read.csv('../../Data/attendance.csv')
-head(attendance)</code></pre>
-<pre><code>##   X     Institution      Conference X2013.2014 X2014.2015 X2015.2016
-## 1 1       Air Force             MWC     228562     168967     156158
-## 2 2           Akron             MAC     107101      55019     108588
-## 3 3         Alabama             SEC     710538     710736     707786
-## 4 4 Appalachian St. FBS Independent     149366         NA         NA
-## 5 5 Appalachian St.        Sun Belt         NA     138995     128755
-## 6 6         Arizona          Pac-12     285713     354973     308355
-##   X2016.2017 X2017.2018
-## 1     177519     174924
-## 2      62021     117416
-## 3     712747     712053
-## 4         NA         NA
-## 5     156916     154722
-## 6     338017     255791</code></pre>
+<pre class="r"><code>library(readr)</code></pre>
+<p>Now we’ll import a common and <a href="https://www.dropbox.com/s/m52dkdon3zs3ssq/attendance.csv?dl=0">simple dataset of total attendance</a> at NCAA football games over the last few seasons.</p>
+<pre class="r"><code>attendance &lt;- read_csv('../../Data/attendance.csv')</code></pre>
+<pre><code>## Warning: Missing column names filled in: 'X1' [1]</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   X1 = col_double(),
+##   Institution = col_character(),
+##   Conference = col_character(),
+##   `2013-2014` = col_double(),
+##   `2014-2015` = col_double(),
+##   `2015-2016` = col_double(),
+##   `2016-2017` = col_double(),
+##   `2017-2018` = col_double()
+## )</code></pre>
+<pre class="r"><code>head(attendance)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+##      X1 Institution Conference `2013-2014` `2014-2015` `2015-2016`
+##   &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+## 1     1 Air Force   MWC             228562      168967      156158
+## 2     2 Akron       MAC             107101       55019      108588
+## 3     3 Alabama     SEC             710538      710736      707786
+## 4     4 Appalachia… FBS Indep…      149366          NA          NA
+## 5     5 Appalachia… Sun Belt            NA      138995      128755
+## 6     6 Arizona     Pac-12          285713      354973      308355
+## # … with 2 more variables: `2016-2017` &lt;dbl&gt;, `2017-2018` &lt;dbl&gt;</code></pre>
 <p>The code to calculate percent change is pretty simple. Remember, with <code>summarize</code>, we used <code>n()</code> to count things. With <code>mutate</code>, we use very similar syntax to calculate a new value using other values in our dataset. So in this case, we’re trying to do (new-old)/old, but we’re doing it with fields. If we look at what we got when we did <code>head</code>, you’ll see there’s X2017.2018 as the new data, and we’ll use X2016.2017 as the old data. So we’re looking at 1 year. Then, to help us, we’ll use arrange again to sort it, so we get the county with the fastest growing population over one year.</p>
 <pre class="r"><code>attendance %&gt;% mutate(
-  change = (X2017.2018 - X2016.2017)/X2016.2017
+  change = (`2017-2018` - `2016-2017`)/`2016-2017`
 ) </code></pre>
-<pre><code>## Warning: package 'bindrcpp' was built under R version 3.4.4</code></pre>
-<pre><code>##       X         Institution      Conference X2013.2014 X2014.2015
-## 1     1           Air Force             MWC     228562     168967
-## 2     2               Akron             MAC     107101      55019
-## 3     3             Alabama             SEC     710538     710736
-## 4     4     Appalachian St. FBS Independent     149366         NA
-## 5     5     Appalachian St.        Sun Belt         NA     138995
-## 6     6             Arizona          Pac-12     285713     354973
-## 7     7         Arizona St.          Pac-12     501509     343073
-## 8     8            Arkansas             SEC     431174     399124
-## 9     9        Arkansas St.        Sun Belt     149477     149163
-## 10   10     Army West Point FBS Independent     169781     171310
-## 11   11              Auburn             SEC     685252     612157
-## 12   12            Ball St.             MAC      90784      56332
-## 13   13              Baylor          Big 12     321639     280257
-## 14   14           Boise St.             MWC     206198     227526
-## 15   15      Boston College             ACC     198035     239893
-## 16   16       Bowling Green             MAC      91548      91365
-## 17   17             Buffalo             MAC     136418     122418
-## 18   18                 BYU FBS Independent     367349     342843
-## 19   19          California          Pac-12     345303     286051
-## 20   20       Central Mich.             MAC      66119      97838
-## 21   21           Charlotte           C-USA         NA         NA
-## 22   22           Charlotte FBS Independent         NA      79632
-## 23   23          Cincinnati             AAC     190624     173037
-## 24   24             Clemson             ACC     574333     572262
-## 25   25       Coastal Caro. FBS Independent         NA         NA
-## 26   26       Coastal Caro.        Sun Belt         NA         NA
-## 27   27            Colorado          Pac-12     230778     226670
-## 28   28        Colorado St.             MWC     111598     159450
-## 29   29                Duke             ACC     182431     191039
-## 30   30       East Carolina             AAC         NA     268713
-## 31   31       East Carolina           C-USA     263910         NA
-## 32   32       Eastern Mich.             MAC      20255      75127
-## 33   33                 FIU           C-USA      92717      95728
-## 34   34       Fla. Atlantic           C-USA      72758      70608
-## 35   35             Florida             SEC     524638     515001
-## 36   36         Florida St.             ACC     527947     575478
-## 37   37          Fresno St.             MWC     258417     209257
-## 38   38        Ga. Southern FBS Independent      88968         NA
-## 39   39        Ga. Southern        Sun Belt         NA     105510
-## 40   40             Georgia             SEC     556476     649222
-## 41   41         Georgia St.        Sun Belt     109039      90037
-## 42   42        Georgia Tech             ACC     343542     291113
-## 43   43              Hawaii             MWC     185931     192159
-## 44   44             Houston             AAC     145537     198177
-## 45   45               Idaho FBS Independent      73718         NA
-## 46   46               Idaho        Sun Belt         NA      64432
-## 47   47            Illinois         Big Ten     306506     290842
-## 48   48             Indiana         Big Ten     354823     249941
-## 49   49                Iowa         Big Ten     469872     472584
-## 50   50            Iowa St.          Big 12     332165     365377
-## 51   51              Kansas          Big 12     265187     204462
-## 52   52          Kansas St.          Big 12     423095     371565
-## 53   53            Kent St.             MAC      85091      81263
-## 54   54            Kentucky             SEC     416303     403002
-## 55   55          La.-Monroe        Sun Belt      85177      90540
-## 56   56             Liberty       Big South         NA         NA
-## 57   57           Louisiana        Sun Belt     129878     154652
-## 58   58      Louisiana Tech           C-USA      93332     100272
-## 59   59          Louisville             AAC     370396         NA
-## 60   60          Louisville             ACC         NA     317829
-## 61   61                 LSU             SEC     639927     712063
-## 62   62            Marshall           C-USA     150138     192229
-## 63   63            Maryland             ACC     288946         NA
-## 64   64            Maryland         Big Ten         NA     281884
-## 65   65       Massachusetts FBS Independent         NA         NA
-## 66   66       Massachusetts             MAC      94981      96527
-## 67   67             Memphis             AAC     199760     203106
-## 68   68          Miami (FL)             ACC     376857     367623
-## 69   69          Miami (OH)             MAC      79676      95438
-## 70   70            Michigan         Big Ten     781144     734364
-## 71   71        Michigan St.         Big Ten     506294     522765
-## 72   72        Middle Tenn.           C-USA     112287     104450
-## 73   73           Minnesota         Big Ten     334581     335056
-## 74   74     Mississippi St.             SEC     389868     427892
-## 75   75            Missouri             SEC     444532     456996
-## 76   76                Navy             AAC         NA         NA
-## 77   77                Navy FBS Independent     177940     162510
-## 78   78            NC State             ACC     425420     380785
-## 79   79            Nebraska         Big Ten     727466     638744
-## 80   80              Nevada             MWC     149635     143172
-## 81   81          New Mexico             MWC     141220     131624
-## 82   82      New Mexico St. FBS Independent     112347         NA
-## 83   83      New Mexico St.        Sun Belt         NA      73612
-## 84   84      North Carolina             ACC     360500     328000
-## 85   85         North Texas           C-USA     126182     115627
-## 86   86       Northern Ill.             MAC     103344      67813
-## 87   87        Northwestern         Big Ten     275147     270292
-## 88   88          Notre Dame FBS Independent     484770     484770
-## 89   89                Ohio             MAC     144701     123090
-## 90   90            Ohio St.         Big Ten     734528     744075
-## 91   91            Oklahoma          Big 12     508334     510972
-## 92   92        Oklahoma St.          Big 12     354754     326324
-## 93   93        Old Dominion           C-USA         NA     120708
-## 94   94        Old Dominion FBS Independent     120708         NA
-## 95   95            Ole Miss             SEC     415750     430829
-## 96   96              Oregon          Pac-12     403617     401952
-## 97   97          Oregon St.          Pac-12     257784     295230
-## 98   98            Penn St.         Big Ten     676112     711358
-## 99   99          Pittsburgh             ACC     348188     289204
-## 100 100              Purdue         Big Ten     342673     246880
-## 101 101                Rice           C-USA     112711      92812
-## 102 102             Rutgers             AAC     325846         NA
-## 103 103             Rutgers         Big Ten         NA     303791
-## 104 104       San Diego St.             MWC     199344     226839
-## 105 105        San Jose St.             MWC      98174      75340
-## 106 106                 SMU             AAC     112347     129169
-## 107 107       South Alabama        Sun Belt      95555     104669
-## 108 108      South Carolina             SEC     576805     569664
-## 109 109          South Fla.             AAC     242911     214861
-## 110 110 Southern California          Pac-12     511885     439630
-## 111 111      Southern Miss.           C-USA     113759     136435
-## 112 112            Stanford          Pac-12     355081     287174
-## 113 113            Syracuse             ACC     229661     242682
-## 114 114                 TCU          Big 12     261587     313036
-## 115 115              Temple             AAC     134836     140217
-## 116 116           Tennessee             SEC     669087     698276
-## 117 117               Texas          Big 12     593857     564618
-## 118 118           Texas A&amp;M             SEC     697003     630735
-## 119 119           Texas St.        Sun Belt     108371     123589
-## 120 120          Texas Tech          Big 12     347597     353603
-## 121 121              Toledo             MAC     110803     117286
-## 122 122                Troy        Sun Belt      94529     100602
-## 123 123              Tulane             AAC         NA     150074
-## 124 124              Tulane           C-USA     118482         NA
-## 125 125               Tulsa             AAC         NA     117881
-## 126 126               Tulsa           C-USA     119356         NA
-## 127 127                 UAB           C-USA      52739     131047
-## 128 128                 UCF             AAC     252505     226869
-## 129 129                UCLA          Pac-12     421711     459901
-## 130 130               UConn             AAC     216523     192230
-## 131 131                UNLV             MWC     120486      94043
-## 132 132                Utah          Pac-12     316361     278619
-## 133 133            Utah St.             MWC     139576     122803
-## 134 134                UTEP           C-USA     141877     170260
-## 135 135                UTSA           C-USA     175282     165458
-## 136 136          Vanderbilt             SEC     249728     274063
-## 137 137            Virginia             ACC     370234     275243
-## 138 138       Virginia Tech             ACC     383993     428099
-## 139 139         Wake Forest             ACC     170484     163260
-## 140 140          Washington          Pac-12     481384     451555
-## 141 141      Washington St.          Pac-12     178427     184762
-## 142 142       West Virginia          Big 12     317459     340117
-## 143 143         Western Ky.           C-USA         NA      97833
-## 144 144         Western Ky.        Sun Belt      91672         NA
-## 145 145       Western Mich.             MAC      86733      78124
-## 146 146           Wisconsin         Big Ten     552378     556642
-## 147 147             Wyoming             MWC     116854     117593
-##     X2015.2016 X2016.2017 X2017.2018        change
-## 1       156158     177519     174924 -0.0146181535
-## 2       108588      62021     117416  0.8931652182
-## 3       707786     712747     712053 -0.0009736975
-## 4           NA         NA         NA            NA
-## 5       128755     156916     154722 -0.0139820031
-## 6       308355     338017     255791 -0.2432599544
-## 7       368985     286417     359660  0.2557215528
-## 8       471279     487067     442569 -0.0913590943
-## 9       138043     136200     119538 -0.1223348018
-## 10      185946     163267     185543  0.1364390844
-## 11      612157     695498     605120 -0.1299471745
-## 12       47841      38946      59395  0.5250603400
-## 13      276960     275029     262978 -0.0438171975
-## 14      201669     205640     217881  0.0595263567
-## 15      211433     192942     215546  0.1171543780
-## 16       98042      90838      79405 -0.1258614236
-## 17      110743     104957      80102 -0.2368112656
-## 18      351191     351413     337599 -0.0393098719
-## 19      292797     279769     219290 -0.2161747728
-## 20       94029     104447      67520 -0.3535477323
-## 21       87705      85154      71420 -0.1612842615
-## 22          NA         NA         NA            NA
-## 23      222578     235095     170603 -0.2743231460
-## 24      588266     566787     565412 -0.0024259554
-## 25          NA      67137         NA            NA
-## 26          NA         NA      89754            NA
-## 27      236331     279652     282335  0.0095940669
-## 28      149500     165598     192369  0.1616625805
-## 29      158562     179369     187581  0.0457827161
-## 30      259645     264680     257090 -0.0286761372
-## 31          NA         NA         NA            NA
-## 32       29381     106064      73649 -0.3056173631
-## 33       76907     117526     100002 -0.1491074315
-## 34      105703      60437     151580  1.5080662508
-## 35      630457     439229     520290  0.1845529325
-## 36      512534     460801     425658 -0.0762650255
-## 37      174217     152960     183789  0.2015494247
-## 38          NA         NA         NA            NA
-## 39      124681     104095      61031 -0.4136990249
-## 40      649222     556476     556476  0.0000000000
-## 41       62081      90617      79163 -0.1264001236
-## 42      354946     332518     281310 -0.1540006857
-## 43      164031     170299     145463 -0.1458376150
-## 44      271836     233716     195499 -0.1635189717
-## 45          NA         NA         NA            NA
-## 46       69915      55948      63197  0.1295667405
-## 47      289397     319505     276003 -0.1361543638
-## 48      310195     301190     263715 -0.1244231216
-## 49      441992     487591     464357 -0.0476505924
-## 50      339113     367899     347586 -0.0552135233
-## 51      190972     154969     186490  0.2034019707
-## 52      371698     311512     359107  0.1527870515
-## 53       75366      65387      65924  0.0082126417
-## 54      490361     375500     395276  0.0526657790
-## 55       58659      67057      49640 -0.2597342559
-## 56          NA         NA      99425            NA
-## 57      129577     121346      78754 -0.3509963246
-## 58      125863     102059     142626  0.3974857680
-## 59          NA         NA         NA            NA
-## 60      294413     324391     276957 -0.1462247720
-## 61      654084     708618     591034 -0.1659342551
-## 62      157930     173319     130447 -0.2473589162
-## 63          NA         NA         NA            NA
-## 64      310389     237690     237859  0.0007110101
-## 65          NA      87059      64242 -0.2620866309
-## 66       66743         NA         NA            NA
-## 67      262811     261419     290416  0.1109215474
-## 68      285363     351434     469454  0.3358240808
-## 69       94241     102657      98666 -0.0388770371
-## 70      771174     883741     669534 -0.2423866269
-## 71      522628     522666     507398 -0.0292117720
-## 72      103258      86215      93718  0.0870266195
-## 73      366484     306697     310506  0.0124194237
-## 74      432490     349904     406703  0.1623273812
-## 75      390720     365651     360429 -0.0142813776
-## 76      226366     189425     209701  0.1070397255
-## 77          NA         NA         NA            NA
-## 78      341928     402479     341100 -0.1525023666
-## 79      629983     631402     628583 -0.0044646675
-## 80      133022     111003     100329 -0.0961595633
-## 81      188224     141938     127161 -0.1041088363
-## 82          NA         NA         NA            NA
-## 83       87429      47725      91195  0.9108433735
-## 84      347500     301500     350500  0.1625207297
-## 85       68155     119269     134174  0.1249696065
-## 86       83649      55095      67748  0.2296578637
-## 87      233560     243586     250969  0.0303096237
-## 88      484770     484770     543354  0.1208490624
-## 89      127938     127139     116325 -0.0850565130
-## 90      750705     750944     752464  0.0020241190
-## 91      512139     521142     519119 -0.0038818595
-## 92      403678     376695     340740 -0.0954485725
-## 93      140826     120708     120708  0.0000000000
-## 94          NA         NA         NA            NA
-## 95      423355     454368     410414 -0.0967365660
-## 96      403419     328062     388381  0.1838646353
-## 97      216476     263357     208524 -0.2082078699
-## 98      698590     701800     746946  0.0643288686
-## 99      288900     322531     254062 -0.2122865709
-## 100     262559     241158     287303  0.1913475813
-## 101     116034     128551      96770 -0.2472248368
-## 102         NA         NA         NA            NA
-## 103     334061     313629     278245 -0.1128211996
-## 104     203459     223735     275428  0.2310456567
-## 105      91869      92515      85235 -0.0786899422
-## 106     147301     142272     139609 -0.0187176676
-## 107      96234     113749     104070 -0.0850908579
-## 108     472934     538441     550099  0.0216513973
-## 109     159468     262772     188408 -0.2829981885
-## 110     527506     410755     508781  0.2386483427
-## 111     170007     171525     130265 -0.2405480251
-## 112     349417     264853     284388  0.0737578959
-## 113     224717     196828     237504  0.2066575894
-## 114     280604     316179     264481 -0.1635086454
-## 115     264951     190574     163905 -0.1399403906
-## 116     704088     706776     670454 -0.0513911055
-## 117     540210     587283     556667 -0.0521315958
-## 118     725354     713418     691612 -0.0305655310
-## 119     108998     108717     104680 -0.0371331071
-## 120     338042     349498     330390 -0.0546727020
-## 121     125051     123766     124470  0.0056881535
-## 122      96993     135203     146737  0.0853087579
-## 123     137577     136310     101634 -0.2543907270
-## 124         NA         NA         NA            NA
-## 125     117730     115404     110751 -0.0403192264
-## 126         NA         NA         NA            NA
-## 127         NA         NA     158252            NA
-## 128     180388     214814     257924  0.2006852440
-## 129     401149     404751     336262 -0.1692126764
-## 130     169343     187569     122007 -0.3495353710
-## 131     116228     110336     104692 -0.0511528422
-## 132     325732     279038     321390  0.1517786108
-## 133     128172     114814     120650  0.0508300381
-## 134     116058     161004      97740 -0.3929343370
-## 135     138048     138226     114104 -0.1745113076
-## 136     192802     187451     219390  0.1703858608
-## 137     302994     239576     275788  0.1511503656
-## 138     364942     378259     379284  0.0027097835
-## 139     160043     185192     170614 -0.0787183032
-## 140     433432     452123     481755  0.0655396872
-## 141     176444     221722     223875  0.0097103580
-## 142     383779     403084     335678 -0.1672256899
-## 143     107759     123935      94234 -0.2396498164
-## 144         NA         NA         NA            NA
-## 145     116646     143025      95314 -0.3335850376
-## 146     546099     476144     551766  0.1588217010
-## 147     108361     148860     144299 -0.0306395271</code></pre>
+<pre><code>## # A tibble: 147 x 9
+##       X1 Institution Conference `2013-2014` `2014-2015` `2015-2016`
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  1     1 Air Force   MWC             228562      168967      156158
+##  2     2 Akron       MAC             107101       55019      108588
+##  3     3 Alabama     SEC             710538      710736      707786
+##  4     4 Appalachia… FBS Indep…      149366          NA          NA
+##  5     5 Appalachia… Sun Belt            NA      138995      128755
+##  6     6 Arizona     Pac-12          285713      354973      308355
+##  7     7 Arizona St. Pac-12          501509      343073      368985
+##  8     8 Arkansas    SEC             431174      399124      471279
+##  9     9 Arkansas S… Sun Belt        149477      149163      138043
+## 10    10 Army West … FBS Indep…      169781      171310      185946
+## # … with 137 more rows, and 3 more variables: `2016-2017` &lt;dbl&gt;,
+## #   `2017-2018` &lt;dbl&gt;, change &lt;dbl&gt;</code></pre>
 <p>What do we see right away? Do those numbers look like we expect them to? No. They’re a decimal expressed as a percentage. So let’s fix that by multiplying by 100.</p>
 <pre class="r"><code>attendance %&gt;% mutate(
-  change = ((X2017.2018 - X2016.2017)/X2016.2017)*100
+  change = ((`2017-2018` - `2016-2017`)/`2016-2017`)*100
 ) </code></pre>
-<pre><code>##       X         Institution      Conference X2013.2014 X2014.2015
-## 1     1           Air Force             MWC     228562     168967
-## 2     2               Akron             MAC     107101      55019
-## 3     3             Alabama             SEC     710538     710736
-## 4     4     Appalachian St. FBS Independent     149366         NA
-## 5     5     Appalachian St.        Sun Belt         NA     138995
-## 6     6             Arizona          Pac-12     285713     354973
-## 7     7         Arizona St.          Pac-12     501509     343073
-## 8     8            Arkansas             SEC     431174     399124
-## 9     9        Arkansas St.        Sun Belt     149477     149163
-## 10   10     Army West Point FBS Independent     169781     171310
-## 11   11              Auburn             SEC     685252     612157
-## 12   12            Ball St.             MAC      90784      56332
-## 13   13              Baylor          Big 12     321639     280257
-## 14   14           Boise St.             MWC     206198     227526
-## 15   15      Boston College             ACC     198035     239893
-## 16   16       Bowling Green             MAC      91548      91365
-## 17   17             Buffalo             MAC     136418     122418
-## 18   18                 BYU FBS Independent     367349     342843
-## 19   19          California          Pac-12     345303     286051
-## 20   20       Central Mich.             MAC      66119      97838
-## 21   21           Charlotte           C-USA         NA         NA
-## 22   22           Charlotte FBS Independent         NA      79632
-## 23   23          Cincinnati             AAC     190624     173037
-## 24   24             Clemson             ACC     574333     572262
-## 25   25       Coastal Caro. FBS Independent         NA         NA
-## 26   26       Coastal Caro.        Sun Belt         NA         NA
-## 27   27            Colorado          Pac-12     230778     226670
-## 28   28        Colorado St.             MWC     111598     159450
-## 29   29                Duke             ACC     182431     191039
-## 30   30       East Carolina             AAC         NA     268713
-## 31   31       East Carolina           C-USA     263910         NA
-## 32   32       Eastern Mich.             MAC      20255      75127
-## 33   33                 FIU           C-USA      92717      95728
-## 34   34       Fla. Atlantic           C-USA      72758      70608
-## 35   35             Florida             SEC     524638     515001
-## 36   36         Florida St.             ACC     527947     575478
-## 37   37          Fresno St.             MWC     258417     209257
-## 38   38        Ga. Southern FBS Independent      88968         NA
-## 39   39        Ga. Southern        Sun Belt         NA     105510
-## 40   40             Georgia             SEC     556476     649222
-## 41   41         Georgia St.        Sun Belt     109039      90037
-## 42   42        Georgia Tech             ACC     343542     291113
-## 43   43              Hawaii             MWC     185931     192159
-## 44   44             Houston             AAC     145537     198177
-## 45   45               Idaho FBS Independent      73718         NA
-## 46   46               Idaho        Sun Belt         NA      64432
-## 47   47            Illinois         Big Ten     306506     290842
-## 48   48             Indiana         Big Ten     354823     249941
-## 49   49                Iowa         Big Ten     469872     472584
-## 50   50            Iowa St.          Big 12     332165     365377
-## 51   51              Kansas          Big 12     265187     204462
-## 52   52          Kansas St.          Big 12     423095     371565
-## 53   53            Kent St.             MAC      85091      81263
-## 54   54            Kentucky             SEC     416303     403002
-## 55   55          La.-Monroe        Sun Belt      85177      90540
-## 56   56             Liberty       Big South         NA         NA
-## 57   57           Louisiana        Sun Belt     129878     154652
-## 58   58      Louisiana Tech           C-USA      93332     100272
-## 59   59          Louisville             AAC     370396         NA
-## 60   60          Louisville             ACC         NA     317829
-## 61   61                 LSU             SEC     639927     712063
-## 62   62            Marshall           C-USA     150138     192229
-## 63   63            Maryland             ACC     288946         NA
-## 64   64            Maryland         Big Ten         NA     281884
-## 65   65       Massachusetts FBS Independent         NA         NA
-## 66   66       Massachusetts             MAC      94981      96527
-## 67   67             Memphis             AAC     199760     203106
-## 68   68          Miami (FL)             ACC     376857     367623
-## 69   69          Miami (OH)             MAC      79676      95438
-## 70   70            Michigan         Big Ten     781144     734364
-## 71   71        Michigan St.         Big Ten     506294     522765
-## 72   72        Middle Tenn.           C-USA     112287     104450
-## 73   73           Minnesota         Big Ten     334581     335056
-## 74   74     Mississippi St.             SEC     389868     427892
-## 75   75            Missouri             SEC     444532     456996
-## 76   76                Navy             AAC         NA         NA
-## 77   77                Navy FBS Independent     177940     162510
-## 78   78            NC State             ACC     425420     380785
-## 79   79            Nebraska         Big Ten     727466     638744
-## 80   80              Nevada             MWC     149635     143172
-## 81   81          New Mexico             MWC     141220     131624
-## 82   82      New Mexico St. FBS Independent     112347         NA
-## 83   83      New Mexico St.        Sun Belt         NA      73612
-## 84   84      North Carolina             ACC     360500     328000
-## 85   85         North Texas           C-USA     126182     115627
-## 86   86       Northern Ill.             MAC     103344      67813
-## 87   87        Northwestern         Big Ten     275147     270292
-## 88   88          Notre Dame FBS Independent     484770     484770
-## 89   89                Ohio             MAC     144701     123090
-## 90   90            Ohio St.         Big Ten     734528     744075
-## 91   91            Oklahoma          Big 12     508334     510972
-## 92   92        Oklahoma St.          Big 12     354754     326324
-## 93   93        Old Dominion           C-USA         NA     120708
-## 94   94        Old Dominion FBS Independent     120708         NA
-## 95   95            Ole Miss             SEC     415750     430829
-## 96   96              Oregon          Pac-12     403617     401952
-## 97   97          Oregon St.          Pac-12     257784     295230
-## 98   98            Penn St.         Big Ten     676112     711358
-## 99   99          Pittsburgh             ACC     348188     289204
-## 100 100              Purdue         Big Ten     342673     246880
-## 101 101                Rice           C-USA     112711      92812
-## 102 102             Rutgers             AAC     325846         NA
-## 103 103             Rutgers         Big Ten         NA     303791
-## 104 104       San Diego St.             MWC     199344     226839
-## 105 105        San Jose St.             MWC      98174      75340
-## 106 106                 SMU             AAC     112347     129169
-## 107 107       South Alabama        Sun Belt      95555     104669
-## 108 108      South Carolina             SEC     576805     569664
-## 109 109          South Fla.             AAC     242911     214861
-## 110 110 Southern California          Pac-12     511885     439630
-## 111 111      Southern Miss.           C-USA     113759     136435
-## 112 112            Stanford          Pac-12     355081     287174
-## 113 113            Syracuse             ACC     229661     242682
-## 114 114                 TCU          Big 12     261587     313036
-## 115 115              Temple             AAC     134836     140217
-## 116 116           Tennessee             SEC     669087     698276
-## 117 117               Texas          Big 12     593857     564618
-## 118 118           Texas A&amp;M             SEC     697003     630735
-## 119 119           Texas St.        Sun Belt     108371     123589
-## 120 120          Texas Tech          Big 12     347597     353603
-## 121 121              Toledo             MAC     110803     117286
-## 122 122                Troy        Sun Belt      94529     100602
-## 123 123              Tulane             AAC         NA     150074
-## 124 124              Tulane           C-USA     118482         NA
-## 125 125               Tulsa             AAC         NA     117881
-## 126 126               Tulsa           C-USA     119356         NA
-## 127 127                 UAB           C-USA      52739     131047
-## 128 128                 UCF             AAC     252505     226869
-## 129 129                UCLA          Pac-12     421711     459901
-## 130 130               UConn             AAC     216523     192230
-## 131 131                UNLV             MWC     120486      94043
-## 132 132                Utah          Pac-12     316361     278619
-## 133 133            Utah St.             MWC     139576     122803
-## 134 134                UTEP           C-USA     141877     170260
-## 135 135                UTSA           C-USA     175282     165458
-## 136 136          Vanderbilt             SEC     249728     274063
-## 137 137            Virginia             ACC     370234     275243
-## 138 138       Virginia Tech             ACC     383993     428099
-## 139 139         Wake Forest             ACC     170484     163260
-## 140 140          Washington          Pac-12     481384     451555
-## 141 141      Washington St.          Pac-12     178427     184762
-## 142 142       West Virginia          Big 12     317459     340117
-## 143 143         Western Ky.           C-USA         NA      97833
-## 144 144         Western Ky.        Sun Belt      91672         NA
-## 145 145       Western Mich.             MAC      86733      78124
-## 146 146           Wisconsin         Big Ten     552378     556642
-## 147 147             Wyoming             MWC     116854     117593
-##     X2015.2016 X2016.2017 X2017.2018       change
-## 1       156158     177519     174924  -1.46181535
-## 2       108588      62021     117416  89.31652182
-## 3       707786     712747     712053  -0.09736975
-## 4           NA         NA         NA           NA
-## 5       128755     156916     154722  -1.39820031
-## 6       308355     338017     255791 -24.32599544
-## 7       368985     286417     359660  25.57215528
-## 8       471279     487067     442569  -9.13590943
-## 9       138043     136200     119538 -12.23348018
-## 10      185946     163267     185543  13.64390844
-## 11      612157     695498     605120 -12.99471745
-## 12       47841      38946      59395  52.50603400
-## 13      276960     275029     262978  -4.38171975
-## 14      201669     205640     217881   5.95263567
-## 15      211433     192942     215546  11.71543780
-## 16       98042      90838      79405 -12.58614236
-## 17      110743     104957      80102 -23.68112656
-## 18      351191     351413     337599  -3.93098719
-## 19      292797     279769     219290 -21.61747728
-## 20       94029     104447      67520 -35.35477323
-## 21       87705      85154      71420 -16.12842615
-## 22          NA         NA         NA           NA
-## 23      222578     235095     170603 -27.43231460
-## 24      588266     566787     565412  -0.24259554
-## 25          NA      67137         NA           NA
-## 26          NA         NA      89754           NA
-## 27      236331     279652     282335   0.95940669
-## 28      149500     165598     192369  16.16625805
-## 29      158562     179369     187581   4.57827161
-## 30      259645     264680     257090  -2.86761372
-## 31          NA         NA         NA           NA
-## 32       29381     106064      73649 -30.56173631
-## 33       76907     117526     100002 -14.91074315
-## 34      105703      60437     151580 150.80662508
-## 35      630457     439229     520290  18.45529325
-## 36      512534     460801     425658  -7.62650255
-## 37      174217     152960     183789  20.15494247
-## 38          NA         NA         NA           NA
-## 39      124681     104095      61031 -41.36990249
-## 40      649222     556476     556476   0.00000000
-## 41       62081      90617      79163 -12.64001236
-## 42      354946     332518     281310 -15.40006857
-## 43      164031     170299     145463 -14.58376150
-## 44      271836     233716     195499 -16.35189717
-## 45          NA         NA         NA           NA
-## 46       69915      55948      63197  12.95667405
-## 47      289397     319505     276003 -13.61543638
-## 48      310195     301190     263715 -12.44231216
-## 49      441992     487591     464357  -4.76505924
-## 50      339113     367899     347586  -5.52135233
-## 51      190972     154969     186490  20.34019707
-## 52      371698     311512     359107  15.27870515
-## 53       75366      65387      65924   0.82126417
-## 54      490361     375500     395276   5.26657790
-## 55       58659      67057      49640 -25.97342559
-## 56          NA         NA      99425           NA
-## 57      129577     121346      78754 -35.09963246
-## 58      125863     102059     142626  39.74857680
-## 59          NA         NA         NA           NA
-## 60      294413     324391     276957 -14.62247720
-## 61      654084     708618     591034 -16.59342551
-## 62      157930     173319     130447 -24.73589162
-## 63          NA         NA         NA           NA
-## 64      310389     237690     237859   0.07110101
-## 65          NA      87059      64242 -26.20866309
-## 66       66743         NA         NA           NA
-## 67      262811     261419     290416  11.09215474
-## 68      285363     351434     469454  33.58240808
-## 69       94241     102657      98666  -3.88770371
-## 70      771174     883741     669534 -24.23866269
-## 71      522628     522666     507398  -2.92117720
-## 72      103258      86215      93718   8.70266195
-## 73      366484     306697     310506   1.24194237
-## 74      432490     349904     406703  16.23273812
-## 75      390720     365651     360429  -1.42813776
-## 76      226366     189425     209701  10.70397255
-## 77          NA         NA         NA           NA
-## 78      341928     402479     341100 -15.25023666
-## 79      629983     631402     628583  -0.44646675
-## 80      133022     111003     100329  -9.61595633
-## 81      188224     141938     127161 -10.41088363
-## 82          NA         NA         NA           NA
-## 83       87429      47725      91195  91.08433735
-## 84      347500     301500     350500  16.25207297
-## 85       68155     119269     134174  12.49696065
-## 86       83649      55095      67748  22.96578637
-## 87      233560     243586     250969   3.03096237
-## 88      484770     484770     543354  12.08490624
-## 89      127938     127139     116325  -8.50565130
-## 90      750705     750944     752464   0.20241190
-## 91      512139     521142     519119  -0.38818595
-## 92      403678     376695     340740  -9.54485725
-## 93      140826     120708     120708   0.00000000
-## 94          NA         NA         NA           NA
-## 95      423355     454368     410414  -9.67365660
-## 96      403419     328062     388381  18.38646353
-## 97      216476     263357     208524 -20.82078699
-## 98      698590     701800     746946   6.43288686
-## 99      288900     322531     254062 -21.22865709
-## 100     262559     241158     287303  19.13475813
-## 101     116034     128551      96770 -24.72248368
-## 102         NA         NA         NA           NA
-## 103     334061     313629     278245 -11.28211996
-## 104     203459     223735     275428  23.10456567
-## 105      91869      92515      85235  -7.86899422
-## 106     147301     142272     139609  -1.87176676
-## 107      96234     113749     104070  -8.50908579
-## 108     472934     538441     550099   2.16513973
-## 109     159468     262772     188408 -28.29981885
-## 110     527506     410755     508781  23.86483427
-## 111     170007     171525     130265 -24.05480251
-## 112     349417     264853     284388   7.37578959
-## 113     224717     196828     237504  20.66575894
-## 114     280604     316179     264481 -16.35086454
-## 115     264951     190574     163905 -13.99403906
-## 116     704088     706776     670454  -5.13911055
-## 117     540210     587283     556667  -5.21315958
-## 118     725354     713418     691612  -3.05655310
-## 119     108998     108717     104680  -3.71331071
-## 120     338042     349498     330390  -5.46727020
-## 121     125051     123766     124470   0.56881535
-## 122      96993     135203     146737   8.53087579
-## 123     137577     136310     101634 -25.43907270
-## 124         NA         NA         NA           NA
-## 125     117730     115404     110751  -4.03192264
-## 126         NA         NA         NA           NA
-## 127         NA         NA     158252           NA
-## 128     180388     214814     257924  20.06852440
-## 129     401149     404751     336262 -16.92126764
-## 130     169343     187569     122007 -34.95353710
-## 131     116228     110336     104692  -5.11528422
-## 132     325732     279038     321390  15.17786108
-## 133     128172     114814     120650   5.08300381
-## 134     116058     161004      97740 -39.29343370
-## 135     138048     138226     114104 -17.45113076
-## 136     192802     187451     219390  17.03858608
-## 137     302994     239576     275788  15.11503656
-## 138     364942     378259     379284   0.27097835
-## 139     160043     185192     170614  -7.87183032
-## 140     433432     452123     481755   6.55396872
-## 141     176444     221722     223875   0.97103580
-## 142     383779     403084     335678 -16.72256899
-## 143     107759     123935      94234 -23.96498164
-## 144         NA         NA         NA           NA
-## 145     116646     143025      95314 -33.35850376
-## 146     546099     476144     551766  15.88217010
-## 147     108361     148860     144299  -3.06395271</code></pre>
+<pre><code>## # A tibble: 147 x 9
+##       X1 Institution Conference `2013-2014` `2014-2015` `2015-2016`
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  1     1 Air Force   MWC             228562      168967      156158
+##  2     2 Akron       MAC             107101       55019      108588
+##  3     3 Alabama     SEC             710538      710736      707786
+##  4     4 Appalachia… FBS Indep…      149366          NA          NA
+##  5     5 Appalachia… Sun Belt            NA      138995      128755
+##  6     6 Arizona     Pac-12          285713      354973      308355
+##  7     7 Arizona St. Pac-12          501509      343073      368985
+##  8     8 Arkansas    SEC             431174      399124      471279
+##  9     9 Arkansas S… Sun Belt        149477      149163      138043
+## 10    10 Army West … FBS Indep…      169781      171310      185946
+## # … with 137 more rows, and 3 more variables: `2016-2017` &lt;dbl&gt;,
+## #   `2017-2018` &lt;dbl&gt;, change &lt;dbl&gt;</code></pre>
 <p>Now, does this ordering do anything for us? No. Let’s fix that with arrange.</p>
 <pre class="r"><code>attendance %&gt;% mutate(
-  change = ((X2017.2018 - X2016.2017)/X2016.2017)*100
+  change = ((`2017-2018` - `2016-2017`)/`2016-2017`)*100
 ) %&gt;% arrange(desc(change))</code></pre>
-<pre><code>##       X         Institution      Conference X2013.2014 X2014.2015
-## 1    34       Fla. Atlantic           C-USA      72758      70608
-## 2    83      New Mexico St.        Sun Belt         NA      73612
-## 3     2               Akron             MAC     107101      55019
-## 4    12            Ball St.             MAC      90784      56332
-## 5    58      Louisiana Tech           C-USA      93332     100272
-## 6    68          Miami (FL)             ACC     376857     367623
-## 7     7         Arizona St.          Pac-12     501509     343073
-## 8   110 Southern California          Pac-12     511885     439630
-## 9   104       San Diego St.             MWC     199344     226839
-## 10   86       Northern Ill.             MAC     103344      67813
-## 11  113            Syracuse             ACC     229661     242682
-## 12   51              Kansas          Big 12     265187     204462
-## 13   37          Fresno St.             MWC     258417     209257
-## 14  128                 UCF             AAC     252505     226869
-## 15  100              Purdue         Big Ten     342673     246880
-## 16   35             Florida             SEC     524638     515001
-## 17   96              Oregon          Pac-12     403617     401952
-## 18  136          Vanderbilt             SEC     249728     274063
-## 19   84      North Carolina             ACC     360500     328000
-## 20   74     Mississippi St.             SEC     389868     427892
-## 21   28        Colorado St.             MWC     111598     159450
-## 22  146           Wisconsin         Big Ten     552378     556642
-## 23   52          Kansas St.          Big 12     423095     371565
-## 24  132                Utah          Pac-12     316361     278619
-## 25  137            Virginia             ACC     370234     275243
-## 26   10     Army West Point FBS Independent     169781     171310
-## 27   46               Idaho        Sun Belt         NA      64432
-## 28   85         North Texas           C-USA     126182     115627
-## 29   88          Notre Dame FBS Independent     484770     484770
-## 30   15      Boston College             ACC     198035     239893
-## 31   67             Memphis             AAC     199760     203106
-## 32   76                Navy             AAC         NA         NA
-## 33   72        Middle Tenn.           C-USA     112287     104450
-## 34  122                Troy        Sun Belt      94529     100602
-## 35  112            Stanford          Pac-12     355081     287174
-## 36  140          Washington          Pac-12     481384     451555
-## 37   98            Penn St.         Big Ten     676112     711358
-## 38   14           Boise St.             MWC     206198     227526
-## 39   54            Kentucky             SEC     416303     403002
-## 40  133            Utah St.             MWC     139576     122803
-## 41   29                Duke             ACC     182431     191039
-## 42   87        Northwestern         Big Ten     275147     270292
-## 43  108      South Carolina             SEC     576805     569664
-## 44   73           Minnesota         Big Ten     334581     335056
-## 45  141      Washington St.          Pac-12     178427     184762
-## 46   27            Colorado          Pac-12     230778     226670
-## 47   53            Kent St.             MAC      85091      81263
-## 48  121              Toledo             MAC     110803     117286
-## 49  138       Virginia Tech             ACC     383993     428099
-## 50   90            Ohio St.         Big Ten     734528     744075
-## 51   64            Maryland         Big Ten         NA     281884
-## 52   40             Georgia             SEC     556476     649222
-## 53   93        Old Dominion           C-USA         NA     120708
-## 54    3             Alabama             SEC     710538     710736
-## 55   24             Clemson             ACC     574333     572262
-## 56   91            Oklahoma          Big 12     508334     510972
-## 57   79            Nebraska         Big Ten     727466     638744
-## 58    5     Appalachian St.        Sun Belt         NA     138995
-## 59   75            Missouri             SEC     444532     456996
-## 60    1           Air Force             MWC     228562     168967
-## 61  106                 SMU             AAC     112347     129169
-## 62   30       East Carolina             AAC         NA     268713
-## 63   71        Michigan St.         Big Ten     506294     522765
-## 64  118           Texas A&amp;M             SEC     697003     630735
-## 65  147             Wyoming             MWC     116854     117593
-## 66  119           Texas St.        Sun Belt     108371     123589
-## 67   69          Miami (OH)             MAC      79676      95438
-## 68   18                 BYU FBS Independent     367349     342843
-## 69  125               Tulsa             AAC         NA     117881
-## 70   13              Baylor          Big 12     321639     280257
-## 71   49                Iowa         Big Ten     469872     472584
-## 72  131                UNLV             MWC     120486      94043
-## 73  116           Tennessee             SEC     669087     698276
-## 74  117               Texas          Big 12     593857     564618
-## 75  120          Texas Tech          Big 12     347597     353603
-## 76   50            Iowa St.          Big 12     332165     365377
-## 77   36         Florida St.             ACC     527947     575478
-## 78  105        San Jose St.             MWC      98174      75340
-## 79  139         Wake Forest             ACC     170484     163260
-## 80   89                Ohio             MAC     144701     123090
-## 81  107       South Alabama        Sun Belt      95555     104669
-## 82    8            Arkansas             SEC     431174     399124
-## 83   92        Oklahoma St.          Big 12     354754     326324
-## 84   80              Nevada             MWC     149635     143172
-## 85   95            Ole Miss             SEC     415750     430829
-## 86   81          New Mexico             MWC     141220     131624
-## 87  103             Rutgers         Big Ten         NA     303791
-## 88    9        Arkansas St.        Sun Belt     149477     149163
-## 89   48             Indiana         Big Ten     354823     249941
-## 90   16       Bowling Green             MAC      91548      91365
-## 91   41         Georgia St.        Sun Belt     109039      90037
-## 92   11              Auburn             SEC     685252     612157
-## 93   47            Illinois         Big Ten     306506     290842
-## 94  115              Temple             AAC     134836     140217
-## 95   43              Hawaii             MWC     185931     192159
-## 96   60          Louisville             ACC         NA     317829
-## 97   33                 FIU           C-USA      92717      95728
-## 98   78            NC State             ACC     425420     380785
-## 99   42        Georgia Tech             ACC     343542     291113
-## 100  21           Charlotte           C-USA         NA         NA
-## 101 114                 TCU          Big 12     261587     313036
-## 102  44             Houston             AAC     145537     198177
-## 103  61                 LSU             SEC     639927     712063
-## 104 142       West Virginia          Big 12     317459     340117
-## 105 129                UCLA          Pac-12     421711     459901
-## 106 135                UTSA           C-USA     175282     165458
-## 107  97          Oregon St.          Pac-12     257784     295230
-## 108  99          Pittsburgh             ACC     348188     289204
-## 109  19          California          Pac-12     345303     286051
-## 110  17             Buffalo             MAC     136418     122418
-## 111 143         Western Ky.           C-USA         NA      97833
-## 112 111      Southern Miss.           C-USA     113759     136435
-## 113  70            Michigan         Big Ten     781144     734364
-## 114   6             Arizona          Pac-12     285713     354973
-## 115 101                Rice           C-USA     112711      92812
-## 116  62            Marshall           C-USA     150138     192229
-## 117 123              Tulane             AAC         NA     150074
-## 118  55          La.-Monroe        Sun Belt      85177      90540
-## 119  65       Massachusetts FBS Independent         NA         NA
-## 120  23          Cincinnati             AAC     190624     173037
-## 121 109          South Fla.             AAC     242911     214861
-## 122  32       Eastern Mich.             MAC      20255      75127
-## 123 145       Western Mich.             MAC      86733      78124
-## 124 130               UConn             AAC     216523     192230
-## 125  57           Louisiana        Sun Belt     129878     154652
-## 126  20       Central Mich.             MAC      66119      97838
-## 127 134                UTEP           C-USA     141877     170260
-## 128  39        Ga. Southern        Sun Belt         NA     105510
-## 129   4     Appalachian St. FBS Independent     149366         NA
-## 130  22           Charlotte FBS Independent         NA      79632
-## 131  25       Coastal Caro. FBS Independent         NA         NA
-## 132  26       Coastal Caro.        Sun Belt         NA         NA
-## 133  31       East Carolina           C-USA     263910         NA
-## 134  38        Ga. Southern FBS Independent      88968         NA
-## 135  45               Idaho FBS Independent      73718         NA
-## 136  56             Liberty       Big South         NA         NA
-## 137  59          Louisville             AAC     370396         NA
-## 138  63            Maryland             ACC     288946         NA
-## 139  66       Massachusetts             MAC      94981      96527
-## 140  77                Navy FBS Independent     177940     162510
-## 141  82      New Mexico St. FBS Independent     112347         NA
-## 142  94        Old Dominion FBS Independent     120708         NA
-## 143 102             Rutgers             AAC     325846         NA
-## 144 124              Tulane           C-USA     118482         NA
-## 145 126               Tulsa           C-USA     119356         NA
-## 146 127                 UAB           C-USA      52739     131047
-## 147 144         Western Ky.        Sun Belt      91672         NA
-##     X2015.2016 X2016.2017 X2017.2018       change
-## 1       105703      60437     151580 150.80662508
-## 2        87429      47725      91195  91.08433735
-## 3       108588      62021     117416  89.31652182
-## 4        47841      38946      59395  52.50603400
-## 5       125863     102059     142626  39.74857680
-## 6       285363     351434     469454  33.58240808
-## 7       368985     286417     359660  25.57215528
-## 8       527506     410755     508781  23.86483427
-## 9       203459     223735     275428  23.10456567
-## 10       83649      55095      67748  22.96578637
-## 11      224717     196828     237504  20.66575894
-## 12      190972     154969     186490  20.34019707
-## 13      174217     152960     183789  20.15494247
-## 14      180388     214814     257924  20.06852440
-## 15      262559     241158     287303  19.13475813
-## 16      630457     439229     520290  18.45529325
-## 17      403419     328062     388381  18.38646353
-## 18      192802     187451     219390  17.03858608
-## 19      347500     301500     350500  16.25207297
-## 20      432490     349904     406703  16.23273812
-## 21      149500     165598     192369  16.16625805
-## 22      546099     476144     551766  15.88217010
-## 23      371698     311512     359107  15.27870515
-## 24      325732     279038     321390  15.17786108
-## 25      302994     239576     275788  15.11503656
-## 26      185946     163267     185543  13.64390844
-## 27       69915      55948      63197  12.95667405
-## 28       68155     119269     134174  12.49696065
-## 29      484770     484770     543354  12.08490624
-## 30      211433     192942     215546  11.71543780
-## 31      262811     261419     290416  11.09215474
-## 32      226366     189425     209701  10.70397255
-## 33      103258      86215      93718   8.70266195
-## 34       96993     135203     146737   8.53087579
-## 35      349417     264853     284388   7.37578959
-## 36      433432     452123     481755   6.55396872
-## 37      698590     701800     746946   6.43288686
-## 38      201669     205640     217881   5.95263567
-## 39      490361     375500     395276   5.26657790
-## 40      128172     114814     120650   5.08300381
-## 41      158562     179369     187581   4.57827161
-## 42      233560     243586     250969   3.03096237
-## 43      472934     538441     550099   2.16513973
-## 44      366484     306697     310506   1.24194237
-## 45      176444     221722     223875   0.97103580
-## 46      236331     279652     282335   0.95940669
-## 47       75366      65387      65924   0.82126417
-## 48      125051     123766     124470   0.56881535
-## 49      364942     378259     379284   0.27097835
-## 50      750705     750944     752464   0.20241190
-## 51      310389     237690     237859   0.07110101
-## 52      649222     556476     556476   0.00000000
-## 53      140826     120708     120708   0.00000000
-## 54      707786     712747     712053  -0.09736975
-## 55      588266     566787     565412  -0.24259554
-## 56      512139     521142     519119  -0.38818595
-## 57      629983     631402     628583  -0.44646675
-## 58      128755     156916     154722  -1.39820031
-## 59      390720     365651     360429  -1.42813776
-## 60      156158     177519     174924  -1.46181535
-## 61      147301     142272     139609  -1.87176676
-## 62      259645     264680     257090  -2.86761372
-## 63      522628     522666     507398  -2.92117720
-## 64      725354     713418     691612  -3.05655310
-## 65      108361     148860     144299  -3.06395271
-## 66      108998     108717     104680  -3.71331071
-## 67       94241     102657      98666  -3.88770371
-## 68      351191     351413     337599  -3.93098719
-## 69      117730     115404     110751  -4.03192264
-## 70      276960     275029     262978  -4.38171975
-## 71      441992     487591     464357  -4.76505924
-## 72      116228     110336     104692  -5.11528422
-## 73      704088     706776     670454  -5.13911055
-## 74      540210     587283     556667  -5.21315958
-## 75      338042     349498     330390  -5.46727020
-## 76      339113     367899     347586  -5.52135233
-## 77      512534     460801     425658  -7.62650255
-## 78       91869      92515      85235  -7.86899422
-## 79      160043     185192     170614  -7.87183032
-## 80      127938     127139     116325  -8.50565130
-## 81       96234     113749     104070  -8.50908579
-## 82      471279     487067     442569  -9.13590943
-## 83      403678     376695     340740  -9.54485725
-## 84      133022     111003     100329  -9.61595633
-## 85      423355     454368     410414  -9.67365660
-## 86      188224     141938     127161 -10.41088363
-## 87      334061     313629     278245 -11.28211996
-## 88      138043     136200     119538 -12.23348018
-## 89      310195     301190     263715 -12.44231216
-## 90       98042      90838      79405 -12.58614236
-## 91       62081      90617      79163 -12.64001236
-## 92      612157     695498     605120 -12.99471745
-## 93      289397     319505     276003 -13.61543638
-## 94      264951     190574     163905 -13.99403906
-## 95      164031     170299     145463 -14.58376150
-## 96      294413     324391     276957 -14.62247720
-## 97       76907     117526     100002 -14.91074315
-## 98      341928     402479     341100 -15.25023666
-## 99      354946     332518     281310 -15.40006857
-## 100      87705      85154      71420 -16.12842615
-## 101     280604     316179     264481 -16.35086454
-## 102     271836     233716     195499 -16.35189717
-## 103     654084     708618     591034 -16.59342551
-## 104     383779     403084     335678 -16.72256899
-## 105     401149     404751     336262 -16.92126764
-## 106     138048     138226     114104 -17.45113076
-## 107     216476     263357     208524 -20.82078699
-## 108     288900     322531     254062 -21.22865709
-## 109     292797     279769     219290 -21.61747728
-## 110     110743     104957      80102 -23.68112656
-## 111     107759     123935      94234 -23.96498164
-## 112     170007     171525     130265 -24.05480251
-## 113     771174     883741     669534 -24.23866269
-## 114     308355     338017     255791 -24.32599544
-## 115     116034     128551      96770 -24.72248368
-## 116     157930     173319     130447 -24.73589162
-## 117     137577     136310     101634 -25.43907270
-## 118      58659      67057      49640 -25.97342559
-## 119         NA      87059      64242 -26.20866309
-## 120     222578     235095     170603 -27.43231460
-## 121     159468     262772     188408 -28.29981885
-## 122      29381     106064      73649 -30.56173631
-## 123     116646     143025      95314 -33.35850376
-## 124     169343     187569     122007 -34.95353710
-## 125     129577     121346      78754 -35.09963246
-## 126      94029     104447      67520 -35.35477323
-## 127     116058     161004      97740 -39.29343370
-## 128     124681     104095      61031 -41.36990249
-## 129         NA         NA         NA           NA
-## 130         NA         NA         NA           NA
-## 131         NA      67137         NA           NA
-## 132         NA         NA      89754           NA
-## 133         NA         NA         NA           NA
-## 134         NA         NA         NA           NA
-## 135         NA         NA         NA           NA
-## 136         NA         NA      99425           NA
-## 137         NA         NA         NA           NA
-## 138         NA         NA         NA           NA
-## 139      66743         NA         NA           NA
-## 140         NA         NA         NA           NA
-## 141         NA         NA         NA           NA
-## 142         NA         NA         NA           NA
-## 143         NA         NA         NA           NA
-## 144         NA         NA         NA           NA
-## 145         NA         NA         NA           NA
-## 146         NA         NA     158252           NA
-## 147         NA         NA         NA           NA</code></pre>
+<pre><code>## # A tibble: 147 x 9
+##       X1 Institution Conference `2013-2014` `2014-2015` `2015-2016`
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  1    34 Fla. Atlan… C-USA            72758       70608      105703
+##  2    83 New Mexico… Sun Belt            NA       73612       87429
+##  3     2 Akron       MAC             107101       55019      108588
+##  4    12 Ball St.    MAC              90784       56332       47841
+##  5    58 Louisiana … C-USA            93332      100272      125863
+##  6    68 Miami (FL)  ACC             376857      367623      285363
+##  7     7 Arizona St. Pac-12          501509      343073      368985
+##  8   110 Southern C… Pac-12          511885      439630      527506
+##  9   104 San Diego … MWC             199344      226839      203459
+## 10    86 Northern I… MAC             103344       67813       83649
+## # … with 137 more rows, and 3 more variables: `2016-2017` &lt;dbl&gt;,
+## #   `2017-2018` &lt;dbl&gt;, change &lt;dbl&gt;</code></pre>
 <div id="assignment" class="section level3">
 <h3>Assignment</h3>
-<p>Calculate the percent change in an offensive catagory of your choosing <a href="https://www.dropbox.com/s/wu1czwkfib8gs1v/ncaaoffense.csv?dl=0">in this dataset</a>. Do not pick Games, expressed as G in this dataset. Look at something else. Who gained the most in your category? Who lost the most?</p>
+<p>Read the Wall Street Journal story about declining attendance – in Files in Canvas called WSJEmptySeats.pdf. Look at the walkthrough and be ready to talk about similarities and differences on Monday.</p>
+<p>Calculate the percent change in an rushing offense catagory of your choosing <a href="https://www.dropbox.com/s/bxqmzntkwhqn24e/rushingoffense.csv?dl=0">in this dataset</a>. Do not pick Games. Look at something else. Who gained the most in your category? Who lost the most? Explain your steps, and write a paragraph on what you found.</p>
 <div id="rubric" class="section level4">
 <h4>Rubric</h4>
 <ol style="list-style-type: decimal">
