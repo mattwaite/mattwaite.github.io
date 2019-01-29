@@ -96,6 +96,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -103,14 +106,74 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -144,80 +207,66 @@ $(document).ready(function () {
 <pre><code>## Warning: Missing column names filled in: 'X1' [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   X1 = col_integer(),
+##   X1 = col_double(),
 ##   Institution = col_character(),
 ##   Conference = col_character(),
-##   `2013-2014` = col_integer(),
-##   `2014-2015` = col_integer(),
-##   `2015-2016` = col_integer(),
-##   `2016-2017` = col_integer(),
-##   `2017-2018` = col_integer()
+##   `2013-2014` = col_double(),
+##   `2014-2015` = col_double(),
+##   `2015-2016` = col_double(),
+##   `2016-2017` = col_double(),
+##   `2017-2018` = col_double()
 ## )</code></pre>
-<p>NOTE: ReadR treats headers with numeric names differently than base R. Base R, if you recall, puts an X in front of them. ReadR wraps them in backticks or accent marks, if you prefer. That’s the symbol on the tilde key, next to the 1 on your keyboard (if you have a US English keyboard).</p>
-<p>However, <code>head</code> will not show that. See below.</p>
-<pre class="r"><code>head(attendance)</code></pre>
-<pre><code>## # A tibble: 6 x 8
-##      X1 Institution     Conference     `2013-2014` `2014-2015` `2015-2016`
-##   &lt;int&gt; &lt;chr&gt;           &lt;chr&gt;                &lt;int&gt;       &lt;int&gt;       &lt;int&gt;
-## 1     1 Air Force       MWC                 228562      168967      156158
-## 2     2 Akron           MAC                 107101       55019      108588
-## 3     3 Alabama         SEC                 710538      710736      707786
-## 4     4 Appalachian St. FBS Independe…      149366          NA          NA
-## 5     5 Appalachian St. Sun Belt                NA      138995      128755
-## 6     6 Arizona         Pac-12              285713      354973      308355
-## # ... with 2 more variables: `2016-2017` &lt;int&gt;, `2017-2018` &lt;int&gt;</code></pre>
 <p>So, first things first, let’s say we don’t care about all this Air Force, Akron, Alabama crap and just want to see Dear Old Nebraska U. We do that with <code>filter</code> and then we pass it a condition.</p>
 <p>Before we do that, a note about conditions. Most of the conditional operators you’ll understand – greater than and less than are &gt; and &lt;. The tough one to remember is equal to. In conditional statements, equal to is == not =. If you haven’t noticed, = is a variable assignment operator, not a conditional statement. So equal is == and NOT equal is !=.</p>
 <p>So if you want to see Institutions equal to Nebraska, you do this:</p>
 <pre class="r"><code>attendance %&gt;% filter(Institution == &quot;Nebraska&quot;)</code></pre>
-<pre><code>## Warning: package 'bindrcpp' was built under R version 3.4.4</code></pre>
 <pre><code>## # A tibble: 1 x 8
 ##      X1 Institution Conference `2013-2014` `2014-2015` `2015-2016`
-##   &lt;int&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;int&gt;       &lt;int&gt;       &lt;int&gt;
+##   &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
 ## 1    79 Nebraska    Big Ten         727466      638744      629983
-## # ... with 2 more variables: `2016-2017` &lt;int&gt;, `2017-2018` &lt;int&gt;</code></pre>
+## # … with 2 more variables: `2016-2017` &lt;dbl&gt;, `2017-2018` &lt;dbl&gt;</code></pre>
 <p>Or if we want to see schools that had more than half a million people buy tickets to a football game in a season, we do the following. NOTE THE BACKTICKS.</p>
 <pre class="r"><code>attendance %&gt;% filter(`2017-2018` &gt;= 500000)</code></pre>
 <pre><code>## # A tibble: 19 x 8
-##       X1 Institution      Conference   `2013-2014` `2014-2015` `2015-2016`
-##    &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;              &lt;int&gt;       &lt;int&gt;       &lt;int&gt;
-##  1     3 Alabama          SEC               710538      710736      707786
-##  2    11 Auburn           SEC               685252      612157      612157
-##  3    24 Clemson          ACC               574333      572262      588266
-##  4    35 Florida          SEC               524638      515001      630457
-##  5    40 Georgia          SEC               556476      649222      649222
-##  6    61 LSU              SEC               639927      712063      654084
-##  7    70 Michigan         Big Ten           781144      734364      771174
-##  8    71 Michigan St.     Big Ten           506294      522765      522628
-##  9    79 Nebraska         Big Ten           727466      638744      629983
-## 10    88 Notre Dame       FBS Indepen…      484770      484770      484770
-## 11    90 Ohio St.         Big Ten           734528      744075      750705
-## 12    91 Oklahoma         Big 12            508334      510972      512139
-## 13    98 Penn St.         Big Ten           676112      711358      698590
-## 14   108 South Carolina   SEC               576805      569664      472934
-## 15   110 Southern Califo… Pac-12            511885      439630      527506
-## 16   116 Tennessee        SEC               669087      698276      704088
-## 17   117 Texas            Big 12            593857      564618      540210
-## 18   118 Texas A&amp;M        SEC               697003      630735      725354
-## 19   146 Wisconsin        Big Ten           552378      556642      546099
-## # ... with 2 more variables: `2016-2017` &lt;int&gt;, `2017-2018` &lt;int&gt;</code></pre>
+##       X1 Institution Conference `2013-2014` `2014-2015` `2015-2016`
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  1     3 Alabama     SEC             710538      710736      707786
+##  2    11 Auburn      SEC             685252      612157      612157
+##  3    24 Clemson     ACC             574333      572262      588266
+##  4    35 Florida     SEC             524638      515001      630457
+##  5    40 Georgia     SEC             556476      649222      649222
+##  6    61 LSU         SEC             639927      712063      654084
+##  7    70 Michigan    Big Ten         781144      734364      771174
+##  8    71 Michigan S… Big Ten         506294      522765      522628
+##  9    79 Nebraska    Big Ten         727466      638744      629983
+## 10    88 Notre Dame  FBS Indep…      484770      484770      484770
+## 11    90 Ohio St.    Big Ten         734528      744075      750705
+## 12    91 Oklahoma    Big 12          508334      510972      512139
+## 13    98 Penn St.    Big Ten         676112      711358      698590
+## 14   108 South Caro… SEC             576805      569664      472934
+## 15   110 Southern C… Pac-12          511885      439630      527506
+## 16   116 Tennessee   SEC             669087      698276      704088
+## 17   117 Texas       Big 12          593857      564618      540210
+## 18   118 Texas A&amp;M   SEC             697003      630735      725354
+## 19   146 Wisconsin   Big Ten         552378      556642      546099
+## # … with 2 more variables: `2016-2017` &lt;dbl&gt;, `2017-2018` &lt;dbl&gt;</code></pre>
 <p>But what if we want to see all of the Power Five conferences? We <em>could</em> use conditional logic in our filter. The conditional logic operators are | for OR and &amp; for AND. NOTE: AND means all conditions have to be met. OR means any of the conditions work. So be careful about boolean logic.</p>
 <pre class="r"><code>attendance %&gt;% filter(Conference == &quot;Big 10&quot; | Conference == &quot;SEC&quot; | Conference == &quot;Pac-12&quot; | Conference == &quot;ACC&quot; | Conference == &quot;Big 12&quot;)</code></pre>
 <pre><code>## # A tibble: 51 x 8
-##       X1 Institution    Conference `2013-2014` `2014-2015` `2015-2016`
-##    &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;            &lt;int&gt;       &lt;int&gt;       &lt;int&gt;
-##  1     3 Alabama        SEC             710538      710736      707786
-##  2     6 Arizona        Pac-12          285713      354973      308355
-##  3     7 Arizona St.    Pac-12          501509      343073      368985
-##  4     8 Arkansas       SEC             431174      399124      471279
-##  5    11 Auburn         SEC             685252      612157      612157
-##  6    13 Baylor         Big 12          321639      280257      276960
-##  7    15 Boston College ACC             198035      239893      211433
-##  8    19 California     Pac-12          345303      286051      292797
-##  9    24 Clemson        ACC             574333      572262      588266
-## 10    27 Colorado       Pac-12          230778      226670      236331
-## # ... with 41 more rows, and 2 more variables: `2016-2017` &lt;int&gt;,
-## #   `2017-2018` &lt;int&gt;</code></pre>
+##       X1 Institution Conference `2013-2014` `2014-2015` `2015-2016`
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  1     3 Alabama     SEC             710538      710736      707786
+##  2     6 Arizona     Pac-12          285713      354973      308355
+##  3     7 Arizona St. Pac-12          501509      343073      368985
+##  4     8 Arkansas    SEC             431174      399124      471279
+##  5    11 Auburn      SEC             685252      612157      612157
+##  6    13 Baylor      Big 12          321639      280257      276960
+##  7    15 Boston Col… ACC             198035      239893      211433
+##  8    19 California  Pac-12          345303      286051      292797
+##  9    24 Clemson     ACC             574333      572262      588266
+## 10    27 Colorado    Pac-12          230778      226670      236331
+## # … with 41 more rows, and 2 more variables: `2016-2017` &lt;dbl&gt;,
+## #   `2017-2018` &lt;dbl&gt;</code></pre>
 <p>But that’s a lot of repetitive code. And a lot of typing. And typing is the devil. So what if we could create a list and pass it into the filter? It’s pretty simple.</p>
 <p>We can create a new variable – remember variables can represent just about anything – and create a list. To do that we use the <code>c</code> operator, which stands for concatenate. That just means take all the stuff in the parenthesis after the c and bunch it into a list.</p>
 <p>Note here: text is in quotes. If they were numbers, we wouldn’t need the quotes.</p>
@@ -225,27 +274,27 @@ $(document).ready(function () {
 <p>Now with a list, we can use the %in% operator. It does what you think it does – it gives you data that matches things IN the list you give it.</p>
 <pre class="r"><code>attendance %&gt;% filter(Conference %in% powerfive)</code></pre>
 <pre><code>## # A tibble: 65 x 8
-##       X1 Institution    Conference `2013-2014` `2014-2015` `2015-2016`
-##    &lt;int&gt; &lt;chr&gt;          &lt;chr&gt;            &lt;int&gt;       &lt;int&gt;       &lt;int&gt;
-##  1     3 Alabama        SEC             710538      710736      707786
-##  2     6 Arizona        Pac-12          285713      354973      308355
-##  3     7 Arizona St.    Pac-12          501509      343073      368985
-##  4     8 Arkansas       SEC             431174      399124      471279
-##  5    11 Auburn         SEC             685252      612157      612157
-##  6    13 Baylor         Big 12          321639      280257      276960
-##  7    15 Boston College ACC             198035      239893      211433
-##  8    19 California     Pac-12          345303      286051      292797
-##  9    24 Clemson        ACC             574333      572262      588266
-## 10    27 Colorado       Pac-12          230778      226670      236331
-## # ... with 55 more rows, and 2 more variables: `2016-2017` &lt;int&gt;,
-## #   `2017-2018` &lt;int&gt;</code></pre>
+##       X1 Institution Conference `2013-2014` `2014-2015` `2015-2016`
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+##  1     3 Alabama     SEC             710538      710736      707786
+##  2     6 Arizona     Pac-12          285713      354973      308355
+##  3     7 Arizona St. Pac-12          501509      343073      368985
+##  4     8 Arkansas    SEC             431174      399124      471279
+##  5    11 Auburn      SEC             685252      612157      612157
+##  6    13 Baylor      Big 12          321639      280257      276960
+##  7    15 Boston Col… ACC             198035      239893      211433
+##  8    19 California  Pac-12          345303      286051      292797
+##  9    24 Clemson     ACC             574333      572262      588266
+## 10    27 Colorado    Pac-12          230778      226670      236331
+## # … with 55 more rows, and 2 more variables: `2016-2017` &lt;dbl&gt;,
+## #   `2017-2018` &lt;dbl&gt;</code></pre>
 <div id="selecting-data-to-make-it-easier-to-read" class="section level3">
 <h3>Selecting data to make it easier to read</h3>
 <p>So now we have our Power Five list. What if we just wanted to see attendance from the most recent season and ignore all the rest? Select to the rescue.</p>
 <pre class="r"><code>attendance %&gt;% filter(Conference %in% powerfive) %&gt;% select(Institution, Conference, `2017-2018`)</code></pre>
 <pre><code>## # A tibble: 65 x 3
 ##    Institution    Conference `2017-2018`
-##    &lt;chr&gt;          &lt;chr&gt;            &lt;int&gt;
+##    &lt;chr&gt;          &lt;chr&gt;            &lt;dbl&gt;
 ##  1 Alabama        SEC             712053
 ##  2 Arizona        Pac-12          255791
 ##  3 Arizona St.    Pac-12          359660
@@ -256,7 +305,7 @@ $(document).ready(function () {
 ##  8 California     Pac-12          219290
 ##  9 Clemson        ACC             565412
 ## 10 Colorado       Pac-12          282335
-## # ... with 55 more rows</code></pre>
+## # … with 55 more rows</code></pre>
 <p>If you have truly massive data, Select has tools to help you select fields that start_with the same things or ends with a certain word. <a href="https://dplyr.tidyverse.org/reference/select.html">The documentation will guide you</a> if you need those someday. For 90 plus percent of what we do, just naming the fields will be sufficient.</p>
 </div>
 <div id="top-list" class="section level3">
@@ -267,7 +316,7 @@ $(document).ready(function () {
 <pre><code>## Selecting by 2017-2018</code></pre>
 <pre><code>## # A tibble: 10 x 3
 ##    Institution Conference `2017-2018`
-##    &lt;chr&gt;       &lt;chr&gt;            &lt;int&gt;
+##    &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt;
 ##  1 Ohio St.    Big Ten         752464
 ##  2 Penn St.    Big Ten         746946
 ##  3 Alabama     SEC             712053
@@ -282,15 +331,16 @@ $(document).ready(function () {
 </div>
 <div id="assignment" class="section level3">
 <h3>Assignment</h3>
-<p>Hooray, the <a href="https://www.dropbox.com/s/xts9xsim3lpg7qu/nusalaries1819.csv?dl=0">new salary database</a> is out! Time to use filters, selects and top_n.</p>
+<p>Let’s have some more fun with the <a href="https://www.dropbox.com/s/xts9xsim3lpg7qu/nusalaries1819.csv?dl=0">salary database</a> is out! Time to use filters, selects and top_n.</p>
+<p>For the first question, <a href="https://www.dropbox.com/s/iodsuouf39blbbz/coaches.csv?dl=0">use this dataset</a> of just coach salaries. The second two questions use the salaries database you already used.</p>
 <ol style="list-style-type: decimal">
 <li>What is the average and median salaries for coaches at UNL, UNK and UNO?</li>
-<li>Who are the top 10 highest paid employees at UNL?</li>
+<li>Who are the top 10 highest paid employees at UNL (using top_n)?</li>
 <li>What is my salary?</li>
 </ol>
 </div>
-<div id="some-code-to-get-you-started." class="section level3">
-<h3>Some code to get you started.</h3>
+<div id="if-youre-curious-how-i-got-the-coaches-salaries-separated-out" class="section level3">
+<h3>If you’re curious how I got the coaches salaries separated out</h3>
 <p>First, we import the data.</p>
 <pre class="r"><code>salaries &lt;- read_csv(&quot;../../Data/nusalaries1819.csv&quot;)</code></pre>
 <pre><code>## Parsed with column specification:
@@ -308,19 +358,19 @@ $(document).ready(function () {
 <p>We’re going to use a function in StringR called str_detect, which does what you think it does – it detects if a set of characters are in a piece of data. So in this case, we want to find all the coaches, so we’re going to look for the word Coach. But, when I do that, I get some people who have coach in their title but aren’t coaches.</p>
 <pre class="r"><code>salaries %&gt;% filter(str_detect(Position, 'Coach'))</code></pre>
 <pre><code>## # A tibble: 136 x 7
-##    Employee  Position  Campus Department `Budgeted Annua… `Salary from St…
-##    &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;                 &lt;dbl&gt;            &lt;dbl&gt;
-##  1 Aldrich,… Career C… UNL    College o…           39174.               NA
-##  2 Antolik,… Asst Foo… UNK    Football             59015.               NA
-##  3 Austin J… Assistan… UNL    Athletics           475000.               NA
-##  4 Bainter,… Early Ch… UNL    NE Ctr  R…           36336.               NA
-##  5 Baker, N… Asst Coa… UNO    Men's Soc…           42735.               NA
-##  6 Banwarth… Assistan… UNL    Athletics            80000.               NA
-##  7 Beckton,… Assistan… UNL    Athletics           400000.               NA
-##  8 Bleil, K… Asst Coa… UNK    Football             42448.               NA
-##  9 Bonsall,… Head Coa… UNK    Mens Track           56005.               NA
-## 10 Bridge, … Assistan… UNL    Athletics            49651.               NA
-## # ... with 126 more rows, and 1 more variable: `Salary from Other
+##    Employee Position Campus Department `Budgeted Annua… `Salary from St…
+##    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                 &lt;dbl&gt;            &lt;dbl&gt;
+##  1 Aldrich… Career … UNL    College o…            39174               NA
+##  2 Antolik… Asst Fo… UNK    Football              59015               NA
+##  3 Austin … Assista… UNL    Athletics            475000               NA
+##  4 Bainter… Early C… UNL    NE Ctr  R…            36336               NA
+##  5 Baker, … Asst Co… UNO    Men's Soc…            42735               NA
+##  6 Banwart… Assista… UNL    Athletics             80000               NA
+##  7 Beckton… Assista… UNL    Athletics            400000               NA
+##  8 Bleil, … Asst Co… UNK    Football              42448               NA
+##  9 Bonsall… Head Co… UNK    Mens Track            56005               NA
+## 10 Bridge,… Assista… UNL    Athletics             49651               NA
+## # … with 126 more rows, and 1 more variable: `Salary from Other
 ## #   Funds` &lt;dbl&gt;</code></pre>
 <p>I don’t know about you, but’s been a while since I watched a team headed by something called an Early Childhood Coach. Or a Career Coach. So, we need to filter them out. But how do we know which ones to filter? Let’s use group by to get us a list of departments. That will be the giveaway – there aren’t sports coaches in the College of Arts and Sciences.</p>
 <pre class="r"><code>salaries %&gt;% filter(str_detect(Position, 'Coach')) %&gt;% group_by(Department) %&gt;% summarize(total=n())</code></pre>
@@ -337,29 +387,28 @@ $(document).ready(function () {
 ##  8 Hockey                                   3
 ##  9 Men's Basketball                         4
 ## 10 Men's Golf                               2
-## # ... with 21 more rows</code></pre>
+## # … with 21 more rows</code></pre>
 <p>From that, we can build a list of the non sports related departments.</p>
 <pre class="r"><code>noncoach = c(&quot;Academic &amp; Career Development Center&quot;, &quot;College of Arts &amp; Sciences&quot;, &quot;College of Business&quot;, &quot;First Year Exp &amp; Transition Programs&quot;, &quot;NE Ctr  Rsrch on Youth,Fam &amp; School&quot;, &quot;Program in English Second Language&quot;)</code></pre>
 <p>And we can filter them out by putting a ! in front of the logical statement, which turns it into a negative. So here, we have Department NOT IN our list of non sports departments.</p>
 <pre class="r"><code>salaries %&gt;% filter(str_detect(Position, 'Coach')) %&gt;% filter(!Department %in% noncoach)</code></pre>
 <pre><code>## # A tibble: 121 x 7
-##    Employee  Position  Campus Department `Budgeted Annua… `Salary from St…
-##    &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;                 &lt;dbl&gt;            &lt;dbl&gt;
-##  1 Antolik,… Asst Foo… UNK    Football             59015.               NA
-##  2 Austin J… Assistan… UNL    Athletics           475000.               NA
-##  3 Baker, N… Asst Coa… UNO    Men's Soc…           42735.               NA
-##  4 Banwarth… Assistan… UNL    Athletics            80000.               NA
-##  5 Beckton,… Assistan… UNL    Athletics           400000.               NA
-##  6 Bleil, K… Asst Coa… UNK    Football             42448.               NA
-##  7 Bonsall,… Head Coa… UNK    Mens Track           56005.               NA
-##  8 Bridge, … Assistan… UNL    Athletics            49651.               NA
-##  9 Brooks, … Assistan… UNL    Athletics            71225.               NA
-## 10 Bullock,… Asst Coa… UNO    Men's Bas…           51765.               NA
-## # ... with 111 more rows, and 1 more variable: `Salary from Other
+##    Employee Position Campus Department `Budgeted Annua… `Salary from St…
+##    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                 &lt;dbl&gt;            &lt;dbl&gt;
+##  1 Antolik… Asst Fo… UNK    Football              59015               NA
+##  2 Austin … Assista… UNL    Athletics            475000               NA
+##  3 Baker, … Asst Co… UNO    Men's Soc…            42735               NA
+##  4 Banwart… Assista… UNL    Athletics             80000               NA
+##  5 Beckton… Assista… UNL    Athletics            400000               NA
+##  6 Bleil, … Asst Co… UNK    Football              42448               NA
+##  7 Bonsall… Head Co… UNK    Mens Track            56005               NA
+##  8 Bridge,… Assista… UNL    Athletics             49651               NA
+##  9 Brooks,… Assista… UNL    Athletics             71225               NA
+## 10 Bullock… Asst Co… UNO    Men's Bas…            51765               NA
+## # … with 111 more rows, and 1 more variable: `Salary from Other
 ## #   Funds` &lt;dbl&gt;</code></pre>
 <p>Let’s do ourselves a favor and create a new data frame from this and use that instead:</p>
 <pre class="r"><code>coaches &lt;- salaries %&gt;% filter(str_detect(Position, 'Coach')) %&gt;% filter(!Department %in% noncoach)</code></pre>
-<p>Now, your turn. Answer question 1 using the coaches dataframe.</p>
 </div>
 </div>
 
