@@ -277,6 +277,40 @@ library(readr)</code></pre>
 ## 1 Nebraska Cornhuskers      0.479    0.388  0.457  -18.9       9.08</code></pre>
 <p>So, over Nebraska’s first 10 games, they shot almost 48 percent, where over the last five horrid games they’re shooting 39 percent. That’s a 9 percentage point different or an 19 percent drop from those first 10 games.</p>
 <p>We can’t shoot the ball anymore.</p>
+<p>How bad is that nationally?</p>
+<pre class="r"><code>logs %&gt;% 
+  mutate(grouping = case_when(
+    Game &lt;=10 ~ &quot;First 10&quot;,
+    Game &gt;= 16 ~ &quot;Last 5&quot;)
+    ) %&gt;%
+  group_by(Team, grouping) %&gt;%
+  summarize(
+    shootingPCT = mean(TeamFGPCT)
+  ) %&gt;% 
+  spread(grouping, shootingPCT) %&gt;%
+  mutate(
+    change = ((`Last 5`-`First 10`)/`First 10`)*100,
+    difference = (`First 10` - `Last 5`)*100
+    ) %&gt;% arrange(change)</code></pre>
+<pre><code>## # A tibble: 353 x 6
+## # Groups:   Team [353]
+##    Team                    `First 10` `Last 5` `&lt;NA&gt;` change difference
+##    &lt;chr&gt;                        &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+##  1 Indiana Hoosiers             0.515    0.383  0.527  -25.8      13.3 
+##  2 UMass Minutemen              0.477    0.372  0.458  -22.1      10.5 
+##  3 Wagner Seahawks              0.422    0.330  0.427  -21.9       9.26
+##  4 New Hampshire Wildcats       0.393    0.310  0.402  -21.1       8.30
+##  5 California Golden Bears      0.470    0.371  0.424  -21.0       9.86
+##  6 NC State Wolfpack            0.515    0.413  0.514  -19.9      10.2 
+##  7 Nebraska Cornhuskers         0.479    0.388  0.457  -18.9       9.08
+##  8 Citadel Bulldogs             0.493    0.403  0.429  -18.2       8.99
+##  9 North Texas Mean Green       0.484    0.397  0.494  -17.9       8.68
+## 10 Idaho Vandals                0.471    0.388  0.431  -17.8       8.37
+## # … with 343 more rows</code></pre>
+<p>Seventh. In all of college basketball. We’ve had the seventh biggest dropoff in all of college basketball from our first 10 games to our last five.</p>
+<p>Thank God for Indiana.</p>
+<div id="making-wide-data-long" class="section level3">
+<h3>Making wide data long</h3>
 <p>We can reverse this process as well. If we get data that’s wide and we want to make it long, we use <code>gather</code>. So first, since my data is already long, let me fake a wide dataset using what I just did.</p>
 <pre class="r"><code>gatherdata &lt;- nebraska %&gt;% 
   mutate(grouping = case_when(
@@ -305,6 +339,7 @@ library(readr)</code></pre>
 ## 2 Nebraska Cornhuskers Last 5         0.388
 ## 3 Nebraska Cornhuskers &lt;NA&gt;           0.457</code></pre>
 <p>And just like that, we’re back where we started.</p>
+</div>
 <div id="why-this-matters" class="section level3">
 <h3>Why this matters</h3>
 <p>This matters because certain visualization types need wide or long data. A significant hurdle you will face for the rest of the semester is getting the data in the right format for what you want to do.</p>
