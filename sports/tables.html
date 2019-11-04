@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>22 Tables | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="22 Tables | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="facet-wraps.html">
-<link rel="next" href="intro-to-rvest.html">
+<link rel="prev" href="facet-wraps.html"/>
+<link rel="next" href="intro-to-rvest.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -50,41 +53,65 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-pre, code { background-color: #f8f8f8; }
-code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code > span.dt { color: #204a87; } /* DataType */
-code > span.dv { color: #0000cf; } /* DecVal */
-code > span.bn { color: #0000cf; } /* BaseN */
-code > span.fl { color: #0000cf; } /* Float */
-code > span.ch { color: #4e9a06; } /* Char */
-code > span.st { color: #4e9a06; } /* String */
-code > span.co { color: #8f5902; font-style: italic; } /* Comment */
-code > span.ot { color: #8f5902; } /* Other */
-code > span.al { color: #ef2929; } /* Alert */
-code > span.fu { color: #000000; } /* Function */
-code > span.er { color: #a40000; font-weight: bold; } /* Error */
-code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #000000; } /* SpecialChar */
-code > span.vs { color: #4e9a06; } /* VerbatimString */
-code > span.ss { color: #4e9a06; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #000000; } /* Variable */
-code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code > span.ex { } /* Extension */
-code > span.at { color: #c4a000; } /* Attribute */
-code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -105,6 +132,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Throwing cold water on hot takes</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#requirements-and-conventions"><i class="fa fa-check"></i><b>1.1</b> Requirements and Conventions</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i><b>1.2</b> About this book</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="the-very-basics.html"><a href="the-very-basics.html"><i class="fa fa-check"></i><b>2</b> The very basics</a><ul>
 <li class="chapter" data-level="2.1" data-path="the-very-basics.html"><a href="the-very-basics.html#adding-libraries-part-1"><i class="fa fa-check"></i><b>2.1</b> Adding libraries, part 1</a></li>
@@ -210,12 +238,12 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">22</span> Tables</h1>
 <p>But not a table. A table with features.</p>
 <p>Sometimes, the best way to show your data is with a table. R has a neat package called <code>formattable</code> and you’ll install it like anything else with <code>install.packages('formattable')</code>.</p>
-<p>So what does it do? Let’s gather our libraries and get some data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<p>So what does it do? Let’s gather our libraries and <a href="https://unl.box.com/s/g3eeuogx8bog72ig28enuakhpdlbn394">get some data</a>.</p>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb480-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <pre><code>## ── Attaching packages ── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
+<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
 ## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
+## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
 ## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
@@ -227,8 +255,8 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## ── Conflicts ───── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(formattable)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">offense &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/offensechange.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb491-1" data-line-number="1"><span class="kw">library</span>(formattable)</a></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb492-1" data-line-number="1">offense &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/offensechange.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Rank = col_double(),
@@ -242,16 +270,16 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 ##   `Yards/G` = col_double(),
 ##   Year = col_double()
 ## )</code></pre>
-<p>Let’s ask this question: Which college football team saw the greatest improvement in yards per game this regular season? The simplest way to calculate that is by percent change.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">changeTotalOffense &lt;-<span class="st"> </span>offense <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(Name, Year, <span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">spread</span>(Year, <span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change=</span>(<span class="st">`</span><span class="dt">2018</span><span class="st">`</span><span class="op">-</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(Change)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">top_n</span>(<span class="dv">20</span>)</code></pre></div>
+<p>Let’s ask this question: Which college football team saw the greatest improvement in yards per game last regular season? The simplest way to calculate that is by percent change.</p>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb494-1" data-line-number="1">changeTotalOffense &lt;-<span class="st"> </span>offense <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb494-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(Name, Year, <span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb494-3" data-line-number="3"><span class="st">  </span><span class="kw">spread</span>(Year, <span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb494-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change=</span>(<span class="st">`</span><span class="dt">2018</span><span class="st">`</span><span class="op">-</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb494-5" data-line-number="5"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(Change)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb494-6" data-line-number="6"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">20</span>)</a></code></pre></div>
 <pre><code>## Selecting by Change</code></pre>
 <p>We’ve output tables to the screen a thousand times in this class with <code>head</code>, but formattable makes them look good with very little code.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">formattable</span>(changeTotalOffense)</code></pre></div>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb496-1" data-line-number="1"><span class="kw">formattable</span>(changeTotalOffense)</a></code></pre></div>
 <table class="table table-condensed">
 <thead>
 <tr>
@@ -553,7 +581,7 @@ Wyoming
 </tbody>
 </table>
 <p>So there you have it. Illinois improved the most. Because Nebraska gave them a quarterback, but I digress. First thing I don’t like about formattable tables – the right alignment. Let’s fix that.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">formattable</span>(changeTotalOffense, <span class="dt">align=</span><span class="st">&quot;l&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb497-1" data-line-number="1"><span class="kw">formattable</span>(changeTotalOffense, <span class="dt">align=</span><span class="st">&quot;l&quot;</span>)</a></code></pre></div>
 <table class="table table-condensed">
 <thead>
 <tr>
@@ -855,12 +883,12 @@ Wyoming
 </tbody>
 </table>
 <p>Next? I forgot to multiply by 100. No matter. Formattable can fix that for us.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">formattable</span>(
-  changeTotalOffense, 
-  <span class="dt">align=</span><span class="st">&quot;l&quot;</span>,
-  <span class="kw">list</span>(
-    <span class="st">`</span><span class="dt">Change</span><span class="st">`</span> =<span class="st"> </span>percent)
-  )</code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb498-1" data-line-number="1"><span class="kw">formattable</span>(</a>
+<a class="sourceLine" id="cb498-2" data-line-number="2">  changeTotalOffense, </a>
+<a class="sourceLine" id="cb498-3" data-line-number="3">  <span class="dt">align=</span><span class="st">&quot;l&quot;</span>,</a>
+<a class="sourceLine" id="cb498-4" data-line-number="4">  <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb498-5" data-line-number="5">    <span class="st">`</span><span class="dt">Change</span><span class="st">`</span> =<span class="st"> </span>percent)</a>
+<a class="sourceLine" id="cb498-6" data-line-number="6">  )</a></code></pre></div>
 <table class="table table-condensed">
 <thead>
 <tr>
@@ -1162,13 +1190,13 @@ Wyoming
 </tbody>
 </table>
 <p>Something else not great? I can’t really see the magnitude of the 2018 column. A team could improve a lot, but still not gain that many yards (ahem, UTEP). Formattable has embeddable bar charts in the table. They look like this.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">formattable</span>(
-  changeTotalOffense, 
-  <span class="dt">align=</span><span class="st">&quot;l&quot;</span>,
-  <span class="kw">list</span>(
-    <span class="st">`</span><span class="dt">2018</span><span class="st">`</span> =<span class="st"> </span><span class="kw">color_bar</span>(<span class="st">&quot;#FA614B&quot;</span>), 
-    <span class="st">`</span><span class="dt">Change</span><span class="st">`</span> =<span class="st"> </span>percent)
-  )</code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb499-1" data-line-number="1"><span class="kw">formattable</span>(</a>
+<a class="sourceLine" id="cb499-2" data-line-number="2">  changeTotalOffense, </a>
+<a class="sourceLine" id="cb499-3" data-line-number="3">  <span class="dt">align=</span><span class="st">&quot;l&quot;</span>,</a>
+<a class="sourceLine" id="cb499-4" data-line-number="4">  <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb499-5" data-line-number="5">    <span class="st">`</span><span class="dt">2018</span><span class="st">`</span> =<span class="st"> </span><span class="kw">color_bar</span>(<span class="st">&quot;#FA614B&quot;</span>), </a>
+<a class="sourceLine" id="cb499-6" data-line-number="6">    <span class="st">`</span><span class="dt">Change</span><span class="st">`</span> =<span class="st"> </span>percent)</a>
+<a class="sourceLine" id="cb499-7" data-line-number="7">  )</a></code></pre></div>
 <table class="table table-condensed">
 <thead>
 <tr>
@@ -1470,17 +1498,15 @@ Wyoming
 </tbody>
 </table>
 <p>That gives me some more to mess with.</p>
-<p>One thing you can do is set the bar widths to the results of a function. In this case, it returns a number between 0 and 1, with 1 being the max and 0 being the minimum. It gives you some idea how far out UTEP is with their peers.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">unit.scale =<span class="st"> </span><span class="cf">function</span>(x) (x <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(x)) <span class="op">/</span><span class="st"> </span>(<span class="kw">max</span>(x) <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(x))
-
-<span class="kw">formattable</span>(
-  changeTotalOffense, 
-  <span class="dt">align=</span><span class="st">&quot;r&quot;</span>,
-  <span class="kw">list</span>(
-    <span class="st">`</span><span class="dt">2018</span><span class="st">`</span> =<span class="st"> </span><span class="kw">color_bar</span>(<span class="st">&quot;#FA614B&quot;</span>, <span class="dt">fun =</span> unit.scale), 
-    <span class="st">`</span><span class="dt">2017</span><span class="st">`</span> =<span class="st"> </span><span class="kw">color_bar</span>(<span class="st">&quot;#FA614B&quot;</span>, <span class="dt">fun =</span> unit.scale), 
-    <span class="st">`</span><span class="dt">Change</span><span class="st">`</span> =<span class="st"> </span>percent)
-  )</code></pre></div>
+<p>One thing you can do is set the bar widths to make them relative to each other, using a different function called a <code>normalize_bar</code>.</p>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb500-1" data-line-number="1"><span class="kw">formattable</span>(</a>
+<a class="sourceLine" id="cb500-2" data-line-number="2">  changeTotalOffense, </a>
+<a class="sourceLine" id="cb500-3" data-line-number="3">  <span class="dt">align=</span><span class="st">&quot;r&quot;</span>,</a>
+<a class="sourceLine" id="cb500-4" data-line-number="4">  <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb500-5" data-line-number="5">    <span class="st">`</span><span class="dt">2018</span><span class="st">`</span> =<span class="st"> </span><span class="kw">normalize_bar</span>(<span class="st">&quot;#FA614B&quot;</span>), </a>
+<a class="sourceLine" id="cb500-6" data-line-number="6">    <span class="st">`</span><span class="dt">2017</span><span class="st">`</span> =<span class="st"> </span><span class="kw">normalize_bar</span>(<span class="st">&quot;#FA614B&quot;</span>), </a>
+<a class="sourceLine" id="cb500-7" data-line-number="7">    <span class="st">`</span><span class="dt">Change</span><span class="st">`</span> =<span class="st"> </span>percent)</a>
+<a class="sourceLine" id="cb500-8" data-line-number="8">  )</a></code></pre></div>
 <table class="table table-condensed">
 <thead>
 <tr>
@@ -1781,14 +1807,15 @@ Wyoming
 </tr>
 </tbody>
 </table>
+<p>Note: bookdown is formatting this weird. Your numbers won’t look like this.</p>
 <p>Another way to deal with this – color tiles. Change the rectangle that houses the data to a color indicating the intensity of it. Again, UTEP stands out.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">formattable</span>(
-  changeTotalOffense, 
-  <span class="dt">align=</span><span class="st">&quot;r&quot;</span>,
-  <span class="kw">list</span>(
-     <span class="kw">area</span>(<span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>) <span class="op">~</span><span class="st"> </span><span class="kw">color_tile</span>(<span class="st">&quot;#FFF6F4&quot;</span>, <span class="st">&quot;#FA614B&quot;</span>),
-    <span class="st">`</span><span class="dt">Change</span><span class="st">`</span> =<span class="st"> </span>percent)
-  )</code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb501-1" data-line-number="1"><span class="kw">formattable</span>(</a>
+<a class="sourceLine" id="cb501-2" data-line-number="2">  changeTotalOffense, </a>
+<a class="sourceLine" id="cb501-3" data-line-number="3">  <span class="dt">align=</span><span class="st">&quot;r&quot;</span>,</a>
+<a class="sourceLine" id="cb501-4" data-line-number="4">  <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb501-5" data-line-number="5">     <span class="kw">area</span>(<span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>) <span class="op">~</span><span class="st"> </span><span class="kw">color_tile</span>(<span class="st">&quot;#FFF6F4&quot;</span>, <span class="st">&quot;#FA614B&quot;</span>),</a>
+<a class="sourceLine" id="cb501-6" data-line-number="6">    <span class="st">`</span><span class="dt">Change</span><span class="st">`</span> =<span class="st"> </span>percent)</a>
+<a class="sourceLine" id="cb501-7" data-line-number="7">  )</a></code></pre></div>
 <table class="table table-condensed">
 <thead>
 <tr>
@@ -2097,31 +2124,32 @@ install.packages(&quot;webshot&quot;)
 
 webshot::install_phantomjs()</code></pre>
 <p>Now, copy, paste and run this code block entirely. Don’t change anything.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;htmltools&quot;</span>)
-<span class="kw">library</span>(<span class="st">&quot;webshot&quot;</span>)    
-
-export_formattable &lt;-<span class="st"> </span><span class="cf">function</span>(f, file, <span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="dt">height =</span> <span class="ot">NULL</span>, 
-                               <span class="dt">background =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">delay =</span> <span class="fl">0.2</span>)
-    {
-      w &lt;-<span class="st"> </span><span class="kw">as.htmlwidget</span>(f, <span class="dt">width =</span> width, <span class="dt">height =</span> height)
-      path &lt;-<span class="st"> </span><span class="kw">html_print</span>(w, <span class="dt">background =</span> background, <span class="dt">viewer =</span> <span class="ot">NULL</span>)
-      url &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;file:///&quot;</span>, <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\\\</span><span class="st">&quot;</span>, <span class="st">&quot;/&quot;</span>, <span class="kw">normalizePath</span>(path)))
-      <span class="kw">webshot</span>(url,
-              <span class="dt">file =</span> file,
-              <span class="dt">selector =</span> <span class="st">&quot;.formattable_widget&quot;</span>,
-              <span class="dt">delay =</span> delay)
-    }</code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb503-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;htmltools&quot;</span>)</a></code></pre></div>
+<pre><code>## Warning: package &#39;htmltools&#39; was built under R version 3.5.2</code></pre>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb505-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;webshot&quot;</span>)    </a>
+<a class="sourceLine" id="cb505-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb505-3" data-line-number="3">export_formattable &lt;-<span class="st"> </span><span class="cf">function</span>(f, file, <span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="dt">height =</span> <span class="ot">NULL</span>, </a>
+<a class="sourceLine" id="cb505-4" data-line-number="4">                               <span class="dt">background =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">delay =</span> <span class="fl">0.2</span>)</a>
+<a class="sourceLine" id="cb505-5" data-line-number="5">    {</a>
+<a class="sourceLine" id="cb505-6" data-line-number="6">      w &lt;-<span class="st"> </span><span class="kw">as.htmlwidget</span>(f, <span class="dt">width =</span> width, <span class="dt">height =</span> height)</a>
+<a class="sourceLine" id="cb505-7" data-line-number="7">      path &lt;-<span class="st"> </span><span class="kw">html_print</span>(w, <span class="dt">background =</span> background, <span class="dt">viewer =</span> <span class="ot">NULL</span>)</a>
+<a class="sourceLine" id="cb505-8" data-line-number="8">      url &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;file:///&quot;</span>, <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\\\</span><span class="st">&quot;</span>, <span class="st">&quot;/&quot;</span>, <span class="kw">normalizePath</span>(path)))</a>
+<a class="sourceLine" id="cb505-9" data-line-number="9">      <span class="kw">webshot</span>(url,</a>
+<a class="sourceLine" id="cb505-10" data-line-number="10">              <span class="dt">file =</span> file,</a>
+<a class="sourceLine" id="cb505-11" data-line-number="11">              <span class="dt">selector =</span> <span class="st">&quot;.formattable_widget&quot;</span>,</a>
+<a class="sourceLine" id="cb505-12" data-line-number="12">              <span class="dt">delay =</span> delay)</a>
+<a class="sourceLine" id="cb505-13" data-line-number="13">    }</a></code></pre></div>
 <p>Now, save your formattable table to an object using the <code>&lt;-</code> assignment operator.</p>
 <p>After you’ve done that, you can call the function you ran in the previous block to export as a png file. In my case, I created an object called table, which is populated with my formattable table. Then, in export_formattable, I pass in that <code>table</code> object and give it a name.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">table &lt;-<span class="st"> </span><span class="kw">formattable</span>(
-  changeTotalOffense, 
-  <span class="dt">align=</span><span class="st">&quot;r&quot;</span>,
-  <span class="kw">list</span>(
-     <span class="kw">area</span>(<span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>) <span class="op">~</span><span class="st"> </span><span class="kw">color_tile</span>(<span class="st">&quot;#FFF6F4&quot;</span>, <span class="st">&quot;#FA614B&quot;</span>),
-    <span class="st">`</span><span class="dt">Change</span><span class="st">`</span> =<span class="st"> </span>percent)
-  )
-
-<span class="kw">export_formattable</span>(table,<span class="st">&quot;table.png&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb506-1" data-line-number="1">table &lt;-<span class="st"> </span><span class="kw">formattable</span>(</a>
+<a class="sourceLine" id="cb506-2" data-line-number="2">  changeTotalOffense, </a>
+<a class="sourceLine" id="cb506-3" data-line-number="3">  <span class="dt">align=</span><span class="st">&quot;r&quot;</span>,</a>
+<a class="sourceLine" id="cb506-4" data-line-number="4">  <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb506-5" data-line-number="5">     <span class="kw">area</span>(<span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>) <span class="op">~</span><span class="st"> </span><span class="kw">color_tile</span>(<span class="st">&quot;#FFF6F4&quot;</span>, <span class="st">&quot;#FA614B&quot;</span>),</a>
+<a class="sourceLine" id="cb506-6" data-line-number="6">    <span class="st">`</span><span class="dt">Change</span><span class="st">`</span> =<span class="st"> </span>percent)</a>
+<a class="sourceLine" id="cb506-7" data-line-number="7">  )</a>
+<a class="sourceLine" id="cb506-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb506-9" data-line-number="9"><span class="kw">export_formattable</span>(table,<span class="st">&quot;table.png&quot;</span>)</a></code></pre></div>
 <p><img src="21-tables_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>For now, pngs are what you need to export. There is a way to export PDFs, but they lose all the formatting when you do that, which is kind of pointless.</p>
 
@@ -2138,11 +2166,13 @@ export_formattable &lt;-<span class="st"> </span><span class="cf">function</span
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
