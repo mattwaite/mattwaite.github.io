@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Aggregates | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Aggregates | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-structures-and-types.html">
-<link rel="next" href="mutating-data.html">
+<link rel="prev" href="data-structures-and-types.html"/>
+<link rel="next" href="mutating-data.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -50,41 +53,65 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-pre, code { background-color: #f8f8f8; }
-code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code > span.dt { color: #204a87; } /* DataType */
-code > span.dv { color: #0000cf; } /* DecVal */
-code > span.bn { color: #0000cf; } /* BaseN */
-code > span.fl { color: #0000cf; } /* Float */
-code > span.ch { color: #4e9a06; } /* Char */
-code > span.st { color: #4e9a06; } /* String */
-code > span.co { color: #8f5902; font-style: italic; } /* Comment */
-code > span.ot { color: #8f5902; } /* Other */
-code > span.al { color: #ef2929; } /* Alert */
-code > span.fu { color: #000000; } /* Function */
-code > span.er { color: #a40000; font-weight: bold; } /* Error */
-code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #000000; } /* SpecialChar */
-code > span.vs { color: #4e9a06; } /* VerbatimString */
-code > span.ss { color: #4e9a06; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #000000; } /* Variable */
-code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code > span.ex { } /* Extension */
-code > span.at { color: #c4a000; } /* Attribute */
-code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -105,6 +132,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Throwing cold water on hot takes</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#requirements-and-conventions"><i class="fa fa-check"></i><b>1.1</b> Requirements and Conventions</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i><b>1.2</b> About this book</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="the-very-basics.html"><a href="the-very-basics.html"><i class="fa fa-check"></i><b>2</b> The very basics</a><ul>
 <li class="chapter" data-level="2.1" data-path="the-very-basics.html"><a href="the-very-basics.html#adding-libraries-part-1"><i class="fa fa-check"></i><b>2.1</b> Adding libraries, part 1</a></li>
@@ -169,22 +197,23 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="22" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>22</b> Tables</a><ul>
 <li class="chapter" data-level="22.0.1" data-path="tables.html"><a href="tables.html#exporting-tables"><i class="fa fa-check"></i><b>22.0.1</b> Exporting tables</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="intro-to-rvest.html"><a href="intro-to-rvest.html"><i class="fa fa-check"></i><b>23</b> Intro to rvest</a><ul>
-<li class="chapter" data-level="23.1" data-path="intro-to-rvest.html"><a href="intro-to-rvest.html#a-slightly-more-complicated-example"><i class="fa fa-check"></i><b>23.1</b> A slightly more complicated example</a></li>
-<li class="chapter" data-level="23.2" data-path="intro-to-rvest.html"><a href="intro-to-rvest.html#an-even-more-complicated-example"><i class="fa fa-check"></i><b>23.2</b> An even more complicated example</a></li>
+<li class="chapter" data-level="23" data-path="bubble-charts.html"><a href="bubble-charts.html"><i class="fa fa-check"></i><b>23</b> Bubble charts</a></li>
+<li class="chapter" data-level="24" data-path="intro-to-rvest.html"><a href="intro-to-rvest.html"><i class="fa fa-check"></i><b>24</b> Intro to rvest</a><ul>
+<li class="chapter" data-level="24.1" data-path="intro-to-rvest.html"><a href="intro-to-rvest.html#a-slightly-more-complicated-example"><i class="fa fa-check"></i><b>24.1</b> A slightly more complicated example</a></li>
+<li class="chapter" data-level="24.2" data-path="intro-to-rvest.html"><a href="intro-to-rvest.html#an-even-more-complicated-example"><i class="fa fa-check"></i><b>24.2</b> An even more complicated example</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="advanced-rvest.html"><a href="advanced-rvest.html"><i class="fa fa-check"></i><b>24</b> Advanced rvest</a><ul>
-<li class="chapter" data-level="24.1" data-path="advanced-rvest.html"><a href="advanced-rvest.html#one-last-bit"><i class="fa fa-check"></i><b>24.1</b> One last bit</a></li>
+<li class="chapter" data-level="25" data-path="advanced-rvest.html"><a href="advanced-rvest.html"><i class="fa fa-check"></i><b>25</b> Advanced rvest</a><ul>
+<li class="chapter" data-level="25.1" data-path="advanced-rvest.html"><a href="advanced-rvest.html#one-last-bit"><i class="fa fa-check"></i><b>25.1</b> One last bit</a></li>
 </ul></li>
-<li class="chapter" data-level="25" data-path="annotations.html"><a href="annotations.html"><i class="fa fa-check"></i><b>25</b> Annotations</a></li>
-<li class="chapter" data-level="26" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html"><i class="fa fa-check"></i><b>26</b> Finishing touches, part 1</a><ul>
-<li class="chapter" data-level="26.1" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html#graphics-vs-visual-stories"><i class="fa fa-check"></i><b>26.1</b> Graphics vs visual stories</a></li>
-<li class="chapter" data-level="26.2" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html#getting-ggplot-closer-to-output"><i class="fa fa-check"></i><b>26.2</b> Getting ggplot closer to output</a></li>
+<li class="chapter" data-level="26" data-path="annotations.html"><a href="annotations.html"><i class="fa fa-check"></i><b>26</b> Annotations</a></li>
+<li class="chapter" data-level="27" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html"><i class="fa fa-check"></i><b>27</b> Finishing touches, part 1</a><ul>
+<li class="chapter" data-level="27.1" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html#graphics-vs-visual-stories"><i class="fa fa-check"></i><b>27.1</b> Graphics vs visual stories</a></li>
+<li class="chapter" data-level="27.2" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html#getting-ggplot-closer-to-output"><i class="fa fa-check"></i><b>27.2</b> Getting ggplot closer to output</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="finishing-touches-2.html"><a href="finishing-touches-2.html"><i class="fa fa-check"></i><b>27</b> Finishing Touches 2</a></li>
-<li class="chapter" data-level="28" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>28</b> Assignments</a></li>
-<li class="chapter" data-level="29" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>29</b> Appendix</a><ul>
-<li class="chapter" data-level="29.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>29.1</b> How to get help in this class</a></li>
+<li class="chapter" data-level="28" data-path="finishing-touches-2.html"><a href="finishing-touches-2.html"><i class="fa fa-check"></i><b>28</b> Finishing Touches 2</a></li>
+<li class="chapter" data-level="29" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>29</b> Assignments</a></li>
+<li class="chapter" data-level="30" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>30</b> Appendix</a><ul>
+<li class="chapter" data-level="30.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>30.1</b> How to get help in this class</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -214,10 +243,10 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <p>Then we’re going to use <code>dplyr</code> to analyze it.</p>
 <p>To use a library, you need to import it. Good practice – one I’m going to insist on – is that you put all your library steps at the top of your notebooks.</p>
 <p>That code looks like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">library</span>(readr)</a></code></pre></div>
 <p>To load them both, you need to run that code twice:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-<span class="kw">library</span>(dplyr)</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">library</span>(readr)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a></code></pre></div>
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
@@ -239,7 +268,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <p>The &lt;- bit is the variable assignment operator. It’s how we know we’re assigning something to a word. Think of the arrow as saying “Take everything on the right of this arrow and stuff it into the thing on the left.” So we’re creating an empty vessel called mountainlions and stuffing all this data into it.</p>
 <p>The <code>read_csv</code> bits are pretty obvious, except for one thing. What happens in the quote marks is the path to the data. In there, I have to tell R where it will find the data. The easiest thing to do, if you are confused about how to find your data, is to put your data in the same folder as as your notebook (you’ll have to save that notebook first). If you do that, then you just need to put the name of the file in there (mountainlions.csv). In my case, I’ve got a folder called Documents in my home directory (that’s the <code>~</code> part), and in there is a folder called Data that has the file called mountainlions.csv in it. Some people – insane people – leave the data in their downloads folder. The data path then would be <code>~/Downloads/nameofthedatafilehere.csv</code> on PC or Mac.</p>
 <p><strong>What you put in there will be different from mine</strong>. So your first task is to import the data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mountainlions &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/mountainlions.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">mountainlions &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/mountainlions.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   ID = col_double(),
@@ -249,7 +278,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 ## )</code></pre>
 <p>Now we can inspect the data we imported. What does it look like? To do that, we use <code>head(mountainlions)</code> to show the headers and the first six rows of data. If we wanted to see them all, we could just simply enter <code>mountainlions</code> and run it.</p>
 <p>To get the number of records in our dataset, we run <code>nrow(mountainlions)</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(mountainlions)</code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">head</span>(mountainlions)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 4
 ##      ID `Cofirm Type` COUNTY       Date    
 ##   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;        &lt;chr&gt;   
@@ -259,16 +288,16 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 ## 4     4 Mortality     Sioux        5/9/99  
 ## 5     5 Mortality     Box Butte    9/29/99 
 ## 6     6 Track         Scotts Bluff 11/12/99</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nrow</span>(mountainlions)</code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">nrow</span>(mountainlions)</a></code></pre></div>
 <pre><code>## [1] 393</code></pre>
 <p>So what if we wanted to know how many mountain lion sightings there were in each county? To do that by hand, we’d have to take each of the 393 records and sort them into a pile. We’d put them in groups and then count them.</p>
 <p><code>dplyr</code> has a group by function in it that does just this. A massive amount of data analysis involves grouping like things together at some point. So it’s a good place to start.</p>
 <p>So to do this, we’ll take our dataset and we’ll introduce a new operator: %&gt;%. The best way to read that operator, in my opinion, is to interpret that as “and then do this.” Here’s the code:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mountainlions <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(COUNTY) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(
-    <span class="dt">total =</span> <span class="kw">n</span>()
-  )</code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">mountainlions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(COUNTY) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">    <span class="dt">total =</span> <span class="kw">n</span>()</a>
+<a class="sourceLine" id="cb21-5" data-line-number="5">  )</a></code></pre></div>
 <pre><code>## # A tibble: 42 x 2
 ##    COUNTY    total
 ##    &lt;chr&gt;     &lt;int&gt;
@@ -285,11 +314,11 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 ## # … with 32 more rows</code></pre>
 <p>So let’s walk through that. We start with our dataset – <code>mountainlions</code> – and then we tell it to group the data by a given field in the data. In this case, we wanted to group together all the counties, signified by the field name COUNTY, which you could get from looking at <code>head(mountainlions)</code>. After we group the data, we need to count them up. In dplyr, we use <code>summarize</code> <a href="http://dplyr.tidyverse.org/reference/summarise.html">which can do more than just count things</a>. Inside the parentheses in summarize, we set up the summaries we want. In this case, we just want a count of the counties: <code>count = n(),</code> says create a new field, called <code>total</code> and set it equal to <code>n()</code>, which might look weird, but it’s common in stats. The number of things in a dataset? Statisticians call in n. There are n number of incidents in this dataset. So <code>n()</code> is a function that counts the number of things there are.</p>
 <p>And when we run that, we get a list of counties with a count next to them. But it’s not in any order. So we’ll add another And Then Do This %&gt;% and use <code>arrange</code>. Arrange does what you think it does – it arranges data in order. By default, it’s in ascending order – smallest to largest. But if we want to know the county with the most mountain lion sightings, we need to sort it in descending order. That looks like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mountainlions <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(COUNTY) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(
-    <span class="dt">count =</span> <span class="kw">n</span>()
-  ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count))</code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">mountainlions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(COUNTY) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb23-4" data-line-number="4">    <span class="dt">count =</span> <span class="kw">n</span>()</a>
+<a class="sourceLine" id="cb23-5" data-line-number="5">  ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count))</a></code></pre></div>
 <pre><code>## # A tibble: 42 x 2
 ##    COUNTY       count
 ##    &lt;chr&gt;        &lt;int&gt;
@@ -305,11 +334,11 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 ## 10 Custer           8
 ## # … with 32 more rows</code></pre>
 <p>We can, if we want, group by more than one thing. So how are these sightings being confirmed? To do that, we can group by County and “Cofirm Type”, which is how the state misspelled Confirm. But note something in this example below:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mountainlions <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(COUNTY, <span class="st">`</span><span class="dt">Cofirm Type</span><span class="st">`</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(
-    <span class="dt">count =</span> <span class="kw">n</span>()
-  ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count))</code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">mountainlions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(COUNTY, <span class="st">`</span><span class="dt">Cofirm Type</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb25-4" data-line-number="4">    <span class="dt">count =</span> <span class="kw">n</span>()</a>
+<a class="sourceLine" id="cb25-5" data-line-number="5">  ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count))</a></code></pre></div>
 <pre><code>## # A tibble: 93 x 3
 ## # Groups:   COUNTY [42]
 ##    COUNTY       `Cofirm Type`      count
@@ -331,7 +360,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">4.2</span> Other aggregates: Mean and median</h2>
 <p>In the last example, we grouped some data together and counted it up, but there’s so much more you can do. You can do multiple measures in a single step as well.</p>
 <p>Let’s look at some <a href="https://unl.box.com/s/09t2u4qoncfh6qlv2156flzlxb8ruzpq">salary data from the University of Nebraska</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">salaries &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nusalaries1819.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">salaries &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nusalaries1819.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Employee = col_character(),
@@ -342,7 +371,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 ##   `Salary from State Aided Funds` = col_number(),
 ##   `Salary from Other Funds` = col_number()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(salaries)</code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">head</span>(salaries)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 7
 ##   Employee Position Campus Department `Budgeted Annua… `Salary from St…
 ##   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                 &lt;dbl&gt;            &lt;dbl&gt;
@@ -354,12 +383,12 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 ## 6 Abdel-M… Researc… UNL    Public Po…            58502               NA
 ## # … with 1 more variable: `Salary from Other Funds` &lt;dbl&gt;</code></pre>
 <p>In summarize, we can calculate any number of measures. Here, we’ll use R’s built in mean and median functions to calculate … well, you get the idea.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">salaries <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(
-    <span class="dt">count =</span> <span class="kw">n</span>(),
-    <span class="dt">mean_salary =</span> <span class="kw">mean</span>(<span class="st">`</span><span class="dt">Budgeted Annual Salary</span><span class="st">`</span>),
-    <span class="dt">median_salary =</span> <span class="kw">median</span>(<span class="st">`</span><span class="dt">Budgeted Annual Salary</span><span class="st">`</span>)
-  )</code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">salaries <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb31-3" data-line-number="3">    <span class="dt">count =</span> <span class="kw">n</span>(),</a>
+<a class="sourceLine" id="cb31-4" data-line-number="4">    <span class="dt">mean_salary =</span> <span class="kw">mean</span>(<span class="st">`</span><span class="dt">Budgeted Annual Salary</span><span class="st">`</span>),</a>
+<a class="sourceLine" id="cb31-5" data-line-number="5">    <span class="dt">median_salary =</span> <span class="kw">median</span>(<span class="st">`</span><span class="dt">Budgeted Annual Salary</span><span class="st">`</span>)</a>
+<a class="sourceLine" id="cb31-6" data-line-number="6">  )</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 3
 ##   count mean_salary median_salary
 ##   &lt;int&gt;       &lt;dbl&gt;         &lt;dbl&gt;
@@ -367,7 +396,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <p>So there’s 13,039 employees in the database, spread across four campuses plus the system office. The mean or average salary is about $62,000, but the median salary is slightly more than $51,000.</p>
 <p>Why?</p>
 <p>Let’s let sort help us.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">salaries <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(<span class="st">`</span><span class="dt">Budgeted Annual Salary</span><span class="st">`</span>))</code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">salaries <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(<span class="st">`</span><span class="dt">Budgeted Annual Salary</span><span class="st">`</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 13,039 x 7
 ##    Employee Position Campus Department `Budgeted Annua… `Salary from St…
 ##    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;                 &lt;dbl&gt;            &lt;dbl&gt;
@@ -399,11 +428,13 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

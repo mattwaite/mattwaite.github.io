@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10 Multiple regression | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10 Multiple regression | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="correlations-and-regression.html">
-<link rel="next" href="residuals.html">
+<link rel="prev" href="correlations-and-regression.html"/>
+<link rel="next" href="residuals.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -50,41 +53,65 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-pre, code { background-color: #f8f8f8; }
-code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code > span.dt { color: #204a87; } /* DataType */
-code > span.dv { color: #0000cf; } /* DecVal */
-code > span.bn { color: #0000cf; } /* BaseN */
-code > span.fl { color: #0000cf; } /* Float */
-code > span.ch { color: #4e9a06; } /* Char */
-code > span.st { color: #4e9a06; } /* String */
-code > span.co { color: #8f5902; font-style: italic; } /* Comment */
-code > span.ot { color: #8f5902; } /* Other */
-code > span.al { color: #ef2929; } /* Alert */
-code > span.fu { color: #000000; } /* Function */
-code > span.er { color: #a40000; font-weight: bold; } /* Error */
-code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #000000; } /* SpecialChar */
-code > span.vs { color: #4e9a06; } /* VerbatimString */
-code > span.ss { color: #4e9a06; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #000000; } /* Variable */
-code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code > span.ex { } /* Extension */
-code > span.at { color: #c4a000; } /* Attribute */
-code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -105,6 +132,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Throwing cold water on hot takes</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#requirements-and-conventions"><i class="fa fa-check"></i><b>1.1</b> Requirements and Conventions</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i><b>1.2</b> About this book</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="the-very-basics.html"><a href="the-very-basics.html"><i class="fa fa-check"></i><b>2</b> The very basics</a><ul>
 <li class="chapter" data-level="2.1" data-path="the-very-basics.html"><a href="the-very-basics.html#adding-libraries-part-1"><i class="fa fa-check"></i><b>2.1</b> Adding libraries, part 1</a></li>
@@ -169,22 +197,23 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="22" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>22</b> Tables</a><ul>
 <li class="chapter" data-level="22.0.1" data-path="tables.html"><a href="tables.html#exporting-tables"><i class="fa fa-check"></i><b>22.0.1</b> Exporting tables</a></li>
 </ul></li>
-<li class="chapter" data-level="23" data-path="intro-to-rvest.html"><a href="intro-to-rvest.html"><i class="fa fa-check"></i><b>23</b> Intro to rvest</a><ul>
-<li class="chapter" data-level="23.1" data-path="intro-to-rvest.html"><a href="intro-to-rvest.html#a-slightly-more-complicated-example"><i class="fa fa-check"></i><b>23.1</b> A slightly more complicated example</a></li>
-<li class="chapter" data-level="23.2" data-path="intro-to-rvest.html"><a href="intro-to-rvest.html#an-even-more-complicated-example"><i class="fa fa-check"></i><b>23.2</b> An even more complicated example</a></li>
+<li class="chapter" data-level="23" data-path="bubble-charts.html"><a href="bubble-charts.html"><i class="fa fa-check"></i><b>23</b> Bubble charts</a></li>
+<li class="chapter" data-level="24" data-path="intro-to-rvest.html"><a href="intro-to-rvest.html"><i class="fa fa-check"></i><b>24</b> Intro to rvest</a><ul>
+<li class="chapter" data-level="24.1" data-path="intro-to-rvest.html"><a href="intro-to-rvest.html#a-slightly-more-complicated-example"><i class="fa fa-check"></i><b>24.1</b> A slightly more complicated example</a></li>
+<li class="chapter" data-level="24.2" data-path="intro-to-rvest.html"><a href="intro-to-rvest.html#an-even-more-complicated-example"><i class="fa fa-check"></i><b>24.2</b> An even more complicated example</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="advanced-rvest.html"><a href="advanced-rvest.html"><i class="fa fa-check"></i><b>24</b> Advanced rvest</a><ul>
-<li class="chapter" data-level="24.1" data-path="advanced-rvest.html"><a href="advanced-rvest.html#one-last-bit"><i class="fa fa-check"></i><b>24.1</b> One last bit</a></li>
+<li class="chapter" data-level="25" data-path="advanced-rvest.html"><a href="advanced-rvest.html"><i class="fa fa-check"></i><b>25</b> Advanced rvest</a><ul>
+<li class="chapter" data-level="25.1" data-path="advanced-rvest.html"><a href="advanced-rvest.html#one-last-bit"><i class="fa fa-check"></i><b>25.1</b> One last bit</a></li>
 </ul></li>
-<li class="chapter" data-level="25" data-path="annotations.html"><a href="annotations.html"><i class="fa fa-check"></i><b>25</b> Annotations</a></li>
-<li class="chapter" data-level="26" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html"><i class="fa fa-check"></i><b>26</b> Finishing touches, part 1</a><ul>
-<li class="chapter" data-level="26.1" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html#graphics-vs-visual-stories"><i class="fa fa-check"></i><b>26.1</b> Graphics vs visual stories</a></li>
-<li class="chapter" data-level="26.2" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html#getting-ggplot-closer-to-output"><i class="fa fa-check"></i><b>26.2</b> Getting ggplot closer to output</a></li>
+<li class="chapter" data-level="26" data-path="annotations.html"><a href="annotations.html"><i class="fa fa-check"></i><b>26</b> Annotations</a></li>
+<li class="chapter" data-level="27" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html"><i class="fa fa-check"></i><b>27</b> Finishing touches, part 1</a><ul>
+<li class="chapter" data-level="27.1" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html#graphics-vs-visual-stories"><i class="fa fa-check"></i><b>27.1</b> Graphics vs visual stories</a></li>
+<li class="chapter" data-level="27.2" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html#getting-ggplot-closer-to-output"><i class="fa fa-check"></i><b>27.2</b> Getting ggplot closer to output</a></li>
 </ul></li>
-<li class="chapter" data-level="27" data-path="finishing-touches-2.html"><a href="finishing-touches-2.html"><i class="fa fa-check"></i><b>27</b> Finishing Touches 2</a></li>
-<li class="chapter" data-level="28" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>28</b> Assignments</a></li>
-<li class="chapter" data-level="29" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>29</b> Appendix</a><ul>
-<li class="chapter" data-level="29.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>29.1</b> How to get help in this class</a></li>
+<li class="chapter" data-level="28" data-path="finishing-touches-2.html"><a href="finishing-touches-2.html"><i class="fa fa-check"></i><b>28</b> Finishing Touches 2</a></li>
+<li class="chapter" data-level="29" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>29</b> Assignments</a></li>
+<li class="chapter" data-level="30" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>30</b> Appendix</a><ul>
+<li class="chapter" data-level="30.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>30.1</b> How to get help in this class</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -210,11 +239,11 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">10</span> Multiple regression</h1>
 <p>Last chapter, we looked at correlations and linear regression to predict how one element of a game would predict the score. But we know that a single variable, in all but the rarest instances, are not going to be that predictive. We need more than one. Enter multiple regression. Multiple regression lets us add – wait for it – mulitiple predictors to our equation to help us get a better</p>
 <p>That presents it’s own problems. So let’s get our libraries and our data, this time of <a href="https://unl.box.com/s/u9407jj007fxtnu1vbkybdawaqg6j3fw">every college basketball game since the 2014-15 season</a> loaded up.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
-<pre><code>## ── Attaching packages ── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## ── Attaching packages ──────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
 ## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   0.8.3     ✔ stringr 1.4.0
+## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
 ## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
@@ -223,10 +252,10 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ───── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ─────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">logs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/logs1519.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1">logs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/logs1519.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -242,10 +271,10 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 ## )</code></pre>
 <pre><code>## See spec(...) for full column specifications.</code></pre>
 <p>So one way to show how successful a basketball team was for a game is to show the differential between the team’s score and the opponnent’s score. Score a lot more than the opponent = good, score a lot less than the opponent = bad. And, relatively speaking, the more the better. So let’s create that differential.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">logs &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Differential =</span> TeamScore <span class="op">-</span><span class="st"> </span>OpponentScore)</code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1">logs &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Differential =</span> TeamScore <span class="op">-</span><span class="st"> </span>OpponentScore)</a></code></pre></div>
 <p>The linear model code we used before is pretty straight forward. Its <code>field</code> is predicted by <code>field</code>. Here’s a simple linear model that looks at predicting a team’s point differential by looking at their offensive shooting percentage.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">shooting &lt;-<span class="st"> </span><span class="kw">lm</span>(TeamFGPCT <span class="op">~</span><span class="st"> </span>Differential, <span class="dt">data=</span>logs)
-<span class="kw">summary</span>(shooting)</code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1">shooting &lt;-<span class="st"> </span><span class="kw">lm</span>(TeamFGPCT <span class="op">~</span><span class="st"> </span>Differential, <span class="dt">data=</span>logs)</a>
+<a class="sourceLine" id="cb184-2" data-line-number="2"><span class="kw">summary</span>(shooting)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = TeamFGPCT ~ Differential, data = logs)
@@ -267,8 +296,8 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 ## F-statistic: 3.341e+04 on 1 and 57514 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Remember: There’s a lot here, but only some of it we care about. What is the Adjusted R-squared value? What’s the p-value and is it less than .05? In this case, we can predict 37 percent of the difference in differential with how well a team shoots the ball.</p>
 <p>To add more predictors to this mix, we merely add them. But it’s not that simple, as you’ll see in a moment. So first, let’s look at adding how well the other team shot to our prediction model:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Differential <span class="op">~</span><span class="st"> </span>TeamFGPCT <span class="op">+</span><span class="st"> </span>OpponentFGPCT, <span class="dt">data=</span>logs)
-<span class="kw">summary</span>(model1)</code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Differential <span class="op">~</span><span class="st"> </span>TeamFGPCT <span class="op">+</span><span class="st"> </span>OpponentFGPCT, <span class="dt">data=</span>logs)</a>
+<a class="sourceLine" id="cb186-2" data-line-number="2"><span class="kw">summary</span>(model1)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Differential ~ TeamFGPCT + OpponentFGPCT, data = logs)
@@ -294,7 +323,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <p>Third: Compare the residual standard error. We went from .05949 to 9.4. The meaning of this is both really opaque and also simple – we added a lot of error to our model by adding more measures – 158 times more. Residual standard error is the total distance between what our model would predict and what we actually have in the data. So lots of residual error means the distance between reality and our model is wider. So the width of our predictive range in this example grew pretty dramatically, but so did the amount of the difference we could predict. It’s a trade off.</p>
 <p>One of the more difficult things to understand about multiple regression is the issue of multicollinearity. What that means is that there is significant correlation overlap between two variables – the two are related to each other as well as to the target output – and all you are doing by adding both of them is adding error with no real value to the R-squared. In pure statistics, we don’t want any multicollinearity at all. Violating that assumption limits the applicability of what you are doing. So if we have some multicollinearity, it limits our scope of application to college basketball. We can’t say this will work for every basketball league and level everywhere. What we need to do is see how correlated each value is to each other and throw out ones that are highly co-correlated.</p>
 <p>So to find those, we have to create a correlation matrix that shows us how each value is correlated to our outcome variable, but also with each other. We can do that in the <code>Hmisc</code> library. We install that in the console with <code>install.packages(&quot;Hmisc&quot;)</code></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Hmisc)</code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="kw">library</span>(Hmisc)</a></code></pre></div>
 <pre><code>## Warning: package &#39;Hmisc&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Loading required package: lattice</code></pre>
 <pre><code>## Loading required package: survival</code></pre>
@@ -309,12 +338,12 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 ## 
 ##     format.pval, units</code></pre>
 <p>We can pass in every numeric value to the Hmisc library and get a correlation matrix out of it, but since we have a large number of values – and many of them character values – we should strip that down and reorder them. So that’s what I’m doing here. I’m saying give me differential first, and then columns 9-24, and then 26-41. Why the skip? There’s a blank column in the middle of the data – a remnant of the scraper I used.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">simplelogs &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Differential, <span class="dv">9</span><span class="op">:</span><span class="dv">24</span>, <span class="dv">26</span><span class="op">:</span><span class="dv">41</span>)</code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1">simplelogs &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Differential, <span class="dv">9</span><span class="op">:</span><span class="dv">24</span>, <span class="dv">26</span><span class="op">:</span><span class="dv">41</span>)</a></code></pre></div>
 <p>Before we proceed, what we’re looking to do is follow the Differential column down, looking for correlation values near 1 or -1. Correlations go from -1, meaning perfect negative correlation, to 0, meaning no correlation, to 1, meaning perfect positive correlation. So we’re looking for numbers near 1 or -1 for their predictive value. BUT: We then need to see if that value is also highly correlated with something else. If it is, we have a decision to make.</p>
 <p>We get our correlation matrix like this:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cormatrix &lt;-<span class="st"> </span><span class="kw">rcorr</span>(<span class="kw">as.matrix</span>(simplelogs))
-
-cormatrix<span class="op">$</span>r</code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1">cormatrix &lt;-<span class="st"> </span><span class="kw">rcorr</span>(<span class="kw">as.matrix</span>(simplelogs))</a>
+<a class="sourceLine" id="cb198-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb198-3" data-line-number="3">cormatrix<span class="op">$</span>r</a></code></pre></div>
 <pre><code>##                       Differential       TeamFG      TeamFGA    TeamFGPCT
 ## Differential           1.000000000  0.584766682  0.107389235  0.606178206
 ## TeamFG                 0.584766682  1.000000000  0.563220974  0.751715176
@@ -694,8 +723,8 @@ cormatrix<span class="op">$</span>r</code></pre></div>
 <p><strong>Your turn</strong>: What else do you see? What other values have predictive power and aren’t co-correlated?</p>
 </blockquote>
 <p>We can add more just by simply adding them.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(Differential <span class="op">~</span><span class="st"> </span>TeamFGPCT <span class="op">+</span><span class="st"> </span>OpponentFGPCT <span class="op">+</span><span class="st"> </span>TeamTotalRebounds <span class="op">+</span><span class="st"> </span>OpponentTotalRebounds, <span class="dt">data=</span>logs)
-<span class="kw">summary</span>(model2)</code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1">model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(Differential <span class="op">~</span><span class="st"> </span>TeamFGPCT <span class="op">+</span><span class="st"> </span>OpponentFGPCT <span class="op">+</span><span class="st"> </span>TeamTotalRebounds <span class="op">+</span><span class="st"> </span>OpponentTotalRebounds, <span class="dt">data=</span>logs)</a>
+<a class="sourceLine" id="cb200-2" data-line-number="2"><span class="kw">summary</span>(model2)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Differential ~ TeamFGPCT + OpponentFGPCT + TeamTotalRebounds + 
@@ -720,27 +749,29 @@ cormatrix<span class="op">$</span>r</code></pre></div>
 ## Multiple R-squared:  0.7291, Adjusted R-squared:  0.7291 
 ## F-statistic: 3.87e+04 on 4 and 57511 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Go down the list:</p>
-<p>What is the Adjusted R-squared now? What is the p-value and is it less than .05? What is the Residual standard error?</p>
+<p>What is the Adjusted R-squared now?
+What is the p-value and is it less than .05?
+What is the Residual standard error?</p>
 <p>The final thing we can do with this is predict things. Look at our coefficients table. See the Estimates? We can build a formula from that, same as we did with linear regressions.</p>
 <pre><code>Differential = (TeamFGPCT*100.880013) + (OpponentFGPCT*-97.563291) + (TeamTotalRebounds*0.516176) + (OpponentTotalRebounds*-0.436402) - 3.655461</code></pre>
 <p>How does this apply in the real world? Let’s pretend for a minute that you are Fred Hoiberg, and you have just been hired as Nebraska’s Mens Basketball Coach. Your job is to win conference titles and go deep into the NCAA tournament. To do that, we need to know what attributes of a team should we emphasize. We can do that by looking at what previous Big Ten conference champions looked like.</p>
 <p>So if our goal is to predict a conference champion team, we need to know what those teams did. Here’s the regular season conference champions in this dataset.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">==</span><span class="st"> &quot;Michigan State Spartans&quot;</span> <span class="op">&amp;</span><span class="st"> </span>season <span class="op">==</span><span class="st"> &quot;2018-2019&quot;</span> <span class="op">|</span><span class="st"> </span>Team <span class="op">==</span><span class="st"> &quot;Michigan State Spartans&quot;</span> <span class="op">&amp;</span><span class="st"> </span>season <span class="op">==</span><span class="st"> &quot;2017-2018&quot;</span> <span class="op">|</span><span class="st"> </span>Team <span class="op">==</span><span class="st"> &quot;Purdue Boilermakers&quot;</span> <span class="op">&amp;</span><span class="st"> </span>season <span class="op">==</span><span class="st"> &quot;2016-2017&quot;</span> <span class="op">|</span><span class="st"> </span>Team <span class="op">==</span><span class="st"> &quot;Indiana Hoosiers&quot;</span> <span class="op">&amp;</span><span class="st"> </span>season <span class="op">==</span><span class="st"> &quot;2015-2016&quot;</span> <span class="op">|</span><span class="st"> </span>Team <span class="op">==</span><span class="st"> &quot;Wisconsin Badgers&quot;</span> <span class="op">&amp;</span><span class="st"> </span>season <span class="op">==</span><span class="st"> &quot;2014-2015&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">avgfgpct =</span> <span class="kw">mean</span>(TeamFGPCT), <span class="dt">avgoppfgpct=</span><span class="kw">mean</span>(OpponentFGPCT), <span class="dt">avgtotrebound =</span> <span class="kw">mean</span>(TeamTotalRebounds), <span class="dt">avgopptotrebound=</span><span class="kw">mean</span>(OpponentTotalRebounds))</code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1">logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">==</span><span class="st"> &quot;Michigan State Spartans&quot;</span> <span class="op">&amp;</span><span class="st"> </span>season <span class="op">==</span><span class="st"> &quot;2018-2019&quot;</span> <span class="op">|</span><span class="st"> </span>Team <span class="op">==</span><span class="st"> &quot;Michigan State Spartans&quot;</span> <span class="op">&amp;</span><span class="st"> </span>season <span class="op">==</span><span class="st"> &quot;2017-2018&quot;</span> <span class="op">|</span><span class="st"> </span>Team <span class="op">==</span><span class="st"> &quot;Purdue Boilermakers&quot;</span> <span class="op">&amp;</span><span class="st"> </span>season <span class="op">==</span><span class="st"> &quot;2016-2017&quot;</span> <span class="op">|</span><span class="st"> </span>Team <span class="op">==</span><span class="st"> &quot;Indiana Hoosiers&quot;</span> <span class="op">&amp;</span><span class="st"> </span>season <span class="op">==</span><span class="st"> &quot;2015-2016&quot;</span> <span class="op">|</span><span class="st"> </span>Team <span class="op">==</span><span class="st"> &quot;Wisconsin Badgers&quot;</span> <span class="op">&amp;</span><span class="st"> </span>season <span class="op">==</span><span class="st"> &quot;2014-2015&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">avgfgpct =</span> <span class="kw">mean</span>(TeamFGPCT), <span class="dt">avgoppfgpct=</span><span class="kw">mean</span>(OpponentFGPCT), <span class="dt">avgtotrebound =</span> <span class="kw">mean</span>(TeamTotalRebounds), <span class="dt">avgopptotrebound=</span><span class="kw">mean</span>(OpponentTotalRebounds))</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 4
 ##   avgfgpct avgoppfgpct avgtotrebound avgopptotrebound
 ##      &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;            &lt;dbl&gt;
 ## 1    0.489       0.409          35.3             27.2</code></pre>
 <p>Now it’s just plug and chug.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="fl">0.4886133</span><span class="op">*</span><span class="fl">100.880013</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">0.4090221</span><span class="op">*-</span><span class="fl">97.563291</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">35.29834</span><span class="op">*</span><span class="fl">0.516176</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">27.20994</span><span class="op">*-</span><span class="fl">0.436402</span>) <span class="op">-</span><span class="st"> </span><span class="fl">3.655461</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1">(<span class="fl">0.4886133</span><span class="op">*</span><span class="fl">100.880013</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">0.4090221</span><span class="op">*-</span><span class="fl">97.563291</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">35.29834</span><span class="op">*</span><span class="fl">0.516176</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">27.20994</span><span class="op">*-</span><span class="fl">0.436402</span>) <span class="op">-</span><span class="st"> </span><span class="fl">3.655461</span></a></code></pre></div>
 <pre><code>## [1] 12.076</code></pre>
 <p>So a team with those numbers is going to average scoring 12 more points per game than their opponent.</p>
 <p>How does that compare to Nebraska of this past season? The last of the Tim Miles era?</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">==</span><span class="st"> &quot;Nebraska Cornhuskers&quot;</span> <span class="op">&amp;</span><span class="st"> </span>season <span class="op">==</span><span class="st"> &quot;2018-2019&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">avgfgpct =</span> <span class="kw">mean</span>(TeamFGPCT), <span class="dt">avgoppfgpct=</span><span class="kw">mean</span>(OpponentFGPCT), <span class="dt">avgtotrebound =</span> <span class="kw">mean</span>(TeamTotalRebounds), <span class="dt">avgopptotrebound=</span><span class="kw">mean</span>(OpponentTotalRebounds))</code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1">logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">==</span><span class="st"> &quot;Nebraska Cornhuskers&quot;</span> <span class="op">&amp;</span><span class="st"> </span>season <span class="op">==</span><span class="st"> &quot;2018-2019&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">avgfgpct =</span> <span class="kw">mean</span>(TeamFGPCT), <span class="dt">avgoppfgpct=</span><span class="kw">mean</span>(OpponentFGPCT), <span class="dt">avgtotrebound =</span> <span class="kw">mean</span>(TeamTotalRebounds), <span class="dt">avgopptotrebound=</span><span class="kw">mean</span>(OpponentTotalRebounds))</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 4
 ##   avgfgpct avgoppfgpct avgtotrebound avgopptotrebound
 ##      &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;            &lt;dbl&gt;
 ## 1    0.431       0.423          32.5             34.9</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(<span class="fl">0.4305833</span><span class="op">*</span><span class="fl">100.880013</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">0.4226667</span><span class="op">*-</span><span class="fl">97.563291</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">32.5</span><span class="op">*</span><span class="fl">0.516176</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">34.94444</span><span class="op">*-</span><span class="fl">0.436402</span>) <span class="op">-</span><span class="st"> </span><span class="fl">3.655461</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1">(<span class="fl">0.4305833</span><span class="op">*</span><span class="fl">100.880013</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">0.4226667</span><span class="op">*-</span><span class="fl">97.563291</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">32.5</span><span class="op">*</span><span class="fl">0.516176</span>) <span class="op">+</span><span class="st"> </span>(<span class="fl">34.94444</span><span class="op">*-</span><span class="fl">0.436402</span>) <span class="op">-</span><span class="st"> </span><span class="fl">3.655461</span></a></code></pre></div>
 <pre><code>## [1] 0.07093015</code></pre>
 <p>By this model, it predicted we would outscore our opponent by .07 points over the season. So we’d win slightly more than we’d lose. Nebraska’s overall record? 19-17.</p>
 
@@ -756,11 +787,13 @@ cormatrix<span class="op">$</span>r</code></pre></div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
