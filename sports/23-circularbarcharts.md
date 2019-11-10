@@ -16,7 +16,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ───── tidyverse 1.2.1 ──
+## ── Attaching packages ──────── tidyverse 1.2.1 ──
 ```
 
 ```
@@ -55,7 +55,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Conflicts ──────── tidyverse_conflicts() ──
+## ── Conflicts ─────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```
@@ -114,21 +114,21 @@ Sports Reference's win columns are weird, so we need to scan through them and fi
 winlosslogs <- logs %>% mutate(winloss = case_when(
   grepl("W", W_L) ~ 1, 
   grepl("L", W_L) ~ 0)
-)
+) %>% filter(Date < "2019-03-19")
 ```
 
 Now we can group by date and conference and sum up the wins. How many wins by day does each conference get?
 
 
 ```r
-dates <- logs %>% group_by(Date, Conference) %>% summarize(meanFG = mean(TeamFG))
+dates <- winlosslogs %>% group_by(Date, Conference) %>% summarize(wins = sum(winloss))
 ```
 
 Earlier, we did stacked bar charts. We have what we need to do that now.
 
 
 ```r
-ggplot() + geom_bar(data=dates, aes(x=Date, weight=meanFG, fill=Conference)) + theme_minimal()
+ggplot() + geom_bar(data=dates, aes(x=Date, weight=wins, fill=Conference)) + theme_minimal()
 ```
 
 ![](23-circularbarcharts_files/figure-epub3/unnamed-chunk-5-1.png)<!-- -->
@@ -137,7 +137,7 @@ Eeek. This is already looking not great. But to make it a circular bar chart, we
 
 
 ```r
-ggplot() + geom_bar(data=dates, aes(x=Date, weight=meanFG, fill=Conference)) + theme_minimal() + coord_polar()
+ggplot() + geom_bar(data=dates, aes(x=Date, weight=wins, fill=Conference)) + theme_minimal() + coord_polar()
 ```
 
 ![](23-circularbarcharts_files/figure-epub3/unnamed-chunk-6-1.png)<!-- -->
@@ -180,3 +180,5 @@ ggplot() + geom_bar(data=wins, aes(x=week, weight=wins, fill=Conference)) + them
 ![](23-circularbarcharts_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
 
 That looks better. But what does it say? Does November basketball matter? What this is saying is ... yeah, it kinda does. The reason? Lots of wins get piled up in November and December, during non-conference play. So if you are a team with NCAA tournament dreams, you need to win games in November to make sure your tournament resume is where it needs to be come March. Does an individual win or loss matter? Probably not. But your record in November does.
+
+
