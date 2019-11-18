@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>30 Assignments | Sports Data Analysis and Visualization</title>
+  <title>31 Assignments | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="30 Assignments | Sports Data Analysis and Visualization" />
+  <meta property="og:title" content="31 Assignments | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="30 Assignments | Sports Data Analysis and Visualization" />
+  <meta name="twitter:title" content="31 Assignments | Sports Data Analysis and Visualization" />
   
   <meta name="twitter:description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
   
@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="finishing-touches-2.html"/>
+<link rel="prev" href="plotly.html"/>
 <link rel="next" href="appendix.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,6 +50,13 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.49.4/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.49.4/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -212,9 +219,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.2" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html#getting-ggplot-closer-to-output"><i class="fa fa-check"></i><b>28.2</b> Getting ggplot closer to output</a></li>
 </ul></li>
 <li class="chapter" data-level="29" data-path="finishing-touches-2.html"><a href="finishing-touches-2.html"><i class="fa fa-check"></i><b>29</b> Finishing Touches 2</a></li>
-<li class="chapter" data-level="30" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>30</b> Assignments</a></li>
-<li class="chapter" data-level="31" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>31</b> Appendix</a><ul>
-<li class="chapter" data-level="31.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>31.1</b> How to get help in this class</a></li>
+<li class="chapter" data-level="30" data-path="plotly.html"><a href="plotly.html"><i class="fa fa-check"></i><b>30</b> Plotly</a><ul>
+<li class="chapter" data-level="30.1" data-path="plotly.html"><a href="plotly.html#publishing-using-plotly"><i class="fa fa-check"></i><b>30.1</b> Publishing using Plotly</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>31</b> Assignments</a></li>
+<li class="chapter" data-level="32" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>32</b> Appendix</a><ul>
+<li class="chapter" data-level="32.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>32.1</b> How to get help in this class</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -237,7 +247,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="assignments" class="section level1">
-<h1><span class="header-section-number">30</span> Assignments</h1>
+<h1><span class="header-section-number">31</span> Assignments</h1>
 <p>This is a collection of assignments I’ve used in my Sports Data Analysis and Visualization course at the University of Nebraska-Lincoln. The overriding philosophy is to have students do lots of small assignments that directly apply what they learned, and often pulling from other assignments. Each small assignment is just a few points each – I make them 5 points each and make the grading a yes/no decision on 5 different questions – so a bad grade on one doesn’t matter. Then, twice during the semester, I have them create blog posts with visualizations on a topic of their choosing. The topic must have a point of view – Nebraska’s woes on third down are why the team is struggling, for example – and must be backed up with data. They have to write a completely documented R Notebook explaining what they did and why; they have to write a publicly facing blog post for a general audience and that post has to have at least three graphs backing up their point; and they have to give a lightning talk (no more than five minutes) in class about what they have found. Those two assignments are typically worth 50 percent of the course grade.</p>
 <p>I think rubrics are crap, but I give students these questions as a guide to what I’m expecting:</p>
 <ol style="list-style-type: decimal">
@@ -337,6 +347,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Chapter 24: Advanced Rvest</strong></p>
 <p>I don’t usually assign an advanced rvest assignment because I don’t want to turn 30 students loose on some poor provider’s servers.</p>
 <p><strong>Note:</strong> There are no assignments for annotations and finishing touches. In my classes, I have students present two major visual stories where they have to incorporate the elements of those assignments as part of their grade.</p>
+<p><strong>Chapter 30: Plotly</strong></p>
+<p>First, create a simple ggplot like we did above exploring WRAA – <a href="http://m.mlb.com/glossary/advanced-stats/weighted-runs-above-average">weighted runs above average</a> – as your x value and and plate appearances (PA) as your y variable.</p>
+<p>Next, create a plotly visualization using the same two variables. Alter the hover elements to show relevant data. If you leave it the same from the chapter, you lose points.</p>
+<p>Export your plotly visualization to plotly’s website. Include a link of your viz in your notebook. In your notebook, discuss the relative advantages and disadvantages of this interactive plot versus the static plots we’ve been doing.</p>
 
 </div>
             </section>
@@ -344,7 +358,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="finishing-touches-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="plotly.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="appendix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

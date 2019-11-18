@@ -50,6 +50,13 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.49.4/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.49.4/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -212,9 +219,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.2" data-path="finishing-touches-part-1.html"><a href="finishing-touches-part-1.html#getting-ggplot-closer-to-output"><i class="fa fa-check"></i><b>28.2</b> Getting ggplot closer to output</a></li>
 </ul></li>
 <li class="chapter" data-level="29" data-path="finishing-touches-2.html"><a href="finishing-touches-2.html"><i class="fa fa-check"></i><b>29</b> Finishing Touches 2</a></li>
-<li class="chapter" data-level="30" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>30</b> Assignments</a></li>
-<li class="chapter" data-level="31" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>31</b> Appendix</a><ul>
-<li class="chapter" data-level="31.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>31.1</b> How to get help in this class</a></li>
+<li class="chapter" data-level="30" data-path="plotly.html"><a href="plotly.html"><i class="fa fa-check"></i><b>30</b> Plotly</a><ul>
+<li class="chapter" data-level="30.1" data-path="plotly.html"><a href="plotly.html#publishing-using-plotly"><i class="fa fa-check"></i><b>30.1</b> Publishing using Plotly</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>31</b> Assignments</a></li>
+<li class="chapter" data-level="32" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>32</b> Appendix</a><ul>
+<li class="chapter" data-level="32.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>32.1</b> How to get help in this class</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -242,7 +252,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>One thing we noticed earlier in the semester – it seems that a lot of teams shoot worse as the season goes on. Do they? We could answer this a number of ways, but the best way to show people would be visually. Let’s use Small Mulitples.</p>
 <p>As always, we start with libraries.</p>
 <div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ──────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ────────────────</code></pre>
 <pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
 ## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
 ## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
@@ -254,7 +264,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ─────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ─────────────────────────
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <p>Now data.</p>
