@@ -21,7 +21,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ────────────────
+## ── Attaching packages ── tidyverse 1.2.1 ──
 ```
 
 ```
@@ -60,7 +60,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Conflicts ─────────────────────────
+## ── Conflicts ───── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```

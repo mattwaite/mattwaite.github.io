@@ -15,7 +15,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ────────────────
+## ── Attaching packages ── tidyverse 1.2.1 ──
 ```
 
 ```
@@ -54,7 +54,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Conflicts ─────────────────────────
+## ── Conflicts ───── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ```
@@ -231,7 +231,7 @@ Sys.setenv("plotly_api_key"="Enter your API key here")
 
 Now run this line of code specifiying what variable you are exporting, and what you want the file to be named on plotly's servers.  From plotly's website you can then do several different things like editing it on there, embedding it on websites, or create a shareable link. 
 
-To publish our chart, we need to save it to an object similar to how we've been creating dataframes. So soemthing like this: 
+To publish our chart, we need to save it to an object similar to how we've been creating dataframes. So something like this: 
 
 
 ```r
