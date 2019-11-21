@@ -225,9 +225,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="31" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>31</b> Clustering</a><ul>
 <li class="chapter" data-level="31.1" data-path="clustering.html"><a href="clustering.html#advanced-metrics"><i class="fa fa-check"></i><b>31.1</b> Advanced metrics</a></li>
 </ul></li>
-<li class="chapter" data-level="32" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>32</b> Assignments</a></li>
-<li class="chapter" data-level="33" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>33</b> Appendix</a><ul>
-<li class="chapter" data-level="33.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>33.1</b> How to get help in this class</a></li>
+<li class="chapter" data-level="32" data-path="rtweet-and-text-analysis.html"><a href="rtweet-and-text-analysis.html"><i class="fa fa-check"></i><b>32</b> Rtweet and Text Analysis</a><ul>
+<li class="chapter" data-level="32.1" data-path="rtweet-and-text-analysis.html"><a href="rtweet-and-text-analysis.html#prerequisites"><i class="fa fa-check"></i><b>32.1</b> Prerequisites</a><ul>
+<li class="chapter" data-level="32.1.1" data-path="rtweet-and-text-analysis.html"><a href="rtweet-and-text-analysis.html#tools-for-text-analysis"><i class="fa fa-check"></i><b>32.1.1</b> Tools for text analysis</a></li>
+<li class="chapter" data-level="32.1.2" data-path="rtweet-and-text-analysis.html"><a href="rtweet-and-text-analysis.html#working-with-string-data"><i class="fa fa-check"></i><b>32.1.2</b> Working with string data</a></li>
+</ul></li>
+<li class="chapter" data-level="32.2" data-path="rtweet-and-text-analysis.html"><a href="rtweet-and-text-analysis.html#verifying-your-account-to-access-twitter-data"><i class="fa fa-check"></i><b>32.2</b> Verifying your account to access Twitter data</a></li>
+<li class="chapter" data-level="32.3" data-path="rtweet-and-text-analysis.html"><a href="rtweet-and-text-analysis.html#the-data-used-here"><i class="fa fa-check"></i><b>32.3</b> The data used here</a></li>
+<li class="chapter" data-level="32.4" data-path="rtweet-and-text-analysis.html"><a href="rtweet-and-text-analysis.html#data-exploration"><i class="fa fa-check"></i><b>32.4</b> Data Exploration</a></li>
+<li class="chapter" data-level="32.5" data-path="rtweet-and-text-analysis.html"><a href="rtweet-and-text-analysis.html#cleaning-data-for-analysis"><i class="fa fa-check"></i><b>32.5</b> Cleaning data for analysis</a><ul>
+<li class="chapter" data-level="32.5.1" data-path="rtweet-and-text-analysis.html"><a href="rtweet-and-text-analysis.html#fixing-the-date-and-focusing-only-on-game-tweets"><i class="fa fa-check"></i><b>32.5.1</b> Fixing the date and focusing only on game tweets</a></li>
+</ul></li>
+<li class="chapter" data-level="32.6" data-path="rtweet-and-text-analysis.html"><a href="rtweet-and-text-analysis.html#number-of-tweets-throughout-the-game"><i class="fa fa-check"></i><b>32.6</b> Number of tweets throughout the game</a></li>
+<li class="chapter" data-level="32.7" data-path="rtweet-and-text-analysis.html"><a href="rtweet-and-text-analysis.html#tidying-the-text-data-for-analysis-applying-the-sentiment-scores"><i class="fa fa-check"></i><b>32.7</b> Tidying the text data for analysis, applying the sentiment scores</a><ul>
+<li class="chapter" data-level="32.7.1" data-path="rtweet-and-text-analysis.html"><a href="rtweet-and-text-analysis.html#example-2---nebraskas-loss-to-purdue-what-were-fans-sentiments-towards-this-loss"><i class="fa fa-check"></i><b>32.7.1</b> Example 2 - Nebraska’s loss to Purdue, what were fan’s sentiments towards this loss?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>33</b> Assignments</a></li>
+<li class="chapter" data-level="34" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>34</b> Appendix</a><ul>
+<li class="chapter" data-level="34.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>34.1</b> How to get help in this class</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -258,7 +274,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="calculating-a-z-score-in-r" class="section level2">
 <h2><span class="header-section-number">12.1</span> Calculating a Z score in R</h2>
 <div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ──── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ── Attaching packages ─────────────────</code></pre>
 <pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
 ## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
 ## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
@@ -270,7 +286,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ─────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ──────────────────────────
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1">gamelogs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/logs19.csv&quot;</span>)</a></code></pre></div>
