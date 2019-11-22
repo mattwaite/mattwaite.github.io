@@ -275,7 +275,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>To answer this, we’ll use k-means clustering.</p>
 <p>First thing we do is load some libraries and set a seed, so if we run this repeatedly, our random numbers are generated from the same base. If you don’t have the cluster library, just add it on the console with <code>install.packages(&quot;cluster&quot;)</code></p>
 <div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb725-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ─────────────────</code></pre>
+<pre><code>## ── Attaching packages ───────────────</code></pre>
 <pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
 ## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
 ## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
@@ -287,7 +287,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────
+<pre><code>## ── Conflicts ────────────────────────
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb736-1" data-line-number="1"><span class="kw">library</span>(cluster)</a></code></pre></div>
@@ -316,7 +316,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb742-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(Player, Team, Pos, MP, <span class="st">`</span><span class="dt">FG%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">3P%</span><span class="st">`</span>, AST, TOV, PTS) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb742-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>() </a></code></pre></div>
 <p>Now, k-means clustering doesn’t work as well with data that can be on different scales. So comparing a percentage to a count metric – shooting percentage to points – would create chaos because shooting percentages are a fraction of 1 and points, depending on when they are in the season, could be quite large. So we have to scale each metric – put them on a similar basis using the distance from the max value as our guide. Also, k-means clustering won’t work with text data, so we need to create a dataframe that’s just the numbers, but scaled. We can do that with another select, and using mutate_all with the scale function. The <code>na.omit()</code> means get rid of any blanks, because they too will cause errors.</p>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb743-1" data-line-number="1">playersscaled &lt;-<span class="st"> </span>playersselected <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(MP, <span class="st">`</span><span class="dt">FG%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">3P%</span><span class="st">`</span>, AST, TOV, PTS) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_all</span>(scale) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">na.omit</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb743-1" data-line-number="1">playersscaled &lt;-<span class="st"> </span>playersselected <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb743-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(MP, <span class="st">`</span><span class="dt">FG%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">3P%</span><span class="st">`</span>, AST, TOV, PTS) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb743-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate_all</span>(scale) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb743-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>()</a></code></pre></div>
 <p>With k-means clustering, we decide how many clusters we want. Most often, researchers will try a handful of different cluster numbers and see what works. But there are methods for finding the optimal number. One method is called the Elbow method. One implementation of this, <a href="https://uc-r.github.io/kmeans_clustering">borrowed from the University of Cincinnati’s Business Analytics program</a>, does this quite nicely with a graph that will help you decide for yourself.</p>
 <p>All you need to do in this code is change out the data frame – <code>playersscaled</code> in this case – and run it.</p>
 <div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb744-1" data-line-number="1"><span class="co"># function to compute total within-cluster sum of square </span></a>
@@ -592,7 +595,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb763-1" data-line-number="1">playeradvcluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(playersadvanced, advk5<span class="op">$</span>cluster) </a></code></pre></div>
 <p>Cluster 5 on my dataset. So three games in, we can say he’s in a big group of players who are all above average on these advanced metrics.</p>
 <p>Now who are his Big Ten peers?</p>
-<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb764-1" data-line-number="1">playeradvcluster <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(advk5.cluster <span class="op">==</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">%in%</span><span class="st"> </span>big10) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(PProd))</a></code></pre></div>
+<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb764-1" data-line-number="1">playeradvcluster <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb764-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(advk5.cluster <span class="op">==</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb764-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Team <span class="op">%in%</span><span class="st"> </span>big10) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb764-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(PProd))</a></code></pre></div>
 <pre><code>##              Player                     Team Pos  PER   TS. PProd  AST.
 ## 1   Cassius Winston  Michigan State Spartans   G 23.3 0.551    71  42.6
 ## 2       Marcus Carr Minnesota Golden Gophers   G 16.1 0.413    68  39.0
