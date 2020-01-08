@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Transforming data | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Transforming data | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -165,7 +165,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="filters-and-selections.html"><a href="filters-and-selections.html#top-list"><i class="fa fa-check"></i><b>6.3</b> Top list</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>7</b> Transforming data</a><ul>
-<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-wide-data-long"><i class="fa fa-check"></i><b>7.1</b> Making wide data long</a></li>
+<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-long-data-wide"><i class="fa fa-check"></i><b>7.1</b> Making long data wide</a></li>
 <li class="chapter" data-level="7.2" data-path="transforming-data.html"><a href="transforming-data.html#why-this-matters"><i class="fa fa-check"></i><b>7.2</b> Why this matters</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="simulations.html"><a href="simulations.html"><i class="fa fa-check"></i><b>8</b> Simulations</a><ul>
@@ -182,9 +182,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="z-scores.html"><a href="z-scores.html#calculating-a-z-score-in-r"><i class="fa fa-check"></i><b>12.1</b> Calculating a Z score in R</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html"><i class="fa fa-check"></i><b>13</b> Intro to ggplot</a><ul>
-<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.1</b> Scales</a></li>
-<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.2</b> Styling</a></li>
-<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.3</b> One last trick: coord flip</a></li>
+<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#the-bar-chart"><i class="fa fa-check"></i><b>13.1</b> The bar chart</a></li>
+<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.2</b> Scales</a></li>
+<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.3</b> Styling</a></li>
+<li class="chapter" data-level="13.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.4</b> One last trick: coord flip</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="stacked-bar-charts.html"><a href="stacked-bar-charts.html"><i class="fa fa-check"></i><b>14</b> Stacked bar charts</a></li>
 <li class="chapter" data-level="15" data-path="waffle-charts.html"><a href="waffle-charts.html"><i class="fa fa-check"></i><b>15</b> Waffle charts</a><ul>
@@ -268,15 +269,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="transforming-data" class="section level1">
 <h1><span class="header-section-number">7</span> Transforming data</h1>
 <p>Sometimes long data needs to be wide, and sometimes wide data needs to be long. I’ll explain.</p>
-<p>You are soon going to discover that long before you can visualize data, you need to have it in a form that the visualization library can deal with. One of the ways that isn’t immediately obvious is how your data is cast. Most of the data you will encounter will be wide – each row will represent a single entity with multiple measures for that entity. So think of states. Your row of your dataset could have population, average life expectancy and other demographic data.</p>
-<p>But what if your visualization library needs one row for each measure? That’s where recasting your data comes in. We can use a library called <code>tidyr</code> to <code>gather</code> or <code>spread</code> the data, depending on what we need.</p>
-<p>We’ll use a <a href="https://unl.box.com/s/a8m91bro10t89watsyo13yjegb1fy009">dataset of college basketball games</a>. First we need some libraries.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ───────────────</code></pre>
-<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
+<p>You are soon going to discover that long before you can visualize data, <strong>you need to have it in a form that the visualization library can deal with</strong>. One of the ways that isn’t immediately obvious is <strong>how your data is cast</strong>. Most of the data you will encounter will be <strong>wide – each row will represent a single entity with multiple measures for that entity</strong>. So think of states. Your row of your dataset could have the state name, population, average life expectancy and other demographic data.</p>
+<p>But what if your visualization library needs one row for each measure? So state, data type and the data. Nebraska, Population, 1,929,000. That’s one row. Then the next row is Nebraska, Average Life Expectancy, 76. That’s the next row. That’s where recasting your data comes in.</p>
+<p>We can use a library called <code>tidyr</code> to <code>pivot_longer</code> or <code>pivot_wider</code> the data, depending on what we need. We’ll use a <a href="https://unl.box.com/s/hvxmnxhr41x4ikgt3vk38aczcbrf97pn">dataset of college football attendance</a> to demonstrate. First we need some libraries.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## ── Attaching packages ────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
+## ✓ tibble  2.1.3     ✓ dplyr   0.8.3
+## ✓ tidyr   1.0.0     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.4.0</code></pre>
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.2</code></pre>
@@ -284,205 +286,119 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ────────────────────────
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<p>Now we’ll grab the data.</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1">logs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;data/logs19.csv&#39;</span>)</a></code></pre></div>
-<pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
+<pre><code>## ── Conflicts ───────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<p>Now we’ll load the data.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">attendance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;data/attendance.csv&#39;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   .default = col_double(),
-##   Date = col_date(format = &quot;&quot;),
-##   HomeAway = col_character(),
-##   Opponent = col_character(),
-##   W_L = col_character(),
-##   Blank = col_logical(),
-##   Team = col_character(),
+##   Institution = col_character(),
 ##   Conference = col_character(),
-##   season = col_character()
+##   `2013` = col_double(),
+##   `2014` = col_double(),
+##   `2015` = col_double(),
+##   `2016` = col_double(),
+##   `2017` = col_double(),
+##   `2018` = col_double()
 ## )</code></pre>
-<pre><code>## See spec(...) for full column specifications.</code></pre>
-<p>Last season, the Nebraska basketball team came out of the gates on fire. Their first 10 games were blistering. Their last 10? Not so much. But how can we compare a team’s first 10 games with their last 10 games? If you look, each game in the dataset is numbered, so getting the first 10 wouldn’t be hard. But what about the last five, when every team plays a different number of games?</p>
-<p>To find that, we need to add some data to our table. And that is the maxiumum number of games a team played. So we’ll create a new dataframe where we’ll group our teams by team name and get the max game number for each team. Then, we’ll use something called a join, where we’ll connect the max games to the logs data using the common team name to connect them.</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1">max &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Team) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">max_games =</span> <span class="kw">max</span>(Game))</a></code></pre></div>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1">logs &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(max)</a></code></pre></div>
-<pre><code>## Joining, by = &quot;Team&quot;</code></pre>
-<p>Now let’s just get Nebraska.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1">nebraska &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">==</span><span class="st"> &quot;Nebraska Cornhuskers&quot;</span>)</a>
-<a class="sourceLine" id="cb115-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb115-3" data-line-number="3"><span class="kw">head</span>(nebraska)</a></code></pre></div>
-<pre><code>## # A tibble: 6 x 45
-##      X1  Game Date       HomeAway Opponent W_L   TeamScore OpponentScore
-##   &lt;dbl&gt; &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;     &lt;dbl&gt;         &lt;dbl&gt;
-## 1  6449     1 2018-11-06 &lt;NA&gt;     Mississ… W           106            37
-## 2  6450     2 2018-11-11 &lt;NA&gt;     Southea… W            87            35
-## 3  6451     3 2018-11-14 &lt;NA&gt;     Seton H… W            80            57
-## 4  6452     4 2018-11-19 N        Missour… W            85            62
-## 5  6453     5 2018-11-20 N        Texas T… L            52            70
-## 6  6454     6 2018-11-24 &lt;NA&gt;     Western… W            73            49
-## # … with 37 more variables: TeamFG &lt;dbl&gt;, TeamFGA &lt;dbl&gt;, TeamFGPCT &lt;dbl&gt;,
-## #   Team3P &lt;dbl&gt;, Team3PA &lt;dbl&gt;, Team3PPCT &lt;dbl&gt;, TeamFT &lt;dbl&gt;,
-## #   TeamFTA &lt;dbl&gt;, TeamFTPCT &lt;dbl&gt;, TeamOffRebounds &lt;dbl&gt;,
-## #   TeamTotalRebounds &lt;dbl&gt;, TeamAssists &lt;dbl&gt;, TeamSteals &lt;dbl&gt;,
-## #   TeamBlocks &lt;dbl&gt;, TeamTurnovers &lt;dbl&gt;, TeamPersonalFouls &lt;dbl&gt;,
-## #   Blank &lt;lgl&gt;, OpponentFG &lt;dbl&gt;, OpponentFGA &lt;dbl&gt;, OpponentFGPCT &lt;dbl&gt;,
-## #   Opponent3P &lt;dbl&gt;, Opponent3PA &lt;dbl&gt;, Opponent3PPCT &lt;dbl&gt;,
-## #   OpponentFT &lt;dbl&gt;, OpponentFTA &lt;dbl&gt;, OpponentFTPCT &lt;dbl&gt;,
-## #   OpponentOffRebounds &lt;dbl&gt;, OpponentTotalRebounds &lt;dbl&gt;,
-## #   OpponentAssists &lt;dbl&gt;, OpponentSteals &lt;dbl&gt;, OpponentBlocks &lt;dbl&gt;,
-## #   OpponentTurnovers &lt;dbl&gt;, OpponentPersonalFouls &lt;dbl&gt;, Team &lt;chr&gt;,
-## #   Conference &lt;chr&gt;, season &lt;chr&gt;, max_games &lt;dbl&gt;</code></pre>
-<p>What we have here is long data. One row, one game. But what if we wanted to calculate the percent change in two variables? Say we wanted to see what the difference in shooting percentage has been between the first 10 games and the last ten Or the percent change in that? To get that, we’d need two fields next to each other so we could mutate our dataframe to calculate that, right? You’ll see the problem we have right away.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1">nebraska <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb117-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">grouping =</span> <span class="kw">case_when</span>(</a>
-<a class="sourceLine" id="cb117-3" data-line-number="3">    Game <span class="op">&lt;=</span><span class="dv">10</span> <span class="op">~</span><span class="st"> &quot;First 10&quot;</span>,</a>
-<a class="sourceLine" id="cb117-4" data-line-number="4">    Game <span class="op">&gt;=</span><span class="st"> </span>(max_games <span class="op">-</span><span class="st"> </span><span class="dv">10</span>) <span class="op">~</span><span class="st"> &quot;Last 10&quot;</span>)</a>
-<a class="sourceLine" id="cb117-5" data-line-number="5">    ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb117-6" data-line-number="6"><span class="st">  </span><span class="kw">group_by</span>(Team, grouping) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb117-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(</a>
-<a class="sourceLine" id="cb117-8" data-line-number="8">    <span class="dt">shootingPCT =</span> <span class="kw">mean</span>(TeamFGPCT)</a>
-<a class="sourceLine" id="cb117-9" data-line-number="9">  )</a></code></pre></div>
-<pre><code>## # A tibble: 3 x 3
-## # Groups:   Team [1]
-##   Team                 grouping shootingPCT
-##   &lt;chr&gt;                &lt;chr&gt;          &lt;dbl&gt;
-## 1 Nebraska Cornhuskers First 10       0.479
-## 2 Nebraska Cornhuskers Last 10        0.422
-## 3 Nebraska Cornhuskers &lt;NA&gt;           0.404</code></pre>
-<p>How do you write a mutate step to calulate the percent change when they’re stacked on top of each other like that? Answer: You don’t. You have to move the data around.</p>
-<p>To take long data and make it wide, we need to <code>spread</code> the data. That’s the new verb. To spread the data, we tell spread what the new columns will be and what the data values that will go with them. Spread does the rest.</p>
-<p>So I’m going to take that same code and add spread to the bottom. I want the new columns to be my <code>grouping</code> and the data to be the <code>shootingPCT</code>.</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1">nebraska <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb119-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">grouping =</span> <span class="kw">case_when</span>(</a>
-<a class="sourceLine" id="cb119-3" data-line-number="3">    Game <span class="op">&lt;=</span><span class="dv">10</span> <span class="op">~</span><span class="st"> &quot;First 10&quot;</span>,</a>
-<a class="sourceLine" id="cb119-4" data-line-number="4">    Game <span class="op">&gt;=</span><span class="st"> </span>(max_games <span class="op">-</span><span class="st"> </span><span class="dv">10</span>) <span class="op">~</span><span class="st"> &quot;Last 10&quot;</span>)</a>
-<a class="sourceLine" id="cb119-5" data-line-number="5">    ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb119-6" data-line-number="6"><span class="st">  </span><span class="kw">group_by</span>(Team, grouping) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb119-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(</a>
-<a class="sourceLine" id="cb119-8" data-line-number="8">    <span class="dt">shootingPCT =</span> <span class="kw">mean</span>(TeamFGPCT)</a>
-<a class="sourceLine" id="cb119-9" data-line-number="9">  ) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb119-10" data-line-number="10"><span class="st">  </span><span class="kw">spread</span>(grouping, shootingPCT) </a></code></pre></div>
-<pre><code>## # A tibble: 1 x 4
-## # Groups:   Team [1]
-##   Team                 `First 10` `Last 10` `&lt;NA&gt;`
-##   &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;
-## 1 Nebraska Cornhuskers      0.479     0.422  0.404</code></pre>
-<p>And now, with it spread out, I can chain another mutate step onto it, adding my difference and my percent change.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1">nebraska <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb121-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">grouping =</span> <span class="kw">case_when</span>(</a>
-<a class="sourceLine" id="cb121-3" data-line-number="3">    Game <span class="op">&lt;=</span><span class="dv">10</span> <span class="op">~</span><span class="st"> &quot;First 10&quot;</span>,</a>
-<a class="sourceLine" id="cb121-4" data-line-number="4">    Game <span class="op">&gt;=</span><span class="st"> </span>(max_games <span class="op">-</span><span class="st"> </span><span class="dv">10</span>) <span class="op">~</span><span class="st"> &quot;Last 10&quot;</span>)</a>
-<a class="sourceLine" id="cb121-5" data-line-number="5">    ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb121-6" data-line-number="6"><span class="st">  </span><span class="kw">group_by</span>(Team, grouping) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb121-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(</a>
-<a class="sourceLine" id="cb121-8" data-line-number="8">    <span class="dt">shootingPCT =</span> <span class="kw">mean</span>(TeamFGPCT)</a>
-<a class="sourceLine" id="cb121-9" data-line-number="9">  ) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb121-10" data-line-number="10"><span class="st">  </span><span class="kw">spread</span>(grouping, shootingPCT) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb121-11" data-line-number="11"><span class="st">  </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb121-12" data-line-number="12">    <span class="dt">change =</span> ((<span class="st">`</span><span class="dt">Last 10</span><span class="st">`</span><span class="op">-</span><span class="st">`</span><span class="dt">First 10</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">First 10</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span>,</a>
-<a class="sourceLine" id="cb121-13" data-line-number="13">    <span class="dt">difference =</span> (<span class="st">`</span><span class="dt">First 10</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">Last 10</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb121-14" data-line-number="14">    )</a></code></pre></div>
-<pre><code>## # A tibble: 1 x 6
-## # Groups:   Team [1]
-##   Team                 `First 10` `Last 10` `&lt;NA&gt;` change difference
-##   &lt;chr&gt;                     &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
-## 1 Nebraska Cornhuskers      0.479     0.422  0.404  -12.0       5.73</code></pre>
-<p>So, over Nebraska’s first 10 games, they shot almost 48 percent, where over the last ten horrid games they’re shooting 42 percent. That’s an 5.7 percentage point different or a nearly 12 percent drop from those first 10 games.</p>
-<p>We can’t shoot the ball anymore.</p>
-<p>How bad is that nationally? Just run the same code, but instead of Nebraska, use the logs dataframe.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1">logs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb123-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">grouping =</span> <span class="kw">case_when</span>(</a>
-<a class="sourceLine" id="cb123-3" data-line-number="3">    Game <span class="op">&lt;=</span><span class="dv">10</span> <span class="op">~</span><span class="st"> &quot;First 10&quot;</span>,</a>
-<a class="sourceLine" id="cb123-4" data-line-number="4">    Game <span class="op">&gt;=</span><span class="st"> </span>(max_games <span class="op">-</span><span class="st"> </span><span class="dv">10</span>) <span class="op">~</span><span class="st"> &quot;Last 10&quot;</span>)</a>
-<a class="sourceLine" id="cb123-5" data-line-number="5">    ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb123-6" data-line-number="6"><span class="st">  </span><span class="kw">group_by</span>(Team, grouping) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb123-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(</a>
-<a class="sourceLine" id="cb123-8" data-line-number="8">    <span class="dt">shootingPCT =</span> <span class="kw">mean</span>(TeamFGPCT)</a>
-<a class="sourceLine" id="cb123-9" data-line-number="9">  ) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb123-10" data-line-number="10"><span class="st">  </span><span class="kw">spread</span>(grouping, shootingPCT) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb123-11" data-line-number="11"><span class="st">  </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb123-12" data-line-number="12">    <span class="dt">change =</span> ((<span class="st">`</span><span class="dt">Last 10</span><span class="st">`</span><span class="op">-</span><span class="st">`</span><span class="dt">First 10</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">First 10</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span>,</a>
-<a class="sourceLine" id="cb123-13" data-line-number="13">    <span class="dt">difference =</span> (<span class="st">`</span><span class="dt">First 10</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">Last 10</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb123-14" data-line-number="14">    ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(change)</a></code></pre></div>
-<pre><code>## # A tibble: 353 x 6
-## # Groups:   Team [353]
-##    Team                    `First 10` `Last 10` `&lt;NA&gt;` change difference
-##    &lt;chr&gt;                        &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
-##  1 North Texas Mean Green       0.484     0.391  0.439  -19.2       9.29
-##  2 Miami (OH) RedHawks          0.465     0.379  0.424  -18.6       8.66
-##  3 NC State Wolfpack            0.515     0.423  0.437  -18.0       9.29
-##  4 Ohio State Buckeyes          0.477     0.392  0.441  -17.9       8.57
-##  5 Vanderbilt Commodores        0.459     0.379  0.423  -17.5       8.02
-##  6 Pacific Tigers               0.467     0.385  0.417  -17.4       8.13
-##  7 Indiana Hoosiers             0.515     0.427  0.447  -17.2       8.89
-##  8 UNC Greensboro Spartans      0.510     0.422  0.442  -17.2       8.78
-##  9 Cincinnati Bearcats          0.474     0.394  0.432  -16.8       7.94
-## 10 Seattle Redhawks             0.481     0.401  0.431  -16.6       8.00
-## # … with 343 more rows</code></pre>
-<p>In all of college basketball, Nebraska had the 40th biggest drop in shooting percentage from their first 10 games to their last 10 games.</p>
-<p>And that’s a tiny portion of why Tim Miles is no longer the coach.</p>
-<div id="making-wide-data-long" class="section level2">
-<h2><span class="header-section-number">7.1</span> Making wide data long</h2>
-<p>We can reverse this process as well. If we get data that’s wide and we want to make it long, we use <code>gather</code>. So first, since my data is already long, let me fake a wide dataset using what I just did.</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1">gatherdata &lt;-<span class="st"> </span>nebraska <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb125-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">grouping =</span> <span class="kw">case_when</span>(</a>
-<a class="sourceLine" id="cb125-3" data-line-number="3">    Game <span class="op">&lt;=</span><span class="dv">10</span> <span class="op">~</span><span class="st"> &quot;First 10&quot;</span>,</a>
-<a class="sourceLine" id="cb125-4" data-line-number="4">    Game <span class="op">&gt;=</span><span class="st"> </span>(max_games <span class="op">-</span><span class="st"> </span><span class="dv">5</span>) <span class="op">~</span><span class="st"> &quot;Last 5&quot;</span>)</a>
-<a class="sourceLine" id="cb125-5" data-line-number="5">    ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb125-6" data-line-number="6"><span class="st">  </span><span class="kw">group_by</span>(Team, grouping) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb125-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(</a>
-<a class="sourceLine" id="cb125-8" data-line-number="8">    <span class="dt">shootingPCT =</span> <span class="kw">mean</span>(TeamFGPCT)</a>
-<a class="sourceLine" id="cb125-9" data-line-number="9">  ) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb125-10" data-line-number="10"><span class="st">  </span><span class="kw">spread</span>(grouping, shootingPCT)</a></code></pre></div>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="kw">head</span>(gatherdata)</a></code></pre></div>
-<pre><code>## # A tibble: 1 x 4
-## # Groups:   Team [1]
-##   Team                 `First 10` `Last 5` `&lt;NA&gt;`
-##   &lt;chr&gt;                     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;
-## 1 Nebraska Cornhuskers      0.479    0.444  0.402</code></pre>
-<p>Oh drat, I have wide data and for a visualization project, I need long data. Whatever will I do? This might seem silly, but two assignments from now, you’re going to need long data from wide and wide data from long, so it’s good to know.</p>
-<p>Gather, unfortunately, isn’t as easy as spread. It can take some fiddling to get right. There’s a ton of examples online if you Google for them, but here’s what you do: You tell <code>gather</code> what the new column of data you are creating out of the field names first – this is called the key – and you then tell it what the value field is going to be called, which is usually a number. Have more than one thing to name your stuff with? After your key value pair, add it with a negative sign in front of it.</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1">gatherdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">gather</span>(grouping, shootingPCT, <span class="op">-</span>Team)</a></code></pre></div>
-<pre><code>## # A tibble: 3 x 3
-## # Groups:   Team [1]
-##   Team                 grouping shootingPCT
-##   &lt;chr&gt;                &lt;chr&gt;          &lt;dbl&gt;
-## 1 Nebraska Cornhuskers First 10       0.479
-## 2 Nebraska Cornhuskers Last 5         0.444
-## 3 Nebraska Cornhuskers &lt;NA&gt;           0.402</code></pre>
-<p>And just like that, we’re back where we started.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1">attendance</a></code></pre></div>
+<pre><code>## # A tibble: 150 x 8
+##    Institution     Conference      `2013` `2014` `2015` `2016` `2017` `2018`
+##    &lt;chr&gt;           &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Air Force       MWC             228562 168967 156158 177519 174924 166205
+##  2 Akron           MAC             107101  55019 108588  62021 117416  92575
+##  3 Alabama         SEC             710538 710736 707786 712747 712053 710931
+##  4 Appalachian St. FBS Independent 149366     NA     NA     NA     NA     NA
+##  5 Appalachian St. Sun Belt            NA 138995 128755 156916 154722 131716
+##  6 Arizona         Pac-12          285713 354973 308355 338017 255791 318051
+##  7 Arizona St.     Pac-12          501509 343073 368985 286417 359660 291091
+##  8 Arkansas        SEC             431174 399124 471279 487067 442569 367748
+##  9 Arkansas St.    Sun Belt        149477 149163 138043 136200 119538 119001
+## 10 Army West Point FBS Independent 169781 171310 185946 163267 185543 190156
+## # … with 140 more rows</code></pre>
+<p>So as you can see, each row represents a school, and then each column represents a year. This is great for calculating the percent change – we can subtract a column from a column and divide by that column. But later, when we want to chart each school’s attendance over the years, we have to have each row be one team for one year. Nebraska in 2013, then Nebraska in 2014, and Nebraska in 2015 and so on.</p>
+<p>To do that, we use <code>pivot_longer</code> because we’re making wide data long. Since all of the columns we want to make rows start with 20, we can use that in our <code>cols</code> directive. Then we give that column a name – Year – and the values for each year need a name too. Those are the attendance figure. We can see right away how this works.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;20&quot;</span>), <span class="dt">names_to =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Attendance&quot;</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 900 x 4
+##    Institution Conference Year  Attendance
+##    &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
+##  1 Air Force   MWC        2013      228562
+##  2 Air Force   MWC        2014      168967
+##  3 Air Force   MWC        2015      156158
+##  4 Air Force   MWC        2016      177519
+##  5 Air Force   MWC        2017      174924
+##  6 Air Force   MWC        2018      166205
+##  7 Akron       MAC        2013      107101
+##  8 Akron       MAC        2014       55019
+##  9 Akron       MAC        2015      108588
+## 10 Akron       MAC        2016       62021
+## # … with 890 more rows</code></pre>
+<p>We’ve gone from 150 rows to 900, but that’s expected when we have 6 years for each team.</p>
+<div id="making-long-data-wide" class="section level2">
+<h2><span class="header-section-number">7.1</span> Making long data wide</h2>
+<p>We can reverse this process using <code>pivot_wider</code>, which makes long data wide.</p>
+<p>Why do any of this?</p>
+<p>In some cases, you’re going to be given long data and you need to calculate some metric using two of the years – a percent change for instance. So you’ll need to make the data wide to do that. You might then have to re-lengthen the data now with the percent change. Some project require you to do all kinds of flexing like this. It just depends on the data.</p>
+<p>So let’s take what we made above and turn it back into wide data.</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1">longdata &lt;-<span class="st"> </span>attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;20&quot;</span>), <span class="dt">names_to =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Attendance&quot;</span>)</a>
+<a class="sourceLine" id="cb117-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb117-3" data-line-number="3">longdata</a></code></pre></div>
+<pre><code>## # A tibble: 900 x 4
+##    Institution Conference Year  Attendance
+##    &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
+##  1 Air Force   MWC        2013      228562
+##  2 Air Force   MWC        2014      168967
+##  3 Air Force   MWC        2015      156158
+##  4 Air Force   MWC        2016      177519
+##  5 Air Force   MWC        2017      174924
+##  6 Air Force   MWC        2018      166205
+##  7 Akron       MAC        2013      107101
+##  8 Akron       MAC        2014       55019
+##  9 Akron       MAC        2015      108588
+## 10 Akron       MAC        2016       62021
+## # … with 890 more rows</code></pre>
+<p>To <code>pivot_wider</code>, we just need to say where our column names are coming from – the Year – and where the data under it should come from – Attendance.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1">longdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> Year, <span class="dt">values_from =</span> Attendance)</a></code></pre></div>
+<pre><code>## # A tibble: 150 x 8
+##    Institution     Conference      `2013` `2014` `2015` `2016` `2017` `2018`
+##    &lt;chr&gt;           &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Air Force       MWC             228562 168967 156158 177519 174924 166205
+##  2 Akron           MAC             107101  55019 108588  62021 117416  92575
+##  3 Alabama         SEC             710538 710736 707786 712747 712053 710931
+##  4 Appalachian St. FBS Independent 149366     NA     NA     NA     NA     NA
+##  5 Appalachian St. Sun Belt            NA 138995 128755 156916 154722 131716
+##  6 Arizona         Pac-12          285713 354973 308355 338017 255791 318051
+##  7 Arizona St.     Pac-12          501509 343073 368985 286417 359660 291091
+##  8 Arkansas        SEC             431174 399124 471279 487067 442569 367748
+##  9 Arkansas St.    Sun Belt        149477 149163 138043 136200 119538 119001
+## 10 Army West Point FBS Independent 169781 171310 185946 163267 185543 190156
+## # … with 140 more rows</code></pre>
+<p>And just like that, we’re back.</p>
 </div>
 <div id="why-this-matters" class="section level2">
 <h2><span class="header-section-number">7.2</span> Why this matters</h2>
 <p>This matters because certain visualization types need wide or long data. A significant hurdle you will face for the rest of the semester is getting the data in the right format for what you want to do.</p>
-<p>So let me walk you through an example using this data. If I asked you to describe Nebraska’s shooting performance over the season, we can do that by what we just did – grouping them into the first 10 games when people actually talked about this team in the Sweet 16 and the last five when we aren’t going to get an NIT bid. We can look at that shooting percentage, how it has changed, and that work makes for a perfect paragraph to write out. So to do that, you need wide data.</p>
-<p>But to visualize it, you need long.</p>
-<p>First, let’s load our charting library, <code>ggplot2</code> which you’re going to learn a lot more about soon.</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
-<p>Now I’m going to use that data and put the date of the game on the x axis, the shooting percentage on the y axis and then, for giggles, I’m going to add a best fit line that describes our season using a simple regression and the equation of a line.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" data-line-number="1"><span class="kw">ggplot</span>(nebraska, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>TeamFGPCT)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb131-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>, <span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb131-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb131-4" data-line-number="4"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x=</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2018-12-08&quot;</span>)), <span class="dt">y=</span><span class="fl">0.545</span>, <span class="dt">label=</span><span class="st">&quot;vs Creighton&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb131-5" data-line-number="5"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x=</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2019-01-10&quot;</span>)), <span class="dt">y=</span><span class="fl">0.502</span>, <span class="dt">label=</span><span class="st">&quot;vs Penn State&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb131-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> W_L)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb131-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>percent) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb131-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Date&quot;</span>, <span class="dt">y=</span><span class="st">&quot;FG percentage&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s season, visualized&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;As the season goes by, the Huskers are getting worse at shooting the ball.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;Outcome&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb131-9" data-line-number="9"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb131-10" data-line-number="10"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb131-11" data-line-number="11">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb131-12" data-line-number="12">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb131-13" data-line-number="13">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb131-14" data-line-number="14">    <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">7</span>),</a>
-<a class="sourceLine" id="cb131-15" data-line-number="15">    <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb131-16" data-line-number="16">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb131-17" data-line-number="17">    <span class="dt">panel.grid.major.x =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb131-18" data-line-number="18">    <span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span></a>
-<a class="sourceLine" id="cb131-19" data-line-number="19">  )</a></code></pre></div>
-<p><img src="06-transforming_files/figure-html/unnamed-chunk-14-1.png" width="672" />
-Oy. There it is. There’s our season.</p>
-<p>So I can tell you now, using wide data, that Nebraska’s shooting performance over the last ten games is down 12 percent from the first 10 games. And using long data, I can show you the story of the season, but without any specific stats to back it up.</p>
+<p>So let me walk you through an example using this data.</p>
+<p>Let’s look at Nebraska’s attendance over the time period. In order to do that, I need long data because that’s what the charting library, <code>ggplot2</code>, needs. You’re going to learn a lot more about ggplot later.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1">nebraska &lt;-<span class="st"> </span>longdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Institution <span class="op">==</span><span class="st"> &quot;Nebraska&quot;</span>)</a></code></pre></div>
+<p>Now that we have long data for just Nebraska, we can chart it.</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1"><span class="kw">ggplot</span>(nebraska, <span class="kw">aes</span>(<span class="dt">x=</span>Year, <span class="dt">y=</span>Attendance, <span class="dt">group=</span><span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb122-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb122-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb122-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Year&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Attendance&quot;</span>, <span class="dt">title=</span><span class="st">&quot;We&#39;ll all stick together?&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;It&#39;s not as bad as you think -- they widened the seats, cutting the number.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;Outcome&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb122-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb122-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb122-7" data-line-number="7">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
+<a class="sourceLine" id="cb122-8" data-line-number="8">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb122-9" data-line-number="9">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb122-10" data-line-number="10">    <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">7</span>),</a>
+<a class="sourceLine" id="cb122-11" data-line-number="11">    <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb122-12" data-line-number="12">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb122-13" data-line-number="13">    <span class="dt">panel.grid.major.x =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb122-14" data-line-number="14">    <span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span></a>
+<a class="sourceLine" id="cb122-15" data-line-number="15">  )</a></code></pre></div>
+<p><img src="06-transforming_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -511,12 +427,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -528,6 +443,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

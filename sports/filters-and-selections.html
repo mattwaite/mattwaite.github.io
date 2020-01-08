@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Filters and selections | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Filters and selections | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -165,7 +165,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="filters-and-selections.html"><a href="filters-and-selections.html#top-list"><i class="fa fa-check"></i><b>6.3</b> Top list</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>7</b> Transforming data</a><ul>
-<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-wide-data-long"><i class="fa fa-check"></i><b>7.1</b> Making wide data long</a></li>
+<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-long-data-wide"><i class="fa fa-check"></i><b>7.1</b> Making long data wide</a></li>
 <li class="chapter" data-level="7.2" data-path="transforming-data.html"><a href="transforming-data.html#why-this-matters"><i class="fa fa-check"></i><b>7.2</b> Why this matters</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="simulations.html"><a href="simulations.html"><i class="fa fa-check"></i><b>8</b> Simulations</a><ul>
@@ -182,9 +182,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="z-scores.html"><a href="z-scores.html#calculating-a-z-score-in-r"><i class="fa fa-check"></i><b>12.1</b> Calculating a Z score in R</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html"><i class="fa fa-check"></i><b>13</b> Intro to ggplot</a><ul>
-<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.1</b> Scales</a></li>
-<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.2</b> Styling</a></li>
-<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.3</b> One last trick: coord flip</a></li>
+<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#the-bar-chart"><i class="fa fa-check"></i><b>13.1</b> The bar chart</a></li>
+<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.2</b> Scales</a></li>
+<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.3</b> Styling</a></li>
+<li class="chapter" data-level="13.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.4</b> One last trick: coord flip</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="stacked-bar-charts.html"><a href="stacked-bar-charts.html"><i class="fa fa-check"></i><b>14</b> Stacked bar charts</a></li>
 <li class="chapter" data-level="15" data-path="waffle-charts.html"><a href="waffle-charts.html"><i class="fa fa-check"></i><b>15</b> Waffle charts</a><ul>
@@ -271,12 +272,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Filtering creates a subset of the data based on criteria</strong>. All records where the count is greater than 10. All records that match “Nebraska”. Something like that.</p>
 <p><strong>Selecting simply returns only the fields named</strong>. So if you only want to see School and Attendance, you select those fields. When you look at your data again, you’ll have two columns. If you try to use one of your columns that you had before you used select, you’ll get an error.</p>
 <p>Let’s work with our football attendance data to show some examples.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ───────────────</code></pre>
-<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## ── Attaching packages ────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
+## ✓ tibble  2.1.3     ✓ dplyr   0.8.3
+## ✓ tidyr   1.0.0     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.4.0</code></pre>
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.2</code></pre>
@@ -284,10 +286,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ────────────────────────
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">attendance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;data/attendance.csv&#39;</span>)</a></code></pre></div>
+<pre><code>## ── Conflicts ───────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">attendance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;data/attendance.csv&#39;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Institution = col_character(),
@@ -302,13 +304,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>So, first things first, let’s say we don’t care about all this Air Force, Akron, Alabama crap and just want to see Dear Old Nebraska U. We do that with <code>filter</code> and then we pass it a condition.</p>
 <p>Before we do that, a note about conditions. Most of the conditional operators you’ll understand – greater than and less than are &gt; and &lt;. The tough one to remember is equal to. In conditional statements, equal to is == not =. If you haven’t noticed, = is a variable assignment operator, not a conditional statement. So equal is == and NOT equal is !=.</p>
 <p>So if you want to see Institutions equal to Nebraska, you do this:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Institution <span class="op">==</span><span class="st"> &quot;Nebraska&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Institution <span class="op">==</span><span class="st"> &quot;Nebraska&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 8
 ##   Institution Conference `2013` `2014` `2015` `2016` `2017` `2018`
 ##   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
 ## 1 Nebraska    Big Ten    727466 638744 629983 631402 628583 623240</code></pre>
 <p>Or if we want to see schools that had more than half a million people buy tickets to a football game in a season, we do the following. NOTE THE BACKTICKS.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">500000</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">&gt;=</span><span class="st"> </span><span class="dv">500000</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 17 x 8
 ##    Institution    Conference `2013` `2014` `2015` `2016` `2017` `2018`
 ##    &lt;chr&gt;          &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -330,7 +332,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 16 Texas A&amp;M      SEC        697003 630735 725354 713418 691612 698908
 ## 17 Wisconsin      Big Ten    552378 556642 546099 476144 551766 540072</code></pre>
 <p>But what if we want to see all of the Power Five conferences? We <em>could</em> use conditional logic in our filter. The conditional logic operators are <code>|</code> for OR and <code>&amp;</code> for AND. NOTE: AND means all conditions have to be met. OR means any of the conditions work. So be careful about boolean logic.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">==</span><span class="st"> &quot;Big 10&quot;</span> <span class="op">|</span><span class="st"> </span>Conference <span class="op">==</span><span class="st"> &quot;SEC&quot;</span> <span class="op">|</span><span class="st"> </span>Conference <span class="op">==</span><span class="st"> &quot;Pac-12&quot;</span> <span class="op">|</span><span class="st"> </span>Conference <span class="op">==</span><span class="st"> &quot;ACC&quot;</span> <span class="op">|</span><span class="st"> </span>Conference <span class="op">==</span><span class="st"> &quot;Big 12&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">==</span><span class="st"> &quot;Big 10&quot;</span> <span class="op">|</span><span class="st"> </span>Conference <span class="op">==</span><span class="st"> &quot;SEC&quot;</span> <span class="op">|</span><span class="st"> </span>Conference <span class="op">==</span><span class="st"> &quot;Pac-12&quot;</span> <span class="op">|</span><span class="st"> </span>Conference <span class="op">==</span><span class="st"> &quot;ACC&quot;</span> <span class="op">|</span><span class="st"> </span>Conference <span class="op">==</span><span class="st"> &quot;Big 12&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 51 x 8
 ##    Institution    Conference `2013` `2014` `2015` `2016` `2017` `2018`
 ##    &lt;chr&gt;          &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -348,9 +350,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>But that’s a lot of repetitive code. And a lot of typing. And typing is the devil. So what if we could create a list and pass it into the filter? It’s pretty simple.</p>
 <p>We can create a new variable – remember variables can represent just about anything – and create a list. To do that we use the <code>c</code> operator, which stands for concatenate. That just means take all the stuff in the parenthesis after the c and bunch it into a list.</p>
 <p>Note here: text is in quotes. If they were numbers, we wouldn’t need the quotes.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1">powerfive &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SEC&quot;</span>, <span class="st">&quot;Big Ten&quot;</span>, <span class="st">&quot;Pac-12&quot;</span>, <span class="st">&quot;Big 12&quot;</span>, <span class="st">&quot;ACC&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">powerfive &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SEC&quot;</span>, <span class="st">&quot;Big Ten&quot;</span>, <span class="st">&quot;Pac-12&quot;</span>, <span class="st">&quot;Big 12&quot;</span>, <span class="st">&quot;ACC&quot;</span>)</a></code></pre></div>
 <p>Now with a list, we can use the %in% operator. It does what you think it does – it gives you data that matches things IN the list you give it.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">%in%</span><span class="st"> </span>powerfive)</a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">%in%</span><span class="st"> </span>powerfive)</a></code></pre></div>
 <pre><code>## # A tibble: 65 x 8
 ##    Institution    Conference `2013` `2014` `2015` `2016` `2017` `2018`
 ##    &lt;chr&gt;          &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -368,7 +370,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="selecting-data-to-make-it-easier-to-read" class="section level2">
 <h2><span class="header-section-number">6.1</span> Selecting data to make it easier to read</h2>
 <p>So now we have our Power Five list. What if we just wanted to see attendance from the most recent season and ignore all the rest? Select to the rescue.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">%in%</span><span class="st"> </span>powerfive) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Institution, Conference, <span class="st">`</span><span class="dt">2018</span><span class="st">`</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">%in%</span><span class="st"> </span>powerfive) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Institution, Conference, <span class="st">`</span><span class="dt">2018</span><span class="st">`</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 65 x 3
 ##    Institution    Conference `2018`
 ##    &lt;chr&gt;          &lt;chr&gt;       &lt;dbl&gt;
@@ -388,7 +390,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="using-conditional-filters-to-set-limits" class="section level2">
 <h2><span class="header-section-number">6.2</span> Using conditional filters to set limits</h2>
 <p>Let’s return to the blistering season of Drayton Whiteside using our dataset of <a href="https://unl.box.com/s/s1wzw61u9ia50qmirfhuvprgpmmah9rj">every college basketball player’s season stats in 2018-19 season</a>. How can we set limits in something like a question of who had the best season? Let’s get our Drayton Whiteside data from the previous chapter back up.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">players &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/players19.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1">players &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/players19.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -404,9 +406,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   Summary = col_character()
 ## )</code></pre>
 <pre><code>## See spec(...) for full column specifications.</code></pre>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1">players <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb90-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trueshooting =</span> (PTS<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>(FGA <span class="op">+</span><span class="st"> </span>(.<span class="dv">44</span><span class="op">*</span>FTA))))<span class="op">*</span><span class="dv">100</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb90-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(trueshooting))</a></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1">players <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb92-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trueshooting =</span> (PTS<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>(FGA <span class="op">+</span><span class="st"> </span>(.<span class="dv">44</span><span class="op">*</span>FTA))))<span class="op">*</span><span class="dv">100</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb92-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(trueshooting))</a></code></pre></div>
 <pre><code>## # A tibble: 5,386 x 60
 ##       X1 Team  Conference Player   `#` Class Pos   Height Weight Hometown
 ##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   
@@ -422,52 +424,50 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10   266 Wash… Pac-12     Reaga…    34 FR    F     6-6       225 Santa A…
 ## # … with 5,376 more rows, and 50 more variables: `High School` &lt;chr&gt;,
 ## #   Summary &lt;chr&gt;, Rk.x &lt;dbl&gt;, G &lt;dbl&gt;, GS &lt;dbl&gt;, MP &lt;dbl&gt;, FG &lt;dbl&gt;,
-## #   FGA &lt;dbl&gt;, `FG%` &lt;dbl&gt;, `2P` &lt;dbl&gt;, `2PA` &lt;dbl&gt;, `2P%` &lt;dbl&gt;,
-## #   `3P` &lt;dbl&gt;, `3PA` &lt;dbl&gt;, `3P%` &lt;dbl&gt;, FT &lt;dbl&gt;, FTA &lt;dbl&gt;,
-## #   `FT%` &lt;dbl&gt;, ORB &lt;dbl&gt;, DRB &lt;dbl&gt;, TRB &lt;dbl&gt;, AST &lt;dbl&gt;, STL &lt;dbl&gt;,
-## #   BLK &lt;dbl&gt;, TOV &lt;dbl&gt;, PF &lt;dbl&gt;, PTS &lt;dbl&gt;, Rk.y &lt;dbl&gt;, PER &lt;dbl&gt;,
-## #   `TS%` &lt;dbl&gt;, `eFG%` &lt;dbl&gt;, `3PAr` &lt;dbl&gt;, FTr &lt;dbl&gt;, PProd &lt;dbl&gt;,
-## #   `ORB%` &lt;dbl&gt;, `DRB%` &lt;dbl&gt;, `TRB%` &lt;dbl&gt;, `AST%` &lt;dbl&gt;, `STL%` &lt;dbl&gt;,
-## #   `BLK%` &lt;dbl&gt;, `TOV%` &lt;dbl&gt;, `USG%` &lt;dbl&gt;, OWS &lt;dbl&gt;, DWS &lt;dbl&gt;,
-## #   WS &lt;dbl&gt;, `WS/40` &lt;dbl&gt;, OBPM &lt;dbl&gt;, DBPM &lt;dbl&gt;, BPM &lt;dbl&gt;,
-## #   trueshooting &lt;dbl&gt;</code></pre>
-<p>In most contests like the batting title in Major League Baseball, there’s a minimum number of X to qualify. In baseball, it’s at bats. In basketball, it attempts. So let’s set a floor and see how it changes. What if we said you had to have attempted 100 shots in a season? The top shooters in college basketball attempt 1000 shots in a season. So 100 is not that much. Let’s try it and see.</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1">players <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb92-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trueshooting =</span> (PTS<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>(FGA <span class="op">+</span><span class="st"> </span>(.<span class="dv">44</span><span class="op">*</span>FTA))))<span class="op">*</span><span class="dv">100</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb92-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(trueshooting)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb92-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(FGA <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span>)</a></code></pre></div>
-<pre><code>## # A tibble: 2,469 x 60
+## #   FGA &lt;dbl&gt;, `FG%` &lt;dbl&gt;, `2P` &lt;dbl&gt;, `2PA` &lt;dbl&gt;, `2P%` &lt;dbl&gt;, `3P` &lt;dbl&gt;,
+## #   `3PA` &lt;dbl&gt;, `3P%` &lt;dbl&gt;, FT &lt;dbl&gt;, FTA &lt;dbl&gt;, `FT%` &lt;dbl&gt;, ORB &lt;dbl&gt;,
+## #   DRB &lt;dbl&gt;, TRB &lt;dbl&gt;, AST &lt;dbl&gt;, STL &lt;dbl&gt;, BLK &lt;dbl&gt;, TOV &lt;dbl&gt;, PF &lt;dbl&gt;,
+## #   PTS &lt;dbl&gt;, Rk.y &lt;dbl&gt;, PER &lt;dbl&gt;, `TS%` &lt;dbl&gt;, `eFG%` &lt;dbl&gt;, `3PAr` &lt;dbl&gt;,
+## #   FTr &lt;dbl&gt;, PProd &lt;dbl&gt;, `ORB%` &lt;dbl&gt;, `DRB%` &lt;dbl&gt;, `TRB%` &lt;dbl&gt;,
+## #   `AST%` &lt;dbl&gt;, `STL%` &lt;dbl&gt;, `BLK%` &lt;dbl&gt;, `TOV%` &lt;dbl&gt;, `USG%` &lt;dbl&gt;,
+## #   OWS &lt;dbl&gt;, DWS &lt;dbl&gt;, WS &lt;dbl&gt;, `WS/40` &lt;dbl&gt;, OBPM &lt;dbl&gt;, DBPM &lt;dbl&gt;,
+## #   BPM &lt;dbl&gt;, trueshooting &lt;dbl&gt;</code></pre>
+<p>In most contests like the batting title in Major League Baseball, there’s a minimum number of X to qualify. In baseball, it’s at bats. In basketball, it attempts. So let’s set a floor and see how it changes. What if we said you had to have played 100 minutes in a season? The top players in college basketball play more than 1000 minutes in a season. So 100 is not that much. Let’s try it and see.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">players <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trueshooting =</span> (PTS<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>(FGA <span class="op">+</span><span class="st"> </span>(.<span class="dv">44</span><span class="op">*</span>FTA))))<span class="op">*</span><span class="dv">100</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(trueshooting)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(MP <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 3,659 x 60
 ##       X1 Team  Conference Player   `#` Class Pos   Height Weight Hometown
 ##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   
-##  1  5175 Litt… Sun Belt   Kris …    32 SO    F     6-8       194 Dewitt,…
-##  2   570 Texa… Big 12     Jaxso…    10 FR    F     6-11      220 Lovelan…
-##  3  5040 Bayl… Big 12     Trist…    25 SO    F     6-9       240 San Ant…
-##  4  1600 Prin… Ivy        Richm…    34 JR    C     6-9       230 Ewing, …
-##  5  3557 Hofs… CAA        Jacqu…    23 SR    F     6-10      235 Cambrid…
-##  6   709 Texa… SEC        Josh …    32 JR    F     6-9       244 Houston…
-##  7  3314 Purd… Summit     Matt …    33 SO    G     6-1       180 New Con…
-##  8  2205 Norf… MEAC       Derri…    35 SR    G     6-5       180 Detroit…
-##  9  4140 Duke… ACC        Zion …     1 FR    F     6-7       285 Spartan…
-## 10  4219 Denv… Summit     David…     1 FR    F     6-9       240 Fort Wo…
-## # … with 2,459 more rows, and 50 more variables: `High School` &lt;chr&gt;,
+##  1  4634 Cent… Southland  Jorda…    33 JR    G     6-1       185 Harriso…
+##  2  3623 Hart… AEC        Max T…    20 SR    G     6-5       200 Rye, NY 
+##  3  2675 Mich… Big Ten    Thoma…    15 FR    F     6-8       225 Clarkst…
+##  4  5175 Litt… Sun Belt   Kris …    32 SO    F     6-8       194 Dewitt,…
+##  5  5205 Ariz… Pac-12     De&#39;Qu…    32 SR    F     6-10      225 St. Tho…
+##  6  4099 ETSU… Southern   Lucas…    25 JR    C     7-0       220 De Lier…
+##  7  3006 Loui… Sun Belt   Brand…     0 SR    G     6-4       180 Hawthor…
+##  8   570 Texa… Big 12     Jaxso…    10 FR    F     6-11      220 Lovelan…
+##  9  1704 Pepp… WCC        Victo…    34 FR    C     6-9       200 Owerri,…
+## 10  4056 East… MAC        Jalen…    30 SO    F     6-9       215 Pasco, …
+## # … with 3,649 more rows, and 50 more variables: `High School` &lt;chr&gt;,
 ## #   Summary &lt;chr&gt;, Rk.x &lt;dbl&gt;, G &lt;dbl&gt;, GS &lt;dbl&gt;, MP &lt;dbl&gt;, FG &lt;dbl&gt;,
-## #   FGA &lt;dbl&gt;, `FG%` &lt;dbl&gt;, `2P` &lt;dbl&gt;, `2PA` &lt;dbl&gt;, `2P%` &lt;dbl&gt;,
-## #   `3P` &lt;dbl&gt;, `3PA` &lt;dbl&gt;, `3P%` &lt;dbl&gt;, FT &lt;dbl&gt;, FTA &lt;dbl&gt;,
-## #   `FT%` &lt;dbl&gt;, ORB &lt;dbl&gt;, DRB &lt;dbl&gt;, TRB &lt;dbl&gt;, AST &lt;dbl&gt;, STL &lt;dbl&gt;,
-## #   BLK &lt;dbl&gt;, TOV &lt;dbl&gt;, PF &lt;dbl&gt;, PTS &lt;dbl&gt;, Rk.y &lt;dbl&gt;, PER &lt;dbl&gt;,
-## #   `TS%` &lt;dbl&gt;, `eFG%` &lt;dbl&gt;, `3PAr` &lt;dbl&gt;, FTr &lt;dbl&gt;, PProd &lt;dbl&gt;,
-## #   `ORB%` &lt;dbl&gt;, `DRB%` &lt;dbl&gt;, `TRB%` &lt;dbl&gt;, `AST%` &lt;dbl&gt;, `STL%` &lt;dbl&gt;,
-## #   `BLK%` &lt;dbl&gt;, `TOV%` &lt;dbl&gt;, `USG%` &lt;dbl&gt;, OWS &lt;dbl&gt;, DWS &lt;dbl&gt;,
-## #   WS &lt;dbl&gt;, `WS/40` &lt;dbl&gt;, OBPM &lt;dbl&gt;, DBPM &lt;dbl&gt;, BPM &lt;dbl&gt;,
-## #   trueshooting &lt;dbl&gt;</code></pre>
-<p>Now you get UALR Sophomore Kris Bankston, who played in 31 games and was on the floor for 670 minutes. So he played regularly. But in that time, he only attempted 134 shots, and made 81 percent of them. In other words, when he shot, he scored. He just rarely shot.</p>
-<p>So is 100 attempts our level? Here’s the truth – there’s not really an answer here. We’re picking a cutoff. If you can cite a reason for it and defend it, then it probably works.</p>
+## #   FGA &lt;dbl&gt;, `FG%` &lt;dbl&gt;, `2P` &lt;dbl&gt;, `2PA` &lt;dbl&gt;, `2P%` &lt;dbl&gt;, `3P` &lt;dbl&gt;,
+## #   `3PA` &lt;dbl&gt;, `3P%` &lt;dbl&gt;, FT &lt;dbl&gt;, FTA &lt;dbl&gt;, `FT%` &lt;dbl&gt;, ORB &lt;dbl&gt;,
+## #   DRB &lt;dbl&gt;, TRB &lt;dbl&gt;, AST &lt;dbl&gt;, STL &lt;dbl&gt;, BLK &lt;dbl&gt;, TOV &lt;dbl&gt;, PF &lt;dbl&gt;,
+## #   PTS &lt;dbl&gt;, Rk.y &lt;dbl&gt;, PER &lt;dbl&gt;, `TS%` &lt;dbl&gt;, `eFG%` &lt;dbl&gt;, `3PAr` &lt;dbl&gt;,
+## #   FTr &lt;dbl&gt;, PProd &lt;dbl&gt;, `ORB%` &lt;dbl&gt;, `DRB%` &lt;dbl&gt;, `TRB%` &lt;dbl&gt;,
+## #   `AST%` &lt;dbl&gt;, `STL%` &lt;dbl&gt;, `BLK%` &lt;dbl&gt;, `TOV%` &lt;dbl&gt;, `USG%` &lt;dbl&gt;,
+## #   OWS &lt;dbl&gt;, DWS &lt;dbl&gt;, WS &lt;dbl&gt;, `WS/40` &lt;dbl&gt;, OBPM &lt;dbl&gt;, DBPM &lt;dbl&gt;,
+## #   BPM &lt;dbl&gt;, trueshooting &lt;dbl&gt;</code></pre>
+<p>Now you get Central Arkansas Bears Junior Jordan Grant, who played in 25 games and was on the floor for 152 minutes. So he played regularly. But in that time, he only attempted 16 shots, and made 68 percent of them. In other words, when he shot, he probably scored. He just rarely shot.</p>
+<p>So is 100 minutes our level? Here’s the truth – there’s not really an answer here. We’re picking a cutoff. If you can cite a reason for it and defend it, then it probably works.</p>
 </div>
 <div id="top-list" class="section level2">
 <h2><span class="header-section-number">6.3</span> Top list</h2>
 <p>One last little dplyr trick that’s nice to have in the toolbox is a shortcut for selecting only the top values for your dataset. Want to make a Top 10 List? Or Top 25? Or Top Whatever You Want? It’s easy.</p>
 <p>So what are the top 10 Power Five schools by season attendance. All we’re doing here is chaining commands together with what we’ve already got. We’re <em>filtering</em> by our list of Power Five conferences, we’re <em>selecting</em> the three fields we need, now we’re going to <em>arrange</em> it by total attendance and then we’ll introduce the new function: <code>top_n</code>. The <code>top_n</code> function just takes a number. So we want a top 10 list? We do it like this:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">%in%</span><span class="st"> </span>powerfive) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Institution, Conference, <span class="st">`</span><span class="dt">2018</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(<span class="st">`</span><span class="dt">2018</span><span class="st">`</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">%in%</span><span class="st"> </span>powerfive) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Institution, Conference, <span class="st">`</span><span class="dt">2018</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(<span class="st">`</span><span class="dt">2018</span><span class="st">`</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>## Selecting by 2018</code></pre>
 <pre><code>## # A tibble: 10 x 3
 ##    Institution Conference `2018`
@@ -511,12 +511,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -528,6 +527,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Mutating data | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Mutating data | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -165,7 +165,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="filters-and-selections.html"><a href="filters-and-selections.html#top-list"><i class="fa fa-check"></i><b>6.3</b> Top list</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>7</b> Transforming data</a><ul>
-<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-wide-data-long"><i class="fa fa-check"></i><b>7.1</b> Making wide data long</a></li>
+<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-long-data-wide"><i class="fa fa-check"></i><b>7.1</b> Making long data wide</a></li>
 <li class="chapter" data-level="7.2" data-path="transforming-data.html"><a href="transforming-data.html#why-this-matters"><i class="fa fa-check"></i><b>7.2</b> Why this matters</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="simulations.html"><a href="simulations.html"><i class="fa fa-check"></i><b>8</b> Simulations</a><ul>
@@ -182,9 +182,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="z-scores.html"><a href="z-scores.html#calculating-a-z-score-in-r"><i class="fa fa-check"></i><b>12.1</b> Calculating a Z score in R</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html"><i class="fa fa-check"></i><b>13</b> Intro to ggplot</a><ul>
-<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.1</b> Scales</a></li>
-<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.2</b> Styling</a></li>
-<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.3</b> One last trick: coord flip</a></li>
+<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#the-bar-chart"><i class="fa fa-check"></i><b>13.1</b> The bar chart</a></li>
+<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.2</b> Scales</a></li>
+<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.3</b> Styling</a></li>
+<li class="chapter" data-level="13.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.4</b> One last trick: coord flip</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="stacked-bar-charts.html"><a href="stacked-bar-charts.html"><i class="fa fa-check"></i><b>14</b> Stacked bar charts</a></li>
 <li class="chapter" data-level="15" data-path="waffle-charts.html"><a href="waffle-charts.html"><i class="fa fa-check"></i><b>15</b> Waffle charts</a><ul>
@@ -272,11 +273,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Or new minus old divided by old. Your new number minus the old number, the result of which is divided by the old number. To do that in R, we can use <code>dplyr</code> and <code>mutate</code> to calculate new metrics in a new field using existing fields of data.</p>
 <p>So first we’ll import the tidyverse so we can read in our data and begin to work with it.</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ───────────────</code></pre>
-<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## ── Attaching packages ────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
+## ✓ tibble  2.1.3     ✓ dplyr   0.8.3
+## ✓ tidyr   1.0.0     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.4.0</code></pre>
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.2</code></pre>
@@ -284,11 +286,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ────────────────────────
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre><code>## ── Conflicts ───────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>Now we’ll import a common and <a href="https://unl.box.com/s/hvxmnxhr41x4ikgt3vk38aczcbrf97pn">simple dataset of total attendance</a> at NCAA football games over the last few seasons.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">attendance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;data/attendance.csv&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">attendance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;data/attendance.csv&#39;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Institution = col_character(),
@@ -300,7 +302,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   `2017` = col_double(),
 ##   `2018` = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">head</span>(attendance)</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="kw">head</span>(attendance)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 8
 ##   Institution     Conference      `2013` `2014` `2015` `2016` `2017` `2018`
 ##   &lt;chr&gt;           &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -311,58 +313,58 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Appalachian St. Sun Belt            NA 138995 128755 156916 154722 131716
 ## 6 Arizona         Pac-12          285713 354973 308355 338017 255791 318051</code></pre>
 <p>The code to calculate percent change is pretty simple. Remember, with <code>summarize</code>, we used <code>n()</code> to count things. With <code>mutate</code>, we use very similar syntax to calculate a new value using other values in our dataset. So in this case, we’re trying to do (new-old)/old, but we’re doing it with fields. If we look at what we got when we did <code>head</code>, you’ll see there’s `2018` as the new data, and we’ll use `2017` as the old data. So we’re looking at one year. Then, to help us, we’ll use arrange again to sort it, so we get the fastest growing school over one year.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb50-2" data-line-number="2">  <span class="dt">change =</span> (<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span></a>
-<a class="sourceLine" id="cb50-3" data-line-number="3">) </a></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb51-2" data-line-number="2">  <span class="dt">change =</span> (<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span></a>
+<a class="sourceLine" id="cb51-3" data-line-number="3">) </a></code></pre></div>
 <pre><code>## # A tibble: 150 x 9
-##    Institution Conference `2013` `2014` `2015` `2016` `2017` `2018`
-##    &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-##  1 Air Force   MWC        228562 168967 156158 177519 174924 166205
-##  2 Akron       MAC        107101  55019 108588  62021 117416  92575
-##  3 Alabama     SEC        710538 710736 707786 712747 712053 710931
-##  4 Appalachia… FBS Indep… 149366     NA     NA     NA     NA     NA
-##  5 Appalachia… Sun Belt       NA 138995 128755 156916 154722 131716
-##  6 Arizona     Pac-12     285713 354973 308355 338017 255791 318051
-##  7 Arizona St. Pac-12     501509 343073 368985 286417 359660 291091
-##  8 Arkansas    SEC        431174 399124 471279 487067 442569 367748
-##  9 Arkansas S… Sun Belt   149477 149163 138043 136200 119538 119001
-## 10 Army West … FBS Indep… 169781 171310 185946 163267 185543 190156
-## # … with 140 more rows, and 1 more variable: change &lt;dbl&gt;</code></pre>
+##    Institution   Conference   `2013` `2014` `2015` `2016` `2017` `2018`   change
+##    &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Air Force     MWC          228562 168967 156158 177519 174924 166205 -0.0498 
+##  2 Akron         MAC          107101  55019 108588  62021 117416  92575 -0.212  
+##  3 Alabama       SEC          710538 710736 707786 712747 712053 710931 -0.00158
+##  4 Appalachian … FBS Indepen… 149366     NA     NA     NA     NA     NA NA      
+##  5 Appalachian … Sun Belt         NA 138995 128755 156916 154722 131716 -0.149  
+##  6 Arizona       Pac-12       285713 354973 308355 338017 255791 318051  0.243  
+##  7 Arizona St.   Pac-12       501509 343073 368985 286417 359660 291091 -0.191  
+##  8 Arkansas      SEC          431174 399124 471279 487067 442569 367748 -0.169  
+##  9 Arkansas St.  Sun Belt     149477 149163 138043 136200 119538 119001 -0.00449
+## 10 Army West Po… FBS Indepen… 169781 171310 185946 163267 185543 190156  0.0249 
+## # … with 140 more rows</code></pre>
 <p>What do we see right away? Do those numbers look like we expect them to? No. They’re a decimal expressed as a percentage. So let’s fix that by multiplying by 100.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb52-2" data-line-number="2">  <span class="dt">change =</span> ((<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb52-3" data-line-number="3">) </a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb53-2" data-line-number="2">  <span class="dt">change =</span> ((<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb53-3" data-line-number="3">) </a></code></pre></div>
 <pre><code>## # A tibble: 150 x 9
-##    Institution Conference `2013` `2014` `2015` `2016` `2017` `2018`  change
-##    &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Air Force   MWC        228562 168967 156158 177519 174924 166205  -4.98 
-##  2 Akron       MAC        107101  55019 108588  62021 117416  92575 -21.2  
-##  3 Alabama     SEC        710538 710736 707786 712747 712053 710931  -0.158
-##  4 Appalachia… FBS Indep… 149366     NA     NA     NA     NA     NA  NA    
-##  5 Appalachia… Sun Belt       NA 138995 128755 156916 154722 131716 -14.9  
-##  6 Arizona     Pac-12     285713 354973 308355 338017 255791 318051  24.3  
-##  7 Arizona St. Pac-12     501509 343073 368985 286417 359660 291091 -19.1  
-##  8 Arkansas    SEC        431174 399124 471279 487067 442569 367748 -16.9  
-##  9 Arkansas S… Sun Belt   149477 149163 138043 136200 119538 119001  -0.449
-## 10 Army West … FBS Indep… 169781 171310 185946 163267 185543 190156   2.49 
+##    Institution    Conference   `2013` `2014` `2015` `2016` `2017` `2018`  change
+##    &lt;chr&gt;          &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Air Force      MWC          228562 168967 156158 177519 174924 166205  -4.98 
+##  2 Akron          MAC          107101  55019 108588  62021 117416  92575 -21.2  
+##  3 Alabama        SEC          710538 710736 707786 712747 712053 710931  -0.158
+##  4 Appalachian S… FBS Indepen… 149366     NA     NA     NA     NA     NA  NA    
+##  5 Appalachian S… Sun Belt         NA 138995 128755 156916 154722 131716 -14.9  
+##  6 Arizona        Pac-12       285713 354973 308355 338017 255791 318051  24.3  
+##  7 Arizona St.    Pac-12       501509 343073 368985 286417 359660 291091 -19.1  
+##  8 Arkansas       SEC          431174 399124 471279 487067 442569 367748 -16.9  
+##  9 Arkansas St.   Sun Belt     149477 149163 138043 136200 119538 119001  -0.449
+## 10 Army West Poi… FBS Indepen… 169781 171310 185946 163267 185543 190156   2.49 
 ## # … with 140 more rows</code></pre>
 <p>Now, does this ordering do anything for us? No. Let’s fix that with arrange.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb54-2" data-line-number="2">  <span class="dt">change =</span> ((<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb54-3" data-line-number="3">) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(change))</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb55-2" data-line-number="2">  <span class="dt">change =</span> ((<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb55-3" data-line-number="3">) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(change))</a></code></pre></div>
 <pre><code>## # A tibble: 150 x 9
-##    Institution  Conference `2013` `2014` `2015` `2016` `2017` `2018` change
-##    &lt;chr&gt;        &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-##  1 Ga. Southern Sun Belt       NA 105510 124681 104095  61031 100814   65.2
-##  2 La.-Monroe   Sun Belt    85177  90540  58659  67057  49640  71048   43.1
-##  3 Louisiana    Sun Belt   129878 154652 129577 121346  78754 111303   41.3
-##  4 Hawaii       MWC        185931 192159 164031 170299 145463 205455   41.2
-##  5 Buffalo      MAC        136418 122418 110743 104957  80102 110280   37.7
-##  6 California   Pac-12     345303 286051 292797 279769 219290 300061   36.8
-##  7 UCF          AAC        252505 226869 180388 214814 257924 352148   36.5
-##  8 UTSA         C-USA      175282 165458 138048 138226 114104 148257   29.9
-##  9 Eastern Mic… MAC         20255  75127  29381 106064  73649  95632   29.8
-## 10 Louisville   ACC            NA 317829 294413 324391 276957 351755   27.0
+##    Institution   Conference `2013` `2014` `2015` `2016` `2017` `2018` change
+##    &lt;chr&gt;         &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Ga. Southern  Sun Belt       NA 105510 124681 104095  61031 100814   65.2
+##  2 La.-Monroe    Sun Belt    85177  90540  58659  67057  49640  71048   43.1
+##  3 Louisiana     Sun Belt   129878 154652 129577 121346  78754 111303   41.3
+##  4 Hawaii        MWC        185931 192159 164031 170299 145463 205455   41.2
+##  5 Buffalo       MAC        136418 122418 110743 104957  80102 110280   37.7
+##  6 California    Pac-12     345303 286051 292797 279769 219290 300061   36.8
+##  7 UCF           AAC        252505 226869 180388 214814 257924 352148   36.5
+##  8 UTSA          C-USA      175282 165458 138048 138226 114104 148257   29.9
+##  9 Eastern Mich. MAC         20255  75127  29381 106064  73649  95632   29.8
+## 10 Louisville    ACC            NA 317829 294413 324391 276957 351755   27.0
 ## # … with 140 more rows</code></pre>
 <p>So who had the most growth last year from the year before? Something going on at Georgia Southern.</p>
 <div id="a-more-complex-example" class="section level2">
@@ -370,7 +372,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>There’s metric in basketball that’s easy to understand – shooting percentage. It’s the number of shots made divided by the number of shots attempted. Simple, right? Except it’s a little too simple. Because what about three point shooters? They tend to be more vailable because the three point shot is worth more. What about players who get to the line? In shooting percentage, free throws are nowhere to be found.</p>
 <p>Basketball nerds, because of these weaknesses, have created a new metric called <a href="https://en.wikipedia.org/wiki/True_shooting_percentage">True Shooting Percentage</a>. True shooting percentage takes into account all aspects of a players shooting to determine who the real shooters are.</p>
 <p>Using <code>dplyr</code> and <code>mutate</code>, we can calculate true shooting percentage. So let’s look at a new dataset, one of <a href="https://unl.box.com/s/s1wzw61u9ia50qmirfhuvprgpmmah9rj">every college basketball player’s season stats in 2018-19 season</a>. It’s a dataset of 5,386 players, and we’ve got 59 variables – one of them is True Shooting Percentage, but we’re going to ignore that.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1">players &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/players19.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">players &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/players19.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -391,9 +393,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/environment.png" width="653" /></p>
 <p>So what does True Shooting Percentage look like in code?</p>
 <p>Let’s think about this differently. Who had the best true shooting season last year?</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">players <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb60-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trueshooting =</span> (PTS<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>(FGA <span class="op">+</span><span class="st"> </span>(.<span class="dv">44</span><span class="op">*</span>FTA))))<span class="op">*</span><span class="dv">100</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb60-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(trueshooting))</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">players <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trueshooting =</span> (PTS<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>(FGA <span class="op">+</span><span class="st"> </span>(.<span class="dv">44</span><span class="op">*</span>FTA))))<span class="op">*</span><span class="dv">100</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb61-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(trueshooting))</a></code></pre></div>
 <pre><code>## # A tibble: 5,386 x 60
 ##       X1 Team  Conference Player   `#` Class Pos   Height Weight Hometown
 ##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   
@@ -409,15 +411,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10   266 Wash… Pac-12     Reaga…    34 FR    F     6-6       225 Santa A…
 ## # … with 5,376 more rows, and 50 more variables: `High School` &lt;chr&gt;,
 ## #   Summary &lt;chr&gt;, Rk.x &lt;dbl&gt;, G &lt;dbl&gt;, GS &lt;dbl&gt;, MP &lt;dbl&gt;, FG &lt;dbl&gt;,
-## #   FGA &lt;dbl&gt;, `FG%` &lt;dbl&gt;, `2P` &lt;dbl&gt;, `2PA` &lt;dbl&gt;, `2P%` &lt;dbl&gt;,
-## #   `3P` &lt;dbl&gt;, `3PA` &lt;dbl&gt;, `3P%` &lt;dbl&gt;, FT &lt;dbl&gt;, FTA &lt;dbl&gt;,
-## #   `FT%` &lt;dbl&gt;, ORB &lt;dbl&gt;, DRB &lt;dbl&gt;, TRB &lt;dbl&gt;, AST &lt;dbl&gt;, STL &lt;dbl&gt;,
-## #   BLK &lt;dbl&gt;, TOV &lt;dbl&gt;, PF &lt;dbl&gt;, PTS &lt;dbl&gt;, Rk.y &lt;dbl&gt;, PER &lt;dbl&gt;,
-## #   `TS%` &lt;dbl&gt;, `eFG%` &lt;dbl&gt;, `3PAr` &lt;dbl&gt;, FTr &lt;dbl&gt;, PProd &lt;dbl&gt;,
-## #   `ORB%` &lt;dbl&gt;, `DRB%` &lt;dbl&gt;, `TRB%` &lt;dbl&gt;, `AST%` &lt;dbl&gt;, `STL%` &lt;dbl&gt;,
-## #   `BLK%` &lt;dbl&gt;, `TOV%` &lt;dbl&gt;, `USG%` &lt;dbl&gt;, OWS &lt;dbl&gt;, DWS &lt;dbl&gt;,
-## #   WS &lt;dbl&gt;, `WS/40` &lt;dbl&gt;, OBPM &lt;dbl&gt;, DBPM &lt;dbl&gt;, BPM &lt;dbl&gt;,
-## #   trueshooting &lt;dbl&gt;</code></pre>
+## #   FGA &lt;dbl&gt;, `FG%` &lt;dbl&gt;, `2P` &lt;dbl&gt;, `2PA` &lt;dbl&gt;, `2P%` &lt;dbl&gt;, `3P` &lt;dbl&gt;,
+## #   `3PA` &lt;dbl&gt;, `3P%` &lt;dbl&gt;, FT &lt;dbl&gt;, FTA &lt;dbl&gt;, `FT%` &lt;dbl&gt;, ORB &lt;dbl&gt;,
+## #   DRB &lt;dbl&gt;, TRB &lt;dbl&gt;, AST &lt;dbl&gt;, STL &lt;dbl&gt;, BLK &lt;dbl&gt;, TOV &lt;dbl&gt;, PF &lt;dbl&gt;,
+## #   PTS &lt;dbl&gt;, Rk.y &lt;dbl&gt;, PER &lt;dbl&gt;, `TS%` &lt;dbl&gt;, `eFG%` &lt;dbl&gt;, `3PAr` &lt;dbl&gt;,
+## #   FTr &lt;dbl&gt;, PProd &lt;dbl&gt;, `ORB%` &lt;dbl&gt;, `DRB%` &lt;dbl&gt;, `TRB%` &lt;dbl&gt;,
+## #   `AST%` &lt;dbl&gt;, `STL%` &lt;dbl&gt;, `BLK%` &lt;dbl&gt;, `TOV%` &lt;dbl&gt;, `USG%` &lt;dbl&gt;,
+## #   OWS &lt;dbl&gt;, DWS &lt;dbl&gt;, WS &lt;dbl&gt;, `WS/40` &lt;dbl&gt;, OBPM &lt;dbl&gt;, DBPM &lt;dbl&gt;,
+## #   BPM &lt;dbl&gt;, trueshooting &lt;dbl&gt;</code></pre>
 <p>You’ll be forgiven if you did not hear about Texas Longhorns shooting sensation Drayton Whiteside. He played in six games, took one shot and actually hit it. It happened to be a three pointer, which is one more three pointer than I’ve hit in college basketball. So props to him. Does that mean he had the best true shooting season in college basketball last year? Not hardly.</p>
 <p>We’ll talk about how to narrow the pile and filter out data in the next chapter.</p>
 
@@ -448,12 +449,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -465,6 +465,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

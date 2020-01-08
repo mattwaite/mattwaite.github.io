@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>29 Finishing Touches 2 | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="29 Finishing Touches 2 | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -165,7 +165,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="filters-and-selections.html"><a href="filters-and-selections.html#top-list"><i class="fa fa-check"></i><b>6.3</b> Top list</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>7</b> Transforming data</a><ul>
-<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-wide-data-long"><i class="fa fa-check"></i><b>7.1</b> Making wide data long</a></li>
+<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-long-data-wide"><i class="fa fa-check"></i><b>7.1</b> Making long data wide</a></li>
 <li class="chapter" data-level="7.2" data-path="transforming-data.html"><a href="transforming-data.html#why-this-matters"><i class="fa fa-check"></i><b>7.2</b> Why this matters</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="simulations.html"><a href="simulations.html"><i class="fa fa-check"></i><b>8</b> Simulations</a><ul>
@@ -182,9 +182,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="z-scores.html"><a href="z-scores.html#calculating-a-z-score-in-r"><i class="fa fa-check"></i><b>12.1</b> Calculating a Z score in R</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html"><i class="fa fa-check"></i><b>13</b> Intro to ggplot</a><ul>
-<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.1</b> Scales</a></li>
-<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.2</b> Styling</a></li>
-<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.3</b> One last trick: coord flip</a></li>
+<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#the-bar-chart"><i class="fa fa-check"></i><b>13.1</b> The bar chart</a></li>
+<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.2</b> Scales</a></li>
+<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.3</b> Styling</a></li>
+<li class="chapter" data-level="13.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.4</b> One last trick: coord flip</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="stacked-bar-charts.html"><a href="stacked-bar-charts.html"><i class="fa fa-check"></i><b>14</b> Stacked bar charts</a></li>
 <li class="chapter" data-level="15" data-path="waffle-charts.html"><a href="waffle-charts.html"><i class="fa fa-check"></i><b>15</b> Waffle charts</a><ul>
@@ -268,32 +269,32 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="finishing-touches-2" class="section level1">
 <h1><span class="header-section-number">29</span> Finishing Touches 2</h1>
 <p>Frequently in my classes, students use the waffle charts library quite extensively to make graphics. This is a quick walkthough on how to get a waffle chart into a publication ready state.</p>
-<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb684-1" data-line-number="1"><span class="kw">library</span>(waffle)</a></code></pre></div>
+<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb697-1" data-line-number="1"><span class="kw">library</span>(waffle)</a></code></pre></div>
 <pre><code>## Loading required package: ggplot2</code></pre>
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
 <p>Let’s look at the offensive numbers from Nebraska v. Wisconsin football game. Nebraska lost 41-24, but Wisconsin gained only 15 yards more than Nebraska did. You can find the <a href="https://www.ncaa.com/game/football/fbs/2018/10/06/nebraska-wisconsin/team-stats">official stats on the NCAA’s website</a>.</p>
 <p>I’m going to make two vectors for each team and record rushing yards and passing yards.</p>
-<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb687-1" data-line-number="1">nu &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Rushing&quot;</span>=<span class="dv">111</span>, <span class="st">&quot;Passing&quot;</span>=<span class="dv">407</span>, <span class="dv">15</span>)</a>
-<a class="sourceLine" id="cb687-2" data-line-number="2">wi &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Rushing&quot;</span>=<span class="dv">370</span>, <span class="st">&quot;Passing&quot;</span>=<span class="dv">163</span>, <span class="dv">0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb700-1" data-line-number="1">nu &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Rushing&quot;</span>=<span class="dv">111</span>, <span class="st">&quot;Passing&quot;</span>=<span class="dv">407</span>, <span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb700-2" data-line-number="2">wi &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Rushing&quot;</span>=<span class="dv">370</span>, <span class="st">&quot;Passing&quot;</span>=<span class="dv">163</span>, <span class="dv">0</span>)</a></code></pre></div>
 <p>So what does the breakdown of Nebraska’s night look like? How balanced was the offense?</p>
 <p>The waffle library can break this down in a way that’s easier on the eyes than a pie chart. We call the library, add the data, specify the number of rows, give it a title and an x value label, and to clean up a quirk of the library, we’ve got to specify colors.</p>
 <p><strong>ADDITIONALLY</strong></p>
 <p>We can add labels and themes, but you have to be careful. The waffle library is applying it’s own theme, but if we override something they are using in their theme, some things that are hidden come back and make it worse. So here is an example of how to use ggplot’s <code>labs</code> and the theme to make a fully publication ready graphic.</p>
-<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb688-1" data-line-number="1"><span class="kw">waffle</span>(nu<span class="op">/</span><span class="dv">10</span>, <span class="dt">rows =</span> <span class="dv">5</span>, <span class="dt">xlab=</span><span class="st">&quot;1 square = 10 yards&quot;</span>, <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Nebraska vs Wisconsin on offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Huskers couldn&#39;t get much of a running game going.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | Graphic by Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb688-2" data-line-number="2"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb688-3" data-line-number="3">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb688-4" data-line-number="4">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb688-5" data-line-number="5">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>()</a>
-<a class="sourceLine" id="cb688-6" data-line-number="6">  )</a></code></pre></div>
+<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb701-1" data-line-number="1"><span class="kw">waffle</span>(nu<span class="op">/</span><span class="dv">10</span>, <span class="dt">rows =</span> <span class="dv">5</span>, <span class="dt">xlab=</span><span class="st">&quot;1 square = 10 yards&quot;</span>, <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Nebraska vs Wisconsin on offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Huskers couldn&#39;t get much of a running game going.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | Graphic by Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb701-2" data-line-number="2"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb701-3" data-line-number="3">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
+<a class="sourceLine" id="cb701-4" data-line-number="4">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb701-5" data-line-number="5">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>()</a>
+<a class="sourceLine" id="cb701-6" data-line-number="6">  )</a></code></pre></div>
 <p><img src="28-finishingtouches2_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Note: The alignment of text sucks.</p>
 <p>How to fix that? We can use ggsave to a pdf and fix it in Illustrator.</p>
-<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb689-1" data-line-number="1"><span class="kw">waffle</span>(nu<span class="op">/</span><span class="dv">10</span>, <span class="dt">rows =</span> <span class="dv">5</span>, <span class="dt">xlab=</span><span class="st">&quot;1 square = 10 yards&quot;</span>, <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Nebraska vs Wisconsin on offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Huskers couldn&#39;t get much of a running game going.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | Graphic by Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb689-2" data-line-number="2"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb689-3" data-line-number="3">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb689-4" data-line-number="4">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb689-5" data-line-number="5">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>()</a>
-<a class="sourceLine" id="cb689-6" data-line-number="6">  ) <span class="op">+</span><span class="st"> </span><span class="kw">ggsave</span>(<span class="st">&quot;waffle.pdf&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb702-1" data-line-number="1"><span class="kw">waffle</span>(nu<span class="op">/</span><span class="dv">10</span>, <span class="dt">rows =</span> <span class="dv">5</span>, <span class="dt">xlab=</span><span class="st">&quot;1 square = 10 yards&quot;</span>, <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Nebraska vs Wisconsin on offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Huskers couldn&#39;t get much of a running game going.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | Graphic by Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb702-2" data-line-number="2"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb702-3" data-line-number="3">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
+<a class="sourceLine" id="cb702-4" data-line-number="4">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb702-5" data-line-number="5">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>()</a>
+<a class="sourceLine" id="cb702-6" data-line-number="6">  ) <span class="op">+</span><span class="st"> </span><span class="kw">ggsave</span>(<span class="st">&quot;waffle.pdf&quot;</span>)</a></code></pre></div>
 <p>But what if we’re using a waffle iron? And what if we want to change the output size? It gets tougher.</p>
 <p>Truth is, I’m not sure what is going on with the sizing. You can try it and you’ll find that the outputs are … unpredictable.</p>
 <p>Things you need to know about waffle irons:</p>
@@ -303,45 +304,45 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Using ggsave doesn’t work either. So you’ll have to use R’s pdf output.</li>
 </ul>
 <p>Here is a full example. I start with my waffle iron code, but note that each waffle is pretty much a self contained thing. That’s because a waffle iron isn’t really a thing. It’s just a way to group waffles together, so you have to make each waffle individually. My first waffle has the title and subtitle but no x axis labels and the bottom one has not title or subtitle but the axis labels and the caption.</p>
-<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb690-1" data-line-number="1"><span class="kw">iron</span>(</a>
-<a class="sourceLine" id="cb690-2" data-line-number="2"> <span class="kw">waffle</span>(</a>
-<a class="sourceLine" id="cb690-3" data-line-number="3">   nu<span class="op">/</span><span class="dv">10</span>, </a>
-<a class="sourceLine" id="cb690-4" data-line-number="4">   <span class="dt">rows =</span> <span class="dv">2</span>, </a>
-<a class="sourceLine" id="cb690-5" data-line-number="5">   <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb690-6" data-line-number="6"><span class="st">   </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Nebraska vs Wisconsin: By the numbers&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Huskers couldn&#39;t run, Wisconsin could.&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb690-7" data-line-number="7"><span class="st">   </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb690-8" data-line-number="8">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb690-9" data-line-number="9">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb690-10" data-line-number="10">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>()</a>
-<a class="sourceLine" id="cb690-11" data-line-number="11">  ),</a>
-<a class="sourceLine" id="cb690-12" data-line-number="12"> <span class="kw">waffle</span>(</a>
-<a class="sourceLine" id="cb690-13" data-line-number="13">   wi<span class="op">/</span><span class="dv">10</span>, </a>
-<a class="sourceLine" id="cb690-14" data-line-number="14">   <span class="dt">rows =</span> <span class="dv">2</span>, </a>
-<a class="sourceLine" id="cb690-15" data-line-number="15">   <span class="dt">xlab=</span><span class="st">&quot;1 square = 10 yards&quot;</span>, </a>
-<a class="sourceLine" id="cb690-16" data-line-number="16">   <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">caption=</span><span class="st">&quot;Source: NCAA | Graphic by Matt Waite&quot;</span>)</a>
-<a class="sourceLine" id="cb690-17" data-line-number="17">) </a></code></pre></div>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb703-1" data-line-number="1"><span class="kw">iron</span>(</a>
+<a class="sourceLine" id="cb703-2" data-line-number="2"> <span class="kw">waffle</span>(</a>
+<a class="sourceLine" id="cb703-3" data-line-number="3">   nu<span class="op">/</span><span class="dv">10</span>, </a>
+<a class="sourceLine" id="cb703-4" data-line-number="4">   <span class="dt">rows =</span> <span class="dv">2</span>, </a>
+<a class="sourceLine" id="cb703-5" data-line-number="5">   <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb703-6" data-line-number="6"><span class="st">   </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Nebraska vs Wisconsin: By the numbers&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Huskers couldn&#39;t run, Wisconsin could.&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb703-7" data-line-number="7"><span class="st">   </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb703-8" data-line-number="8">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
+<a class="sourceLine" id="cb703-9" data-line-number="9">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb703-10" data-line-number="10">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>()</a>
+<a class="sourceLine" id="cb703-11" data-line-number="11">  ),</a>
+<a class="sourceLine" id="cb703-12" data-line-number="12"> <span class="kw">waffle</span>(</a>
+<a class="sourceLine" id="cb703-13" data-line-number="13">   wi<span class="op">/</span><span class="dv">10</span>, </a>
+<a class="sourceLine" id="cb703-14" data-line-number="14">   <span class="dt">rows =</span> <span class="dv">2</span>, </a>
+<a class="sourceLine" id="cb703-15" data-line-number="15">   <span class="dt">xlab=</span><span class="st">&quot;1 square = 10 yards&quot;</span>, </a>
+<a class="sourceLine" id="cb703-16" data-line-number="16">   <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">caption=</span><span class="st">&quot;Source: NCAA | Graphic by Matt Waite&quot;</span>)</a>
+<a class="sourceLine" id="cb703-17" data-line-number="17">) </a></code></pre></div>
 <p><img src="28-finishingtouches2_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>If you try to use ggsave on that, you’ll only get the last waffle chart. Like I said, irons aren’t really anything, so ggplot ignores them. So to do this, we have to use R’s pdf capability.</p>
 <p>Here’s the same code, but wrapped in the R pdf functions. The first line says we’re going to output this as a pdf with this name. Then my code, then <code>dev.off</code> to tell R that’s what I want as a PDF. Don’t forget that.</p>
-<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb691-1" data-line-number="1"><span class="kw">pdf</span>(<span class="st">&quot;waffleiron.pdf&quot;</span>)</a>
-<a class="sourceLine" id="cb691-2" data-line-number="2"><span class="kw">iron</span>(</a>
-<a class="sourceLine" id="cb691-3" data-line-number="3"> <span class="kw">waffle</span>(</a>
-<a class="sourceLine" id="cb691-4" data-line-number="4">   nu<span class="op">/</span><span class="dv">10</span>, </a>
-<a class="sourceLine" id="cb691-5" data-line-number="5">   <span class="dt">rows =</span> <span class="dv">2</span>, </a>
-<a class="sourceLine" id="cb691-6" data-line-number="6">   <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb691-7" data-line-number="7"><span class="st">   </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Nebraska vs Wisconsin: By the numbers&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Huskers couldn&#39;t run, Wisconsin could.&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb691-8" data-line-number="8"><span class="st">   </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb691-9" data-line-number="9">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb691-10" data-line-number="10">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb691-11" data-line-number="11">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>()</a>
-<a class="sourceLine" id="cb691-12" data-line-number="12">  ),</a>
-<a class="sourceLine" id="cb691-13" data-line-number="13"> <span class="kw">waffle</span>(</a>
-<a class="sourceLine" id="cb691-14" data-line-number="14">   wi<span class="op">/</span><span class="dv">10</span>, </a>
-<a class="sourceLine" id="cb691-15" data-line-number="15">   <span class="dt">rows =</span> <span class="dv">2</span>, </a>
-<a class="sourceLine" id="cb691-16" data-line-number="16">   <span class="dt">xlab=</span><span class="st">&quot;1 square = 10 yards&quot;</span>, </a>
-<a class="sourceLine" id="cb691-17" data-line-number="17">   <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">caption=</span><span class="st">&quot;Source: NCAA | Graphic by Matt Waite&quot;</span>)</a>
-<a class="sourceLine" id="cb691-18" data-line-number="18">) </a>
-<a class="sourceLine" id="cb691-19" data-line-number="19"><span class="kw">dev.off</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb704-1" data-line-number="1"><span class="kw">pdf</span>(<span class="st">&quot;waffleiron.pdf&quot;</span>)</a>
+<a class="sourceLine" id="cb704-2" data-line-number="2"><span class="kw">iron</span>(</a>
+<a class="sourceLine" id="cb704-3" data-line-number="3"> <span class="kw">waffle</span>(</a>
+<a class="sourceLine" id="cb704-4" data-line-number="4">   nu<span class="op">/</span><span class="dv">10</span>, </a>
+<a class="sourceLine" id="cb704-5" data-line-number="5">   <span class="dt">rows =</span> <span class="dv">2</span>, </a>
+<a class="sourceLine" id="cb704-6" data-line-number="6">   <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb704-7" data-line-number="7"><span class="st">   </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Nebraska vs Wisconsin: By the numbers&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Huskers couldn&#39;t run, Wisconsin could.&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb704-8" data-line-number="8"><span class="st">   </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb704-9" data-line-number="9">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
+<a class="sourceLine" id="cb704-10" data-line-number="10">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb704-11" data-line-number="11">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>()</a>
+<a class="sourceLine" id="cb704-12" data-line-number="12">  ),</a>
+<a class="sourceLine" id="cb704-13" data-line-number="13"> <span class="kw">waffle</span>(</a>
+<a class="sourceLine" id="cb704-14" data-line-number="14">   wi<span class="op">/</span><span class="dv">10</span>, </a>
+<a class="sourceLine" id="cb704-15" data-line-number="15">   <span class="dt">rows =</span> <span class="dv">2</span>, </a>
+<a class="sourceLine" id="cb704-16" data-line-number="16">   <span class="dt">xlab=</span><span class="st">&quot;1 square = 10 yards&quot;</span>, </a>
+<a class="sourceLine" id="cb704-17" data-line-number="17">   <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">caption=</span><span class="st">&quot;Source: NCAA | Graphic by Matt Waite&quot;</span>)</a>
+<a class="sourceLine" id="cb704-18" data-line-number="18">) </a>
+<a class="sourceLine" id="cb704-19" data-line-number="19"><span class="kw">dev.off</span>()</a></code></pre></div>
 <p>It probably still needs work in Illustrator, but less than before.</p>
 
 </div>
@@ -370,12 +371,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -387,6 +387,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

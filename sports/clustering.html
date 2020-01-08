@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>31 Clustering | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="31 Clustering | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -165,7 +165,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="filters-and-selections.html"><a href="filters-and-selections.html#top-list"><i class="fa fa-check"></i><b>6.3</b> Top list</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>7</b> Transforming data</a><ul>
-<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-wide-data-long"><i class="fa fa-check"></i><b>7.1</b> Making wide data long</a></li>
+<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-long-data-wide"><i class="fa fa-check"></i><b>7.1</b> Making long data wide</a></li>
 <li class="chapter" data-level="7.2" data-path="transforming-data.html"><a href="transforming-data.html#why-this-matters"><i class="fa fa-check"></i><b>7.2</b> Why this matters</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="simulations.html"><a href="simulations.html"><i class="fa fa-check"></i><b>8</b> Simulations</a><ul>
@@ -182,9 +182,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="z-scores.html"><a href="z-scores.html#calculating-a-z-score-in-r"><i class="fa fa-check"></i><b>12.1</b> Calculating a Z score in R</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html"><i class="fa fa-check"></i><b>13</b> Intro to ggplot</a><ul>
-<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.1</b> Scales</a></li>
-<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.2</b> Styling</a></li>
-<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.3</b> One last trick: coord flip</a></li>
+<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#the-bar-chart"><i class="fa fa-check"></i><b>13.1</b> The bar chart</a></li>
+<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.2</b> Scales</a></li>
+<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.3</b> Styling</a></li>
+<li class="chapter" data-level="13.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.4</b> One last trick: coord flip</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="stacked-bar-charts.html"><a href="stacked-bar-charts.html"><i class="fa fa-check"></i><b>14</b> Stacked bar charts</a></li>
 <li class="chapter" data-level="15" data-path="waffle-charts.html"><a href="waffle-charts.html"><i class="fa fa-check"></i><b>15</b> Waffle charts</a><ul>
@@ -274,12 +275,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>For this exercise, I want to look at Cam Mack, Nebraska’s point guard and probably the most interesting player on Fred Hoiberg’s first team. This is Mack’s first year in major college basketball – he played a year at a community college – so we don’t have much to go on. But with three games in the books, who does Cam Mack compare to?</p>
 <p>To answer this, we’ll use k-means clustering.</p>
 <p>First thing we do is load some libraries and set a seed, so if we run this repeatedly, our random numbers are generated from the same base. If you don’t have the cluster library, just add it on the console with <code>install.packages(&quot;cluster&quot;)</code></p>
-<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb725-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ───────────────</code></pre>
-<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb739-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## ── Attaching packages ────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
+## ✓ tibble  2.1.3     ✓ dplyr   0.8.3
+## ✓ tidyr   1.0.0     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.4.0</code></pre>
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.2</code></pre>
@@ -287,14 +289,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ────────────────────────
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb736-1" data-line-number="1"><span class="kw">library</span>(cluster)</a></code></pre></div>
+<pre><code>## ── Conflicts ───────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb751-1" data-line-number="1"><span class="kw">library</span>(cluster)</a></code></pre></div>
 <pre><code>## Warning: package &#39;cluster&#39; was built under R version 3.5.2</code></pre>
-<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb738-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1234</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb753-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1234</span>)</a></code></pre></div>
 <p>I’ve gone and scraped <a href="https://unl.box.com/s/0g56ve61y6hakyxzr1u4t534721bqvg8">stats for every player in this current season</a> so let’s load that up.</p>
-<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb739-1" data-line-number="1">players &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/players20.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb754-1" data-line-number="1">players &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/players20.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   .default = col_double(),
@@ -311,37 +313,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## See spec(...) for full column specifications.</code></pre>
 <p>To cluster this data properly, we have some work to do.</p>
 <p>First, it won’t do to have players who haven’t played, so we can use filter to find anyone with greater than 0 minutes played. Next, Cam Mack is a guard, so let’s just look at guards. Third, we want to limit the data to things that make sense to look at for Cam Mack – things like shooting, three point shooting, assists, turnovers and points.</p>
-<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb742-1" data-line-number="1">playersselected &lt;-<span class="st"> </span>players <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb742-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(MP<span class="op">&gt;</span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Pos <span class="op">==</span><span class="st"> &quot;G&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb742-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(Player, Team, Pos, MP, <span class="st">`</span><span class="dt">FG%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">3P%</span><span class="st">`</span>, AST, TOV, PTS) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb742-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb757-1" data-line-number="1">playersselected &lt;-<span class="st"> </span>players <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb757-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(MP<span class="op">&gt;</span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Pos <span class="op">==</span><span class="st"> &quot;G&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb757-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(Player, Team, Pos, MP, <span class="st">`</span><span class="dt">FG%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">3P%</span><span class="st">`</span>, AST, TOV, PTS) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb757-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>() </a></code></pre></div>
 <p>Now, k-means clustering doesn’t work as well with data that can be on different scales. So comparing a percentage to a count metric – shooting percentage to points – would create chaos because shooting percentages are a fraction of 1 and points, depending on when they are in the season, could be quite large. So we have to scale each metric – put them on a similar basis using the distance from the max value as our guide. Also, k-means clustering won’t work with text data, so we need to create a dataframe that’s just the numbers, but scaled. We can do that with another select, and using mutate_all with the scale function. The <code>na.omit()</code> means get rid of any blanks, because they too will cause errors.</p>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb743-1" data-line-number="1">playersscaled &lt;-<span class="st"> </span>playersselected <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb743-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(MP, <span class="st">`</span><span class="dt">FG%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">3P%</span><span class="st">`</span>, AST, TOV, PTS) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb743-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate_all</span>(scale) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb743-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb758-1" data-line-number="1">playersscaled &lt;-<span class="st"> </span>playersselected <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb758-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(MP, <span class="st">`</span><span class="dt">FG%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">3P%</span><span class="st">`</span>, AST, TOV, PTS) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb758-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate_all</span>(scale) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb758-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>()</a></code></pre></div>
 <p>With k-means clustering, we decide how many clusters we want. Most often, researchers will try a handful of different cluster numbers and see what works. But there are methods for finding the optimal number. One method is called the Elbow method. One implementation of this, <a href="https://uc-r.github.io/kmeans_clustering">borrowed from the University of Cincinnati’s Business Analytics program</a>, does this quite nicely with a graph that will help you decide for yourself.</p>
 <p>All you need to do in this code is change out the data frame – <code>playersscaled</code> in this case – and run it.</p>
-<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb744-1" data-line-number="1"><span class="co"># function to compute total within-cluster sum of square </span></a>
-<a class="sourceLine" id="cb744-2" data-line-number="2">wss &lt;-<span class="st"> </span><span class="cf">function</span>(k) {</a>
-<a class="sourceLine" id="cb744-3" data-line-number="3">  <span class="kw">kmeans</span>(playersscaled, k, <span class="dt">nstart =</span> <span class="dv">10</span> )<span class="op">$</span>tot.withinss</a>
-<a class="sourceLine" id="cb744-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb744-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb744-6" data-line-number="6"><span class="co"># Compute and plot wss for k = 1 to k = 15</span></a>
-<a class="sourceLine" id="cb744-7" data-line-number="7">k.values &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span></a>
-<a class="sourceLine" id="cb744-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb744-9" data-line-number="9"><span class="co"># extract wss for 2-15 clusters</span></a>
-<a class="sourceLine" id="cb744-10" data-line-number="10">wss_values &lt;-<span class="st"> </span><span class="kw">map_dbl</span>(k.values, wss)</a></code></pre></div>
+<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb759-1" data-line-number="1"><span class="co"># function to compute total within-cluster sum of square </span></a>
+<a class="sourceLine" id="cb759-2" data-line-number="2">wss &lt;-<span class="st"> </span><span class="cf">function</span>(k) {</a>
+<a class="sourceLine" id="cb759-3" data-line-number="3">  <span class="kw">kmeans</span>(playersscaled, k, <span class="dt">nstart =</span> <span class="dv">10</span> )<span class="op">$</span>tot.withinss</a>
+<a class="sourceLine" id="cb759-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb759-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb759-6" data-line-number="6"><span class="co"># Compute and plot wss for k = 1 to k = 15</span></a>
+<a class="sourceLine" id="cb759-7" data-line-number="7">k.values &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span></a>
+<a class="sourceLine" id="cb759-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb759-9" data-line-number="9"><span class="co"># extract wss for 2-15 clusters</span></a>
+<a class="sourceLine" id="cb759-10" data-line-number="10">wss_values &lt;-<span class="st"> </span><span class="kw">map_dbl</span>(k.values, wss)</a></code></pre></div>
 <pre><code>## Warning: did not converge in 10 iterations</code></pre>
-<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb746-1" data-line-number="1"><span class="kw">plot</span>(k.values, wss_values,</a>
-<a class="sourceLine" id="cb746-2" data-line-number="2">       <span class="dt">type=</span><span class="st">&quot;b&quot;</span>, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">frame =</span> <span class="ot">FALSE</span>, </a>
-<a class="sourceLine" id="cb746-3" data-line-number="3">       <span class="dt">xlab=</span><span class="st">&quot;Number of clusters K&quot;</span>,</a>
-<a class="sourceLine" id="cb746-4" data-line-number="4">       <span class="dt">ylab=</span><span class="st">&quot;Total within-clusters sum of squares&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb761-1" data-line-number="1"><span class="kw">plot</span>(k.values, wss_values,</a>
+<a class="sourceLine" id="cb761-2" data-line-number="2">       <span class="dt">type=</span><span class="st">&quot;b&quot;</span>, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">frame =</span> <span class="ot">FALSE</span>, </a>
+<a class="sourceLine" id="cb761-3" data-line-number="3">       <span class="dt">xlab=</span><span class="st">&quot;Number of clusters K&quot;</span>,</a>
+<a class="sourceLine" id="cb761-4" data-line-number="4">       <span class="dt">ylab=</span><span class="st">&quot;Total within-clusters sum of squares&quot;</span>)</a></code></pre></div>
 <p><img src="30-clustering_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>The Elbow method – so named because you’re looking for the “elbow” where the line flattens out. In this case, it looks like a K of 5 is ideal. So let’s try that. We’re going to use the kmeans function, saving it to an object called k5. We just need to tell it our dataframe name, how many centers (k) we want, and we’ll use a sensible default for how many different configurations to try.</p>
-<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb747-1" data-line-number="1">k5 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(playersscaled, <span class="dt">centers =</span> <span class="dv">5</span>, <span class="dt">nstart =</span> <span class="dv">25</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb762-1" data-line-number="1">k5 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(playersscaled, <span class="dt">centers =</span> <span class="dv">5</span>, <span class="dt">nstart =</span> <span class="dv">25</span>)</a></code></pre></div>
 <p>Let’s look at what we get.</p>
-<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb748-1" data-line-number="1">k5</a></code></pre></div>
+<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb763-1" data-line-number="1">k5</a></code></pre></div>
 <pre><code>## K-means clustering with 5 clusters of sizes 335, 278, 770, 176, 667
 ## 
 ## Cluster means:
@@ -353,72 +355,67 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5 -0.4963222 -0.1004742 -0.2493310 -0.5183066 -0.4706391 -0.5718554
 ## 
 ## Clustering vector:
-##    [1] 3 5 5 5 5 2 2 3 3 3 4 5 5 2 3 3 5 5 2 1 3 5 5 5 4 3 3 3 3 5 5 1 1 3
-##   [35] 3 3 5 4 2 3 3 3 3 5 1 3 3 5 5 5 5 5 2 1 3 1 5 5 5 3 5 5 3 4 5 2 1 3
-##   [69] 3 5 5 2 1 1 3 3 3 5 2 3 3 5 5 5 1 3 3 5 5 4 2 2 2 4 5 4 5 5 5 5 5 5
-##  [103] 5 2 2 2 2 3 1 5 2 3 4 5 2 2 1 3 3 5 5 1 1 1 3 5 2 2 5 3 5 2 2 2 5 2
-##  [137] 1 3 5 4 3 1 5 2 1 1 3 1 3 3 4 1 3 5 5 5 5 5 4 3 3 2 3 3 3 5 5 1 3 4
-##  [171] 5 1 3 1 3 5 5 4 2 3 1 5 4 4 5 1 3 1 3 3 3 1 1 3 3 1 5 3 3 1 5 5 5 3
-##  [205] 3 3 1 3 3 3 3 3 3 5 4 5 2 1 3 3 3 2 2 1 3 3 3 5 4 1 3 3 3 2 1 3 3 3
-##  [239] 4 3 3 3 5 5 4 5 1 1 1 3 5 5 5 2 3 5 5 5 2 2 1 1 4 5 2 2 1 3 1 3 3 3
-##  [273] 3 3 4 2 2 3 3 4 3 5 3 2 3 3 3 5 2 2 3 3 5 5 3 2 1 1 3 3 3 2 4 2 3 3
-##  [307] 1 3 5 4 1 3 3 1 5 2 2 3 3 3 3 1 5 5 3 1 3 4 5 3 3 3 5 5 3 3 5 2 1 1
-##  [341] 1 5 2 2 3 3 3 5 5 5 5 4 4 1 3 1 3 5 2 5 1 3 3 5 4 1 1 3 5 3 5 5 2 1
-##  [375] 3 3 3 2 1 1 3 5 3 3 5 5 5 5 5 5 1 3 3 3 3 2 2 3 3 5 2 1 3 3 5 1 1 3
-##  [409] 5 5 5 1 3 3 1 3 5 2 3 3 1 5 5 1 3 3 5 5 5 2 4 5 4 4 2 2 3 1 5 5 4 5
-##  [443] 5 1 1 1 3 5 5 5 1 1 3 3 5 3 2 2 2 3 4 3 5 5 2 3 3 3 5 3 1 4 5 3 4 5
-##  [477] 3 4 5 2 2 3 5 5 5 5 1 1 3 5 5 5 2 3 3 5 5 4 3 1 3 5 3 3 3 5 4 3 3 3
-##  [511] 4 5 3 3 3 5 4 4 5 2 3 1 3 3 5 1 1 3 3 5 5 3 4 3 4 2 2 1 1 3 3 5 4 2
-##  [545] 3 5 3 5 5 5 5 4 5 5 5 5 2 2 1 3 4 4 5 4 1 3 5 5 1 5 4 4 2 1 3 3 5 2
-##  [579] 1 1 3 3 3 4 3 1 5 5 2 4 5 5 4 5 2 1 3 3 3 5 5 2 1 3 1 3 5 1 3 3 5 4
-##  [613] 2 1 3 3 2 5 3 1 3 1 3 3 2 3 3 3 4 1 3 4 5 5 5 4 2 5 5 5 2 3 1 5 5 5
-##  [647] 1 1 3 3 5 4 3 5 5 5 2 4 1 3 5 3 5 5 5 2 3 3 5 3 5 1 5 5 3 3 3 5 1 4
-##  [681] 4 3 1 5 5 5 1 1 1 3 3 2 2 1 3 5 4 5 5 3 3 3 5 2 5 3 3 5 5 4 2 1 3 3
-##  [715] 5 3 3 5 1 3 3 4 3 1 3 5 5 2 3 1 3 1 5 4 1 3 3 5 5 1 3 3 5 3 1 3 5 5
-##  [749] 5 2 1 3 3 2 1 3 3 3 2 1 1 5 2 2 2 2 1 1 3 3 5 5 2 5 5 2 3 3 3 5 5 4
-##  [783] 5 5 5 4 1 4 1 3 3 5 2 2 3 1 3 5 5 5 1 3 5 3 5 5 2 1 1 3 3 5 3 5 3 4
-##  [817] 5 5 5 2 2 1 3 3 5 4 5 2 3 1 3 4 5 2 4 2 1 1 3 3 5 2 3 3 5 2 4 2 1 1
-##  [851] 3 3 3 3 5 5 4 1 5 5 5 5 3 3 3 1 5 5 5 5 2 1 3 3 1 2 2 1 3 3 3 1 4 1
-##  [885] 3 5 5 1 4 2 1 5 3 5 5 2 3 3 3 3 3 5 5 3 3 1 2 2 3 3 3 3 5 5 5 5 4 2
-##  [919] 2 1 3 5 5 5 4 1 3 3 1 5 5 4 1 3 3 3 5 5 5 2 3 3 3 4 5 4 5 1 3 3 3 3
-##  [953] 1 4 2 2 1 3 3 3 3 5 2 2 1 3 3 4 5 5 1 1 3 5 5 1 1 3 3 1 5 3 5 5 5 2
-##  [987] 1 1 3 3 5 2 2 2 3 3 3 5 4 5 2 3 3 3 5 2 5 1 3 5 5 2 4 3 3 3 5 5 5 2
-## [1021] 1 3 1 5 3 1 3 3 3 5 1 1 1 5 2 1 3 3 3 1 5 5 1 3 1 3 5 2 1 1 3 2 5 2
-## [1055] 3 3 3 5 1 5 4 5 3 3 5 5 5 5 1 3 3 3 2 2 1 3 3 3 1 3 3 5 3 1 3 3 4 5
-## [1089] 5 4 1 3 3 5 1 2 3 1 5 5 1 3 5 5 2 2 2 3 5 3 4 5 4 2 3 3 3 3 5 1 3 3
-## [1123] 3 3 5 5 1 1 3 3 4 5 5 1 3 5 3 1 5 2 1 1 3 3 5 3 5 1 3 3 3 4 5 4 4 2
-## [1157] 1 1 1 1 3 5 2 2 3 4 3 3 5 5 4 5 3 3 3 5 5 5 1 3 3 3 4 2 2 3 1 5 3 3
-## [1191] 5 4 2 3 5 5 5 5 2 5 5 5 5 4 2 2 1 5 4 2 1 3 3 5 5 3 2 2 5 5 5 2 3 3
-## [1225] 3 5 5 5 3 3 1 3 2 3 3 5 3 5 5 4 2 1 1 5 2 2 1 1 2 5 2 3 1 5 5 3 1 3
-## [1259] 1 5 3 1 5 3 3 5 3 1 3 5 5 5 5 3 3 3 3 5 5 5 2 1 3 3 3 2 1 3 3 3 5 2
-## [1293] 1 1 1 3 5 1 3 3 3 3 3 5 5 5 3 3 2 1 1 3 2 3 3 3 5 5 2 2 3 5 5 4 5 2
-## [1327] 3 3 4 3 4 4 5 4 1 5 5 5 1 3 3 5 5 5 1 3 1 1 3 2 5 4 5 5 5 4 4 5 1 1
-## [1361] 3 3 5 5 5 5 2 1 3 3 3 3 2 1 1 3 3 3 5 3 3 3 4 5 2 3 1 5 4 5 2 2 3 3
-## [1395] 5 5 2 3 3 3 2 3 3 4 5 5 2 4 3 3 5 3 3 2 2 1 1 3 5 5 3 5 5 3 5 4 4 1
-## [1429] 3 3 5 1 3 5 1 3 5 5 1 3 5 5 5 4 1 3 5 3 5 3 5 5 5 5 5 5 3 3 3 5 3 2
-## [1463] 3 3 5 2 3 3 3 1 5 4 5 3 3 5 5 5 1 1 1 3 5 2 3 1 3 5 5 5 5 3 3 3 1 3
-## [1497] 5 1 3 5 5 5 4 5 2 2 1 3 3 5 4 5 5 1 3 1 3 3 3 4 4 3 5 4 5 5 3 1 3 5
-## [1531] 4 4 3 3 3 5 5 2 3 5 5 5 2 1 1 3 3 3 3 3 3 3 3 5 2 1 3 3 3 5 5 1 3 5
-## [1565] 5 2 3 1 3 3 2 1 3 5 5 4 1 3 3 5 4 5 3 3 1 5 5 5 5 3 5 5 5 2 2 2 3 1
-## [1599] 5 5 2 3 3 5 5 3 3 5 5 3 4 2 3 1 1 5 5 2 3 3 3 5 5 2 3 1 5 3 5 1 3 3
-## [1633] 3 5 2 1 3 1 5 3 3 3 3 5 5 4 1 3 5 5 3 2 2 2 2 3 3 3 5 4 5 4 2 2 3 3
-## [1667] 3 3 5 1 3 3 5 4 5 2 3 1 3 3 5 5 5 4 3 3 4 3 3 2 1 3 5 5 5 1 5 5 5 2
-## [1701] 4 2 1 3 3 5 2 1 1 1 5 5 3 1 4 5 3 5 4 5 4 2 1 5 5 2 1 3 3 3 2 5 3 3
-## [1735] 3 3 3 5 1 1 1 4 5 1 1 5 1 5 2 2 3 3 5 5 5 2 4 2 3 3 5 3 5 5 4 2 1 3
-## [1769] 3 3 3 5 2 3 3 3 5 4 5 2 1 5 3 2 1 1 3 3 3 5 5 2 3 3 5 5 2 1 3 5 5 5
-## [1803] 5 3 3 3 4 5 5 4 3 3 3 5 4 2 1 5 5 5 2 1 3 3 5 4 5 3 3 3 3 1 2 2 3 3
-## [1837] 3 5 3 4 5 4 2 3 3 3 3 5 5 4 5 3 1 5 5 5 5 5 3 3 5 3 5 5 2 2 1 3 3 5
-## [1871] 3 1 3 5 5 3 3 3 5 5 5 2 2 2 1 1 5 3 5 5 2 2 3 3 3 5 3 4 5 5 5 3 3 5
-## [1905] 2 2 2 3 3 3 5 3 2 1 1 3 3 3 5 5 1 5 5 5 5 4 3 3 3 5 3 5 5 5 4 1 3 3
-## [1939] 3 5 3 3 5 3 2 3 3 5 3 3 5 1 3 5 3 5 1 1 1 3 3 4 4 5 5 2 1 3 3 5 5 5
-## [1973] 4 2 1 3 1 1 5 1 3 3 4 5 2 3 3 3 5 5 3 3 3 3 5 3 1 5 5 3 3 3 3 2 1 3
-## [2007] 4 4 2 2 1 1 1 3 1 5 4 1 3 4 2 2 1 3 1 3 5 2 4 1 3 3 5 5 2 1 1 5 3 3
-## [2041] 5 5 2 3 3 3 5 4 5 5 1 3 4 5 2 3 3 3 5 5 5 5 4 1 3 3 5 5 2 2 3 1 3 3
-## [2075] 5 5 3 3 3 1 5 4 5 4 4 3 3 3 5 5 5 2 2 3 3 5 3 5 5 2 3 3 3 5 5 5 5 5
-## [2109] 1 1 4 4 5 5 5 3 3 1 5 5 5 4 2 2 3 3 5 4 1 1 3 3 5 5 2 4 2 5 5 2 1 1
-## [2143] 3 5 2 2 1 3 3 3 3 4 1 3 3 5 5 5 4 1 1 3 3 2 2 3 3 3 3 5 2 3 3 3 3 3
-## [2177] 2 5 2 3 3 3 5 2 2 1 3 3 5 2 2 3 5 3 5 5 5 5 4 3 3 3 5 3 3 3 5 5 2 1
-## [2211] 1 3 2 3 3 3 5 5 3 5 5 4 5 2 4 2
+##    [1] 3 5 5 5 5 2 2 3 3 3 4 5 5 2 3 3 5 5 2 1 3 5 5 5 4 3 3 3 3 5 5 1 1 3 3 3 5
+##   [38] 4 2 3 3 3 3 5 1 3 3 5 5 5 5 5 2 1 3 1 5 5 5 3 5 5 3 4 5 2 1 3 3 5 5 2 1 1
+##   [75] 3 3 3 5 2 3 3 5 5 5 1 3 3 5 5 4 2 2 2 4 5 4 5 5 5 5 5 5 5 2 2 2 2 3 1 5 2
+##  [112] 3 4 5 2 2 1 3 3 5 5 1 1 1 3 5 2 2 5 3 5 2 2 2 5 2 1 3 5 4 3 1 5 2 1 1 3 1
+##  [149] 3 3 4 1 3 5 5 5 5 5 4 3 3 2 3 3 3 5 5 1 3 4 5 1 3 1 3 5 5 4 2 3 1 5 4 4 5
+##  [186] 1 3 1 3 3 3 1 1 3 3 1 5 3 3 1 5 5 5 3 3 3 1 3 3 3 3 3 3 5 4 5 2 1 3 3 3 2
+##  [223] 2 1 3 3 3 5 4 1 3 3 3 2 1 3 3 3 4 3 3 3 5 5 4 5 1 1 1 3 5 5 5 2 3 5 5 5 2
+##  [260] 2 1 1 4 5 2 2 1 3 1 3 3 3 3 3 4 2 2 3 3 4 3 5 3 2 3 3 3 5 2 2 3 3 5 5 3 2
+##  [297] 1 1 3 3 3 2 4 2 3 3 1 3 5 4 1 3 3 1 5 2 2 3 3 3 3 1 5 5 3 1 3 4 5 3 3 3 5
+##  [334] 5 3 3 5 2 1 1 1 5 2 2 3 3 3 5 5 5 5 4 4 1 3 1 3 5 2 5 1 3 3 5 4 1 1 3 5 3
+##  [371] 5 5 2 1 3 3 3 2 1 1 3 5 3 3 5 5 5 5 5 5 1 3 3 3 3 2 2 3 3 5 2 1 3 3 5 1 1
+##  [408] 3 5 5 5 1 3 3 1 3 5 2 3 3 1 5 5 1 3 3 5 5 5 2 4 5 4 4 2 2 3 1 5 5 4 5 5 1
+##  [445] 1 1 3 5 5 5 1 1 3 3 5 3 2 2 2 3 4 3 5 5 2 3 3 3 5 3 1 4 5 3 4 5 3 4 5 2 2
+##  [482] 3 5 5 5 5 1 1 3 5 5 5 2 3 3 5 5 4 3 1 3 5 3 3 3 5 4 3 3 3 4 5 3 3 3 5 4 4
+##  [519] 5 2 3 1 3 3 5 1 1 3 3 5 5 3 4 3 4 2 2 1 1 3 3 5 4 2 3 5 3 5 5 5 5 4 5 5 5
+##  [556] 5 2 2 1 3 4 4 5 4 1 3 5 5 1 5 4 4 2 1 3 3 5 2 1 1 3 3 3 4 3 1 5 5 2 4 5 5
+##  [593] 4 5 2 1 3 3 3 5 5 2 1 3 1 3 5 1 3 3 5 4 2 1 3 3 2 5 3 1 3 1 3 3 2 3 3 3 4
+##  [630] 1 3 4 5 5 5 4 2 5 5 5 2 3 1 5 5 5 1 1 3 3 5 4 3 5 5 5 2 4 1 3 5 3 5 5 5 2
+##  [667] 3 3 5 3 5 1 5 5 3 3 3 5 1 4 4 3 1 5 5 5 1 1 1 3 3 2 2 1 3 5 4 5 5 3 3 3 5
+##  [704] 2 5 3 3 5 5 4 2 1 3 3 5 3 3 5 1 3 3 4 3 1 3 5 5 2 3 1 3 1 5 4 1 3 3 5 5 1
+##  [741] 3 3 5 3 1 3 5 5 5 2 1 3 3 2 1 3 3 3 2 1 1 5 2 2 2 2 1 1 3 3 5 5 2 5 5 2 3
+##  [778] 3 3 5 5 4 5 5 5 4 1 4 1 3 3 5 2 2 3 1 3 5 5 5 1 3 5 3 5 5 2 1 1 3 3 5 3 5
+##  [815] 3 4 5 5 5 2 2 1 3 3 5 4 5 2 3 1 3 4 5 2 4 2 1 1 3 3 5 2 3 3 5 2 4 2 1 1 3
+##  [852] 3 3 3 5 5 4 1 5 5 5 5 3 3 3 1 5 5 5 5 2 1 3 3 1 2 2 1 3 3 3 1 4 1 3 5 5 1
+##  [889] 4 2 1 5 3 5 5 2 3 3 3 3 3 5 5 3 3 1 2 2 3 3 3 3 5 5 5 5 4 2 2 1 3 5 5 5 4
+##  [926] 1 3 3 1 5 5 4 1 3 3 3 5 5 5 2 3 3 3 4 5 4 5 1 3 3 3 3 1 4 2 2 1 3 3 3 3 5
+##  [963] 2 2 1 3 3 4 5 5 1 1 3 5 5 1 1 3 3 1 5 3 5 5 5 2 1 1 3 3 5 2 2 2 3 3 3 5 4
+## [1000] 5 2 3 3 3 5 2 5 1 3 5 5 2 4 3 3 3 5 5 5 2 1 3 1 5 3 1 3 3 3 5 1 1 1 5 2 1
+## [1037] 3 3 3 1 5 5 1 3 1 3 5 2 1 1 3 2 5 2 3 3 3 5 1 5 4 5 3 3 5 5 5 5 1 3 3 3 2
+## [1074] 2 1 3 3 3 1 3 3 5 3 1 3 3 4 5 5 4 1 3 3 5 1 2 3 1 5 5 1 3 5 5 2 2 2 3 5 3
+## [1111] 4 5 4 2 3 3 3 3 5 1 3 3 3 3 5 5 1 1 3 3 4 5 5 1 3 5 3 1 5 2 1 1 3 3 5 3 5
+## [1148] 1 3 3 3 4 5 4 4 2 1 1 1 1 3 5 2 2 3 4 3 3 5 5 4 5 3 3 3 5 5 5 1 3 3 3 4 2
+## [1185] 2 3 1 5 3 3 5 4 2 3 5 5 5 5 2 5 5 5 5 4 2 2 1 5 4 2 1 3 3 5 5 3 2 2 5 5 5
+## [1222] 2 3 3 3 5 5 5 3 3 1 3 2 3 3 5 3 5 5 4 2 1 1 5 2 2 1 1 2 5 2 3 1 5 5 3 1 3
+## [1259] 1 5 3 1 5 3 3 5 3 1 3 5 5 5 5 3 3 3 3 5 5 5 2 1 3 3 3 2 1 3 3 3 5 2 1 1 1
+## [1296] 3 5 1 3 3 3 3 3 5 5 5 3 3 2 1 1 3 2 3 3 3 5 5 2 2 3 5 5 4 5 2 3 3 4 3 4 4
+## [1333] 5 4 1 5 5 5 1 3 3 5 5 5 1 3 1 1 3 2 5 4 5 5 5 4 4 5 1 1 3 3 5 5 5 5 2 1 3
+## [1370] 3 3 3 2 1 1 3 3 3 5 3 3 3 4 5 2 3 1 5 4 5 2 2 3 3 5 5 2 3 3 3 2 3 3 4 5 5
+## [1407] 2 4 3 3 5 3 3 2 2 1 1 3 5 5 3 5 5 3 5 4 4 1 3 3 5 1 3 5 1 3 5 5 1 3 5 5 5
+## [1444] 4 1 3 5 3 5 3 5 5 5 5 5 5 3 3 3 5 3 2 3 3 5 2 3 3 3 1 5 4 5 3 3 5 5 5 1 1
+## [1481] 1 3 5 2 3 1 3 5 5 5 5 3 3 3 1 3 5 1 3 5 5 5 4 5 2 2 1 3 3 5 4 5 5 1 3 1 3
+## [1518] 3 3 4 4 3 5 4 5 5 3 1 3 5 4 4 3 3 3 5 5 2 3 5 5 5 2 1 1 3 3 3 3 3 3 3 3 5
+## [1555] 2 1 3 3 3 5 5 1 3 5 5 2 3 1 3 3 2 1 3 5 5 4 1 3 3 5 4 5 3 3 1 5 5 5 5 3 5
+## [1592] 5 5 2 2 2 3 1 5 5 2 3 3 5 5 3 3 5 5 3 4 2 3 1 1 5 5 2 3 3 3 5 5 2 3 1 5 3
+## [1629] 5 1 3 3 3 5 2 1 3 1 5 3 3 3 3 5 5 4 1 3 5 5 3 2 2 2 2 3 3 3 5 4 5 4 2 2 3
+## [1666] 3 3 3 5 1 3 3 5 4 5 2 3 1 3 3 5 5 5 4 3 3 4 3 3 2 1 3 5 5 5 1 5 5 5 2 4 2
+## [1703] 1 3 3 5 2 1 1 1 5 5 3 1 4 5 3 5 4 5 4 2 1 5 5 2 1 3 3 3 2 5 3 3 3 3 3 5 1
+## [1740] 1 1 4 5 1 1 5 1 5 2 2 3 3 5 5 5 2 4 2 3 3 5 3 5 5 4 2 1 3 3 3 3 5 2 3 3 3
+## [1777] 5 4 5 2 1 5 3 2 1 1 3 3 3 5 5 2 3 3 5 5 2 1 3 5 5 5 5 3 3 3 4 5 5 4 3 3 3
+## [1814] 5 4 2 1 5 5 5 2 1 3 3 5 4 5 3 3 3 3 1 2 2 3 3 3 5 3 4 5 4 2 3 3 3 3 5 5 4
+## [1851] 5 3 1 5 5 5 5 5 3 3 5 3 5 5 2 2 1 3 3 5 3 1 3 5 5 3 3 3 5 5 5 2 2 2 1 1 5
+## [1888] 3 5 5 2 2 3 3 3 5 3 4 5 5 5 3 3 5 2 2 2 3 3 3 5 3 2 1 1 3 3 3 5 5 1 5 5 5
+## [1925] 5 4 3 3 3 5 3 5 5 5 4 1 3 3 3 5 3 3 5 3 2 3 3 5 3 3 5 1 3 5 3 5 1 1 1 3 3
+## [1962] 4 4 5 5 2 1 3 3 5 5 5 4 2 1 3 1 1 5 1 3 3 4 5 2 3 3 3 5 5 3 3 3 3 5 3 1 5
+## [1999] 5 3 3 3 3 2 1 3 4 4 2 2 1 1 1 3 1 5 4 1 3 4 2 2 1 3 1 3 5 2 4 1 3 3 5 5 2
+## [2036] 1 1 5 3 3 5 5 2 3 3 3 5 4 5 5 1 3 4 5 2 3 3 3 5 5 5 5 4 1 3 3 5 5 2 2 3 1
+## [2073] 3 3 5 5 3 3 3 1 5 4 5 4 4 3 3 3 5 5 5 2 2 3 3 5 3 5 5 2 3 3 3 5 5 5 5 5 1
+## [2110] 1 4 4 5 5 5 3 3 1 5 5 5 4 2 2 3 3 5 4 1 1 3 3 5 5 2 4 2 5 5 2 1 1 3 5 2 2
+## [2147] 1 3 3 3 3 4 1 3 3 5 5 5 4 1 1 3 3 2 2 3 3 3 3 5 2 3 3 3 3 3 2 5 2 3 3 3 5
+## [2184] 2 2 1 3 3 5 2 2 3 5 3 5 5 5 5 4 3 3 3 5 3 3 3 5 5 2 1 1 3 2 3 3 3 5 5 3 5
+## [2221] 5 4 5 2 4 2
 ## 
 ## Within cluster sum of squares by cluster:
 ## [1] 1347.9499  281.9458 1591.8521  551.1131 1160.1610
@@ -426,23 +423,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Available components:
 ## 
-## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;    
-## [5] &quot;tot.withinss&quot; &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;        
-## [9] &quot;ifault&quot;</code></pre>
-<p>Interpreting this output, first look at the cluster sizes at the top. Clusters 3 and 5 are pretty large compared to others. That’s notable. Then we can look at the cluster means. For reference, 0 is going to be average. So group 1 are well above average on minutes played. Group 3 is slightly above, group 5 is slightly below. In fact, group 5 is below average on every metric. Group 3 is slightly above average on all metrics.</p>
+## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;     &quot;tot.withinss&quot;
+## [6] &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot;</code></pre>
+<p>Interpreting this output, the very first thing you need to know is that <strong>the cluster numbers are meaningless</strong>. They aren’t ranks. They aren’t anything. After you have taken that on board, look at the cluster sizes at the top. Clusters 3 and 5 are pretty large compared to others. That’s notable. Then we can look at the cluster means. For reference, 0 is going to be average. So group 1 are well above average on minutes played. Group 3 is slightly above, group 5 is slightly below. In fact, group 5 is below average on every metric. Group 3 is slightly above average on all metrics.</p>
 <p>So which group is Cam Mack in? Well, first we have to put our data back together again. In K5, there is a list of cluster assignments in the same order we put them in, but recall we have no names. So we need to re-combine them with our original data. We can do that with the following:</p>
-<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb750-1" data-line-number="1">playercluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(playersselected, k5<span class="op">$</span>cluster) </a></code></pre></div>
+<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb765-1" data-line-number="1">playercluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(playersselected, k5<span class="op">$</span>cluster) </a></code></pre></div>
 <p>Now we have a dataframe called playercluster that has our player names and what cluster they are in. The fastest way to find Cam Mack is to double click on the playercluster table in the environment and use the search in the top right of the table. Because this is based on some random selections of points to start the groupings, these may change from person to person, but Mack is in Group 1 in my data.</p>
 <p>We now have a dataset and can plot it like anything else. Let’s get Cam Mack and then plot him against the rest of college basketball on assists versus minutes played.</p>
-<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb751-1" data-line-number="1">cm &lt;-<span class="st"> </span>playercluster <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Player <span class="op">==</span><span class="st"> &quot;Cameron Mack&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb752-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb752-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>playercluster, <span class="kw">aes</span>(<span class="dt">x=</span>MP, <span class="dt">y=</span>AST, <span class="dt">color=</span>k5.cluster)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb752-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>cm, <span class="kw">aes</span>(<span class="dt">x=</span>MP, <span class="dt">y=</span>AST), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb766"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb766-1" data-line-number="1">cm &lt;-<span class="st"> </span>playercluster <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Player <span class="op">==</span><span class="st"> &quot;Cameron Mack&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb767-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb767-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>playercluster, <span class="kw">aes</span>(<span class="dt">x=</span>MP, <span class="dt">y=</span>AST, <span class="dt">color=</span>k5.cluster)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb767-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>cm, <span class="kw">aes</span>(<span class="dt">x=</span>MP, <span class="dt">y=</span>AST), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</a></code></pre></div>
 <p><img src="30-clustering_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Not bad, not bad. But who are Cam Mack’s peers? If we look at the numbers in Group 1, there’s 335 of them. So let’s limit them to just Big Ten guards. Unfortunately, my scraper didn’t quite work and in the place of Conference is the coach’s name. So I’m going to have to do this the hard way and make a list of Big Ten teams and filter on that. Then I’ll sort by minutes played.</p>
-<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb753-1" data-line-number="1">big10 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Nebraska Cornhuskers&quot;</span>, <span class="st">&quot;Iowa Hawkeyes&quot;</span>, <span class="st">&quot;Minnesota Golden Gophers&quot;</span>, <span class="st">&quot;Illinois Fighting Illini&quot;</span>, <span class="st">&quot;Northwestern Wildcats&quot;</span>, <span class="st">&quot;Wisconsin Badgers&quot;</span>, <span class="st">&quot;Indiana Hoosiers&quot;</span>, <span class="st">&quot;Purdue Boilermakers&quot;</span>, <span class="st">&quot;Ohio State Buckeyes&quot;</span>, <span class="st">&quot;Michigan Wolverines&quot;</span>, <span class="st">&quot;Michigan State Spartans&quot;</span>, <span class="st">&quot;Penn State Nittany Lions&quot;</span>, <span class="st">&quot;Rutgers Scarlet Knights&quot;</span>, <span class="st">&quot;Maryland Terrapins&quot;</span>)</a>
-<a class="sourceLine" id="cb753-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb753-3" data-line-number="3">playercluster <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(k5.cluster <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">%in%</span><span class="st"> </span>big10) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(MP))</a></code></pre></div>
+<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb768-1" data-line-number="1">big10 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Nebraska Cornhuskers&quot;</span>, <span class="st">&quot;Iowa Hawkeyes&quot;</span>, <span class="st">&quot;Minnesota Golden Gophers&quot;</span>, <span class="st">&quot;Illinois Fighting Illini&quot;</span>, <span class="st">&quot;Northwestern Wildcats&quot;</span>, <span class="st">&quot;Wisconsin Badgers&quot;</span>, <span class="st">&quot;Indiana Hoosiers&quot;</span>, <span class="st">&quot;Purdue Boilermakers&quot;</span>, <span class="st">&quot;Ohio State Buckeyes&quot;</span>, <span class="st">&quot;Michigan Wolverines&quot;</span>, <span class="st">&quot;Michigan State Spartans&quot;</span>, <span class="st">&quot;Penn State Nittany Lions&quot;</span>, <span class="st">&quot;Rutgers Scarlet Knights&quot;</span>, <span class="st">&quot;Maryland Terrapins&quot;</span>)</a>
+<a class="sourceLine" id="cb768-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb768-3" data-line-number="3">playercluster <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(k5.cluster <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">%in%</span><span class="st"> </span>big10) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(MP))</a></code></pre></div>
 <pre><code>##            Player                     Team Pos  MP   FG.  X3P. AST TOV PTS
 ## 1     Marcus Carr Minnesota Golden Gophers   G 141 0.321 0.286  27  12  58
 ## 2     Ayo Dosunmu Illinois Fighting Illini   G 135 0.438 0.308  15  16  54
@@ -468,37 +464,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">31.1</span> Advanced metrics</h2>
 <p>How much does this change if we change the metrics? I used pretty standard box score metrics above. What if we did it using Player Efficiency Rating, True Shooting Percentage, Point Production, Assist Percentage, Win Shares Per 40 Minutes and Box Plus Minus (you can get definitions of all of them by <a href="https://www.sports-reference.com/cbb/schools/nebraska/2020.html">hovering over the stats on Nebraksa’s stats page</a>).</p>
 <p>We’ll repeat the process. Filter out players who don’t play, players with stats missing, and just focus on those stats listed above.</p>
-<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb755-1" data-line-number="1">playersadvanced &lt;-<span class="st"> </span>players <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb755-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(MP<span class="op">&gt;</span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb755-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Pos <span class="op">==</span><span class="st"> &quot;G&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb755-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(Player, Team, Pos, PER, <span class="st">`</span><span class="dt">TS%</span><span class="st">`</span>, PProd, <span class="st">`</span><span class="dt">AST%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">WS/40</span><span class="st">`</span>, BPM) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb755-5" data-line-number="5"><span class="st">  </span><span class="kw">na.omit</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb770-1" data-line-number="1">playersadvanced &lt;-<span class="st"> </span>players <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb770-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(MP<span class="op">&gt;</span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb770-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Pos <span class="op">==</span><span class="st"> &quot;G&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb770-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(Player, Team, Pos, PER, <span class="st">`</span><span class="dt">TS%</span><span class="st">`</span>, PProd, <span class="st">`</span><span class="dt">AST%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">WS/40</span><span class="st">`</span>, BPM) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb770-5" data-line-number="5"><span class="st">  </span><span class="kw">na.omit</span>() </a></code></pre></div>
 <p>Now to scale them.</p>
-<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb756-1" data-line-number="1">playersadvscaled &lt;-<span class="st"> </span>playersadvanced <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb756-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(PER, <span class="st">`</span><span class="dt">TS%</span><span class="st">`</span>, PProd, <span class="st">`</span><span class="dt">AST%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">WS/40</span><span class="st">`</span>, BPM) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb756-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate_all</span>(scale) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb756-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb771-1" data-line-number="1">playersadvscaled &lt;-<span class="st"> </span>playersadvanced <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb771-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(PER, <span class="st">`</span><span class="dt">TS%</span><span class="st">`</span>, PProd, <span class="st">`</span><span class="dt">AST%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">WS/40</span><span class="st">`</span>, BPM) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb771-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate_all</span>(scale) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb771-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>()</a></code></pre></div>
 <p>Let’s find the optimal number of clusters.</p>
-<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb757-1" data-line-number="1"><span class="co"># function to compute total within-cluster sum of square </span></a>
-<a class="sourceLine" id="cb757-2" data-line-number="2">wss &lt;-<span class="st"> </span><span class="cf">function</span>(k) {</a>
-<a class="sourceLine" id="cb757-3" data-line-number="3">  <span class="kw">kmeans</span>(playersadvscaled, k, <span class="dt">nstart =</span> <span class="dv">10</span> )<span class="op">$</span>tot.withinss</a>
-<a class="sourceLine" id="cb757-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb757-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb757-6" data-line-number="6"><span class="co"># Compute and plot wss for k = 1 to k = 15</span></a>
-<a class="sourceLine" id="cb757-7" data-line-number="7">k.values &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span></a>
-<a class="sourceLine" id="cb757-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb757-9" data-line-number="9"><span class="co"># extract wss for 2-15 clusters</span></a>
-<a class="sourceLine" id="cb757-10" data-line-number="10">wss_values &lt;-<span class="st"> </span><span class="kw">map_dbl</span>(k.values, wss)</a></code></pre></div>
+<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb772-1" data-line-number="1"><span class="co"># function to compute total within-cluster sum of square </span></a>
+<a class="sourceLine" id="cb772-2" data-line-number="2">wss &lt;-<span class="st"> </span><span class="cf">function</span>(k) {</a>
+<a class="sourceLine" id="cb772-3" data-line-number="3">  <span class="kw">kmeans</span>(playersadvscaled, k, <span class="dt">nstart =</span> <span class="dv">10</span> )<span class="op">$</span>tot.withinss</a>
+<a class="sourceLine" id="cb772-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb772-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb772-6" data-line-number="6"><span class="co"># Compute and plot wss for k = 1 to k = 15</span></a>
+<a class="sourceLine" id="cb772-7" data-line-number="7">k.values &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span></a>
+<a class="sourceLine" id="cb772-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb772-9" data-line-number="9"><span class="co"># extract wss for 2-15 clusters</span></a>
+<a class="sourceLine" id="cb772-10" data-line-number="10">wss_values &lt;-<span class="st"> </span><span class="kw">map_dbl</span>(k.values, wss)</a></code></pre></div>
 <pre><code>## Warning: did not converge in 10 iterations</code></pre>
-<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb759-1" data-line-number="1"><span class="kw">plot</span>(k.values, wss_values,</a>
-<a class="sourceLine" id="cb759-2" data-line-number="2">       <span class="dt">type=</span><span class="st">&quot;b&quot;</span>, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">frame =</span> <span class="ot">FALSE</span>, </a>
-<a class="sourceLine" id="cb759-3" data-line-number="3">       <span class="dt">xlab=</span><span class="st">&quot;Number of clusters K&quot;</span>,</a>
-<a class="sourceLine" id="cb759-4" data-line-number="4">       <span class="dt">ylab=</span><span class="st">&quot;Total within-clusters sum of squares&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb774"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb774-1" data-line-number="1"><span class="kw">plot</span>(k.values, wss_values,</a>
+<a class="sourceLine" id="cb774-2" data-line-number="2">       <span class="dt">type=</span><span class="st">&quot;b&quot;</span>, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">frame =</span> <span class="ot">FALSE</span>, </a>
+<a class="sourceLine" id="cb774-3" data-line-number="3">       <span class="dt">xlab=</span><span class="st">&quot;Number of clusters K&quot;</span>,</a>
+<a class="sourceLine" id="cb774-4" data-line-number="4">       <span class="dt">ylab=</span><span class="st">&quot;Total within-clusters sum of squares&quot;</span>)</a></code></pre></div>
 <p><img src="30-clustering_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>Looks like 5 again.</p>
-<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb760-1" data-line-number="1">advk5 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(playersadvscaled, <span class="dt">centers =</span> <span class="dv">5</span>, <span class="dt">nstart =</span> <span class="dv">25</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb775-1" data-line-number="1">advk5 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(playersadvscaled, <span class="dt">centers =</span> <span class="dv">5</span>, <span class="dt">nstart =</span> <span class="dv">25</span>)</a></code></pre></div>
 <p>What do we have here?</p>
-<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb761-1" data-line-number="1">advk5</a></code></pre></div>
+<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb776-1" data-line-number="1">advk5</a></code></pre></div>
 <pre><code>## K-means clustering with 5 clusters of sizes 241, 326, 8, 1002, 808
 ## 
 ## Cluster means:
@@ -510,77 +506,71 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5  0.3912800  0.2570218  1.0814805  0.4727475  0.3521401  0.4359078
 ## 
 ## Clustering vector:
-##    [1] 5 4 4 4 2 4 1 4 4 4 2 5 4 4 4 2 5 4 4 4 4 4 1 5 4 2 4 4 4 2 4 5 5 4
-##   [35] 4 4 4 5 5 5 5 4 4 4 4 5 2 5 5 2 4 5 5 4 2 4 4 4 4 2 1 5 5 5 2 4 4 4
-##   [69] 5 5 2 5 2 4 1 5 4 5 4 4 4 1 1 5 5 5 2 5 2 1 5 5 4 4 4 1 5 5 4 4 4 2
-##  [103] 1 1 1 2 4 2 4 4 5 4 4 4 4 1 1 4 1 5 4 4 4 5 4 4 1 4 5 5 4 4 4 4 1 5
-##  [137] 5 5 4 4 1 1 2 5 4 1 4 4 2 2 1 5 5 2 2 4 5 4 1 5 5 5 5 4 4 2 5 5 4 5
-##  [171] 2 4 4 2 4 4 5 1 5 4 4 4 4 5 4 4 4 5 5 5 5 2 4 4 1 5 5 2 2 2 2 1 5 4
-##  [205] 5 5 4 5 5 2 5 5 5 5 4 5 5 5 4 4 4 5 5 4 4 4 4 5 5 2 5 4 4 4 1 1 5 5
-##  [239] 5 4 4 1 1 5 5 5 5 2 2 4 5 5 5 2 2 1 5 5 4 4 2 2 2 5 4 5 2 4 5 5 5 5
-##  [273] 5 2 4 2 2 1 5 4 4 4 4 1 1 1 5 5 2 4 4 1 5 4 5 4 4 4 5 2 5 2 4 4 5 5
-##  [307] 2 5 5 5 1 5 5 5 4 4 4 1 5 5 4 4 4 1 5 5 4 4 4 1 4 1 5 2 5 4 2 2 5 5
-##  [341] 4 4 4 4 1 1 5 5 5 4 4 4 4 2 5 5 4 2 4 4 5 5 5 4 4 5 2 1 2 4 5 5 5 4
-##  [375] 4 1 5 5 4 4 4 4 4 4 2 5 5 5 4 4 4 4 2 5 2 5 2 2 5 5 5 4 4 4 4 1 1 5
-##  [409] 4 4 4 4 4 5 5 5 4 5 4 4 4 4 4 4 4 5 5 5 5 5 4 4 1 4 4 4 1 1 1 5 4 4
-##  [443] 4 5 5 4 4 4 4 5 5 5 4 4 1 4 1 5 5 5 4 4 4 4 5 4 4 4 4 4 1 2 4 4 4 1
-##  [477] 4 5 4 4 4 4 1 2 5 5 5 5 4 4 4 5 5 4 4 2 4 4 4 4 5 2 5 4 4 2 4 4 4 5
-##  [511] 4 4 4 4 4 2 4 4 2 4 2 1 5 5 4 4 4 5 5 5 5 4 4 4 4 5 5 5 4 2 5 5 4 4
-##  [545] 5 4 4 4 2 5 5 4 2 4 5 5 5 4 2 2 4 1 5 5 5 5 2 5 5 5 4 2 4 5 2 5 2 4
-##  [579] 4 1 5 4 5 4 4 2 1 1 5 5 2 4 2 4 4 2 4 1 4 4 1 1 5 2 2 2 4 2 5 2 4 4
-##  [613] 5 4 2 3 4 5 5 5 4 1 5 5 5 4 4 2 4 5 5 4 1 1 2 2 2 2 4 1 1 5 5 5 5 5
-##  [647] 4 1 5 4 4 4 4 4 5 5 4 4 2 1 1 5 5 5 4 4 5 5 2 5 4 4 4 1 5 5 5 2 5 4
-##  [681] 2 4 4 2 2 4 4 4 4 4 1 5 5 2 4 4 5 5 5 4 5 4 2 5 4 4 4 1 2 2 5 4 4 4
-##  [715] 4 1 4 1 5 5 4 4 4 5 4 4 2 1 1 5 5 5 4 5 5 2 5 5 4 2 4 4 5 5 5 5 4 4
-##  [749] 4 5 4 4 2 4 4 5 4 4 4 4 4 2 5 5 4 4 2 2 1 5 5 2 4 4 4 5 4 5 2 5 2 5
-##  [783] 5 5 4 4 4 1 5 5 4 4 4 2 5 5 5 4 4 5 5 5 4 5 5 2 2 4 4 1 2 5 5 4 1 5
-##  [817] 2 2 5 4 5 5 2 4 4 4 1 5 5 5 5 4 4 1 5 2 1 4 4 5 4 4 4 2 4 4 4 2 5 2
-##  [851] 5 5 5 4 4 4 2 5 5 2 4 4 4 5 5 2 4 4 4 4 5 5 5 5 4 5 4 5 2 4 4 2 4 2
-##  [885] 1 5 5 4 2 4 4 1 5 4 4 2 4 4 5 2 4 5 5 5 4 4 1 5 5 4 4 4 1 5 5 5 5 5
-##  [919] 4 4 4 2 5 5 2 4 4 1 5 5 5 4 4 4 4 1 1 5 5 5 5 1 1 5 5 5 5 5 2 5 4 4
-##  [953] 4 4 4 1 5 4 4 1 4 4 1 5 5 5 5 4 2 4 4 5 5 5 4 4 4 5 5 5 4 2 4 4 2 2
-##  [987] 4 1 5 5 2 4 4 4 2 5 5 5 5 4 4 2 5 5 4 4 4 4 4 1 5 5 5 4 4 4 2 5 5 2
-## [1021] 5 2 4 5 2 2 1 1 5 2 4 4 4 2 1 1 5 5 4 2 4 2 5 5 5 4 4 5 5 4 4 5 4 4
-## [1055] 4 4 4 4 1 5 5 5 4 4 1 1 1 5 4 5 4 3 4 3 1 5 2 5 4 4 4 5 5 2 4 1 4 2
-## [1089] 5 4 4 4 4 4 1 5 5 5 5 2 5 4 4 4 4 5 5 5 4 4 5 4 4 4 4 4 4 5 5 5 4 4
-## [1123] 4 1 5 5 4 4 4 1 5 5 5 4 4 4 4 2 5 5 2 4 4 4 1 5 4 4 4 1 1 5 5 5 5 1
-## [1157] 5 5 4 4 5 5 5 4 2 4 2 2 5 5 5 5 4 4 1 5 5 4 4 5 4 4 4 2 2 1 5 4 5 4
-## [1191] 4 2 1 5 5 5 5 4 5 4 4 4 4 1 4 5 5 5 4 2 4 4 5 5 4 5 5 2 4 5 5 5 5 5
-## [1225] 2 4 2 5 5 5 5 4 2 4 2 1 5 5 5 4 4 4 4 1 5 2 5 5 2 4 2 1 4 4 4 4 4 4
-## [1259] 4 1 5 5 5 2 2 4 4 5 5 4 1 5 5 4 2 1 4 4 4 4 4 1 4 5 4 4 2 4 1 5 4 2
-## [1293] 1 1 5 2 4 4 4 4 1 1 1 4 5 2 2 1 5 5 5 4 4 4 2 5 5 5 4 4 5 5 2 2 4 5
-## [1327] 4 1 5 5 4 4 4 1 5 5 4 4 1 5 5 4 4 4 5 5 5 5 4 2 5 5 4 4 4 1 5 5 4 2
-## [1361] 4 2 1 5 5 4 4 4 4 2 2 1 5 5 4 5 1 5 4 5 4 4 4 1 5 5 5 5 4 5 5 4 4 4
-## [1395] 4 4 4 4 4 4 4 5 5 5 4 5 5 5 5 4 4 1 4 4 4 4 4 1 5 5 2 5 2 2 4 2 2 5
-## [1429] 4 2 4 5 5 4 4 4 2 4 5 5 4 4 4 4 4 1 4 2 5 4 4 2 2 4 5 5 4 4 4 4 4 4
-## [1463] 1 5 5 4 4 4 1 1 5 5 4 4 4 4 5 2 5 2 4 4 5 5 4 2 4 4 2 1 4 4 4 4 4 5
-## [1497] 5 4 4 1 5 5 2 4 4 2 4 4 4 4 4 4 4 4 4 1 5 5 5 2 4 5 5 2 5 2 2 4 5 5
-## [1531] 4 1 5 4 5 5 4 4 4 5 5 4 4 4 3 2 5 4 4 4 4 4 4 2 2 2 4 2 4 5 5 5 4 4
-## [1565] 2 1 5 4 4 1 5 5 5 5 4 2 4 2 1 4 4 4 4 4 5 5 5 4 4 4 5 5 2 4 4 4 2 5
-## [1599] 5 5 4 4 4 5 2 4 4 4 2 4 2 4 1 1 5 2 4 5 2 4 4 5 5 5 4 5 5 2 2 5 4 2
-## [1633] 2 4 5 5 2 2 2 2 5 5 5 2 2 1 5 5 4 4 1 5 5 2 5 4 5 5 5 4 4 4 1 5 5 5
-## [1667] 2 4 4 5 4 2 4 5 4 5 5 5 5 1 1 5 4 4 4 2 4 5 5 5 4 2 4 1 1 5 2 5 4 4
-## [1701] 4 4 4 5 2 2 4 1 1 1 4 5 4 4 1 5 5 4 4 5 5 4 4 4 2 4 2 1 5 5 4 4 4 4
-## [1735] 5 4 5 4 1 4 4 5 4 1 4 5 4 4 4 4 4 5 5 5 4 5 5 5 4 4 4 2 5 4 4 4 4 1
-## [1769] 4 1 1 5 5 5 4 2 2 2 2 4 1 5 2 5 5 4 4 5 5 4 4 2 4 2 5 5 5 5 4 4 4 2
-## [1803] 5 2 2 4 5 1 5 4 4 4 4 5 4 4 4 1 3 1 5 5 5 4 1 4 5 5 4 1 5 5 5 2 4 2
-## [1837] 4 4 2 4 5 4 4 1 5 4 5 2 4 4 1 5 5 4 4 4 4 5 5 5 2 4 2 1 5 5 4 4 4 1
-## [1871] 1 2 5 4 4 4 4 2 3 1 5 2 2 5 2 4 3 4 5 5 5 5 4 4 1 5 5 5 4 4 2 4 5 4
-## [1905] 4 1 5 5 5 4 4 1 4 4 5 4 4 4 1 5 4 4 4 4 4 1 5 5 2 2 4 4 2 5 5 4 4 2
-## [1939] 4 5 4 4 4 2 1 5 4 4 4 4 4 2 5 5 5 5 5 4 1 1 5 4 4 5 4 4 4 1 2 4 5 5
-## [1973] 5 5 4 4 4 1 5 5 4 4 4 4 4 5 5 4 4 4 4 4 4 5 5 4 4 5 5 4 2 4 4 1 5 5
-## [2007] 5 4 4 4 4 1 1 5 4 4 4 4 4 4 1 5 5 5 5 5 2 4 2 2 5 5 5 1 1 1 5 4 4 4
-## [2041] 4 5 2 5 5 5 4 4 4 1 5 4 4 1 4 2 5 5 2 2 4 4 4 2 3 5 5 5 4 4 5 5 4 4
-## [2075] 4 1 5 2 2 5 4 4 5 5 4 4 4 4 5 5 5 4 4 4 2 4 4 1 5 5 5 4 4 4 2 1 5 5
-## [2109] 5 5 1 5 5 4 2 4 1 5 5 4 4 4 4 5 4 5 4 4 4 5 5 2 4 5 2 5 2 2 4 1 1 5
-## [2143] 5 2 2 4 4 5 5 5 5 5 4 2 5 4 4 4 1 1 5 5 5 2 4 4 2 2 5 5 5 4 4 4 1 5
-## [2177] 5 2 5 4 5 2 4 2 4 5 4 4 4 2 4 4 1 5 5 4 4 4 5 5 5 4 4 4 2 2 5 4 4 4
-## [2211] 4 1 1 5 5 5 4 4 4 4 5 5 5 4 2 4 2 2 4 5 5 5 4 4 4 1 5 5 5 2 5 4 4 1
-## [2245] 5 5 5 4 4 4 4 4 4 5 5 2 2 4 2 4 1 5 5 5 4 4 4 4 1 1 5 5 5 4 2 1 5 5
-## [2279] 5 5 4 1 1 4 2 1 4 1 2 1 5 5 4 4 4 1 5 5 2 2 4 2 5 5 5 5 4 2 4 2 5 5
-## [2313] 5 4 2 1 1 5 5 5 5 4 1 5 4 4 5 4 1 4 2 1 5 5 4 4 2 1 5 4 4 4 4 1 5 4
-## [2347] 5 4 4 4 4 2 4 1 2 5 4 4 2 5 4 4 4 4 1 1 5 5 5 4 1 5 5 4 2 4 4 5 4 4
-## [2381] 2 4 4 2 1
+##    [1] 5 4 4 4 2 4 1 4 4 4 2 5 4 4 4 2 5 4 4 4 4 4 1 5 4 2 4 4 4 2 4 5 5 4 4 4 4
+##   [38] 5 5 5 5 4 4 4 4 5 2 5 5 2 4 5 5 4 2 4 4 4 4 2 1 5 5 5 2 4 4 4 5 5 2 5 2 4
+##   [75] 1 5 4 5 4 4 4 1 1 5 5 5 2 5 2 1 5 5 4 4 4 1 5 5 4 4 4 2 1 1 1 2 4 2 4 4 5
+##  [112] 4 4 4 4 1 1 4 1 5 4 4 4 5 4 4 1 4 5 5 4 4 4 4 1 5 5 5 4 4 1 1 2 5 4 1 4 4
+##  [149] 2 2 1 5 5 2 2 4 5 4 1 5 5 5 5 4 4 2 5 5 4 5 2 4 4 2 4 4 5 1 5 4 4 4 4 5 4
+##  [186] 4 4 5 5 5 5 2 4 4 1 5 5 2 2 2 2 1 5 4 5 5 4 5 5 2 5 5 5 5 4 5 5 5 4 4 4 5
+##  [223] 5 4 4 4 4 5 5 2 5 4 4 4 1 1 5 5 5 4 4 1 1 5 5 5 5 2 2 4 5 5 5 2 2 1 5 5 4
+##  [260] 4 2 2 2 5 4 5 2 4 5 5 5 5 5 2 4 2 2 1 5 4 4 4 4 1 1 1 5 5 2 4 4 1 5 4 5 4
+##  [297] 4 4 5 2 5 2 4 4 5 5 2 5 5 5 1 5 5 5 4 4 4 1 5 5 4 4 4 1 5 5 4 4 4 1 4 1 5
+##  [334] 2 5 4 2 2 5 5 4 4 4 4 1 1 5 5 5 4 4 4 4 2 5 5 4 2 4 4 5 5 5 4 4 5 2 1 2 4
+##  [371] 5 5 5 4 4 1 5 5 4 4 4 4 4 4 2 5 5 5 4 4 4 4 2 5 2 5 2 2 5 5 5 4 4 4 4 1 1
+##  [408] 5 4 4 4 4 4 5 5 5 4 5 4 4 4 4 4 4 4 5 5 5 5 5 4 4 1 4 4 4 1 1 1 5 4 4 4 5
+##  [445] 5 4 4 4 4 5 5 5 4 4 1 4 1 5 5 5 4 4 4 4 5 4 4 4 4 4 1 2 4 4 4 1 4 5 4 4 4
+##  [482] 4 1 2 5 5 5 5 4 4 4 5 5 4 4 2 4 4 4 4 5 2 5 4 4 2 4 4 4 5 4 4 4 4 4 2 4 4
+##  [519] 2 4 2 1 5 5 4 4 4 5 5 5 5 4 4 4 4 5 5 5 4 2 5 5 4 4 5 4 4 4 2 5 5 4 2 4 5
+##  [556] 5 5 4 2 2 4 1 5 5 5 5 2 5 5 5 4 2 4 5 2 5 2 4 4 1 5 4 5 4 4 2 1 1 5 5 2 4
+##  [593] 2 4 4 2 4 1 4 4 1 1 5 2 2 2 4 2 5 2 4 4 5 4 2 3 4 5 5 5 4 1 5 5 5 4 4 2 4
+##  [630] 5 5 4 1 1 2 2 2 2 4 1 1 5 5 5 5 5 4 1 5 4 4 4 4 4 5 5 4 4 2 1 1 5 5 5 4 4
+##  [667] 5 5 2 5 4 4 4 1 5 5 5 2 5 4 2 4 4 2 2 4 4 4 4 4 1 5 5 2 4 4 5 5 5 4 5 4 2
+##  [704] 5 4 4 4 1 2 2 5 4 4 4 4 1 4 1 5 5 4 4 4 5 4 4 2 1 1 5 5 5 4 5 5 2 5 5 4 2
+##  [741] 4 4 5 5 5 5 4 4 4 5 4 4 2 4 4 5 4 4 4 4 4 2 5 5 4 4 2 2 1 5 5 2 4 4 4 5 4
+##  [778] 5 2 5 2 5 5 5 4 4 4 1 5 5 4 4 4 2 5 5 5 4 4 5 5 5 4 5 5 2 2 4 4 1 2 5 5 4
+##  [815] 1 5 2 2 5 4 5 5 2 4 4 4 1 5 5 5 5 4 4 1 5 2 1 4 4 5 4 4 4 2 4 4 4 2 5 2 5
+##  [852] 5 5 4 4 4 2 5 5 2 4 4 4 5 5 2 4 4 4 4 5 5 5 5 4 5 4 5 2 4 4 2 4 2 1 5 5 4
+##  [889] 2 4 4 1 5 4 4 2 4 4 5 2 4 5 5 5 4 4 1 5 5 4 4 4 1 5 5 5 5 5 4 4 4 2 5 5 2
+##  [926] 4 4 1 5 5 5 4 4 4 4 1 1 5 5 5 5 1 1 5 5 5 5 5 2 5 4 4 4 4 4 1 5 4 4 1 4 4
+##  [963] 1 5 5 5 5 4 2 4 4 5 5 5 4 4 4 5 5 5 4 2 4 4 2 2 4 1 5 5 2 4 4 4 2 5 5 5 5
+## [1000] 4 4 2 5 5 4 4 4 4 4 1 5 5 5 4 4 4 2 5 5 2 5 2 4 5 2 2 1 1 5 2 4 4 4 2 1 1
+## [1037] 5 5 4 2 4 2 5 5 5 4 4 5 5 4 4 5 4 4 4 4 4 4 1 5 5 5 4 4 1 1 1 5 4 5 4 3 4
+## [1074] 3 1 5 2 5 4 4 4 5 5 2 4 1 4 2 5 4 4 4 4 4 1 5 5 5 5 2 5 4 4 4 4 5 5 5 4 4
+## [1111] 5 4 4 4 4 4 4 5 5 5 4 4 4 1 5 5 4 4 4 1 5 5 5 4 4 4 4 2 5 5 2 4 4 4 1 5 4
+## [1148] 4 4 1 1 5 5 5 5 1 5 5 4 4 5 5 5 4 2 4 2 2 5 5 5 5 4 4 1 5 5 4 4 5 4 4 4 2
+## [1185] 2 1 5 4 5 4 4 2 1 5 5 5 5 4 5 4 4 4 4 1 4 5 5 5 4 2 4 4 5 5 4 5 5 2 4 5 5
+## [1222] 5 5 5 2 4 2 5 5 5 5 4 2 4 2 1 5 5 5 4 4 4 4 1 5 2 5 5 2 4 2 1 4 4 4 4 4 4
+## [1259] 4 1 5 5 5 2 2 4 4 5 5 4 1 5 5 4 2 1 4 4 4 4 4 1 4 5 4 4 2 4 1 5 4 2 1 1 5
+## [1296] 2 4 4 4 4 1 1 1 4 5 2 2 1 5 5 5 4 4 4 2 5 5 5 4 4 5 5 2 2 4 5 4 1 5 5 4 4
+## [1333] 4 1 5 5 4 4 1 5 5 4 4 4 5 5 5 5 4 2 5 5 4 4 4 1 5 5 4 2 4 2 1 5 5 4 4 4 4
+## [1370] 2 2 1 5 5 4 5 1 5 4 5 4 4 4 1 5 5 5 5 4 5 5 4 4 4 4 4 4 4 4 4 4 5 5 5 4 5
+## [1407] 5 5 5 4 4 1 4 4 4 4 4 1 5 5 2 5 2 2 4 2 2 5 4 2 4 5 5 4 4 4 2 4 5 5 4 4 4
+## [1444] 4 4 1 4 2 5 4 4 2 2 4 5 5 4 4 4 4 4 4 1 5 5 4 4 4 1 1 5 5 4 4 4 4 5 2 5 2
+## [1481] 4 4 5 5 4 2 4 4 2 1 4 4 4 4 4 5 5 4 4 1 5 5 2 4 4 2 4 4 4 4 4 4 4 4 4 1 5
+## [1518] 5 5 2 4 5 5 2 5 2 2 4 5 5 4 1 5 4 5 5 4 4 4 5 5 4 4 4 3 2 5 4 4 4 4 4 4 2
+## [1555] 2 2 4 2 4 5 5 5 4 4 2 1 5 4 4 1 5 5 5 5 4 2 4 2 1 4 4 4 4 4 5 5 5 4 4 4 5
+## [1592] 5 2 4 4 4 2 5 5 5 4 4 4 5 2 4 4 4 2 4 2 4 1 1 5 2 4 5 2 4 4 5 5 5 4 5 5 2
+## [1629] 2 5 4 2 2 4 5 5 2 2 2 2 5 5 5 2 2 1 5 5 4 4 1 5 5 2 5 4 5 5 5 4 4 4 1 5 5
+## [1666] 5 2 4 4 5 4 2 4 5 4 5 5 5 5 1 1 5 4 4 4 2 4 5 5 5 4 2 4 1 1 5 2 5 4 4 4 4
+## [1703] 4 5 2 2 4 1 1 1 4 5 4 4 1 5 5 4 4 5 5 4 4 4 2 4 2 1 5 5 4 4 4 4 5 4 5 4 1
+## [1740] 4 4 5 4 1 4 5 4 4 4 4 4 5 5 5 4 5 5 5 4 4 4 2 5 4 4 4 4 1 4 1 1 5 5 5 4 2
+## [1777] 2 2 2 4 1 5 2 5 5 4 4 5 5 4 4 2 4 2 5 5 5 5 4 4 4 2 5 2 2 4 5 1 5 4 4 4 4
+## [1814] 5 4 4 4 1 3 1 5 5 5 4 1 4 5 5 4 1 5 5 5 2 4 2 4 4 2 4 5 4 4 1 5 4 5 2 4 4
+## [1851] 1 5 5 4 4 4 4 5 5 5 2 4 2 1 5 5 4 4 4 1 1 2 5 4 4 4 4 2 3 1 5 2 2 5 2 4 3
+## [1888] 4 5 5 5 5 4 4 1 5 5 5 4 4 2 4 5 4 4 1 5 5 5 4 4 1 4 4 5 4 4 4 1 5 4 4 4 4
+## [1925] 4 1 5 5 2 2 4 4 2 5 5 4 4 2 4 5 4 4 4 2 1 5 4 4 4 4 4 2 5 5 5 5 5 4 1 1 5
+## [1962] 4 4 5 4 4 4 1 2 4 5 5 5 5 4 4 4 1 5 5 4 4 4 4 4 5 5 4 4 4 4 4 4 5 5 4 4 5
+## [1999] 5 4 2 4 4 1 5 5 5 4 4 4 4 1 1 5 4 4 4 4 4 4 1 5 5 5 5 5 2 4 2 2 5 5 5 1 1
+## [2036] 1 5 4 4 4 4 5 2 5 5 5 4 4 4 1 5 4 4 1 4 2 5 5 2 2 4 4 4 2 3 5 5 5 4 4 5 5
+## [2073] 4 4 4 1 5 2 2 5 4 4 5 5 4 4 4 4 5 5 5 4 4 4 2 4 4 1 5 5 5 4 4 4 2 1 5 5 5
+## [2110] 5 1 5 5 4 2 4 1 5 5 4 4 4 4 5 4 5 4 4 4 5 5 2 4 5 2 5 2 2 4 1 1 5 5 2 2 4
+## [2147] 4 5 5 5 5 5 4 2 5 4 4 4 1 1 5 5 5 2 4 4 2 2 5 5 5 4 4 4 1 5 5 2 5 4 5 2 4
+## [2184] 2 4 5 4 4 4 2 4 4 1 5 5 4 4 4 5 5 5 4 4 4 2 2 5 4 4 4 4 1 1 5 5 5 4 4 4 4
+## [2221] 5 5 5 4 2 4 2 2 4 5 5 5 4 4 4 1 5 5 5 2 5 4 4 1 5 5 5 4 4 4 4 4 4 5 5 2 2
+## [2258] 4 2 4 1 5 5 5 4 4 4 4 1 1 5 5 5 4 2 1 5 5 5 5 4 1 1 4 2 1 4 1 2 1 5 5 4 4
+## [2295] 4 1 5 5 2 2 4 2 5 5 5 5 4 2 4 2 5 5 5 4 2 1 1 5 5 5 5 4 1 5 4 4 5 4 1 4 2
+## [2332] 1 5 5 4 4 2 1 5 4 4 4 4 1 5 4 5 4 4 4 4 2 4 1 2 5 4 4 2 5 4 4 4 4 1 1 5 5
+## [2369] 5 4 1 5 5 4 2 4 4 5 4 4 2 4 4 2 1
 ## 
 ## Within cluster sum of squares by cluster:
 ## [1]  871.8404 1720.4383  148.9773 1643.4785 1711.7095
@@ -588,83 +578,82 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Available components:
 ## 
-## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;    
-## [5] &quot;tot.withinss&quot; &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;        
-## [9] &quot;ifault&quot;</code></pre>
+## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;     &quot;tot.withinss&quot;
+## [6] &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot;</code></pre>
 <p>Looks like this time, cluster 1 is all below average and cluster 5 is all above. Which cluster is Cam Mack in?</p>
-<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb763-1" data-line-number="1">playeradvcluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(playersadvanced, advk5<span class="op">$</span>cluster) </a></code></pre></div>
+<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb778-1" data-line-number="1">playeradvcluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(playersadvanced, advk5<span class="op">$</span>cluster) </a></code></pre></div>
 <p>Cluster 5 on my dataset. So three games in, we can say he’s in a big group of players who are all above average on these advanced metrics.</p>
 <p>Now who are his Big Ten peers?</p>
-<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb764-1" data-line-number="1">playeradvcluster <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb764-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(advk5.cluster <span class="op">==</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb764-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Team <span class="op">%in%</span><span class="st"> </span>big10) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb764-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(PProd))</a></code></pre></div>
-<pre><code>##              Player                     Team Pos  PER   TS. PProd  AST.
-## 1   Cassius Winston  Michigan State Spartans   G 23.3 0.551    71  42.6
-## 2       Marcus Carr Minnesota Golden Gophers   G 16.1 0.413    68  39.0
-## 3      Andres Feliz Illinois Fighting Illini   G 19.3 0.568    63  22.1
-## 4      Brad Davison        Wisconsin Badgers   G 24.2 0.668    58  14.3
-## 5    Jahaad Proctor      Purdue Boilermakers   G 22.8 0.551    58  17.3
-## 6     Aljami Durham         Indiana Hoosiers   G 25.6 0.804    56  13.0
-## 7       Ayo Dosunmu Illinois Fighting Illini   G 11.1 0.507    54  23.4
-## 8         Geo Baker  Rutgers Scarlet Knights   G 20.4 0.548    51  25.3
-## 9      Cameron Mack     Nebraska Cornhuskers   G 21.2 0.499    51  37.2
-## 10  Eric Hunter Jr.      Purdue Boilermakers   G 14.4 0.502    47  22.2
-## 11   Zavier Simpson      Michigan Wolverines   G 16.7 0.518    46  38.6
-## 12      D.J. Carton      Ohio State Buckeyes   G 22.9 0.657    44  34.2
-## 13    Payton Willis Minnesota Golden Gophers   G 13.8 0.530    43  15.1
-## 14    Anthony Cowan       Maryland Terrapins   G 20.2 0.542    42  29.3
-## 15     Myreon Jones Penn State Nittany Lions   G 22.1 0.709    41  25.4
-## 16      Myles Dread Penn State Nittany Lions   G 23.7 0.578    38  26.7
-## 17       Eli Brooks      Michigan Wolverines   G 16.7 0.644    38  13.7
-## 18     Rob Phinisee         Indiana Hoosiers   G 20.3 0.554    38  39.0
-## 19    Trent Frazier Illinois Fighting Illini   G 10.9 0.539    37   9.8
-## 20   Ron Harper Jr.  Rutgers Scarlet Knights   G 22.7 0.554    36   5.9
-## 21        Kobe King        Wisconsin Badgers   G 17.1 0.532    35  10.3
-## 22      Jacob Young  Rutgers Scarlet Knights   G 10.9 0.446    35  28.9
-## 23        CJ Walker      Ohio State Buckeyes   G 16.3 0.560    35  33.9
-## 24    Montez Mathis  Rutgers Scarlet Knights   G 20.4 0.490    34  11.6
-## 25   D&#39;Mitrik Trice        Wisconsin Badgers   G 10.8 0.501    32  14.5
-## 26    Aaron Wiggins       Maryland Terrapins   G 21.6 0.460    32  14.6
-## 27     Joe Wieskamp            Iowa Hawkeyes   G 15.3 0.514    31  12.2
-## 28       Eric Ayala       Maryland Terrapins   G 12.4 0.528    30  16.7
-## 29 Connor McCaffery            Iowa Hawkeyes   G 17.8 0.678    29  28.7
-## 30  Caleb McConnell  Rutgers Scarlet Knights   G 18.8 0.515    28  13.0
-## 31      Pat Spencer    Northwestern Wildcats   G 16.8 0.482    21  32.9
-## 32       Tommy Luce      Purdue Boilermakers   G 30.7 0.500     4 100.0
-##    WS.40  BPM advk5.cluster
-## 1  0.269  5.9             5
-## 2  0.119  8.4             5
-## 3  0.175  7.4             5
-## 4  0.255 11.9             5
-## 5  0.241  4.6             5
-## 6  0.276  8.0             5
-## 7  0.096  2.9             5
-## 8  0.204  6.0             5
-## 9  0.166  6.8             5
-## 10 0.159  1.2             5
-## 11 0.142  4.5             5
-## 12 0.272 11.4             5
-## 13 0.157  7.4             5
-## 14 0.247  8.5             5
-## 15 0.281  3.4             5
-## 16 0.315  8.4             5
-## 17 0.162  5.2             5
-## 18 0.215  0.8             5
-## 19 0.145  6.3             5
-## 20 0.229  4.9             5
-## 21 0.170  7.0             5
-## 22 0.083 -3.8             5
-## 23 0.232  6.9             5
-## 24 0.199  2.9             5
-## 25 0.105  5.9             5
-## 26 0.232 13.3             5
-## 27 0.123  3.8             5
-## 28 0.154  2.2             5
-## 29 0.185  2.9             5
-## 30 0.196  5.2             5
-## 31 0.133  4.6             5
-## 32 0.251 -3.7             5</code></pre>
+<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb779-1" data-line-number="1">playeradvcluster <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb779-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(advk5.cluster <span class="op">==</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb779-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Team <span class="op">%in%</span><span class="st"> </span>big10) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb779-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(PProd))</a></code></pre></div>
+<pre><code>##              Player                     Team Pos  PER   TS. PProd  AST. WS.40
+## 1   Cassius Winston  Michigan State Spartans   G 23.3 0.551    71  42.6 0.269
+## 2       Marcus Carr Minnesota Golden Gophers   G 16.1 0.413    68  39.0 0.119
+## 3      Andres Feliz Illinois Fighting Illini   G 19.3 0.568    63  22.1 0.175
+## 4      Brad Davison        Wisconsin Badgers   G 24.2 0.668    58  14.3 0.255
+## 5    Jahaad Proctor      Purdue Boilermakers   G 22.8 0.551    58  17.3 0.241
+## 6     Aljami Durham         Indiana Hoosiers   G 25.6 0.804    56  13.0 0.276
+## 7       Ayo Dosunmu Illinois Fighting Illini   G 11.1 0.507    54  23.4 0.096
+## 8         Geo Baker  Rutgers Scarlet Knights   G 20.4 0.548    51  25.3 0.204
+## 9      Cameron Mack     Nebraska Cornhuskers   G 21.2 0.499    51  37.2 0.166
+## 10  Eric Hunter Jr.      Purdue Boilermakers   G 14.4 0.502    47  22.2 0.159
+## 11   Zavier Simpson      Michigan Wolverines   G 16.7 0.518    46  38.6 0.142
+## 12      D.J. Carton      Ohio State Buckeyes   G 22.9 0.657    44  34.2 0.272
+## 13    Payton Willis Minnesota Golden Gophers   G 13.8 0.530    43  15.1 0.157
+## 14    Anthony Cowan       Maryland Terrapins   G 20.2 0.542    42  29.3 0.247
+## 15     Myreon Jones Penn State Nittany Lions   G 22.1 0.709    41  25.4 0.281
+## 16      Myles Dread Penn State Nittany Lions   G 23.7 0.578    38  26.7 0.315
+## 17       Eli Brooks      Michigan Wolverines   G 16.7 0.644    38  13.7 0.162
+## 18     Rob Phinisee         Indiana Hoosiers   G 20.3 0.554    38  39.0 0.215
+## 19    Trent Frazier Illinois Fighting Illini   G 10.9 0.539    37   9.8 0.145
+## 20   Ron Harper Jr.  Rutgers Scarlet Knights   G 22.7 0.554    36   5.9 0.229
+## 21        Kobe King        Wisconsin Badgers   G 17.1 0.532    35  10.3 0.170
+## 22      Jacob Young  Rutgers Scarlet Knights   G 10.9 0.446    35  28.9 0.083
+## 23        CJ Walker      Ohio State Buckeyes   G 16.3 0.560    35  33.9 0.232
+## 24    Montez Mathis  Rutgers Scarlet Knights   G 20.4 0.490    34  11.6 0.199
+## 25   D&#39;Mitrik Trice        Wisconsin Badgers   G 10.8 0.501    32  14.5 0.105
+## 26    Aaron Wiggins       Maryland Terrapins   G 21.6 0.460    32  14.6 0.232
+## 27     Joe Wieskamp            Iowa Hawkeyes   G 15.3 0.514    31  12.2 0.123
+## 28       Eric Ayala       Maryland Terrapins   G 12.4 0.528    30  16.7 0.154
+## 29 Connor McCaffery            Iowa Hawkeyes   G 17.8 0.678    29  28.7 0.185
+## 30  Caleb McConnell  Rutgers Scarlet Knights   G 18.8 0.515    28  13.0 0.196
+## 31      Pat Spencer    Northwestern Wildcats   G 16.8 0.482    21  32.9 0.133
+## 32       Tommy Luce      Purdue Boilermakers   G 30.7 0.500     4 100.0 0.251
+##     BPM advk5.cluster
+## 1   5.9             5
+## 2   8.4             5
+## 3   7.4             5
+## 4  11.9             5
+## 5   4.6             5
+## 6   8.0             5
+## 7   2.9             5
+## 8   6.0             5
+## 9   6.8             5
+## 10  1.2             5
+## 11  4.5             5
+## 12 11.4             5
+## 13  7.4             5
+## 14  8.5             5
+## 15  3.4             5
+## 16  8.4             5
+## 17  5.2             5
+## 18  0.8             5
+## 19  6.3             5
+## 20  4.9             5
+## 21  7.0             5
+## 22 -3.8             5
+## 23  6.9             5
+## 24  2.9             5
+## 25  5.9             5
+## 26 13.3             5
+## 27  3.8             5
+## 28  2.2             5
+## 29  2.9             5
+## 30  5.2             5
+## 31  4.6             5
+## 32 -3.7             5</code></pre>
 <p>Sorting on Points Produced, Cam Mack is eighth out of the 31 guards in the Big Ten who land in Cluster 5.</p>
 <p>It’s early goings, but watch this player. He’s fun to watch and the stats back it up.</p>
 
@@ -695,12 +684,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -712,6 +700,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

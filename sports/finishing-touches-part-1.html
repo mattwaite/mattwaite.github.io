@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>28 Finishing touches, part 1 | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="28 Finishing touches, part 1 | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -165,7 +165,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="filters-and-selections.html"><a href="filters-and-selections.html#top-list"><i class="fa fa-check"></i><b>6.3</b> Top list</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>7</b> Transforming data</a><ul>
-<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-wide-data-long"><i class="fa fa-check"></i><b>7.1</b> Making wide data long</a></li>
+<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-long-data-wide"><i class="fa fa-check"></i><b>7.1</b> Making long data wide</a></li>
 <li class="chapter" data-level="7.2" data-path="transforming-data.html"><a href="transforming-data.html#why-this-matters"><i class="fa fa-check"></i><b>7.2</b> Why this matters</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="simulations.html"><a href="simulations.html"><i class="fa fa-check"></i><b>8</b> Simulations</a><ul>
@@ -182,9 +182,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="z-scores.html"><a href="z-scores.html#calculating-a-z-score-in-r"><i class="fa fa-check"></i><b>12.1</b> Calculating a Z score in R</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html"><i class="fa fa-check"></i><b>13</b> Intro to ggplot</a><ul>
-<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.1</b> Scales</a></li>
-<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.2</b> Styling</a></li>
-<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.3</b> One last trick: coord flip</a></li>
+<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#the-bar-chart"><i class="fa fa-check"></i><b>13.1</b> The bar chart</a></li>
+<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.2</b> Scales</a></li>
+<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.3</b> Styling</a></li>
+<li class="chapter" data-level="13.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.4</b> One last trick: coord flip</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="stacked-bar-charts.html"><a href="stacked-bar-charts.html"><i class="fa fa-check"></i><b>14</b> Stacked bar charts</a></li>
 <li class="chapter" data-level="15" data-path="waffle-charts.html"><a href="waffle-charts.html"><i class="fa fa-check"></i><b>15</b> Waffle charts</a><ul>
@@ -292,12 +293,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="getting-ggplot-closer-to-output" class="section level2">
 <h2><span class="header-section-number">28.2</span> Getting ggplot closer to output</h2>
 <p>Let’s explore fixing up ggplot’s output before we send it to a finishing program like Adobe Illustrator. We’ll need a graphic to work with first.</p>
-<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb657-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ───────────────</code></pre>
-<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb669-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## ── Attaching packages ────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
+## ✓ tibble  2.1.3     ✓ dplyr   0.8.3
+## ✓ tidyr   1.0.0     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.4.0</code></pre>
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.2</code></pre>
@@ -305,12 +307,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ────────────────────────
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb668-1" data-line-number="1"><span class="kw">library</span>(ggrepel)</a></code></pre></div>
+<pre><code>## ── Conflicts ───────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb681-1" data-line-number="1"><span class="kw">library</span>(ggrepel)</a></code></pre></div>
 <pre><code>## Warning: package &#39;ggrepel&#39; was built under R version 3.5.2</code></pre>
-<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb670-1" data-line-number="1">scoring &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/scoringoffense.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb683-1" data-line-number="1">scoring &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/scoringoffense.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Name = col_character(),
@@ -324,7 +326,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   `Points/G` = col_double(),
 ##   Year = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb672-1" data-line-number="1">total &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/totaloffense.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb685-1" data-line-number="1">total &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/totaloffense.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Name = col_character(),
@@ -337,66 +339,66 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   `Yards/G` = col_double(),
 ##   Year = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb674-1" data-line-number="1">offense &lt;-<span class="st"> </span>total <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(scoring, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Year&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb687"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb687-1" data-line-number="1">offense &lt;-<span class="st"> </span>total <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(scoring, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Year&quot;</span>))</a></code></pre></div>
 <p>We’re going to need this later, so let’s grab Nebraska’s 2018 stats from this dataframe.</p>
-<div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb675-1" data-line-number="1">nu &lt;-<span class="st"> </span>offense <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Name <span class="op">==</span><span class="st"> &quot;Nebraska&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Year <span class="op">==</span><span class="st"> </span><span class="dv">2018</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb688-1" data-line-number="1">nu &lt;-<span class="st"> </span>offense <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Name <span class="op">==</span><span class="st"> &quot;Nebraska&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Year <span class="op">==</span><span class="st"> </span><span class="dv">2018</span>)</a></code></pre></div>
 <p>We’ll start with the basics.</p>
-<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb676-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb676-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb689-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb689-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>)</a></code></pre></div>
 <p><img src="27-finishingtouches1_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Let’s take changing things one by one. The first thing we can do is change the figure size. Sometimes you don’t want a square. We can use the <code>knitr</code> output settings in our chunk to do this easily in our notebooks.</p>
-<div class="sourceCode" id="cb677"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb677-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb677-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb690-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb690-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>)</a></code></pre></div>
 <p><img src="27-finishingtouches1_files/figure-html/unnamed-chunk-6-1.png" width="480" /></p>
 <p>Now let’s add a fit line.</p>
-<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb678-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb678-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb691-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb691-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="27-finishingtouches1_files/figure-html/unnamed-chunk-7-1.png" width="480" /></p>
 <p>And now some labels.</p>
-<div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb679-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb679-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb679-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s underperforming offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s offense was the strength of the team. They underperformed.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb692-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb692-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb692-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s underperforming offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s offense was the strength of the team. They underperformed.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>)</a></code></pre></div>
 <p><img src="27-finishingtouches1_files/figure-html/unnamed-chunk-8-1.png" width="480" /></p>
 <p>Let’s get rid of the default plot look and drop the grey background.</p>
-<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb680-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb680-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb680-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s underperforming offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s offense was the strength of the team. They underperformed.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb680-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb693-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb693-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb693-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s underperforming offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s offense was the strength of the team. They underperformed.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb693-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
 <p><img src="27-finishingtouches1_files/figure-html/unnamed-chunk-9-1.png" width="480" /></p>
 <p>Off to a good start, but our text has no real heirarchy. We’d want our headline to stand out more. So let’s change that. When it comes to changing text, the place to do that is in the theme element. <a href="http://ggplot2.tidyverse.org/reference/theme.html">There are a lot of ways to modify the theme</a>. We’ll start easy. Let’s make the headline bigger and bold.</p>
-<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb681-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb681-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb681-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s underperforming offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s offense was the strength of the team. They underperformed.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb681-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb681-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb681-6" data-line-number="6">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>)</a>
-<a class="sourceLine" id="cb681-7" data-line-number="7">    ) </a></code></pre></div>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb694-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb694-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb694-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s underperforming offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s offense was the strength of the team. They underperformed.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb694-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb694-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb694-6" data-line-number="6">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>)</a>
+<a class="sourceLine" id="cb694-7" data-line-number="7">    ) </a></code></pre></div>
 <p><img src="27-finishingtouches1_files/figure-html/unnamed-chunk-10-1.png" width="480" /></p>
 <p>Now let’s fix a few other things – like the axis labels being too big, the subtitle could be bigger and lets drop some grid lines.</p>
-<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb682-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb682-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb682-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s underperforming offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s offense was the strength of the team. They underperformed.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb682-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb682-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb682-6" data-line-number="6">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb682-7" data-line-number="7">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </a>
-<a class="sourceLine" id="cb682-8" data-line-number="8">    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </a>
-<a class="sourceLine" id="cb682-9" data-line-number="9">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</a>
-<a class="sourceLine" id="cb682-10" data-line-number="10">    ) </a></code></pre></div>
+<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb695-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb695-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb695-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s underperforming offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s offense was the strength of the team. They underperformed.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb695-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb695-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb695-6" data-line-number="6">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
+<a class="sourceLine" id="cb695-7" data-line-number="7">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </a>
+<a class="sourceLine" id="cb695-8" data-line-number="8">    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb695-9" data-line-number="9">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</a>
+<a class="sourceLine" id="cb695-10" data-line-number="10">    ) </a></code></pre></div>
 <p><img src="27-finishingtouches1_files/figure-html/unnamed-chunk-11-1.png" width="480" /></p>
 <p>Missing from this graph is the context that the headline promises. Where is Nebraska? We haven’t added it yet. So let’s add a point and a label for it.</p>
-<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb683-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb683-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb683-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s underperforming offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s offense was the strength of the team. They underperformed.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb683-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb683-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb683-6" data-line-number="6">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb683-7" data-line-number="7">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </a>
-<a class="sourceLine" id="cb683-8" data-line-number="8">    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </a>
-<a class="sourceLine" id="cb683-9" data-line-number="9">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</a>
-<a class="sourceLine" id="cb683-10" data-line-number="10">    ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb683-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb683-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>, <span class="dt">label=</span><span class="st">&quot;Nebraska 2018&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb696-1" data-line-number="1"><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb696-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb696-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s underperforming offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s offense was the strength of the team. They underperformed.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb696-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb696-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb696-6" data-line-number="6">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
+<a class="sourceLine" id="cb696-7" data-line-number="7">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </a>
+<a class="sourceLine" id="cb696-8" data-line-number="8">    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb696-9" data-line-number="9">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</a>
+<a class="sourceLine" id="cb696-10" data-line-number="10">    ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb696-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb696-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>, <span class="dt">label=</span><span class="st">&quot;Nebraska 2018&quot;</span>))</a></code></pre></div>
 <p><img src="27-finishingtouches1_files/figure-html/unnamed-chunk-12-1.png" width="480" /></p>
 <p>If we’re happy with this output – if it meets all of our needs for publication – then we can simply export it as a png file. We do that by adding <code>+ ggsave(&quot;plot.png&quot;, width=5, height=2)</code> to the end of our code. Note the width and the height are from our knitr parameters at the top – you have to repeat them or the graph will export at the default 7x7.</p>
 <p>If there’s more work you want to do with this graph that isn’t easy or possible in R but is in Illustrator, simply change the file extension to <code>pdf</code> instead of <code>png</code>. The pdf will open as a vector file in Illustrator with everything being fully editable.</p>
@@ -428,12 +430,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -445,6 +446,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

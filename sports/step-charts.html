@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>17 Step charts | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
   <meta property="og:title" content="17 Step charts | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -165,7 +165,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3" data-path="filters-and-selections.html"><a href="filters-and-selections.html#top-list"><i class="fa fa-check"></i><b>6.3</b> Top list</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="transforming-data.html"><a href="transforming-data.html"><i class="fa fa-check"></i><b>7</b> Transforming data</a><ul>
-<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-wide-data-long"><i class="fa fa-check"></i><b>7.1</b> Making wide data long</a></li>
+<li class="chapter" data-level="7.1" data-path="transforming-data.html"><a href="transforming-data.html#making-long-data-wide"><i class="fa fa-check"></i><b>7.1</b> Making long data wide</a></li>
 <li class="chapter" data-level="7.2" data-path="transforming-data.html"><a href="transforming-data.html#why-this-matters"><i class="fa fa-check"></i><b>7.2</b> Why this matters</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="simulations.html"><a href="simulations.html"><i class="fa fa-check"></i><b>8</b> Simulations</a><ul>
@@ -182,9 +182,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="z-scores.html"><a href="z-scores.html#calculating-a-z-score-in-r"><i class="fa fa-check"></i><b>12.1</b> Calculating a Z score in R</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html"><i class="fa fa-check"></i><b>13</b> Intro to ggplot</a><ul>
-<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.1</b> Scales</a></li>
-<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.2</b> Styling</a></li>
-<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.3</b> One last trick: coord flip</a></li>
+<li class="chapter" data-level="13.1" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#the-bar-chart"><i class="fa fa-check"></i><b>13.1</b> The bar chart</a></li>
+<li class="chapter" data-level="13.2" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#scales"><i class="fa fa-check"></i><b>13.2</b> Scales</a></li>
+<li class="chapter" data-level="13.3" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#styling"><i class="fa fa-check"></i><b>13.3</b> Styling</a></li>
+<li class="chapter" data-level="13.4" data-path="intro-to-ggplot.html"><a href="intro-to-ggplot.html#one-last-trick-coord-flip"><i class="fa fa-check"></i><b>13.4</b> One last trick: coord flip</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="stacked-bar-charts.html"><a href="stacked-bar-charts.html"><i class="fa fa-check"></i><b>14</b> Stacked bar charts</a></li>
 <li class="chapter" data-level="15" data-path="waffle-charts.html"><a href="waffle-charts.html"><i class="fa fa-check"></i><b>15</b> Waffle charts</a><ul>
@@ -267,15 +268,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="step-charts" class="section level1">
 <h1><span class="header-section-number">17</span> Step charts</h1>
-<p>Step charts are a method of showing progress toward something. There’s been two great examples lately. First is the Washignton Post looking at <a href="https://www.washingtonpost.com/graphics/sports/lebron-james-michael-jordan-nba-scoring-list/?utm_term=.481074150849">Lebron passing Jordan’s career point total</a>. Another is John Burn-Murdoch’s work at the Financial Times (which is paywalled) about soccer stars. <a href="http://johnburnmurdoch.github.io/projects/goal-lines/CL/">Here’s an example of his work outside the paywall</a>.</p>
+<p>Step charts are <strong>a method of showing progress</strong> toward something. They combine showing change over time – <strong>cumulative change over time</strong> – with magnitude. They’re good at inviting comparison.</p>
+<p>There’s great examples out there. First is the Washignton Post looking at <a href="https://www.washingtonpost.com/graphics/sports/lebron-james-michael-jordan-nba-scoring-list/?utm_term=.481074150849">Lebron passing Jordan’s career point total</a>. Another is John Burn-Murdoch’s work at the Financial Times (which is paywalled) about soccer stars. <a href="http://johnburnmurdoch.github.io/projects/goal-lines/CL/">Here’s an example of his work outside the paywall</a>.</p>
 <p>To replicate this, we need cumulative data – data that is the running total of data at a given point. So think of it this way – Nebraska scores 50 points in a basketball game and then 50 more the next, their cumulative total at two games is 100 points.</p>
 <p>Step charts can be used for all kinds of things – showing how a player’s career has evolved over time, how a team fares over a season, or franchise history. Let’s walk through an example.</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## ── Attaching packages ───────────────</code></pre>
-<pre><code>## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
-## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
-## ✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## ── Attaching packages ────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
+## ✓ tibble  2.1.3     ✓ dplyr   0.8.3
+## ✓ tidyr   1.0.0     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.4.0</code></pre>
 <pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.2</code></pre>
@@ -283,9 +286,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ────────────────────────
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre><code>## ── Conflicts ───────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>And we’ll use our basketball log data.</p>
 <div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" data-line-number="1">logs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/logs19.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
@@ -303,17 +306,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## )</code></pre>
 <pre><code>## See spec(...) for full column specifications.</code></pre>
 <p>Here we’re going to look at the scoring differential of teams. If you score more than your opponent, you win. So it stands to reason that if you score a lot more than your opponent over the course of a season, you should be very good, right? Let’s see.</p>
-<p>The first thing we’re going to do is calculate that differential. Then, we’ll group it by the team. After that, we’re going to summarize using a new function called <code>cumsum</code> or cumulative sum – the sum for each game as we go forward.</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" data-line-number="1">difflogs &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Differential =</span> TeamScore <span class="op">-</span><span class="st"> </span>OpponentScore) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Team) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">CumDiff =</span> <span class="kw">cumsum</span>(Differential))</a></code></pre></div>
+<p>The first thing we’re going to do is calculate that differential. Then, we’ll group it by the team. After that, we’re going to summarize using a new function called <code>cumsum</code> or cumulative sum – the sum for each game as we go forward. So game 1’s cumsum is the differential of that game. Game 2’s cumsum is Game 1 + Game 2. Game 3 is Game 1 + 2 + 3 and so on.</p>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" data-line-number="1">difflogs &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb370-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Differential =</span> TeamScore <span class="op">-</span><span class="st"> </span>OpponentScore) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb370-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(Team) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb370-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">CumDiff =</span> <span class="kw">cumsum</span>(Differential))</a></code></pre></div>
 <p>Now that we have the cumulative sum for each, let’s filter it down to just Big Ten teams.</p>
 <div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb371-1" data-line-number="1">bigdiff &lt;-<span class="st"> </span>difflogs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">==</span><span class="st"> &quot;Big Ten&quot;</span>)</a></code></pre></div>
-<p>The step chart is it’s own geom, so we can employ it just like we have the others. It works almost exactly the same as a line chart, but it just has to use the cumulative sum instead of a regular value.</p>
+<p>The step chart is it’s own geom, so we can employ it just like we have the others. It works almost exactly the same as a line chart, but it uses the cumulative sum instead of a regular value and, as the name implies, creates a step like shape to the line instead of a curve.</p>
 <div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb372-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_step</span>(<span class="dt">data=</span>bigdiff, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>CumDiff, <span class="dt">group=</span>Team))</a></code></pre></div>
 <p><img src="16-stepcharts_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Let’s try a different element of the aesthetic: color, but this time inside the aesthetic. Last time, we did the color outside. When you put it inside, you pass it a column name and ggplot will color each line based on what thing that is, and it will create a legend that labels each line that thing.</p>
 <div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb373-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_step</span>(<span class="dt">data=</span>bigdiff, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>CumDiff, <span class="dt">group=</span>Team, <span class="dt">color=</span>Team))</a></code></pre></div>
 <p><img src="16-stepcharts_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<p>From this, we can see two teams in the Big Ten have negative point differentials on the season – Illinois and Rutgers.</p>
+<p>From this, we can see two teams in the Big Ten had negative point differentials last season – Illinois and Rutgers.</p>
 <p>Let’s look at those top teams plus Nebraska.</p>
 <div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" data-line-number="1">nu &lt;-<span class="st"> </span>bigdiff <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">==</span><span class="st"> &quot;Nebraska Cornhuskers&quot;</span>)</a>
 <a class="sourceLine" id="cb374-2" data-line-number="2">mi &lt;-<span class="st"> </span>bigdiff <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">==</span><span class="st"> &quot;Michigan Wolverines&quot;</span>)</a>
@@ -324,7 +330,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb375-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_step</span>(<span class="dt">data=</span>bigdiff, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>CumDiff, <span class="dt">group=</span>Team), <span class="dt">color=</span><span class="st">&quot;light grey&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb375-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_step</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>CumDiff, <span class="dt">group=</span>Team), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb375-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_step</span>(<span class="dt">data=</span>mi, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>CumDiff, <span class="dt">group=</span>Team), <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb375-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_step</span>(<span class="dt">data=</span>ms, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>CumDiff, <span class="dt">group=</span>Team), <span class="dt">color=</span><span class="st">&quot;dark green&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb375-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_step</span>(<span class="dt">data=</span>ms, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>CumDiff, <span class="dt">group=</span>Team), <span class="dt">color=</span><span class="st">&quot;green&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb375-6" data-line-number="6"><span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x=</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2018-12-10&quot;</span>)), <span class="dt">y=</span><span class="dv">220</span>, <span class="dt">label=</span><span class="st">&quot;Nebraska&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb375-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Date&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Cumulative Point Differential&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska was among the league&#39;s most dominant&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;Before the misseason skid, Nebraska was at the top of the Big Ten in point differential&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: Sports-Reference.com | By Matt Waite&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb375-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_minimal</span>()</a></code></pre></div>
@@ -356,12 +362,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -373,6 +378,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
