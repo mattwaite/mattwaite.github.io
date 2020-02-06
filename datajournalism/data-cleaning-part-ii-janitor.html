@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Public records | Data Journalism with R and the Tidyverse</title>
+  <title>Chapter 11 Data Cleaning Part II: Janitor | Data Journalism with R and the Tidyverse</title>
   <meta name="description" content="This is a book built on a very opinionated philosophy for undergraduate journalism students in doing data journalism in R with replicable methods." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Public records | Data Journalism with R and the Tidyverse" />
+  <meta property="og:title" content="Chapter 11 Data Cleaning Part II: Janitor | Data Journalism with R and the Tidyverse" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Public records | Data Journalism with R and the Tidyverse" />
+  <meta name="twitter:title" content="Chapter 11 Data Cleaning Part II: Janitor | Data Journalism with R and the Tidyverse" />
   
   <meta name="twitter:description" content="This is a book built on a very opinionated philosophy for undergraduate journalism students in doing data journalism in R with replicable methods." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="r-basics.html"/>
+<link rel="prev" href="data-cleaning-part-i-data-smells.html"/>
+<link rel="next" href="data-cleaning-part-iii-open-refine.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -207,50 +207,129 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="public-records" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Public records</h1>
-<p>Public records are the lifeblood of investigative reporting. They carry their own philosophical framework, in a manner of speaking.</p>
-<ul>
-<li>Sunlight is the best disinfectant. Corruption hides in the shadows.</li>
-<li>You paid for it with your taxes. It should be yours (with exceptions).</li>
-<li>Journalism with a capital J is about holding the powerful accountable for their actions.</li>
-</ul>
-<p>Keeping those things in mind as you navigate public records is helpful.</p>
-<div id="federal-law" class="section level2">
-<h2><span class="header-section-number">2.1</span> Federal law</h2>
-<p>Your access to public records and public meetings is a matter of the law. As a journalist, it is your job to know this law better than most lawyers. Which law applies depends on which branch of government you are asking.</p>
-<p>The Federal Government is covered by the Freedom of Information Act, or FOIA. FOIA is not a universal term. Do not use it if you are not talking to a federal agency. FOIA is a beacon of openness to the world. FOIA is deeply flawed and frustrating.</p>
-<p>Why?</p>
-<ul>
-<li>There is no real timetable with FOIA. Requests can take months, even years.</li>
-<li>As a journalist, you can ask that your request be expedited.</li>
-<li>Guess what? That requires review. More delays.</li>
-<li>Exemptions are broad. National security, personal privacy, often overused.</li>
-<li>Denied? You can appeal. More delays.</li>
-</ul>
-<p>The law was enacted in 1966, but it’s still poorly understood by most federal employees, if not outright flouted by political appointees. Lawsuits are common.</p>
-<p>Post 9/11, the Bush administration rolled back many agency rules. Obama ordered a “presumption of openness” but followed it with some of the most restrictive policies ever seen. The Trump Administration, similar to the Obama administration, claims to be the most transparent administration, but has steadily removed records from open access and broadly denied access to records.</p>
-<p>Result? FOIA is in trouble.</p>
-<p><a href="https://www.spj.org/foi-guide-pros.asp">SPJ is a good resource</a>.</p>
+<div id="data-cleaning-part-ii-janitor" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Data Cleaning Part II: Janitor</h1>
+<p>The bane of every data analyst’s existence is data cleaning.</p>
+<p>Every developer, every data system, every agency, the all have opinions about how data gets collected. Some decisions make sense from the outside. Some decisions are based entirely on internal poltics: who is creating the data, how they are creating it, why they are creating it. Is it automated? Is it manual? Are data normalized? Are there free form fields where users can just type into or does the system restrict them to choices?</p>
+<p>Your question – what you want to do with the data – is almost never part of that equation.</p>
+<p>So cleaning data is the process of fixing issues in your data so you can answer the questions you want to answer. Unfortunately, there’s no template here. There’s no checklist. It’s just a big bag of tricks that eventually runs out and you’ll be left fixing individual issues by hand, if it’s really bad.</p>
+<p>But let’s start simple. There are certain things that need we can start with that will make our lives easier. We’ll slowly make it harder as we dig deeper.</p>
+<div id="cleaning-headers" class="section level2">
+<h2><span class="header-section-number">11.1</span> Cleaning headers</h2>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb108-2" data-line-number="2"><span class="kw">library</span>(janitor)</a></code></pre></div>
+<pre><code>## Warning: package &#39;janitor&#39; was built under R version 3.5.2</code></pre>
+<pre><code>## 
+## Attaching package: &#39;janitor&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     chisq.test, fisher.test</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1">inmates &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/activeinmates.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## Warning: Missing column names filled in: &#39;X31&#39; [31], &#39;X32&#39; [32]</code></pre>
+<pre><code>## Warning: Duplicated column names deduplicated: &#39;FIRST NAME&#39; =&gt; &#39;FIRST
+## NAME_1&#39; [7], &#39;MIDDLE NAME&#39; =&gt; &#39;MIDDLE NAME_1&#39; [8], &#39;NAME EXTENSION&#39; =&gt; &#39;NAME
+## EXTENSION_1&#39; [9]</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character(),
+##   `ID NUMBER` = col_double(),
+##   `GUN CLAUSE` = col_logical(),
+##   `MIN MONTH` = col_double(),
+##   `MIN DAY` = col_double(),
+##   `MAX MONTH` = col_double(),
+##   `MAX DAY` = col_double(),
+##   `GOOD TIME LAW` = col_double(),
+##   X31 = col_logical(),
+##   X32 = col_logical()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1">inmates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">clean_names</span>()</a></code></pre></div>
+<pre><code>## # A tibble: 7,674 x 32
+##    id_number committed_last_… first_name middle_name name_extension
+##        &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;         
+##  1      6145 KANE             THOMAS     &lt;NA&gt;        &lt;NA&gt;          
+##  2     20841 ARNOLD           WILLIAM    L           &lt;NA&gt;          
+##  3     25324 WALKER           RICHARD    T           &lt;NA&gt;          
+##  4     25565 ALVAREZ          THOMAS     A           &lt;NA&gt;          
+##  5     26103 ADAMS            BRIAN      J           &lt;NA&gt;          
+##  6     26547 KIRBY            RONALD     EUGENE      &lt;NA&gt;          
+##  7     27471 NIEMANN          MAX        A           &lt;NA&gt;          
+##  8     27666 ORTIZ            LAWRENCE   &lt;NA&gt;        &lt;NA&gt;          
+##  9     27767 POINDEXTER       EDWARD     &lt;NA&gt;        &lt;NA&gt;          
+## 10     27778 DITTRICH         LADDIE     F           &lt;NA&gt;          
+## # … with 7,664 more rows, and 27 more variables: legal_last_name &lt;chr&gt;,
+## #   first_name_1 &lt;chr&gt;, middle_name_1 &lt;chr&gt;, name_extension_1 &lt;chr&gt;,
+## #   date_of_birth &lt;chr&gt;, race_desc &lt;chr&gt;, gender &lt;chr&gt;, facility &lt;chr&gt;,
+## #   current_sentence_pardoned_or_commuted_date &lt;chr&gt;, gun_clause &lt;lgl&gt;,
+## #   sentence_begin_date &lt;chr&gt;, min_term_year &lt;chr&gt;, min_month &lt;dbl&gt;,
+## #   min_day &lt;dbl&gt;, max_term_year &lt;chr&gt;, max_month &lt;dbl&gt;, max_day &lt;dbl&gt;,
+## #   parole_eligibility_date &lt;chr&gt;, earliest_possible_release_date &lt;chr&gt;,
+## #   good_time_law &lt;dbl&gt;, inst_release_date &lt;chr&gt;, inst_release_type &lt;chr&gt;,
+## #   parole_board_next_review_date_month_year &lt;chr&gt;,
+## #   parole_board_final_hearing_date_month_year &lt;chr&gt;,
+## #   parole_board_status &lt;chr&gt;, x31 &lt;lgl&gt;, x32 &lt;lgl&gt;</code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1">inmates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ncol</span>()</a></code></pre></div>
+<pre><code>## [1] 32</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1">inmates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">clean_names</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">remove_empty</span>(<span class="st">&quot;cols&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ncol</span>()</a></code></pre></div>
+<pre><code>## [1] 29</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1">inmates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">clean_names</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">remove_empty</span>(<span class="st">&quot;cols&quot;</span>) -&gt;<span class="st"> </span>clean_headers_inmates</a></code></pre></div>
 </div>
-<div id="state-law" class="section level2">
-<h2><span class="header-section-number">2.2</span> State law</h2>
-<p>States are – generally – more open than the federal government. The distance between the government and the governed is smaller. Some states, like Florida and Texas, are very open. Others, like Virginia and Pennsylvania, are not.</p>
-<p>Nebraska? Somewhere in the middle. Better than some, worse than others.</p>
-<p>Under Nebraska law:</p>
-<ul>
-<li>You are entitled to see and copy public records.</li>
-<li>They can charge you a fee for those copies.</li>
-<li>They do not have to give you records in a format different from what they keep them in.</li>
-</ul>
-<p>With a written request, Nebraska public officials have <strong>four days</strong> to respond. If Nebraska public officials deny your request, they must do so <strong>in writing</strong> specifying their reasons. If it will take more than four days, they must tell you, in writing, why and how long it will take.</p>
-<p><a href="https://www.rcfp.org/open-government-guide/nebraska/">The Reporters Committee For Freedom of the Press is a good resource</a>.</p>
-<p>Please and thank you will get you more records than any lawyer or well written request. When requesting data, you are going to scare the press office and you are going to confuse the agency lawyer. Request to have their data person on the phone.</p>
-<p><strong>Be. Nice.</strong></p>
-<p>Hunting for records is like any other kind of reporting – you have to do research. You have to ask questions. What records do you keep? For how long?</p>
-<p>A good source of info? Records retention schedules, often required by law or administrative rule at an agency. <a href="http://www.sos.ne.gov/records-management/retention_schedules.html">Nebraska’s is particularly good</a>.</p>
-<p>For an example, let’s say we wanted to look at nursing homes in Nebraska, because they’re closing down quickly. If we just wanted a data set of licensed nursing homes in the state, our options online are … not good. The Department of Health and Human Services <a href="http://dhhs.ne.gov/licensure/Documents/LTCRoster.pdf">publishes a list online</a>, but it’s a horribly formatted PDF.</p>
-<p>But what does the agency keep? Looking at <a href="https://sos.nebraska.gov/sites/sos.nebraska.gov/files/doc/records-management/state-government/Health-and-Human-Services/150-6-dhhs-licensure-unit-website-5-12-2014.pdf">DHHS’s public health departments records retention schedule</a>, you’ll find a lot more. And that opens doors for public records requests.</p>
+<div id="duplicates" class="section level2">
+<h2><span class="header-section-number">11.2</span> Duplicates</h2>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1">clean_headers_inmates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">get_dupes</span>(committed_last_name, first_name, date_of_birth)</a></code></pre></div>
+<pre><code>## # A tibble: 2 x 30
+##   committed_last_… first_name date_of_birth dupe_count id_number middle_name
+##   &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;              &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;      
+## 1 WALLACE          PAMELA     7/11/1966              2     99240 &lt;NA&gt;       
+## 2 WALLACE          PAMELA     7/11/1966              2     99955 &lt;NA&gt;       
+## # … with 24 more variables: name_extension &lt;chr&gt;, legal_last_name &lt;chr&gt;,
+## #   first_name_1 &lt;chr&gt;, middle_name_1 &lt;chr&gt;, name_extension_1 &lt;chr&gt;,
+## #   race_desc &lt;chr&gt;, gender &lt;chr&gt;, facility &lt;chr&gt;,
+## #   current_sentence_pardoned_or_commuted_date &lt;chr&gt;,
+## #   sentence_begin_date &lt;chr&gt;, min_term_year &lt;chr&gt;, min_month &lt;dbl&gt;,
+## #   min_day &lt;dbl&gt;, max_term_year &lt;chr&gt;, max_month &lt;dbl&gt;, max_day &lt;dbl&gt;,
+## #   parole_eligibility_date &lt;chr&gt;, earliest_possible_release_date &lt;chr&gt;,
+## #   good_time_law &lt;dbl&gt;, inst_release_date &lt;chr&gt;, inst_release_type &lt;chr&gt;,
+## #   parole_board_next_review_date_month_year &lt;chr&gt;,
+## #   parole_board_final_hearing_date_month_year &lt;chr&gt;, parole_board_status &lt;chr&gt;</code></pre>
+</div>
+<div id="inconsistency" class="section level2">
+<h2><span class="header-section-number">11.3</span> Inconsistency</h2>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1">clean_headers_inmates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(gender)</a></code></pre></div>
+<pre><code>##  gender    n    percent
+##  FEMALE  732 0.09538702
+##    MALE 6942 0.90461298</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1">clean_headers_inmates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(race_desc)</a></code></pre></div>
+<pre><code>##         race_desc    n      percent valid_percent
+##             ASIAN   61 0.0079489184  0.0079520271
+##             BLACK 2037 0.2654417514  0.2655455612
+##          HISPANIC 1059 0.1379984363  0.1380524052
+##   NATIVE AMERICAN  349 0.0454782382  0.0454960240
+##             OTHER   56 0.0072973677  0.0073002216
+##  PACIFIC ISLANDER    7 0.0009121710  0.0009125277
+##             WHITE 4102 0.5345321866  0.5347412332
+##              &lt;NA&gt;    3 0.0003909304            NA</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1">clean_headers_inmates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(facility)</a></code></pre></div>
+<pre><code>##                        facility    n    percent valid_percent
+##   COMMUNITY CORRECTIONS-LINCOLN 1276 0.16627574    0.16887242
+##     COMMUNITY CORRECTIONS-OMAHA  368 0.04795413    0.04870302
+##  DIAGNOSTIC &amp; EVALUATION CENTER  778 0.10138129    0.10296453
+##     LINCOLN CORRECTIONAL CENTER  571 0.07440709    0.07556908
+##  NEBRASKA CORR CENTER FOR WOMEN  480 0.06254887    0.06352567
+##     NEBRASKA CORR YOUTH FACILTY   83 0.01081574    0.01098465
+##     NEBRASKA STATE PENITENTIARY 1588 0.20693250    0.21016411
+##       OMAHA CORRECTIONAL CENTER 1059 0.13799844    0.14015352
+##  TECUMSEH STATE COR INSTITUTION 1104 0.14386239    0.14610905
+##                 WORK ETHIC CAMP  249 0.03244722    0.03295394
+##                            &lt;NA&gt;  118 0.01537660            NA</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1">clean_headers_inmates <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(inst_release_type)</a></code></pre></div>
+<pre><code>##     inst_release_type    n      percent valid_percent
+##  DISCRETIONARY PAROLE 1391 0.1812614021  0.5506730008
+##                ESCAPE   51 0.0066458170  0.0201900238
+##      MANDATORY PAROLE    2 0.0002606203  0.0007917656
+##             RE-PAROLE    3 0.0003909304  0.0011876485
+##       RELEASED TO PRS 1079 0.1406046390  0.4271575614
+##                  &lt;NA&gt; 5148 0.6708365911            NA</code></pre>
 
 </div>
 </div>
@@ -259,8 +338,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-cleaning-part-i-data-smells.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-cleaning-part-iii-open-refine.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -291,7 +370,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-publicrecords.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-janitor.Rmd",
 "text": "Edit"
 },
 "history": {

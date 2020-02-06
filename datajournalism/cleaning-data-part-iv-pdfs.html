@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Public records | Data Journalism with R and the Tidyverse</title>
+  <title>Chapter 13 Cleaning Data Part IV: PDFs | Data Journalism with R and the Tidyverse</title>
   <meta name="description" content="This is a book built on a very opinionated philosophy for undergraduate journalism students in doing data journalism in R with replicable methods." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Public records | Data Journalism with R and the Tidyverse" />
+  <meta property="og:title" content="Chapter 13 Cleaning Data Part IV: PDFs | Data Journalism with R and the Tidyverse" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Public records | Data Journalism with R and the Tidyverse" />
+  <meta name="twitter:title" content="Chapter 13 Cleaning Data Part IV: PDFs | Data Journalism with R and the Tidyverse" />
   
   <meta name="twitter:description" content="This is a book built on a very opinionated philosophy for undergraduate journalism students in doing data journalism in R with replicable methods." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="r-basics.html"/>
+<link rel="prev" href="data-cleaning-part-iii-open-refine.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -207,60 +207,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="public-records" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Public records</h1>
-<p>Public records are the lifeblood of investigative reporting. They carry their own philosophical framework, in a manner of speaking.</p>
-<ul>
-<li>Sunlight is the best disinfectant. Corruption hides in the shadows.</li>
-<li>You paid for it with your taxes. It should be yours (with exceptions).</li>
-<li>Journalism with a capital J is about holding the powerful accountable for their actions.</li>
-</ul>
-<p>Keeping those things in mind as you navigate public records is helpful.</p>
-<div id="federal-law" class="section level2">
-<h2><span class="header-section-number">2.1</span> Federal law</h2>
-<p>Your access to public records and public meetings is a matter of the law. As a journalist, it is your job to know this law better than most lawyers. Which law applies depends on which branch of government you are asking.</p>
-<p>The Federal Government is covered by the Freedom of Information Act, or FOIA. FOIA is not a universal term. Do not use it if you are not talking to a federal agency. FOIA is a beacon of openness to the world. FOIA is deeply flawed and frustrating.</p>
-<p>Why?</p>
-<ul>
-<li>There is no real timetable with FOIA. Requests can take months, even years.</li>
-<li>As a journalist, you can ask that your request be expedited.</li>
-<li>Guess what? That requires review. More delays.</li>
-<li>Exemptions are broad. National security, personal privacy, often overused.</li>
-<li>Denied? You can appeal. More delays.</li>
-</ul>
-<p>The law was enacted in 1966, but it’s still poorly understood by most federal employees, if not outright flouted by political appointees. Lawsuits are common.</p>
-<p>Post 9/11, the Bush administration rolled back many agency rules. Obama ordered a “presumption of openness” but followed it with some of the most restrictive policies ever seen. The Trump Administration, similar to the Obama administration, claims to be the most transparent administration, but has steadily removed records from open access and broadly denied access to records.</p>
-<p>Result? FOIA is in trouble.</p>
-<p><a href="https://www.spj.org/foi-guide-pros.asp">SPJ is a good resource</a>.</p>
-</div>
-<div id="state-law" class="section level2">
-<h2><span class="header-section-number">2.2</span> State law</h2>
-<p>States are – generally – more open than the federal government. The distance between the government and the governed is smaller. Some states, like Florida and Texas, are very open. Others, like Virginia and Pennsylvania, are not.</p>
-<p>Nebraska? Somewhere in the middle. Better than some, worse than others.</p>
-<p>Under Nebraska law:</p>
-<ul>
-<li>You are entitled to see and copy public records.</li>
-<li>They can charge you a fee for those copies.</li>
-<li>They do not have to give you records in a format different from what they keep them in.</li>
-</ul>
-<p>With a written request, Nebraska public officials have <strong>four days</strong> to respond. If Nebraska public officials deny your request, they must do so <strong>in writing</strong> specifying their reasons. If it will take more than four days, they must tell you, in writing, why and how long it will take.</p>
-<p><a href="https://www.rcfp.org/open-government-guide/nebraska/">The Reporters Committee For Freedom of the Press is a good resource</a>.</p>
-<p>Please and thank you will get you more records than any lawyer or well written request. When requesting data, you are going to scare the press office and you are going to confuse the agency lawyer. Request to have their data person on the phone.</p>
-<p><strong>Be. Nice.</strong></p>
-<p>Hunting for records is like any other kind of reporting – you have to do research. You have to ask questions. What records do you keep? For how long?</p>
-<p>A good source of info? Records retention schedules, often required by law or administrative rule at an agency. <a href="http://www.sos.ne.gov/records-management/retention_schedules.html">Nebraska’s is particularly good</a>.</p>
-<p>For an example, let’s say we wanted to look at nursing homes in Nebraska, because they’re closing down quickly. If we just wanted a data set of licensed nursing homes in the state, our options online are … not good. The Department of Health and Human Services <a href="http://dhhs.ne.gov/licensure/Documents/LTCRoster.pdf">publishes a list online</a>, but it’s a horribly formatted PDF.</p>
-<p>But what does the agency keep? Looking at <a href="https://sos.nebraska.gov/sites/sos.nebraska.gov/files/doc/records-management/state-government/Health-and-Human-Services/150-6-dhhs-licensure-unit-website-5-12-2014.pdf">DHHS’s public health departments records retention schedule</a>, you’ll find a lot more. And that opens doors for public records requests.</p>
+<div id="cleaning-data-part-iv-pdfs" class="section level1">
+<h1><span class="header-section-number">Chapter 13</span> Cleaning Data Part IV: PDFs</h1>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-basics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-cleaning-part-iii-open-refine.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -291,7 +248,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-publicrecords.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/12-pdfs.Rmd",
 "text": "Edit"
 },
 "history": {
