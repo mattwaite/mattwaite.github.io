@@ -272,9 +272,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>In several chapters of this book, we’ve been fixated on the Nebraska basketball team’s shooting percentage, which took a nose dive during the season and ultimately doomed Tim Miles job. The question is … does it matter?</p>
 <p>This is what we’re going to start to answer today. And we’ll do it with scatterplots and correlations.</p>
 <p>First, we need libraries and <a href="https://unl.box.com/s/a8m91bro10t89watsyo13yjegb1fy009">data</a>.</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb438-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb436-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Attaching packages ──────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ── Attaching packages ─── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
 ## ✓ tibble  2.1.3     ✓ dplyr   0.8.3
 ## ✓ tidyr   1.0.0     ✓ stringr 1.4.0
@@ -286,10 +286,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ─────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb450-1" data-line-number="1">logs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/logs19.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb448-1" data-line-number="1">logs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/logs19.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -307,29 +307,29 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>To do this, we need all teams and their season stats. How much, over the course of a season, does a thing matter? That’s the question you’re going to answer.</p>
 <p>In our case, we want to know how much does shooting percentage influence wins? How much difference can we explain in wins with shooting percentage? We’re going to total up the number of wins each team has and their season shooting percentage in one swoop.</p>
 <p>Let’s borrow from our ridgecharts work to get the correct wins and losses totals for each team.</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" data-line-number="1">winlosslogs &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">winloss =</span> <span class="kw">case_when</span>(</a>
-<a class="sourceLine" id="cb454-2" data-line-number="2">  <span class="kw">grepl</span>(<span class="st">&quot;W&quot;</span>, W_L) <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb454-3" data-line-number="3">  <span class="kw">grepl</span>(<span class="st">&quot;L&quot;</span>, W_L) <span class="op">~</span><span class="st"> </span><span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb454-4" data-line-number="4">)</a></code></pre></div>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb452-1" data-line-number="1">winlosslogs &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">winloss =</span> <span class="kw">case_when</span>(</a>
+<a class="sourceLine" id="cb452-2" data-line-number="2">  <span class="kw">grepl</span>(<span class="st">&quot;W&quot;</span>, W_L) <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb452-3" data-line-number="3">  <span class="kw">grepl</span>(<span class="st">&quot;L&quot;</span>, W_L) <span class="op">~</span><span class="st"> </span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb452-4" data-line-number="4">)</a></code></pre></div>
 <p>Now we can get a dataframe together that gives us the total wins for each team, and the total shots taken and made, which let’s us calculate a season shooting percentage.</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1">winlosslogs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb455-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Team) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb455-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
-<a class="sourceLine" id="cb455-4" data-line-number="4">    <span class="dt">wins =</span> <span class="kw">sum</span>(winloss),</a>
-<a class="sourceLine" id="cb455-5" data-line-number="5">    <span class="dt">totalFGAttempts =</span> <span class="kw">sum</span>(TeamFGA),</a>
-<a class="sourceLine" id="cb455-6" data-line-number="6">    <span class="dt">totalFG =</span> <span class="kw">sum</span>(TeamFG)</a>
-<a class="sourceLine" id="cb455-7" data-line-number="7">  ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb455-8" data-line-number="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fgpct =</span> totalFG<span class="op">/</span>totalFGAttempts) -&gt;<span class="st"> </span>fgmodel</a></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" data-line-number="1">winlosslogs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb453-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Team) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb453-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
+<a class="sourceLine" id="cb453-4" data-line-number="4">    <span class="dt">wins =</span> <span class="kw">sum</span>(winloss),</a>
+<a class="sourceLine" id="cb453-5" data-line-number="5">    <span class="dt">totalFGAttempts =</span> <span class="kw">sum</span>(TeamFGA),</a>
+<a class="sourceLine" id="cb453-6" data-line-number="6">    <span class="dt">totalFG =</span> <span class="kw">sum</span>(TeamFG)</a>
+<a class="sourceLine" id="cb453-7" data-line-number="7">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb453-8" data-line-number="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">fgpct =</span> totalFG<span class="op">/</span>totalFGAttempts) -&gt;<span class="st"> </span>fgmodel</a></code></pre></div>
 <p>Now let’s look at the scatterplot. With a scatterplot, we put what predicts the thing on the X axis, and the thing being predicted on the Y axis. In this case, X is our shooting percentage, y is our wins.</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1"><span class="kw">ggplot</span>(fgmodel, <span class="kw">aes</span>(<span class="dt">x=</span>fgpct, <span class="dt">y=</span>wins)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" data-line-number="1"><span class="kw">ggplot</span>(fgmodel, <span class="kw">aes</span>(<span class="dt">x=</span>fgpct, <span class="dt">y=</span>wins)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="19-scatterplots_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Let’s talk about this. It seems that the data slopes up to the right. That would indicate a positive correlation between shooting percentage and wins. And that makes sense, no? You’d expect teams that shoot the ball well to win. But can we get a better sense of this? Yes, by adding another geom – <code>geom_smooth</code>.</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb457-1" data-line-number="1"><span class="kw">ggplot</span>(fgmodel, <span class="kw">aes</span>(<span class="dt">x=</span>fgpct, <span class="dt">y=</span>wins)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1"><span class="kw">ggplot</span>(fgmodel, <span class="kw">aes</span>(<span class="dt">x=</span>fgpct, <span class="dt">y=</span>wins)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="19-scatterplots_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>But … how strong a relationship is this? How much can shooting percentage explain wins? Can we put some numbers to this?</p>
 <p>Of course we can. We can apply a linear model to this – remember Chapter 9? We’re going to create an object called fit, and then we’re going to put into that object a linear model – <code>lm</code> – and the way to read this is “wins are predicted by field goal percentage”. Then we just want the summary of that model.</p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1">fit &lt;-<span class="st"> </span><span class="kw">lm</span>(wins <span class="op">~</span><span class="st"> </span>fgpct, <span class="dt">data =</span> fgmodel)</a>
-<a class="sourceLine" id="cb458-2" data-line-number="2"><span class="kw">summary</span>(fit)</a></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1">fit &lt;-<span class="st"> </span><span class="kw">lm</span>(wins <span class="op">~</span><span class="st"> </span>fgpct, <span class="dt">data =</span> fgmodel)</a>
+<a class="sourceLine" id="cb456-2" data-line-number="2"><span class="kw">summary</span>(fit)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = wins ~ fgpct, data = fgmodel)
