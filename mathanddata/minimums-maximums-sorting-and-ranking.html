@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Minimums, maximums, sorting and ranking | Math with Spreadsheets for Beginning Reporters</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Minimums, maximums, sorting and ranking | Math with Spreadsheets for Beginning Reporters" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Minimums, maximums, sorting and ranking | Math with Spreadsheets for Beginning Reporters" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Matt Waite" />
+
+
+<meta name="date" content="2020-02-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="median.html"/>
+<link rel="next" href="percentages-of-a-whole.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Math and Spreadsheets for Beginning Reporters</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html"><i class="fa fa-check"></i><b>2</b> Bad at math is a lie</a><ul>
+<li class="chapter" data-level="2.1" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#how-high-school-algebra-won-a-pulitzer-prize"><i class="fa fa-check"></i><b>2.1</b> How high school algebra won a Pulitzer Prize</a></li>
+<li class="chapter" data-level="2.2" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#the-basics-of-the-basics"><i class="fa fa-check"></i><b>2.2</b> The basics of the basics</a></li>
+<li class="chapter" data-level="2.3" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#spreadsheets"><i class="fa fa-check"></i><b>2.3</b> Spreadsheets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mean.html"><a href="mean.html"><i class="fa fa-check"></i><b>3</b> Mean</a><ul>
+<li class="chapter" data-level="3.1" data-path="mean.html"><a href="mean.html#how-to-calculate-a-mean"><i class="fa fa-check"></i><b>3.1</b> How to calculate a mean</a></li>
+<li class="chapter" data-level="3.2" data-path="mean.html"><a href="mean.html#how-to-calculate-a-mean-in-a-spreadsheet"><i class="fa fa-check"></i><b>3.2</b> How to calculate a mean in a spreadsheet</a></li>
+<li class="chapter" data-level="3.3" data-path="mean.html"><a href="mean.html#how-to-turn-a-mean-into-a-story"><i class="fa fa-check"></i><b>3.3</b> How to turn a mean into a story</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="median.html"><a href="median.html"><i class="fa fa-check"></i><b>4</b> Median</a><ul>
+<li class="chapter" data-level="4.1" data-path="median.html"><a href="median.html#how-to-calculate-a-median"><i class="fa fa-check"></i><b>4.1</b> How to calculate a median</a></li>
+<li class="chapter" data-level="4.2" data-path="median.html"><a href="median.html#how-to-calculate-a-median-in-a-spreadsheet"><i class="fa fa-check"></i><b>4.2</b> How to calculate a median in a spreadsheet</a></li>
+<li class="chapter" data-level="4.3" data-path="median.html"><a href="median.html#how-to-turn-a-median-into-a-story"><i class="fa fa-check"></i><b>4.3</b> How to turn a median into a story</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html"><i class="fa fa-check"></i><b>5</b> Minimums, maximums, sorting and ranking</a><ul>
+<li class="chapter" data-level="5.1" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-calculate-a-minimum-maximum-sort-and-rank"><i class="fa fa-check"></i><b>5.1</b> How to calculate a minimum, maximum, sort and rank</a></li>
+<li class="chapter" data-level="5.2" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-calculate-a-minimum-or-maximum-in-a-spreadsheet"><i class="fa fa-check"></i><b>5.2</b> How to calculate a minimum or maximum in a spreadsheet</a></li>
+<li class="chapter" data-level="5.3" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-turn-a-minimum-or-maximum-into-a-story"><i class="fa fa-check"></i><b>5.3</b> How to turn a minimum or maximum into a story</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html"><i class="fa fa-check"></i><b>6</b> Percentages of a whole</a><ul>
+<li class="chapter" data-level="6.1" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-calculate-a-percentage"><i class="fa fa-check"></i><b>6.1</b> How to calculate a percentage</a></li>
+<li class="chapter" data-level="6.2" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-calculate-a-percentage-in-a-spreadsheet"><i class="fa fa-check"></i><b>6.2</b> How to calculate a percentage in a spreadsheet</a></li>
+<li class="chapter" data-level="6.3" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-turn-a-percentage-into-a-story"><i class="fa fa-check"></i><b>6.3</b> How to turn a percentage into a story</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="percent-change.html"><a href="percent-change.html"><i class="fa fa-check"></i><b>7</b> Percent change</a><ul>
+<li class="chapter" data-level="7.1" data-path="percent-change.html"><a href="percent-change.html#how-to-calculate-a-percent-change"><i class="fa fa-check"></i><b>7.1</b> How to calculate a percent change</a></li>
+<li class="chapter" data-level="7.2" data-path="percent-change.html"><a href="percent-change.html#how-to-calculate-a-percent-change-in-a-spreadsheet"><i class="fa fa-check"></i><b>7.2</b> How to calculate a percent change in a spreadsheet</a></li>
+<li class="chapter" data-level="7.3" data-path="percent-change.html"><a href="percent-change.html#how-to-turn-a-percent-change-into-a-story"><i class="fa fa-check"></i><b>7.3</b> How to turn a percent change into a story</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="http://mattwaite.github.io/mathandspreadsheets/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Math with Spreadsheets for Beginning Reporters</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="minimums-maximums-sorting-and-ranking" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Minimums, maximums, sorting and ranking</h1>
+<p>Often, when we’re comparing things, we need to know what the highest and lowest numbers in our data set are. And, often it helps to put those in order from highest to lowest or lowest to highest. Doing that, we’re often aiming toward a ranking of our numbers. When you have just a handful of numbers, any of these things can be done by hand with no real trouble. But spreadsheets give us the power to do this over thousands of data points. But before we do thousands, lets walk through a small set of examples.</p>
+<div id="how-to-calculate-a-minimum-maximum-sort-and-rank" class="section level2">
+<h2><span class="header-section-number">5.1</span> How to calculate a minimum, maximum, sort and rank</h2>
+<p>You do not want to do this by hand, especially if the list of numbers is longer than just a few. You can manually move them around, scan the list for the largest and smallest numbers, but if the list is very long, this is extremely error prone.</p>
+</div>
+<div id="how-to-calculate-a-minimum-or-maximum-in-a-spreadsheet" class="section level2">
+<h2><span class="header-section-number">5.2</span> How to calculate a minimum or maximum in a spreadsheet</h2>
+<p>In both Excel and Google Spreadsheets, there is a function for both minimum and maximum. They aren’t hard to remember. <code>=MIN(FirstCellInRange:LastCellInRange)</code> and <code>=MAX(FirstCellInRange:LastCellInRange)</code> where the FirstCellInRange and LastCellInRange are a cell reference, like A2:A50 or whatever your data requires.</p>
+</div>
+<div id="how-to-turn-a-minimum-or-maximum-into-a-story" class="section level2">
+<h2><span class="header-section-number">5.3</span> How to turn a minimum or maximum into a story</h2>
+<p>Minimums and maximums, by themselves, are rarely interesting. We need to know what they’re attached to in order for them to be interesting. To do that, it’s better that we sort the data in Ascending or Descending order. Sorted in Ascending order, the smallest number is at the top, the biggest at the bottom. With Descending order, it’s vice versa.</p>
+<p>First things first: In either Google or Excel, click on the keystone. That’s the blank rectangle left of column A and above row 1 in the upper left corner of your spreadsheet. By doing that, you’ll select everything. Then in both spreadsheet platforms, sorting is found under Data. In Excel, it’s under sort. In Google, it’s sort range.</p>
+<table>
+<thead>
+<tr class="header">
+<th>In Excel</th>
+<th>In Google Spreadsheets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="images/excelsort1.png" title="Excel sort 1" alt="Sort screenshot 1 in Excel" /></td>
+<td><img src="images/googlesort1.png" title="Google sort 1" alt="Sort screenshot 1 in Google Spreadsheets" /></td>
+</tr>
+<tr class="even">
+<td><img src="images/excelsort2.png" title="Excel sort 2" alt="Sort screenshot 2 in Excel" /></td>
+<td><img src="images/googlesort2.png" title="Google sort 2" alt="Sort screenshot 2 in Google Spreadsheets" /></td>
+</tr>
+</tbody>
+</table>
+<p>For our example, select the Graduation Rate column and then select smallest to largest (or A-Z in Google). In both platforms, make sure that the header row check box is checked – your data does have a header row, and it would be a pity to sort it into your data when you hit OK or sort. Which you should do.</p>
+<p>And when you sort by lowest graduation rate, what comes up? Uh oh. The Harvard of the Plains doesn’t look so good.</p>
+<p>Now it would be time for you to go ask the most basic of all reporter questions: Why?</p>
+<p>One last thing: Sometimes a sort just isn’t enough. Editors love ranks. They love a good top X list. Spreadsheets will calculate ranks for you easily. And it’s the same regardless of platform. It looks like this:</p>
+<p><code>=RANK(TheCellYouWantToRank,TheFirstCellInTheRange:TheLastCellInTheRange)</code> where <code>TheCellYouWantToRank</code> is, well, probably the row you’re on. <code>TheFirstCellInTheRange</code> and <code>TheLastCellInTheRange</code> are what they say they are, the first and last cells in the column you want to rank against. So what the RANK function says is “Take this cell and rank it against all the values in this range.” When you copy it down, it’ll just do the next one, and the next, and the next. When you have 14 records, this isn’t interesting. When you have thousands, and you’re interested in some in the middle instead of the top and bottom, ranks are extremely interesting.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="median.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="percentages-of-a-whole.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-minmax.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["mathforbeginningreporters.pdf", "mathforbeginningreporters.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

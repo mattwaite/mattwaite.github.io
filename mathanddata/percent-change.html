@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Percent change | Math with Spreadsheets for Beginning Reporters</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Percent change | Math with Spreadsheets for Beginning Reporters" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Percent change | Math with Spreadsheets for Beginning Reporters" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Matt Waite" />
+
+
+<meta name="date" content="2020-02-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="percentages-of-a-whole.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Math and Spreadsheets for Beginning Reporters</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html"><i class="fa fa-check"></i><b>2</b> Bad at math is a lie</a><ul>
+<li class="chapter" data-level="2.1" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#how-high-school-algebra-won-a-pulitzer-prize"><i class="fa fa-check"></i><b>2.1</b> How high school algebra won a Pulitzer Prize</a></li>
+<li class="chapter" data-level="2.2" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#the-basics-of-the-basics"><i class="fa fa-check"></i><b>2.2</b> The basics of the basics</a></li>
+<li class="chapter" data-level="2.3" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#spreadsheets"><i class="fa fa-check"></i><b>2.3</b> Spreadsheets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mean.html"><a href="mean.html"><i class="fa fa-check"></i><b>3</b> Mean</a><ul>
+<li class="chapter" data-level="3.1" data-path="mean.html"><a href="mean.html#how-to-calculate-a-mean"><i class="fa fa-check"></i><b>3.1</b> How to calculate a mean</a></li>
+<li class="chapter" data-level="3.2" data-path="mean.html"><a href="mean.html#how-to-calculate-a-mean-in-a-spreadsheet"><i class="fa fa-check"></i><b>3.2</b> How to calculate a mean in a spreadsheet</a></li>
+<li class="chapter" data-level="3.3" data-path="mean.html"><a href="mean.html#how-to-turn-a-mean-into-a-story"><i class="fa fa-check"></i><b>3.3</b> How to turn a mean into a story</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="median.html"><a href="median.html"><i class="fa fa-check"></i><b>4</b> Median</a><ul>
+<li class="chapter" data-level="4.1" data-path="median.html"><a href="median.html#how-to-calculate-a-median"><i class="fa fa-check"></i><b>4.1</b> How to calculate a median</a></li>
+<li class="chapter" data-level="4.2" data-path="median.html"><a href="median.html#how-to-calculate-a-median-in-a-spreadsheet"><i class="fa fa-check"></i><b>4.2</b> How to calculate a median in a spreadsheet</a></li>
+<li class="chapter" data-level="4.3" data-path="median.html"><a href="median.html#how-to-turn-a-median-into-a-story"><i class="fa fa-check"></i><b>4.3</b> How to turn a median into a story</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html"><i class="fa fa-check"></i><b>5</b> Minimums, maximums, sorting and ranking</a><ul>
+<li class="chapter" data-level="5.1" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-calculate-a-minimum-maximum-sort-and-rank"><i class="fa fa-check"></i><b>5.1</b> How to calculate a minimum, maximum, sort and rank</a></li>
+<li class="chapter" data-level="5.2" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-calculate-a-minimum-or-maximum-in-a-spreadsheet"><i class="fa fa-check"></i><b>5.2</b> How to calculate a minimum or maximum in a spreadsheet</a></li>
+<li class="chapter" data-level="5.3" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-turn-a-minimum-or-maximum-into-a-story"><i class="fa fa-check"></i><b>5.3</b> How to turn a minimum or maximum into a story</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html"><i class="fa fa-check"></i><b>6</b> Percentages of a whole</a><ul>
+<li class="chapter" data-level="6.1" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-calculate-a-percentage"><i class="fa fa-check"></i><b>6.1</b> How to calculate a percentage</a></li>
+<li class="chapter" data-level="6.2" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-calculate-a-percentage-in-a-spreadsheet"><i class="fa fa-check"></i><b>6.2</b> How to calculate a percentage in a spreadsheet</a></li>
+<li class="chapter" data-level="6.3" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-turn-a-percentage-into-a-story"><i class="fa fa-check"></i><b>6.3</b> How to turn a percentage into a story</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="percent-change.html"><a href="percent-change.html"><i class="fa fa-check"></i><b>7</b> Percent change</a><ul>
+<li class="chapter" data-level="7.1" data-path="percent-change.html"><a href="percent-change.html#how-to-calculate-a-percent-change"><i class="fa fa-check"></i><b>7.1</b> How to calculate a percent change</a></li>
+<li class="chapter" data-level="7.2" data-path="percent-change.html"><a href="percent-change.html#how-to-calculate-a-percent-change-in-a-spreadsheet"><i class="fa fa-check"></i><b>7.2</b> How to calculate a percent change in a spreadsheet</a></li>
+<li class="chapter" data-level="7.3" data-path="percent-change.html"><a href="percent-change.html#how-to-turn-a-percent-change-into-a-story"><i class="fa fa-check"></i><b>7.3</b> How to turn a percent change into a story</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="http://mattwaite.github.io/mathandspreadsheets/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Math with Spreadsheets for Beginning Reporters</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="percent-change" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Percent change</h1>
+<p>Calculating percent change is where newsrooms divide the Math Capable from Everyone Else. In some newsrooms, if you can calculate percent change, you are seen as some kind of magician, a conjurer of dark arts not to be understood by mere mortals.</p>
+<p>It’s pathetic.</p>
+<p>Calculating percent change is easy if you can remember this simple formula: <code>New minus old divided by old</code> or, more mathematically <code>(New-Old)/Old</code></p>
+<p>That’s it. Take your new number, from this year say, subtract last years figure from it, and then divide by last years figure. If it’s a positive number, the number grew year over year. If it’s negative, it shrunk year over year. And what comes out will be a small number that you’ll need to multiply by 100 to get the percentage.</p>
+<div id="how-to-calculate-a-percent-change" class="section level2">
+<h2><span class="header-section-number">7.1</span> How to calculate a percent change</h2>
+<p>Let’s take a fictional professor in your university. This professor this year makes $66,000 a year. Last year, the professor made $65,000 a year. What is the percentage change in the professor’s salary?</p>
+<p>Remember the formula?</p>
+<p><code>(New-Old)/Old</code> or <code>(66000-65000)/65000</code> is .0153846 or 1.5 percent (take that small number and multiply by 100 to get the percentage).</p>
+</div>
+<div id="how-to-calculate-a-percent-change-in-a-spreadsheet" class="section level2">
+<h2><span class="header-section-number">7.2</span> How to calculate a percent change in a spreadsheet</h2>
+<p>Percent changes are extremely common in spreadsheets and data journalism. And this is where they shine. For both Google and Excel, the formula is the same.</p>
+<p>Let’s try a new dataset. This one is called population.csv – <a href="https://www.dropbox.com/s/nqs144kwpaxcc2q/population.csv?dl=0">download it here</a> – and it is the estimated population of every county in the US. This is a dataset released every year by the U.S. Census Bureau, and it’s the best guess they have on how many people live in a county between the every 10 year census that counts everyone. It’s also a great way to see if your county is growing or not, and how fast in relation to others in the state or country.</p>
+<p>Open the file in your spreadsheet software – File/Open in Excel, File/Import in Google – and take a look. It’s pretty simple. The first thing we’re going to do is create a new header at the end of the filled columns. Click on the first empty box in row one and type <code>Change</code>.</p>
+<p>Now, in the box below, and remembering that all spreadsheet formulas start with an equal sign, we’re going to enter our percent change formula. An example would be:</p>
+<p><code>=(J2-E2)/E2</code></p>
+<table>
+<thead>
+<tr class="header">
+<th>In Excel</th>
+<th>In Google Spreadsheets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="images/excelchange1.png" title="Excel change 1" alt="Change screenshot 1 in Excel" /></td>
+<td><img src="images/googlechange1.png" title="Google sort 1" alt="Change screenshot 1 in Google Spreadsheets" /></td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE: The screenshots are from a previous iteration and have not been updated yet. The formula above is correct, but uses older cell references. The screenshots here are for visual reference.</strong></p>
+<p>When you hit enter, you’ll have the percent change in population for Autauga County, Alabama.</p>
+<p>Great. But where’s that? Do I have to type this formula another 3,400 times to get them all?</p>
+<p>Nope.</p>
+<p>Click back on the cell that has the percent change you just calculated in it. See the small black square on the bottom right corner of you box? Double click that.</p>
+<p>And just like that, you’ve calculated the percent change in population in every county in the United States.</p>
+</div>
+<div id="how-to-turn-a-percent-change-into-a-story" class="section level2">
+<h2><span class="header-section-number">7.3</span> How to turn a percent change into a story</h2>
+<p>Percent changes by themselves are rarely interesting, but what happens if we add a sort to this? Remember, we can sort two ways. What stories pop out when you sort for the fastest shrinking counties first? What happens when you sort for fastest growing? Do national stories emerge? Do local stories emerge? What are they?</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="percentages-of-a-whole.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-percentchange.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["mathforbeginningreporters.pdf", "mathforbeginningreporters.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

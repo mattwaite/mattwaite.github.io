@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Mean | Math with Spreadsheets for Beginning Reporters</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Mean | Math with Spreadsheets for Beginning Reporters" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Mean | Math with Spreadsheets for Beginning Reporters" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Matt Waite" />
+
+
+<meta name="date" content="2020-02-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="bad-at-math-is-a-lie.html"/>
+<link rel="next" href="median.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Math and Spreadsheets for Beginning Reporters</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html"><i class="fa fa-check"></i><b>2</b> Bad at math is a lie</a><ul>
+<li class="chapter" data-level="2.1" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#how-high-school-algebra-won-a-pulitzer-prize"><i class="fa fa-check"></i><b>2.1</b> How high school algebra won a Pulitzer Prize</a></li>
+<li class="chapter" data-level="2.2" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#the-basics-of-the-basics"><i class="fa fa-check"></i><b>2.2</b> The basics of the basics</a></li>
+<li class="chapter" data-level="2.3" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#spreadsheets"><i class="fa fa-check"></i><b>2.3</b> Spreadsheets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mean.html"><a href="mean.html"><i class="fa fa-check"></i><b>3</b> Mean</a><ul>
+<li class="chapter" data-level="3.1" data-path="mean.html"><a href="mean.html#how-to-calculate-a-mean"><i class="fa fa-check"></i><b>3.1</b> How to calculate a mean</a></li>
+<li class="chapter" data-level="3.2" data-path="mean.html"><a href="mean.html#how-to-calculate-a-mean-in-a-spreadsheet"><i class="fa fa-check"></i><b>3.2</b> How to calculate a mean in a spreadsheet</a></li>
+<li class="chapter" data-level="3.3" data-path="mean.html"><a href="mean.html#how-to-turn-a-mean-into-a-story"><i class="fa fa-check"></i><b>3.3</b> How to turn a mean into a story</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="median.html"><a href="median.html"><i class="fa fa-check"></i><b>4</b> Median</a><ul>
+<li class="chapter" data-level="4.1" data-path="median.html"><a href="median.html#how-to-calculate-a-median"><i class="fa fa-check"></i><b>4.1</b> How to calculate a median</a></li>
+<li class="chapter" data-level="4.2" data-path="median.html"><a href="median.html#how-to-calculate-a-median-in-a-spreadsheet"><i class="fa fa-check"></i><b>4.2</b> How to calculate a median in a spreadsheet</a></li>
+<li class="chapter" data-level="4.3" data-path="median.html"><a href="median.html#how-to-turn-a-median-into-a-story"><i class="fa fa-check"></i><b>4.3</b> How to turn a median into a story</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html"><i class="fa fa-check"></i><b>5</b> Minimums, maximums, sorting and ranking</a><ul>
+<li class="chapter" data-level="5.1" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-calculate-a-minimum-maximum-sort-and-rank"><i class="fa fa-check"></i><b>5.1</b> How to calculate a minimum, maximum, sort and rank</a></li>
+<li class="chapter" data-level="5.2" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-calculate-a-minimum-or-maximum-in-a-spreadsheet"><i class="fa fa-check"></i><b>5.2</b> How to calculate a minimum or maximum in a spreadsheet</a></li>
+<li class="chapter" data-level="5.3" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-turn-a-minimum-or-maximum-into-a-story"><i class="fa fa-check"></i><b>5.3</b> How to turn a minimum or maximum into a story</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html"><i class="fa fa-check"></i><b>6</b> Percentages of a whole</a><ul>
+<li class="chapter" data-level="6.1" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-calculate-a-percentage"><i class="fa fa-check"></i><b>6.1</b> How to calculate a percentage</a></li>
+<li class="chapter" data-level="6.2" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-calculate-a-percentage-in-a-spreadsheet"><i class="fa fa-check"></i><b>6.2</b> How to calculate a percentage in a spreadsheet</a></li>
+<li class="chapter" data-level="6.3" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-turn-a-percentage-into-a-story"><i class="fa fa-check"></i><b>6.3</b> How to turn a percentage into a story</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="percent-change.html"><a href="percent-change.html"><i class="fa fa-check"></i><b>7</b> Percent change</a><ul>
+<li class="chapter" data-level="7.1" data-path="percent-change.html"><a href="percent-change.html#how-to-calculate-a-percent-change"><i class="fa fa-check"></i><b>7.1</b> How to calculate a percent change</a></li>
+<li class="chapter" data-level="7.2" data-path="percent-change.html"><a href="percent-change.html#how-to-calculate-a-percent-change-in-a-spreadsheet"><i class="fa fa-check"></i><b>7.2</b> How to calculate a percent change in a spreadsheet</a></li>
+<li class="chapter" data-level="7.3" data-path="percent-change.html"><a href="percent-change.html#how-to-turn-a-percent-change-into-a-story"><i class="fa fa-check"></i><b>7.3</b> How to turn a percent change into a story</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="http://mattwaite.github.io/mathandspreadsheets/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Math with Spreadsheets for Beginning Reporters</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mean" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Mean</h1>
+<p>Here’s the thing about mean – you probably already get it. It’s the average. It’s a measure of the middle. You’ve used averages your whole life. They’re everywhere.</p>
+<p>But you may not know that average is just one measure of the middle – what mathematicians call measures of central tendency. The others are the median (more on that later) and mode (which no one except mathematicians ever talks about).</p>
+<p>Knowing when to use average and when to use median takes a little bit of thinking. Why? Because averages, by how they are calculated, are sensitive to extremes. What does this mean? Let’s use an example.</p>
+<p>Let’s pretend for a second that I’m taking a poll of a college class of 5 students on how much everyone makes per year. It’s full of students, so the annual salaries are $8,000, $9,500, $7,200, $10,000 and $6,400. That makes the average annual income of these five students $8,220 (we’ll talk about how to calculate the average in the next section). In our group of five students, given their incomes, $8,220 is pretty much in the middle. A student might make a little more, or a little less, but $8,220 is in the ballpark.</p>
+<p>But I teach at the University of Nebraska. And we love us some football. And surprise! Head Coach Scott Frost visits class. He makes $5 million. Per year.</p>
+<p>The average salary now? $874,433. Who feels average now?</p>
+<p>(This problem gets solved in a later section)</p>
+<p>The above example, while a little silly, illustrates the point: Averages are sensitive to extremes. If you have a set of numbers that has no constraints – there could be really big numbers or really small numbers in the mix – then a mean probably isn’t the number you’re looking for. But when the numbers are constrained, or there aren’t any extreme values in the set, averages work great.</p>
+<div id="how-to-calculate-a-mean" class="section level2">
+<h2><span class="header-section-number">3.1</span> How to calculate a mean</h2>
+<p>How to calculate a mean is pretty simple: Take your numbers, add them up, and then divide them by the number of numbers you have. Let’s take our previous example of the class of five and work through it step by step.</p>
+<p>First, we need to add up the salaries in the class.</p>
+<p><code>8000 + 9500 + 7200 + 10000 + 6400 = 41100</code></p>
+<p>Then, we divide that 41100 by 5, the number of students in the class.</p>
+<p><code>41100 / 5 = 8220</code></p>
+<p>Calculating the mean of a set of numbers is a very basic and simple way to measure the middle of the group. But be careful with sets of numbers</p>
+</div>
+<div id="how-to-calculate-a-mean-in-a-spreadsheet" class="section level2">
+<h2><span class="header-section-number">3.2</span> How to calculate a mean in a spreadsheet</h2>
+<p>The great part about spreadsheets is that they remove a lot of the drudgery that doing math by hand involves. Spreadsheets are smart enough to know how to do certain kinds of calculations given a set of numbers, so all you have to do is tell the spreadsheet you want to do that.</p>
+<p>Lets do that with an average. So open your spreadsheet of choice and lets type in the salaries of our mythical class.</p>
+<table>
+<thead>
+<tr class="header">
+<th>In Excel</th>
+<th>In Google Spreadsheets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="images/excelmean1.png" title="Excel mean 1" alt="Means step 1 in Excel" /></td>
+<td><img src="images/googlemean1.png" title="Google mean 1" alt="Means step 1 in Google Spreadsheets" /></td>
+</tr>
+</tbody>
+</table>
+<p>In a spreadsheet, you <em>can</em> do the math yourself. You could, in A7, type <code>=(8000+9500+7200+10000+6400)/5</code> which would give you the average.</p>
+<p>But why do that?</p>
+<p>Typing is the devil. It’s the devil because it’s tedious. It’s the devil because it’s error prone. If I switch two numbers or type 5 instead of 6, I’m wrong. Once you have data, the less typing you do, the better.</p>
+<p>In a spreadsheet, to calculate something with a set of numbers, you’ll use something called a function. A function has a name, and takes inputs. If you’re getting itchy, relax. Let’s use the AVERAGE function in our spreadsheet of choice to illustrate this.</p>
+<p>So first, remember that formulas is a spreadsheet start with an equal sign.</p>
+<p>The second thing you need to know is that you have to tell your spreadsheet where all your numbers are. You can do this one of two ways. First, you could name them all individually (A2, A3, A4, A5, A6) but that puts us back into typing-is-the-devil territory. And, what if you have a thousand numbers? That would be awful. So there’s a second way – use a colon. To tell your spreadsheet that you want a range of numbers, you tell it the starting number, colon, ending number. So, in our case, our range will look like A2:A6.</p>
+<p>The third is that you call a function – you tell your spreadsheet you want to use this particular function – by putting the name of it first, then your inputs in parentheses. Like this: <code>=FUNCTION(inputs)</code></p>
+<p>So putting that all together, the format for the AVERAGE function is <code>=AVERAGE(A2:A6)</code></p>
+<table>
+<thead>
+<tr class="header">
+<th>In Excel</th>
+<th>In Google Spreadsheets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="images/excelmean2.png" title="Excel mean 2" alt="Means screenshot 2 in Excel" /></td>
+<td><img src="images/googlemean2.png" title="Google mean 2" alt="Means screenshot 2 in Google Spreadsheets" /></td>
+</tr>
+</tbody>
+</table>
+<p>And, when we hit enter, we get our answer: $8,220.</p>
+</div>
+<div id="how-to-turn-a-mean-into-a-story" class="section level2">
+<h2><span class="header-section-number">3.3</span> How to turn a mean into a story</h2>
+<p>One of the main uses for an average is to compare how something fares against the middle. Is it above average or below average? And how much?</p>
+<p>One thing you might want to do is compare your university’s graduation rate compared to other schools like yours. For this example, <a href="https://www.dropbox.com/s/1pcft4ib0hq8mlx/colleges.csv?dl=0">I’ve provided a CSV file of schools in the Big 10 athletic conference</a> that you should download (math alert: has 14 schools in it). If you’d like to get your own athletic conference, this data comes from the US federal Department of Educations <a href="https://nces.ed.gov/ipeds/datacenter/Default.aspx">IPEDS</a> database.</p>
+<p>Question: What is the average graduation rate among Big 10 schools?</p>
+<p>Opening the file in Excel is easy – go to File &gt; Open and find where you put the file. Open it and it’ll come up as a new workbook.</p>
+<p>In Google Spreadsheets, it’s also easy, but not quite as straightforward. In Google Spreadsheets, open up a new spreadsheet, go to File &gt; Import. There, you’ll get a new screen. First, click Choose File and find the data file called colleges.csv in the data folder that came with this tutorial. Click replace spreadsheet (which means the blank sheet you opened up will be replaced with actual data) and then hit import.</p>
+<table>
+<thead>
+<tr class="header">
+<th>In Excel</th>
+<th>In Google Spreadsheets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="images/excelmean3.png" title="Excel mean 3" alt="Means screenshot 3 in Excel" /></td>
+<td><img src="images/googlemean3.png" title="Google mean 3" alt="Means screenshot 3 in Google Spreadsheets" /></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><img src="images/googlemean4.png" title="Google mean 4" alt="Means screenshot 4 in Google Spreadsheets" /></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Pro Tip</strong></p>
+<p>See how the data you just imported is cut off by the widths of the columns? Annoying, right? Here’s how to fix that. See the rectangle to the left of column A and above row 1? Click it. That selects everything. Now, hover your mouse over the line between column A and B. See how it changed to something else? Double click that line. Boom. Automatically re-sizes every column to what’s needed to show all the data. Much better now.</p>
+</blockquote>
+<p>So you can see now we have five columns of data. A unit ID, the name of the institution, the cost of 30 credit hours – or one academic year – for in state students, that same cost for out-of-state students and the graduation rate of what’s called the six-year cohort. That six-year cohort is the percent of students who had graduated who started six years before. That’s the metric most universities look at to compare each other.</p>
+<p>So, from our last example, we know we can go to row 16 column E and work our AVERAGE magic.</p>
+<p><strong>Google spreadsheet users: You’ll need to add a row to work with. There’s a button at the bottom to just add 20 rows. That will work nicely.</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>In Excel</th>
+<th>In Google Spreadsheets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="images/excelmean5.png" title="Excel mean 5" alt="Means screenshot 5 in Excel" /></td>
+<td><img src="images/googlemean5.png" title="Google mean 2" alt="Means screenshot 5 in Google Spreadsheets" /></td>
+</tr>
+</tbody>
+</table>
+<p>And when we hit enter, we see that the Big 10 graduates 79.3 percent of students in six years. By eyeballing it, we can see some schools, like Northwestern, graduate nearly all of their students in six years. And, on the opposite end of the spectrum, we see the University of Nebraska-Lincoln, my employer, graduating only 65 percent of students in six years.</p>
+<p>Uh oh.</p>
+<p>So the first question that jumps out at you should be a very simple one: Why?</p>
+<p>Congratulations. You got your first story idea from data. But is eyeballing it the best way to look at this? Nope.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="bad-at-math-is-a-lie.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="median.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-mean.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["mathforbeginningreporters.pdf", "mathforbeginningreporters.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
