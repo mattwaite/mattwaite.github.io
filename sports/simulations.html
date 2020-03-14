@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Simulations | Sports Data Analysis and Visualization</title>
+  <title>Chapter 8 Simulations | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Simulations | Sports Data Analysis and Visualization" />
+  <meta property="og:title" content="Chapter 8 Simulations | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Simulations | Sports Data Analysis and Visualization" />
+  <meta name="twitter:title" content="Chapter 8 Simulations | Sports Data Analysis and Visualization" />
   
   <meta name="twitter:description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
   
@@ -269,17 +269,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="simulations" class="section level1">
-<h1><span class="header-section-number">8</span> Simulations</h1>
+<h1><span class="header-section-number">Chapter 8</span> Simulations</h1>
 <p>Two seasons ago, James Palmer Jr. shot 139 three point attempts and made 43 of them for a .309 shooting percentage last year. A few weeks into last season, he was 7 for 39 – a paltry .179. Is something wrong or is this just bad luck?</p>
 <p>Luck is something that comes up a lot in sports. Is a team unlucky? Or a player? One way we can get to this, we can get to that is by simulating things based on their typical percentages. Simulations work by choosing random values within a range based on a distribution. The most common distribution is the normal or binomial distribution. The normal distribution is where the most cases appear around the mean, 66 percent of cases are within one standard deviation from the mean, and the further away from the mean you get, the more rare things become.</p>
 <p><img src="images/simulations2.png" width="635" /></p>
 <p>Let’s simulate 39 three point attempts 1000 times with his season long shooting percentage and see if this could just be random chance or something else.</p>
 <p>We do this using a base R function called <code>rbinom</code> or binomial distribution. So what that means is there’s a normally distrubuted chance that James Palmer Jr. is going to shoot above and below his career three point shooting percentage. If we randomly assign values in that distribution 1000 times, how many times will it come up 7, like this example?</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1234</span>)</a>
-<a class="sourceLine" id="cb125-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb125-3" data-line-number="3">simulations &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">size =</span> <span class="dv">39</span>, <span class="dt">prob =</span> <span class="fl">.309</span>)</a>
-<a class="sourceLine" id="cb125-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb125-5" data-line-number="5"><span class="kw">table</span>(simulations)</a></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1234</span>)</a>
+<a class="sourceLine" id="cb102-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb102-3" data-line-number="3">simulations &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">size =</span> <span class="dv">39</span>, <span class="dt">prob =</span> <span class="fl">.309</span>)</a>
+<a class="sourceLine" id="cb102-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb102-5" data-line-number="5"><span class="kw">table</span>(simulations)</a></code></pre></div>
 <pre><code>## simulations
 ##   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22 
 ##   1   4   5  12  35  44  76 117 134 135 135  99  71  53  37  21  15   2   3   1</code></pre>
@@ -289,13 +289,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="cold-streaks" class="section level2">
 <h2><span class="header-section-number">8.1</span> Cold streaks</h2>
 <p>During the Western Illinois game, the team, shooting .329 on the season from behind the arc, went 0-15 in the second half. How strange is that?</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1234</span>)</a>
-<a class="sourceLine" id="cb127-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb127-3" data-line-number="3">simulations &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">size =</span> <span class="dv">15</span>, <span class="dt">prob =</span> <span class="fl">.329</span>)</a>
-<a class="sourceLine" id="cb127-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb127-5" data-line-number="5"><span class="kw">hist</span>(simulations)</a></code></pre></div>
-<p><img src="07-simulations_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1"><span class="kw">table</span>(simulations)</a></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1234</span>)</a>
+<a class="sourceLine" id="cb104-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb104-3" data-line-number="3">simulations &lt;-<span class="st"> </span><span class="kw">rbinom</span>(<span class="dt">n =</span> <span class="dv">1000</span>, <span class="dt">size =</span> <span class="dv">15</span>, <span class="dt">prob =</span> <span class="fl">.329</span>)</a>
+<a class="sourceLine" id="cb104-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb104-5" data-line-number="5"><span class="kw">hist</span>(simulations)</a></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-53-1.png" width="672" /></p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="kw">table</span>(simulations)</a></code></pre></div>
 <pre><code>## simulations
 ##   0   1   2   3   4   5   6   7   8   9  10  11 
 ##   5  16  59 132 200 218 172  92  65  34   4   3</code></pre>
@@ -351,7 +351,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["SportsData.epub"],
+"download": ["SportsData.pdf", "SportsData.epub"],
 "toc": {
 "collapse": "subsection"
 }

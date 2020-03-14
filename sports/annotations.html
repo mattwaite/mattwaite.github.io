@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>27 Annotations | Sports Data Analysis and Visualization</title>
+  <title>Chapter 27 Annotations | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="27 Annotations | Sports Data Analysis and Visualization" />
+  <meta property="og:title" content="Chapter 27 Annotations | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="27 Annotations | Sports Data Analysis and Visualization" />
+  <meta name="twitter:title" content="Chapter 27 Annotations | Sports Data Analysis and Visualization" />
   
   <meta name="twitter:description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
   
@@ -269,46 +269,29 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="annotations" class="section level1">
-<h1><span class="header-section-number">27</span> Annotations</h1>
+<h1><span class="header-section-number">Chapter 27</span> Annotations</h1>
 <p>Some of the best sports data visualizations start with a provocative question. At a college just under three hours from Kansas City, my classes are lousy with Chiefs fans. So the first day of classes in the spring of 2019, I asked them: Are the Chief’s Screwed in the Playoffs? The answer ultimately was yes, and how I was able to make that argument before a playoff game had even been played is a good example of how labeling and annotations can make a chart much better.</p>
 <p>Going to add a new library to the mix called <code>ggrepel</code>. You’ll need to install it in the console with <code>install.packages(&quot;ggrepel&quot;)</code>.</p>
-<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb643-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Attaching packages ─────────────── tidyverse 1.3.0 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
-## ✓ tibble  2.1.3     ✓ dplyr   0.8.3
-## ✓ tidyr   1.0.0     ✓ stringr 1.4.0
-## ✓ readr   1.3.1     ✓ forcats 0.4.0</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb655-1" data-line-number="1"><span class="kw">library</span>(ggrepel)</a></code></pre></div>
-<pre><code>## Warning: package &#39;ggrepel&#39; was built under R version 3.5.2</code></pre>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb406-2" data-line-number="2"><span class="kw">library</span>(ggrepel)</a></code></pre></div>
 <p>Now we’ll grab the data and join that data together using the Team name as the common element.</p>
-<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb657-1" data-line-number="1">offense &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nfloffense.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1">offense &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nfloffense.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   .default = col_double(),
 ##   Team = col_character()
 ## )</code></pre>
 <pre><code>## See spec(...) for full column specifications.</code></pre>
-<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb660-1" data-line-number="1">defense &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nfldefense.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1">defense &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nfldefense.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   .default = col_double(),
 ##   Team = col_character()
 ## )
 ## See spec(...) for full column specifications.</code></pre>
-<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb662-1" data-line-number="1">total &lt;-<span class="st"> </span>offense <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(defense, <span class="dt">by=</span><span class="st">&quot;Team&quot;</span>)</a>
-<a class="sourceLine" id="cb662-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb662-3" data-line-number="3"><span class="kw">head</span>(total)</a></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1">total &lt;-<span class="st"> </span>offense <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(defense, <span class="dt">by=</span><span class="st">&quot;Team&quot;</span>)</a>
+<a class="sourceLine" id="cb412-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb412-3" data-line-number="3"><span class="kw">head</span>(total)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 52
 ##   Team      G PointsFor OffYards OffPlays OffYardsPerPlay OffensiveTurnov…
 ##   &lt;chr&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
@@ -339,41 +322,41 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## #   DefExpectedPoints &lt;dbl&gt;</code></pre>
 <p>I’m going to set up a point chart that places team on two-axes – yards per play on offense on the x axis, and yards per play on defense.</p>
 <p>To build the annotations, I want the league average for offensive yards per play and defensive yards per play. We’re going to use those as a proxy for quality. If your team averages more yards per play on offense, that’s good. If they average fewer yards per play on defense, that too is good. So that sets up a situation where we have four corners, anchored by good at both and bad at both. The averages will create lines to divide those four corners up.</p>
-<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb664-1" data-line-number="1">league_averages &lt;-<span class="st"> </span>total <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">AvgOffYardsPer =</span> <span class="kw">mean</span>(OffYardsPerPlay), <span class="dt">AvgDefYardsPer =</span> <span class="kw">mean</span>(DefYardPerPlay))</a>
-<a class="sourceLine" id="cb664-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb664-3" data-line-number="3">league_averages</a></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">league_averages &lt;-<span class="st"> </span>total <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">AvgOffYardsPer =</span> <span class="kw">mean</span>(OffYardsPerPlay), <span class="dt">AvgDefYardsPer =</span> <span class="kw">mean</span>(DefYardPerPlay))</a>
+<a class="sourceLine" id="cb414-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb414-3" data-line-number="3">league_averages</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 2
 ##   AvgOffYardsPer AvgDefYardsPer
 ##            &lt;dbl&gt;          &lt;dbl&gt;
 ## 1           5.59           5.59</code></pre>
 <p>I also want to highlight playoff teams and, of course, the Chiefs, since that was my question. Are they screwed. First, we filter them from our total list.</p>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb666-1" data-line-number="1">playoff_teams &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Kansas City Chiefs&quot;</span>, <span class="st">&quot;New England Patriots&quot;</span>, <span class="st">&quot;Los Angeles Chargers&quot;</span>, <span class="st">&quot;Indianapolis Colts&quot;</span>, <span class="st">&quot;New Orleans Saints&quot;</span>, <span class="st">&quot;Los Angeles Rams&quot;</span>, <span class="st">&quot;Chicago Bears&quot;</span>, <span class="st">&quot;Dallas Cowboys&quot;</span>, <span class="st">&quot;Philadelphia Eagles&quot;</span>)</a>
-<a class="sourceLine" id="cb666-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb666-3" data-line-number="3">playoffs &lt;-<span class="st"> </span>total <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">%in%</span><span class="st"> </span>playoff_teams)</a>
-<a class="sourceLine" id="cb666-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb666-5" data-line-number="5">chiefs &lt;-<span class="st"> </span>total <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">==</span><span class="st"> &quot;Kansas City Chiefs&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1">playoff_teams &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Kansas City Chiefs&quot;</span>, <span class="st">&quot;New England Patriots&quot;</span>, <span class="st">&quot;Los Angeles Chargers&quot;</span>, <span class="st">&quot;Indianapolis Colts&quot;</span>, <span class="st">&quot;New Orleans Saints&quot;</span>, <span class="st">&quot;Los Angeles Rams&quot;</span>, <span class="st">&quot;Chicago Bears&quot;</span>, <span class="st">&quot;Dallas Cowboys&quot;</span>, <span class="st">&quot;Philadelphia Eagles&quot;</span>)</a>
+<a class="sourceLine" id="cb416-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb416-3" data-line-number="3">playoffs &lt;-<span class="st"> </span>total <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">%in%</span><span class="st"> </span>playoff_teams)</a>
+<a class="sourceLine" id="cb416-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb416-5" data-line-number="5">chiefs &lt;-<span class="st"> </span>total <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">==</span><span class="st"> &quot;Kansas City Chiefs&quot;</span>)</a></code></pre></div>
 <p>Now we create the plot. We have three geom_points, starting with everyone, then playoff teams, then the Chiefs. I alter the colors on each to separate them. Next, I add a geom_hline to add the horizontal line of my defensive average and a geom_vline for my offensive average. Next, I want to add some text annotations, labeling two corners of my chart (the other two, in my opinion, become obvious). Then, I want to label all the playoff teams. I use <code>geom_text_repel</code> to do that – it’s using the ggrepel library to push the text away from the dots, respective of other labels and other dots. It means you don’t have to move them around so you can read them, or so they don’t cover up the dots.</p>
 <p>The rest is just adding labels and messing with the theme.</p>
-<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb667-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb667-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>total, <span class="kw">aes</span>(<span class="dt">x=</span>OffYardsPerPlay, <span class="dt">y=</span>DefYardPerPlay), <span class="dt">color=</span><span class="st">&quot;light grey&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb667-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>playoffs, <span class="kw">aes</span>(<span class="dt">x=</span>OffYardsPerPlay, <span class="dt">y=</span>DefYardPerPlay)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb667-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>chiefs, <span class="kw">aes</span>(<span class="dt">x=</span>OffYardsPerPlay, <span class="dt">y=</span>DefYardPerPlay), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb667-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="fl">5.59375</span>, <span class="dt">color=</span><span class="st">&quot;dark grey&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb667-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="fl">5.590625</span>, <span class="dt">color=</span><span class="st">&quot;dark grey&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb667-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="fl">6.2</span>, <span class="dt">y=</span><span class="dv">5</span>, <span class="dt">label=</span><span class="st">&quot;Good Offense, Good Defense&quot;</span>), <span class="dt">color=</span><span class="st">&quot;light blue&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb667-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">5</span>, <span class="dt">y=</span><span class="dv">6</span>, <span class="dt">label=</span><span class="st">&quot;Bad Defense, Bad Offense&quot;</span>), <span class="dt">color=</span><span class="st">&quot;light blue&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb667-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>playoffs, <span class="kw">aes</span>(<span class="dt">x=</span>OffYardsPerPlay, <span class="dt">y=</span>DefYardPerPlay, <span class="dt">label=</span>Team)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb667-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Offensive Yards Per Play&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Defensive Points Per Play&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Are the Chiefs screwed in the playoffs?&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;Their offense is great. Their defense? Not so much&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: Sports-Reference.com | By Matt Waite&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb667-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb667-12" data-line-number="12"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb667-13" data-line-number="13">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb667-14" data-line-number="14">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb667-15" data-line-number="15">    <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">7</span>),</a>
-<a class="sourceLine" id="cb667-16" data-line-number="16">    <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb667-17" data-line-number="17">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb667-18" data-line-number="18">    <span class="dt">panel.grid.major.x =</span> <span class="kw">element_blank</span>()</a>
-<a class="sourceLine" id="cb667-19" data-line-number="19">  )</a></code></pre></div>
-<p><img src="26-annotations_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb417-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>total, <span class="kw">aes</span>(<span class="dt">x=</span>OffYardsPerPlay, <span class="dt">y=</span>DefYardPerPlay), <span class="dt">color=</span><span class="st">&quot;light grey&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>playoffs, <span class="kw">aes</span>(<span class="dt">x=</span>OffYardsPerPlay, <span class="dt">y=</span>DefYardPerPlay)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>chiefs, <span class="kw">aes</span>(<span class="dt">x=</span>OffYardsPerPlay, <span class="dt">y=</span>DefYardPerPlay), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span><span class="fl">5.59375</span>, <span class="dt">color=</span><span class="st">&quot;dark grey&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb417-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="fl">5.590625</span>, <span class="dt">color=</span><span class="st">&quot;dark grey&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb417-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="fl">6.2</span>, <span class="dt">y=</span><span class="dv">5</span>, <span class="dt">label=</span><span class="st">&quot;Good Offense, Good Defense&quot;</span>), <span class="dt">color=</span><span class="st">&quot;light blue&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">5</span>, <span class="dt">y=</span><span class="dv">6</span>, <span class="dt">label=</span><span class="st">&quot;Bad Defense, Bad Offense&quot;</span>), <span class="dt">color=</span><span class="st">&quot;light blue&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>playoffs, <span class="kw">aes</span>(<span class="dt">x=</span>OffYardsPerPlay, <span class="dt">y=</span>DefYardPerPlay, <span class="dt">label=</span>Team)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Offensive Yards Per Play&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Defensive Points Per Play&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Are the Chiefs screwed in the playoffs?&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;Their offense is great. Their defense? Not so much&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: Sports-Reference.com | By Matt Waite&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb417-12" data-line-number="12"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb417-13" data-line-number="13">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
+<a class="sourceLine" id="cb417-14" data-line-number="14">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb417-15" data-line-number="15">    <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">7</span>),</a>
+<a class="sourceLine" id="cb417-16" data-line-number="16">    <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb417-17" data-line-number="17">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb417-18" data-line-number="18">    <span class="dt">panel.grid.major.x =</span> <span class="kw">element_blank</span>()</a>
+<a class="sourceLine" id="cb417-19" data-line-number="19">  )</a></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-254-1.png" width="672" /></p>
 
 </div>
             </section>
@@ -424,7 +407,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["SportsData.epub"],
+"download": ["SportsData.pdf", "SportsData.epub"],
 "toc": {
 "collapse": "subsection"
 }

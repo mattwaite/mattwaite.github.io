@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>11 Residuals | Sports Data Analysis and Visualization</title>
+  <title>Chapter 11 Residuals | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="11 Residuals | Sports Data Analysis and Visualization" />
+  <meta property="og:title" content="Chapter 11 Residuals | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="11 Residuals | Sports Data Analysis and Visualization" />
+  <meta name="twitter:title" content="Chapter 11 Residuals | Sports Data Analysis and Visualization" />
   
   <meta name="twitter:description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
   
@@ -269,29 +269,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="residuals" class="section level1">
-<h1><span class="header-section-number">11</span> Residuals</h1>
+<h1><span class="header-section-number">Chapter 11</span> Residuals</h1>
 <p>When looking at a linear model of your data, there’s a measure you need to be aware of called residuals. The residual is the distance between what the model predicted and what the real outcome is. So if your model predicted a team would score 38 points per game given their third down conversion percentage, and they score 45, then your residual is 7. If they had scored 31, then their residual would be -7.</p>
 <p>Residuals can tell you severals things, but most importantly is if a linear model the right model for your data. If the residuals appear to be random, then a linear model is appropriate. If they have a pattern, it means something else is going on in your data and a linear model isn’t appropriate.</p>
 <p>Residuals can also tell you who is underperforming and overperforming the model. Let’s take a look at an example we’ve used regularly this semester – third down conversion percentage and penalties.</p>
 <p>Let’s first attach libraries and use rvest to get some data. Note: In the rvest steps, I rename the first column because it’s blank on the page and then I merge scoring offense to two different tables – third downs and penalties.</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Attaching packages ─────────────── tidyverse 1.3.0 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.2.1     ✓ purrr   0.3.3
-## ✓ tibble  2.1.3     ✓ dplyr   0.8.3
-## ✓ tidyr   1.0.0     ✓ stringr 1.4.0
-## ✓ readr   1.3.1     ✓ forcats 0.4.0</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1">offense &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/correlations.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1">offense &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/correlations.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Name = col_character(),
@@ -308,8 +292,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   DefConversionPct = col_double()
 ## )</code></pre>
 <p>First, let’s build a linear model and save it as a new dataframe called <code>fit</code>.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1">fit &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">`</span><span class="dt">OffPointsG</span><span class="st">`</span> <span class="op">~</span><span class="st"> `</span><span class="dt">OffConversionPct</span><span class="st">`</span>, <span class="dt">data =</span> offense)</a>
-<a class="sourceLine" id="cb219-2" data-line-number="2"><span class="kw">summary</span>(fit)</a></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" data-line-number="1">fit &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="st">`</span><span class="dt">OffPointsG</span><span class="st">`</span> <span class="op">~</span><span class="st"> `</span><span class="dt">OffConversionPct</span><span class="st">`</span>, <span class="dt">data =</span> offense)</a>
+<a class="sourceLine" id="cb163-2" data-line-number="2"><span class="kw">summary</span>(fit)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = OffPointsG ~ OffConversionPct, data = offense)
@@ -332,10 +316,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Next: Look at the Adjusted R-squared value. What that says is that 44 percent of a team’s scoring output can be predicted by their third down conversion percentage. This is just one year, so that’s a little low. If we did this with more years, that would go up.</p>
 <p>Last: Look at the p-value. We are looking for a p-value smaller than .05. At .05, we can say that our correlation didn’t happen at random. And, in this case, it REALLY didn’t happen at random.</p>
 <p>What we want to do now is look at those residuals. We can add them to our dataframe like this:</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1">offense<span class="op">$</span>predicted &lt;-<span class="st"> </span><span class="kw">predict</span>(fit)</a>
-<a class="sourceLine" id="cb221-2" data-line-number="2">offense<span class="op">$</span>residuals &lt;-<span class="st"> </span><span class="kw">residuals</span>(fit)</a></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" data-line-number="1">offense<span class="op">$</span>predicted &lt;-<span class="st"> </span><span class="kw">predict</span>(fit)</a>
+<a class="sourceLine" id="cb165-2" data-line-number="2">offense<span class="op">$</span>residuals &lt;-<span class="st"> </span><span class="kw">residuals</span>(fit)</a></code></pre></div>
 <p>Now we can sort our data by those residuals. Sorting in descending order gives us the teams that are overperforming the model.</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1">offense <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(residuals))</a></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1">offense <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(residuals))</a></code></pre></div>
 <pre><code>## # A tibble: 130 x 14
 ##    Name  OffPoints OffPointsG DefPoints DefPointsG  Pen. Yards `Pen./G`
 ##    &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
@@ -354,17 +338,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## #   predicted &lt;dbl&gt;, residuals &lt;dbl&gt;</code></pre>
 <p>So looking at this table, what you see here are the teams who scored more than their third down conversion percentage would indicate. Some of those teams were just lucky. Some of those teams were really good at long touchdown plays that didn’t need a lot of third downs to get down the field. But these are your overperformers.</p>
 <p>But, before we can bestow any validity on it, we need to see if this linear model is appropriate. We’ve done that some looking at our p-values and R-squared values. But one more check is to look at the residuals themselves. We do that by plotting the residuals with the predictor. We’ll get into plotting soon, but for now just seeing it is enough.</p>
-<p><img src="10-residuals_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
 <p>The lack of a shape here – the seemingly random nature – is a good sign that a linear model works for our data. If there was a pattern, that would indicate something else was going on in our data and we needed a different model.</p>
 <p>Another way to view your residuals is by connecting the predicted value with the actual value.</p>
-<p><img src="10-residuals_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
 <p>The blue line here separates underperformers from overperformers.</p>
 <div id="penalties" class="section level2">
 <h2><span class="header-section-number">11.1</span> Penalties</h2>
 <p>Now let’s look at it where it doesn’t work: Penalties.</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1">penalties &lt;-<span class="st"> </span>offense</a></code></pre></div>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">pfit &lt;-<span class="st"> </span><span class="kw">lm</span>(OffPointsG <span class="op">~</span><span class="st"> </span>Yards, <span class="dt">data =</span> penalties)</a>
-<a class="sourceLine" id="cb225-2" data-line-number="2"><span class="kw">summary</span>(pfit)</a></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1">penalties &lt;-<span class="st"> </span>offense</a></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1">pfit &lt;-<span class="st"> </span><span class="kw">lm</span>(OffPointsG <span class="op">~</span><span class="st"> </span>Yards, <span class="dt">data =</span> penalties)</a>
+<a class="sourceLine" id="cb169-2" data-line-number="2"><span class="kw">summary</span>(pfit)</a></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = OffPointsG ~ Yards, data = penalties)
@@ -390,9 +374,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Our p-value is … .002, which is less than than .05.</li>
 </ul>
 <p>So what we can say about this model is that it’s statistically significant but utterly meaningless. Normally, we’d stop right here – why bother going forward with a predictive model that isn’t predictive? But let’s do it anyway.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb227-1" data-line-number="1">penalties<span class="op">$</span>predicted &lt;-<span class="st"> </span><span class="kw">predict</span>(pfit)</a>
-<a class="sourceLine" id="cb227-2" data-line-number="2">penalties<span class="op">$</span>residuals &lt;-<span class="st"> </span><span class="kw">residuals</span>(pfit)</a></code></pre></div>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1">penalties <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(residuals))</a></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1">penalties<span class="op">$</span>predicted &lt;-<span class="st"> </span><span class="kw">predict</span>(pfit)</a>
+<a class="sourceLine" id="cb171-2" data-line-number="2">penalties<span class="op">$</span>residuals &lt;-<span class="st"> </span><span class="kw">residuals</span>(pfit)</a></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1">penalties <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(residuals))</a></code></pre></div>
 <pre><code>## # A tibble: 130 x 14
 ##    Name  OffPoints OffPointsG DefPoints DefPointsG  Pen. Yards `Pen./G`
 ##    &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
@@ -410,10 +394,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## #   OffConversionPct &lt;dbl&gt;, DefConversions &lt;dbl&gt;, DefConversionPct &lt;dbl&gt;,
 ## #   predicted &lt;dbl&gt;, residuals &lt;dbl&gt;</code></pre>
 <p>So our model says Oklahoma <em>should</em> only be scoring 31.3 points per game given how many penalty yards per game, but they’re really scoring 48.4. Oy. What happens if we plot those residuals?</p>
-<p><img src="10-residuals_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
 <p>Well … it actually says that a linear model is appropriate. Which an important lesson – just because your residual plot says a linear model works here, that doesn’t say your linear model is good. There are other measures for that, and you need to use them.</p>
 <p>Here’s the segment plot of residuals – you’ll see some really long lines. That’s a bad sign.</p>
-<p><img src="10-residuals_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -465,7 +449,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["SportsData.epub"],
+"download": ["SportsData.pdf", "SportsData.epub"],
 "toc": {
 "collapse": "subsection"
 }

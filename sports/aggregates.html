@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Aggregates | Sports Data Analysis and Visualization</title>
+  <title>Chapter 4 Aggregates | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Aggregates | Sports Data Analysis and Visualization" />
+  <meta property="og:title" content="Chapter 4 Aggregates | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Aggregates | Sports Data Analysis and Visualization" />
+  <meta name="twitter:title" content="Chapter 4 Aggregates | Sports Data Analysis and Visualization" />
   
   <meta name="twitter:description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
   
@@ -269,7 +269,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="aggregates" class="section level1">
-<h1><span class="header-section-number">4</span> Aggregates</h1>
+<h1><span class="header-section-number">Chapter 4</span> Aggregates</h1>
 <p>R is a statistical programming language that is purpose built for data analysis.</p>
 <p>Base R does a lot, but there are a mountain of external libraries that do things to make R better/easier/more fully featured. We already installed the tidyverse – or you should have if you followed the instructions for the last assignment – which isn’t exactly a library, but a collection of libraries. Together, they make up the tidyverse. Individually, they are extraordinarily useful for what they do. We can load them all at once using the tidyverse name, or we can load them individually. Let’s start with individually.</p>
 <p>The two libraries we are going to need for this assignement are <code>readr</code> and <code>dplyr</code>. The library <code>readr</code> reads different types of data in. For this assignment, we’re going to read in csv data or Comma Separated Values data. That’s data that has a comma between each column of data.</p>
@@ -453,7 +453,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Which department on campus has the highest wage bill? And what is the highest and lowest salary in the department? And how wide is the spread between salaries? We can find that with <code>sum</code> to add up the salaries to get the total wage bill, <code>min</code> to find the minumum salary, <code>max</code> to find the maximum salary and <code>sd</code> to find the standard deviation in the numbers.</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">salaries <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb35-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Campus, Department) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb35-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(</a>
+<a class="sourceLine" id="cb35-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
 <a class="sourceLine" id="cb35-4" data-line-number="4">    <span class="dt">total =</span> <span class="kw">sum</span>(<span class="st">`</span><span class="dt">Budgeted Annual Salary</span><span class="st">`</span>), </a>
 <a class="sourceLine" id="cb35-5" data-line-number="5">    <span class="dt">avgsalary =</span> <span class="kw">mean</span>(<span class="st">`</span><span class="dt">Budgeted Annual Salary</span><span class="st">`</span>), </a>
 <a class="sourceLine" id="cb35-6" data-line-number="6">    <span class="dt">minsalary =</span> <span class="kw">min</span>(<span class="st">`</span><span class="dt">Budgeted Annual Salary</span><span class="st">`</span>),</a>
@@ -526,7 +526,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["SportsData.epub"],
+"download": ["SportsData.pdf", "SportsData.epub"],
 "toc": {
 "collapse": "subsection"
 }
