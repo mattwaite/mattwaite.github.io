@@ -5,20 +5,20 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 33 Arranging multiple plots together | Sports Data Analysis and Visualization</title>
-  <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
+  <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 33 Arranging multiple plots together | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
+  <meta property="og:description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 33 Arranging multiple plots together | Sports Data Analysis and Visualization" />
   
-  <meta name="twitter:description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC 350 course in the College of Journalism and Mass Communications." />
+  <meta name="twitter:description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
   
 
 <meta name="author" content="By Matt Waite" />
@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/plotly-binding-4.9.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
@@ -214,7 +215,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.2" data-path="facet-wraps.html"><a href="facet-wraps.html#other-types"><i class="fa fa-check"></i><b>21.2</b> Other types</a></li>
 </ul></li>
 <li class="chapter" data-level="22" data-path="tables.html"><a href="tables.html"><i class="fa fa-check"></i><b>22</b> Tables</a><ul>
-<li class="chapter" data-level="22.0.1" data-path="tables.html"><a href="tables.html#exporting-tables"><i class="fa fa-check"></i><b>22.0.1</b> Exporting tables</a></li>
+<li class="chapter" data-level="22.1" data-path="tables.html"><a href="tables.html#exporting-tables"><i class="fa fa-check"></i><b>22.1</b> Exporting tables</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="bubble-charts.html"><a href="bubble-charts.html"><i class="fa fa-check"></i><b>23</b> Bubble charts</a></li>
 <li class="chapter" data-level="24" data-path="circular-bar-plots.html"><a href="circular-bar-plots.html"><i class="fa fa-check"></i><b>24</b> Circular bar plots</a></li>
@@ -284,8 +285,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Good news.</p>
 <p>There is.</p>
 <p>It’s called <code>cowplot</code>, and it’s pretty easy to use. First install cowplot with install.packages(“cowplot”). Then let’s load tidyverse and cowplot.</p>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb528-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb528-2" data-line-number="2"><span class="kw">library</span>(cowplot)</a></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb527-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb527-2" data-line-number="2"><span class="kw">library</span>(cowplot)</a></code></pre></div>
 <pre><code>## Warning: package &#39;cowplot&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## 
 ## ********************************************************</code></pre>
@@ -300,7 +301,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##     stamp</code></pre>
 <p>What follows is just stuff for me to set up a couple of bar charts. You can run it – it’ll work on your machine without changing a thing – but what I’m doing here isn’t important. The stuff you need to do is below.</p>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb537-1" data-line-number="1">attendance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/mattwaite/sportsdatabook/Master/data/attendance.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb536-1" data-line-number="1">attendance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/mattwaite/sportsdatabook/Master/data/attendance.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Institution = col_character(),
@@ -313,38 +314,38 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   `2018` = col_double()
 ## )</code></pre>
 <p>Making a quick percent change.</p>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb539-1" data-line-number="1">attendance &lt;-<span class="st"> </span>attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">change =</span> ((<span class="st">`</span><span class="dt">2018</span><span class="st">`</span><span class="op">-</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb538-1" data-line-number="1">attendance &lt;-<span class="st"> </span>attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">change =</span> ((<span class="st">`</span><span class="dt">2018</span><span class="st">`</span><span class="op">-</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span>)</a></code></pre></div>
 <p>Let’s chart the top 10 and bottom 10 of college football ticket growth … and shrinkage.</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb540-1" data-line-number="1">top10 &lt;-<span class="st"> </span>attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dv">10</span>, <span class="dt">wt=</span>change)</a>
-<a class="sourceLine" id="cb540-2" data-line-number="2">bottom10 &lt;-<span class="st"> </span>attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dv">10</span>, <span class="dt">wt=</span><span class="op">-</span>change)</a></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb539-1" data-line-number="1">top10 &lt;-<span class="st"> </span>attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dv">10</span>, <span class="dt">wt=</span>change)</a>
+<a class="sourceLine" id="cb539-2" data-line-number="2">bottom10 &lt;-<span class="st"> </span>attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">top_n</span>(<span class="dv">10</span>, <span class="dt">wt=</span><span class="op">-</span>change)</a></code></pre></div>
 <p>Okay, now to do this I need to save my plots to an object. We do this the same way we save things to a dataframe – with the arrow. We’ll make two identical bar charts, one with the top 10 and one with the bottom 10.</p>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb541-1" data-line-number="1">bar1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">data=</span>top10, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Institution, change), <span class="dt">weight=</span>change)) <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>()</a></code></pre></div>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb542-1" data-line-number="1">bar2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">data=</span>bottom10, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Institution, change), <span class="dt">weight=</span>change)) <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb540-1" data-line-number="1">bar1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">data=</span>top10, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Institution, change), <span class="dt">weight=</span>change)) <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb541-1" data-line-number="1">bar2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">data=</span>bottom10, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Institution, change), <span class="dt">weight=</span>change)) <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p>With cowplot, we can use a function called <code>plot_grid</code> to arrange the charts:</p>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb543-1" data-line-number="1"><span class="kw">plot_grid</span>(bar1, bar2) </a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-323-1.png" width="672" /></p>
-<p>We can also stack them on top of each other:</p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb544-1" data-line-number="1"><span class="kw">plot_grid</span>(bar1, bar2, <span class="dt">ncol=</span><span class="dv">1</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb542-1" data-line-number="1"><span class="kw">plot_grid</span>(bar1, bar2) </a></code></pre></div>
 <p><img src="SportsData_files/figure-html/unnamed-chunk-324-1.png" width="672" /></p>
+<p>We can also stack them on top of each other:</p>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb543-1" data-line-number="1"><span class="kw">plot_grid</span>(bar1, bar2, <span class="dt">ncol=</span><span class="dv">1</span>) </a></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-325-1.png" width="672" /></p>
 <p>To make these publishable, we should add headlines, chatter, decent labels, credit lines, etc. But to do this, we’ll have to figure out which labels go on which charts, so we can make it look decent. For example – both charts don’t need x or y labels. If you don’t have a title and subtitle on both, the spacing is off, so you need to leave one blank or the other blank. You’ll just have to fiddle with it until you get it looking right.</p>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb545-1" data-line-number="1">bar1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">data=</span>top10, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Institution, change), <span class="dt">weight=</span>change)) <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;College football winners...&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;Not every football program saw attendance shrink in 2018. But some really did.&quot;</span>,  <span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Percent change&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb544-1" data-line-number="1">bar1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">data=</span>top10, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Institution, change), <span class="dt">weight=</span>change)) <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;College football winners...&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;Not every football program saw attendance shrink in 2018. But some really did.&quot;</span>,  <span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Percent change&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb544-2" data-line-number="2"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb544-3" data-line-number="3">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
+<a class="sourceLine" id="cb544-4" data-line-number="4">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </a>
+<a class="sourceLine" id="cb544-5" data-line-number="5">    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb544-6" data-line-number="6">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</a>
+<a class="sourceLine" id="cb544-7" data-line-number="7">    )</a></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb545-1" data-line-number="1">bar2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">data=</span>bottom10, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Institution, change), <span class="dt">weight=</span>change)) <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;... and losers&quot;</span>, <span class="dt">subtitle=</span> <span class="st">&quot;&quot;</span>, <span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;&quot;</span>,  <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb545-2" data-line-number="2"><span class="st">  </span><span class="kw">theme</span>(</a>
 <a class="sourceLine" id="cb545-3" data-line-number="3">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
 <a class="sourceLine" id="cb545-4" data-line-number="4">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </a>
 <a class="sourceLine" id="cb545-5" data-line-number="5">    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </a>
 <a class="sourceLine" id="cb545-6" data-line-number="6">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</a>
 <a class="sourceLine" id="cb545-7" data-line-number="7">    )</a></code></pre></div>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb546-1" data-line-number="1">bar2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">data=</span>bottom10, <span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Institution, change), <span class="dt">weight=</span>change)) <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;... and losers&quot;</span>, <span class="dt">subtitle=</span> <span class="st">&quot;&quot;</span>, <span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;&quot;</span>,  <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb546-2" data-line-number="2"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb546-3" data-line-number="3">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb546-4" data-line-number="4">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </a>
-<a class="sourceLine" id="cb546-5" data-line-number="5">    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </a>
-<a class="sourceLine" id="cb546-6" data-line-number="6">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</a>
-<a class="sourceLine" id="cb546-7" data-line-number="7">    )</a></code></pre></div>
 <p>Saving a cowplot plot_grid is the same as anything else we did in the class:</p>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb547-1" data-line-number="1"><span class="kw">plot_grid</span>(bar1, bar2) <span class="op">+</span><span class="st"> </span><span class="kw">ggsave</span>(<span class="st">&quot;test.png&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb546-1" data-line-number="1"><span class="kw">plot_grid</span>(bar1, bar2) <span class="op">+</span><span class="st"> </span><span class="kw">ggsave</span>(<span class="st">&quot;test.png&quot;</span>)</a></code></pre></div>
 <pre><code>## Saving 7 x 5 in image</code></pre>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-327-1.png" width="672" /></p>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-328-1.png" width="672" /></p>
 
 </div>
             </section>
