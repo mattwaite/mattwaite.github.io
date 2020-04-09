@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 31 Clustering | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 31 Clustering | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -52,12 +52,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.1/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.49.4/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.49.4/plotly-latest.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160712129-1"></script>
 <script>
@@ -255,9 +255,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="33" data-path="arranging-multiple-plots-together.html"><a href="arranging-multiple-plots-together.html"><i class="fa fa-check"></i><b>33</b> Arranging multiple plots together</a></li>
-<li class="chapter" data-level="34" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>34</b> Assignments</a></li>
-<li class="chapter" data-level="35" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>35</b> Appendix</a><ul>
-<li class="chapter" data-level="35.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>35.1</b> How to get help in this class</a></li>
+<li class="chapter" data-level="34" data-path="encircling-points-on-a-scatterplot.html"><a href="encircling-points-on-a-scatterplot.html"><i class="fa fa-check"></i><b>34</b> Encircling points on a scatterplot</a><ul>
+<li class="chapter" data-level="34.1" data-path="encircling-points-on-a-scatterplot.html"><a href="encircling-points-on-a-scatterplot.html#a-different-more-local-example"><i class="fa fa-check"></i><b>34.1</b> A different, more local example</a></li>
+</ul></li>
+<li class="chapter" data-level="35" data-path="bump-charts.html"><a href="bump-charts.html"><i class="fa fa-check"></i><b>35</b> Bump charts</a></li>
+<li class="chapter" data-level="36" data-path="text-cleaning.html"><a href="text-cleaning.html"><i class="fa fa-check"></i><b>36</b> Text cleaning</a><ul>
+<li class="chapter" data-level="36.1" data-path="text-cleaning.html"><a href="text-cleaning.html#stripping-out-text"><i class="fa fa-check"></i><b>36.1</b> Stripping out text</a></li>
+<li class="chapter" data-level="36.2" data-path="text-cleaning.html"><a href="text-cleaning.html#another-example-splitting-columns"><i class="fa fa-check"></i><b>36.2</b> Another example: splitting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="37" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>37</b> Assignments</a></li>
+<li class="chapter" data-level="38" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>38</b> Appendix</a><ul>
+<li class="chapter" data-level="38.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>38.1</b> How to get help in this class</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -284,16 +292,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>One common effort in sports is to classify teams and players – who are this players peers? What teams are like this one? Who should we compare a player to? Truth is, most sports commentators use nothing more sophisticated that looking at a couple of stats or use the “eye test” to say a player is like this or that.</p>
 <p>There’s better ways.</p>
 <p>In this chapter, we’re going to use a method that sounds advanced but it really quite simple called k-means clustering. It’s based on the concept of the k-nearest neighbor algorithm. You’re probably already scared. Don’t be.</p>
-<p>Imagine two dots on a scatterplot. If you took a ruler out and measured the distance between those dots, you’d know how far apart they are. In math, that’s called the Euclidean distance. It’s just the space between them in numbers. Where k-nearest neighbor comes in, you have lots of dots and you want measure the distance between all of them. What does k-means clustering do? It lumps them into groups based on the average distance between them. Players who are good on offense but bad on defense are over here, good offense good defense are over here. And using the Eucliean distance between them, we can decide who is in and who is out of those groups.</p>
-<p>For this exercise, I want to look at Cam Mack, Nebraska’s point guard and probably the most interesting player on Fred Hoiberg’s first team. This is Mack’s first year in major college basketball – he played a year at a community college – so we don’t have much to go on. But with three games in the books, who does Cam Mack compare to?</p>
+<p>Imagine two dots on a scatterplot. If you took a ruler out and measured the distance between those dots, you’d know how far apart they are. In math, that’s called the Euclidean distance. It’s just the space between them in numbers. Where k-nearest neighbor comes in, you have lots of dots and you want measure the distance between all of them. What does k-means clustering do? It lumps them into groups based on the average distance between them. Players who are good on offense but bad on defense are over here, good offense good defense are over here. And using the Euclidean distance between them, we can decide who is in and who is out of those groups.</p>
+<p>For this exercise, I want to look at Cam Mack, Nebraska’s point guard and probably the most interesting player on Fred Hoiberg’s first team. This is Mack’s first year in major college basketball – he played a year at a community college – so we don’t have much to go on. But with a season in the books, who does Cam Mack compare to?</p>
 <p>To answer this, we’ll use k-means clustering.</p>
 <p>First thing we do is load some libraries and set a seed, so if we run this repeatedly, our random numbers are generated from the same base. If you don’t have the cluster library, just add it on the console with <code>install.packages(&quot;cluster&quot;)</code></p>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb463-2" data-line-number="2"><span class="kw">library</span>(cluster)</a></code></pre></div>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb473-2" data-line-number="2"><span class="kw">library</span>(cluster)</a></code></pre></div>
 <pre><code>## Warning: package &#39;cluster&#39; was built under R version 3.5.2</code></pre>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1234</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">1234</span>)</a></code></pre></div>
 <p>I’ve gone and scraped <a href="https://unl.box.com/s/0g56ve61y6hakyxzr1u4t534721bqvg8">stats for every player in this current season</a> so let’s load that up.</p>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1">players &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/players20.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb476-1" data-line-number="1">players &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/players20.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   .default = col_double(),
@@ -309,27 +317,27 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## See spec(...) for full column specifications.</code></pre>
 <p>To cluster this data properly, we have some work to do.</p>
 <p>First, it won’t do to have players who haven’t played, so we can use filter to find anyone with greater than 0 minutes played. Next, Cam Mack is a guard, so let’s just look at guards. Third, we want to limit the data to things that make sense to look at for Cam Mack – things like shooting, three point shooting, assists, turnovers and points.</p>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" data-line-number="1">playersselected &lt;-<span class="st"> </span>players <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb469-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(MP<span class="op">&gt;</span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Pos <span class="op">==</span><span class="st"> &quot;G&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb469-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(Player, Team, Pos, MP, <span class="st">`</span><span class="dt">FG%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">3P%</span><span class="st">`</span>, AST, TOV, PTS) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb469-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" data-line-number="1">playersselected &lt;-<span class="st"> </span>players <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb479-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(MP<span class="op">&gt;</span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Pos <span class="op">==</span><span class="st"> &quot;G&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb479-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(Player, Team, Pos, MP, <span class="st">`</span><span class="dt">FG%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">3P%</span><span class="st">`</span>, AST, TOV, PTS) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb479-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>() </a></code></pre></div>
 <p>Now, k-means clustering doesn’t work as well with data that can be on different scales. So comparing a percentage to a count metric – shooting percentage to points – would create chaos because shooting percentages are a fraction of 1 and points, depending on when they are in the season, could be quite large. So we have to scale each metric – put them on a similar basis using the distance from the max value as our guide. Also, k-means clustering won’t work with text data, so we need to create a dataframe that’s just the numbers, but scaled. We can do that with another select, and using mutate_all with the scale function. The <code>na.omit()</code> means get rid of any blanks, because they too will cause errors.</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb470-1" data-line-number="1">playersscaled &lt;-<span class="st"> </span>playersselected <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb470-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(MP, <span class="st">`</span><span class="dt">FG%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">3P%</span><span class="st">`</span>, AST, TOV, PTS) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb470-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate_all</span>(scale) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb470-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb480-1" data-line-number="1">playersscaled &lt;-<span class="st"> </span>playersselected <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb480-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(MP, <span class="st">`</span><span class="dt">FG%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">3P%</span><span class="st">`</span>, AST, TOV, PTS) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb480-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate_all</span>(scale) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb480-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>()</a></code></pre></div>
 <p>With k-means clustering, we decide how many clusters we want. Most often, researchers will try a handful of different cluster numbers and see what works. But there are methods for finding the optimal number. One method is called the Elbow method. One implementation of this, <a href="https://uc-r.github.io/kmeans_clustering">borrowed from the University of Cincinnati’s Business Analytics program</a>, does this quite nicely with a graph that will help you decide for yourself.</p>
 <p>All you need to do in this code is change out the data frame – <code>playersscaled</code> in this case – and run it.</p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" data-line-number="1"><span class="co"># function to compute total within-cluster sum of square </span></a>
-<a class="sourceLine" id="cb471-2" data-line-number="2">wss &lt;-<span class="st"> </span><span class="cf">function</span>(k) {</a>
-<a class="sourceLine" id="cb471-3" data-line-number="3">  <span class="kw">kmeans</span>(playersscaled, k, <span class="dt">nstart =</span> <span class="dv">10</span> )<span class="op">$</span>tot.withinss</a>
-<a class="sourceLine" id="cb471-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb471-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb471-6" data-line-number="6"><span class="co"># Compute and plot wss for k = 1 to k = 15</span></a>
-<a class="sourceLine" id="cb471-7" data-line-number="7">k.values &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span></a>
-<a class="sourceLine" id="cb471-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb471-9" data-line-number="9"><span class="co"># extract wss for 2-15 clusters</span></a>
-<a class="sourceLine" id="cb471-10" data-line-number="10">wss_values &lt;-<span class="st"> </span><span class="kw">map_dbl</span>(k.values, wss)</a></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb481-1" data-line-number="1"><span class="co"># function to compute total within-cluster sum of square </span></a>
+<a class="sourceLine" id="cb481-2" data-line-number="2">wss &lt;-<span class="st"> </span><span class="cf">function</span>(k) {</a>
+<a class="sourceLine" id="cb481-3" data-line-number="3">  <span class="kw">kmeans</span>(playersscaled, k, <span class="dt">nstart =</span> <span class="dv">10</span> )<span class="op">$</span>tot.withinss</a>
+<a class="sourceLine" id="cb481-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb481-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb481-6" data-line-number="6"><span class="co"># Compute and plot wss for k = 1 to k = 15</span></a>
+<a class="sourceLine" id="cb481-7" data-line-number="7">k.values &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span></a>
+<a class="sourceLine" id="cb481-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb481-9" data-line-number="9"><span class="co"># extract wss for 2-15 clusters</span></a>
+<a class="sourceLine" id="cb481-10" data-line-number="10">wss_values &lt;-<span class="st"> </span><span class="kw">map_dbl</span>(k.values, wss)</a></code></pre></div>
 <pre><code>## Warning: did not converge in 10 iterations
 
 ## Warning: did not converge in 10 iterations
@@ -337,15 +345,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Warning: did not converge in 10 iterations
 
 ## Warning: did not converge in 10 iterations</code></pre>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" data-line-number="1"><span class="kw">plot</span>(k.values, wss_values,</a>
-<a class="sourceLine" id="cb473-2" data-line-number="2">       <span class="dt">type=</span><span class="st">&quot;b&quot;</span>, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">frame =</span> <span class="ot">FALSE</span>, </a>
-<a class="sourceLine" id="cb473-3" data-line-number="3">       <span class="dt">xlab=</span><span class="st">&quot;Number of clusters K&quot;</span>,</a>
-<a class="sourceLine" id="cb473-4" data-line-number="4">       <span class="dt">ylab=</span><span class="st">&quot;Total within-clusters sum of squares&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb483-1" data-line-number="1"><span class="kw">plot</span>(k.values, wss_values,</a>
+<a class="sourceLine" id="cb483-2" data-line-number="2">       <span class="dt">type=</span><span class="st">&quot;b&quot;</span>, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">frame =</span> <span class="ot">FALSE</span>, </a>
+<a class="sourceLine" id="cb483-3" data-line-number="3">       <span class="dt">xlab=</span><span class="st">&quot;Number of clusters K&quot;</span>,</a>
+<a class="sourceLine" id="cb483-4" data-line-number="4">       <span class="dt">ylab=</span><span class="st">&quot;Total within-clusters sum of squares&quot;</span>)</a></code></pre></div>
 <p><img src="SportsData_files/figure-html/unnamed-chunk-288-1.png" width="672" /></p>
 <p>The Elbow method – so named because you’re looking for the “elbow” where the line flattens out. In this case, it looks like a K of 5 is ideal. So let’s try that. We’re going to use the kmeans function, saving it to an object called k5. We just need to tell it our dataframe name, how many centers (k) we want, and we’ll use a sensible default for how many different configurations to try.</p>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb474-1" data-line-number="1">k5 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(playersscaled, <span class="dt">centers =</span> <span class="dv">5</span>, <span class="dt">nstart =</span> <span class="dv">25</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" data-line-number="1">k5 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(playersscaled, <span class="dt">centers =</span> <span class="dv">5</span>, <span class="dt">nstart =</span> <span class="dv">25</span>)</a></code></pre></div>
 <p>Let’s look at what we get.</p>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" data-line-number="1">k5</a></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb485-1" data-line-number="1">k5</a></code></pre></div>
 <pre><code>## K-means clustering with 5 clusters of sizes 863, 989, 242, 58, 495
 ## 
 ## Cluster means:
@@ -438,58 +446,75 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;     &quot;tot.withinss&quot;
 ## [6] &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot;</code></pre>
-<p>Interpreting this output, the very first thing you need to know is that <strong>the cluster numbers are meaningless</strong>. They aren’t ranks. They aren’t anything. After you have taken that on board, look at the cluster sizes at the top. Clusters 3 and 5 are pretty large compared to others. That’s notable. Then we can look at the cluster means. For reference, 0 is going to be average. So group 1 are well above average on minutes played. Group 3 is slightly above, group 5 is slightly below. In fact, group 5 is below average on every metric. Group 3 is slightly above average on all metrics.</p>
+<p>Interpreting this output, the very first thing you need to know is that <strong>the cluster numbers are meaningless</strong>. They aren’t ranks. They aren’t anything. After you have taken that on board, look at the cluster sizes at the top. Clusters 1 and 2 are pretty large compared to others. That’s notable. Then we can look at the cluster means. For reference, 0 is going to be average. So group 1 is below average on minutes played. Group 2 is slightly above, group 5 is well above.</p>
 <p>So which group is Cam Mack in? Well, first we have to put our data back together again. In K5, there is a list of cluster assignments in the same order we put them in, but recall we have no names. So we need to re-combine them with our original data. We can do that with the following:</p>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb477-1" data-line-number="1">playercluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(playersselected, k5<span class="op">$</span>cluster) </a></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb487-1" data-line-number="1">playercluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(playersselected, k5<span class="op">$</span>cluster) </a></code></pre></div>
 <p>Now we have a dataframe called playercluster that has our player names and what cluster they are in. The fastest way to find Cam Mack is to double click on the playercluster table in the environment and use the search in the top right of the table. Because this is based on some random selections of points to start the groupings, these may change from person to person, but Mack is in Group 1 in my data.</p>
 <p>We now have a dataset and can plot it like anything else. Let’s get Cam Mack and then plot him against the rest of college basketball on assists versus minutes played.</p>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb478-1" data-line-number="1">cm &lt;-<span class="st"> </span>playercluster <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Player <span class="op">==</span><span class="st"> &quot;Cameron Mack&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb479-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>playercluster, <span class="kw">aes</span>(<span class="dt">x=</span>MP, <span class="dt">y=</span>AST, <span class="dt">color=</span>k5.cluster)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb479-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>cm, <span class="kw">aes</span>(<span class="dt">x=</span>MP, <span class="dt">y=</span>AST), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb488-1" data-line-number="1">cm &lt;-<span class="st"> </span>playercluster <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Player <span class="op">==</span><span class="st"> &quot;Cam Mack&quot;</span>)</a>
+<a class="sourceLine" id="cb488-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb488-3" data-line-number="3">cm</a></code></pre></div>
+<pre><code>##     Player                 Team Pos  MP  FG.  X3P. AST TOV PTS k5.cluster
+## 1 Cam Mack Nebraska Cornhuskers   G 931 0.39 0.339 172  71 324          5</code></pre>
+<p>So Cam’s in cluster 5, which if you look at our clusters, puts him in the cluster with all above average metrics. What does that look like? We know Cam was an assist machine, so where do group 5 people grade out on assists?</p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb490-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb490-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>playercluster, <span class="kw">aes</span>(<span class="dt">x=</span>MP, <span class="dt">y=</span>AST, <span class="dt">color=</span>k5.cluster)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb490-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>cm, <span class="kw">aes</span>(<span class="dt">x=</span>MP, <span class="dt">y=</span>AST), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)</a></code></pre></div>
 <p><img src="SportsData_files/figure-html/unnamed-chunk-293-1.png" width="672" /></p>
-<p>Not bad, not bad. But who are Cam Mack’s peers? If we look at the numbers in Group 1, there’s 335 of them. So let’s limit them to just Big Ten guards. Unfortunately, my scraper didn’t quite work and in the place of Conference is the coach’s name. So I’m going to have to do this the hard way and make a list of Big Ten teams and filter on that. Then I’ll sort by minutes played.</p>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb480-1" data-line-number="1">big10 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Nebraska Cornhuskers&quot;</span>, <span class="st">&quot;Iowa Hawkeyes&quot;</span>, <span class="st">&quot;Minnesota Golden Gophers&quot;</span>, <span class="st">&quot;Illinois Fighting Illini&quot;</span>, <span class="st">&quot;Northwestern Wildcats&quot;</span>, <span class="st">&quot;Wisconsin Badgers&quot;</span>, <span class="st">&quot;Indiana Hoosiers&quot;</span>, <span class="st">&quot;Purdue Boilermakers&quot;</span>, <span class="st">&quot;Ohio State Buckeyes&quot;</span>, <span class="st">&quot;Michigan Wolverines&quot;</span>, <span class="st">&quot;Michigan State Spartans&quot;</span>, <span class="st">&quot;Penn State Nittany Lions&quot;</span>, <span class="st">&quot;Rutgers Scarlet Knights&quot;</span>, <span class="st">&quot;Maryland Terrapins&quot;</span>)</a>
-<a class="sourceLine" id="cb480-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb480-3" data-line-number="3">playercluster <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(k5.cluster <span class="op">==</span><span class="st"> </span><span class="dv">4</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">%in%</span><span class="st"> </span>big10) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(MP))</a></code></pre></div>
-<pre><code>##          Player                    Team Pos MP   FG.  X3P. AST TOV PTS
-## 1   Cole Bajema     Michigan Wolverines   G 35 0.750 0.571   0   2  24
-## 2    Reese Mona      Maryland Terrapins   G 30 1.000 1.000   2   1   9
-## 3   Joey Downes Rutgers Scarlet Knights   G 10 0.667 1.000   0   1   8
-## 4 Travis Valmon      Maryland Terrapins   G  8 0.500 1.000   0   0   4
-## 5  Cooper Bybee        Indiana Hoosiers   G  4 1.000 1.000   0   0   3
-##   k5.cluster
-## 1          4
-## 2          4
-## 3          4
-## 4          4
-## 5          4</code></pre>
-<p>So there are the 8 guards most like Cam Mack in the Big Ten. It’ll be interesting to watch this evolve over the season. Fred Hoiberg and others think he might be one of the best guards in the league. We’ll see, using cluster analysis.</p>
+<p>Not bad, not bad. But who are Cam Mack’s peers? If we look at the numbers in Group 5, there’s 495 of them. So let’s limit them to just Big Ten guards. Unfortunately, my scraper didn’t quite work and in the place of Conference is the coach’s name. So I’m going to have to do this the hard way and make a list of Big Ten teams and filter on that. Then I’ll sort by minutes played.</p>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb491-1" data-line-number="1">big10 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Nebraska Cornhuskers&quot;</span>, <span class="st">&quot;Iowa Hawkeyes&quot;</span>, <span class="st">&quot;Minnesota Golden Gophers&quot;</span>, <span class="st">&quot;Illinois Fighting Illini&quot;</span>, <span class="st">&quot;Northwestern Wildcats&quot;</span>, <span class="st">&quot;Wisconsin Badgers&quot;</span>, <span class="st">&quot;Indiana Hoosiers&quot;</span>, <span class="st">&quot;Purdue Boilermakers&quot;</span>, <span class="st">&quot;Ohio State Buckeyes&quot;</span>, <span class="st">&quot;Michigan Wolverines&quot;</span>, <span class="st">&quot;Michigan State Spartans&quot;</span>, <span class="st">&quot;Penn State Nittany Lions&quot;</span>, <span class="st">&quot;Rutgers Scarlet Knights&quot;</span>, <span class="st">&quot;Maryland Terrapins&quot;</span>)</a>
+<a class="sourceLine" id="cb491-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb491-3" data-line-number="3">playercluster <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(k5.cluster <span class="op">==</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Team <span class="op">%in%</span><span class="st"> </span>big10) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(MP))</a></code></pre></div>
+<pre><code>##             Player                     Team Pos   MP   FG.  X3P. AST TOV PTS
+## 1      Marcus Carr Minnesota Golden Gophers   G 1004 0.377 0.341 181  76 419
+## 2    Anthony Cowan       Maryland Terrapins   G  965 0.379 0.331 133  59 454
+## 3         Cam Mack     Nebraska Cornhuskers   G  931 0.390 0.339 172  71 324
+## 4  Eric Hunter Jr.      Purdue Boilermakers   G  907 0.419 0.373  77  57 297
+## 5   Zavier Simpson      Michigan Wolverines   G  907 0.472 0.354 213  85 351
+## 6      Ayo Dosunmu Illinois Fighting Illini   G  891 0.483 0.295  86  72 443
+## 7   D&#39;Mitrik Trice        Wisconsin Badgers   G  883 0.397 0.390 116  50 289
+## 8  Cassius Winston  Michigan State Spartans   G  868 0.432 0.409 157  85 497
+## 9        CJ Walker      Ohio State Buckeyes   G  795 0.420 0.338  94  47 227
+## 10     Pat Spencer    Northwestern Wildcats   G  787 0.458 0.250 103  63 286
+## 11       Geo Baker  Rutgers Scarlet Knights   G  736 0.389 0.261  91  45 273
+##    k5.cluster
+## 1           5
+## 2           5
+## 3           5
+## 4           5
+## 5           5
+## 6           5
+## 7           5
+## 8           5
+## 9           5
+## 10          5
+## 11          5</code></pre>
+<p>So there are the 11 guards most like Cam Mack in the Big Ten. Safe to say, these are the 11 best guards in the conference.</p>
 <div id="advanced-metrics" class="section level2">
 <h2><span class="header-section-number">31.1</span> Advanced metrics</h2>
 <p>How much does this change if we change the metrics? I used pretty standard box score metrics above. What if we did it using Player Efficiency Rating, True Shooting Percentage, Point Production, Assist Percentage, Win Shares Per 40 Minutes and Box Plus Minus (you can get definitions of all of them by <a href="https://www.sports-reference.com/cbb/schools/nebraska/2020.html">hovering over the stats on Nebraksa’s stats page</a>).</p>
 <p>We’ll repeat the process. Filter out players who don’t play, players with stats missing, and just focus on those stats listed above.</p>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb482-1" data-line-number="1">playersadvanced &lt;-<span class="st"> </span>players <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb482-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(MP<span class="op">&gt;</span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb482-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Pos <span class="op">==</span><span class="st"> &quot;G&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb482-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(Player, Team, Pos, PER, <span class="st">`</span><span class="dt">TS%</span><span class="st">`</span>, PProd, <span class="st">`</span><span class="dt">AST%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">WS/40</span><span class="st">`</span>, BPM) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb482-5" data-line-number="5"><span class="st">  </span><span class="kw">na.omit</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb493-1" data-line-number="1">playersadvanced &lt;-<span class="st"> </span>players <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb493-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(MP<span class="op">&gt;</span><span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb493-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Pos <span class="op">==</span><span class="st"> &quot;G&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb493-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(Player, Team, Pos, PER, <span class="st">`</span><span class="dt">TS%</span><span class="st">`</span>, PProd, <span class="st">`</span><span class="dt">AST%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">WS/40</span><span class="st">`</span>, BPM) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb493-5" data-line-number="5"><span class="st">  </span><span class="kw">na.omit</span>() </a></code></pre></div>
 <p>Now to scale them.</p>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb483-1" data-line-number="1">playersadvscaled &lt;-<span class="st"> </span>playersadvanced <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb483-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(PER, <span class="st">`</span><span class="dt">TS%</span><span class="st">`</span>, PProd, <span class="st">`</span><span class="dt">AST%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">WS/40</span><span class="st">`</span>, BPM) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb483-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate_all</span>(scale) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb483-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb494-1" data-line-number="1">playersadvscaled &lt;-<span class="st"> </span>playersadvanced <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb494-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(PER, <span class="st">`</span><span class="dt">TS%</span><span class="st">`</span>, PProd, <span class="st">`</span><span class="dt">AST%</span><span class="st">`</span>, <span class="st">`</span><span class="dt">WS/40</span><span class="st">`</span>, BPM) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb494-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate_all</span>(scale) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb494-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>()</a></code></pre></div>
 <p>Let’s find the optimal number of clusters.</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" data-line-number="1"><span class="co"># function to compute total within-cluster sum of square </span></a>
-<a class="sourceLine" id="cb484-2" data-line-number="2">wss &lt;-<span class="st"> </span><span class="cf">function</span>(k) {</a>
-<a class="sourceLine" id="cb484-3" data-line-number="3">  <span class="kw">kmeans</span>(playersadvscaled, k, <span class="dt">nstart =</span> <span class="dv">10</span> )<span class="op">$</span>tot.withinss</a>
-<a class="sourceLine" id="cb484-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb484-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb484-6" data-line-number="6"><span class="co"># Compute and plot wss for k = 1 to k = 15</span></a>
-<a class="sourceLine" id="cb484-7" data-line-number="7">k.values &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span></a>
-<a class="sourceLine" id="cb484-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb484-9" data-line-number="9"><span class="co"># extract wss for 2-15 clusters</span></a>
-<a class="sourceLine" id="cb484-10" data-line-number="10">wss_values &lt;-<span class="st"> </span><span class="kw">map_dbl</span>(k.values, wss)</a></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb495-1" data-line-number="1"><span class="co"># function to compute total within-cluster sum of square </span></a>
+<a class="sourceLine" id="cb495-2" data-line-number="2">wss &lt;-<span class="st"> </span><span class="cf">function</span>(k) {</a>
+<a class="sourceLine" id="cb495-3" data-line-number="3">  <span class="kw">kmeans</span>(playersadvscaled, k, <span class="dt">nstart =</span> <span class="dv">10</span> )<span class="op">$</span>tot.withinss</a>
+<a class="sourceLine" id="cb495-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb495-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb495-6" data-line-number="6"><span class="co"># Compute and plot wss for k = 1 to k = 15</span></a>
+<a class="sourceLine" id="cb495-7" data-line-number="7">k.values &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">15</span></a>
+<a class="sourceLine" id="cb495-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb495-9" data-line-number="9"><span class="co"># extract wss for 2-15 clusters</span></a>
+<a class="sourceLine" id="cb495-10" data-line-number="10">wss_values &lt;-<span class="st"> </span><span class="kw">map_dbl</span>(k.values, wss)</a></code></pre></div>
 <pre><code>## Warning: did not converge in 10 iterations
 
 ## Warning: did not converge in 10 iterations
@@ -497,15 +522,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Warning: did not converge in 10 iterations
 
 ## Warning: did not converge in 10 iterations</code></pre>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb486-1" data-line-number="1"><span class="kw">plot</span>(k.values, wss_values,</a>
-<a class="sourceLine" id="cb486-2" data-line-number="2">       <span class="dt">type=</span><span class="st">&quot;b&quot;</span>, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">frame =</span> <span class="ot">FALSE</span>, </a>
-<a class="sourceLine" id="cb486-3" data-line-number="3">       <span class="dt">xlab=</span><span class="st">&quot;Number of clusters K&quot;</span>,</a>
-<a class="sourceLine" id="cb486-4" data-line-number="4">       <span class="dt">ylab=</span><span class="st">&quot;Total within-clusters sum of squares&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb497-1" data-line-number="1"><span class="kw">plot</span>(k.values, wss_values,</a>
+<a class="sourceLine" id="cb497-2" data-line-number="2">       <span class="dt">type=</span><span class="st">&quot;b&quot;</span>, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">frame =</span> <span class="ot">FALSE</span>, </a>
+<a class="sourceLine" id="cb497-3" data-line-number="3">       <span class="dt">xlab=</span><span class="st">&quot;Number of clusters K&quot;</span>,</a>
+<a class="sourceLine" id="cb497-4" data-line-number="4">       <span class="dt">ylab=</span><span class="st">&quot;Total within-clusters sum of squares&quot;</span>)</a></code></pre></div>
 <p><img src="SportsData_files/figure-html/unnamed-chunk-297-1.png" width="672" /></p>
 <p>Looks like 5 again.</p>
-<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb487-1" data-line-number="1">advk5 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(playersadvscaled, <span class="dt">centers =</span> <span class="dv">5</span>, <span class="dt">nstart =</span> <span class="dv">25</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb498-1" data-line-number="1">advk5 &lt;-<span class="st"> </span><span class="kw">kmeans</span>(playersadvscaled, <span class="dt">centers =</span> <span class="dv">5</span>, <span class="dt">nstart =</span> <span class="dv">25</span>)</a></code></pre></div>
 <p>What do we have here?</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb488-1" data-line-number="1">advk5</a></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb499-1" data-line-number="1">advk5</a></code></pre></div>
 <pre><code>## K-means clustering with 5 clusters of sizes 104, 632, 766, 1253, 9
 ## 
 ## Cluster means:
@@ -601,19 +626,94 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;     &quot;tot.withinss&quot;
 ## [6] &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot;</code></pre>
-<p>Looks like this time, cluster 1 is all below average and cluster 5 is all above. Which cluster is Cam Mack in?</p>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb490-1" data-line-number="1">playeradvcluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(playersadvanced, advk5<span class="op">$</span>cluster) </a></code></pre></div>
-<p>Cluster 5 on my dataset. So three games in, we can say he’s in a big group of players who are all above average on these advanced metrics.</p>
+<p>Looks like this time, cluster 1 is all below average and cluster 5 is mostly above. Which cluster is Cam Mack in?</p>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb501-1" data-line-number="1">playeradvcluster &lt;-<span class="st"> </span><span class="kw">data.frame</span>(playersadvanced, advk5<span class="op">$</span>cluster) </a></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb502-1" data-line-number="1">cmadv &lt;-<span class="st"> </span>playeradvcluster <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Player <span class="op">==</span><span class="st"> &quot;Cam Mack&quot;</span>)</a>
+<a class="sourceLine" id="cb502-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb502-3" data-line-number="3">cmadv</a></code></pre></div>
+<pre><code>##     Player                 Team Pos  PER   TS. PProd AST. WS.40 BPM
+## 1 Cam Mack Nebraska Cornhuskers   G 15.9 0.481   382 36.4 0.081 3.9
+##   advk5.cluster
+## 1             3</code></pre>
+<p>Cluster 3 on my dataset. So in this season, we can say he’s in a big group of players who are all above average on these advanced metrics.</p>
 <p>Now who are his Big Ten peers?</p>
-<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb491-1" data-line-number="1">playeradvcluster <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb491-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(advk5.cluster <span class="op">==</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb491-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Team <span class="op">%in%</span><span class="st"> </span>big10) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb491-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(PProd))</a></code></pre></div>
-<pre><code>##  [1] Player        Team          Pos           PER           TS.          
-##  [6] PProd         AST.          WS.40         BPM           advk5.cluster
-## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
-<p>Sorting on Points Produced, Cam Mack is eighth out of the 31 guards in the Big Ten who land in Cluster 5.</p>
-<p>It’s early goings, but watch this player. He’s fun to watch and the stats back it up.</p>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb504-1" data-line-number="1">playeradvcluster <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb504-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(advk5.cluster <span class="op">==</span><span class="st"> </span><span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb504-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Team <span class="op">%in%</span><span class="st"> </span>big10) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb504-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(PProd))</a></code></pre></div>
+<pre><code>##                  Player                     Team Pos  PER   TS. PProd AST.
+## 1       Cassius Winston  Michigan State Spartans   G 22.5 0.567   495 37.2
+## 2           Marcus Carr Minnesota Golden Gophers   G 18.1 0.491   468 37.0
+## 3         Anthony Cowan       Maryland Terrapins   G 21.1 0.551   466 29.2
+## 4        Zavier Simpson      Michigan Wolverines   G 19.7 0.535   436 43.6
+## 5           Ayo Dosunmu Illinois Fighting Illini   G 19.6 0.551   411 21.1
+## 6              Cam Mack     Nebraska Cornhuskers   G 15.9 0.481   382 36.4
+## 7          Joe Wieskamp            Iowa Hawkeyes   G 19.7 0.566   368  9.3
+## 8        Ron Harper Jr.  Rutgers Scarlet Knights   G 20.4 0.541   318  7.6
+## 9        D&#39;Mitrik Trice        Wisconsin Badgers   G 16.2 0.531   312 27.5
+## 10      Haanif Cheatham     Nebraska Cornhuskers   G 15.6 0.551   308  9.1
+## 11         Andres Feliz Illinois Fighting Illini   G 20.1 0.542   306 22.1
+## 12          Pat Spencer    Northwestern Wildcats   G 15.9 0.527   299 28.6
+## 13      Eric Hunter Jr.      Purdue Boilermakers   G 14.0 0.524   297 17.0
+## 14         Myreon Jones Penn State Nittany Lions   G 21.0 0.589   288 20.0
+## 15           Eli Brooks      Michigan Wolverines   G 13.8 0.521   283 11.2
+## 16            Geo Baker  Rutgers Scarlet Knights   G 16.5 0.483   282 23.6
+## 17        Aaron Wiggins       Maryland Terrapins   G 14.5 0.496   282 11.0
+## 18        Aljami Durham         Indiana Hoosiers   G 14.3 0.573   262 18.3
+## 19       Darryl Morsell       Maryland Terrapins   G 13.4 0.518   252 17.0
+## 20       Jahaad Proctor      Purdue Boilermakers   G 15.5 0.506   249 13.9
+## 21        Devonte Green         Indiana Hoosiers   G 16.1 0.507   249 19.6
+## 22            CJ Walker      Ohio State Buckeyes   G 13.9 0.534   247 23.3
+## 23 Duane Washington Jr.      Ohio State Buckeyes   G 16.6 0.544   244 13.4
+## 24          Myles Dread Penn State Nittany Lions   G 13.7 0.498   237 15.6
+## 25           Eric Ayala       Maryland Terrapins   G 10.3 0.470   237 17.8
+## 26             Boo Buie    Northwestern Wildcats   G 12.7 0.475   223 22.8
+## 27          CJ Fredrick            Iowa Hawkeyes   G 17.2 0.649   218 16.9
+## 28     Connor McCaffery            Iowa Hawkeyes   G 12.5 0.491   214 20.5
+## 29          D.J. Carton      Ohio State Buckeyes   G 17.8 0.593   208 27.0
+## 30        Joe Toussaint            Iowa Hawkeyes   G 13.4 0.466   206 26.9
+## 31         Rob Phinisee         Indiana Hoosiers   G 11.5 0.480   175 25.8
+## 32         Jack Hoiberg  Michigan State Spartans   G 25.3 0.509    24 50.7
+## 33           Tommy Luce      Purdue Boilermakers   G 14.0 0.385    12 43.0
+## 34         Tino Malnati    Northwestern Wildcats   G 24.3 0.500     3 40.4
+## 35  Rico Ozuna-Harrison      Michigan Wolverines   G 29.3 1.000     3 44.5
+##    WS.40 BPM advk5.cluster
+## 1  0.203 8.0             3
+## 2  0.146 6.7             3
+## 3  0.204 9.4             3
+## 4  0.157 7.3             3
+## 5  0.161 6.2             3
+## 6  0.081 3.9             3
+## 7  0.149 7.3             3
+## 8  0.186 7.4             3
+## 9  0.133 6.8             3
+## 10 0.091 2.5             3
+## 11 0.185 7.3             3
+## 12 0.076 3.0             3
+## 13 0.120 5.9             3
+## 14 0.183 8.4             3
+## 15 0.107 5.8             3
+## 16 0.139 6.9             3
+## 17 0.123 6.2             3
+## 18 0.122 4.6             3
+## 19 0.115 5.5             3
+## 20 0.139 5.0             3
+## 21 0.114 4.9             3
+## 22 0.142 6.9             3
+## 23 0.151 4.4             3
+## 24 0.129 6.5             3
+## 25 0.089 3.3             3
+## 26 0.039 0.2             3
+## 27 0.133 6.7             3
+## 28 0.109 6.5             3
+## 29 0.152 6.6             3
+## 30 0.071 2.5             3
+## 31 0.080 3.3             3
+## 32 0.268 6.2             3
+## 33 0.102 2.2             3
+## 34 0.161 7.8             3
+## 35 0.307 8.7             3</code></pre>
+<p>Sorting on Points Produced, Cam Mack is sixth out of the 35 guards in the Big Ten who land in Cluster 3. Seems advanced metrics take a little bit of the shine off of Cam. But then, so does leaving the program after one suspension-riddled season.</p>
 
 </div>
 </div>

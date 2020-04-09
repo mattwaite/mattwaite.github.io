@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 22 Tables | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 22 Tables | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -52,12 +52,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.1/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.49.4/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.49.4/plotly-latest.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160712129-1"></script>
 <script>
@@ -255,9 +255,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="33" data-path="arranging-multiple-plots-together.html"><a href="arranging-multiple-plots-together.html"><i class="fa fa-check"></i><b>33</b> Arranging multiple plots together</a></li>
-<li class="chapter" data-level="34" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>34</b> Assignments</a></li>
-<li class="chapter" data-level="35" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>35</b> Appendix</a><ul>
-<li class="chapter" data-level="35.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>35.1</b> How to get help in this class</a></li>
+<li class="chapter" data-level="34" data-path="encircling-points-on-a-scatterplot.html"><a href="encircling-points-on-a-scatterplot.html"><i class="fa fa-check"></i><b>34</b> Encircling points on a scatterplot</a><ul>
+<li class="chapter" data-level="34.1" data-path="encircling-points-on-a-scatterplot.html"><a href="encircling-points-on-a-scatterplot.html#a-different-more-local-example"><i class="fa fa-check"></i><b>34.1</b> A different, more local example</a></li>
+</ul></li>
+<li class="chapter" data-level="35" data-path="bump-charts.html"><a href="bump-charts.html"><i class="fa fa-check"></i><b>35</b> Bump charts</a></li>
+<li class="chapter" data-level="36" data-path="text-cleaning.html"><a href="text-cleaning.html"><i class="fa fa-check"></i><b>36</b> Text cleaning</a><ul>
+<li class="chapter" data-level="36.1" data-path="text-cleaning.html"><a href="text-cleaning.html#stripping-out-text"><i class="fa fa-check"></i><b>36.1</b> Stripping out text</a></li>
+<li class="chapter" data-level="36.2" data-path="text-cleaning.html"><a href="text-cleaning.html#another-example-splitting-columns"><i class="fa fa-check"></i><b>36.2</b> Another example: splitting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="37" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>37</b> Assignments</a></li>
+<li class="chapter" data-level="38" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>38</b> Appendix</a><ul>
+<li class="chapter" data-level="38.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>38.1</b> How to get help in this class</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -290,15 +298,15 @@ install.packages(&quot;htmltools&quot;)
 install.packages(&quot;webshot&quot;)
 webshot::install_phantomjs()</code></pre>
 <p>So what does all of these libraries do? Let’s gather a few and <a href="https://unl.box.com/s/g3eeuogx8bog72ig28enuakhpdlbn394">get some data</a>.</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb316-2" data-line-number="2"><span class="kw">library</span>(kableExtra)</a></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb319-2" data-line-number="2"><span class="kw">library</span>(kableExtra)</a></code></pre></div>
 <pre><code>## Warning: package &#39;kableExtra&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;kableExtra&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:dplyr&#39;:
 ## 
 ##     group_rows</code></pre>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1">offense &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/offensechange.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1">offense &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/offensechange.csv&quot;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Year = col_double(),
@@ -312,15 +320,15 @@ webshot::install_phantomjs()</code></pre>
 ##   `Yards/G` = col_double()
 ## )</code></pre>
 <p>Let’s ask this question: Which college football team saw the greatest improvement in yards per game last regular season? The simplest way to calculate that is by percent change.</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1">changeTotalOffense &lt;-<span class="st"> </span>offense <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb322-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(Name, Year, <span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># picking what we need.</span></a>
-<a class="sourceLine" id="cb322-3" data-line-number="3"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> Year, <span class="dt">values_from =</span> <span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># making it wide </span></a>
-<a class="sourceLine" id="cb322-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change=</span>(<span class="st">`</span><span class="dt">2019</span><span class="st">`</span><span class="op">-</span><span class="st">`</span><span class="dt">2018</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2018</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># so we can calculate percent change</span></a>
-<a class="sourceLine" id="cb322-5" data-line-number="5"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(Change)) <span class="op">%&gt;%</span><span class="st">  </span></a>
-<a class="sourceLine" id="cb322-6" data-line-number="6"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">10</span>) <span class="co"># just want a top 10 list</span></a></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" data-line-number="1">changeTotalOffense &lt;-<span class="st"> </span>offense <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb325-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(Name, Year, <span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># picking what we need.</span></a>
+<a class="sourceLine" id="cb325-3" data-line-number="3"><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> Year, <span class="dt">values_from =</span> <span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># making it wide </span></a>
+<a class="sourceLine" id="cb325-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change=</span>(<span class="st">`</span><span class="dt">2019</span><span class="st">`</span><span class="op">-</span><span class="st">`</span><span class="dt">2018</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2018</span><span class="st">`</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># so we can calculate percent change</span></a>
+<a class="sourceLine" id="cb325-5" data-line-number="5"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(Change)) <span class="op">%&gt;%</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb325-6" data-line-number="6"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">10</span>) <span class="co"># just want a top 10 list</span></a></code></pre></div>
 <pre><code>## Selecting by Change</code></pre>
 <p>We’ve output tables to the screen a thousand times in this class with <code>head</code>, but kable makes them look decent with very little code.</p>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">kable</span>()</a></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -482,9 +490,9 @@ Charlotte
 </tbody>
 </table>
 <p>So there you have it. Central Michigan improved the most (but look at who came in second!). Kable has a mountain of customization options. The good news is that it works in a very familiar pattern. We’ll start with default styling.</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb325-2" data-line-number="2"><span class="st">  </span><span class="kw">kable</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb325-3" data-line-number="3"><span class="st">  </span><span class="kw">kable_styling</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb328-2" data-line-number="2"><span class="st">  </span><span class="kw">kable</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb328-3" data-line-number="3"><span class="st">  </span><span class="kw">kable_styling</span>()</a></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -646,9 +654,9 @@ Charlotte
 </tbody>
 </table>
 <p>Let’s do more than the defaults, which you can see are pretty decent. Let’s stripe every other row with a little bit of grey, and let’s smush the width of the rows.</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb326-2" data-line-number="2"><span class="st">  </span><span class="kw">kable</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb326-3" data-line-number="3"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb329-2" data-line-number="2"><span class="st">  </span><span class="kw">kable</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb329-3" data-line-number="3"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>))</a></code></pre></div>
 <table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -811,10 +819,10 @@ Charlotte
 </table>
 <p>Throughout the semester, we’ve been using color and other signals to highlight things. Let’s pretend we’re doing a project on LSU. We can use row_spec to highlight things.</p>
 <p>What row_spec is doing here is we’re specifying which row – 2 – and making all the text on that row bold. We’re making the color of the text white, because we’re going to set the background to a color – in this case, the hex color for LSU purple.</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb327-2" data-line-number="2"><span class="st">  </span><span class="kw">kable</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb327-3" data-line-number="3"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb327-4" data-line-number="4"><span class="st">  </span><span class="kw">row_spec</span>(<span class="dv">2</span>, <span class="dt">bold =</span> T, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">background =</span> <span class="st">&quot;#461D7C&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb330-2" data-line-number="2"><span class="st">  </span><span class="kw">kable</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb330-3" data-line-number="3"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb330-4" data-line-number="4"><span class="st">  </span><span class="kw">row_spec</span>(<span class="dv">2</span>, <span class="dt">bold =</span> T, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">background =</span> <span class="st">&quot;#461D7C&quot;</span>)</a></code></pre></div>
 <table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -976,11 +984,11 @@ Charlotte
 </tbody>
 </table>
 <p>There’s also something called column_spec where we can change the styling on individual columns. What if we wanted to make all the team names bold?</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb328-2" data-line-number="2"><span class="st">  </span><span class="kw">kable</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb328-3" data-line-number="3"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb328-4" data-line-number="4"><span class="st">  </span><span class="kw">row_spec</span>(<span class="dv">2</span>, <span class="dt">bold =</span> T, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">background =</span> <span class="st">&quot;#461D7C&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb328-5" data-line-number="5"><span class="st">  </span><span class="kw">column_spec</span>(<span class="dv">1</span>, <span class="dt">bold=</span>T)</a></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb331-2" data-line-number="2"><span class="st">  </span><span class="kw">kable</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb331-3" data-line-number="3"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb331-4" data-line-number="4"><span class="st">  </span><span class="kw">row_spec</span>(<span class="dv">2</span>, <span class="dt">bold =</span> T, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">background =</span> <span class="st">&quot;#461D7C&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb331-5" data-line-number="5"><span class="st">  </span><span class="kw">column_spec</span>(<span class="dv">1</span>, <span class="dt">bold=</span>T)</a></code></pre></div>
 <table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1144,19 +1152,19 @@ Charlotte
 <p>Honestly, this is really good right here. You’d see this published … except for one thing: the percentages.</p>
 <p>We could go back up to the top and multiply by 100, but we’d still be missing the percent sign. Well, there’s another library for making interesting tables that, in my opinion, has some flaws but does some interesting things too called <code>formattable</code>.</p>
 <p>Go to the console and install <code>formattable</code> with <code>install.packages(&quot;formattable&quot;)</code>.</p>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" data-line-number="1"><span class="kw">library</span>(formattable)</a></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" data-line-number="1"><span class="kw">library</span>(formattable)</a></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;formattable&#39;</code></pre>
 <pre><code>## The following objects are masked from &#39;package:scales&#39;:
 ## 
 ##     comma, percent, scientific</code></pre>
 <p>Then, we’re going to use mutate here to use formattables <code>percent()</code> function to fix Change. Because it uses some HTML wizardry under the hood, we have to set kable to not <code>escape</code> the HTML.</p>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb332-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change =</span> <span class="kw">percent</span>(Change)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb332-3" data-line-number="3"><span class="st">  </span><span class="kw">kable</span>(<span class="dt">escape=</span>F) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb332-4" data-line-number="4"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb332-5" data-line-number="5"><span class="st">  </span><span class="kw">row_spec</span>(<span class="dv">2</span>, <span class="dt">bold =</span> T, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">background =</span> <span class="st">&quot;#461D7C&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb332-6" data-line-number="6"><span class="st">  </span><span class="kw">column_spec</span>(<span class="dv">1</span>, <span class="dt">bold=</span>T)</a></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb335-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change =</span> <span class="kw">percent</span>(Change)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb335-3" data-line-number="3"><span class="st">  </span><span class="kw">kable</span>(<span class="dt">escape=</span>F) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb335-4" data-line-number="4"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb335-5" data-line-number="5"><span class="st">  </span><span class="kw">row_spec</span>(<span class="dv">2</span>, <span class="dt">bold =</span> T, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">background =</span> <span class="st">&quot;#461D7C&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb335-6" data-line-number="6"><span class="st">  </span><span class="kw">column_spec</span>(<span class="dv">1</span>, <span class="dt">bold=</span>T)</a></code></pre></div>
 <table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1318,16 +1326,16 @@ Charlotte
 </tbody>
 </table>
 <p>Another way to highlight things: color ramps. We can change the color of the box covering the percentage using another mutate like this:</p>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb333-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change =</span> <span class="kw">percent</span>(Change)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb333-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change =</span> <span class="kw">cell_spec</span>(</a>
-<a class="sourceLine" id="cb333-4" data-line-number="4">    Change, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bold =</span> T,</a>
-<a class="sourceLine" id="cb333-5" data-line-number="5">    <span class="dt">background =</span> <span class="kw">spec_color</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">end =</span> <span class="fl">0.75</span>, <span class="dt">option =</span> <span class="st">&quot;B&quot;</span>, <span class="dt">direction =</span> <span class="dv">-1</span>)</a>
-<a class="sourceLine" id="cb333-6" data-line-number="6">  )) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb333-7" data-line-number="7"><span class="st">  </span><span class="kw">kable</span>(<span class="dt">escape=</span>F) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb333-8" data-line-number="8"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb333-9" data-line-number="9"><span class="st">  </span><span class="kw">row_spec</span>(<span class="dv">2</span>, <span class="dt">bold =</span> T, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">background =</span> <span class="st">&quot;#461D7C&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb333-10" data-line-number="10"><span class="st">  </span><span class="kw">column_spec</span>(<span class="dv">1</span>, <span class="dt">bold=</span>T)</a></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb336-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change =</span> <span class="kw">percent</span>(Change)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb336-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change =</span> <span class="kw">cell_spec</span>(</a>
+<a class="sourceLine" id="cb336-4" data-line-number="4">    Change, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bold =</span> T,</a>
+<a class="sourceLine" id="cb336-5" data-line-number="5">    <span class="dt">background =</span> <span class="kw">spec_color</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">end =</span> <span class="fl">0.75</span>, <span class="dt">option =</span> <span class="st">&quot;B&quot;</span>, <span class="dt">direction =</span> <span class="dv">-1</span>)</a>
+<a class="sourceLine" id="cb336-6" data-line-number="6">  )) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb336-7" data-line-number="7"><span class="st">  </span><span class="kw">kable</span>(<span class="dt">escape=</span>F) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb336-8" data-line-number="8"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb336-9" data-line-number="9"><span class="st">  </span><span class="kw">row_spec</span>(<span class="dv">2</span>, <span class="dt">bold =</span> T, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">background =</span> <span class="st">&quot;#461D7C&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb336-10" data-line-number="10"><span class="st">  </span><span class="kw">column_spec</span>(<span class="dv">1</span>, <span class="dt">bold=</span>T)</a></code></pre></div>
 <table class="table table-striped table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1496,17 +1504,17 @@ Charlotte
 <p>Good news bad news: The bad news is that <code>kable</code> doesn’t have a good way to add a headline. The good news is we can do that in illustrator pretty easily.</p>
 <p>The other good news bad news: <code>kable</code> isn’t going to export this as an actual vector file. It’s going to make it an image and embed that into a pdf. That has consequences if we want to edit it.</p>
 <p>To export it, we merely add a save_kable to the end and give it a file path.</p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb334-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change =</span> <span class="kw">percent</span>(Change)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb334-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change =</span> <span class="kw">cell_spec</span>(</a>
-<a class="sourceLine" id="cb334-4" data-line-number="4">    Change, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bold =</span> T,</a>
-<a class="sourceLine" id="cb334-5" data-line-number="5">    <span class="dt">background =</span> <span class="kw">spec_color</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">end =</span> <span class="fl">0.75</span>, <span class="dt">option =</span> <span class="st">&quot;B&quot;</span>, <span class="dt">direction =</span> <span class="dv">-1</span>)</a>
-<a class="sourceLine" id="cb334-6" data-line-number="6">  )) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb334-7" data-line-number="7"><span class="st">  </span><span class="kw">kable</span>(<span class="dt">escape=</span>F) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb334-8" data-line-number="8"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb334-9" data-line-number="9"><span class="st">  </span><span class="kw">row_spec</span>(<span class="dv">2</span>, <span class="dt">bold =</span> T, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">background =</span> <span class="st">&quot;#461D7C&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb334-10" data-line-number="10"><span class="st">  </span><span class="kw">column_spec</span>(<span class="dv">1</span>, <span class="dt">bold=</span>T) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb334-11" data-line-number="11"><span class="st">  </span><span class="kw">save_kable</span>(<span class="st">&quot;lsu.pdf&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" data-line-number="1">changeTotalOffense <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb337-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change =</span> <span class="kw">percent</span>(Change)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb337-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Change =</span> <span class="kw">cell_spec</span>(</a>
+<a class="sourceLine" id="cb337-4" data-line-number="4">    Change, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bold =</span> T,</a>
+<a class="sourceLine" id="cb337-5" data-line-number="5">    <span class="dt">background =</span> <span class="kw">spec_color</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">end =</span> <span class="fl">0.75</span>, <span class="dt">option =</span> <span class="st">&quot;B&quot;</span>, <span class="dt">direction =</span> <span class="dv">-1</span>)</a>
+<a class="sourceLine" id="cb337-6" data-line-number="6">  )) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb337-7" data-line-number="7"><span class="st">  </span><span class="kw">kable</span>(<span class="dt">escape=</span>F) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb337-8" data-line-number="8"><span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;condensed&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb337-9" data-line-number="9"><span class="st">  </span><span class="kw">row_spec</span>(<span class="dv">2</span>, <span class="dt">bold =</span> T, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">background =</span> <span class="st">&quot;#461D7C&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb337-10" data-line-number="10"><span class="st">  </span><span class="kw">column_spec</span>(<span class="dv">1</span>, <span class="dt">bold=</span>T) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb337-11" data-line-number="11"><span class="st">  </span><span class="kw">save_kable</span>(<span class="st">&quot;lsu.pdf&quot;</span>)</a></code></pre></div>
 <p>To fix this, we need to pull it into Illustrator. In there, we’re going to expand the artboard, add a headline and chatter, then add source and credit lines at the bottom, and finish with touching up the artboards.</p>
 <p>Here’s a video walkthrough:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AeZ5uiCpJro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Transforming data | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Transforming data | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -52,12 +52,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.1/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.49.4/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.49.4/plotly-latest.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160712129-1"></script>
 <script>
@@ -255,9 +255,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="33" data-path="arranging-multiple-plots-together.html"><a href="arranging-multiple-plots-together.html"><i class="fa fa-check"></i><b>33</b> Arranging multiple plots together</a></li>
-<li class="chapter" data-level="34" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>34</b> Assignments</a></li>
-<li class="chapter" data-level="35" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>35</b> Appendix</a><ul>
-<li class="chapter" data-level="35.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>35.1</b> How to get help in this class</a></li>
+<li class="chapter" data-level="34" data-path="encircling-points-on-a-scatterplot.html"><a href="encircling-points-on-a-scatterplot.html"><i class="fa fa-check"></i><b>34</b> Encircling points on a scatterplot</a><ul>
+<li class="chapter" data-level="34.1" data-path="encircling-points-on-a-scatterplot.html"><a href="encircling-points-on-a-scatterplot.html#a-different-more-local-example"><i class="fa fa-check"></i><b>34.1</b> A different, more local example</a></li>
+</ul></li>
+<li class="chapter" data-level="35" data-path="bump-charts.html"><a href="bump-charts.html"><i class="fa fa-check"></i><b>35</b> Bump charts</a></li>
+<li class="chapter" data-level="36" data-path="text-cleaning.html"><a href="text-cleaning.html"><i class="fa fa-check"></i><b>36</b> Text cleaning</a><ul>
+<li class="chapter" data-level="36.1" data-path="text-cleaning.html"><a href="text-cleaning.html#stripping-out-text"><i class="fa fa-check"></i><b>36.1</b> Stripping out text</a></li>
+<li class="chapter" data-level="36.2" data-path="text-cleaning.html"><a href="text-cleaning.html#another-example-splitting-columns"><i class="fa fa-check"></i><b>36.2</b> Another example: splitting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="37" data-path="assignments.html"><a href="assignments.html"><i class="fa fa-check"></i><b>37</b> Assignments</a></li>
+<li class="chapter" data-level="38" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>38</b> Appendix</a><ul>
+<li class="chapter" data-level="38.1" data-path="appendix.html"><a href="appendix.html#how-to-get-help-in-this-class"><i class="fa fa-check"></i><b>38.1</b> How to get help in this class</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -285,9 +293,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>You are soon going to discover that long before you can visualize data, <strong>you need to have it in a form that the visualization library can deal with</strong>. One of the ways that isn’t immediately obvious is <strong>how your data is cast</strong>. Most of the data you will encounter will be <strong>wide – each row will represent a single entity with multiple measures for that entity</strong>. So think of states. Your row of your dataset could have the state name, population, average life expectancy and other demographic data.</p>
 <p>But what if your visualization library needs one row for each measure? So state, data type and the data. Nebraska, Population, 1,929,000. That’s one row. Then the next row is Nebraska, Average Life Expectancy, 76. That’s the next row. That’s where recasting your data comes in.</p>
 <p>We can use a library called <code>tidyr</code> to <code>pivot_longer</code> or <code>pivot_wider</code> the data, depending on what we need. We’ll use a <a href="https://unl.box.com/s/etqna5bfvf3b0gsnw0kcjjn1rxx9335s">dataset of college football attendance</a> to demonstrate. First we need some libraries.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p>Now we’ll load the data.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1">attendance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;data/attendance.csv&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1">attendance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;data/attendance.csv&#39;</span>)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Institution = col_character(),
@@ -299,7 +307,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   `2017` = col_double(),
 ##   `2018` = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1">attendance</a></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1">attendance</a></code></pre></div>
 <pre><code>## # A tibble: 150 x 8
 ##    Institution     Conference      `2013` `2014` `2015` `2016` `2017` `2018`
 ##    &lt;chr&gt;           &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -316,7 +324,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 140 more rows</code></pre>
 <p>So as you can see, each row represents a school, and then each column represents a year. This is great for calculating the percent change – we can subtract a column from a column and divide by that column. But later, when we want to chart each school’s attendance over the years, we have to have each row be one team for one year. Nebraska in 2013, then Nebraska in 2014, and Nebraska in 2015 and so on.</p>
 <p>To do that, we use <code>pivot_longer</code> because we’re making wide data long. Since all of the columns we want to make rows start with 20, we can use that in our <code>cols</code> directive. Then we give that column a name – Year – and the values for each year need a name too. Those are the attendance figure. We can see right away how this works.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;20&quot;</span>), <span class="dt">names_to =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Attendance&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;20&quot;</span>), <span class="dt">names_to =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Attendance&quot;</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 900 x 4
 ##    Institution Conference Year  Attendance
 ##    &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
@@ -338,9 +346,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Why do any of this?</p>
 <p>In some cases, you’re going to be given long data and you need to calculate some metric using two of the years – a percent change for instance. So you’ll need to make the data wide to do that. You might then have to re-lengthen the data now with the percent change. Some project require you to do all kinds of flexing like this. It just depends on the data.</p>
 <p>So let’s take what we made above and turn it back into wide data.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1">longdata &lt;-<span class="st"> </span>attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;20&quot;</span>), <span class="dt">names_to =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Attendance&quot;</span>)</a>
-<a class="sourceLine" id="cb96-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb96-3" data-line-number="3">longdata</a></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1">longdata &lt;-<span class="st"> </span>attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">cols =</span> <span class="kw">starts_with</span>(<span class="st">&quot;20&quot;</span>), <span class="dt">names_to =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">values_to =</span> <span class="st">&quot;Attendance&quot;</span>)</a>
+<a class="sourceLine" id="cb95-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb95-3" data-line-number="3">longdata</a></code></pre></div>
 <pre><code>## # A tibble: 900 x 4
 ##    Institution Conference Year  Attendance
 ##    &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
@@ -356,7 +364,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Akron       MAC        2016       62021
 ## # … with 890 more rows</code></pre>
 <p>To <code>pivot_wider</code>, we just need to say where our column names are coming from – the Year – and where the data under it should come from – Attendance.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1">longdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> Year, <span class="dt">values_from =</span> Attendance)</a></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">longdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> Year, <span class="dt">values_from =</span> Attendance)</a></code></pre></div>
 <pre><code>## # A tibble: 150 x 8
 ##    Institution     Conference      `2013` `2014` `2015` `2016` `2017` `2018`
 ##    &lt;chr&gt;           &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -378,23 +386,23 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>This matters because certain visualization types need wide or long data. A significant hurdle you will face for the rest of the semester is getting the data in the right format for what you want to do.</p>
 <p>So let me walk you through an example using this data.</p>
 <p>Let’s look at Nebraska’s attendance over the time period. In order to do that, I need long data because that’s what the charting library, <code>ggplot2</code>, needs. You’re going to learn a lot more about ggplot later.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1">nebraska &lt;-<span class="st"> </span>longdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Institution <span class="op">==</span><span class="st"> &quot;Nebraska&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">nebraska &lt;-<span class="st"> </span>longdata <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Institution <span class="op">==</span><span class="st"> &quot;Nebraska&quot;</span>)</a></code></pre></div>
 <p>Now that we have long data for just Nebraska, we can chart it.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="kw">ggplot</span>(nebraska, <span class="kw">aes</span>(<span class="dt">x=</span>Year, <span class="dt">y=</span>Attendance, <span class="dt">group=</span><span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb101-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb101-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb101-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Year&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Attendance&quot;</span>, <span class="dt">title=</span><span class="st">&quot;We&#39;ll all stick together?&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;It&#39;s not as bad as you think -- they widened the seats, cutting the number.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;Outcome&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb101-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb101-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb101-7" data-line-number="7">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb101-8" data-line-number="8">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb101-9" data-line-number="9">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb101-10" data-line-number="10">    <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">7</span>),</a>
-<a class="sourceLine" id="cb101-11" data-line-number="11">    <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb101-12" data-line-number="12">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb101-13" data-line-number="13">    <span class="dt">panel.grid.major.x =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb101-14" data-line-number="14">    <span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span></a>
-<a class="sourceLine" id="cb101-15" data-line-number="15">  )</a></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="kw">ggplot</span>(nebraska, <span class="kw">aes</span>(<span class="dt">x=</span>Year, <span class="dt">y=</span>Attendance, <span class="dt">group=</span><span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb100-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb100-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb100-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Year&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Attendance&quot;</span>, <span class="dt">title=</span><span class="st">&quot;We&#39;ll all stick together?&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;It&#39;s not as bad as you think -- they widened the seats, cutting the number.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;Outcome&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb100-5" data-line-number="5"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb100-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb100-7" data-line-number="7">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
+<a class="sourceLine" id="cb100-8" data-line-number="8">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb100-9" data-line-number="9">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb100-10" data-line-number="10">    <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">7</span>),</a>
+<a class="sourceLine" id="cb100-11" data-line-number="11">    <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb100-12" data-line-number="12">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb100-13" data-line-number="13">    <span class="dt">panel.grid.major.x =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb100-14" data-line-number="14">    <span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span></a>
+<a class="sourceLine" id="cb100-15" data-line-number="15">  )</a></code></pre></div>
 <p><img src="SportsData_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 
 </div>
