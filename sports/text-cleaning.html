@@ -289,7 +289,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="text-cleaning" class="section level1">
 <h1><span class="header-section-number">Chapter 36</span> Text cleaning</h1>
+<p>On occasion, you’ll get some data from someone that … isn’t quite what you need it to be. There’s something flawed in it. Some extra text, some choice that the data provider made that you just don’t agree with.</p>
+<p>There’s a ton of tools in the tidyverse to fix this, and you already have some tools in your toolboxt. Let’s take a look at a couple.</p>
+<p>First, you know what you need.</p>
 <div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb589-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<p>Now, two examples.</p>
 <div id="stripping-out-text" class="section level2">
 <h2><span class="header-section-number">36.1</span> Stripping out text</h2>
 <p>Throughout this class, we’ve used data from Sports Reference. If you’ve used their Share &gt; CSV method to copy data from a table, you may have noticed some extra cruft in the player name field. If you haven’t seen it, I’ll give you an example – <a href="https://unl.box.com/s/bx89eg0ooccpovm3ii7jnbjj3xaby2qd">here’s a dataset of NBA players and their advanced metrics</a>.</p>
