@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 23 Bubble charts | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 23 Bubble charts | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -50,9 +50,10 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
@@ -70,9 +71,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -81,14 +82,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -97,9 +100,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -294,11 +297,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>And since then, people have wanted bubble charts. And we’re back to the original problem: They’re hard. There’s a finite set of circumstances where they work.</p>
 <p>First, I’m going to show you an example of them not working to illustrate the point.</p>
 <p>I’m going to load up my libraries: tidyverse per usual, rvest to get some data (we’ll discuss rvest in greater detail in an upcoming chapter) and ggrepel because I end up using it every time I do a scatterplot.</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb338-2" data-line-number="2"><span class="kw">library</span>(rvest)</a></code></pre></div>
-<pre><code>## Warning: package &#39;rvest&#39; was built under R version 3.5.2</code></pre>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="bubble-charts.html#cb337-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb337-2"><a href="bubble-charts.html#cb337-2"></a><span class="kw">library</span>(rvest)</span></code></pre></div>
 <pre><code>## Loading required package: xml2</code></pre>
-<pre><code>## Warning: package &#39;xml2&#39; was built under R version 3.5.2</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;rvest&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:Hmisc&#39;:
@@ -310,131 +311,130 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following object is masked from &#39;package:readr&#39;:
 ## 
 ##     guess_encoding</code></pre>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" data-line-number="1"><span class="kw">library</span>(ggrepel)</a></code></pre></div>
-<pre><code>## Warning: package &#39;ggrepel&#39; was built under R version 3.5.2</code></pre>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="bubble-charts.html#cb343-1"></a><span class="kw">library</span>(ggrepel)</span></code></pre></div>
 <p>So for this example, I want to look at Nebraska’s offense in the 2019 season. It … hasn’t gone well. And typical of Nebraska teams for the last decade, they’re turning the ball over a lot. So given the number of turnovers, how does Nebraska compare to other teams in the FBS?</p>
 <p>I’m going to create a scatterplot yards per game on the X axis and points per game on the Y. They’re pretty highly correlated with each other. And then I’m going to make the dot the size of the turnovers – the bubble in my bubble charts.</p>
 <p>Using Rvest, I’m going to grab total offense rankings, scoring offense rankings and turnover rankings and then merge them together with just the fields I need. This will all get explained more thoroughly coming up, but that’s what this block of code does. When it’s done, I’ll have a dataframe called <code>offense</code> which I’ll use to build my bubble chart.</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" data-line-number="1">yardsurl &lt;-<span class="st"> &quot;http://cfbstats.com/2019/leader/national/team/offense/split01/category10/sort01.html&quot;</span></a>
-<a class="sourceLine" id="cb348-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb348-3" data-line-number="3">yards19 &lt;-<span class="st"> </span>yardsurl <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb348-4" data-line-number="4"><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb348-5" data-line-number="5"><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&#39;//*[@id=&quot;content&quot;]/div[2]/table&#39;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb348-6" data-line-number="6"><span class="st">  </span><span class="kw">html_table</span>()</a>
-<a class="sourceLine" id="cb348-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb348-8" data-line-number="8">yards19 &lt;-<span class="st"> </span>yards19[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Name, <span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>)</a>
-<a class="sourceLine" id="cb348-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb348-10" data-line-number="10">pointsurl &lt;-<span class="st"> &quot;http://cfbstats.com/2019/leader/national/team/offense/split01/category09/sort01.html&quot;</span></a>
-<a class="sourceLine" id="cb348-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb348-12" data-line-number="12">points19 &lt;-<span class="st"> </span>pointsurl <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb348-13" data-line-number="13"><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb348-14" data-line-number="14"><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&#39;//*[@id=&quot;content&quot;]/div[2]/table&#39;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb348-15" data-line-number="15"><span class="st">  </span><span class="kw">html_table</span>()</a>
-<a class="sourceLine" id="cb348-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb348-17" data-line-number="17">points19 &lt;-<span class="st"> </span>points19[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Name, <span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)</a>
-<a class="sourceLine" id="cb348-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb348-19" data-line-number="19">turnoversurl &lt;-<span class="st"> &quot;http://cfbstats.com/2019/leader/national/team/offense/split01/category12/sort01.html&quot;</span></a>
-<a class="sourceLine" id="cb348-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb348-21" data-line-number="21">turnovers19 &lt;-<span class="st"> </span>turnoversurl <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb348-22" data-line-number="22"><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb348-23" data-line-number="23"><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&#39;//*[@id=&quot;content&quot;]/div[2]/table&#39;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb348-24" data-line-number="24"><span class="st">  </span><span class="kw">html_table</span>()</a>
-<a class="sourceLine" id="cb348-25" data-line-number="25"></a>
-<a class="sourceLine" id="cb348-26" data-line-number="26">turnovers19 &lt;-<span class="st"> </span>turnovers19[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Name, <span class="st">`</span><span class="dt">Total Lost</span><span class="st">`</span>)</a>
-<a class="sourceLine" id="cb348-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb348-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb348-29" data-line-number="29">offense &lt;-<span class="st"> </span>yards19 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb348-30" data-line-number="30"><span class="st">  </span><span class="kw">left_join</span>(points19, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb348-31" data-line-number="31"><span class="st">  </span><span class="kw">left_join</span>(turnovers19, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="bubble-charts.html#cb344-1"></a>yardsurl &lt;-<span class="st"> &quot;http://cfbstats.com/2019/leader/national/team/offense/split01/category10/sort01.html&quot;</span></span>
+<span id="cb344-2"><a href="bubble-charts.html#cb344-2"></a></span>
+<span id="cb344-3"><a href="bubble-charts.html#cb344-3"></a>yards19 &lt;-<span class="st"> </span>yardsurl <span class="op">%&gt;%</span></span>
+<span id="cb344-4"><a href="bubble-charts.html#cb344-4"></a><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></span>
+<span id="cb344-5"><a href="bubble-charts.html#cb344-5"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&#39;//*[@id=&quot;content&quot;]/div[2]/table&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb344-6"><a href="bubble-charts.html#cb344-6"></a><span class="st">  </span><span class="kw">html_table</span>()</span>
+<span id="cb344-7"><a href="bubble-charts.html#cb344-7"></a></span>
+<span id="cb344-8"><a href="bubble-charts.html#cb344-8"></a>yards19 &lt;-<span class="st"> </span>yards19[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Name, <span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>)</span>
+<span id="cb344-9"><a href="bubble-charts.html#cb344-9"></a></span>
+<span id="cb344-10"><a href="bubble-charts.html#cb344-10"></a>pointsurl &lt;-<span class="st"> &quot;http://cfbstats.com/2019/leader/national/team/offense/split01/category09/sort01.html&quot;</span></span>
+<span id="cb344-11"><a href="bubble-charts.html#cb344-11"></a></span>
+<span id="cb344-12"><a href="bubble-charts.html#cb344-12"></a>points19 &lt;-<span class="st"> </span>pointsurl <span class="op">%&gt;%</span></span>
+<span id="cb344-13"><a href="bubble-charts.html#cb344-13"></a><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></span>
+<span id="cb344-14"><a href="bubble-charts.html#cb344-14"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&#39;//*[@id=&quot;content&quot;]/div[2]/table&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb344-15"><a href="bubble-charts.html#cb344-15"></a><span class="st">  </span><span class="kw">html_table</span>()</span>
+<span id="cb344-16"><a href="bubble-charts.html#cb344-16"></a></span>
+<span id="cb344-17"><a href="bubble-charts.html#cb344-17"></a>points19 &lt;-<span class="st"> </span>points19[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Name, <span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)</span>
+<span id="cb344-18"><a href="bubble-charts.html#cb344-18"></a></span>
+<span id="cb344-19"><a href="bubble-charts.html#cb344-19"></a>turnoversurl &lt;-<span class="st"> &quot;http://cfbstats.com/2019/leader/national/team/offense/split01/category12/sort01.html&quot;</span></span>
+<span id="cb344-20"><a href="bubble-charts.html#cb344-20"></a></span>
+<span id="cb344-21"><a href="bubble-charts.html#cb344-21"></a>turnovers19 &lt;-<span class="st"> </span>turnoversurl <span class="op">%&gt;%</span></span>
+<span id="cb344-22"><a href="bubble-charts.html#cb344-22"></a><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></span>
+<span id="cb344-23"><a href="bubble-charts.html#cb344-23"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&#39;//*[@id=&quot;content&quot;]/div[2]/table&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb344-24"><a href="bubble-charts.html#cb344-24"></a><span class="st">  </span><span class="kw">html_table</span>()</span>
+<span id="cb344-25"><a href="bubble-charts.html#cb344-25"></a></span>
+<span id="cb344-26"><a href="bubble-charts.html#cb344-26"></a>turnovers19 &lt;-<span class="st"> </span>turnovers19[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Name, <span class="st">`</span><span class="dt">Total Lost</span><span class="st">`</span>)</span>
+<span id="cb344-27"><a href="bubble-charts.html#cb344-27"></a></span>
+<span id="cb344-28"><a href="bubble-charts.html#cb344-28"></a></span>
+<span id="cb344-29"><a href="bubble-charts.html#cb344-29"></a>offense &lt;-<span class="st"> </span>yards19 <span class="op">%&gt;%</span></span>
+<span id="cb344-30"><a href="bubble-charts.html#cb344-30"></a><span class="st">  </span><span class="kw">left_join</span>(points19, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb344-31"><a href="bubble-charts.html#cb344-31"></a><span class="st">  </span><span class="kw">left_join</span>(turnovers19, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>))</span></code></pre></div>
 <p>A bubble chart is just a scatterplot with one additional element in the aesthetic – a size. Here’s the scatterplot version.</p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data=</span>offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>))</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-203-1.png" width="672" /></p>
-<p>As expected, yards per game pretty tightly predicts points per game, but you could have guessed that without a chart. So let’s add the size element.</p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data=</span>offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>, <span class="dt">size=</span><span class="st">`</span><span class="dt">Total Lost</span><span class="st">`</span>)) </a></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="bubble-charts.html#cb345-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data=</span>offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>))</span></code></pre></div>
 <p><img src="SportsData_files/figure-html/unnamed-chunk-204-1.png" width="672" /></p>
-<p>Eh. What does this chart tell you? Trick question, there’s not much new here. The dots are too big. Also, we can’t see when they overlap. We can fix that by adding an alpha element outside the aesthetic – alpha in this case is transparency – and we can manually change the size of the dots by adding <code>scale_size</code> and a <code>range</code>.</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data=</span>offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>, <span class="dt">size=</span><span class="st">`</span><span class="dt">Total Lost</span><span class="st">`</span>), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(.<span class="dv">1</span>, <span class="dv">15</span>), <span class="dt">name=</span><span class="st">&quot;Turnovers&quot;</span>)</a></code></pre></div>
+<p>As expected, yards per game pretty tightly predicts points per game, but you could have guessed that without a chart. So let’s add the size element.</p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="bubble-charts.html#cb346-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data=</span>offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>, <span class="dt">size=</span><span class="st">`</span><span class="dt">Total Lost</span><span class="st">`</span>)) </span></code></pre></div>
 <p><img src="SportsData_files/figure-html/unnamed-chunk-205-1.png" width="672" /></p>
+<p>Eh. What does this chart tell you? Trick question, there’s not much new here. The dots are too big. Also, we can’t see when they overlap. We can fix that by adding an alpha element outside the aesthetic – alpha in this case is transparency – and we can manually change the size of the dots by adding <code>scale_size</code> and a <code>range</code>.</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="bubble-charts.html#cb347-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data=</span>offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>, <span class="dt">size=</span><span class="st">`</span><span class="dt">Total Lost</span><span class="st">`</span>), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(.<span class="dv">1</span>, <span class="dv">15</span>), <span class="dt">name=</span><span class="st">&quot;Turnovers&quot;</span>)</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-206-1.png" width="672" /></p>
 <p>Before we do any more work, let’s return to the earlier question: What story does this tell? Can you discern a story from the bubbles? Are teams with lots of turnovers doing poorly and teams with few turnovers doing well? The problem is, you can’t really tell. So this is a dead end for a bubble chart. If you get a big mess, it’s a dead giveaway that you probably don’t have a bubble chart.</p>
 <p>So let’s look at something else. Let’s look at something that isn’t directly correlated – we’ll look at offensive points per game vs defensive points per game.</p>
 <p>I’m going to edit the same rvest code to grab those points per game stats and merge it all together. When it’s done, I’ll have a dataframe called <code>football</code> and we can look at where good teams fall on the chart with turnover margin as a scaled dot.</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" data-line-number="1">ourl &lt;-<span class="st"> &quot;http://cfbstats.com/2019/leader/national/team/offense/split01/category09/sort01.html&quot;</span></a>
-<a class="sourceLine" id="cb352-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb352-3" data-line-number="3">o19 &lt;-<span class="st"> </span>ourl <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb352-4" data-line-number="4"><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb352-5" data-line-number="5"><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&#39;//*[@id=&quot;content&quot;]/div[2]/table&#39;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb352-6" data-line-number="6"><span class="st">  </span><span class="kw">html_table</span>()</a>
-<a class="sourceLine" id="cb352-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb352-8" data-line-number="8">o19 &lt;-<span class="st"> </span>o19[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Name, <span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)</a>
-<a class="sourceLine" id="cb352-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb352-10" data-line-number="10">durl &lt;-<span class="st"> &quot;http://cfbstats.com/2019/leader/national/team/defense/split01/category09/sort01.html&quot;</span></a>
-<a class="sourceLine" id="cb352-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb352-12" data-line-number="12">d19 &lt;-<span class="st"> </span>durl <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb352-13" data-line-number="13"><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb352-14" data-line-number="14"><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&#39;//*[@id=&quot;content&quot;]/div[2]/table&#39;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb352-15" data-line-number="15"><span class="st">  </span><span class="kw">html_table</span>()</a>
-<a class="sourceLine" id="cb352-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb352-17" data-line-number="17">d19 &lt;-<span class="st"> </span>d19[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Name, <span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)</a>
-<a class="sourceLine" id="cb352-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb352-19" data-line-number="19">turnoversurl &lt;-<span class="st"> &quot;http://cfbstats.com/2019/leader/national/team/offense/split01/category12/sort01.html&quot;</span></a>
-<a class="sourceLine" id="cb352-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb352-21" data-line-number="21">turnovers19 &lt;-<span class="st"> </span>turnoversurl <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb352-22" data-line-number="22"><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb352-23" data-line-number="23"><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&#39;//*[@id=&quot;content&quot;]/div[2]/table&#39;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb352-24" data-line-number="24"><span class="st">  </span><span class="kw">html_table</span>()</a>
-<a class="sourceLine" id="cb352-25" data-line-number="25"></a>
-<a class="sourceLine" id="cb352-26" data-line-number="26">turnovers19 &lt;-<span class="st"> </span>turnovers19[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Name, Margin)</a>
-<a class="sourceLine" id="cb352-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb352-28" data-line-number="28">football &lt;-<span class="st"> </span>o19 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb352-29" data-line-number="29"><span class="st">  </span><span class="kw">left_join</span>(d19, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb352-30" data-line-number="30"><span class="st">  </span><span class="kw">left_join</span>(turnovers19, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb352-31" data-line-number="31"><span class="st">  </span><span class="kw">rename</span>(<span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span> =<span class="st"> `</span><span class="dt">Points/G.x</span><span class="st">`</span>, <span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>=<span class="st">`</span><span class="dt">Points/G.y</span><span class="st">`</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="bubble-charts.html#cb348-1"></a>ourl &lt;-<span class="st"> &quot;http://cfbstats.com/2019/leader/national/team/offense/split01/category09/sort01.html&quot;</span></span>
+<span id="cb348-2"><a href="bubble-charts.html#cb348-2"></a></span>
+<span id="cb348-3"><a href="bubble-charts.html#cb348-3"></a>o19 &lt;-<span class="st"> </span>ourl <span class="op">%&gt;%</span></span>
+<span id="cb348-4"><a href="bubble-charts.html#cb348-4"></a><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></span>
+<span id="cb348-5"><a href="bubble-charts.html#cb348-5"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&#39;//*[@id=&quot;content&quot;]/div[2]/table&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb348-6"><a href="bubble-charts.html#cb348-6"></a><span class="st">  </span><span class="kw">html_table</span>()</span>
+<span id="cb348-7"><a href="bubble-charts.html#cb348-7"></a></span>
+<span id="cb348-8"><a href="bubble-charts.html#cb348-8"></a>o19 &lt;-<span class="st"> </span>o19[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Name, <span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)</span>
+<span id="cb348-9"><a href="bubble-charts.html#cb348-9"></a></span>
+<span id="cb348-10"><a href="bubble-charts.html#cb348-10"></a>durl &lt;-<span class="st"> &quot;http://cfbstats.com/2019/leader/national/team/defense/split01/category09/sort01.html&quot;</span></span>
+<span id="cb348-11"><a href="bubble-charts.html#cb348-11"></a></span>
+<span id="cb348-12"><a href="bubble-charts.html#cb348-12"></a>d19 &lt;-<span class="st"> </span>durl <span class="op">%&gt;%</span></span>
+<span id="cb348-13"><a href="bubble-charts.html#cb348-13"></a><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></span>
+<span id="cb348-14"><a href="bubble-charts.html#cb348-14"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&#39;//*[@id=&quot;content&quot;]/div[2]/table&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb348-15"><a href="bubble-charts.html#cb348-15"></a><span class="st">  </span><span class="kw">html_table</span>()</span>
+<span id="cb348-16"><a href="bubble-charts.html#cb348-16"></a></span>
+<span id="cb348-17"><a href="bubble-charts.html#cb348-17"></a>d19 &lt;-<span class="st"> </span>d19[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Name, <span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)</span>
+<span id="cb348-18"><a href="bubble-charts.html#cb348-18"></a></span>
+<span id="cb348-19"><a href="bubble-charts.html#cb348-19"></a>turnoversurl &lt;-<span class="st"> &quot;http://cfbstats.com/2019/leader/national/team/offense/split01/category12/sort01.html&quot;</span></span>
+<span id="cb348-20"><a href="bubble-charts.html#cb348-20"></a></span>
+<span id="cb348-21"><a href="bubble-charts.html#cb348-21"></a>turnovers19 &lt;-<span class="st"> </span>turnoversurl <span class="op">%&gt;%</span></span>
+<span id="cb348-22"><a href="bubble-charts.html#cb348-22"></a><span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span></span>
+<span id="cb348-23"><a href="bubble-charts.html#cb348-23"></a><span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&#39;//*[@id=&quot;content&quot;]/div[2]/table&#39;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb348-24"><a href="bubble-charts.html#cb348-24"></a><span class="st">  </span><span class="kw">html_table</span>()</span>
+<span id="cb348-25"><a href="bubble-charts.html#cb348-25"></a></span>
+<span id="cb348-26"><a href="bubble-charts.html#cb348-26"></a>turnovers19 &lt;-<span class="st"> </span>turnovers19[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Name, Margin)</span>
+<span id="cb348-27"><a href="bubble-charts.html#cb348-27"></a></span>
+<span id="cb348-28"><a href="bubble-charts.html#cb348-28"></a>football &lt;-<span class="st"> </span>o19 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb348-29"><a href="bubble-charts.html#cb348-29"></a><span class="st">  </span><span class="kw">left_join</span>(d19, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb348-30"><a href="bubble-charts.html#cb348-30"></a><span class="st">  </span><span class="kw">left_join</span>(turnovers19, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb348-31"><a href="bubble-charts.html#cb348-31"></a><span class="st">  </span><span class="kw">rename</span>(<span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span> =<span class="st"> `</span><span class="dt">Points/G.x</span><span class="st">`</span>, <span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>=<span class="st">`</span><span class="dt">Points/G.y</span><span class="st">`</span>)</span></code></pre></div>
 <p>Now we can do the bubble chart.</p>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb353-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data=</span>football, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">name=</span><span class="st">&quot;Turnovers&quot;</span>)</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-207-1.png" width="672" /></p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="bubble-charts.html#cb349-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data=</span>football, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">name=</span><span class="st">&quot;Turnovers&quot;</span>)</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-208-1.png" width="672" /></p>
 <p>Better! Teams are spread out a little more. Bottom right quadrant – the good defense, good offense quadrant – have some large dots. The upper left quadrant – bad defense, bad offense – have some very small dots, meaning they have a really terrible turnover margin.</p>
 <p>But what would make this chart better – and what you saw in the Rosling video – is color. What if we colored the dots by if they were above or below zero? Meaning, do they have a positive or negative turnover margin? We can do that with a quick mutate and a case_when statement.</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1">football &lt;-<span class="st"> </span>football <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">PositiveNegative =</span> <span class="kw">case_when</span>(</a>
-<a class="sourceLine" id="cb354-2" data-line-number="2">  Margin <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Positive&quot;</span>,</a>
-<a class="sourceLine" id="cb354-3" data-line-number="3">  Margin <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Negative&quot;</span>,</a>
-<a class="sourceLine" id="cb354-4" data-line-number="4">  Margin <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Even&quot;</span></a>
-<a class="sourceLine" id="cb354-5" data-line-number="5">))</a></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="bubble-charts.html#cb350-1"></a>football &lt;-<span class="st"> </span>football <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">PositiveNegative =</span> <span class="kw">case_when</span>(</span>
+<span id="cb350-2"><a href="bubble-charts.html#cb350-2"></a>  Margin <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Positive&quot;</span>,</span>
+<span id="cb350-3"><a href="bubble-charts.html#cb350-3"></a>  Margin <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Negative&quot;</span>,</span>
+<span id="cb350-4"><a href="bubble-charts.html#cb350-4"></a>  Margin <span class="op">==</span><span class="st"> </span><span class="dv">0</span> <span class="op">~</span><span class="st"> &quot;Even&quot;</span></span>
+<span id="cb350-5"><a href="bubble-charts.html#cb350-5"></a>))</span></code></pre></div>
 <p>Now we can add <code>color=PositiveNegative</code> to the aesthetic and our dots will be colored by if they are positive, negative or zero.</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb355-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data=</span>football, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin, <span class="dt">color=</span>PositiveNegative), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">name=</span><span class="st">&quot;Turnovers&quot;</span>)</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-209-1.png" width="672" /></p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="bubble-charts.html#cb351-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data=</span>football, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin, <span class="dt">color=</span>PositiveNegative), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">name=</span><span class="st">&quot;Turnovers&quot;</span>)</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-210-1.png" width="672" /></p>
 <p>Now we’re getting somewhere. What’s the story that this chart tells? Blue dots – positive turnover margins – are all drifting toward that good offense, good defense quadrant. Green dots – negative turnover margins – are drifting toward that bad defense, bad offense quadrant.</p>
 <p>Let’s add some annotations. Let’s look at the top two turnover margin teams and where they come out.</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" data-line-number="1">topteams &lt;-<span class="st"> </span>football <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Name <span class="op">==</span><span class="st"> &quot;LSU&quot;</span> <span class="op">|</span><span class="st"> </span>Name <span class="op">==</span><span class="st"> &quot;Alabama&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb357-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>football, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin, <span class="dt">color=</span>PositiveNegative), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb357-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>topteams, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">label=</span>Name)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb357-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">name=</span><span class="st">&quot;Turnovers&quot;</span>)</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-211-1.png" width="672" /></p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="bubble-charts.html#cb352-1"></a>topteams &lt;-<span class="st"> </span>football <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Name <span class="op">==</span><span class="st"> &quot;LSU&quot;</span> <span class="op">|</span><span class="st"> </span>Name <span class="op">==</span><span class="st"> &quot;Alabama&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="bubble-charts.html#cb353-1"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb353-2"><a href="bubble-charts.html#cb353-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>football, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin, <span class="dt">color=</span>PositiveNegative), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb353-3"><a href="bubble-charts.html#cb353-3"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>topteams, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">label=</span>Name)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb353-4"><a href="bubble-charts.html#cb353-4"></a><span class="st">  </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">name=</span><span class="st">&quot;Turnovers&quot;</span>)</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-212-1.png" width="672" /></p>
 <p>No surprise there. What about Nebraska?</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" data-line-number="1">nu &lt;-<span class="st"> </span>football <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Name<span class="op">==</span><span class="st">&quot;Nebraska&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb359-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>football, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin, <span class="dt">color=</span>PositiveNegative), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb359-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>topteams, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">label=</span>Name)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb359-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb359-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">label=</span>Name)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb359-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">name=</span><span class="st">&quot;Turnovers&quot;</span>)</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-213-1.png" width="672" /></p>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="bubble-charts.html#cb354-1"></a>nu &lt;-<span class="st"> </span>football <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Name<span class="op">==</span><span class="st">&quot;Nebraska&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="bubble-charts.html#cb355-1"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb355-2"><a href="bubble-charts.html#cb355-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>football, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin, <span class="dt">color=</span>PositiveNegative), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb355-3"><a href="bubble-charts.html#cb355-3"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>topteams, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">label=</span>Name)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb355-4"><a href="bubble-charts.html#cb355-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb355-5"><a href="bubble-charts.html#cb355-5"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">label=</span>Name)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb355-6"><a href="bubble-charts.html#cb355-6"></a><span class="st">  </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">name=</span><span class="st">&quot;Turnovers&quot;</span>)</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-214-1.png" width="672" /></p>
 <p>Sadly, no surprise there either.</p>
 <p>The last things we need to do? Add some labels, apply our finishing touches.</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb360-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>football, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin, <span class="dt">color=</span>PositiveNegative), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb360-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>topteams, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">label=</span>Name)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb360-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb360-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">label=</span>Name)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb360-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">name=</span><span class="st">&quot;Turnovers&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb360-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Same song, different year&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s turnover margin is zero, putting them miles from the top.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>)  <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb360-8" data-line-number="8"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb360-9" data-line-number="9">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</a>
-<a class="sourceLine" id="cb360-10" data-line-number="10">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </a>
-<a class="sourceLine" id="cb360-11" data-line-number="11">    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </a>
-<a class="sourceLine" id="cb360-12" data-line-number="12">    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</a>
-<a class="sourceLine" id="cb360-13" data-line-number="13">    )</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-214-1.png" width="672" /></p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="bubble-charts.html#cb356-1"></a><span class="kw">ggplot</span>() <span class="op">+</span></span>
+<span id="cb356-2"><a href="bubble-charts.html#cb356-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>football, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin, <span class="dt">color=</span>PositiveNegative), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb356-3"><a href="bubble-charts.html#cb356-3"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>topteams, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">label=</span>Name)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb356-4"><a href="bubble-charts.html#cb356-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">size=</span>Margin), <span class="dt">alpha=</span>.<span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb356-5"><a href="bubble-charts.html#cb356-5"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Offensive Points Per Game</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Defensive Points Per Game</span><span class="st">`</span>, <span class="dt">label=</span>Name)) <span class="op">+</span></span>
+<span id="cb356-6"><a href="bubble-charts.html#cb356-6"></a><span class="st">  </span><span class="kw">scale_size</span>(<span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">name=</span><span class="st">&quot;Turnovers&quot;</span>) <span class="op">+</span></span>
+<span id="cb356-7"><a href="bubble-charts.html#cb356-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Same song, different year&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s turnover margin is zero, putting them miles from the top.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>)  <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb356-8"><a href="bubble-charts.html#cb356-8"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb356-9"><a href="bubble-charts.html#cb356-9"></a>    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb356-10"><a href="bubble-charts.html#cb356-10"></a>    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </span>
+<span id="cb356-11"><a href="bubble-charts.html#cb356-11"></a>    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </span>
+<span id="cb356-12"><a href="bubble-charts.html#cb356-12"></a>    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb356-13"><a href="bubble-charts.html#cb356-13"></a>    )</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-215-1.png" width="672" /></p>
 
 </div>
             </section>

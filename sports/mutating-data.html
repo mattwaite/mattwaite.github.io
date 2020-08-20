@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Mutating data | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Mutating data | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -50,9 +50,10 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
@@ -70,9 +71,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -81,14 +82,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -97,9 +100,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -293,22 +296,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><code>(new - old) / old</code></p>
 <p>Or new minus old divided by old. Your new number minus the old number, the result of which is divided by the old number. To do that in R, we can use <code>dplyr</code> and <code>mutate</code> to calculate new metrics in a new field using existing fields of data.</p>
 <p>So first we’ll import the tidyverse so we can read in our data and begin to work with it.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Attaching packages ───── tidyverse 1.3.0 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.0     ✓ purrr   0.3.3
-## ✓ tibble  3.0.0     ✓ stringr 1.4.0
-## ✓ tidyr   1.0.2     ✓ forcats 0.5.0</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## ── Conflicts ──────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="mutating-data.html#cb42-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <p>Now we’ll import a common and <a href="https://unl.box.com/s/etqna5bfvf3b0gsnw0kcjjn1rxx9335s">simple dataset of total attendance</a> at NCAA football games over the last few seasons.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">attendance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;data/attendance.csv&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="mutating-data.html#cb43-1"></a>attendance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;data/attendance.csv&#39;</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   Institution = col_character(),
@@ -320,7 +310,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   `2017` = col_double(),
 ##   `2018` = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="kw">head</span>(attendance)</a></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="mutating-data.html#cb45-1"></a><span class="kw">head</span>(attendance)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 8
 ##   Institution     Conference      `2013` `2014` `2015` `2016` `2017` `2018`
 ##   &lt;chr&gt;           &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -331,9 +321,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 5 Appalachian St. Sun Belt            NA 138995 128755 156916 154722 131716
 ## 6 Arizona         Pac-12          285713 354973 308355 338017 255791 318051</code></pre>
 <p>The code to calculate percent change is pretty simple. Remember, with <code>summarize</code>, we used <code>n()</code> to count things. With <code>mutate</code>, we use very similar syntax to calculate a new value using other values in our dataset. So in this case, we’re trying to do (new-old)/old, but we’re doing it with fields. If we look at what we got when we did <code>head</code>, you’ll see there’s `2018` as the new data, and we’ll use `2017` as the old data. So we’re looking at one year. Then, to help us, we’ll use arrange again to sort it, so we get the fastest growing school over one year.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb51-2" data-line-number="2">  <span class="dt">change =</span> (<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span></a>
-<a class="sourceLine" id="cb51-3" data-line-number="3">) </a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="mutating-data.html#cb47-1"></a>attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
+<span id="cb47-2"><a href="mutating-data.html#cb47-2"></a>  <span class="dt">change =</span> (<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span></span>
+<span id="cb47-3"><a href="mutating-data.html#cb47-3"></a>) </span></code></pre></div>
 <pre><code>## # A tibble: 150 x 9
 ##    Institution   Conference   `2013` `2014` `2015` `2016` `2017` `2018`   change
 ##    &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
@@ -349,9 +339,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Army West Po… FBS Indepen… 169781 171310 185946 163267 185543 190156  0.0249 
 ## # … with 140 more rows</code></pre>
 <p>What do we see right away? Do those numbers look like we expect them to? No. They’re a decimal expressed as a percentage. So let’s fix that by multiplying by 100.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb53-2" data-line-number="2">  <span class="dt">change =</span> ((<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb53-3" data-line-number="3">) </a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="mutating-data.html#cb49-1"></a>attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
+<span id="cb49-2"><a href="mutating-data.html#cb49-2"></a>  <span class="dt">change =</span> ((<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb49-3"><a href="mutating-data.html#cb49-3"></a>) </span></code></pre></div>
 <pre><code>## # A tibble: 150 x 9
 ##    Institution    Conference   `2013` `2014` `2015` `2016` `2017` `2018`  change
 ##    &lt;chr&gt;          &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
@@ -367,9 +357,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Army West Poi… FBS Indepen… 169781 171310 185946 163267 185543 190156   2.49 
 ## # … with 140 more rows</code></pre>
 <p>Now, does this ordering do anything for us? No. Let’s fix that with arrange.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb55-2" data-line-number="2">  <span class="dt">change =</span> ((<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb55-3" data-line-number="3">) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(change))</a></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="mutating-data.html#cb51-1"></a>attendance <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
+<span id="cb51-2"><a href="mutating-data.html#cb51-2"></a>  <span class="dt">change =</span> ((<span class="st">`</span><span class="dt">2018</span><span class="st">`</span> <span class="op">-</span><span class="st"> `</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">/</span><span class="st">`</span><span class="dt">2017</span><span class="st">`</span>)<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb51-3"><a href="mutating-data.html#cb51-3"></a>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(change))</span></code></pre></div>
 <pre><code>## # A tibble: 150 x 9
 ##    Institution   Conference `2013` `2014` `2015` `2016` `2017` `2018` change
 ##    &lt;chr&gt;         &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
@@ -390,7 +380,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>There’s metric in basketball that’s easy to understand – shooting percentage. It’s the number of shots made divided by the number of shots attempted. Simple, right? Except it’s a little too simple. Because what about three point shooters? They tend to be more vailable because the three point shot is worth more. What about players who get to the line? In shooting percentage, free throws are nowhere to be found.</p>
 <p>Basketball nerds, because of these weaknesses, have created a new metric called <a href="https://en.wikipedia.org/wiki/True_shooting_percentage">True Shooting Percentage</a>. True shooting percentage takes into account all aspects of a players shooting to determine who the real shooters are.</p>
 <p>Using <code>dplyr</code> and <code>mutate</code>, we can calculate true shooting percentage. So let’s look at a new dataset, one of <a href="https://unl.box.com/s/s1wzw61u9ia50qmirfhuvprgpmmah9rj">every college basketball player’s season stats in 2018-19 season</a>. It’s a dataset of 5,386 players, and we’ve got 59 variables – one of them is True Shooting Percentage, but we’re going to ignore that.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">players &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/players19.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="mutating-data.html#cb53-1"></a>players &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/players19.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -411,9 +401,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/environment.png" width="653" /></p>
 <p>So what does True Shooting Percentage look like in code?</p>
 <p>Let’s think about this differently. Who had the best true shooting season last year?</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">players <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trueshooting =</span> (PTS<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>(FGA <span class="op">+</span><span class="st"> </span>(.<span class="dv">44</span><span class="op">*</span>FTA))))<span class="op">*</span><span class="dv">100</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb61-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(trueshooting))</a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="mutating-data.html#cb57-1"></a>players <span class="op">%&gt;%</span></span>
+<span id="cb57-2"><a href="mutating-data.html#cb57-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trueshooting =</span> (PTS<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>(FGA <span class="op">+</span><span class="st"> </span>(.<span class="dv">44</span><span class="op">*</span>FTA))))<span class="op">*</span><span class="dv">100</span>) <span class="op">%&gt;%</span></span>
+<span id="cb57-3"><a href="mutating-data.html#cb57-3"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(trueshooting))</span></code></pre></div>
 <pre><code>## # A tibble: 5,386 x 60
 ##       X1 Team  Conference Player   `#` Class Pos   Height Weight Hometown
 ##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   

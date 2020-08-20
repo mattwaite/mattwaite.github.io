@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 21 Facet wraps | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 21 Facet wraps | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -50,9 +50,10 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
@@ -70,9 +71,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -81,14 +82,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -97,9 +100,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -292,9 +295,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Sometimes the easiest way to spot a trend is to chart a bunch of small things side by side. Edward Tufte, one of the most well known data visualization thinkers on the planet, calls this “small multiples” where ggplot calls this a facet wrap or a facet grid, depending.</p>
 <p>One thing we noticed earlier in the semester – it seems that a lot of teams shoot worse as the season goes on. Do they? We could answer this a number of ways, but the best way to show people would be visually. Let’s use Small Multiples.</p>
 <p>As always, we start with libraries.</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="facet-wraps.html#cb304-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <p>Now data.</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">logs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/logs19.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="facet-wraps.html#cb305-1"></a>logs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/logs19.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -310,37 +313,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## )</code></pre>
 <pre><code>## See spec(...) for full column specifications.</code></pre>
 <p>Let’s narrow our pile and look just at the Big Ten.</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1">big10 &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">==</span><span class="st"> &quot;Big Ten&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="facet-wraps.html#cb309-1"></a>big10 &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">==</span><span class="st"> &quot;Big Ten&quot;</span>)</span></code></pre></div>
 <p>The first thing we can do is look at a line chart, like we have done in previous chapters.</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>big10, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>TeamFGPCT, <span class="dt">group=</span>Team)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>))</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-182-1.png" width="672" /></p>
-<p>And, not surprisingly, we get a hairball. We could color certain lines, but that would limit us to focus on one team. What if we did all of them at once? We do that with a <code>facet_wrap</code>. The only thing we MUST pass into a <code>facet_wrap</code> is what thing we’re going to separate them out by. In this case, we precede that field with a tilde, so in our case we want the Team field. It looks like this:</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>big10, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>TeamFGPCT, <span class="dt">group=</span>Team)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Team)</a></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="facet-wraps.html#cb310-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>big10, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>TeamFGPCT, <span class="dt">group=</span>Team)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>))</span></code></pre></div>
 <p><img src="SportsData_files/figure-html/unnamed-chunk-183-1.png" width="672" /></p>
+<p>And, not surprisingly, we get a hairball. We could color certain lines, but that would limit us to focus on one team. What if we did all of them at once? We do that with a <code>facet_wrap</code>. The only thing we MUST pass into a <code>facet_wrap</code> is what thing we’re going to separate them out by. In this case, we precede that field with a tilde, so in our case we want the Team field. It looks like this:</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="facet-wraps.html#cb311-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>big10, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>TeamFGPCT, <span class="dt">group=</span>Team)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Team)</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-184-1.png" width="672" /></p>
 <p>Answer: Not immediately clear, but we can look at this and analyze it. We could add a piece of annotation to help us out.</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1">big10 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">mean</span>(TeamFGPCT))</a></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="facet-wraps.html#cb312-1"></a>big10 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="kw">mean</span>(TeamFGPCT))</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 1
 ##   `mean(TeamFGPCT)`
 ##               &lt;dbl&gt;
 ## 1             0.442</code></pre>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span>.<span class="dv">4447</span>, <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>big10, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>TeamFGPCT, <span class="dt">group=</span>Team)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Team)</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-185-1.png" width="672" /></p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="facet-wraps.html#cb314-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span>.<span class="dv">4447</span>, <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>big10, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>TeamFGPCT, <span class="dt">group=</span>Team)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Team)</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-186-1.png" width="672" /></p>
 <p>What do you see here? How do teams compare? How do they change over time? I’m not asking you these questions because they’re an assignment – I’m asking because that’s exactly what this chart helps answer. Your brain will immediately start making those connections.</p>
 <div id="facet-grid-vs-facet-wraps" class="section level2">
 <h2><span class="header-section-number">21.1</span> Facet grid vs facet wraps</h2>
 <p>Facet grids allow us to put teams on the same plane, versus just repeating them. And we can specify that plane as vertical or horizontal. For example, here’s our chart from above, but using facet_grid to stack them.</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span>.<span class="dv">4447</span>, <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>big10, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>TeamFGPCT, <span class="dt">group=</span>Team)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(Team <span class="op">~</span><span class="st"> </span>.)</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-186-1.png" width="480" /></p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="facet-wraps.html#cb315-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span>.<span class="dv">4447</span>, <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>big10, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>TeamFGPCT, <span class="dt">group=</span>Team)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(Team <span class="op">~</span><span class="st"> </span>.)</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-187-1.png" width="480" /></p>
 <p>And here they are next to each other:</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span>.<span class="dv">4447</span>, <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>big10, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>TeamFGPCT, <span class="dt">group=</span>Team)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>Team)</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-187-1.png" width="672" /></p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="facet-wraps.html#cb316-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept=</span>.<span class="dv">4447</span>, <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>big10, <span class="kw">aes</span>(<span class="dt">x=</span>Date, <span class="dt">y=</span>TeamFGPCT, <span class="dt">group=</span>Team)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>Team)</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-188-1.png" width="672" /></p>
 <p>Note: We’d have some work to do with the labeling on this – we’ll get to that – but you can see where this is valuable comparing a group of things. One warning: Don’t go too crazy with this or it loses it’s visual power.</p>
 </div>
 <div id="other-types" class="section level2">
 <h2><span class="header-section-number">21.2</span> Other types</h2>
 <p>Line charts aren’t the only things we can do. We can do any kind of chart in ggplot. Staying with shooting, where are team’s winning and losing performances coming from when we talk about team shooting and opponent shooting?</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1"><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data=</span>big10, <span class="kw">aes</span>(<span class="dt">x=</span>TeamFGPCT, <span class="dt">y=</span>OpponentFGPCT, <span class="dt">color=</span>W_L)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Team)</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-188-1.png" width="672" /></p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="facet-wraps.html#cb317-1"></a><span class="kw">ggplot</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">data=</span>big10, <span class="kw">aes</span>(<span class="dt">x=</span>TeamFGPCT, <span class="dt">y=</span>OpponentFGPCT, <span class="dt">color=</span>W_L)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.7</span>)) <span class="op">+</span><span class="st"> </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Team)</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-189-1.png" width="672" /></p>
 
 </div>
 </div>

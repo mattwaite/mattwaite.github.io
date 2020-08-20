@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 19 Lollipop charts | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 19 Lollipop charts | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -50,9 +50,10 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
@@ -70,9 +71,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -81,14 +82,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -97,9 +100,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -290,8 +293,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="lollipop-charts" class="section level1">
 <h1><span class="header-section-number">Chapter 19</span> Lollipop charts</h1>
 <p>Second to my love of waffle charts because I’m always hungry, lollipop charts are an excellently named way of showing the difference between two things on a number line – a start and a finish, for instance. Or the difference between two related things. Say, turnovers and assists. They aren’t a geom, specifically, but you can assemble them out of points and segments, which are geoms.</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" data-line-number="1">logs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/logs19.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="lollipop-charts.html#cb273-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="lollipop-charts.html#cb274-1"></a>logs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/logs19.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Missing column names filled in: &#39;X1&#39; [1]</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -307,58 +310,61 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## )</code></pre>
 <pre><code>## See spec(...) for full column specifications.</code></pre>
 <p>For the first example, let’s look at the difference between a team’s shooting performance and the conference’s shooting performance as a whole. To get this, we’re going to add up all the shots made by the conference, all the attempts taken by the conference, and then mutate a percentage based on that.</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" data-line-number="1">conferenceshooting &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb282-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Conference) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb282-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">totalshots =</span> <span class="kw">sum</span>(TeamFG), <span class="dt">totalattempts =</span> <span class="kw">sum</span>(TeamFGA)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb282-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">conferenceshootingpct =</span> totalshots<span class="op">/</span>totalattempts)</a></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="lollipop-charts.html#cb278-1"></a>conferenceshooting &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span></span>
+<span id="cb278-2"><a href="lollipop-charts.html#cb278-2"></a><span class="st">  </span><span class="kw">group_by</span>(Conference) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb278-3"><a href="lollipop-charts.html#cb278-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">totalshots =</span> <span class="kw">sum</span>(TeamFG), <span class="dt">totalattempts =</span> <span class="kw">sum</span>(TeamFGA)) <span class="op">%&gt;%</span></span>
+<span id="cb278-4"><a href="lollipop-charts.html#cb278-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">conferenceshootingpct =</span> totalshots<span class="op">/</span>totalattempts)</span></code></pre></div>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <p>Now I’m going to do the same with teams.</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" data-line-number="1">teamshooting &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb283-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Team, Conference) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb283-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">totalshots =</span> <span class="kw">sum</span>(TeamFG), <span class="dt">totalattempts =</span> <span class="kw">sum</span>(TeamFGA)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb283-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">teamshootingpct =</span> totalshots<span class="op">/</span>totalattempts)</a></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="lollipop-charts.html#cb280-1"></a>teamshooting &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span></span>
+<span id="cb280-2"><a href="lollipop-charts.html#cb280-2"></a><span class="st">  </span><span class="kw">group_by</span>(Team, Conference) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb280-3"><a href="lollipop-charts.html#cb280-3"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">totalshots =</span> <span class="kw">sum</span>(TeamFG), <span class="dt">totalattempts =</span> <span class="kw">sum</span>(TeamFGA)) <span class="op">%&gt;%</span></span>
+<span id="cb280-4"><a href="lollipop-charts.html#cb280-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">teamshootingpct =</span> totalshots<span class="op">/</span>totalattempts)</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by &#39;Team&#39; (override with `.groups` argument)</code></pre>
 <p>The last thing I need to do is join them together. So each team will have the conference shooting percentage as well as their own.</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" data-line-number="1">shooting &lt;-<span class="st"> </span>teamshooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(conferenceshooting, <span class="dt">by=</span><span class="st">&quot;Conference&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="lollipop-charts.html#cb282-1"></a>shooting &lt;-<span class="st"> </span>teamshooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(conferenceshooting, <span class="dt">by=</span><span class="st">&quot;Conference&quot;</span>)</span></code></pre></div>
 <p>I have every team in college basketball, but that’s insane.</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" data-line-number="1">big10 &lt;-<span class="st"> </span>shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">==</span><span class="st"> &quot;Big Ten&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="lollipop-charts.html#cb283-1"></a>big10 &lt;-<span class="st"> </span>shooting <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">==</span><span class="st"> &quot;Big Ten&quot;</span>)</span></code></pre></div>
 <p>So this takes a little doing, but the logic is pretty clear in the end.</p>
 <p>A lollipop chart is made up of two things – a line between two points, and two points. So we need a geom_segment and two geom_points. And because they get layered starting at the bottom, our segment is first. A geom segment is made up of two things – an x and a y value, and an x and y end. In this case, our x and xend are the same – the Team – and our y and yend are our two stats. For our points, both x values are the Team and the y is the different stats. What that does is put each point on the same line.</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" data-line-number="1"><span class="kw">ggplot</span>(big10) <span class="op">+</span></a>
-<a class="sourceLine" id="cb286-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Team, <span class="dt">xend=</span>Team, <span class="dt">y=</span>teamshootingpct, <span class="dt">yend=</span>conferenceshootingpct), <span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb286-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Team, <span class="dt">y=</span>teamshootingpct), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb286-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Team, <span class="dt">y=</span>conferenceshootingpct), <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb286-5" data-line-number="5"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-166-1.png" width="672" /></p>
-<p>We can do better by changing the order of the teams by their shooting performance and giving it some theme love.</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1"><span class="kw">ggplot</span>(big10) <span class="op">+</span></a>
-<a class="sourceLine" id="cb287-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Team, teamshootingpct), <span class="dt">xend=</span>Team, <span class="dt">y=</span>teamshootingpct, <span class="dt">yend=</span>conferenceshootingpct), <span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb287-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Team, teamshootingpct), <span class="dt">y=</span>teamshootingpct), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb287-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Team, teamshootingpct), <span class="dt">y=</span>conferenceshootingpct), <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb287-5" data-line-number="5"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb287-6" data-line-number="6"><span class="st">   </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shooting percentage vs league average&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Except Purdue, shooting predicted Big Ten success&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Boilermakers were average shooters, went deep in the NCAA tournament&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: sports-reference.com | By Matt Waite&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb287-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb287-8" data-line-number="8"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb287-9" data-line-number="9">    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">hjust =</span> <span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb287-10" data-line-number="10">    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">1.3</span>),</a>
-<a class="sourceLine" id="cb287-11" data-line-number="11">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</a>
-<a class="sourceLine" id="cb287-12" data-line-number="12">    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb287-13" data-line-number="13">    <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">7</span>),</a>
-<a class="sourceLine" id="cb287-14" data-line-number="14">    <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>()</a>
-<a class="sourceLine" id="cb287-15" data-line-number="15">  )</a></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="lollipop-charts.html#cb284-1"></a><span class="kw">ggplot</span>(big10) <span class="op">+</span></span>
+<span id="cb284-2"><a href="lollipop-charts.html#cb284-2"></a><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Team, <span class="dt">xend=</span>Team, <span class="dt">y=</span>teamshootingpct, <span class="dt">yend=</span>conferenceshootingpct), <span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb284-3"><a href="lollipop-charts.html#cb284-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Team, <span class="dt">y=</span>teamshootingpct), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb284-4"><a href="lollipop-charts.html#cb284-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span>Team, <span class="dt">y=</span>conferenceshootingpct), <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb284-5"><a href="lollipop-charts.html#cb284-5"></a><span class="st">  </span><span class="kw">coord_flip</span>()</span></code></pre></div>
 <p><img src="SportsData_files/figure-html/unnamed-chunk-167-1.png" width="672" /></p>
+<p>We can do better by changing the order of the teams by their shooting performance and giving it some theme love.</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="lollipop-charts.html#cb285-1"></a><span class="kw">ggplot</span>(big10) <span class="op">+</span></span>
+<span id="cb285-2"><a href="lollipop-charts.html#cb285-2"></a><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Team, teamshootingpct), <span class="dt">xend=</span>Team, <span class="dt">y=</span>teamshootingpct, <span class="dt">yend=</span>conferenceshootingpct), <span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb285-3"><a href="lollipop-charts.html#cb285-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Team, teamshootingpct), <span class="dt">y=</span>teamshootingpct), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb285-4"><a href="lollipop-charts.html#cb285-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Team, teamshootingpct), <span class="dt">y=</span>conferenceshootingpct), <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb285-5"><a href="lollipop-charts.html#cb285-5"></a><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></span>
+<span id="cb285-6"><a href="lollipop-charts.html#cb285-6"></a><span class="st">   </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Shooting percentage vs league average&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Except Purdue, shooting predicted Big Ten success&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Boilermakers were average shooters, went deep in the NCAA tournament&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: sports-reference.com | By Matt Waite&quot;</span>) <span class="op">+</span></span>
+<span id="cb285-7"><a href="lollipop-charts.html#cb285-7"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb285-8"><a href="lollipop-charts.html#cb285-8"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb285-9"><a href="lollipop-charts.html#cb285-9"></a>    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="dt">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb285-10"><a href="lollipop-charts.html#cb285-10"></a>    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">1.3</span>),</span>
+<span id="cb285-11"><a href="lollipop-charts.html#cb285-11"></a>    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">10</span>),</span>
+<span id="cb285-12"><a href="lollipop-charts.html#cb285-12"></a>    <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>(),</span>
+<span id="cb285-13"><a href="lollipop-charts.html#cb285-13"></a>    <span class="dt">axis.text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">7</span>),</span>
+<span id="cb285-14"><a href="lollipop-charts.html#cb285-14"></a>    <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb285-15"><a href="lollipop-charts.html#cb285-15"></a>  )</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-168-1.png" width="672" /></p>
 <p>What if we wanted to order them by wins? Our data has a column called W_L that lists if the team won or lost. The problem is it doens’t just say W or L. If the game went to overtime, it lists that. That complicates counting wins. Here’s a trick to find a string of text and make that. It’s called <code>grepl</code> and the basic syntax is grepl for this string in this field and then do what I tell you. In this case, we’re going to create a new field called winloss look for W or L (and ignore any OT notation) and give wins a 1 and losses a 0.</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" data-line-number="1">winlosslogs &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">winloss =</span> <span class="kw">case_when</span>(</a>
-<a class="sourceLine" id="cb288-2" data-line-number="2">  <span class="kw">grepl</span>(<span class="st">&quot;W&quot;</span>, W_L) <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb288-3" data-line-number="3">  <span class="kw">grepl</span>(<span class="st">&quot;L&quot;</span>, W_L) <span class="op">~</span><span class="st"> </span><span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb288-4" data-line-number="4">)</a></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="lollipop-charts.html#cb286-1"></a>winlosslogs &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">winloss =</span> <span class="kw">case_when</span>(</span>
+<span id="cb286-2"><a href="lollipop-charts.html#cb286-2"></a>  <span class="kw">grepl</span>(<span class="st">&quot;W&quot;</span>, W_L) <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, </span>
+<span id="cb286-3"><a href="lollipop-charts.html#cb286-3"></a>  <span class="kw">grepl</span>(<span class="st">&quot;L&quot;</span>, W_L) <span class="op">~</span><span class="st"> </span><span class="dv">0</span>)</span>
+<span id="cb286-4"><a href="lollipop-charts.html#cb286-4"></a>)</span></code></pre></div>
 <p>So let’s look at turnovers and assists. We’ll call it give and take. Does the difference between those two things indicate something when we sort them by wins?</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1">giveandtake &lt;-<span class="st"> </span>winlosslogs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Conference, Team) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">turnovers =</span> <span class="kw">sum</span>(TeamTurnovers), <span class="dt">assists =</span> <span class="kw">sum</span>(TeamAssists), <span class="dt">wins=</span><span class="kw">sum</span>(winloss)) </a></code></pre></div>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" data-line-number="1">big10gt &lt;-<span class="st"> </span>giveandtake <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">==</span><span class="st"> &quot;Big Ten&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1"><span class="kw">ggplot</span>(big10gt) <span class="op">+</span></a>
-<a class="sourceLine" id="cb291-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Team, wins), <span class="dt">xend=</span>Team, <span class="dt">y=</span>turnovers, <span class="dt">yend=</span>assists), <span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb291-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Team, wins), <span class="dt">y=</span>turnovers), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb291-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Team, wins), <span class="dt">y=</span>assists), <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb291-5" data-line-number="5"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
-<p><img src="SportsData_files/figure-html/unnamed-chunk-171-1.png" width="672" /></p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="lollipop-charts.html#cb287-1"></a>giveandtake &lt;-<span class="st"> </span>winlosslogs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Conference, Team) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">turnovers =</span> <span class="kw">sum</span>(TeamTurnovers), <span class="dt">assists =</span> <span class="kw">sum</span>(TeamAssists), <span class="dt">wins=</span><span class="kw">sum</span>(winloss)) </span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by &#39;Conference&#39; (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="lollipop-charts.html#cb289-1"></a>big10gt &lt;-<span class="st"> </span>giveandtake <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Conference <span class="op">==</span><span class="st"> &quot;Big Ten&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="lollipop-charts.html#cb290-1"></a><span class="kw">ggplot</span>(big10gt) <span class="op">+</span></span>
+<span id="cb290-2"><a href="lollipop-charts.html#cb290-2"></a><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Team, wins), <span class="dt">xend=</span>Team, <span class="dt">y=</span>turnovers, <span class="dt">yend=</span>assists), <span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb290-3"><a href="lollipop-charts.html#cb290-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Team, wins), <span class="dt">y=</span>turnovers), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb290-4"><a href="lollipop-charts.html#cb290-4"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">reorder</span>(Team, wins), <span class="dt">y=</span>assists), <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span></span>
+<span id="cb290-5"><a href="lollipop-charts.html#cb290-5"></a><span class="st">  </span><span class="kw">coord_flip</span>()</span></code></pre></div>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-172-1.png" width="672" /></p>
 <p>Short answer: Not really. Something you need to get used to in data visualization – not everything works. Sometimes you find things, sometimes you don’t. Don’t publish a graphic that doesn’t find anything. Let it stay in your notebook as an idea that didn’t pan out.</p>
 
 </div>

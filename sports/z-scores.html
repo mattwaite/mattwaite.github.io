@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 12 Z scores | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 12 Z scores | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
@@ -50,9 +50,10 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.2/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
@@ -70,9 +71,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -81,14 +82,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -97,9 +100,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -295,9 +298,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>A Z score is a measure of how far a number is from the population mean of that number. An easier way to say that – how different is my grade from the average grade in the class. The formula for calculating a Z score is <code>(MyScore - AverageScore)/Standard Deviation of Scores</code>. The standard deviation is a number calculated to show the amount of variation in a set of data. In a normal distribution, 68 percent of all scores will be within 1 standard deviation, 95 percent will be within 2 and 99 within 3.</p>
 <div id="calculating-a-z-score-in-r" class="section level2">
 <h2><span class="header-section-number">12.1</span> Calculating a Z score in R</h2>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="z-scores.html#cb169-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 <p>Let’s look at the current state of Nebraska basketball using the <a href="https://unl.box.com/s/wnlh0u9low1yh56enion8zjmu8r7dc8p">same logs data we’ve been using, but for this season so far</a>.</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1">gamelogs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/logs20.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="z-scores.html#cb170-1"></a>gamelogs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/logs20.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   .default = col_double(),
@@ -312,29 +315,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## )</code></pre>
 <pre><code>## See spec(...) for full column specifications.</code></pre>
 <p>The first thing we need to do is select some fields we think represent team quality:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1">teamquality &lt;-<span class="st"> </span>gamelogs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb180-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(Conference, Team, TeamFGPCT, TeamTotalRebounds, OpponentFGPCT, OpponentTotalRebounds)</a></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="z-scores.html#cb173-1"></a>teamquality &lt;-<span class="st"> </span>gamelogs <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb173-2"><a href="z-scores.html#cb173-2"></a><span class="st">  </span><span class="kw">select</span>(Conference, Team, TeamFGPCT, TeamTotalRebounds, OpponentFGPCT, OpponentTotalRebounds)</span></code></pre></div>
 <p>And since we have individual game data, we need to collapse this into one record for each team. We do that with … group by.</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1">teamtotals &lt;-<span class="st"> </span>teamquality <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb181-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Conference, Team) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb181-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(</a>
-<a class="sourceLine" id="cb181-4" data-line-number="4">    <span class="dt">FGAvg =</span> <span class="kw">mean</span>(TeamFGPCT), </a>
-<a class="sourceLine" id="cb181-5" data-line-number="5">    <span class="dt">ReboundAvg =</span> <span class="kw">mean</span>(TeamTotalRebounds), </a>
-<a class="sourceLine" id="cb181-6" data-line-number="6">    <span class="dt">OppFGAvg =</span> <span class="kw">mean</span>(OpponentFGPCT),</a>
-<a class="sourceLine" id="cb181-7" data-line-number="7">    <span class="dt">OffRebAvg =</span> <span class="kw">mean</span>(OpponentTotalRebounds)</a>
-<a class="sourceLine" id="cb181-8" data-line-number="8">    )</a></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="z-scores.html#cb174-1"></a>teamtotals &lt;-<span class="st"> </span>teamquality <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb174-2"><a href="z-scores.html#cb174-2"></a><span class="st">  </span><span class="kw">group_by</span>(Conference, Team) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb174-3"><a href="z-scores.html#cb174-3"></a><span class="st">  </span><span class="kw">summarise</span>(</span>
+<span id="cb174-4"><a href="z-scores.html#cb174-4"></a>    <span class="dt">FGAvg =</span> <span class="kw">mean</span>(TeamFGPCT), </span>
+<span id="cb174-5"><a href="z-scores.html#cb174-5"></a>    <span class="dt">ReboundAvg =</span> <span class="kw">mean</span>(TeamTotalRebounds), </span>
+<span id="cb174-6"><a href="z-scores.html#cb174-6"></a>    <span class="dt">OppFGAvg =</span> <span class="kw">mean</span>(OpponentFGPCT),</span>
+<span id="cb174-7"><a href="z-scores.html#cb174-7"></a>    <span class="dt">OffRebAvg =</span> <span class="kw">mean</span>(OpponentTotalRebounds)</span>
+<span id="cb174-8"><a href="z-scores.html#cb174-8"></a>    )</span></code></pre></div>
+<pre><code>## `summarise()` regrouping output by &#39;Conference&#39; (override with `.groups` argument)</code></pre>
 <p>To calculate a Z score in R, the easiest way is to use the scale function in base R. To use it, you use <code>scale(FieldName, center=TRUE, scale=TRUE)</code>. The center and scale indicate if you want to subtract from the mean and if you want to divide by the standard deviation, respectively. We do.</p>
 <p>When we have multiple Z Scores, it’s pretty standard practice to add them together into a composite score. That’s what we’re doing at the end here with <code>TotalZscore</code>. Note: We have to invert OppZscore and OppRebZScore by multiplying it by a negative 1 because the lower someone’s opponent number is, the better.</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1">teamzscore &lt;-<span class="st"> </span>teamtotals <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb182-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb182-3" data-line-number="3">    <span class="dt">FGzscore =</span> <span class="kw">as.numeric</span>(<span class="kw">scale</span>(FGAvg, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>)),</a>
-<a class="sourceLine" id="cb182-4" data-line-number="4">    <span class="dt">RebZscore =</span> <span class="kw">as.numeric</span>(<span class="kw">scale</span>(ReboundAvg, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>)),</a>
-<a class="sourceLine" id="cb182-5" data-line-number="5">    <span class="dt">OppZscore =</span> <span class="kw">as.numeric</span>(<span class="kw">scale</span>(OppFGAvg, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>)) <span class="op">*</span><span class="st"> </span><span class="dv">-1</span>,</a>
-<a class="sourceLine" id="cb182-6" data-line-number="6">    <span class="dt">OppRebZScore =</span> <span class="kw">as.numeric</span>(<span class="kw">scale</span>(OffRebAvg, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>)) <span class="op">*</span><span class="st"> </span><span class="dv">-1</span>,</a>
-<a class="sourceLine" id="cb182-7" data-line-number="7">    <span class="dt">TotalZscore =</span> FGzscore <span class="op">+</span><span class="st"> </span>RebZscore <span class="op">+</span><span class="st"> </span>OppZscore <span class="op">+</span><span class="st"> </span>OppRebZScore</a>
-<a class="sourceLine" id="cb182-8" data-line-number="8">  )  </a></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="z-scores.html#cb176-1"></a>teamzscore &lt;-<span class="st"> </span>teamtotals <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb176-2"><a href="z-scores.html#cb176-2"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb176-3"><a href="z-scores.html#cb176-3"></a>    <span class="dt">FGzscore =</span> <span class="kw">as.numeric</span>(<span class="kw">scale</span>(FGAvg, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>)),</span>
+<span id="cb176-4"><a href="z-scores.html#cb176-4"></a>    <span class="dt">RebZscore =</span> <span class="kw">as.numeric</span>(<span class="kw">scale</span>(ReboundAvg, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>)),</span>
+<span id="cb176-5"><a href="z-scores.html#cb176-5"></a>    <span class="dt">OppZscore =</span> <span class="kw">as.numeric</span>(<span class="kw">scale</span>(OppFGAvg, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>)) <span class="op">*</span><span class="st"> </span><span class="dv">-1</span>,</span>
+<span id="cb176-6"><a href="z-scores.html#cb176-6"></a>    <span class="dt">OppRebZScore =</span> <span class="kw">as.numeric</span>(<span class="kw">scale</span>(OffRebAvg, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale =</span> <span class="ot">TRUE</span>)) <span class="op">*</span><span class="st"> </span><span class="dv">-1</span>,</span>
+<span id="cb176-7"><a href="z-scores.html#cb176-7"></a>    <span class="dt">TotalZscore =</span> FGzscore <span class="op">+</span><span class="st"> </span>RebZscore <span class="op">+</span><span class="st"> </span>OppZscore <span class="op">+</span><span class="st"> </span>OppRebZScore</span>
+<span id="cb176-8"><a href="z-scores.html#cb176-8"></a>  )  </span></code></pre></div>
 <p>So now we have a dataframe called <code>teamzscore</code> that has 353 basketball teams with Z scores. What does it look like?</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1"><span class="kw">head</span>(teamzscore)</a></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="z-scores.html#cb177-1"></a><span class="kw">head</span>(teamzscore)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 11
 ## # Groups:   Conference [1]
 ##   Conference Team  FGAvg ReboundAvg OppFGAvg OffRebAvg FGzscore RebZscore
@@ -349,7 +353,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## #   TotalZscore &lt;dbl&gt;</code></pre>
 <p>A way to read this – a team at zero is precisely average. The larger the positive number, the more exceptional they are. The larger the negative number, the more truly terrible they are.</p>
 <p>So who are the best teams in the country?</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1">teamzscore <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(TotalZscore))</a></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="z-scores.html#cb179-1"></a>teamzscore <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(TotalZscore))</span></code></pre></div>
 <pre><code>## # A tibble: 353 x 11
 ## # Groups:   Conference [32]
 ##    Conference Team  FGAvg ReboundAvg OppFGAvg OffRebAvg FGzscore RebZscore
@@ -368,9 +372,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## #   OppRebZScore &lt;dbl&gt;, TotalZscore &lt;dbl&gt;</code></pre>
 <p>Don’t sleep on the Anteaters come tournament time!</p>
 <p>But closer to home, how is Nebraska doing.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" data-line-number="1">teamzscore <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb187-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(Conference <span class="op">==</span><span class="st"> &quot;Big Ten&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb187-3" data-line-number="3"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(TotalZscore))</a></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="z-scores.html#cb181-1"></a>teamzscore <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb181-2"><a href="z-scores.html#cb181-2"></a><span class="st">  </span><span class="kw">filter</span>(Conference <span class="op">==</span><span class="st"> &quot;Big Ten&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb181-3"><a href="z-scores.html#cb181-3"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(TotalZscore))</span></code></pre></div>
 <pre><code>## # A tibble: 14 x 11
 ## # Groups:   Conference [1]
 ##    Conference Team  FGAvg ReboundAvg OppFGAvg OffRebAvg FGzscore RebZscore
