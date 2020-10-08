@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Significance tests | Sports Data Analysis and Visualization</title>
+  <title>Chapter 29 Headlines | Sports Data Analysis and Visualization</title>
   <meta name="description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Significance tests | Sports Data Analysis and Visualization" />
+  <meta property="og:title" content="Chapter 29 Headlines | Sports Data Analysis and Visualization" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Significance tests | Sports Data Analysis and Visualization" />
+  <meta name="twitter:title" content="Chapter 29 Headlines | Sports Data Analysis and Visualization" />
   
   <meta name="twitter:description" content="This book is the companion to the University of Nebraska-Lincoln’s SPMC350 course in the College of Journalism and Mass Communications." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="transforming-data.html"/>
-<link rel="next" href="correlations-and-regression.html"/>
+<link rel="prev" href="finishing-touches.html"/>
+<link rel="next" href="plotly.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -303,89 +303,172 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="significance-tests" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Significance tests</h1>
-<p>Now that we’ve worked with data a little, it’s time to start asking more probing questions of our data. One of the most probing questions we can ask – one that so few sports journalists ask – is if the difference between this thing and the normal thing is real.</p>
-<p>We have a perfect natural experiment going on in sports right now to show how significance tests work. The NBA, to salvage a season and get to the playoffs, put their players in a bubble – more accurately a hotel complex at Disney World in Orlando – and had them play games without fans.</p>
-<p>So are the games different from other regular season games that had fans?</p>
-<p>To answer this, we need to understand that a significance test is a way to determine if two numbers are <em>significantly</em> different from each other. Generally speaking, we’re asking if a subset of data – a sample – is different from the total data pool – the population. Typically, this relies on data being in a normal distribution.</p>
-<p><img src="images/simulations2.png" width="635" />
-If it is, then we know certain things about it. Like the mean – the average – will be a line right at the peak of cases. And that 66 percent of cases will be in that red area – the first standard deviation.</p>
-<p>A significance test will determine if a sample taken from that group is different from the total.</p>
-<p>Significance testing involves stating a hypothesis. In our case, our hypothesis is that there is a difference between bubble games without people and regular games with people.</p>
-<p>In statistics, the <strong>null hypothesis</strong> is the opposite of your hypothesis. In this case, that there is no difference between fans and no fans.</p>
-<p>What we’re driving toward is a metric called a p-value, which is the probability that you’d get your sample mean <em>if the null hypothesis is true.</em> So in our case, it’s the probability we’d see the numbers we get if there was no difference between fans and no fans. If that probability is below .05, then we consider the difference significant and we reject the null hypothesis.</p>
-<p>So let’s see. <a href="https://unl.box.com/s/ifhuz3t0b7rbk0u8hr52b17klvqv8lxo">Here’s a log of every game in this NBA season</a>. There’s a field called COVID, which labels the game as a regular game or a bubble game.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="significance-tests.html#cb97-1"></a>logs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/nbabubble.csv&quot;</span>)</span></code></pre></div>
+<div id="headlines" class="section level1">
+<h1><span class="header-section-number">Chapter 29</span> Headlines</h1>
+<p>Let’s review the pieces of a good graphic:</p>
+<ul>
+<li>Headline</li>
+<li>Chatter</li>
+<li>The main body</li>
+<li>Annotations</li>
+<li>Labels</li>
+<li>Source line</li>
+<li>Credit line</li>
+</ul>
+<p>The first on that list is the first for a reason. The headline is an incredibly important part of any graphic: it’s often the first thing a reader will see. It’s got to entice people in, tell them a little bit about what they’re going to see, and help tell the story.</p>
+<p>The second item is the chatter – the text underneath that headline. It needs to work with the headline to further the story, drive people toward the point, maybe add some context.</p>
+<p>The two bits of text are extremely important. Let’s set up a chart and talk about how to do it wrong and how to do it better.</p>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="headlines.html#cb483-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb483-2"><a href="headlines.html#cb483-2"></a><span class="kw">library</span>(ggrepel)</span></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="headlines.html#cb484-1"></a>scoring &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/scoringoffense.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   .default = col_double(),
-##   Season = col_character(),
-##   Conference = col_character(),
-##   Team = col_character(),
-##   Date = col_date(format = &quot;&quot;),
-##   HomeAway = col_character(),
-##   Opponent = col_character(),
-##   W_L = col_character(),
-##   COVID = col_character()
+##   Name = col_character(),
+##   G = col_double(),
+##   TD = col_double(),
+##   FG = col_double(),
+##   `1XP` = col_double(),
+##   `2XP` = col_double(),
+##   Safety = col_double(),
+##   Points = col_double(),
+##   `Points/G` = col_double(),
+##   Year = col_double()
 ## )</code></pre>
-<pre><code>## See spec(...) for full column specifications.</code></pre>
-<p>First, let’s just look at scoring. Here’s a theory: fans make players nervous. The screaming makes players tense up, and tension makes for bad shooting. An alternative to this: screaming fans make you defend harder. So my hypothesis is that not only is the scoring different, it’s lower.</p>
-<p>First things first, let’s create a new field, called <code>totalpoints</code> and add the two scores together. We’ll need this, so we’re going to make this a new dataframe called <code>points</code>.</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="significance-tests.html#cb100-1"></a>points &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">totalpoints =</span> TeamScore <span class="op">+</span><span class="st"> </span>OpponentScore )</span></code></pre></div>
-<p>Typically speaking, with significance tests, the process involves creating two different means and then running a bunch of formulas on them. R makes this easy by giving you a <code>t.test</code> function, which does all the work for you. What we have to tell it is what is the value we are testing, over which groups, and from what data. It looks like this:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="significance-tests.html#cb101-1"></a><span class="kw">t.test</span>(totalpoints <span class="op">~</span><span class="st"> </span>COVID, <span class="dt">data=</span>points)</span></code></pre></div>
-<pre><code>## 
-## 	Welch Two Sample t-test
-## 
-## data:  totalpoints by COVID
-## t = -5.232, df = 206.88, p-value = 4.099e-07
-## alternative hypothesis: true difference in means is not equal to 0
-## 95 percent confidence interval:
-##  -11.64698  -5.27178
-## sample estimates:
-##    mean in group With Fans mean in group Without Fans 
-##                   222.8929                   231.3523</code></pre>
-<p>Now let’s talk about the output. I prefer to read these bottom up. So at the bottom, it says that the mean number of points score in an NBA game With Fans is 222.89. The mean scored in games Without Fans is 231.35. That means teams are scoring almost 8.5 points MORE without fans on average.</p>
-<p>But, some games are defenseless track meets, some games are defensive slugfests. We learned that averages can be skewed by extremes. So the next thing we need to look at is the p-value. Remember, this is the probability that we’d get this sample mean – the without fans mean – if there was no difference between fans and no fans.</p>
-<p>The probability? 4.099e-07 or 4.099 x 10 to the -7 power. Don’t remember your scientific notation? That’s .00000004099. The decimal, seven zeros and the number.</p>
-<p>Remember, if the probability is below .05, then we determine that this number is statistically significant. We’ll talk more about statistical significance soon, but in this case, statistical significance means that our hypothesis is correct: points are different without fans than with. And since our hypothesis is correct, we <em>reject the null hypothesis</em> and we can confidently say that bubble teams are scoring more than they were when fans packed arenas.</p>
-<div id="accepting-the-null-hypothesis" class="section level2">
-<h2><span class="header-section-number">8.1</span> Accepting the null hypothesis</h2>
-<p>So what does it look like when your hypothesis is wrong?</p>
-<p>Let’s test another thing that may have been impacted by bubble games: home court advantage. If you’re the home team, but you’re not at home, does it affect you? It has to, right? Your fans aren’t there. Home and away are just positions on the scoreboard. It can’t matter, can it?</p>
-<p>My hypothesis is that home court is no longer an advantage, and the home team will score less relative to the away team.</p>
-<p>First things first: We need to make a dataframe where Team is the home team. And then we’ll create a differential between the home team and away team. If home court is an advantage, the differential should average out to be positive – the home team scores more than the away team.</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="significance-tests.html#cb103-1"></a>homecourt &lt;-<span class="st"> </span>logs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">is.na</span>(HomeAway) <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">differential =</span> TeamScore <span class="op">-</span><span class="st"> </span>OpponentScore)</span></code></pre></div>
-<p>Now let’s test it.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="significance-tests.html#cb104-1"></a><span class="kw">t.test</span>(differential <span class="op">~</span><span class="st"> </span>COVID, <span class="dt">data=</span>homecourt)</span></code></pre></div>
-<pre><code>## 
-## 	Welch Two Sample t-test
-## 
-## data:  differential by COVID
-## t = 0.36892, df = 107.84, p-value = 0.7129
-## alternative hypothesis: true difference in means is not equal to 0
-## 95 percent confidence interval:
-##  -2.301628  3.354268
-## sample estimates:
-##    mean in group With Fans mean in group Without Fans 
-##                   2.174047                   1.647727</code></pre>
-<p>So again, start at the bottom. With Fans, the home team averages 2.17 more points than the away team. Without fans, they average 1.64 more.</p>
-<p>If you are a bad sportswriter or a hack sports talk radio host, you look at this and scream “the bubble killed home court!”</p>
-<p>But two things: first, the home team is STILL, on average, scoring more than the away team on the whole.</p>
-<p>And two: Look at the p-value. It’s .7129. Is that less than .05? No, no it is not. So that means we have to <strong>accept the null hypothesis</strong> that there is no difference between fans and no fans when it comes to the difference between the home team and the away team’s score.</p>
-<p>Now, does this mean that the bubble hasn’t impacted the magic of home court? Not necessarily. What it’s saying is that the variance between one and the other is too large to be able to say that they’re different. It could just be random noise that’s causing the difference, and so it’s not real. More to the point, it’s saying that this metric isn’t capable of telling you that there’s no home court in the bubble.</p>
-<p>We’re going to be analyzing these bubble games for <em>years</em> trying to find the true impact of fans.</p>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="headlines.html#cb486-1"></a>total &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/totaloffense.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Name = col_character(),
+##   G = col_double(),
+##   `Rush Yards` = col_double(),
+##   `Pass Yards` = col_double(),
+##   Plays = col_double(),
+##   `Total Yards` = col_double(),
+##   `Yards/Play` = col_double(),
+##   `Yards/G` = col_double(),
+##   Year = col_double()
+## )</code></pre>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="headlines.html#cb488-1"></a>offense &lt;-<span class="st"> </span>total <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">left_join</span>(scoring, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Name&quot;</span>, <span class="st">&quot;Year&quot;</span>))</span>
+<span id="cb488-2"><a href="headlines.html#cb488-2"></a></span>
+<span id="cb488-3"><a href="headlines.html#cb488-3"></a>nu &lt;-<span class="st"> </span>offense <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Name <span class="op">==</span><span class="st"> &quot;Nebraska&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Year <span class="op">==</span><span class="st"> </span><span class="dv">2018</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="headlines.html#cb489-1"></a><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb489-2"><a href="headlines.html#cb489-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb489-3"><a href="headlines.html#cb489-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Headline here&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;This is the chatter. It is chatter. Chatter.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb489-4"><a href="headlines.html#cb489-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb489-5"><a href="headlines.html#cb489-5"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb489-6"><a href="headlines.html#cb489-6"></a>    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb489-7"><a href="headlines.html#cb489-7"></a>    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </span>
+<span id="cb489-8"><a href="headlines.html#cb489-8"></a>    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </span>
+<span id="cb489-9"><a href="headlines.html#cb489-9"></a>    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb489-10"><a href="headlines.html#cb489-10"></a>    ) <span class="op">+</span></span>
+<span id="cb489-11"><a href="headlines.html#cb489-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb489-12"><a href="headlines.html#cb489-12"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>, <span class="dt">label=</span><span class="st">&quot;Nebraska 2018&quot;</span>))</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-300-1.png" width="480" /></p>
+<p>First, let’s start with some headline basics:</p>
+<ul>
+<li>Your headline should be about what the chart is about, not what makes up the chart. What story is the chart telling? What made it interesting to you? Don’t tell me what the stats are, tell me what it says.</li>
+<li>Your headline should be specific. Generic headlines are boring and ignored.</li>
+<li>Your headline should, most often, have a verb. It’s not a 100 percent requirement, but a headline without a verb means you’re trying to be cute and …</li>
+<li>Your headline shouldn’t be overly cute. Trying to get away with slang, a very Of The Moment cultural reference that will be forgotten soon, or some inside joke is asking for trouble.</li>
+<li>Your headline should provoke a reaction.</li>
+</ul>
+<p>Given our graph, here’s a few that don’t work.</p>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="headlines.html#cb491-1"></a><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb491-2"><a href="headlines.html#cb491-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb491-3"><a href="headlines.html#cb491-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s offense&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;Nebraska&#39;s 2018 offense is the red dot.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb491-4"><a href="headlines.html#cb491-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb491-5"><a href="headlines.html#cb491-5"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb491-6"><a href="headlines.html#cb491-6"></a>    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb491-7"><a href="headlines.html#cb491-7"></a>    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </span>
+<span id="cb491-8"><a href="headlines.html#cb491-8"></a>    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </span>
+<span id="cb491-9"><a href="headlines.html#cb491-9"></a>    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb491-10"><a href="headlines.html#cb491-10"></a>    ) <span class="op">+</span></span>
+<span id="cb491-11"><a href="headlines.html#cb491-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb491-12"><a href="headlines.html#cb491-12"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>, <span class="dt">label=</span><span class="st">&quot;Nebraska 2018&quot;</span>))</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-301-1.png" width="480" />
+The problems here:</p>
+<ul>
+<li>No verb.</li>
+<li>Generic, forgettable, doesn’t say anything.</li>
+<li>What is this chart about? What does it say? We have no idea from the headline and chatter.</li>
+<li>Don’t repeat words from the headline in the chatter. Nebraska Nebraska looks bad. Make one of the Huskers if you’re going to do this.</li>
+</ul>
+<p>Another example:</p>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="headlines.html#cb493-1"></a><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb493-2"><a href="headlines.html#cb493-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb493-3"><a href="headlines.html#cb493-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Points per game vs total yards per game&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;Nebraska&#39;s 2018 offense is below the blue line, which is bad.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb493-4"><a href="headlines.html#cb493-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb493-5"><a href="headlines.html#cb493-5"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb493-6"><a href="headlines.html#cb493-6"></a>    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb493-7"><a href="headlines.html#cb493-7"></a>    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </span>
+<span id="cb493-8"><a href="headlines.html#cb493-8"></a>    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </span>
+<span id="cb493-9"><a href="headlines.html#cb493-9"></a>    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb493-10"><a href="headlines.html#cb493-10"></a>    ) <span class="op">+</span></span>
+<span id="cb493-11"><a href="headlines.html#cb493-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb493-12"><a href="headlines.html#cb493-12"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>, <span class="dt">label=</span><span class="st">&quot;Nebraska 2018&quot;</span>))</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-302-1.png" width="480" />
+What’s wrong here?</p>
+<ul>
+<li>The headline is about the stats, not the story.</li>
+<li>The headline lacks a verb.</li>
+<li>The headline lacks any interest, really.</li>
+<li>The headline at least moves in the direction of what this chart is about, but see the previous two.</li>
+<li>The chatter adds more flavor to it, but what does “below the blue line” even mean? We’re leaving the reader with a lot of questions and no real answers. That;s bad.</li>
+</ul>
+<p>Let’s try to do this better.</p>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="headlines.html#cb495-1"></a><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb495-2"><a href="headlines.html#cb495-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb495-3"><a href="headlines.html#cb495-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s strength?&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s offense was supposed to power the team. It underperformed.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb495-4"><a href="headlines.html#cb495-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb495-5"><a href="headlines.html#cb495-5"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb495-6"><a href="headlines.html#cb495-6"></a>    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb495-7"><a href="headlines.html#cb495-7"></a>    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </span>
+<span id="cb495-8"><a href="headlines.html#cb495-8"></a>    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </span>
+<span id="cb495-9"><a href="headlines.html#cb495-9"></a>    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb495-10"><a href="headlines.html#cb495-10"></a>    ) <span class="op">+</span></span>
+<span id="cb495-11"><a href="headlines.html#cb495-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb495-12"><a href="headlines.html#cb495-12"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>, <span class="dt">label=</span><span class="st">&quot;Nebraska 2018&quot;</span>))</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-303-1.png" width="528" /></p>
+<p>What works here:</p>
+<ul>
+<li>Provokes a reaction by asking a question. Drives at what the story is about.</li>
+<li>The chatter answers the question in the headline without talking about the blue line, a model, anything. A reader can see it.</li>
+<li>Simple, precise, direct language.</li>
+</ul>
+<p>One more, same chart.</p>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="headlines.html#cb497-1"></a><span class="kw">ggplot</span>(offense, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb497-2"><a href="headlines.html#cb497-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span>lm, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb497-3"><a href="headlines.html#cb497-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Total yards per game&quot;</span>, <span class="dt">y=</span><span class="st">&quot;Points per game&quot;</span>, <span class="dt">title=</span><span class="st">&quot;Nebraska&#39;s offense underperformed&quot;</span>, <span class="dt">subtitle=</span><span class="st">&quot;The Husker&#39;s should have scored nearly a touchdown more given their output.&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: NCAA | By Matt Waite&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb497-4"><a href="headlines.html#cb497-4"></a><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb497-5"><a href="headlines.html#cb497-5"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb497-6"><a href="headlines.html#cb497-6"></a>    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">16</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),</span>
+<span id="cb497-7"><a href="headlines.html#cb497-7"></a>    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">8</span>), </span>
+<span id="cb497-8"><a href="headlines.html#cb497-8"></a>    <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">10</span>), </span>
+<span id="cb497-9"><a href="headlines.html#cb497-9"></a>    <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>()</span>
+<span id="cb497-10"><a href="headlines.html#cb497-10"></a>    ) <span class="op">+</span></span>
+<span id="cb497-11"><a href="headlines.html#cb497-11"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>), <span class="dt">color=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb497-12"><a href="headlines.html#cb497-12"></a><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data=</span>nu, <span class="kw">aes</span>(<span class="dt">x=</span><span class="st">`</span><span class="dt">Yards/G</span><span class="st">`</span>, <span class="dt">y=</span><span class="st">`</span><span class="dt">Points/G</span><span class="st">`</span>, <span class="dt">label=</span><span class="st">&quot;Nebraska 2018&quot;</span>))</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="SportsData_files/figure-html/unnamed-chunk-304-1.png" width="528" /></p>
+<p>What works here:</p>
+<ul>
+<li>Strong verb: underperformed.</li>
+<li>Headline tells the story. Chatter bolsters it.</li>
+<li>Doesn’t repeat Nebraska or Huskers.</li>
+</ul>
+<p>Taking time to sharpen your headlines will make your graphics better.</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="transforming-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="correlations-and-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="finishing-touches.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="plotly.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
