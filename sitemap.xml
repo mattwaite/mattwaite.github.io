@@ -8,11 +8,6 @@
   </url>
   
   <url>
-    <loc>http://mattwaite.github.io/note/2020-12-15-note-about-the-new-site/</loc>
-    <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://mattwaite.github.io/categories/</loc>
     <lastmod>2020-12-15T00:00:00+00:00</lastmod>
   </url>
@@ -24,6 +19,11 @@
   
   <url>
     <loc>http://mattwaite.github.io/categories/note/</loc>
+    <lastmod>2020-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mattwaite.github.io/note/2020-12-15-note-about-the-new-site/</loc>
     <lastmod>2020-12-15T00:00:00+00:00</lastmod>
   </url>
   
