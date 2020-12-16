@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Matt Waite</title>
+    <link>http://mattwaite.github.io/</link>
+    <description>Recent content in Home on Matt Waite</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Dec 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mattwaite.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>http://mattwaite.github.io/about/</link>
+      <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://mattwaite.github.io/about/</guid>
+      <description>I&amp;rsquo;ve been a reporter, a developer, a consultant and a professor. I believe in meeting students where they are, and believe passionately that anyone can learn to use code to make interesting journalism, regardless of where they are starting from.</description>
+    </item>
+    
+    <item>
+      <title>Another Note on A blogdown Tutorial</title>
+      <link>http://mattwaite.github.io/note/2020-12-15-note-about-the-new-site/</link>
+      <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://mattwaite.github.io/note/2020-12-15-note-about-the-new-site/</guid>
+      <description>I&amp;rsquo;m experimenting with Blogdown and intending to update with notes about the materials as I go. Notes will be updates about materials, posts will be about new materials or major updates.</description>
+    </item>
+    
+    <item>
+      <title>Sports Data Analysis and Visualization</title>
+      <link>http://mattwaite.github.io/2019/07/29/sports-data-analysis-and-visualization/</link>
+      <pubDate>Mon, 29 Jul 2019 21:13:14 -0500</pubDate>
+      
+      <guid>http://mattwaite.github.io/2019/07/29/sports-data-analysis-and-visualization/</guid>
+      <description>Stuff stuff stuff.</description>
+    </item>
+    
+  </channel>
+</rss>
