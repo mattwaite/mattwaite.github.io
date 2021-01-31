@@ -1,0 +1,17 @@
+introduction
+requirements-and-conventions
+about-this-book
+the-modeling-process
+setting-up-the-modeling-process
+predicting-based-on-the-model
+predicting-data-we-havent-seen-before
+looking-locally
+multiple-regression-and-feature-engineering
+a-multiple-regression-speed-run
+picking-what-moves-the-needle
+feature-engineering
+decision-trees-and-random-forests
+an-intro-to-pre-processsing
+using-our-possession-metrics
+xgboost
+support-vector-machines
