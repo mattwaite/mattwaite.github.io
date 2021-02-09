@@ -11,7 +11,8 @@ a-multiple-regression-speed-run
 picking-what-moves-the-needle
 feature-engineering
 decision-trees-and-random-forests
-an-intro-to-pre-processsing
-using-our-possession-metrics
+an-intro-to-pre-processing
+decision-trees
+random-forest
 xgboost
 support-vector-machines
