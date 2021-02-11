@@ -360,9 +360,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
   <button class="btn btn-danger"><i class="fa fa-save"></i> Download csv file</button>
 </a></p></pre>
 <p>Load the tidyverse.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="z-scores.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="z-scores.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>And load the data.</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="z-scores.html#cb154-1" aria-hidden="true" tabindex="-1"></a>gamelogs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/logs20.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="z-scores.html#cb153-1" aria-hidden="true" tabindex="-1"></a>gamelogs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/logs20.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
@@ -378,30 +378,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## )
 ## ℹ Use `spec()` for the full column specifications.</code></pre>
 <p>The first thing we need to do is select some fields we think represent team quality and a few things to help us keep things straight. So I’m going to pick shooting percentage, rebounding and the opponent version of the same two:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="z-scores.html#cb156-1" aria-hidden="true" tabindex="-1"></a>teamquality <span class="ot">&lt;-</span> gamelogs <span class="sc">%&gt;%</span> </span>
-<span id="cb156-2"><a href="z-scores.html#cb156-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Conference, Team, TeamFGPCT, TeamTotalRebounds, OpponentFGPCT, OpponentTotalRebounds)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="z-scores.html#cb155-1" aria-hidden="true" tabindex="-1"></a>teamquality <span class="ot">&lt;-</span> gamelogs <span class="sc">%&gt;%</span> </span>
+<span id="cb155-2"><a href="z-scores.html#cb155-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Conference, Team, TeamFGPCT, TeamTotalRebounds, OpponentFGPCT, OpponentTotalRebounds)</span></code></pre></div>
 <p>And since we have individual game data, we need to collapse this into one record for each team. We do that with … group by.</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="z-scores.html#cb157-1" aria-hidden="true" tabindex="-1"></a>teamtotals <span class="ot">&lt;-</span> teamquality <span class="sc">%&gt;%</span> </span>
-<span id="cb157-2"><a href="z-scores.html#cb157-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Conference, Team) <span class="sc">%&gt;%</span> </span>
-<span id="cb157-3"><a href="z-scores.html#cb157-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb157-4"><a href="z-scores.html#cb157-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">FGAvg =</span> <span class="fu">mean</span>(TeamFGPCT), </span>
-<span id="cb157-5"><a href="z-scores.html#cb157-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ReboundAvg =</span> <span class="fu">mean</span>(TeamTotalRebounds), </span>
-<span id="cb157-6"><a href="z-scores.html#cb157-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">OppFGAvg =</span> <span class="fu">mean</span>(OpponentFGPCT),</span>
-<span id="cb157-7"><a href="z-scores.html#cb157-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">OffRebAvg =</span> <span class="fu">mean</span>(OpponentTotalRebounds)</span>
-<span id="cb157-8"><a href="z-scores.html#cb157-8" aria-hidden="true" tabindex="-1"></a>    ) </span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="z-scores.html#cb156-1" aria-hidden="true" tabindex="-1"></a>teamtotals <span class="ot">&lt;-</span> teamquality <span class="sc">%&gt;%</span> </span>
+<span id="cb156-2"><a href="z-scores.html#cb156-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Conference, Team) <span class="sc">%&gt;%</span> </span>
+<span id="cb156-3"><a href="z-scores.html#cb156-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb156-4"><a href="z-scores.html#cb156-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">FGAvg =</span> <span class="fu">mean</span>(TeamFGPCT), </span>
+<span id="cb156-5"><a href="z-scores.html#cb156-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ReboundAvg =</span> <span class="fu">mean</span>(TeamTotalRebounds), </span>
+<span id="cb156-6"><a href="z-scores.html#cb156-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">OppFGAvg =</span> <span class="fu">mean</span>(OpponentFGPCT),</span>
+<span id="cb156-7"><a href="z-scores.html#cb156-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">OffRebAvg =</span> <span class="fu">mean</span>(OpponentTotalRebounds)</span>
+<span id="cb156-8"><a href="z-scores.html#cb156-8" aria-hidden="true" tabindex="-1"></a>    ) </span></code></pre></div>
 <pre><code>## `summarise()` regrouping output by &#39;Conference&#39; (override with `.groups` argument)</code></pre>
 <p>To calculate a z-score in R, the easiest way is to use the <code>scale</code> function in base R. To use it, you use <code>scale(FieldName, center=TRUE, scale=TRUE)</code>. The center and scale indicate if you want to subtract from the mean and if you want to divide by the standard deviation, respectively. We do.</p>
 <p>When we have multiple z-scores, it’s pretty standard practice to add them together into a composite score. That’s what we’re doing at the end here with <code>TotalZscore</code>. Note: We have to invert OppZscore and OppRebZScore by multiplying it by a negative 1 because the lower someone’s opponent number is, the better.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="z-scores.html#cb159-1" aria-hidden="true" tabindex="-1"></a>teamzscore <span class="ot">&lt;-</span> teamtotals <span class="sc">%&gt;%</span> </span>
-<span id="cb159-2"><a href="z-scores.html#cb159-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb159-3"><a href="z-scores.html#cb159-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">FGzscore =</span> <span class="fu">as.numeric</span>(<span class="fu">scale</span>(FGAvg, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>)),</span>
-<span id="cb159-4"><a href="z-scores.html#cb159-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">RebZscore =</span> <span class="fu">as.numeric</span>(<span class="fu">scale</span>(ReboundAvg, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>)),</span>
-<span id="cb159-5"><a href="z-scores.html#cb159-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">OppZscore =</span> <span class="fu">as.numeric</span>(<span class="fu">scale</span>(OppFGAvg, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>)) <span class="sc">*</span> <span class="sc">-</span><span class="dv">1</span>,</span>
-<span id="cb159-6"><a href="z-scores.html#cb159-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">OppRebZScore =</span> <span class="fu">as.numeric</span>(<span class="fu">scale</span>(OffRebAvg, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>)) <span class="sc">*</span> <span class="sc">-</span><span class="dv">1</span>,</span>
-<span id="cb159-7"><a href="z-scores.html#cb159-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalZscore =</span> FGzscore <span class="sc">+</span> RebZscore <span class="sc">+</span> OppZscore <span class="sc">+</span> OppRebZScore</span>
-<span id="cb159-8"><a href="z-scores.html#cb159-8" aria-hidden="true" tabindex="-1"></a>  )  </span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="z-scores.html#cb158-1" aria-hidden="true" tabindex="-1"></a>teamzscore <span class="ot">&lt;-</span> teamtotals <span class="sc">%&gt;%</span> </span>
+<span id="cb158-2"><a href="z-scores.html#cb158-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb158-3"><a href="z-scores.html#cb158-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">FGzscore =</span> <span class="fu">as.numeric</span>(<span class="fu">scale</span>(FGAvg, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb158-4"><a href="z-scores.html#cb158-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">RebZscore =</span> <span class="fu">as.numeric</span>(<span class="fu">scale</span>(ReboundAvg, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb158-5"><a href="z-scores.html#cb158-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">OppZscore =</span> <span class="fu">as.numeric</span>(<span class="fu">scale</span>(OppFGAvg, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>)) <span class="sc">*</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb158-6"><a href="z-scores.html#cb158-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">OppRebZScore =</span> <span class="fu">as.numeric</span>(<span class="fu">scale</span>(OffRebAvg, <span class="at">center =</span> <span class="cn">TRUE</span>, <span class="at">scale =</span> <span class="cn">TRUE</span>)) <span class="sc">*</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb158-7"><a href="z-scores.html#cb158-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalZscore =</span> FGzscore <span class="sc">+</span> RebZscore <span class="sc">+</span> OppZscore <span class="sc">+</span> OppRebZScore</span>
+<span id="cb158-8"><a href="z-scores.html#cb158-8" aria-hidden="true" tabindex="-1"></a>  )  </span></code></pre></div>
 <p>So now we have a dataframe called <code>teamzscore</code> that has 353 basketball teams with Z scores. What does it look like?</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="z-scores.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(teamzscore)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="z-scores.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(teamzscore)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 11
 ## # Groups:   Conference [1]
 ##   Conference Team  FGAvg ReboundAvg OppFGAvg OffRebAvg FGzscore RebZscore
@@ -416,7 +416,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## #   TotalZscore &lt;dbl&gt;</code></pre>
 <p>A way to read this – a team at zero is precisely average. The larger the positive number, the more exceptional they are. The larger the negative number, the more truly terrible they are.</p>
 <p>So who are the best teams in the country?</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="z-scores.html#cb162-1" aria-hidden="true" tabindex="-1"></a>teamzscore <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(TotalZscore))</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="z-scores.html#cb161-1" aria-hidden="true" tabindex="-1"></a>teamzscore <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(TotalZscore))</span></code></pre></div>
 <pre><code>## # A tibble: 353 x 11
 ## # Groups:   Conference [32]
 ##    Conference Team  FGAvg ReboundAvg OppFGAvg OffRebAvg FGzscore RebZscore
@@ -435,9 +435,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## #   OppRebZScore &lt;dbl&gt;, TotalZscore &lt;dbl&gt;</code></pre>
 <p>Don’t sleep on the Anteaters! Would have been a tough out at the tournament that never happened.</p>
 <p>But closer to home, how is Nebraska doing.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="z-scores.html#cb164-1" aria-hidden="true" tabindex="-1"></a>teamzscore <span class="sc">%&gt;%</span> </span>
-<span id="cb164-2"><a href="z-scores.html#cb164-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Conference <span class="sc">==</span> <span class="st">&quot;Big Ten&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb164-3"><a href="z-scores.html#cb164-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(TotalZscore))</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="z-scores.html#cb163-1" aria-hidden="true" tabindex="-1"></a>teamzscore <span class="sc">%&gt;%</span> </span>
+<span id="cb163-2"><a href="z-scores.html#cb163-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Conference <span class="sc">==</span> <span class="st">&quot;Big Ten&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb163-3"><a href="z-scores.html#cb163-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(TotalZscore))</span></code></pre></div>
 <pre><code>## # A tibble: 14 x 11
 ## # Groups:   Conference [1]
 ##    Conference Team  FGAvg ReboundAvg OppFGAvg OffRebAvg FGzscore RebZscore
