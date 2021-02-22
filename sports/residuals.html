@@ -77,6 +77,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -396,30 +397,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Residual standard error: 12.78 on 1098 degrees of freedom
 ## Multiple R-squared:  0.6417, Adjusted R-squared:  0.6414 
 ## F-statistic:  1967 on 1 and 1098 DF,  p-value: &lt; 2.2e-16</code></pre>
-<p>We’ve seen this output before, but let’s review because if you are using scatterplots to make a point, you should do this. First, note the Min and Max residual at the top. A team has underperformed the model by 39 points (!), and a team has overperformed it by 39 points (!!). The median residual, where half are above and half are below, is just slightly above the fit line. Close here is good.</p>
-<p>Next: Look at the Adjusted R-squared value. What that says is that 72 percent of a team’s scoring output can be predicted by their net yards.</p>
+<p>We’ve seen this output before, but let’s review because if you are using scatterplots to make a point, you should do this. First, note the Min and Max residual at the top. A team has underperformed the model by nearly 50 points (!), and a team has overperformed it by 49 points (!!). The median residual, where half are above and half are below, is just slightly above the fit line. Close here is good.</p>
+<p>Next: Look at the Adjusted R-squared value. What that says is that 64 percent of a team’s scoring output can be predicted by their net yards.</p>
 <p>Last: Look at the p-value. We are looking for a p-value smaller than .05. At .05, we can say that our correlation didn’t happen at random. And, in this case, it REALLY didn’t happen at random. But if you know a little bit about football, it doesn’t surprise you that the more you outgain your opponent, the more you win by. It’s an intuitive result.</p>
 <p>What we want to do now is look at those residuals. We want to add them to our individual game records. We can do that by creating two new fields – predicted and residuals – to our dataframe like this:</p>
 <div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="residuals.html#cb141-1" aria-hidden="true" tabindex="-1"></a>residualmodel<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit)</span>
 <span id="cb141-2"><a href="residuals.html#cb141-2" aria-hidden="true" tabindex="-1"></a>residualmodel<span class="sc">$</span>residuals <span class="ot">&lt;-</span> <span class="fu">residuals</span>(fit)</span></code></pre></div>
 <p>Now we can sort our data by those residuals. Sorting in descending order gives us the games where teams overperformed the model. To make it easier to read, I’m going to use select to give us just the columns we need to see.</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="residuals.html#cb142-1" aria-hidden="true" tabindex="-1"></a>residualmodel <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(residuals)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Team, Opponent, Result, NetYards, residuals)</span></code></pre></div>
-<pre><code>## # A tibble: 1,100 x 5
-##    Team              Opponent          Result    NetYards residuals
-##    &lt;chr&gt;             &lt;chr&gt;             &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;
-##  1 Arizona State     Arizona           W (70-7)       136      48.9
-##  2 Wisconsin         Wake Forest*      W (42-28)     -252      39.3
-##  3 Kentucky          Mississippi State W (24-2)      -138      35.7
-##  4 Mississippi State Vanderbilt        W (24-17)     -274      34.6
-##  5 Kansas State      Kansas            W (55-14)       61      34.5
-##  6 Boise State       Colorado State    W (52-21)      -24      33.1
-##  7 Army              Mercer            W (49-3)       139      31.6
-##  8 Notre Dame        South Florida     W (52-0)       198      31.6
-##  9 Texas             Oklahoma State    W (41-34)     -243      31.4
-## 10 BYU               North Alabama     W (66-14)      201      31.2
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="residuals.html#cb142-1" aria-hidden="true" tabindex="-1"></a>residualmodel <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(residuals)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Team, Opponent, Result, differential, NetYards, predicted, residuals)</span></code></pre></div>
+<pre><code>## # A tibble: 1,100 x 7
+##    Team         Opponent       Result  differential NetYards predicted residuals
+##    &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;          &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Arizona Sta… Arizona        W (70-…           63      136     14.1       48.9
+##  2 Wisconsin    Wake Forest*   W (42-…           14     -252    -25.3       39.3
+##  3 Kentucky     Mississippi S… W (24-…           22     -138    -13.7       35.7
+##  4 Mississippi… Vanderbilt     W (24-…            7     -274    -27.6       34.6
+##  5 Kansas State Kansas         W (55-…           41       61      6.51      34.5
+##  6 Boise State  Colorado State W (52-…           31      -24     -2.13      33.1
+##  7 Army         Mercer         W (49-…           46      139     14.4       31.6
+##  8 Notre Dame   South Florida  W (52-…           52      198     20.4       31.6
+##  9 Texas        Oklahoma State W (41-…            7     -243    -24.4       31.4
+## 10 BYU          North Alabama  W (66-…           52      201     20.8       31.2
 ## # … with 1,090 more rows</code></pre>
 <p>So looking at this table, what you see here are the teams who scored more than their net yards would indicate. One of them should jump off the page at you.</p>
-<p>Remember Nebraska vs Rutgers? We won and everyone was happy and rel*ieved the season was over? We outgained Rutgers by <strong>368 yards</strong> in that game and won by 7. Our model predicted Nebraska should have won that game by <strong>37</strong> points. We should have blown Rutgers out of their own barn. But Rutgers isn’t as hard done as Arizona, which should have lost by 48, but ended up losing by 63.</p>
+<p>Remember Nebraska vs Rutgers? We won and everyone was happy and relieved the season was over? We outgained Rutgers by <strong>368 yards</strong> in that game and won by 7. Our model predicted Nebraska should have won that game by <strong>37</strong> points. We should have blown Rutgers out of their own barn. But Rutgers isn’t as hard done as Arizona, which should have lost by 48, but ended up losing by 63.</p>
 <p>But, before we can bestow any validity on this model, we need to see if this linear model is appropriate. We’ve done that some looking at our p-values and R-squared values. But one more check is to look at the residuals themselves. We do that by plotting the residuals with the predictor. We’ll get into plotting soon, but for now just seeing it is enough.</p>
 <p><img src="SportsData_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
 <p>The lack of a shape here – the seemingly random nature – is a good sign that a linear model works for our data. If there was a pattern, that would indicate something else was going on in our data and we needed a different model.</p>
