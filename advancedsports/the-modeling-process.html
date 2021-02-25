@@ -24,7 +24,7 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2021-02-08" />
+<meta name="date" content="2021-02-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -59,6 +59,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -158,7 +159,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#decision-trees"><i class="fa fa-check"></i><b>4.2</b> Decision trees</a></li>
 <li class="chapter" data-level="4.3" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#random-forest"><i class="fa fa-check"></i><b>4.3</b> Random forest</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="xgboost.html"><a href="xgboost.html"><i class="fa fa-check"></i><b>5</b> XGBoost</a></li>
+<li class="chapter" data-level="5" data-path="xgboost.html"><a href="xgboost.html"><i class="fa fa-check"></i><b>5</b> XGBoost</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="xgboost.html"><a href="xgboost.html#hyperparameters"><i class="fa fa-check"></i><b>5.1</b> Hyperparameters</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>6</b> Support Vector Machines</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -232,7 +236,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-2"><a href="the-modeling-process.html#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="the-modeling-process.html#cb12-3" aria-hidden="true" tabindex="-1"></a>game_split</span></code></pre></div>
 <pre><code>## &lt;Analysis/Assess/Total&gt;
-## &lt;48108/12026/60134&gt;</code></pre>
+## &lt;50418/12604/63022&gt;</code></pre>
 <p>What does this mean? It says that <code>initial_split</code> divided the data into 48,108 games in analysis (or training), 12,026 into assess (or test), of the 60,134 total records in the dataset. But the split object isn’t useful to us. We need to assign them to dataframes. We do so like this:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="the-modeling-process.html#cb14-1" aria-hidden="true" tabindex="-1"></a>game_train <span class="ot">&lt;-</span> <span class="fu">training</span>(game_split)</span>
 <span id="cb14-2"><a href="the-modeling-process.html#cb14-2" aria-hidden="true" tabindex="-1"></a>game_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(game_split)</span></code></pre></div>
@@ -255,8 +259,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 2 x 7
 ##   term        estimate std.error statistic p.value conf.low conf.high
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-## 1 (Intercept)     16.0     0.254      63.0       0     15.5      16.5
-## 2 TeamFGPCT      126.      0.570     221.        0    125.      127.</code></pre>
+## 1 (Intercept)     16.1     0.247      65.3       0     15.7      16.6
+## 2 TeamFGPCT      126.      0.555     227.        0    125.      127.</code></pre>
 <p>The two most important things to see here are the terms and the estimates. Start with TeamFGPCT. What that says is for every 10 percentage points of shooting percentage, a team should score 12.6 points. <em>HOWEVER</em>, the intercept has something to say about this. What the intercept says is that a team with a big fat zero for shooting percentage is going to score just a hair short of 16 points.</p>
 <p>Wait … how? Well, are field goals the only way to score in basketball? No. So there’s some of your non-zero intercept.</p>
 <p>Think again about y = mx + b. We have our terms here: y is team score, m is 126.26, x is the team shooting percentage and b is 15.98997. Let’s pretend for a minute that you coached a team that shot 40 percent in college basketball. Our model predicts you would score about 66 points.</p>
@@ -273,9 +277,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       9.33 
-## 2 rsq     standard       0.505
-## 3 mae     standard       7.27</code></pre>
+## 1 rmse    standard       9.29 
+## 2 rsq     standard       0.504
+## 3 mae     standard       7.24</code></pre>
 <p>We’ll get more into RMSE and MAE later. For now, focus on rsq or r-squared. What that says is that changes in shooting percentage account for 50.48 percent of the variation in team score. That’s pretty good. Not great, but for one stat, it’s not bad.</p>
 <p>A way to look at this is with a scatterplot. The geom_smooth creates its own linear model and puts the line of best fit through our dots.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="the-modeling-process.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
@@ -313,9 +317,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       9.23 
-## 2 rsq     standard       0.501
-## 3 mae     standard       7.21</code></pre>
+## 1 rmse    standard       9.25 
+## 2 rsq     standard       0.499
+## 3 mae     standard       7.20</code></pre>
 <p>If you look at the r-squared value, you’ll note that when we apply the same model to our test data, the amount of variance that we can explain goes down a little. It’s not much, so the model does a decent job of predicting data we haven’t seen before, which is the whole point of creating a model.</p>
 </div>
 <div id="looking-locally" class="section level2" number="2.4">
@@ -325,7 +329,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="the-modeling-process.html#cb32-1" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> games <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Season <span class="sc">==</span> <span class="st">&quot;2020-2021&quot;</span>, Team <span class="sc">==</span> <span class="st">&quot;Nebraska&quot;</span>)</span>
 <span id="cb32-2"><a href="the-modeling-process.html#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="the-modeling-process.html#cb32-3" aria-hidden="true" tabindex="-1"></a>nu</span></code></pre></div>
-<pre><code>## # A tibble: 12 x 48
+<pre><code>## # A tibble: 19 x 48
 ##    Season  Game Date       TeamFull Opponent HomeAway W_L   TeamScore
 ##    &lt;chr&gt;  &lt;dbl&gt; &lt;date&gt;     &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;     &lt;dbl&gt;
 ##  1 2020-…     1 2020-11-25 Nebrask… McNeese… &lt;NA&gt;     W           102
@@ -340,6 +344,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 10 2020-…    10 2020-12-30 Nebrask… Ohio St… @        L            54
 ## 11 2020-…    11 2021-01-02 Nebrask… Michiga… &lt;NA&gt;     L            77
 ## 12 2020-…    12 2021-01-10 Nebrask… Indiana  &lt;NA&gt;     L            76
+## 13 2020-…    13 2021-02-06 Nebrask… Michiga… @        L            56
+## 14 2020-…    14 2021-02-08 Nebrask… Minneso… @        L            61
+## 15 2020-…    15 2021-02-10 Nebrask… Wiscons… &lt;NA&gt;     L            48
+## 16 2020-…    16 2021-02-12 Nebrask… Illinois &lt;NA&gt;     L (1…        72
+## 17 2020-…    17 2021-02-14 Nebrask… Penn St… @        W            62
+## 18 2020-…    18 2021-02-16 Nebrask… Maryland @        L            50
+## 19 2020-…    19 2021-02-17 Nebrask… Maryland @        L            71
 ## # … with 40 more variables: OpponentScore &lt;dbl&gt;, TeamFG &lt;dbl&gt;, TeamFGA &lt;dbl&gt;,
 ## #   TeamFGPCT &lt;dbl&gt;, Team3P &lt;dbl&gt;, Team3PA &lt;dbl&gt;, Team3PPCT &lt;dbl&gt;,
 ## #   TeamFT &lt;dbl&gt;, TeamFTA &lt;dbl&gt;, TeamFTPCT &lt;dbl&gt;, TeamOffRebounds &lt;dbl&gt;,
@@ -360,21 +371,28 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb35-2"><a href="the-modeling-process.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Residual =</span> TeamScore <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span> </span>
 <span id="cb35-3"><a href="the-modeling-process.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Residual)) <span class="sc">%&gt;%</span> </span>
 <span id="cb35-4"><a href="the-modeling-process.html#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Team, Opponent, TeamScore, .pred, Residual)</span></code></pre></div>
-<pre><code>## # A tibble: 12 x 5
+<pre><code>## # A tibble: 19 x 5
 ##    Team     Opponent           TeamScore .pred Residual
 ##    &lt;chr&gt;    &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Nebraska Doane College            110  85.9   24.1  
-##  2 Nebraska McNeese State            102  79.1   22.9  
+##  1 Nebraska Doane College            110  85.8   24.2  
+##  2 Nebraska McNeese State            102  79.0   23.0  
 ##  3 Nebraska Nevada                    66  52.6   13.4  
-##  4 Nebraska South Dakota              76  66.5    9.51 
-##  5 Nebraska North Dakota State        79  74.1    4.93 
-##  6 Nebraska Michigan                  69  65.4    3.64 
-##  7 Nebraska Creighton                 74  71.4    2.58 
-##  8 Nebraska Indiana                   76  73.6    2.44 
-##  9 Nebraska Ohio State                54  51.7    2.28 
-## 10 Nebraska Georgia Tech              64  63.6    0.411
-## 11 Nebraska Michigan State            77  78.0   -0.982
-## 12 Nebraska Wisconsin                 53  58.0   -5.03</code></pre>
+##  4 Nebraska South Dakota              76  66.5    9.54 
+##  5 Nebraska Illinois                  72  62.6    9.44 
+##  6 Nebraska North Dakota State        79  74.0    5.00 
+##  7 Nebraska Michigan                  69  65.3    3.67 
+##  8 Nebraska Creighton                 74  71.4    2.64 
+##  9 Nebraska Indiana                   76  73.5    2.50 
+## 10 Nebraska Ohio State                54  51.7    2.26 
+## 11 Nebraska Maryland                  71  70.1    0.895
+## 12 Nebraska Georgia Tech              64  63.6    0.435
+## 13 Nebraska Michigan State            77  77.9   -0.904
+## 14 Nebraska Minnesota                 61  62.4   -1.43 
+## 15 Nebraska Wisconsin                 53  58.0   -5.03 
+## 16 Nebraska Michigan State            56  61.7   -5.68 
+## 17 Nebraska Maryland                  50  58.0   -8.03 
+## 18 Nebraska Wisconsin                 48  62.3  -14.3  
+## 19 Nebraska Penn State                62  76.8  -14.8</code></pre>
 <p>What does this mean? It says the model predicted the team would score 86 against Doane and they put up 110, for a 24 point miss (residual). For most games, the prediction is within a few points – it nailed the Georgia Tech game - and we did worse against Wisconsin than the model would have guessed. We underperformed, in a manner of speaking.</p>
 <p>Linear models are incredibly important to understand — they underpin many of the more advanced methods we’ll talk about going forward — so understanding them now is critical.</p>
 

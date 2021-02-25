@@ -15,4 +15,5 @@ an-intro-to-pre-processing
 decision-trees
 random-forest
 xgboost
+hyperparameters
 support-vector-machines

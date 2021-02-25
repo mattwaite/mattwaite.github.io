@@ -24,7 +24,7 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2021-02-08" />
+<meta name="date" content="2021-02-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -59,6 +59,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -158,7 +159,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#decision-trees"><i class="fa fa-check"></i><b>4.2</b> Decision trees</a></li>
 <li class="chapter" data-level="4.3" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#random-forest"><i class="fa fa-check"></i><b>4.3</b> Random forest</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="xgboost.html"><a href="xgboost.html"><i class="fa fa-check"></i><b>5</b> XGBoost</a></li>
+<li class="chapter" data-level="5" data-path="xgboost.html"><a href="xgboost.html"><i class="fa fa-check"></i><b>5</b> XGBoost</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="xgboost.html"><a href="xgboost.html#hyperparameters"><i class="fa fa-check"></i><b>5.1</b> Hyperparameters</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>6</b> Support Vector Machines</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -238,8 +242,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Now, we’re going to use steps to transform our data. Some models are affected by data being on different scales, so we might have to normalize them. Here’s how to do that:</p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="decision-trees-and-random-forests.html#cb76-1" aria-hidden="true" tabindex="-1"></a>score_rec <span class="ot">&lt;-</span> </span>
 <span id="cb76-2"><a href="decision-trees-and-random-forests.html#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(TeamScore <span class="sc">~</span> ., <span class="at">data =</span> game_train) <span class="sc">%&gt;%</span></span>
-<span id="cb76-3"><a href="decision-trees-and-random-forests.html#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(Team, Opponent, Date, Season, <span class="at">new_role =</span> <span class="st">&quot;ID&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb76-4"><a href="decision-trees-and-random-forests.html#cb76-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(TeamPossessions, TeamPPP)</span></code></pre></div>
+<span id="cb76-3"><a href="decision-trees-and-random-forests.html#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(Team, Opponent, Date, Season, <span class="at">new_role =</span> <span class="st">&quot;ID&quot;</span>)</span></code></pre></div>
 <p>Now that we’ve created our pre-processing recipe, we can create our model definition.</p>
 </div>
 <div id="decision-trees" class="section level2" number="4.2">
@@ -262,37 +265,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb80-2"><a href="decision-trees-and-random-forests.html#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull_workflow_fit</span>() </span></code></pre></div>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  148ms 
-## n= 48108 
+## Fit time:  161ms 
+## n= 50418 
 ## 
 ## node), split, n, deviance, yval
 ##       * denotes terminal node
 ## 
-##  1) root 48108 8453411.00  71.36264  
-##    2) TeamPPP&lt; -0.05416916 23154 1837015.00  62.10029  
-##      4) TeamPPP&lt; -0.8976393 8875  442669.00  55.05093  
-##        8) TeamPPP&lt; -1.619514 2415   82997.80  48.25756 *
-##        9) TeamPPP&gt;=-1.619514 6460  206554.00  57.59056  
-##         18) TeamPossessions&lt; 0.1127405 3818   53447.02  54.19487 *
-##         19) TeamPossessions&gt;=0.1127405 2642   45462.49  62.49773 *
-##      5) TeamPPP&gt;=-0.8976393 14279  679199.00  66.48176  
-##       10) TeamPossessions&lt; 0.1886111 8556  162907.50  62.43560 *
-##       11) TeamPossessions&gt;=0.1886111 5723  166805.30  72.53084 *
-##    3) TeamPPP&gt;=-0.05416916 24954 2786860.00  79.95688  
-##      6) TeamPossessions&lt; 0.2885382 15960  956834.70  75.38277  
-##       12) TeamPPP&lt; 0.8668753 10137  257020.10  71.47529  
-##         24) TeamPossessions&lt; -0.6811247 3897   60186.35  67.12163 *
-##         25) TeamPossessions&gt;=-0.6811247 6240   76838.59  74.19423 *
-##       13) TeamPPP&gt;=0.8668753 5823  275596.40  82.18513  
-##         26) TeamPossessions&lt; -0.6700217 2393   78411.80  77.46803 *
-##         27) TeamPossessions&gt;=-0.6700217 3430  106789.50  85.47609 *
-##      7) TeamPossessions&gt;=0.2885382 8994  903550.10  88.07372  
-##       14) TeamPPP&lt; 1.019439 6403  254741.00  83.76620  
-##         28) TeamPossessions&lt; 1.413643 4914   85442.45  81.47131 *
-##         29) TeamPossessions&gt;=1.413643 1489   58010.05  91.33983 *
-##       15) TeamPPP&gt;=1.019439 2591  236405.90  98.71864  
-##         30) TeamPPP&lt; 1.972357 2080   94394.44  95.83221 *
-##         31) TeamPPP&gt;=1.972357 511   54143.22 110.46770 *</code></pre>
+##  1) root 50418 8780904.00  71.32496  
+##    2) TeamPPP&lt; 0.9996455 24225 1913906.00  62.08970  
+##      4) TeamPPP&lt; 0.866317 9286  462327.10  55.06386  
+##        8) TeamPPP&lt; 0.7529567 2533   87648.99  48.32649 *
+##        9) TeamPPP&gt;=0.7529567 6753  216572.30  57.59100  
+##         18) TeamPossessions&lt; 71.5625 4006   55649.52  54.19446 *
+##         19) TeamPossessions&gt;=71.5625 2747   47311.38  62.54423 *
+##      5) TeamPPP&gt;=0.866317 14939  708273.00  66.45692  
+##       10) TeamPossessions&lt; 72.0375 8966  169239.00  62.42349 *
+##       11) TeamPossessions&gt;=72.0375 5973  174214.50  72.51147 *
+##    3) TeamPPP&gt;=0.9996455 26193 2889933.00  79.86634  
+##      6) TeamPossessions&lt; 72.6625 16793 1002423.00  75.34741  
+##       12) TeamPPP&lt; 1.142428 10556  261168.30  71.38537  
+##         24) TeamPossessions&lt; 66.1625 4065   61802.90  67.07700 *
+##         25) TeamPossessions&gt;=66.1625 6491   76656.74  74.08350 *
+##       13) TeamPPP&gt;=1.142428 6237  295097.40  82.05307  
+##         26) TeamPossessions&lt; 66.5875 2760   91959.74  77.64529 *
+##         27) TeamPossessions&gt;=66.5875 3477  106949.90  85.55191 *
+##      7) TeamPossessions&gt;=72.6625 9400  931951.40  87.93936  
+##       14) TeamPPP&lt; 1.163197 6543  248831.40  83.49274  
+##         28) TeamPossessions&lt; 80.3125 5054   84147.57  81.26890 *
+##         29) TeamPossessions&gt;=80.3125 1489   54852.50  91.04097 *
+##       15) TeamPPP&gt;=1.163197 2857  257467.90  98.12286  
+##         30) TeamPPP&lt; 1.293652 2153   90636.72  94.79981 *
+##         31) TeamPPP&gt;=1.293652 704   70347.61 108.28550 *</code></pre>
 <p>They can be a bit tough to read, but take the bottom three nodes, starting with 15. It says if TeamPPP is greater than or equal to 1.01 – you’re scoring more than a point per possession – your score is around 98 points a game. But the terminal nodes – the actual decisions – within this branch – say if it’s less than 1.97 per possession, your score is 95.83, but if it’s greater or equal to 1.97 – and there’s 511 games where teams were scoring nearly a bucket every trip up the floor – their score is 110.47.</p>
 <p>Easy to understand, right? The algorithm cuts branches when the splits stop reducing error, and there’s a limit But here’s where the crude instrument comes in.</p>
 <p>Let’s use our decision tree to predict some scores.</p>
@@ -303,9 +306,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       4.84 
+## 1 rmse    standard       4.82 
 ## 2 rsq     standard       0.867
-## 3 mae     standard       3.72</code></pre>
+## 3 mae     standard       3.69</code></pre>
 <p>Our rsquared is .8668, which would under most circumstances would be great. And our RSME says were off by almost five points on average, which is a little worse than our multiple regression analysis.</p>
 <p>We can do better.</p>
 </div>
@@ -330,9 +333,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Model: rand_forest()
 ## 
 ## ── Preprocessor ────────────────────────────────────────────────────────────────
-## 1 Recipe Step
-## 
-## ● step_normalize()
+## 0 Recipe Steps
 ## 
 ## ── Model ───────────────────────────────────────────────────────────────────────
 ## Random Forest Model Specification (regression)
@@ -348,7 +349,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb89-2"><a href="decision-trees-and-random-forests.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull_workflow_fit</span>() </span></code></pre></div>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  16s 
+## Fit time:  16.6s 
 ## Ranger result
 ## 
 ## Call:
@@ -356,14 +357,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Type:                             Regression 
 ## Number of trees:                  500 
-## Sample size:                      48108 
+## Sample size:                      50418 
 ## Number of independent variables:  2 
 ## Mtry:                             1 
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       0.1445086 
-## R squared (OOB):                  0.9991776</code></pre>
+## OOB prediction error (MSE):       0.1401598 
+## R squared (OOB):                  0.9991952</code></pre>
 <p>Similar to previous work, we can bind the prediction to our training data and evaluate the model.</p>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="decision-trees-and-random-forests.html#cb91-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
 <span id="cb91-2"><a href="decision-trees-and-random-forests.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(score_fit, game_train))</span></code></pre></div>
@@ -371,9 +372,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard      0.197 
+## 1 rmse    standard      0.193 
 ## 2 rsq     standard      1.00  
-## 3 mae     standard      0.0555</code></pre>
+## 3 mae     standard      0.0521</code></pre>
 <p>Note: The RMSE for this model is down to .2. The R-squared is absurdly high.</p>
 <p>But how does this model handle data it hasn’t seen before?</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="decision-trees-and-random-forests.html#cb94-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> game_test <span class="sc">%&gt;%</span></span>
@@ -382,9 +383,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard      0.281 
+## 1 rmse    standard      0.280 
 ## 2 rsq     standard      1.00  
-## 3 mae     standard      0.0819</code></pre>
+## 3 mae     standard      0.0779</code></pre>
 <p>How well does the random forest algorithm do with Nebraska’s schedule in 2020-2021 prior to a month-long COVID break?</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="decision-trees-and-random-forests.html#cb97-1" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> games <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Season <span class="sc">==</span> <span class="st">&quot;2020-2021&quot;</span>, Team <span class="sc">==</span> <span class="st">&quot;Nebraska&quot;</span>)</span>
 <span id="cb97-2"><a href="decision-trees-and-random-forests.html#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -392,21 +393,28 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb97-4"><a href="decision-trees-and-random-forests.html#cb97-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(score_fit, nu))</span>
 <span id="cb97-5"><a href="decision-trees-and-random-forests.html#cb97-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb97-6"><a href="decision-trees-and-random-forests.html#cb97-6" aria-hidden="true" tabindex="-1"></a>nupreds <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Residual =</span> TeamScore <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Residual)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Team, Opponent, TeamScore, .pred, Residual)</span></code></pre></div>
-<pre><code>## # A tibble: 12 x 5
-##    Team     Opponent           TeamScore .pred  Residual
-##    &lt;chr&gt;    &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
-##  1 Nebraska Doane College            110 110.   0.204   
-##  2 Nebraska Ohio State                54  53.9  0.119   
-##  3 Nebraska Creighton                 74  74.0  0.0346  
-##  4 Nebraska Wisconsin                 53  53.0  0.0260  
-##  5 Nebraska Michigan                  69  69.0  0.0203  
-##  6 Nebraska North Dakota State        79  79.0 -0.000677
-##  7 Nebraska Georgia Tech              64  64.0 -0.0116  
-##  8 Nebraska Michigan State            77  77.0 -0.0131  
-##  9 Nebraska Indiana                   76  76.0 -0.0169  
-## 10 Nebraska McNeese State            102 102.  -0.0393  
-## 11 Nebraska Nevada                    66  66.0 -0.0396  
-## 12 Nebraska South Dakota              76  76.1 -0.0569</code></pre>
+<pre><code>## # A tibble: 19 x 5
+##    Team     Opponent           TeamScore .pred   Residual
+##    &lt;chr&gt;    &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
+##  1 Nebraska Ohio State                54  53.8  0.209    
+##  2 Nebraska Doane College            110 110.   0.0731   
+##  3 Nebraska McNeese State            102 102.   0.0647   
+##  4 Nebraska Maryland                  50  50.0  0.0376   
+##  5 Nebraska Penn State                62  62.0  0.0246   
+##  6 Nebraska Michigan                  69  69.0  0.0147   
+##  7 Nebraska North Dakota State        79  79.0 -0.0000908
+##  8 Nebraska Wisconsin                 53  53.0 -0.000654 
+##  9 Nebraska Georgia Tech              64  64.0 -0.00176  
+## 10 Nebraska Michigan State            77  77.0 -0.00326  
+## 11 Nebraska Illinois                  72  72.0 -0.00431  
+## 12 Nebraska Maryland                  71  71.0 -0.00563  
+## 13 Nebraska Indiana                   76  76.0 -0.0177   
+## 14 Nebraska Minnesota                 61  61.0 -0.0303   
+## 15 Nebraska South Dakota              76  76.0 -0.0318   
+## 16 Nebraska Nevada                    66  66.0 -0.0420   
+## 17 Nebraska Wisconsin                 48  48.1 -0.0551   
+## 18 Nebraska Creighton                 74  74.1 -0.104    
+## 19 Nebraska Michigan State            56  56.2 -0.168</code></pre>
 <p>Compare this to the multiple regression of the previous chapter. Take just the Doane game as an example. The multiple regression model was off by three points – which is really good when you think about it. But the random forest managed to be a tenth of that off. It’s off by just a third of a point. It can’t get much better than that.</p>
 
 </div>
