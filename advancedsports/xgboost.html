@@ -24,7 +24,7 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2021-02-24" />
+<meta name="date" content="2021-02-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -230,22 +230,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## ℹ Use `spec()` for the full column specifications.</code></pre>
 <p>Now we’ll do a spot of feature engineering. I’m going to combine a rolling mean and a cumulative mean with the opponent’s rating to try and predict possessions.</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="xgboost.html#cb112-1" aria-hidden="true" tabindex="-1"></a>rolling <span class="ot">&lt;-</span> games <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
-<span id="cb112-2"><a href="xgboost.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">TeamPossessions =</span> TeamFGA <span class="sc">-</span> TeamOffRebounds <span class="sc">+</span> TeamTurnovers <span class="sc">+</span> (.<span class="dv">475</span> <span class="sc">*</span> TeamFTA),</span>
-<span id="cb112-3"><a href="xgboost.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">TeamPPP =</span> TeamScore<span class="sc">/</span>TeamPossessions) <span class="sc">%&gt;%</span></span>
+<span id="cb112-2"><a href="xgboost.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Possessions =</span> .<span class="dv">5</span><span class="sc">*</span>(TeamFGA <span class="sc">-</span> TeamOffRebounds <span class="sc">+</span> TeamTurnovers <span class="sc">+</span> (.<span class="dv">475</span> <span class="sc">*</span> TeamFTA)) <span class="sc">+</span> .<span class="dv">5</span><span class="sc">*</span>(OpponentFGA <span class="sc">-</span> OpponentOffRebounds <span class="sc">+</span> OpponentTurnovers <span class="sc">+</span> (.<span class="dv">475</span> <span class="sc">*</span> OpponentFTA)),</span>
+<span id="cb112-3"><a href="xgboost.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">TeamPPP =</span> TeamScore<span class="sc">/</span>Possessions) <span class="sc">%&gt;%</span></span>
 <span id="cb112-4"><a href="xgboost.html#cb112-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Team, Season) <span class="sc">%&gt;%</span></span>
 <span id="cb112-5"><a href="xgboost.html#cb112-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb112-6"><a href="xgboost.html#cb112-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rolling_Mean_Possessions =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(TeamPossessions,<span class="at">n=</span><span class="dv">1</span>), <span class="at">k =</span> <span class="dv">2</span>, <span class="at">fill=</span>TeamPossessions),</span>
+<span id="cb112-6"><a href="xgboost.html#cb112-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rolling_Mean_Possessions =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(Possessions,<span class="at">n=</span><span class="dv">1</span>), <span class="at">k =</span> <span class="dv">2</span>, <span class="at">fill=</span>Possessions),</span>
 <span id="cb112-7"><a href="xgboost.html#cb112-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rolling_Mean_Turnovers =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(TeamTurnovers,<span class="at">n=</span><span class="dv">1</span>), <span class="at">k =</span> <span class="dv">2</span>, <span class="at">fill=</span>TeamTurnovers),</span>
 <span id="cb112-8"><a href="xgboost.html#cb112-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Rolling_Mean_FGA =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(TeamFGA,<span class="at">n=</span><span class="dv">1</span>), <span class="at">k =</span> <span class="dv">2</span>, <span class="at">fill=</span>TeamFGA),</span>
-<span id="cb112-9"><a href="xgboost.html#cb112-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Cumulative_Mean_Possessions =</span> <span class="fu">cummean</span>(TeamPossessions),</span>
-<span id="cb112-10"><a href="xgboost.html#cb112-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> <span class="fu">select</span>(Team, Opponent, Date, Season, TeamPossessions, Rolling_Mean_Possessions, Cumulative_Mean_Possessions, Rolling_Mean_Turnovers, Rolling_Mean_FGA, OpponentSRS) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>()</span></code></pre></div>
+<span id="cb112-9"><a href="xgboost.html#cb112-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Cumulative_Mean_Possessions =</span> <span class="fu">cummean</span>(Possessions),</span>
+<span id="cb112-10"><a href="xgboost.html#cb112-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> <span class="fu">select</span>(Team, Opponent, Date, Season, Possessions, Rolling_Mean_Possessions, Cumulative_Mean_Possessions, Rolling_Mean_Turnovers, Rolling_Mean_FGA, OpponentSRS) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>()</span></code></pre></div>
 <p>Per usual, we split our data into training and testing.</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="xgboost.html#cb113-1" aria-hidden="true" tabindex="-1"></a>rolling_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(rolling, <span class="at">prop =</span> .<span class="dv">8</span>)</span>
 <span id="cb113-2"><a href="xgboost.html#cb113-2" aria-hidden="true" tabindex="-1"></a>rolling_train <span class="ot">&lt;-</span> <span class="fu">training</span>(rolling_split)</span>
 <span id="cb113-3"><a href="xgboost.html#cb113-3" aria-hidden="true" tabindex="-1"></a>rolling_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(rolling_split)</span></code></pre></div>
 <p>And our recipe.</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="xgboost.html#cb114-1" aria-hidden="true" tabindex="-1"></a>rolling_rec <span class="ot">&lt;-</span> </span>
-<span id="cb114-2"><a href="xgboost.html#cb114-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(TeamPossessions <span class="sc">~</span> ., <span class="at">data =</span> rolling_train) <span class="sc">%&gt;%</span></span>
+<span id="cb114-2"><a href="xgboost.html#cb114-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(Possessions <span class="sc">~</span> ., <span class="at">data =</span> rolling_train) <span class="sc">%&gt;%</span></span>
 <span id="cb114-3"><a href="xgboost.html#cb114-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(Team, Opponent, Date, Season, <span class="at">new_role =</span> <span class="st">&quot;ID&quot;</span>)</span>
 <span id="cb114-4"><a href="xgboost.html#cb114-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb114-5"><a href="xgboost.html#cb114-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rolling_rec)</span></code></pre></div>
@@ -261,7 +261,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##  7 Rolling_Mean_Turnovers      numeric predictor original
 ##  8 Rolling_Mean_FGA            numeric predictor original
 ##  9 OpponentSRS                 numeric predictor original
-## 10 TeamPossessions             numeric outcome   original</code></pre>
+## 10 Possessions                 numeric outcome   original</code></pre>
 <p>To this point, everything looks like what we’ve done before. Nothing has really changed. It’s about to.</p>
 <div id="hyperparameters" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Hyperparameters</h2>
@@ -310,16 +310,16 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 <pre><code>## # A tibble: 30 x 7
 ##    trees tree_depth min_n loss_reduction sample_size  mtry learn_rate
 ##    &lt;int&gt;      &lt;int&gt; &lt;int&gt;          &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt;
-##  1  1257         14    16       3.49e- 8       0.688     2   2.41e-10
-##  2   569          9    27       6.65e- 9       0.445     1   1.16e- 3
-##  3  1990          7    25       1.11e- 3       0.185     6   1.92e- 7
-##  4  1594         10    12       2.17e-10       0.619     5   3.19e- 6
-##  5   475          1    14       2.78e- 7       0.731     4   2.18e- 9
-##  6   696          9    23       3.92e- 7       0.133     9   1.59e- 8
-##  7  1741         11    36       2.49e- 5       0.194     9   6.11e- 3
-##  8   664         11    35       2.28e+ 1       0.298     5   4.25e- 2
-##  9  1401         15    33       2.68e+ 0       0.348     7   3.52e- 9
-## 10    56          8     7       1.69e- 8       0.477     5   1.50e- 6
+##  1   592         10    27 0.00700              0.941     3   1.25e- 5
+##  2   752         15    32 0.0000000908         0.570     7   1.48e- 3
+##  3   606         14    21 0.00000000649        0.433     7   9.96e- 8
+##  4  1059         12    30 0.0000150            0.246     1   4.39e- 6
+##  5  1594         11     9 0.000000494          0.590     5   2.84e- 6
+##  6  1088          6    20 0.00000548           0.484     3   9.79e-10
+##  7  1969          2    37 0.00000000219        0.219     2   4.65e- 7
+##  8  1302          8    39 2.08                 0.171     6   9.93e- 9
+##  9   200          9    17 0.000000000166       0.341     3   1.35e- 8
+## 10  1524          4    35 0.000269             0.382     2   1.15e- 7
 ## # … with 20 more rows</code></pre>
 <p>How do we tune it? Using something called cross fold validation. Cross fold validation takes our grid, applies it to a set of subsets (in our case 10 subsets) and compares. When it’s done, each validation set will have a set of tuned values and outcomes that we can evaluate and pick the optimal set to get a result.</p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="xgboost.html#cb120-1" aria-hidden="true" tabindex="-1"></a>rolling_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(rolling_train)</span>
@@ -377,31 +377,31 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 ## # A tibble: 10 x 5
 ##    splits            id     .metrics         .notes         .predictions        
 ##    &lt;list&gt;            &lt;chr&gt;  &lt;list&gt;           &lt;list&gt;         &lt;list&gt;              
-##  1 &lt;split [32.7K/3.… Fold01 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,930 × …
-##  2 &lt;split [32.7K/3.… Fold02 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,930 × …
-##  3 &lt;split [32.7K/3.… Fold03 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,930 × …
-##  4 &lt;split [32.7K/3.… Fold04 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,930 × …
-##  5 &lt;split [32.7K/3.… Fold05 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,930 × …
-##  6 &lt;split [32.7K/3.… Fold06 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,930 × …
-##  7 &lt;split [32.7K/3.… Fold07 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,930 × …
-##  8 &lt;split [32.7K/3.… Fold08 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,930 × …
-##  9 &lt;split [32.7K/3.… Fold09 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,930 × …
-## 10 &lt;split [32.7K/3.… Fold10 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,930 × …</code></pre>
+##  1 &lt;split [32.7K/3.… Fold01 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,900 × …
+##  2 &lt;split [32.7K/3.… Fold02 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,900 × …
+##  3 &lt;split [32.7K/3.… Fold03 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,900 × …
+##  4 &lt;split [32.7K/3.… Fold04 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,900 × …
+##  5 &lt;split [32.7K/3.… Fold05 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,900 × …
+##  6 &lt;split [32.7K/3.… Fold06 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,870 × …
+##  7 &lt;split [32.7K/3.… Fold07 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,870 × …
+##  8 &lt;split [32.7K/3.… Fold08 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,870 × …
+##  9 &lt;split [32.7K/3.… Fold09 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,870 × …
+## 10 &lt;split [32.7K/3.… Fold10 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,870 × …</code></pre>
 <p>So our grid has run on all of our validation samples, and what do we see?</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="xgboost.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(xgb_res)</span></code></pre></div>
 <pre><code>## # A tibble: 60 x 13
 ##     mtry trees min_n tree_depth learn_rate loss_reduction sample_size .metric
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;int&gt;      &lt;dbl&gt;          &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  
-##  1     4   475    14          1    2.18e-9    0.000000278       0.731 rmse   
-##  2     4   475    14          1    2.18e-9    0.000000278       0.731 rsq    
-##  3     6  1114    17          2    9.26e-6    1.61              0.240 rmse   
-##  4     6  1114    17          2    9.26e-6    1.61              0.240 rsq    
-##  5     3  1177    31          2    6.04e-5   12.8               0.964 rmse   
-##  6     3  1177    31          2    6.04e-5   12.8               0.964 rsq    
-##  7     7   163    28          3    7.06e-9    0.000592          0.494 rmse   
-##  8     7   163    28          3    7.06e-9    0.000592          0.494 rsq    
-##  9     4  1475    32          3    1.78e-3    0.00000127        0.534 rmse   
-## 10     4  1475    32          3    1.78e-3    0.00000127        0.534 rsq    
+##  1     6  1670    18          1   2.10e-10  0.0446              0.723 rmse   
+##  2     6  1670    18          1   2.10e-10  0.0446              0.723 rsq    
+##  3     7   483    26          2   2.66e- 3  0.0000000222        0.679 rmse   
+##  4     7   483    26          2   2.66e- 3  0.0000000222        0.679 rsq    
+##  5     2  1969    37          2   4.65e- 7  0.00000000219       0.219 rmse   
+##  6     2  1969    37          2   4.65e- 7  0.00000000219       0.219 rsq    
+##  7     5   995     5          3   4.35e- 9 11.8                 0.877 rmse   
+##  8     5   995     5          3   4.35e- 9 11.8                 0.877 rsq    
+##  9     2   836    15          3   2.29e- 2  0.0000781           0.289 rmse   
+## 10     2   836    15          3   2.29e- 2  0.0000781           0.289 rsq    
 ## # … with 50 more rows, and 5 more variables: .estimator &lt;chr&gt;, mean &lt;dbl&gt;,
 ## #   n &lt;int&gt;, std_err &lt;dbl&gt;, .config &lt;chr&gt;</code></pre>
 <p>Well we see 60 combinations and the metrics from them. But that doesn’t mean much to us just eyeballing it. We want to see the best combination.</p>
@@ -409,11 +409,11 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 <pre><code>## # A tibble: 5 x 13
 ##    mtry trees min_n tree_depth learn_rate loss_reduction sample_size .metric
 ##   &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;int&gt;      &lt;dbl&gt;          &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  
-## 1    10  1665    19         12    0.00876       3.44e- 1       0.990 rmse   
-## 2     9  1741    36         11    0.00611       2.49e- 5       0.194 rmse   
-## 3     8   916     3         13    0.0172        2.81e-10       0.867 rmse   
-## 4     3  1382    24          6    0.0732        2.72e- 9       0.701 rmse   
-## 5     5   664    35         11    0.0425        2.28e+ 1       0.298 rmse   
+## 1     2   836    15          3    0.0229    0.0000781          0.289 rmse   
+## 2     8   461    14          9    0.0406    0.0198             0.649 rmse   
+## 3     8   211    25         13    0.0963    0.0689             0.739 rmse   
+## 4     8   678     2          6    0.00625   0.00333            0.837 rmse   
+## 5     7   483    26          2    0.00266   0.0000000222       0.679 rmse   
 ## # … with 5 more variables: .estimator &lt;chr&gt;, mean &lt;dbl&gt;, n &lt;int&gt;,
 ## #   std_err &lt;dbl&gt;, .config &lt;chr&gt;</code></pre>
 <p>The best combination comes up with an RMSE of 4.1708. Second is 4.1769, so very, very close.</p>
@@ -437,13 +437,13 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 ## Boosted Tree Model Specification (regression)
 ## 
 ## Main Arguments:
-##   mtry = 10
-##   trees = 1665
-##   min_n = 19
-##   tree_depth = 12
-##   learn_rate = 0.00876331042129029
-##   loss_reduction = 0.343906082245162
-##   sample_size = 0.990407944282051
+##   mtry = 2
+##   trees = 836
+##   min_n = 15
+##   tree_depth = 3
+##   learn_rate = 0.0229393295957944
+##   loss_reduction = 7.8093700714585e-05
+##   sample_size = 0.288988009898458
 ## 
 ## Engine-Specific Arguments:
 ##   nthread = cores
@@ -459,52 +459,52 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 <span id="cb140-2"><a href="xgboost.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull_workflow_fit</span>() </span></code></pre></div>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  1m 28s 
+## Fit time:  7.6s 
 ## ##### xgb.Booster
-## raw: 10.6 Mb 
+## raw: 521.6 Kb 
 ## call:
-##   xgboost::xgb.train(params = list(eta = 0.00876331042129029, max_depth = 12L, 
-##     gamma = 0.343906082245162, colsample_bytree = 1, min_child_weight = 19L, 
-##     subsample = 0.990407944282051), data = x$data, nrounds = 1665L, 
+##   xgboost::xgb.train(params = list(eta = 0.0229393295957944, max_depth = 3L, 
+##     gamma = 7.8093700714585e-05, colsample_bytree = 0.4, min_child_weight = 15L, 
+##     subsample = 0.288988009898458), data = x$data, nrounds = 836L, 
 ##     watchlist = x$watchlist, verbose = 0, objective = &quot;reg:squarederror&quot;, 
 ##     nthread = 6L)
 ## params (as set within xgb.train):
-##   eta = &quot;0.00876331042129029&quot;, max_depth = &quot;12&quot;, gamma = &quot;0.343906082245162&quot;, colsample_bytree = &quot;1&quot;, min_child_weight = &quot;19&quot;, subsample = &quot;0.990407944282051&quot;, objective = &quot;reg:squarederror&quot;, nthread = &quot;6&quot;, validate_parameters = &quot;TRUE&quot;
+##   eta = &quot;0.0229393295957944&quot;, max_depth = &quot;3&quot;, gamma = &quot;7.8093700714585e-05&quot;, colsample_bytree = &quot;0.4&quot;, min_child_weight = &quot;15&quot;, subsample = &quot;0.288988009898458&quot;, objective = &quot;reg:squarederror&quot;, nthread = &quot;6&quot;, validate_parameters = &quot;TRUE&quot;
 ## xgb.attributes:
 ##   niter
 ## callbacks:
 ##   cb.evaluation.log()
 ## # of features: 5 
-## niter: 1665
+## niter: 836
 ## nfeatures : 5 
 ## evaluation_log:
 ##     iter training_rmse
-##        1     69.588165
-##        2     68.981148
+##        1     68.595375
+##        2     67.032898
 ## ---                   
-##     1664      3.521024
-##     1665      3.520814</code></pre>
+##      835      4.027449
+##      836      4.027390</code></pre>
 <p>Now, like before, we can bind our predictions using our xg_fit to the rolling_train data.</p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="xgboost.html#cb142-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> rolling_train <span class="sc">%&gt;%</span></span>
 <span id="cb142-2"><a href="xgboost.html#cb142-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(xg_fit, rolling_train))</span></code></pre></div>
 <p>And now see how we did.</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="xgboost.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(trainresults, <span class="at">truth =</span> TeamPossessions, <span class="at">estimate =</span> .pred)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="xgboost.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(trainresults, <span class="at">truth =</span> Possessions, <span class="at">estimate =</span> .pred)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       3.52 
-## 2 rsq     standard       0.713
-## 3 mae     standard       2.72</code></pre>
+## 1 rmse    standard       4.03 
+## 2 rsq     standard       0.604
+## 3 mae     standard       3.08</code></pre>
 <p>How about the test data?</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="xgboost.html#cb145-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> rolling_test <span class="sc">%&gt;%</span></span>
 <span id="cb145-2"><a href="xgboost.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(xg_fit, rolling_test))</span></code></pre></div>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="xgboost.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(testresults, <span class="at">truth =</span> TeamPossessions, <span class="at">estimate =</span> .pred)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="xgboost.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(testresults, <span class="at">truth =</span> Possessions, <span class="at">estimate =</span> .pred)</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       4.19 
-## 2 rsq     standard       0.598
-## 3 mae     standard       3.22</code></pre>
+## 1 rmse    standard       4.13 
+## 2 rsq     standard       0.597
+## 3 mae     standard       3.16</code></pre>
 <p>More robust than the random forest, but still a fair drop in RMSE and R squared.</p>
 <p>Let’s try one where we know the outcome. In Febuary, Nebraska played Maryland back to back and lost both. Here’s the inputs for the second game:</p>
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="xgboost.html#cb148-1" aria-hidden="true" tabindex="-1"></a>poss_prediction <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -538,8 +538,8 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 ## 2 Mary… Nebraska 2021-02-16 2020-…             61.8             67.1
 ## # … with 4 more variables: Rolling_Mean_Turnovers &lt;dbl&gt;,
 ## #   Rolling_Mean_FGA &lt;dbl&gt;, OpponentSRS &lt;dbl&gt;, .pred &lt;dbl&gt;</code></pre>
-<p>Prediction: Nebraska would have 71.2 possessions, Maryland would have 62.8.</p>
-<p>Reality: Nebraska 68, Maryland 63.7.</p>
+<p>Prediction: Nebraska would have 71.8 possessions, Maryland would have 62.18. Add together and divide: 66.99.</p>
+<p>Reality: Reality: 66.2</p>
 <p>Not bad at all.</p>
 
 </div>
