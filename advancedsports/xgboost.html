@@ -24,7 +24,7 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2021-02-25" />
+<meta name="date" content="2021-03-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="decision-trees-and-random-forests.html"/>
-<link rel="next" href="support-vector-machines.html"/>
+<link rel="next" href="logistic-regression.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -163,7 +163,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1" data-path="xgboost.html"><a href="xgboost.html#hyperparameters"><i class="fa fa-check"></i><b>5.1</b> Hyperparameters</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>6</b> Support Vector Machines</a></li>
+<li class="chapter" data-level="6" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="logistic-regression.html"><a href="logistic-regression.html#visualizing-the-decision-boundary"><i class="fa fa-check"></i><b>6.1</b> Visualizing the decision boundary</a></li>
+<li class="chapter" data-level="6.2" data-path="logistic-regression.html"><a href="logistic-regression.html#the-logistic-regression"><i class="fa fa-check"></i><b>6.2</b> The logistic regression</a></li>
+<li class="chapter" data-level="6.3" data-path="logistic-regression.html"><a href="logistic-regression.html#evaluating-the-fit"><i class="fa fa-check"></i><b>6.3</b> Evaluating the fit</a></li>
+<li class="chapter" data-level="6.4" data-path="logistic-regression.html"><a href="logistic-regression.html#comparing-it-to-test-data"><i class="fa fa-check"></i><b>6.4</b> Comparing it to test data</a></li>
+<li class="chapter" data-level="6.5" data-path="logistic-regression.html"><a href="logistic-regression.html#how-well-did-it-do-with-nebraska"><i class="fa fa-check"></i><b>6.5</b> How well did it do with Nebraska?</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -308,18 +315,18 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 <span id="cb118-11"><a href="xgboost.html#cb118-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb118-12"><a href="xgboost.html#cb118-12" aria-hidden="true" tabindex="-1"></a>xgb_grid</span></code></pre></div>
 <pre><code>## # A tibble: 30 x 7
-##    trees tree_depth min_n loss_reduction sample_size  mtry learn_rate
-##    &lt;int&gt;      &lt;int&gt; &lt;int&gt;          &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt;
-##  1   592         10    27 0.00700              0.941     3   1.25e- 5
-##  2   752         15    32 0.0000000908         0.570     7   1.48e- 3
-##  3   606         14    21 0.00000000649        0.433     7   9.96e- 8
-##  4  1059         12    30 0.0000150            0.246     1   4.39e- 6
-##  5  1594         11     9 0.000000494          0.590     5   2.84e- 6
-##  6  1088          6    20 0.00000548           0.484     3   9.79e-10
-##  7  1969          2    37 0.00000000219        0.219     2   4.65e- 7
-##  8  1302          8    39 2.08                 0.171     6   9.93e- 9
-##  9   200          9    17 0.000000000166       0.341     3   1.35e- 8
-## 10  1524          4    35 0.000269             0.382     2   1.15e- 7
+##    trees tree_depth min_n loss_reduction sample_size  mtry    learn_rate
+##    &lt;int&gt;      &lt;int&gt; &lt;int&gt;          &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;         &lt;dbl&gt;
+##  1  1909         13    35 0.000000609          0.787     2 0.00000000205
+##  2   477          9    21 0.0425               0.432     4 0.000944     
+##  3  1508         12    10 0.00000000751        0.124     5 0.00000173   
+##  4  1629          3    33 0.0000435            0.702    10 0.0449       
+##  5   458         12    26 0.0169               0.488     9 0.0000000597 
+##  6   612          2    28 0.0000000157         0.615     2 0.0000350    
+##  7  1986         14    22 0.000000000103       0.586     4 0.0000533    
+##  8   378         15    38 3.86                 0.352     6 0.000637     
+##  9   149          3    26 0.0000000322         0.660     8 0.000115     
+## 10  1134          4     9 0.000000142          0.874     9 0.00733      
 ## # … with 20 more rows</code></pre>
 <p>How do we tune it? Using something called cross fold validation. Cross fold validation takes our grid, applies it to a set of subsets (in our case 10 subsets) and compares. When it’s done, each validation set will have a set of tuned values and outcomes that we can evaluate and pick the optimal set to get a result.</p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="xgboost.html#cb120-1" aria-hidden="true" tabindex="-1"></a>rolling_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(rolling_train)</span>
@@ -329,16 +336,16 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 ## # A tibble: 10 x 2
 ##    splits               id    
 ##    &lt;list&gt;               &lt;chr&gt; 
-##  1 &lt;split [32.7K/3.6K]&gt; Fold01
-##  2 &lt;split [32.7K/3.6K]&gt; Fold02
-##  3 &lt;split [32.7K/3.6K]&gt; Fold03
-##  4 &lt;split [32.7K/3.6K]&gt; Fold04
-##  5 &lt;split [32.7K/3.6K]&gt; Fold05
-##  6 &lt;split [32.7K/3.6K]&gt; Fold06
-##  7 &lt;split [32.7K/3.6K]&gt; Fold07
-##  8 &lt;split [32.7K/3.6K]&gt; Fold08
-##  9 &lt;split [32.7K/3.6K]&gt; Fold09
-## 10 &lt;split [32.7K/3.6K]&gt; Fold10</code></pre>
+##  1 &lt;split [33.3K/3.7K]&gt; Fold01
+##  2 &lt;split [33.3K/3.7K]&gt; Fold02
+##  3 &lt;split [33.3K/3.7K]&gt; Fold03
+##  4 &lt;split [33.3K/3.7K]&gt; Fold04
+##  5 &lt;split [33.3K/3.7K]&gt; Fold05
+##  6 &lt;split [33.3K/3.7K]&gt; Fold06
+##  7 &lt;split [33.3K/3.7K]&gt; Fold07
+##  8 &lt;split [33.3K/3.7K]&gt; Fold08
+##  9 &lt;split [33.3K/3.7K]&gt; Fold09
+## 10 &lt;split [33.3K/3.7K]&gt; Fold10</code></pre>
 <p>This part takes about 25-30 minutes on my machine and it will saturate all of your processors, so your computer just needs to sit there. No texting, no YouTube, nothing. Let it burn.</p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="xgboost.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">234</span>)</span>
 <span id="cb122-2"><a href="xgboost.html#cb122-2" aria-hidden="true" tabindex="-1"></a>doParallel<span class="sc">::</span><span class="fu">registerDoParallel</span>(<span class="at">cores =</span> cores)</span>
@@ -377,31 +384,31 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 ## # A tibble: 10 x 5
 ##    splits            id     .metrics         .notes         .predictions        
 ##    &lt;list&gt;            &lt;chr&gt;  &lt;list&gt;           &lt;list&gt;         &lt;list&gt;              
-##  1 &lt;split [32.7K/3.… Fold01 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,900 × …
-##  2 &lt;split [32.7K/3.… Fold02 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,900 × …
-##  3 &lt;split [32.7K/3.… Fold03 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,900 × …
-##  4 &lt;split [32.7K/3.… Fold04 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,900 × …
-##  5 &lt;split [32.7K/3.… Fold05 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,900 × …
-##  6 &lt;split [32.7K/3.… Fold06 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,870 × …
-##  7 &lt;split [32.7K/3.… Fold07 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,870 × …
-##  8 &lt;split [32.7K/3.… Fold08 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,870 × …
-##  9 &lt;split [32.7K/3.… Fold09 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,870 × …
-## 10 &lt;split [32.7K/3.… Fold10 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [108,870 × …</code></pre>
+##  1 &lt;split [33.3K/3.… Fold01 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [111,120 × …
+##  2 &lt;split [33.3K/3.… Fold02 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [111,120 × …
+##  3 &lt;split [33.3K/3.… Fold03 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [111,120 × …
+##  4 &lt;split [33.3K/3.… Fold04 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [111,090 × …
+##  5 &lt;split [33.3K/3.… Fold05 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [111,090 × …
+##  6 &lt;split [33.3K/3.… Fold06 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [111,090 × …
+##  7 &lt;split [33.3K/3.… Fold07 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [111,090 × …
+##  8 &lt;split [33.3K/3.… Fold08 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [111,090 × …
+##  9 &lt;split [33.3K/3.… Fold09 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [111,090 × …
+## 10 &lt;split [33.3K/3.… Fold10 &lt;tibble [60 × 1… &lt;tibble [0 × … &lt;tibble [111,090 × …</code></pre>
 <p>So our grid has run on all of our validation samples, and what do we see?</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="xgboost.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(xgb_res)</span></code></pre></div>
 <pre><code>## # A tibble: 60 x 13
 ##     mtry trees min_n tree_depth learn_rate loss_reduction sample_size .metric
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;int&gt;      &lt;dbl&gt;          &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  
-##  1     6  1670    18          1   2.10e-10  0.0446              0.723 rmse   
-##  2     6  1670    18          1   2.10e-10  0.0446              0.723 rsq    
-##  3     7   483    26          2   2.66e- 3  0.0000000222        0.679 rmse   
-##  4     7   483    26          2   2.66e- 3  0.0000000222        0.679 rsq    
-##  5     2  1969    37          2   4.65e- 7  0.00000000219       0.219 rmse   
-##  6     2  1969    37          2   4.65e- 7  0.00000000219       0.219 rsq    
-##  7     5   995     5          3   4.35e- 9 11.8                 0.877 rmse   
-##  8     5   995     5          3   4.35e- 9 11.8                 0.877 rsq    
-##  9     2   836    15          3   2.29e- 2  0.0000781           0.289 rmse   
-## 10     2   836    15          3   2.29e- 2  0.0000781           0.289 rsq    
+##  1     3  1367     4          1    9.37e-9   7.87               0.980 rmse   
+##  2     3  1367     4          1    9.37e-9   7.87               0.980 rsq    
+##  3     2   612    28          2    3.50e-5   0.0000000157       0.615 rmse   
+##  4     2   612    28          2    3.50e-5   0.0000000157       0.615 rsq    
+##  5     7  1220    30          2    1.53e-7   0.533              0.576 rmse   
+##  6     7  1220    30          2    1.53e-7   0.533              0.576 rsq    
+##  7     8   149    26          3    1.15e-4   0.0000000322       0.660 rmse   
+##  8     8   149    26          3    1.15e-4   0.0000000322       0.660 rsq    
+##  9    10  1629    33          3    4.49e-2   0.0000435          0.702 rmse   
+## 10    10  1629    33          3    4.49e-2   0.0000435          0.702 rsq    
 ## # … with 50 more rows, and 5 more variables: .estimator &lt;chr&gt;, mean &lt;dbl&gt;,
 ## #   n &lt;int&gt;, std_err &lt;dbl&gt;, .config &lt;chr&gt;</code></pre>
 <p>Well we see 60 combinations and the metrics from them. But that doesn’t mean much to us just eyeballing it. We want to see the best combination.</p>
@@ -409,11 +416,11 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 <pre><code>## # A tibble: 5 x 13
 ##    mtry trees min_n tree_depth learn_rate loss_reduction sample_size .metric
 ##   &lt;int&gt; &lt;int&gt; &lt;int&gt;      &lt;int&gt;      &lt;dbl&gt;          &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  
-## 1     2   836    15          3    0.0229    0.0000781          0.289 rmse   
-## 2     8   461    14          9    0.0406    0.0198             0.649 rmse   
-## 3     8   211    25         13    0.0963    0.0689             0.739 rmse   
-## 4     8   678     2          6    0.00625   0.00333            0.837 rmse   
-## 5     7   483    26          2    0.00266   0.0000000222       0.679 rmse   
+## 1     9  1134     9          4    0.00733    0.000000142       0.874 rmse   
+## 2     7  1687    18          9    0.0143     0.000848          0.909 rmse   
+## 3    10  1629    33          3    0.0449     0.0000435         0.702 rmse   
+## 4     9   238    19          6    0.0739     1.03              0.415 rmse   
+## 5     8   673    24         10    0.00188    0.0000794         0.677 rmse   
 ## # … with 5 more variables: .estimator &lt;chr&gt;, mean &lt;dbl&gt;, n &lt;int&gt;,
 ## #   std_err &lt;dbl&gt;, .config &lt;chr&gt;</code></pre>
 <p>The best combination comes up with an RMSE of 4.1708. Second is 4.1769, so very, very close.</p>
@@ -437,13 +444,13 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 ## Boosted Tree Model Specification (regression)
 ## 
 ## Main Arguments:
-##   mtry = 2
-##   trees = 836
-##   min_n = 15
-##   tree_depth = 3
-##   learn_rate = 0.0229393295957944
-##   loss_reduction = 7.8093700714585e-05
-##   sample_size = 0.288988009898458
+##   mtry = 9
+##   trees = 1134
+##   min_n = 9
+##   tree_depth = 4
+##   learn_rate = 0.00733155081360964
+##   loss_reduction = 1.41691119958635e-07
+##   sample_size = 0.873517132787965
 ## 
 ## Engine-Specific Arguments:
 ##   nthread = cores
@@ -459,31 +466,31 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 <span id="cb140-2"><a href="xgboost.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull_workflow_fit</span>() </span></code></pre></div>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  7.6s 
+## Fit time:  17.1s 
 ## ##### xgb.Booster
-## raw: 521.6 Kb 
+## raw: 1.1 Mb 
 ## call:
-##   xgboost::xgb.train(params = list(eta = 0.0229393295957944, max_depth = 3L, 
-##     gamma = 7.8093700714585e-05, colsample_bytree = 0.4, min_child_weight = 15L, 
-##     subsample = 0.288988009898458), data = x$data, nrounds = 836L, 
+##   xgboost::xgb.train(params = list(eta = 0.00733155081360964, max_depth = 4L, 
+##     gamma = 1.41691119958635e-07, colsample_bytree = 1, min_child_weight = 9L, 
+##     subsample = 0.873517132787965), data = x$data, nrounds = 1134L, 
 ##     watchlist = x$watchlist, verbose = 0, objective = &quot;reg:squarederror&quot;, 
 ##     nthread = 6L)
 ## params (as set within xgb.train):
-##   eta = &quot;0.0229393295957944&quot;, max_depth = &quot;3&quot;, gamma = &quot;7.8093700714585e-05&quot;, colsample_bytree = &quot;0.4&quot;, min_child_weight = &quot;15&quot;, subsample = &quot;0.288988009898458&quot;, objective = &quot;reg:squarederror&quot;, nthread = &quot;6&quot;, validate_parameters = &quot;TRUE&quot;
+##   eta = &quot;0.00733155081360964&quot;, max_depth = &quot;4&quot;, gamma = &quot;1.41691119958635e-07&quot;, colsample_bytree = &quot;1&quot;, min_child_weight = &quot;9&quot;, subsample = &quot;0.873517132787965&quot;, objective = &quot;reg:squarederror&quot;, nthread = &quot;6&quot;, validate_parameters = &quot;TRUE&quot;
 ## xgb.attributes:
 ##   niter
 ## callbacks:
 ##   cb.evaluation.log()
 ## # of features: 5 
-## niter: 836
+## niter: 1134
 ## nfeatures : 5 
 ## evaluation_log:
 ##     iter training_rmse
-##        1     68.595375
-##        2     67.032898
+##        1     69.682907
+##        2     69.173973
 ## ---                   
-##      835      4.027449
-##      836      4.027390</code></pre>
+##     1133      3.975097
+##     1134      3.975043</code></pre>
 <p>Now, like before, we can bind our predictions using our xg_fit to the rolling_train data.</p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="xgboost.html#cb142-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> rolling_train <span class="sc">%&gt;%</span></span>
 <span id="cb142-2"><a href="xgboost.html#cb142-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(xg_fit, rolling_train))</span></code></pre></div>
@@ -492,9 +499,9 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 <pre><code>## # A tibble: 3 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       4.03 
-## 2 rsq     standard       0.604
-## 3 mae     standard       3.08</code></pre>
+## 1 rmse    standard       3.98 
+## 2 rsq     standard       0.614
+## 3 mae     standard       3.05</code></pre>
 <p>How about the test data?</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="xgboost.html#cb145-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> rolling_test <span class="sc">%&gt;%</span></span>
 <span id="cb145-2"><a href="xgboost.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(xg_fit, rolling_test))</span></code></pre></div>
@@ -502,9 +509,9 @@ mtry – the number of predictors that will be randomly sampled at each split wh
 <pre><code>## # A tibble: 3 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       4.13 
-## 2 rsq     standard       0.597
-## 3 mae     standard       3.16</code></pre>
+## 1 rmse    standard       4.09 
+## 2 rsq     standard       0.602
+## 3 mae     standard       3.12</code></pre>
 <p>More robust than the random forest, but still a fair drop in RMSE and R squared.</p>
 <p>Let’s try one where we know the outcome. In Febuary, Nebraska played Maryland back to back and lost both. Here’s the inputs for the second game:</p>
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="xgboost.html#cb148-1" aria-hidden="true" tabindex="-1"></a>poss_prediction <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
@@ -550,7 +557,7 @@ mtry – the number of predictors that will be randomly sampled at each split wh
         </div>
       </div>
 <a href="decision-trees-and-random-forests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="support-vector-machines.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="logistic-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

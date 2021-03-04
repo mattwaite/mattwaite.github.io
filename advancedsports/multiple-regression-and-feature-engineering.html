@@ -24,7 +24,7 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2021-02-25" />
+<meta name="date" content="2021-03-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -163,7 +163,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1" data-path="xgboost.html"><a href="xgboost.html#hyperparameters"><i class="fa fa-check"></i><b>5.1</b> Hyperparameters</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>6</b> Support Vector Machines</a></li>
+<li class="chapter" data-level="6" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="logistic-regression.html"><a href="logistic-regression.html#visualizing-the-decision-boundary"><i class="fa fa-check"></i><b>6.1</b> Visualizing the decision boundary</a></li>
+<li class="chapter" data-level="6.2" data-path="logistic-regression.html"><a href="logistic-regression.html#the-logistic-regression"><i class="fa fa-check"></i><b>6.2</b> The logistic regression</a></li>
+<li class="chapter" data-level="6.3" data-path="logistic-regression.html"><a href="logistic-regression.html#evaluating-the-fit"><i class="fa fa-check"></i><b>6.3</b> Evaluating the fit</a></li>
+<li class="chapter" data-level="6.4" data-path="logistic-regression.html"><a href="logistic-regression.html#comparing-it-to-test-data"><i class="fa fa-check"></i><b>6.4</b> Comparing it to test data</a></li>
+<li class="chapter" data-level="6.5" data-path="logistic-regression.html"><a href="logistic-regression.html#how-well-did-it-do-with-nebraska"><i class="fa fa-check"></i><b>6.5</b> How well did it do with Nebraska?</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -238,9 +245,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       9.31 
-## 2 rsq     standard       0.505
-## 3 mae     standard       7.25</code></pre>
+## 1 rmse    standard       9.30 
+## 2 rsq     standard       0.504
+## 3 mae     standard       7.24</code></pre>
 <p>Bottom line: We can predict about 50 percent of the difference in team scores by the shooting percentage. But we know, because we’ve shot hoops in the driveway before, or went through a basketball unit in PE in the third grade, that sure, being a good shooter is important, but how many times you shoot the ball is also important. If you’re a 100 percent shooter, that’s insane, but it probably means you took one shot. Congrats, you scored two points (three if you’re gutsy). One shot is not going to win a game.</p>
 <p>It would make sense, then, that we should combine the number of shots taken with the shooting percentage to predict the score. Doing that could not be easier. It’s literally adding <code>+ TeamFGA</code> to your fit function. Now our model says <code>TeamScore is approximately modeled by how well a team shoots the ball and how many shots they take</code>.</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="multiple-regression-and-feature-engineering.html#cb42-1" aria-hidden="true" tabindex="-1"></a>fit_lm <span class="ot">&lt;-</span> lm_model <span class="sc">%&gt;%</span></span>
@@ -254,7 +261,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
 ## 1 rmse    standard       6.44 
-## 2 rsq     standard       0.763
+## 2 rsq     standard       0.762
 ## 3 mae     standard       5.13</code></pre>
 <p>And just like that, by acknowledging reality, we’ve jumped to 76 percent of variance explained and our root mean squared error – the average amount we’re off by – has dropped from 9.3 to 6.5.</p>
 <p>Your temptation now is to start adding things until we get to 1 on the r-squared and 0 on the rmse. The problem with that is called “overfitting”</p>
@@ -278,10 +285,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 1 TeamFG          0.874
 ## 2 TeamFGA         0.435
 ## 3 TeamFGPCT       0.709
-## 4 Team3P          0.512
-## 5 Team3PPCT       0.473
-## 6 TeamFT          0.417
-## 7 TeamAssists     0.638</code></pre>
+## 4 Team3P          0.511
+## 5 Team3PPCT       0.472
+## 6 TeamFT          0.415
+## 7 TeamAssists     0.637</code></pre>
 <p>By this, there’s seven things correlated with TeamScore at a greater than .4 level. However, this is half the story. The issue becomes how correlated are those things to each other. To see that, we need to fix our select:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="multiple-regression-and-feature-engineering.html#cb46-1" aria-hidden="true" tabindex="-1"></a>games <span class="sc">%&gt;%</span> </span>
 <span id="cb46-2"><a href="multiple-regression-and-feature-engineering.html#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select_if</span>(is.numeric) <span class="sc">%&gt;%</span> </span>
@@ -292,13 +299,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 7 x 9
 ##   term  TeamScore  TeamFG TeamFGA TeamFGPCT Team3P Team3PPCT   TeamFT
 ##   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-## 1 Team…     0.874 NA       0.564     0.757   0.407   0.380   -0.0201 
-## 2 Team…     0.435  0.564  NA        -0.0994  0.217  -0.0951  -0.134  
-## 3 Team…     0.709  0.757  -0.0994   NA       0.321   0.541    0.0820 
-## 4 Team…     0.512  0.407   0.217     0.321  NA       0.711   -0.102  
-## 5 Team…     0.473  0.380  -0.0951    0.541   0.711  NA        0.00894
-## 6 Team…     0.417 -0.0201 -0.134     0.0820 -0.102   0.00894 NA      
-## 7 Team…     0.638  0.662   0.290     0.562   0.525   0.433   -0.0181 
+## 1 Team…     0.874 NA       0.564     0.757   0.406   0.380   -0.0216 
+## 2 Team…     0.435  0.564  NA        -0.100   0.217  -0.0954  -0.134  
+## 3 Team…     0.709  0.757  -0.100    NA       0.320   0.541    0.0806 
+## 4 Team…     0.511  0.406   0.217     0.320  NA       0.711   -0.104  
+## 5 Team…     0.472  0.380  -0.0954    0.541   0.711  NA        0.00780
+## 6 Team…     0.415 -0.0216 -0.134     0.0806 -0.104   0.00780 NA      
+## 7 Team…     0.637  0.661   0.290     0.561   0.525   0.433   -0.0193 
 ## # … with 1 more variable: TeamAssists &lt;dbl&gt;</code></pre>
 <p>Reading this can be a lot, and it helps to take some notes as you go.</p>
 <p>TeamFG is the most correlated to TeamScore – which makes sense. Made shots are points. But they’re also highly correlated to attempts and even more to percentage. There’s others that it’s highly correlated with.</p>
@@ -331,13 +338,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##  1 TeamFG                  0.874
 ##  2 TeamFGA                 0.435
 ##  3 TeamFGPCT               0.709
-##  4 Team3P                  0.512
-##  5 Team3PPCT               0.473
-##  6 TeamFT                  0.417
-##  7 TeamAssists             0.638
-##  8 TeamPossessions         0.533
-##  9 OpponentPossessions     0.555
-## 10 TeamPPP                 0.850</code></pre>
+##  4 Team3P                  0.511
+##  5 Team3PPCT               0.472
+##  6 TeamFT                  0.415
+##  7 TeamAssists             0.637
+##  8 TeamPossessions         0.532
+##  9 OpponentPossessions     0.554
+## 10 TeamPPP                 0.849</code></pre>
 <p>Note: our new possession metrics now make the grade here. But are they correlated with each other?</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="multiple-regression-and-feature-engineering.html#cb51-1" aria-hidden="true" tabindex="-1"></a>gameswithpossessions <span class="sc">%&gt;%</span> </span>
 <span id="cb51-2"><a href="multiple-regression-and-feature-engineering.html#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select_if</span>(is.numeric) <span class="sc">%&gt;%</span> </span>
@@ -348,16 +355,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 10 x 12
 ##    term  TeamScore  TeamFG TeamFGA TeamFGPCT Team3P Team3PPCT   TeamFT
 ##    &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Team…     0.874 NA       0.564     0.757   0.407   0.380   -0.0201 
-##  2 Team…     0.435  0.564  NA        -0.0994  0.217  -0.0951  -0.134  
-##  3 Team…     0.709  0.757  -0.0994   NA       0.321   0.541    0.0820 
-##  4 Team…     0.512  0.407   0.217     0.321  NA       0.711   -0.102  
-##  5 Team…     0.473  0.380  -0.0951    0.541   0.711  NA        0.00894
-##  6 Team…     0.417 -0.0201 -0.134     0.0820 -0.102   0.00894 NA      
-##  7 Team…     0.638  0.662   0.290     0.562   0.525   0.433   -0.0181 
-##  8 Team…     0.533  0.439   0.613     0.0504  0.143  -0.0235   0.335  
-##  9 Oppo…     0.555  0.449   0.536     0.122   0.170   0.0307   0.352  
-## 10 Team…     0.850  0.757   0.134     0.810   0.517   0.578    0.286  
+##  1 Team…     0.874 NA       0.564     0.757   0.406   0.380   -0.0216 
+##  2 Team…     0.435  0.564  NA        -0.100   0.217  -0.0954  -0.134  
+##  3 Team…     0.709  0.757  -0.100    NA       0.320   0.541    0.0806 
+##  4 Team…     0.511  0.406   0.217     0.320  NA       0.711   -0.104  
+##  5 Team…     0.472  0.380  -0.0954    0.541   0.711  NA        0.00780
+##  6 Team…     0.415 -0.0216 -0.134     0.0806 -0.104   0.00780 NA      
+##  7 Team…     0.637  0.661   0.290     0.561   0.525   0.433   -0.0193 
+##  8 Team…     0.532  0.438   0.613     0.0492  0.142  -0.0243   0.335  
+##  9 Oppo…     0.554  0.448   0.536     0.121   0.169   0.0300   0.352  
+## 10 Team…     0.849  0.757   0.133     0.810   0.517   0.578    0.285  
 ## # … with 4 more variables: TeamAssists &lt;dbl&gt;, TeamPossessions &lt;dbl&gt;,
 ## #   OpponentPossessions &lt;dbl&gt;, TeamPPP &lt;dbl&gt;</code></pre>
 <p>Let’s look specifically at our TeamPPP and TeamPossessions metrics. Both are correlated to TeamScore – TeamPPP is highly correlated – but they AREN’T very correlated to each other. If you think about it, it makes some sense: one is a measure of how good the team is at getting the ball into their hands, the other is a measure of how efficient they are at scoring when they have the ball. Both metrics encompass a lot about a game – steals, rebounds, free throws, etc. – that basic shooting metrics don’t give you.</p>
@@ -379,9 +386,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 x 7
 ##   term            estimate std.error statistic p.value conf.low conf.high
 ##   &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-## 1 (Intercept)       -72.1   0.0594      -1214.       0   -72.2     -72.0 
-## 2 TeamPossessions     1.02  0.000718     1422.       0     1.02      1.02
-## 3 TeamPPP            70.6   0.0308       2294.       0    70.5      70.6</code></pre>
+## 1 (Intercept)       -72.1   0.0585      -1232.       0   -72.2     -71.9 
+## 2 TeamPossessions     1.02  0.000708     1443.       0     1.02      1.02
+## 3 TeamPPP            70.6   0.0303       2329.       0    70.5      70.6</code></pre>
 <p>What this says is if we have zero possessions in a basketball game, we’ll score -72 points. Well, we know neither are possible, so we ignore that. The model says for each possession, we should score about 1.02 points, and if we were to score 1 point per possession, we’d score 70.6 points. Now we play the games.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="multiple-regression-and-feature-engineering.html#cb59-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> newgame_train <span class="sc">%&gt;%</span></span>
 <span id="cb59-2"><a href="multiple-regression-and-feature-engineering.html#cb59-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(fit_lm, newgame_train))</span></code></pre></div>
@@ -389,9 +396,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       1.09 
+## 1 rmse    standard       1.08 
 ## 2 rsq     standard       0.993
-## 3 mae     standard       0.658</code></pre>
+## 3 mae     standard       0.655</code></pre>
 <p>So … knowing possession metrics makes you VERY good at predicting the total points a team will score. That’s frighteningly high — overfitting high. But we’ll continue to test it out.</p>
 <p>How well does the model do with data it hasn’t seen before?</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="multiple-regression-and-feature-engineering.html#cb62-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> newgame_test <span class="sc">%&gt;%</span></span>
@@ -400,37 +407,29 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 x 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       1.05 
-## 2 rsq     standard       0.994
-## 3 mae     standard       0.652</code></pre>
+## 1 rmse    standard       1.08 
+## 2 rsq     standard       0.993
+## 3 mae     standard       0.660</code></pre>
 <p>Again … somewhat terrifyingly well.</p>
 <p>Let’s put this against a set of games we’re familiar with.</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="multiple-regression-and-feature-engineering.html#cb65-1" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> gameswithpossessions <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Season <span class="sc">==</span> <span class="st">&quot;2020-2021&quot;</span>, TeamFull <span class="sc">==</span> <span class="st">&quot;Nebraska Cornhuskers&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="multiple-regression-and-feature-engineering.html#cb66-1" aria-hidden="true" tabindex="-1"></a>nupreds <span class="ot">&lt;-</span> nu <span class="sc">%&gt;%</span></span>
 <span id="cb66-2"><a href="multiple-regression-and-feature-engineering.html#cb66-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(fit_lm, nu))</span></code></pre></div>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="multiple-regression-and-feature-engineering.html#cb67-1" aria-hidden="true" tabindex="-1"></a>nupreds <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Residual =</span> TeamScore <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Residual)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Team, Opponent, TeamScore, .pred, Residual)</span></code></pre></div>
-<pre><code>## # A tibble: 19 x 5
+<pre><code>## # A tibble: 24 x 5
 ##    Team     Opponent           TeamScore .pred Residual
 ##    &lt;chr&gt;    &lt;chr&gt;                  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Nebraska Doane College            110 107.    3.47  
-##  2 Nebraska McNeese State            102  99.6   2.44  
-##  3 Nebraska Wisconsin                 48  46.7   1.32  
-##  4 Nebraska Wisconsin                 53  52.0   0.977 
-##  5 Nebraska Maryland                  50  49.5   0.542 
-##  6 Nebraska North Dakota State        79  78.9   0.117 
-##  7 Nebraska Michigan State            77  76.9   0.0673
-##  8 Nebraska Indiana                   76  76.0   0.0382
-##  9 Nebraska Penn State                62  62.0   0.0102
-## 10 Nebraska Maryland                  71  71.0  -0.0358
-## 11 Nebraska Georgia Tech              64  64.1  -0.0782
-## 12 Nebraska Illinois                  72  72.4  -0.396 
-## 13 Nebraska Michigan                  69  69.5  -0.541 
-## 14 Nebraska South Dakota              76  76.6  -0.554 
-## 15 Nebraska Nevada                    66  66.7  -0.686 
-## 16 Nebraska Creighton                 74  75.7  -1.75  
-## 17 Nebraska Ohio State                54  56.1  -2.06  
-## 18 Nebraska Minnesota                 61  63.1  -2.07  
-## 19 Nebraska Michigan State            56  59.2  -3.20</code></pre>
+##  1 Nebraska Doane College            110 107.    3.48  
+##  2 Nebraska McNeese State            102  99.5   2.46  
+##  3 Nebraska Wisconsin                 48  46.7   1.31  
+##  4 Nebraska Wisconsin                 53  52.0   0.972 
+##  5 Nebraska Maryland                  50  49.5   0.535 
+##  6 Nebraska Penn State                83  82.8   0.226 
+##  7 Nebraska North Dakota State        79  78.9   0.121 
+##  8 Nebraska Minnesota                 78  77.9   0.106 
+##  9 Nebraska Michigan State            77  76.9   0.0704
+## 10 Nebraska Indiana                   76  76.0   0.0411
+## # … with 14 more rows</code></pre>
 <p>Our multiple regression model does the worst with blowouts, but it’s within a point on most games.</p>
 <p>The question to start thinking about is this – how well can you predict the number of possessions a team will have going into a game, and how many points they’ll score on each of those possessions?</p>
 

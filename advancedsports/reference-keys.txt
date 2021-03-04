@@ -16,4 +16,9 @@ decision-trees
 random-forest
 xgboost
 hyperparameters
-support-vector-machines
+logistic-regression
+visualizing-the-decision-boundary
+the-logistic-regression
+evaluating-the-fit
+comparing-it-to-test-data
+how-well-did-it-do-with-nebraska
