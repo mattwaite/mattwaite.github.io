@@ -1,75 +1,52 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>http://mattwaite.github.io/about/</loc>
-    <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mattwaite.github.io/categories/</loc>
-    <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mattwaite.github.io/</loc>
-    <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mattwaite.github.io/categories/note/</loc>
-    <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mattwaite.github.io/note/2020-12-15-note-about-the-new-site/</loc>
-    <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mattwaite.github.io/note/</loc>
-    <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mattwaite.github.io/tags/</loc>
-    <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mattwaite.github.io/tags/update/</loc>
-    <lastmod>2020-12-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+    <loc>http://mattwaite.github.io/tags/bookdown/</loc>
+    <lastmod>2021-03-10T16:21:14-06:00</lastmod>
+  </url><url>
     <loc>http://mattwaite.github.io/categories/books/</loc>
-    <lastmod>2019-07-29T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mattwaite.github.io/tags/data/</loc>
-    <lastmod>2019-07-29T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-03-10T16:21:14-06:00</lastmod>
+  </url><url>
+    <loc>http://mattwaite.github.io/categories/</loc>
+    <lastmod>2021-03-10T16:21:14-06:00</lastmod>
+  </url><url>
+    <loc>http://mattwaite.github.io/</loc>
+    <lastmod>2021-03-10T16:21:14-06:00</lastmod>
+  </url><url>
     <loc>http://mattwaite.github.io/post/</loc>
-    <lastmod>2019-07-29T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mattwaite.github.io/tags/r/</loc>
-    <lastmod>2019-07-29T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-03-10T16:21:14-06:00</lastmod>
+  </url><url>
+    <loc>http://mattwaite.github.io/tags/r-markdown/</loc>
+    <lastmod>2021-03-10T16:21:14-06:00</lastmod>
+  </url><url>
     <loc>http://mattwaite.github.io/tags/sports/</loc>
-    <lastmod>2019-07-29T21:13:14-05:00</lastmod>
+    <lastmod>2021-03-10T16:21:14-06:00</lastmod>
+  </url><url>
+    <loc>http://mattwaite.github.io/tags/</loc>
+    <lastmod>2021-03-10T16:21:14-06:00</lastmod>
+  </url><url>
+    <loc>http://mattwaite.github.io/2021/03/10/updating-the-sports-data-book/</loc>
+    <lastmod>2021-03-10T16:21:14-06:00</lastmod>
+  </url><url>
+    <loc>http://mattwaite.github.io/2020/12/01/hello-r-markdown/</loc>
+    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+  </url><url>
+    <loc>http://mattwaite.github.io/tags/plot/</loc>
+    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+  </url><url>
+    <loc>http://mattwaite.github.io/categories/r/</loc>
+    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+  </url><url>
+    <loc>http://mattwaite.github.io/tags/regression/</loc>
+    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+  </url><url>
+    <loc>http://mattwaite.github.io/2016/12/30/a-plain-markdown-post/</loc>
+    <lastmod>2016-12-30T21:49:57-07:00</lastmod>
+  </url><url>
+    <loc>http://mattwaite.github.io/2015/01/01/lorem-ipsum/</loc>
+    <lastmod>2015-01-01T13:09:13-06:00</lastmod>
+  </url><url>
+    <loc>http://mattwaite.github.io/about/</loc>
   </url>
-  
-  <url>
-    <loc>http://mattwaite.github.io/2019/07/29/sports-data-analysis-and-visualization/</loc>
-    <lastmod>2019-07-29T21:13:14-05:00</lastmod>
-  </url>
-  
 </urlset>
