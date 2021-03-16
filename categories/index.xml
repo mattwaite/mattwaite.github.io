@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Matt Waite&#39;s Github Site</title>
-    <link>http://mattwaite.github.io/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Matt Waite&#39;s Github Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Mar 2021 16:21:14 -0600</lastBuildDate><atom:link href="http://mattwaite.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Mar 2021 16:21:14 -0600</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Books</title>
-      <link>http://mattwaite.github.io/categories/books/</link>
+      <link>/categories/books/</link>
       <pubDate>Wed, 10 Mar 2021 16:21:14 -0600</pubDate>
       
-      <guid>http://mattwaite.github.io/categories/books/</guid>
+      <guid>/categories/books/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>http://mattwaite.github.io/categories/r/</link>
+      <link>/categories/r/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
-      <guid>http://mattwaite.github.io/categories/r/</guid>
+      <guid>/categories/r/</guid>
       <description></description>
     </item>
     

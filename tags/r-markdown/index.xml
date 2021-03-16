@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R Markdown on Matt Waite&#39;s Github Site</title>
-    <link>http://mattwaite.github.io/tags/r-markdown/</link>
+    <link>/tags/r-markdown/</link>
     <description>Recent content in R Markdown on Matt Waite&#39;s Github Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Mar 2021 16:21:14 -0600</lastBuildDate><atom:link href="http://mattwaite.github.io/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Mar 2021 16:21:14 -0600</lastBuildDate><atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Updating the sports data book</title>
-      <link>http://mattwaite.github.io/2021/03/10/updating-the-sports-data-book/</link>
+      <link>/2021/03/10/updating-the-sports-data-book/</link>
       <pubDate>Wed, 10 Mar 2021 16:21:14 -0600</pubDate>
       
-      <guid>http://mattwaite.github.io/2021/03/10/updating-the-sports-data-book/</guid>
+      <guid>/2021/03/10/updating-the-sports-data-book/</guid>
       <description>This is an R Markdown Notebook. When you execute code within the notebook, the results appear beneath the code.
 Try executing this chunk by clicking the Run button within the chunk or by placing your cursor inside it and pressing Cmd+Shift+Enter.
 plot(cars) Add a new chunk by clicking the Insert Chunk button on the toolbar or by pressing Cmd+Option+I.
@@ -21,10 +21,10 @@ When you save the notebook, an HTML file containing the code and output will be 
     
     <item>
       <title>Hello R Markdown</title>
-      <link>http://mattwaite.github.io/2020/12/01/hello-r-markdown/</link>
+      <link>/2020/12/01/hello-r-markdown/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
-      <guid>http://mattwaite.github.io/2020/12/01/hello-r-markdown/</guid>
+      <guid>/2020/12/01/hello-r-markdown/</guid>
       <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
 summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
