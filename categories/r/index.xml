@@ -13,8 +13,8 @@
       <pubDate>Sun, 21 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>/2021/03/21/trying-new-table-libraries/</guid>
-      <description>I am going to re-write the Sports Book chapters that use tables and I’m going to use some different libraries.
-library(reactable) library(tidyverse) ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ── ## ✓ ggplot2 3.3.3 ✓ purrr 0.3.4 ## ✓ tibble 3.1.0 ✓ dplyr 1.0.5 ## ✓ tidyr 1.1.3 ✓ stringr 1.4.0 ## ✓ readr 1.4.0 ✓ forcats 0.5.1 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ── ## x dplyr::filter() masks stats::filter() ## x dplyr::lag() masks stats::lag() For this I am going to look at players who are good at a sport.</description>
+      <description>I’ve recently shifted my Sports Data Analysis and Visualization class from creating static graphics that get exported as a png graphic to creating blog posts. In doing so, the chapter on tables is not terribly useful or relevant. Exporting a visually interesting table to a png was not easy, so there’s a lot of code and content dedicated to that.
+It can go away now.</description>
     </item>
     
   </channel>
