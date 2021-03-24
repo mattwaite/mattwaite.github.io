@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Matt Waite&#39;s Github Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Max Anderson is on a tear</title>
+      <link>/2021/03/24/max-anderson-is-on-a-tear/</link>
+      <pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021/03/24/max-anderson-is-on-a-tear/</guid>
+      <description>Max Anderson is apparently good at baseball.
+library(tidyverse) ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ── ## ✓ ggplot2 3.3.3 ✓ purrr 0.3.4 ## ✓ tibble 3.1.0 ✓ dplyr 1.0.5 ## ✓ tidyr 1.1.3 ✓ stringr 1.4.0 ## ✓ readr 1.4.0 ✓ forcats 0.5.1 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ── ## x dplyr::filter() masks stats::filter() ## x dplyr::lag() masks stats::lag() library(ggalt) ## Registered S3 methods overwritten by &amp;#39;ggalt&amp;#39;: ## method from ## grid.</description>
+    </item>
+    
     <item>
       <title>How I (poorly) filled out my NCAA bracket with machine learning</title>
       <link>/2021/03/22/how-i-poorly-filled-out-my-ncaa-bracket-with-machine-learning/</link>
