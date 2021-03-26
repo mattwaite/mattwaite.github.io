@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.81.0" />
+
+
+<title>Who are the NBA&#39;s best at both ends of the court? - Matt Waite&#39;s Github Site</title>
+<meta property="og:title" content="Who are the NBA&#39;s best at both ends of the court? - Matt Waite&#39;s Github Site">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/mattwaite">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/mattwaite">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">Who are the NBA&#39;s best at both ends of the court?</h1>
+
+    
+    <span class="article-date">2021-03-26</span>
+    
+
+    <div class="article-content">
+      
+<script src="/2021/03/26/who-are-the-nba-s-best-at-both-ends-of-the-court/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>A thought occurred to me the other day – who is NBA’s best players on both the offensive and defensive side of the court?</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.1.0     ✓ dplyr   1.0.5
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(ggrepel)</code></pre>
+<pre class="r"><code>players &lt;- read_csv(&quot;nbaper100.csv&quot;)</code></pre>
+<pre><code>## Warning: Missing column names filled in: &#39;X30&#39; [30]</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   .default = col_double(),
+##   Player = col_character(),
+##   Pos = col_character(),
+##   Tm = col_character(),
+##   X30 = col_logical()
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
+<pre class="r"><code>cleanplayers &lt;- players %&gt;% mutate(CleanName = gsub(&quot;\\\\.*&quot;, &quot;&quot;, Player)) %&gt;% filter(GS &gt; 25)</code></pre>
+<pre class="r"><code>good &lt;- cleanplayers %&gt;% filter(DRtg &lt; 106 &amp; ORtg &gt; 125)</code></pre>
+<pre class="r"><code>ggplot() + geom_point(data=cleanplayers, aes(x=ORtg, y=DRtg), color=&quot;grey&quot;) + geom_point(data=good, aes(x=ORtg, y=DRtg), color=&quot;red&quot;) + geom_text_repel(data=good, aes(x=ORtg, y=DRtg, label=CleanName)) + theme_minimal() + labs(title=&quot;The best two-way players by rating are centers&quot;, subtitle=&quot;And one of them plays for the Knicks. I know.&quot;, x=&quot;Offensive rating&quot;, y=&quot;Defensive rating&quot;, caption=&quot;Source: Sports Reference | By Matt Waite&quot;)</code></pre>
+<p><img src="/2021/03/26/who-are-the-nba-s-best-at-both-ends-of-the-court/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
