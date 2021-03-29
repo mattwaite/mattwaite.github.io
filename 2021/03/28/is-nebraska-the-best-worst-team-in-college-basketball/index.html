@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.81.0" />
+
+
+<title>Is Nebraska the best worst team in college basketball? - Matt Waite&#39;s Github Site</title>
+<meta property="og:title" content="Is Nebraska the best worst team in college basketball? - Matt Waite&#39;s Github Site">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/mattwaite">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/mattwaite">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">10 min read</span>
+    
+
+    <h1 class="article-title">Is Nebraska the best worst team in college basketball?</h1>
+
+    
+    <span class="article-date">2021-03-28</span>
+    
+
+    <div class="article-content">
+      
+<script src="/2021/03/28/is-nebraska-the-best-worst-team-in-college-basketball/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Nebraska fans haven’t had the best time watching basketball lately. The last two seasons have featured only seven wins in each season. This season they only won three games in the Big Ten, but that was an improvement over last season when they only won two.</p>
+<p>But anyone watching Nebraska basketball this season could see there was a difference between last season’s squad and this one. And given that the Big Ten was rated as the best conference in college basketball during the season, it begs the question: Is Nebraska that bad? In fact, are they the best worst team in college basketball?</p>
+<p>Let’s take a look at some numbers.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.3     ✓ purrr   0.3.4
+## ✓ tibble  3.1.0     ✓ dplyr   1.0.5
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(ggalt)</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;ggalt&#39;:
+##   method                  from   
+##   grid.draw.absoluteGrob  ggplot2
+##   grobHeight.absoluteGrob ggplot2
+##   grobWidth.absoluteGrob  ggplot2
+##   grobX.absoluteGrob      ggplot2
+##   grobY.absoluteGrob      ggplot2</code></pre>
+<pre class="r"><code>library(gt)
+library(ggbeeswarm)
+library(ggrepel)
+
+stats &lt;- read_csv(&quot;~/Box/Courses/SPMC350-Data-Literacy-and-Analytics-in-Sports/Extras/stats21.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   .default = col_double(),
+##   School = col_character(),
+##   Season = col_character()
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
+<pre class="r"><code>games &lt;- read_csv(&quot;~/Box/Courses/SPMC350-Data-Literacy-and-Analytics-in-Sports/Extras/logs21.csv&quot;)</code></pre>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   .default = col_double(),
+##   Season = col_character(),
+##   Date = col_date(format = &quot;&quot;),
+##   TeamFull = col_character(),
+##   Opponent = col_character(),
+##   HomeAway = col_character(),
+##   W_L = col_character(),
+##   URL = col_character(),
+##   Conference = col_character(),
+##   Team = col_character()
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
+<p>The two data sets I’ll be working with are season statistics and individual game data from the current season from <a href="https://www.sports-reference.com/cbb/seasons/2021-school-stats.html">Sports Reference’s college basketball site</a>. I’m mostly going to rely on their Simple Rating System and Strength of Schedule numbers.</p>
+<p>First thing first, I need to add the conference to the team’s overall season stats.</p>
+<pre class="r"><code>stats &lt;- games %&gt;% select(Team, Conference) %&gt;% distinct() %&gt;% right_join(stats, by=c(&quot;Team&quot;=&quot;School&quot;)) %&gt;% filter(Games &gt; 0)</code></pre>
+<p>What I’m interested in looking at is the last place team in each conference by conference wins. I’m going to drop the Ivy League because they didn’t play and I’m going to drop teams that didn’t play 10 games this season. Running the next block I should get the last place team in each conference, and I’m also going to pull out Nebraska’s numbers for highlighting.</p>
+<pre class="r"><code>lastplace &lt;- stats %&gt;% group_by(Conference) %&gt;% arrange(desc(ConferenceWins)) %&gt;% slice(n()) %&gt;% filter(Games &gt; 10) %&gt;% ungroup() %&gt;% arrange(desc(OverallSRS))
+
+nu &lt;- lastplace %&gt;% filter(Team == &quot;Nebraska&quot;)</code></pre>
+<p>The first question we’ll ask and answer is by rating, who is the best of the last place teams? Here’s the top 10 of the bottom.</p>
+<pre class="r"><code>lastplace %&gt;% 
+  select(Team, Conference, OverallWins, OverallLosses, OverallSRS, OverallSOS) %&gt;% 
+  rename(W = OverallWins, L=OverallLosses, `Simple Rating` = OverallSRS, `Sched. Strength`= OverallSOS) %&gt;% 
+  top_n(10, wt=`Simple Rating`) %&gt;% 
+  gt() %&gt;%
+  tab_header(
+    title = &quot;Is Nebraska the best worst team in college basketball?&quot;,
+    subtitle = &quot;They only won 7 games but have the best simple rating and toughest schedule among the last place teams.&quot;
+  ) %&gt;% tab_style(
+    style = cell_text(color = &quot;black&quot;, weight = &quot;bold&quot;, align = &quot;left&quot;),
+    locations = cells_title(&quot;title&quot;)
+  ) %&gt;% tab_style(
+    style = cell_text(color = &quot;black&quot;, align = &quot;left&quot;),
+    locations = cells_title(&quot;subtitle&quot;)
+  ) %&gt;%
+  tab_source_note(
+    source_note = &quot;By Matt Waite&quot;
+  ) %&gt;%
+  tab_source_note(
+    source_note = md(&quot;Source: [Sports Reference](https://www.sports-reference.com/cbb/seasons/2021-school-stats.html)&quot;)
+  ) %&gt;% tab_style(
+    style = cell_text(color = &quot;black&quot;, weight = &quot;bold&quot;),
+    locations = cells_body(
+      columns = vars(Team)
+    )
+  ) %&gt;% 
+  tab_style(
+    style = cell_text(color = &quot;red&quot;, weight = &quot;bold&quot;),
+    locations = cells_body(
+      columns = vars(`Sched. Strength`),
+      rows = `Sched. Strength` &lt; 0
+    )
+  ) %&gt;% 
+  tab_style(
+    style = cell_text(color = &quot;green&quot;, weight = &quot;normal&quot;),
+    locations = cells_body(
+      columns = vars(`Sched. Strength`),
+      rows = `Sched. Strength` &gt; 0
+    )
+  ) %&gt;% 
+  tab_style(
+    style = cell_text(color = &quot;red&quot;, weight = &quot;bold&quot;),
+    locations = cells_body(
+      columns = vars(`Simple Rating`),
+      rows = `Simple Rating` &lt; 0
+    )
+  ) %&gt;% 
+  tab_style(
+    style = cell_text(color = &quot;green&quot;, weight = &quot;normal&quot;),
+    locations = cells_body(
+      columns = vars(`Simple Rating`),
+      rows = `Simple Rating` &gt; 0
+    )
+  ) %&gt;% 
+  opt_row_striping() %&gt;% 
+  opt_table_lines(&quot;none&quot;) %&gt;% 
+  tab_style(
+    style = cell_borders(sides = c(&quot;top&quot;, &quot;bottom&quot;), 
+                         color = &quot;grey&quot;, weight = px(1)),
+    locations = cells_column_labels(everything())
+  )</code></pre>
+<pre><code>## Warning: The `.dots` argument of `group_by()` is deprecated as of dplyr 1.0.0.</code></pre>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#nemnvtwyhh .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: none;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#nemnvtwyhh .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nemnvtwyhh .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#nemnvtwyhh .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#nemnvtwyhh .gt_bottom_border {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nemnvtwyhh .gt_col_headings {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#nemnvtwyhh .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#nemnvtwyhh .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#nemnvtwyhh .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#nemnvtwyhh .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#nemnvtwyhh .gt_column_spanner {
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#nemnvtwyhh .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nemnvtwyhh .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#nemnvtwyhh .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#nemnvtwyhh .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#nemnvtwyhh .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: none;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#nemnvtwyhh .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#nemnvtwyhh .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nemnvtwyhh .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#nemnvtwyhh .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nemnvtwyhh .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: none;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#nemnvtwyhh .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#nemnvtwyhh .gt_table_body {
+  border-top-style: none;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#nemnvtwyhh .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nemnvtwyhh .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#nemnvtwyhh .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#nemnvtwyhh .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#nemnvtwyhh .gt_left {
+  text-align: left;
+}
+
+#nemnvtwyhh .gt_center {
+  text-align: center;
+}
+
+#nemnvtwyhh .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#nemnvtwyhh .gt_font_normal {
+  font-weight: normal;
+}
+
+#nemnvtwyhh .gt_font_bold {
+  font-weight: bold;
+}
+
+#nemnvtwyhh .gt_font_italic {
+  font-style: italic;
+}
+
+#nemnvtwyhh .gt_super {
+  font-size: 65%;
+}
+
+#nemnvtwyhh .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="nemnvtwyhh" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  <thead class="gt_header">
+    <tr>
+      <th colspan="6" class="gt_heading gt_title gt_font_normal" style="color: black; text-align: left; font-weight: bold;">Is Nebraska the best worst team in college basketball?</th>
+    </tr>
+    <tr>
+      <th colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="color: black; text-align: left;">They only won 7 games but have the best simple rating and toughest schedule among the last place teams.</th>
+    </tr>
+  </thead>
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 1px; border-top-style: solid; border-top-color: grey; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: grey;">Team</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 1px; border-top-style: solid; border-top-color: grey; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: grey;">Conference</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 1px; border-top-style: solid; border-top-color: grey; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: grey;">W</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 1px; border-top-style: solid; border-top-color: grey; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: grey;">L</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 1px; border-top-style: solid; border-top-color: grey; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: grey;">Simple Rating</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="border-top-width: 1px; border-top-style: solid; border-top-color: grey; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: grey;">Sched. Strength</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_left" style="color: black; font-weight: bold;">Nebraska</td>
+      <td class="gt_row gt_left">Big Ten</td>
+      <td class="gt_row gt_right">7</td>
+      <td class="gt_row gt_right">20</td>
+      <td class="gt_row gt_right" style="color: green; font-weight: normal;">7.10</td>
+      <td class="gt_row gt_right" style="color: green; font-weight: normal;">13.29</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_striped" style="color: black; font-weight: bold;">DePaul</td>
+      <td class="gt_row gt_left gt_striped">Big East</td>
+      <td class="gt_row gt_right gt_striped">5</td>
+      <td class="gt_row gt_right gt_striped">14</td>
+      <td class="gt_row gt_right gt_striped" style="color: green; font-weight: normal;">3.63</td>
+      <td class="gt_row gt_right gt_striped" style="color: green; font-weight: normal;">9.79</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="color: black; font-weight: bold;">University of California</td>
+      <td class="gt_row gt_left">Pac-12</td>
+      <td class="gt_row gt_right">9</td>
+      <td class="gt_row gt_right">20</td>
+      <td class="gt_row gt_right" style="color: green; font-weight: normal;">2.48</td>
+      <td class="gt_row gt_right" style="color: green; font-weight: normal;">7.34</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_striped" style="color: black; font-weight: bold;">Texas A&amp;M</td>
+      <td class="gt_row gt_left gt_striped">SEC</td>
+      <td class="gt_row gt_right gt_striped">8</td>
+      <td class="gt_row gt_right gt_striped">10</td>
+      <td class="gt_row gt_right gt_striped" style="color: green; font-weight: normal;">2.31</td>
+      <td class="gt_row gt_right gt_striped" style="color: green; font-weight: normal;">4.97</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="color: black; font-weight: bold;">Loyola (MD)</td>
+      <td class="gt_row gt_left">Patriot</td>
+      <td class="gt_row gt_right">6</td>
+      <td class="gt_row gt_right">11</td>
+      <td class="gt_row gt_right" style="color: green; font-weight: normal;">1.73</td>
+      <td class="gt_row gt_right" style="color: green; font-weight: normal;">0.56</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_striped" style="color: black; font-weight: bold;">Boston College</td>
+      <td class="gt_row gt_left gt_striped">ACC</td>
+      <td class="gt_row gt_right gt_striped">4</td>
+      <td class="gt_row gt_right gt_striped">16</td>
+      <td class="gt_row gt_right gt_striped" style="color: green; font-weight: normal;">1.69</td>
+      <td class="gt_row gt_right gt_striped" style="color: green; font-weight: normal;">9.84</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="color: black; font-weight: bold;">East Carolina</td>
+      <td class="gt_row gt_left">AAC</td>
+      <td class="gt_row gt_right">8</td>
+      <td class="gt_row gt_right">11</td>
+      <td class="gt_row gt_right" style="color: green; font-weight: normal;">1.12</td>
+      <td class="gt_row gt_right" style="color: green; font-weight: normal;">3.95</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_striped" style="color: black; font-weight: bold;">Iowa State</td>
+      <td class="gt_row gt_left gt_striped">Big 12</td>
+      <td class="gt_row gt_right gt_striped">2</td>
+      <td class="gt_row gt_right gt_striped">22</td>
+      <td class="gt_row gt_right gt_striped" style="color: red; font-weight: bold;">-0.54</td>
+      <td class="gt_row gt_right gt_striped" style="color: green; font-weight: normal;">10.59</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left" style="color: black; font-weight: bold;">Illinois State</td>
+      <td class="gt_row gt_left">MVC</td>
+      <td class="gt_row gt_right">7</td>
+      <td class="gt_row gt_right">18</td>
+      <td class="gt_row gt_right" style="color: red; font-weight: bold;">-5.21</td>
+      <td class="gt_row gt_right" style="color: green; font-weight: normal;">0.62</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_striped" style="color: black; font-weight: bold;">North Carolina-Wilmington</td>
+      <td class="gt_row gt_left gt_striped">CAA</td>
+      <td class="gt_row gt_right gt_striped">7</td>
+      <td class="gt_row gt_right gt_striped">10</td>
+      <td class="gt_row gt_right gt_striped" style="color: red; font-weight: bold;">-6.07</td>
+      <td class="gt_row gt_right gt_striped" style="color: red; font-weight: bold;">-5.69</td>
+    </tr>
+  </tbody>
+  <tfoot class="gt_sourcenotes">
+    <tr>
+      <td class="gt_sourcenote" colspan="6">By Matt Waite</td>
+    </tr>
+    <tr>
+      <td class="gt_sourcenote" colspan="6">Source: <a href="https://www.sports-reference.com/cbb/seasons/2021-school-stats.html">Sports Reference</a></td>
+    </tr>
+  </tfoot>
+  
+</table></div>
+<p>Nebraska has the best simple rating against the toughest competition of the top 10 of the bottom. Meaning they played better against tougher teams than any of these schools on here, including the Big East, the SEC and the Pac-12. The closest in competition to the Big Ten is the Big 12, and Nebraska is far better than Iowa State (which, this season, is a low bar).</p>
+<p>But what about all teams in college basketball. Where does Nebraska rank out against other teams and other conferences? For this, I am going to use a bee swarm plot grouped by conferences, so you can see each team in a conference on a number line. I’ll highlight Nebraska in red and the worst teams in each conference in blue.</p>
+<pre class="r"><code>ggplot() +
+  geom_vline(xintercept = 7.10) + 
+  geom_beeswarm(
+    data=stats, 
+    groupOnX=FALSE, 
+    aes(x=OverallSRS, y=Conference), color=&quot;grey&quot;) + 
+  geom_beeswarm(
+    data=lastplace, 
+    groupOnX=TRUE, 
+    aes(x=OverallSRS, y=Conference), color=&quot;blue&quot;) + 
+  geom_beeswarm(
+    data=nu, 
+    groupOnX=TRUE, 
+    aes(x=OverallSRS, y=Conference), color=&quot;red&quot;) +
+labs(x=&quot;Simple Rating&quot;, y=&quot;&quot;, title=&quot;Nebraska&#39;s simple rating is better than 15 conferences&quot;, subtitle=&quot;The Husker&#39;s finished dead last in the Big Ten, but wouldn&#39;t anywhere else given their rating.&quot;, caption=&quot;Source: Sports Reference | By Matt Waite&quot;) + 
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 16, face = &quot;bold&quot;),
+    axis.title = element_text(size = 8), 
+    plot.subtitle = element_text(size=10), 
+    panel.grid.minor = element_blank()
+    )</code></pre>
+<p><img src="/2021/03/28/is-nebraska-the-best-worst-team-in-college-basketball/index_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+Admittedly, the 15 conferences Nebraska wins aren’t exactly powerhouses. What about the Power Five?</p>
+<pre class="r"><code>powerfive &lt;- c(&quot;Big Ten&quot;, &quot;Big 12&quot;, &quot;Pac-12&quot;, &quot;SEC&quot;, &quot;ACC&quot;)
+
+betterpowerfive &lt;- stats %&gt;% filter(Conference %in% powerfive) %&gt;% filter(OverallSRS &lt;= 7.10) %&gt;% arrange(desc(OverallSRS))</code></pre>
+<p>By simple rating, Nebraska is better than 14 teams in the Power Five, including four SEC teams and three Big 12 teams. How much better? This bubble chart with the size of the dot scaled by number of wins shows that Nebraska is better than a lot of teams who won more games.</p>
+<pre class="r"><code>ggplot() + 
+  geom_point(data=betterpowerfive, aes(x=OverallSRS, y=OverallSOS, size=OverallWins)) + 
+  geom_point(data=nu, aes(x=OverallSRS, y=OverallSOS, size=OverallWins), color=&quot;red&quot;) + 
+  geom_text_repel(data=betterpowerfive, aes(x=OverallSRS, y=OverallSOS, label=Team), point.padding = 4) +
+labs(x=&quot;Simple Rating&quot;, y=&quot;&quot;, title=&quot;Nebraska doesn&#39;t finish last anywhere else in the Power Five&quot;, subtitle=&quot;In the Big 12 or the SEC, Nebraska is closer to the middle of the pack than the bottom.&quot;, caption=&quot;Source: Sports Reference | By Matt Waite&quot;) + 
+  theme_minimal() + 
+  theme(
+    plot.title = element_text(size = 16, face = &quot;bold&quot;),
+    axis.title = element_text(size = 8), 
+    plot.subtitle = element_text(size=10), 
+    panel.grid.minor = element_blank()
+    )</code></pre>
+<p><img src="/2021/03/28/is-nebraska-the-best-worst-team-in-college-basketball/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Nebraska has the core of it’s team coming back and the Big Ten is not going to be as good as it was this year going forward. There’s been turmoil in some programs, turnover in others, and the NBA draft is going to take some talented players out of the conference.</p>
+<p>Where does Nebraska finish next year? Signs point to better than last.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+
+    
+  </body>
+</html>
+
