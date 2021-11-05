@@ -6,7 +6,16 @@
     <description>Recent content on Matt Waite&#39;s Github Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fall 2021 Teaching and Learning Symposium Notes</title>
+      <link>/2021/11/04/fall-2021-teaching-and-learning-symposium-notes/</link>
+      <pubDate>Thu, 04 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021/11/04/fall-2021-teaching-and-learning-symposium-notes/</guid>
+      <description>What you&amp;rsquo;ll need:  R 4.1.2 for your operating system R Studio A Github account Github desktop  What you&amp;rsquo;ll do:  Install everything. Open R studio In the console, type install.packages(&amp;quot;bookdown&amp;quot;) File &amp;gt; New Project New Directory &amp;gt; Book Project with Blogdown Pick a name, a location and a style of book. Write your book.  Publishing your book  Log into Github and create a new repository called yourusername.</description>
+    </item>
+    
     <item>
       <title>Is Nebraska the best worst team in college basketball?</title>
       <link>/2021/03/28/is-nebraska-the-best-worst-team-in-college-basketball/</link>
