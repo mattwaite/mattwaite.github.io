@@ -113,6 +113,6 @@ last-thing
 using-packages-to-get-data
 using-cfbfastr-as-a-cautionary-tale
 a-working-example
-one-more-futboll-is-life
+one-more-futbol-is-life
 appendix
 how-to-get-help-in-this-class
