@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Advanced Sports Data Analysis</title>
   <meta name="description" content="This is the companion text to the University of Nebraska-Lincoln’s SPMC 460: Advanced Sports Data Analysis" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Advanced Sports Data Analysis" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2021-03-04" />
+<meta name="date" content="2022-02-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,9 +32,10 @@
   
   
 
-<link rel="next" href="the-modeling-process.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="the-modeling-process-linear-regression-and-feature-engineering.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +51,8 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -119,6 +119,7 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -140,36 +141,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#requirements-and-conventions"><i class="fa fa-check"></i><b>1.1</b> Requirements and Conventions</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i><b>1.2</b> About this book</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="the-modeling-process.html"><a href="the-modeling-process.html"><i class="fa fa-check"></i><b>2</b> The modeling process</a>
+<li class="chapter" data-level="2" data-path="the-modeling-process-linear-regression-and-feature-engineering.html"><a href="the-modeling-process-linear-regression-and-feature-engineering.html"><i class="fa fa-check"></i><b>2</b> The modeling process, linear regression and feature engineering</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="the-modeling-process.html"><a href="the-modeling-process.html#setting-up-the-modeling-process"><i class="fa fa-check"></i><b>2.1</b> Setting up the modeling process</a></li>
-<li class="chapter" data-level="2.2" data-path="the-modeling-process.html"><a href="the-modeling-process.html#predicting-based-on-the-model"><i class="fa fa-check"></i><b>2.2</b> Predicting based on the model</a></li>
-<li class="chapter" data-level="2.3" data-path="the-modeling-process.html"><a href="the-modeling-process.html#predicting-data-we-havent-seen-before"><i class="fa fa-check"></i><b>2.3</b> Predicting data we haven’t seen before</a></li>
-<li class="chapter" data-level="2.4" data-path="the-modeling-process.html"><a href="the-modeling-process.html#looking-locally"><i class="fa fa-check"></i><b>2.4</b> Looking locally</a></li>
+<li class="chapter" data-level="2.1" data-path="the-modeling-process-linear-regression-and-feature-engineering.html"><a href="the-modeling-process-linear-regression-and-feature-engineering.html#feature-engineering"><i class="fa fa-check"></i><b>2.1</b> Feature engineering</a></li>
+<li class="chapter" data-level="2.2" data-path="the-modeling-process-linear-regression-and-feature-engineering.html"><a href="the-modeling-process-linear-regression-and-feature-engineering.html#setting-up-the-modeling-process"><i class="fa fa-check"></i><b>2.2</b> Setting up the modeling process</a></li>
+<li class="chapter" data-level="2.3" data-path="the-modeling-process-linear-regression-and-feature-engineering.html"><a href="the-modeling-process-linear-regression-and-feature-engineering.html#predicting-based-on-the-model"><i class="fa fa-check"></i><b>2.3</b> Predicting based on the model</a></li>
+<li class="chapter" data-level="2.4" data-path="the-modeling-process-linear-regression-and-feature-engineering.html"><a href="the-modeling-process-linear-regression-and-feature-engineering.html#predicting-data-we-havent-seen-before"><i class="fa fa-check"></i><b>2.4</b> Predicting data we haven’t seen before</a></li>
+<li class="chapter" data-level="2.5" data-path="the-modeling-process-linear-regression-and-feature-engineering.html"><a href="the-modeling-process-linear-regression-and-feature-engineering.html#looking-locally"><i class="fa fa-check"></i><b>2.5</b> Looking locally</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="multiple-regression-and-feature-engineering.html"><a href="multiple-regression-and-feature-engineering.html"><i class="fa fa-check"></i><b>3</b> Multiple regression and feature engineering</a>
+<li class="chapter" data-level="3" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>3</b> Multiple regression</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="multiple-regression-and-feature-engineering.html"><a href="multiple-regression-and-feature-engineering.html#a-multiple-regression-speed-run"><i class="fa fa-check"></i><b>3.1</b> A multiple regression speed run</a></li>
-<li class="chapter" data-level="3.2" data-path="multiple-regression-and-feature-engineering.html"><a href="multiple-regression-and-feature-engineering.html#picking-what-moves-the-needle"><i class="fa fa-check"></i><b>3.2</b> Picking what moves the needle</a></li>
-<li class="chapter" data-level="3.3" data-path="multiple-regression-and-feature-engineering.html"><a href="multiple-regression-and-feature-engineering.html#feature-engineering"><i class="fa fa-check"></i><b>3.3</b> Feature engineering</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html"><i class="fa fa-check"></i><b>4</b> Decision trees and random forests</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#an-intro-to-pre-processing"><i class="fa fa-check"></i><b>4.1</b> An intro to pre-processing</a></li>
-<li class="chapter" data-level="4.2" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#decision-trees"><i class="fa fa-check"></i><b>4.2</b> Decision trees</a></li>
-<li class="chapter" data-level="4.3" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#random-forest"><i class="fa fa-check"></i><b>4.3</b> Random forest</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="xgboost.html"><a href="xgboost.html"><i class="fa fa-check"></i><b>5</b> XGBoost</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="xgboost.html"><a href="xgboost.html#hyperparameters"><i class="fa fa-check"></i><b>5.1</b> Hyperparameters</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="logistic-regression.html"><a href="logistic-regression.html#visualizing-the-decision-boundary"><i class="fa fa-check"></i><b>6.1</b> Visualizing the decision boundary</a></li>
-<li class="chapter" data-level="6.2" data-path="logistic-regression.html"><a href="logistic-regression.html#the-logistic-regression"><i class="fa fa-check"></i><b>6.2</b> The logistic regression</a></li>
-<li class="chapter" data-level="6.3" data-path="logistic-regression.html"><a href="logistic-regression.html#evaluating-the-fit"><i class="fa fa-check"></i><b>6.3</b> Evaluating the fit</a></li>
-<li class="chapter" data-level="6.4" data-path="logistic-regression.html"><a href="logistic-regression.html#comparing-it-to-test-data"><i class="fa fa-check"></i><b>6.4</b> Comparing it to test data</a></li>
-<li class="chapter" data-level="6.5" data-path="logistic-regression.html"><a href="logistic-regression.html#how-well-did-it-do-with-nebraska"><i class="fa fa-check"></i><b>6.5</b> How well did it do with Nebraska?</a></li>
+<li class="chapter" data-level="3.1" data-path="multiple-regression.html"><a href="multiple-regression.html#a-multiple-regression-speed-run"><i class="fa fa-check"></i><b>3.1</b> A multiple regression speed run</a></li>
+<li class="chapter" data-level="3.2" data-path="multiple-regression.html"><a href="multiple-regression.html#picking-what-moves-the-needle"><i class="fa fa-check"></i><b>3.2</b> Picking what moves the needle</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -195,7 +178,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1 class="title">Advanced Sports Data Analysis</h1>
 <h2 class="subtitle"><em>Modeling and Machine Learning for sports analysis in R</em></h2>
 <p class="author"><em>By Matt Waite</em></p>
-<p class="date"><em>2021-03-04</em></p>
+<p class="date"><em>2022-02-02</em></p>
 </div>
 <div id="introduction" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
@@ -244,11 +227,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-<a href="the-modeling-process.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-modeling-process-linear-regression-and-feature-engineering.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -267,6 +249,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -287,6 +270,10 @@ gitbook.start({
 "text": null
 },
 "download": ["advancedsportsdataanalysis.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
