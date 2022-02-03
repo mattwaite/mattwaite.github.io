@@ -24,14 +24,14 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2022-02-02" />
+<meta name="date" content="2022-02-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="the-modeling-process-linear-regression-and-feature-engineering.html"/>
+<link rel="prev" href="the-modeling-process-and-linear-regression.html"/>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -141,13 +141,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#requirements-and-conventions"><i class="fa fa-check"></i><b>1.1</b> Requirements and Conventions</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i><b>1.2</b> About this book</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="the-modeling-process-linear-regression-and-feature-engineering.html"><a href="the-modeling-process-linear-regression-and-feature-engineering.html"><i class="fa fa-check"></i><b>2</b> The modeling process, linear regression and feature engineering</a>
+<li class="chapter" data-level="2" data-path="the-modeling-process-and-linear-regression.html"><a href="the-modeling-process-and-linear-regression.html"><i class="fa fa-check"></i><b>2</b> The modeling process and linear regression</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="the-modeling-process-linear-regression-and-feature-engineering.html"><a href="the-modeling-process-linear-regression-and-feature-engineering.html#feature-engineering"><i class="fa fa-check"></i><b>2.1</b> Feature engineering</a></li>
-<li class="chapter" data-level="2.2" data-path="the-modeling-process-linear-regression-and-feature-engineering.html"><a href="the-modeling-process-linear-regression-and-feature-engineering.html#setting-up-the-modeling-process"><i class="fa fa-check"></i><b>2.2</b> Setting up the modeling process</a></li>
-<li class="chapter" data-level="2.3" data-path="the-modeling-process-linear-regression-and-feature-engineering.html"><a href="the-modeling-process-linear-regression-and-feature-engineering.html#predicting-based-on-the-model"><i class="fa fa-check"></i><b>2.3</b> Predicting based on the model</a></li>
-<li class="chapter" data-level="2.4" data-path="the-modeling-process-linear-regression-and-feature-engineering.html"><a href="the-modeling-process-linear-regression-and-feature-engineering.html#predicting-data-we-havent-seen-before"><i class="fa fa-check"></i><b>2.4</b> Predicting data we haven’t seen before</a></li>
-<li class="chapter" data-level="2.5" data-path="the-modeling-process-linear-regression-and-feature-engineering.html"><a href="the-modeling-process-linear-regression-and-feature-engineering.html#looking-locally"><i class="fa fa-check"></i><b>2.5</b> Looking locally</a></li>
+<li class="chapter" data-level="2.1" data-path="the-modeling-process-and-linear-regression.html"><a href="the-modeling-process-and-linear-regression.html#feature-engineering"><i class="fa fa-check"></i><b>2.1</b> Feature engineering</a></li>
+<li class="chapter" data-level="2.2" data-path="the-modeling-process-and-linear-regression.html"><a href="the-modeling-process-and-linear-regression.html#setting-up-the-modeling-process"><i class="fa fa-check"></i><b>2.2</b> Setting up the modeling process</a></li>
+<li class="chapter" data-level="2.3" data-path="the-modeling-process-and-linear-regression.html"><a href="the-modeling-process-and-linear-regression.html#predicting-based-on-the-model"><i class="fa fa-check"></i><b>2.3</b> Predicting based on the model</a></li>
+<li class="chapter" data-level="2.4" data-path="the-modeling-process-and-linear-regression.html"><a href="the-modeling-process-and-linear-regression.html#predicting-data-we-havent-seen-before"><i class="fa fa-check"></i><b>2.4</b> Predicting data we haven’t seen before</a></li>
+<li class="chapter" data-level="2.5" data-path="the-modeling-process-and-linear-regression.html"><a href="the-modeling-process-and-linear-regression.html#looking-locally"><i class="fa fa-check"></i><b>2.5</b> Looking locally</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>3</b> Multiple regression</a>
 <ul>
@@ -228,7 +228,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
 ## 1 rmse    standard      11.0  
-## 2 rsq     standard       0.319
+## 2 rsq     standard       0.320
 ## 3 mae     standard       8.64</code></pre>
 <p>Bottom line: We can predict about 32 percent of the difference in team scores by the shooting percentage. But we know, because we’ve shot hoops in the driveway before, or went through a basketball unit in PE in the third grade, that sure, being a good shooter is important, but how many times you shoot the ball is also important. If you’re a 100 percent shooter, that’s insane, but it probably means you took one shot. Congrats, you scored two points (three if you’re gutsy). One shot is not going to win a game.</p>
 <p>In our feature engineering, we created another metric – points per posesssion. It’s a measure of efficiency – did you score when you had the ball? We created a rolling metric for this too.</p>
@@ -243,8 +243,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard      10.0  
-## 2 rsq     standard       0.442
+## 1 rmse    standard       9.99 
+## 2 rsq     standard       0.443
 ## 3 mae     standard       7.78</code></pre>
 <p>And just like that, by acknowledging reality, we’ve jumped to 44 percent of variance explained and our root mean squared error – the average amount we’re off by – has dropped from 11 to 10.</p>
 <p>Your temptation now is to start adding things until we get to 1 on the r-squared and 0 on the rmse. The problem with that is called “overfitting”</p>
@@ -262,10 +262,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 4 × 5
 ##   term          team_score rolling_shooting_pe… rolling_ppp rolling_true_shooti…
 ##   &lt;chr&gt;              &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                &lt;dbl&gt;
-## 1 team_score        NA                    0.566       0.665                0.596
+## 1 team_score        NA                    0.566       0.665                0.597
 ## 2 rolling_shoo…      0.566               NA           0.817                0.930
 ## 3 rolling_ppp        0.665                0.817      NA                    0.864
-## 4 rolling_true…      0.596                0.930       0.864               NA</code></pre>
+## 4 rolling_true…      0.597                0.930       0.864               NA</code></pre>
 <p>Reading this can be a lot, and it helps to take some notes as you go.</p>
 <p>You read up and down and left and right – it’s a matrix. Follow the rolling_true_shooting_percentage row across to the rolling_shooting_percentage column and you’ll see they’re almost perfectly correlated with each other – 1 is a perfect correlation.</p>
 <p>What does that mean? It means including both is going to just add error without adding much value. They’re so similar. You pick the one that is more highly correlated with team_score – true shooting.</p>
@@ -277,9 +277,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 7
 ##   term                  estimate std.error statistic  p.value conf.low conf.high
 ##   &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-## 1 (Intercept)             -0.257    0.326     -0.787 4.31e- 1   -0.897     0.383
-## 2 rolling_true_shootin…    0.182    0.0118    15.4   1.93e-53    0.159     0.205
-## 3 rolling_ppp             60.3      0.583    103.    0          59.2      61.4</code></pre>
+## 1 (Intercept)             -0.355    0.327      -1.09 2.76e- 1   -0.995     0.285
+## 2 rolling_true_shootin…    0.179    0.0118     15.2  5.00e-52    0.156     0.202
+## 3 rolling_ppp             60.5      0.582     104.   0          59.4      61.7</code></pre>
 <p>What this says is if we can manage one point per possession in a basketball game, we’ll score 60 points. The model says for each 10 points of true shooting percentage, we’ll add another 1.8 points. Now we play the games.</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="multiple-regression.html#cb50-1" aria-hidden="true" tabindex="-1"></a>newtrainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
 <span id="cb50-2"><a href="multiple-regression.html#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(new_fit_lm, game_train))</span></code></pre></div>
@@ -298,8 +298,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       9.88 
-## 2 rsq     standard       0.448
+## 1 rmse    standard       9.90 
+## 2 rsq     standard       0.447
 ## 3 mae     standard       7.73</code></pre>
 <p>It’s remarkably stable. Our rmse is all but unchanged as is our r-squared. Until we find other metrics or other methods, this is solid.</p>
 <p>Let’s put this against a set of games we’re familiar with.</p>
@@ -319,10 +319,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##  3 2022-01-03 Nebraska                Ohio State               79  67.2    11.8 
 ##  4 2021-12-23 Nebraska                Kennesaw State           88  76.6    11.4 
 ##  5 2021-12-08 Nebraska                Michigan                 67  56.6    10.4 
-##  6 2021-11-10 Nebraska                Western Illinois         74  65.7     8.25
-##  7 2021-11-13 Nebraska                Sam Houston              74  68.9     5.10
-##  8 2021-11-27 Nebraska                South Dakota             83  78.3     4.74
-##  9 2021-11-17 Nebraska                Creighton                69  65.9     3.14
+##  6 2021-11-10 Nebraska                Western Illinois         74  65.7     8.26
+##  7 2021-11-13 Nebraska                Sam Houston              74  68.9     5.11
+##  8 2021-11-27 Nebraska                South Dakota             83  78.3     4.73
+##  9 2021-11-17 Nebraska                Creighton                69  65.8     3.16
 ## 10 2021-11-20 Nebraska                Idaho State              78  75.1     2.93
 ## # … with 12 more rows</code></pre>
 <p>The question to start thinking about is this – what else could we include?</p>
@@ -334,7 +334,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="the-modeling-process-linear-regression-and-feature-engineering.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-modeling-process-and-linear-regression.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

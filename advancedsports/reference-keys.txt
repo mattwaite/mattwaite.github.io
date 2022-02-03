@@ -1,7 +1,7 @@
 introduction
 requirements-and-conventions
 about-this-book
-the-modeling-process-linear-regression-and-feature-engineering
+the-modeling-process-and-linear-regression
 feature-engineering
 setting-up-the-modeling-process
 predicting-based-on-the-model
