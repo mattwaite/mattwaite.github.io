@@ -10,3 +10,7 @@ looking-locally
 multiple-regression
 a-multiple-regression-speed-run
 picking-what-moves-the-needle
+decision-trees-and-random-forests
+an-intro-to-pre-processing
+decision-trees
+random-forest
