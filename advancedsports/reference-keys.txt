@@ -14,3 +14,5 @@ decision-trees-and-random-forests
 an-intro-to-pre-processing
 decision-trees
 random-forest
+xgboost
+hyperparameters

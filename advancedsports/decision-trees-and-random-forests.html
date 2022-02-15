@@ -24,7 +24,7 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2022-02-07" />
+<meta name="date" content="2022-02-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="multiple-regression.html"/>
-
+<link rel="next" href="xgboost.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -160,6 +160,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#decision-trees"><i class="fa fa-check"></i><b>4.2</b> Decision trees</a></li>
 <li class="chapter" data-level="4.3" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#random-forest"><i class="fa fa-check"></i><b>4.3</b> Random forest</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="xgboost.html"><a href="xgboost.html"><i class="fa fa-check"></i><b>5</b> XGBoost</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="xgboost.html"><a href="xgboost.html#hyperparameters"><i class="fa fa-check"></i><b>5.1</b> Hyperparameters</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -257,21 +261,23 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Please use `extract_fit_parsnip()` instead.</code></pre>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  543ms 
-## n= 68700 
+## Fit time:  540ms 
+## n= 69348 
 ## 
 ## node), split, n, deviance, yval
 ##       * denotes terminal node
 ## 
-## 1) root 68700 12230730.0 71.45726  
-##   2) rolling_ppp&lt; 1.033576 35180  4205167.0 64.55787  
-##     4) rolling_ppp&lt; 0.9066035 11589  1157057.0 58.01691  
-##       8) rolling_ppp&lt; 0.7865697 2610   249939.9 51.67356 *
-##       9) rolling_ppp&gt;=0.7865697 8979   771568.0 59.86079 *
-##     5) rolling_ppp&gt;=0.9066035 23591  2308712.0 67.77110 *
-##   3) rolling_ppp&gt;=1.033576 33520  4593380.0 78.69833  
-##     6) rolling_ppp&lt; 1.168817 24707  2684901.0 76.13697 *
-##     7) rolling_ppp&gt;=1.168817 8813  1291965.0 85.87904 *</code></pre>
+##  1) root 69348 12321820.0 71.43057  
+##    2) rolling_ppp&lt; 1.017204 31940  3710380.0 63.79487  
+##      4) rolling_ppp&lt; 0.9065279 11646  1167697.0 57.99596  
+##        8) rolling_ppp&lt; 0.7887438 2748   260754.5 51.71288 *
+##        9) rolling_ppp&gt;=0.7887438 8898   764956.0 59.93639 *
+##      5) rolling_ppp&gt;=0.9065279 20294  1926322.0 67.12265 *
+##    3) rolling_ppp&gt;=1.017204 37408  5159190.0 77.95014  
+##      6) rolling_ppp&lt; 1.16796 28441  3101745.0 75.45846  
+##       12) rolling_ppp&lt; 1.101016 18038  1840311.0 73.66016 *
+##       13) rolling_ppp&gt;=1.101016 10403  1101958.0 78.57656 *
+##      7) rolling_ppp&gt;=1.16796 8967  1320816.0 85.85313 *</code></pre>
 <p>They can be a bit tough to read, but take the bottom three nodes. It says if rolling_ppp is greater than or equal to 1.17, your score is around 85 points a game. If it’s less than 1.17, you’ll score around 76 points.</p>
 <p>Easy to understand, right? The algorithm cuts branches when the splits stop reducing error, and there’s a limit But here’s where the crude instrument comes in.</p>
 <p>Let’s use our decision tree to predict some scores.</p>
@@ -282,9 +288,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard      10.3  
-## 2 rsq     standard       0.403
-## 3 mae     standard       8.05</code></pre>
+## 1 rmse    standard      10.2  
+## 2 rsq     standard       0.414
+## 3 mae     standard       7.95</code></pre>
 <p>Our rsquared is about .40, which isn’t terrible. And our MAE says we’re off by 8 points on average, but our RSME says were off by 10.3 points on a different average, indicating there’s some big misses.</p>
 <p>We can do better.</p>
 </div>
@@ -327,7 +333,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Please use `extract_fit_parsnip()` instead.</code></pre>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  1m 5.6s 
+## Fit time:  1m 3.2s 
 ## Ranger result
 ## 
 ## Call:
@@ -335,14 +341,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Type:                             Regression 
 ## Number of trees:                  500 
-## Sample size:                      68700 
+## Sample size:                      69348 
 ## Number of independent variables:  3 
 ## Mtry:                             1 
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       104.3892 
-## R squared (OOB):                  0.413654</code></pre>
+## OOB prediction error (MSE):       104.208 
+## R squared (OOB):                  0.4135192</code></pre>
 <p>Similar to previous work, we can bind the prediction to our training data and evaluate the model.</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="decision-trees-and-random-forests.html#cb84-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
 <span id="cb84-2"><a href="decision-trees-and-random-forests.html#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(score_fit, game_train))</span></code></pre></div>
@@ -362,8 +368,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
 ## 1 rmse    standard      10.3  
-## 2 rsq     standard       0.413
-## 3 mae     standard       8.03</code></pre>
+## 2 rsq     standard       0.414
+## 3 mae     standard       8.02</code></pre>
 <p>How well does the random forest algorithm do with Nebraska’s schedule in 2020-2021 prior to a month-long COVID break?</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="decision-trees-and-random-forests.html#cb90-1" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> modelgames <span class="sc">%&gt;%</span> <span class="fu">filter</span>(season <span class="sc">==</span> <span class="dv">2022</span>, team_short_display_name <span class="sc">==</span> <span class="st">&quot;Nebraska&quot;</span>)</span>
 <span id="cb90-2"><a href="decision-trees-and-random-forests.html#cb90-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -371,20 +377,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb90-4"><a href="decision-trees-and-random-forests.html#cb90-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(score_fit, nu))</span>
 <span id="cb90-5"><a href="decision-trees-and-random-forests.html#cb90-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb90-6"><a href="decision-trees-and-random-forests.html#cb90-6" aria-hidden="true" tabindex="-1"></a>nupreds <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">residual =</span> team_score <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(residual)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(team_short_display_name, opponent_name, team_score, .pred, residual)</span></code></pre></div>
-<pre><code>## # A tibble: 23 × 5
+<pre><code>## # A tibble: 25 × 5
 ##    team_short_display_name opponent_name    team_score .pred residual
 ##    &lt;chr&gt;                   &lt;chr&gt;                 &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Nebraska                NC State                100  87.6    12.4 
-##  2 Nebraska                Kennesaw State           88  79.6     8.36
-##  3 Nebraska                Michigan                 79  71.2     7.79
-##  4 Nebraska                Ohio State               79  73.1     5.87
-##  5 Nebraska                Michigan                 67  61.7     5.25
-##  6 Nebraska                Tennessee State          79  75.0     4.03
-##  7 Nebraska                Western Illinois         74  70.3     3.72
-##  8 Nebraska                Sam Houston              74  71.1     2.92
-##  9 Nebraska                Southern                 82  79.5     2.51
-## 10 Nebraska                Indiana                  71  68.6     2.41
-## # … with 13 more rows</code></pre>
+##  1 Nebraska                NC State                100  74.3    25.7 
+##  2 Nebraska                Kennesaw State           88  80.3     7.67
+##  3 Nebraska                Michigan                 79  71.5     7.48
+##  4 Nebraska                Minnesota                78  72.7     5.32
+##  5 Nebraska                Michigan                 67  61.8     5.22
+##  6 Nebraska                Indiana                  71  65.8     5.18
+##  7 Nebraska                South Dakota             83  78.4     4.64
+##  8 Nebraska                Ohio State               79  75.1     3.86
+##  9 Nebraska                Sam Houston              74  70.3     3.67
+## 10 Nebraska                Western Illinois         74  70.3     3.65
+## # … with 15 more rows</code></pre>
 <p>Compare this to the multiple regression of the previous chapter. Take just the NC State game as an example. The multiple regression model was off by 28 points – which is a lot, but it’s a triple overtime game. But the random forest managed to be off by 12.</p>
 
 </div>
@@ -394,8 +400,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="multiple-regression.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="multiple-regression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="xgboost.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

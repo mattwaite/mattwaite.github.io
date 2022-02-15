@@ -24,7 +24,7 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2022-02-07" />
+<meta name="date" content="2022-02-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -160,6 +160,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#decision-trees"><i class="fa fa-check"></i><b>4.2</b> Decision trees</a></li>
 <li class="chapter" data-level="4.3" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#random-forest"><i class="fa fa-check"></i><b>4.3</b> Random forest</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="xgboost.html"><a href="xgboost.html"><i class="fa fa-check"></i><b>5</b> XGBoost</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="xgboost.html"><a href="xgboost.html#hyperparameters"><i class="fa fa-check"></i><b>5.1</b> Hyperparameters</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -235,7 +239,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
 ## 1 rmse    standard      11.0  
 ## 2 rsq     standard       0.322
-## 3 mae     standard       8.62</code></pre>
+## 3 mae     standard       8.60</code></pre>
 <p>Bottom line: We can predict about 32 percent of the difference in team scores by the shooting percentage. But we know, because we’ve shot hoops in the driveway before, or went through a basketball unit in PE in the third grade, that sure, being a good shooter is important, but how many times you shoot the ball is also important. If you’re a 100 percent shooter, that’s insane, but it probably means you took one shot. Congrats, you scored two points (three if you’re gutsy). One shot is not going to win a game.</p>
 <p>In our feature engineering, we created another metric – points per posesssion. It’s a measure of efficiency – did you score when you had the ball? We created a rolling metric for this too.</p>
 <p>To add it to our model, it’s as simple as just adding <code>+ rolling_ppp</code></p>
@@ -249,9 +253,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       9.97 
-## 2 rsq     standard       0.444
-## 3 mae     standard       7.76</code></pre>
+## 1 rmse    standard       9.95 
+## 2 rsq     standard       0.445
+## 3 mae     standard       7.75</code></pre>
 <p>And just like that, by acknowledging reality, we’ve jumped to 44 percent of variance explained and our root mean squared error – the average amount we’re off by – has dropped from 11 to 10.</p>
 <p>Your temptation now is to start adding things until we get to 1 on the r-squared and 0 on the rmse. The problem with that is called “overfitting”</p>
 <p>Overfitting is where you produce a model that is too close to your training data, which makes it prone to fail with data you’ve never seen before – the model becomes unreliable when it’s not the training data anymore.</p>
@@ -283,9 +287,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 7
 ##   term                  estimate std.error statistic  p.value conf.low conf.high
 ##   &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-## 1 (Intercept)             -0.366    0.325      -1.13 2.60e- 1   -1.00      0.270
-## 2 rolling_true_shootin…    0.183    0.0117     15.6  1.35e-54    0.160     0.206
-## 3 rolling_ppp             60.4      0.579     104.   0          59.2      61.5</code></pre>
+## 1 (Intercept)             -0.398    0.323      -1.23 2.17e- 1   -1.03      0.234
+## 2 rolling_true_shootin…    0.182    0.0117     15.6  1.13e-54    0.159     0.205
+## 3 rolling_ppp             60.4      0.577     105.   0          59.3      61.5</code></pre>
 <p>What this says is if we can manage one point per possession in a basketball game, we’ll score 60 points. The model says for each 10 points of true shooting percentage, we’ll add another 1.8 points. Now we play the games.</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="multiple-regression.html#cb50-1" aria-hidden="true" tabindex="-1"></a>newtrainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
 <span id="cb50-2"><a href="multiple-regression.html#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(new_fit_lm, game_train))</span></code></pre></div>
@@ -293,9 +297,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       9.97 
+## 1 rmse    standard       9.95 
 ## 2 rsq     standard       0.445
-## 3 mae     standard       7.76</code></pre>
+## 3 mae     standard       7.75</code></pre>
 <p>So … we’re up to an r-squared of .44 and an rmse under 10. The goal here is to add to r-squared and reduce our error metrics.</p>
 <p>How well does the model do with data it hasn’t seen before?</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="multiple-regression.html#cb53-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> game_test <span class="sc">%&gt;%</span></span>
@@ -304,9 +308,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       9.93 
-## 2 rsq     standard       0.441
-## 3 mae     standard       7.78</code></pre>
+## 1 rmse    standard       9.95 
+## 2 rsq     standard       0.440
+## 3 mae     standard       7.75</code></pre>
 <p>It’s remarkably stable. Our rmse is all but unchanged as is our r-squared. Until we find other metrics or other methods, this is solid.</p>
 <p>Let’s put this against a set of games we’re familiar with.</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="multiple-regression.html#cb56-1" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> teamstats <span class="sc">%&gt;%</span> </span>
@@ -317,20 +321,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb58-2"><a href="multiple-regression.html#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residual =</span> team_score <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span> </span>
 <span id="cb58-3"><a href="multiple-regression.html#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(residual)) <span class="sc">%&gt;%</span> </span>
 <span id="cb58-4"><a href="multiple-regression.html#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(game_date, team_short_display_name, opponent_name, team_score, .pred, residual)</span></code></pre></div>
-<pre><code>## # A tibble: 23 × 6
+<pre><code>## # A tibble: 25 × 6
 ##    game_date  team_short_display_name opponent_name    team_score .pred residual
 ##    &lt;date&gt;     &lt;chr&gt;                   &lt;chr&gt;                 &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
 ##  1 2021-12-02 Nebraska                NC State                100  71.9    28.1 
-##  2 2021-12-23 Nebraska                Kennesaw State           88  70.1    17.9 
+##  2 2021-12-23 Nebraska                Kennesaw State           88  72.2    15.8 
 ##  3 2022-02-02 Nebraska                Michigan                 79  66.6    12.4 
-##  4 2022-01-03 Nebraska                Ohio State               79  67.2    11.8 
-##  5 2021-12-08 Nebraska                Michigan                 67  56.6    10.4 
-##  6 2021-11-10 Nebraska                Western Illinois         74  65.7     8.28
-##  7 2021-11-13 Nebraska                Sam Houston              74  68.9     5.12
-##  8 2021-11-27 Nebraska                South Dakota             83  78.3     4.74
-##  9 2021-11-17 Nebraska                Creighton                69  65.8     3.16
-## 10 2021-11-20 Nebraska                Idaho State              78  75.1     2.94
-## # … with 13 more rows</code></pre>
+##  4 2022-01-03 Nebraska                Ohio State               79  67.1    11.9 
+##  5 2021-12-08 Nebraska                Michigan                 67  56.5    10.5 
+##  6 2022-02-10 Nebraska                Minnesota                78  68.0    10.0 
+##  7 2021-11-10 Nebraska                Western Illinois         74  65.7     8.31
+##  8 2021-11-13 Nebraska                Sam Houston              74  68.8     5.15
+##  9 2022-02-13 Nebraska                Iowa                     75  70.1     4.90
+## 10 2021-11-27 Nebraska                South Dakota             83  78.2     4.77
+## # … with 15 more rows</code></pre>
 <p>The question to start thinking about is this – what else could we include?</p>
 
 </div>
