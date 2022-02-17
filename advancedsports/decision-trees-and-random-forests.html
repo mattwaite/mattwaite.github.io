@@ -24,7 +24,7 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2022-02-14" />
+<meta name="date" content="2022-02-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -164,6 +164,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1" data-path="xgboost.html"><a href="xgboost.html#hyperparameters"><i class="fa fa-check"></i><b>5.1</b> Hyperparameters</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="logistic-regression.html"><a href="logistic-regression.html#visualizing-the-decision-boundary"><i class="fa fa-check"></i><b>6.1</b> Visualizing the decision boundary</a></li>
+<li class="chapter" data-level="6.2" data-path="logistic-regression.html"><a href="logistic-regression.html#the-logistic-regression"><i class="fa fa-check"></i><b>6.2</b> The logistic regression</a></li>
+<li class="chapter" data-level="6.3" data-path="logistic-regression.html"><a href="logistic-regression.html#evaluating-the-fit"><i class="fa fa-check"></i><b>6.3</b> Evaluating the fit</a></li>
+<li class="chapter" data-level="6.4" data-path="logistic-regression.html"><a href="logistic-regression.html#comparing-it-to-test-data"><i class="fa fa-check"></i><b>6.4</b> Comparing it to test data</a></li>
+<li class="chapter" data-level="6.5" data-path="logistic-regression.html"><a href="logistic-regression.html#how-well-did-it-do-with-nebraska"><i class="fa fa-check"></i><b>6.5</b> How well did it do with Nebraska?</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -261,23 +269,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Please use `extract_fit_parsnip()` instead.</code></pre>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  540ms 
-## n= 69348 
+## Fit time:  476ms 
+## n= 69525 
 ## 
 ## node), split, n, deviance, yval
 ##       * denotes terminal node
 ## 
-##  1) root 69348 12321820.0 71.43057  
-##    2) rolling_ppp&lt; 1.017204 31940  3710380.0 63.79487  
-##      4) rolling_ppp&lt; 0.9065279 11646  1167697.0 57.99596  
-##        8) rolling_ppp&lt; 0.7887438 2748   260754.5 51.71288 *
-##        9) rolling_ppp&gt;=0.7887438 8898   764956.0 59.93639 *
-##      5) rolling_ppp&gt;=0.9065279 20294  1926322.0 67.12265 *
-##    3) rolling_ppp&gt;=1.017204 37408  5159190.0 77.95014  
-##      6) rolling_ppp&lt; 1.16796 28441  3101745.0 75.45846  
-##       12) rolling_ppp&lt; 1.101016 18038  1840311.0 73.66016 *
-##       13) rolling_ppp&gt;=1.101016 10403  1101958.0 78.57656 *
-##      7) rolling_ppp&gt;=1.16796 8967  1320816.0 85.85313 *</code></pre>
+##  1) root 69525 12350080.0 71.46695  
+##    2) rolling_ppp&lt; 1.017359 32038  3715305.0 63.82511  
+##      4) rolling_ppp&lt; 0.8915218 9752   950488.5 57.15997 *
+##      5) rolling_ppp&gt;=0.8915218 22286  2142020.0 66.74168 *
+##    3) rolling_ppp&gt;=1.017359 37487  5164835.0 77.99800  
+##      6) rolling_ppp&lt; 1.146048 25624  2716267.0 74.97694 *
+##      7) rolling_ppp&gt;=1.146048 11863  1709553.0 84.52348  
+##       14) rolling_ppp&lt; 1.251591 9302  1140517.0 82.69630 *
+##       15) rolling_ppp&gt;=1.251591 2561   425182.4 91.16009 *</code></pre>
 <p>They can be a bit tough to read, but take the bottom three nodes. It says if rolling_ppp is greater than or equal to 1.17, your score is around 85 points a game. If it’s less than 1.17, you’ll score around 76 points.</p>
 <p>Easy to understand, right? The algorithm cuts branches when the splits stop reducing error, and there’s a limit But here’s where the crude instrument comes in.</p>
 <p>Let’s use our decision tree to predict some scores.</p>
@@ -288,9 +294,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard      10.2  
-## 2 rsq     standard       0.414
-## 3 mae     standard       7.95</code></pre>
+## 1 rmse    standard      10.3  
+## 2 rsq     standard       0.403
+## 3 mae     standard       8.05</code></pre>
 <p>Our rsquared is about .40, which isn’t terrible. And our MAE says we’re off by 8 points on average, but our RSME says were off by 10.3 points on a different average, indicating there’s some big misses.</p>
 <p>We can do better.</p>
 </div>
@@ -333,7 +339,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Please use `extract_fit_parsnip()` instead.</code></pre>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  1m 3.2s 
+## Fit time:  1m 6.3s 
 ## Ranger result
 ## 
 ## Call:
@@ -341,14 +347,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Type:                             Regression 
 ## Number of trees:                  500 
-## Sample size:                      69348 
+## Sample size:                      69525 
 ## Number of independent variables:  3 
 ## Mtry:                             1 
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       104.208 
-## R squared (OOB):                  0.4135192</code></pre>
+## OOB prediction error (MSE):       103.9164 
+## R squared (OOB):                  0.4150091</code></pre>
 <p>Similar to previous work, we can bind the prediction to our training data and evaluate the model.</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="decision-trees-and-random-forests.html#cb84-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
 <span id="cb84-2"><a href="decision-trees-and-random-forests.html#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(score_fit, game_train))</span></code></pre></div>
@@ -356,9 +362,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       4.88 
+## 1 rmse    standard       4.87 
 ## 2 rsq     standard       0.895
-## 3 mae     standard       3.77</code></pre>
+## 3 mae     standard       3.76</code></pre>
 <p>Note: The RMSE for this model is down to 4.8. The R-squared is absurdly high.</p>
 <p>But how does this model handle data it hasn’t seen before?</p>
 <div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="decision-trees-and-random-forests.html#cb87-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> game_test <span class="sc">%&gt;%</span></span>
@@ -368,7 +374,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
 ## 1 rmse    standard      10.3  
-## 2 rsq     standard       0.414
+## 2 rsq     standard       0.407
 ## 3 mae     standard       8.02</code></pre>
 <p>How well does the random forest algorithm do with Nebraska’s schedule in 2020-2021 prior to a month-long COVID break?</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="decision-trees-and-random-forests.html#cb90-1" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> modelgames <span class="sc">%&gt;%</span> <span class="fu">filter</span>(season <span class="sc">==</span> <span class="dv">2022</span>, team_short_display_name <span class="sc">==</span> <span class="st">&quot;Nebraska&quot;</span>)</span>
@@ -380,16 +386,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 25 × 5
 ##    team_short_display_name opponent_name    team_score .pred residual
 ##    &lt;chr&gt;                   &lt;chr&gt;                 &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Nebraska                NC State                100  74.3    25.7 
-##  2 Nebraska                Kennesaw State           88  80.3     7.67
-##  3 Nebraska                Michigan                 79  71.5     7.48
-##  4 Nebraska                Minnesota                78  72.7     5.32
-##  5 Nebraska                Michigan                 67  61.8     5.22
-##  6 Nebraska                Indiana                  71  65.8     5.18
-##  7 Nebraska                South Dakota             83  78.4     4.64
-##  8 Nebraska                Ohio State               79  75.1     3.86
-##  9 Nebraska                Sam Houston              74  70.3     3.67
-## 10 Nebraska                Western Illinois         74  70.3     3.65
+##  1 Nebraska                NC State                100  87.3    12.7 
+##  2 Nebraska                Iowa                     75  66.9     8.07
+##  3 Nebraska                Michigan                 79  71.0     7.96
+##  4 Nebraska                Kennesaw State           88  81.0     7.00
+##  5 Nebraska                Minnesota                78  71.9     6.13
+##  6 Nebraska                Indiana                  71  65.6     5.36
+##  7 Nebraska                Michigan                 67  61.7     5.31
+##  8 Nebraska                Ohio State               79  74.4     4.56
+##  9 Nebraska                Western Illinois         74  69.7     4.31
+## 10 Nebraska                South Dakota             83  79.1     3.90
 ## # … with 15 more rows</code></pre>
 <p>Compare this to the multiple regression of the previous chapter. Take just the NC State game as an example. The multiple regression model was off by 28 points – which is a lot, but it’s a triple overtime game. But the random forest managed to be off by 12.</p>
 

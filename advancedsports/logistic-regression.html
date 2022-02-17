@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Logistic Regression | Advanced Sports Data Analysis</title>
+  <meta name="description" content="This is the companion text to the University of Nebraska-Lincoln’s SPMC 460: Advanced Sports Data Analysis" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Logistic Regression | Advanced Sports Data Analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the companion text to the University of Nebraska-Lincoln’s SPMC 460: Advanced Sports Data Analysis" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Logistic Regression | Advanced Sports Data Analysis" />
+  
+  <meta name="twitter:description" content="This is the companion text to the University of Nebraska-Lincoln’s SPMC 460: Advanced Sports Data Analysis" />
+  
+
+<meta name="author" content="By Matt Waite" />
+
+
+<meta name="date" content="2022-02-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="xgboost.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Advanced Sports Data Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#requirements-and-conventions"><i class="fa fa-check"></i><b>1.1</b> Requirements and Conventions</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i><b>1.2</b> About this book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="the-modeling-process-and-linear-regression.html"><a href="the-modeling-process-and-linear-regression.html"><i class="fa fa-check"></i><b>2</b> The modeling process and linear regression</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="the-modeling-process-and-linear-regression.html"><a href="the-modeling-process-and-linear-regression.html#feature-engineering"><i class="fa fa-check"></i><b>2.1</b> Feature engineering</a></li>
+<li class="chapter" data-level="2.2" data-path="the-modeling-process-and-linear-regression.html"><a href="the-modeling-process-and-linear-regression.html#setting-up-the-modeling-process"><i class="fa fa-check"></i><b>2.2</b> Setting up the modeling process</a></li>
+<li class="chapter" data-level="2.3" data-path="the-modeling-process-and-linear-regression.html"><a href="the-modeling-process-and-linear-regression.html#predicting-based-on-the-model"><i class="fa fa-check"></i><b>2.3</b> Predicting based on the model</a></li>
+<li class="chapter" data-level="2.4" data-path="the-modeling-process-and-linear-regression.html"><a href="the-modeling-process-and-linear-regression.html#predicting-data-we-havent-seen-before"><i class="fa fa-check"></i><b>2.4</b> Predicting data we haven’t seen before</a></li>
+<li class="chapter" data-level="2.5" data-path="the-modeling-process-and-linear-regression.html"><a href="the-modeling-process-and-linear-regression.html#looking-locally"><i class="fa fa-check"></i><b>2.5</b> Looking locally</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="multiple-regression.html"><a href="multiple-regression.html"><i class="fa fa-check"></i><b>3</b> Multiple regression</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="multiple-regression.html"><a href="multiple-regression.html#a-multiple-regression-speed-run"><i class="fa fa-check"></i><b>3.1</b> A multiple regression speed run</a></li>
+<li class="chapter" data-level="3.2" data-path="multiple-regression.html"><a href="multiple-regression.html#picking-what-moves-the-needle"><i class="fa fa-check"></i><b>3.2</b> Picking what moves the needle</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html"><i class="fa fa-check"></i><b>4</b> Decision trees and random forests</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#an-intro-to-pre-processing"><i class="fa fa-check"></i><b>4.1</b> An intro to pre-processing</a></li>
+<li class="chapter" data-level="4.2" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#decision-trees"><i class="fa fa-check"></i><b>4.2</b> Decision trees</a></li>
+<li class="chapter" data-level="4.3" data-path="decision-trees-and-random-forests.html"><a href="decision-trees-and-random-forests.html#random-forest"><i class="fa fa-check"></i><b>4.3</b> Random forest</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="xgboost.html"><a href="xgboost.html"><i class="fa fa-check"></i><b>5</b> XGBoost</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="xgboost.html"><a href="xgboost.html#hyperparameters"><i class="fa fa-check"></i><b>5.1</b> Hyperparameters</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="logistic-regression.html"><a href="logistic-regression.html#visualizing-the-decision-boundary"><i class="fa fa-check"></i><b>6.1</b> Visualizing the decision boundary</a></li>
+<li class="chapter" data-level="6.2" data-path="logistic-regression.html"><a href="logistic-regression.html#the-logistic-regression"><i class="fa fa-check"></i><b>6.2</b> The logistic regression</a></li>
+<li class="chapter" data-level="6.3" data-path="logistic-regression.html"><a href="logistic-regression.html#evaluating-the-fit"><i class="fa fa-check"></i><b>6.3</b> Evaluating the fit</a></li>
+<li class="chapter" data-level="6.4" data-path="logistic-regression.html"><a href="logistic-regression.html#comparing-it-to-test-data"><i class="fa fa-check"></i><b>6.4</b> Comparing it to test data</a></li>
+<li class="chapter" data-level="6.5" data-path="logistic-regression.html"><a href="logistic-regression.html#how-well-did-it-do-with-nebraska"><i class="fa fa-check"></i><b>6.5</b> How well did it do with Nebraska?</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Advanced Sports Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="logistic-regression" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Logistic Regression</h1>
+<p>Up to this point, we’ve been dealing with problems that lead to a <em>quantitative</em> answer: We want a number. How many points? How many possessions? But there are lots of problems in the world where the answer is <em>a classification</em>: Did they win or lose? Did the player get drafted or no? Is this player a flight risk to transfer or not?</p>
+<p>These are problems of classification and they use many of the same algorithms we’ve used to try and predict those classes.</p>
+<p>Ultimately, the algorithms will predict the <em>probability</em> that this row is X or Y and make a decision based on that probability. That probability will be somewhere between 0 and 1, with 0 being no chance and 1 being a sure thing.</p>
+<p>Where this gets interesting is in the middle.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="logistic-regression.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb111-2"><a href="logistic-regression.html#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb111-3"><a href="logistic-regression.html#cb111-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span>
+<span id="cb111-4"><a href="logistic-regression.html#cb111-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hoopR)</span>
+<span id="cb111-5"><a href="logistic-regression.html#cb111-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-6"><a href="logistic-regression.html#cb111-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span></code></pre></div>
+<p>What we need to do here is get both sides of the game. We’ll start with getting the box scores.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="logistic-regression.html#cb112-1" aria-hidden="true" tabindex="-1"></a>teamgames <span class="ot">&lt;-</span> <span class="fu">load_mbb_team_box</span>(<span class="at">seasons =</span> <span class="dv">2019</span><span class="sc">:</span><span class="dv">2022</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb112-2"><a href="logistic-regression.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(field_goals_made_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;field_goals_made&quot;</span>,<span class="st">&quot;field_goals_attempted&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb112-3"><a href="logistic-regression.html#cb112-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(three_point_field_goals_made_three_point_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;three_point_field_goals_made&quot;</span>,<span class="st">&quot;three_point_field_goals_attempted&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb112-4"><a href="logistic-regression.html#cb112-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(free_throws_made_free_throws_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;free_throws_made&quot;</span>,<span class="st">&quot;free_throws_attempted&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb112-5"><a href="logistic-regression.html#cb112-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">35</span>, as.numeric)</span></code></pre></div>
+<p>Now we’ll create the team side of the game.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="logistic-regression.html#cb113-1" aria-hidden="true" tabindex="-1"></a>teamstats <span class="ot">&lt;-</span> teamgames <span class="sc">%&gt;%</span> </span>
+<span id="cb113-2"><a href="logistic-regression.html#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(team_short_display_name) <span class="sc">%&gt;%</span></span>
+<span id="cb113-3"><a href="logistic-regression.html#cb113-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb113-4"><a href="logistic-regression.html#cb113-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_score =</span> ((field_goals_made<span class="sc">-</span>three_point_field_goals_made) <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">+</span> (three_point_field_goals_made<span class="sc">*</span><span class="dv">3</span>) <span class="sc">+</span> free_throws_made,</span>
+<span id="cb113-5"><a href="logistic-regression.html#cb113-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">true_shooting_percentage =</span> (team_score <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>(field_goals_attempted <span class="sc">+</span> (.<span class="dv">44</span> <span class="sc">*</span> free_throws_attempted)))) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb113-6"><a href="logistic-regression.html#cb113-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">turnover_pct =</span> turnovers<span class="sc">/</span>(field_goals_attempted <span class="sc">+</span> <span class="fl">0.44</span> <span class="sc">*</span> free_throws_attempted <span class="sc">+</span> turnovers),</span>
+<span id="cb113-7"><a href="logistic-regression.html#cb113-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">free_throw_factor =</span> free_throws_made<span class="sc">/</span>field_goals_attempted,</span>
+<span id="cb113-8"><a href="logistic-regression.html#cb113-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_rolling_true_shooting_percentage =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(true_shooting_percentage, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">2</span>, <span class="at">fill=</span>true_shooting_percentage),</span>
+<span id="cb113-9"><a href="logistic-regression.html#cb113-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_rolling_turnover_percentage =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(turnover_pct, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">2</span>, <span class="at">fill=</span>turnover_pct),</span>
+<span id="cb113-10"><a href="logistic-regression.html#cb113-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_rolling_free_throw_factor =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(free_throw_factor, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">2</span>, <span class="at">fill=</span>free_throw_factor),    </span>
+<span id="cb113-11"><a href="logistic-regression.html#cb113-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>()</span>
+<span id="cb113-12"><a href="logistic-regression.html#cb113-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-13"><a href="logistic-regression.html#cb113-13" aria-hidden="true" tabindex="-1"></a>opponent <span class="ot">&lt;-</span> teamstats <span class="sc">%&gt;%</span> <span class="fu">select</span>(game_id, team_id, offensive_rebounds, defensive_rebounds) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">opponent_id=</span>team_id, <span class="at">opponent_offensive_rebounds =</span> offensive_rebounds, <span class="at">opponent_defensive_rebounds=</span>defensive_rebounds) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">opponent_id =</span> <span class="fu">as.numeric</span>(opponent_id))</span>
+<span id="cb113-14"><a href="logistic-regression.html#cb113-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-15"><a href="logistic-regression.html#cb113-15" aria-hidden="true" tabindex="-1"></a>newteamstats <span class="ot">&lt;-</span> teamstats <span class="sc">%&gt;%</span> </span>
+<span id="cb113-16"><a href="logistic-regression.html#cb113-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(opponent) <span class="sc">%&gt;%</span> </span>
+<span id="cb113-17"><a href="logistic-regression.html#cb113-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb113-18"><a href="logistic-regression.html#cb113-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">orb =</span> offensive_rebounds <span class="sc">/</span> (offensive_rebounds <span class="sc">+</span> opponent_defensive_rebounds),</span>
+<span id="cb113-19"><a href="logistic-regression.html#cb113-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">drb =</span> defensive_rebounds <span class="sc">/</span> (opponent_offensive_rebounds <span class="sc">+</span> defensive_rebounds),</span>
+<span id="cb113-20"><a href="logistic-regression.html#cb113-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_rolling_orb =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(orb, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">2</span>, <span class="at">fill=</span>orb),</span>
+<span id="cb113-21"><a href="logistic-regression.html#cb113-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_rolling_drb =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(drb, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">2</span>, <span class="at">fill=</span>drb)</span>
+<span id="cb113-22"><a href="logistic-regression.html#cb113-22" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<pre><code>## Joining, by = c(&quot;opponent_id&quot;, &quot;game_id&quot;)</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="logistic-regression.html#cb115-1" aria-hidden="true" tabindex="-1"></a>team_side <span class="ot">&lt;-</span> newteamstats <span class="sc">%&gt;%</span></span>
+<span id="cb115-2"><a href="logistic-regression.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(game_id, team_id, team_short_display_name, opponent_id, game_date, season, team_score, team_rolling_true_shooting_percentage, team_rolling_free_throw_factor, team_rolling_turnover_percentage, team_rolling_orb, team_rolling_drb) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>()</span></code></pre></div>
+<p>Now we’ll use use the same dataframe and rename some columns to create the opponent side of the game.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="logistic-regression.html#cb116-1" aria-hidden="true" tabindex="-1"></a>opponent_side <span class="ot">&lt;-</span> newteamstats <span class="sc">%&gt;%</span></span>
+<span id="cb116-2"><a href="logistic-regression.html#cb116-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(game_id, team_id, team_short_display_name, team_score, team_rolling_true_shooting_percentage, team_rolling_free_throw_factor, team_rolling_turnover_percentage, team_rolling_orb, team_rolling_drb) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb116-3"><a href="logistic-regression.html#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb116-4"><a href="logistic-regression.html#cb116-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_id =</span> team_id,</span>
+<span id="cb116-5"><a href="logistic-regression.html#cb116-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_short_display_name =</span> team_short_display_name,</span>
+<span id="cb116-6"><a href="logistic-regression.html#cb116-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_score =</span> team_score,</span>
+<span id="cb116-7"><a href="logistic-regression.html#cb116-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_rolling_true_shooting_percentage =</span> team_rolling_true_shooting_percentage,</span>
+<span id="cb116-8"><a href="logistic-regression.html#cb116-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_rolling_free_throw_factor =</span> team_rolling_free_throw_factor,</span>
+<span id="cb116-9"><a href="logistic-regression.html#cb116-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_rolling_turnover_percentage =</span> team_rolling_turnover_percentage,</span>
+<span id="cb116-10"><a href="logistic-regression.html#cb116-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_rolling_orb =</span> team_rolling_orb,</span>
+<span id="cb116-11"><a href="logistic-regression.html#cb116-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_rolling_drb =</span> team_rolling_drb</span>
+<span id="cb116-12"><a href="logistic-regression.html#cb116-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb116-13"><a href="logistic-regression.html#cb116-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">opponent_id =</span> <span class="fu">as.numeric</span>(opponent_id))</span></code></pre></div>
+<p>Now we’ll join them together.</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="logistic-regression.html#cb117-1" aria-hidden="true" tabindex="-1"></a>games <span class="ot">&lt;-</span> team_side <span class="sc">%&gt;%</span> <span class="fu">inner_join</span>(opponent_side)</span></code></pre></div>
+<pre><code>## Joining, by = c(&quot;game_id&quot;, &quot;opponent_id&quot;)</code></pre>
+<p>The last problem to solve? Who won? We can add this with conditional logic.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="logistic-regression.html#cb119-1" aria-hidden="true" tabindex="-1"></a>games <span class="ot">&lt;-</span> games <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb119-2"><a href="logistic-regression.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">TeamResult =</span> <span class="fu">as.factor</span>(<span class="fu">case_when</span>(</span>
+<span id="cb119-3"><a href="logistic-regression.html#cb119-3" aria-hidden="true" tabindex="-1"></a>    team_score <span class="sc">&gt;</span> opponent_score <span class="sc">~</span> <span class="st">&quot;W&quot;</span>,</span>
+<span id="cb119-4"><a href="logistic-regression.html#cb119-4" aria-hidden="true" tabindex="-1"></a>    opponent_score <span class="sc">&gt;</span> team_score <span class="sc">~</span> <span class="st">&quot;L&quot;</span></span>
+<span id="cb119-5"><a href="logistic-regression.html#cb119-5" aria-hidden="true" tabindex="-1"></a>))) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>()</span></code></pre></div>
+<p>For simplicity, let’s limit the number of columns we’re going to feed our model.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="logistic-regression.html#cb120-1" aria-hidden="true" tabindex="-1"></a>modelgames <span class="ot">&lt;-</span> games <span class="sc">%&gt;%</span> <span class="fu">select</span>(game_id, game_date, team_short_display_name, opponent_short_display_name, season, team_rolling_true_shooting_percentage, opponent_rolling_true_shooting_percentage, team_rolling_turnover_percentage, opponent_rolling_turnover_percentage, TeamResult) </span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="logistic-regression.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(modelgames<span class="sc">$</span>TeamResult)</span></code></pre></div>
+<pre><code>## [1] &quot;L&quot; &quot;W&quot;</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="logistic-regression.html#cb123-1" aria-hidden="true" tabindex="-1"></a>modelgames<span class="sc">$</span>TeamResult <span class="ot">&lt;-</span> <span class="fu">relevel</span>(modelgames<span class="sc">$</span>TeamResult, <span class="at">ref=</span><span class="st">&quot;W&quot;</span>)</span>
+<span id="cb123-2"><a href="logistic-regression.html#cb123-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-3"><a href="logistic-regression.html#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(modelgames<span class="sc">$</span>TeamResult)</span></code></pre></div>
+<pre><code>## [1] &quot;W&quot; &quot;L&quot;</code></pre>
+<div id="visualizing-the-decision-boundary" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Visualizing the decision boundary</h2>
+<p>This is just one dimension of the data, but it can illustrate how this works. You can see a line running through the middle, with a lot of overlap. The further left or right you go, the less overlap. That neatly captures the probabilities we’re looking at here.</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="logistic-regression.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb125-2"><a href="logistic-regression.html#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>games, <span class="fu">aes</span>(<span class="at">x=</span>team_rolling_true_shooting_percentage, <span class="at">y=</span>opponent_rolling_true_shooting_percentage, <span class="at">color=</span>TeamResult))</span></code></pre></div>
+<p><img src="advancedsportsdataanalysis_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
+</div>
+<div id="the-logistic-regression" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> The logistic regression</h2>
+<p>Much of implementing classification algorithms should look familiar by now. The steps we’ve been using are steps we will use again. First, we split into training and testing.</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="logistic-regression.html#cb126-1" aria-hidden="true" tabindex="-1"></a>log_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(modelgames, <span class="at">prop =</span> .<span class="dv">8</span>)</span>
+<span id="cb126-2"><a href="logistic-regression.html#cb126-2" aria-hidden="true" tabindex="-1"></a>log_train <span class="ot">&lt;-</span> <span class="fu">training</span>(log_split)</span>
+<span id="cb126-3"><a href="logistic-regression.html#cb126-3" aria-hidden="true" tabindex="-1"></a>log_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(log_split)</span></code></pre></div>
+<p>We create a recipe. In this case, we need to normalize our predictors so scale differences don’t create undue influences. This will turn all of our numbers into zscores.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="logistic-regression.html#cb127-1" aria-hidden="true" tabindex="-1"></a>log_recipe <span class="ot">&lt;-</span> </span>
+<span id="cb127-2"><a href="logistic-regression.html#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(TeamResult <span class="sc">~</span> ., <span class="at">data =</span> log_train) <span class="sc">%&gt;%</span> </span>
+<span id="cb127-3"><a href="logistic-regression.html#cb127-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(game_id, game_date, team_short_display_name, opponent_short_display_name, season, <span class="at">new_role =</span> <span class="st">&quot;ID&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb127-4"><a href="logistic-regression.html#cb127-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_predictors</span>())</span>
+<span id="cb127-5"><a href="logistic-regression.html#cb127-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-6"><a href="logistic-regression.html#cb127-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(log_recipe)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 4
+##    variable                                  type    role      source  
+##    &lt;chr&gt;                                     &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;   
+##  1 game_id                                   numeric ID        original
+##  2 game_date                                 date    ID        original
+##  3 team_short_display_name                   nominal ID        original
+##  4 opponent_short_display_name               nominal ID        original
+##  5 season                                    numeric ID        original
+##  6 team_rolling_true_shooting_percentage     numeric predictor original
+##  7 opponent_rolling_true_shooting_percentage numeric predictor original
+##  8 team_rolling_turnover_percentage          numeric predictor original
+##  9 opponent_rolling_turnover_percentage      numeric predictor original
+## 10 TeamResult                                nominal outcome   original</code></pre>
+<p>We have four predictors – how well each team shot, and how much each team turned the ball over. Now we define the model. Note the set_mode.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="logistic-regression.html#cb129-1" aria-hidden="true" tabindex="-1"></a>log_mod <span class="ot">&lt;-</span> </span>
+<span id="cb129-2"><a href="logistic-regression.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb129-3"><a href="logistic-regression.html#cb129-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">&quot;glm&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb129-4"><a href="logistic-regression.html#cb129-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">&quot;classification&quot;</span>)</span></code></pre></div>
+<p>Now we have enough for a workflow.</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="logistic-regression.html#cb130-1" aria-hidden="true" tabindex="-1"></a>log_workflow <span class="ot">&lt;-</span> </span>
+<span id="cb130-2"><a href="logistic-regression.html#cb130-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">workflow</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb130-3"><a href="logistic-regression.html#cb130-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(log_mod) <span class="sc">%&gt;%</span> </span>
+<span id="cb130-4"><a href="logistic-regression.html#cb130-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(log_recipe)</span></code></pre></div>
+<p>And now we fit our model (this can take a few minutes).</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="logistic-regression.html#cb131-1" aria-hidden="true" tabindex="-1"></a>log_fit <span class="ot">&lt;-</span> </span>
+<span id="cb131-2"><a href="logistic-regression.html#cb131-2" aria-hidden="true" tabindex="-1"></a>  log_workflow <span class="sc">%&gt;%</span> </span>
+<span id="cb131-3"><a href="logistic-regression.html#cb131-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(<span class="at">data =</span> log_train)</span></code></pre></div>
+</div>
+<div id="evaluating-the-fit" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Evaluating the fit</h2>
+<p>With logistic regression, there’s two things we’re looking at: The prediction and the probabilities. We can get those with two different fits and combine them together.</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="logistic-regression.html#cb132-1" aria-hidden="true" tabindex="-1"></a>trainpredict <span class="ot">&lt;-</span> log_fit <span class="sc">%&gt;%</span> <span class="fu">predict</span>(<span class="at">new_data =</span> log_train) <span class="sc">%&gt;%</span></span>
+<span id="cb132-2"><a href="logistic-regression.html#cb132-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(log_train)</span>
+<span id="cb132-3"><a href="logistic-regression.html#cb132-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-4"><a href="logistic-regression.html#cb132-4" aria-hidden="true" tabindex="-1"></a>trainpredict</span></code></pre></div>
+<pre><code>## # A tibble: 31,718 × 11
+##    .pred_class   game_id game_date  team_short_displa… opponent_short_di… season
+##    &lt;fct&gt;           &lt;int&gt; &lt;date&gt;     &lt;chr&gt;              &lt;chr&gt;               &lt;int&gt;
+##  1 W           401170944 2020-02-08 UMBC               UMass Lowell         2020
+##  2 L           401370116 2022-01-22 Louisville         Notre Dame           2022
+##  3 W           401372022 2021-12-02 Seton Hall         Wagner               2022
+##  4 L           401172861 2020-01-18 Boston U           Colgate              2020
+##  5 W           401170933 2019-12-01 UMass Lowell       Cent Conn St         2020
+##  6 W           401175270 2020-02-07 Pepperdine         Santa Clara          2020
+##  7 W           401084759 2019-01-11 Tulsa              Cincinnati           2019
+##  8 W           401085630 2019-01-10 Duquesne           Fordham              2019
+##  9 W           401172744 2019-12-21 Miami (OH)         Bradley              2020
+## 10 W           401369827 2021-11-26 Mississippi St     Louisville           2022
+## # … with 31,708 more rows, and 5 more variables:
+## #   team_rolling_true_shooting_percentage &lt;dbl&gt;,
+## #   opponent_rolling_true_shooting_percentage &lt;dbl&gt;,
+## #   team_rolling_turnover_percentage &lt;dbl&gt;,
+## #   opponent_rolling_turnover_percentage &lt;dbl&gt;, TeamResult &lt;fct&gt;</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="logistic-regression.html#cb134-1" aria-hidden="true" tabindex="-1"></a>trainpredict <span class="ot">&lt;-</span> log_fit <span class="sc">%&gt;%</span> <span class="fu">predict</span>(<span class="at">new_data =</span> log_train, <span class="at">type=</span><span class="st">&quot;prob&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb134-2"><a href="logistic-regression.html#cb134-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(trainpredict)</span>
+<span id="cb134-3"><a href="logistic-regression.html#cb134-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-4"><a href="logistic-regression.html#cb134-4" aria-hidden="true" tabindex="-1"></a>trainpredict</span></code></pre></div>
+<pre><code>## # A tibble: 31,718 × 13
+##    .pred_W .pred_L .pred_class   game_id game_date  team_short_display_name
+##      &lt;dbl&gt;   &lt;dbl&gt; &lt;fct&gt;           &lt;int&gt; &lt;date&gt;     &lt;chr&gt;                  
+##  1  0.786   0.214  W           401170944 2020-02-08 UMBC                   
+##  2  0.0980  0.902  L           401370116 2022-01-22 Louisville             
+##  3  0.958   0.0424 W           401372022 2021-12-02 Seton Hall             
+##  4  0.428   0.572  L           401172861 2020-01-18 Boston U               
+##  5  0.574   0.426  W           401170933 2019-12-01 UMass Lowell           
+##  6  0.567   0.433  W           401175270 2020-02-07 Pepperdine             
+##  7  0.737   0.263  W           401084759 2019-01-11 Tulsa                  
+##  8  0.798   0.202  W           401085630 2019-01-10 Duquesne               
+##  9  0.773   0.227  W           401172744 2019-12-21 Miami (OH)             
+## 10  0.516   0.484  W           401369827 2021-11-26 Mississippi St         
+## # … with 31,708 more rows, and 7 more variables:
+## #   opponent_short_display_name &lt;chr&gt;, season &lt;int&gt;,
+## #   team_rolling_true_shooting_percentage &lt;dbl&gt;,
+## #   opponent_rolling_true_shooting_percentage &lt;dbl&gt;,
+## #   team_rolling_turnover_percentage &lt;dbl&gt;,
+## #   opponent_rolling_turnover_percentage &lt;dbl&gt;, TeamResult &lt;fct&gt;</code></pre>
+<p>There’s several metrics to look at, but the two we will use are accuracy and roc_auc. They both are pointing toward how well the model did in two different ways. The accuracy metric looks at the number of predictions that are correct when compared to known results.</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="logistic-regression.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(trainpredict, TeamResult, .pred_class)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##   .metric  .estimator .estimate
+##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+## 1 accuracy binary         0.789
+## 2 kap      binary         0.577</code></pre>
+<p>Another way to look at that is the confusion matrix. The confusion matrix shows what was predicted compared to what actually happened. The squares are True Positives, False Positives, True Negatives and False Negatives. True values vs the total values make up the accuracy.</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="logistic-regression.html#cb138-1" aria-hidden="true" tabindex="-1"></a>trainpredict <span class="sc">%&gt;%</span></span>
+<span id="cb138-2"><a href="logistic-regression.html#cb138-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">conf_mat</span>(TeamResult, .pred_class)</span></code></pre></div>
+<pre><code>##           Truth
+## Prediction     W     L
+##          W 12500  3358
+##          L  3347 12513</code></pre>
+<p>The roc_auc metric is largely a graphical representation of how well the classifier did. The higher the roc_auc, the better, but too high and you’ve likely overfit the data.</p>
+<p>We can look at the roc_auc metric for both sides of our prediction.</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="logistic-regression.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roc_auc</span>(trainpredict, <span class="at">truth =</span> TeamResult, .pred_W)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 roc_auc binary         0.873</code></pre>
+<p>But is quite confident on Loses.</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="logistic-regression.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roc_auc</span>(trainpredict, <span class="at">truth =</span> TeamResult, .pred_L)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 roc_auc binary         0.127</code></pre>
+<p>The advantage of the roc_auc curve is that you can visualize it.</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="logistic-regression.html#cb144-1" aria-hidden="true" tabindex="-1"></a>roc_data <span class="ot">&lt;-</span> <span class="fu">roc_curve</span>(trainpredict, <span class="at">truth =</span> TeamResult, .pred_W) </span>
+<span id="cb144-2"><a href="logistic-regression.html#cb144-2" aria-hidden="true" tabindex="-1"></a>roc_data <span class="sc">%&gt;%</span>  </span>
+<span id="cb144-3"><a href="logistic-regression.html#cb144-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> specificity, <span class="at">y =</span> sensitivity)) <span class="sc">+</span></span>
+<span id="cb144-4"><a href="logistic-regression.html#cb144-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb144-5"><a href="logistic-regression.html#cb144-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">lty =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb144-6"><a href="logistic-regression.html#cb144-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>()</span></code></pre></div>
+<p><img src="advancedsportsdataanalysis_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
+</div>
+<div id="comparing-it-to-test-data" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Comparing it to test data</h2>
+<p>Now we can apply our fit to the test data to see how robust it is. Short version: Pretty good. Our numbers don’t dip all that much.</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="logistic-regression.html#cb145-1" aria-hidden="true" tabindex="-1"></a>testpredict <span class="ot">&lt;-</span> log_fit <span class="sc">%&gt;%</span> <span class="fu">predict</span>(<span class="at">new_data =</span> log_test) <span class="sc">%&gt;%</span></span>
+<span id="cb145-2"><a href="logistic-regression.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(log_test)</span>
+<span id="cb145-3"><a href="logistic-regression.html#cb145-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-4"><a href="logistic-regression.html#cb145-4" aria-hidden="true" tabindex="-1"></a>testpredict</span></code></pre></div>
+<pre><code>## # A tibble: 7,930 × 11
+##    .pred_class   game_id game_date  team_short_displa… opponent_short_di… season
+##    &lt;fct&gt;           &lt;int&gt; &lt;date&gt;     &lt;chr&gt;              &lt;chr&gt;               &lt;int&gt;
+##  1 L           401082352 2019-02-02 Nebraska           Illinois             2019
+##  2 W           401082352 2019-02-02 Illinois           Nebraska             2019
+##  3 W           401082355 2019-02-15 Illinois           Ohio State           2019
+##  4 L           401082375 2019-01-06 Michigan           Indiana              2019
+##  5 W           401082376 2019-01-12 Indiana            Maryland             2019
+##  6 L           401082376 2019-01-12 Maryland           Indiana              2019
+##  7 W           401082379 2019-01-23 Northwestern       Indiana              2019
+##  8 W           401082380 2019-01-25 Michigan           Indiana              2019
+##  9 L           401082380 2019-01-25 Indiana            Michigan             2019
+## 10 L           401082383 2019-02-08 Indiana            Iowa                 2019
+## # … with 7,920 more rows, and 5 more variables:
+## #   team_rolling_true_shooting_percentage &lt;dbl&gt;,
+## #   opponent_rolling_true_shooting_percentage &lt;dbl&gt;,
+## #   team_rolling_turnover_percentage &lt;dbl&gt;,
+## #   opponent_rolling_turnover_percentage &lt;dbl&gt;, TeamResult &lt;fct&gt;</code></pre>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="logistic-regression.html#cb147-1" aria-hidden="true" tabindex="-1"></a>testpredict <span class="ot">&lt;-</span> log_fit <span class="sc">%&gt;%</span> <span class="fu">predict</span>(<span class="at">new_data =</span> log_test, <span class="at">type=</span><span class="st">&quot;prob&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb147-2"><a href="logistic-regression.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(testpredict)</span>
+<span id="cb147-3"><a href="logistic-regression.html#cb147-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-4"><a href="logistic-regression.html#cb147-4" aria-hidden="true" tabindex="-1"></a>testpredict</span></code></pre></div>
+<pre><code>## # A tibble: 7,930 × 13
+##    .pred_W .pred_L .pred_class   game_id game_date  team_short_display_name
+##      &lt;dbl&gt;   &lt;dbl&gt; &lt;fct&gt;           &lt;int&gt; &lt;date&gt;     &lt;chr&gt;                  
+##  1  0.245   0.755  L           401082352 2019-02-02 Nebraska               
+##  2  0.755   0.245  W           401082352 2019-02-02 Illinois               
+##  3  0.818   0.182  W           401082355 2019-02-15 Illinois               
+##  4  0.304   0.696  L           401082375 2019-01-06 Michigan               
+##  5  0.787   0.213  W           401082376 2019-01-12 Indiana                
+##  6  0.211   0.789  L           401082376 2019-01-12 Maryland               
+##  7  0.902   0.0976 W           401082379 2019-01-23 Northwestern           
+##  8  0.980   0.0198 W           401082380 2019-01-25 Michigan               
+##  9  0.0207  0.979  L           401082380 2019-01-25 Indiana                
+## 10  0.0380  0.962  L           401082383 2019-02-08 Indiana                
+## # … with 7,920 more rows, and 7 more variables:
+## #   opponent_short_display_name &lt;chr&gt;, season &lt;int&gt;,
+## #   team_rolling_true_shooting_percentage &lt;dbl&gt;,
+## #   opponent_rolling_true_shooting_percentage &lt;dbl&gt;,
+## #   team_rolling_turnover_percentage &lt;dbl&gt;,
+## #   opponent_rolling_turnover_percentage &lt;dbl&gt;, TeamResult &lt;fct&gt;</code></pre>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="logistic-regression.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(testpredict, TeamResult, .pred_class)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##   .metric  .estimator .estimate
+##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+## 1 accuracy binary         0.784
+## 2 kap      binary         0.568</code></pre>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="logistic-regression.html#cb151-1" aria-hidden="true" tabindex="-1"></a>testpredict <span class="sc">%&gt;%</span></span>
+<span id="cb151-2"><a href="logistic-regression.html#cb151-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">conf_mat</span>(TeamResult, .pred_class)</span></code></pre></div>
+<pre><code>##           Truth
+## Prediction    W    L
+##          W 3068  803
+##          L  909 3150</code></pre>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="logistic-regression.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roc_auc</span>(testpredict, <span class="at">truth =</span> TeamResult, .pred_W)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 roc_auc binary         0.869</code></pre>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="logistic-regression.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">roc_auc</span>(testpredict, <span class="at">truth =</span> TeamResult, .pred_L)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 roc_auc binary         0.131</code></pre>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="logistic-regression.html#cb157-1" aria-hidden="true" tabindex="-1"></a>roc_data <span class="ot">&lt;-</span> <span class="fu">roc_curve</span>(testpredict, <span class="at">truth =</span> TeamResult, .pred_W) </span>
+<span id="cb157-2"><a href="logistic-regression.html#cb157-2" aria-hidden="true" tabindex="-1"></a>roc_data <span class="sc">%&gt;%</span>  </span>
+<span id="cb157-3"><a href="logistic-regression.html#cb157-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> specificity, <span class="at">y =</span> sensitivity)) <span class="sc">+</span></span>
+<span id="cb157-4"><a href="logistic-regression.html#cb157-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span></span>
+<span id="cb157-5"><a href="logistic-regression.html#cb157-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">lty =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb157-6"><a href="logistic-regression.html#cb157-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>()</span></code></pre></div>
+<p><img src="advancedsportsdataanalysis_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
+</div>
+<div id="how-well-did-it-do-with-nebraska" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> How well did it do with Nebraska?</h2>
+<p>Let’s grab predictions for Nebraska from both our test and train data and take a look.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="logistic-regression.html#cb158-1" aria-hidden="true" tabindex="-1"></a>nutrain <span class="ot">&lt;-</span> trainpredict <span class="sc">%&gt;%</span> <span class="fu">filter</span>(team_short_display_name <span class="sc">==</span> <span class="st">&quot;Nebraska&quot;</span>, season <span class="sc">==</span> <span class="dv">2022</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="logistic-regression.html#cb159-1" aria-hidden="true" tabindex="-1"></a>nutest <span class="ot">&lt;-</span> testpredict <span class="sc">%&gt;%</span> <span class="fu">filter</span>(team_short_display_name <span class="sc">==</span> <span class="st">&quot;Nebraska&quot;</span>, season <span class="sc">==</span> <span class="dv">2022</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="logistic-regression.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(nutrain, nutest) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(game_date) <span class="sc">%&gt;%</span> <span class="fu">select</span>(.pred_W, .pred_L, .pred_class, TeamResult, <span class="fu">everything</span>())</span></code></pre></div>
+<pre><code>## # A tibble: 25 × 13
+##    .pred_W .pred_L .pred_class TeamResult   game_id game_date  team_short_displ…
+##      &lt;dbl&gt;   &lt;dbl&gt; &lt;fct&gt;       &lt;fct&gt;          &lt;int&gt; &lt;date&gt;     &lt;chr&gt;            
+##  1  0.722   0.278  W           L          401372146 2021-11-10 Nebraska         
+##  2  0.745   0.255  W           W          401371360 2021-11-13 Nebraska         
+##  3  0.197   0.803  L           L          401371964 2021-11-17 Nebraska         
+##  4  0.939   0.0609 W           W          401372147 2021-11-20 Nebraska         
+##  5  0.981   0.0190 W           W          401372148 2021-11-21 Nebraska         
+##  6  0.969   0.0308 W           W          401372149 2021-11-24 Nebraska         
+##  7  0.684   0.316  W           W          401372150 2021-11-27 Nebraska         
+##  8  0.359   0.641  L           L          401370097 2021-12-02 Nebraska         
+##  9  0.192   0.808  L           L          401364344 2021-12-04 Nebraska         
+## 10  0.0261  0.974  L           L          401364348 2021-12-08 Nebraska         
+## # … with 15 more rows, and 6 more variables: opponent_short_display_name &lt;chr&gt;,
+## #   season &lt;int&gt;, team_rolling_true_shooting_percentage &lt;dbl&gt;,
+## #   opponent_rolling_true_shooting_percentage &lt;dbl&gt;,
+## #   team_rolling_turnover_percentage &lt;dbl&gt;,
+## #   opponent_rolling_turnover_percentage &lt;dbl&gt;</code></pre>
+<p>By our rolling metrics, we shold have beat Kansas State and lost to Kennesaw State, but it nailed the rest. Even the Minnesota win.</p>
+<p>How could you improve this?</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="xgboost.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/05-logisticregression.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["advancedsportsdataanalysis.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
