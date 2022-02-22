@@ -24,7 +24,7 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2022-02-17" />
+<meta name="date" content="2022-02-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -172,6 +172,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4" data-path="logistic-regression.html"><a href="logistic-regression.html#comparing-it-to-test-data"><i class="fa fa-check"></i><b>6.4</b> Comparing it to test data</a></li>
 <li class="chapter" data-level="6.5" data-path="logistic-regression.html"><a href="logistic-regression.html#how-well-did-it-do-with-nebraska"><i class="fa fa-check"></i><b>6.5</b> How well did it do with Nebraska?</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="using-random-forests-to-predict-winners.html"><a href="using-random-forests-to-predict-winners.html"><i class="fa fa-check"></i><b>7</b> Using random forests to predict winners</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="using-random-forests-to-predict-winners.html"><a href="using-random-forests-to-predict-winners.html#setup"><i class="fa fa-check"></i><b>7.1</b> Setup</a></li>
+<li class="chapter" data-level="7.2" data-path="using-random-forests-to-predict-winners.html"><a href="using-random-forests-to-predict-winners.html#predicting-a-future-game"><i class="fa fa-check"></i><b>7.2</b> Predicting a future game</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -269,21 +274,19 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Please use `extract_fit_parsnip()` instead.</code></pre>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  476ms 
-## n= 69525 
+## Fit time:  645ms 
+## n= 69948 
 ## 
 ## node), split, n, deviance, yval
 ##       * denotes terminal node
 ## 
-##  1) root 69525 12350080.0 71.46695  
-##    2) rolling_ppp&lt; 1.017359 32038  3715305.0 63.82511  
-##      4) rolling_ppp&lt; 0.8915218 9752   950488.5 57.15997 *
-##      5) rolling_ppp&gt;=0.8915218 22286  2142020.0 66.74168 *
-##    3) rolling_ppp&gt;=1.017359 37487  5164835.0 77.99800  
-##      6) rolling_ppp&lt; 1.146048 25624  2716267.0 74.97694 *
-##      7) rolling_ppp&gt;=1.146048 11863  1709553.0 84.52348  
-##       14) rolling_ppp&lt; 1.251591 9302  1140517.0 82.69630 *
-##       15) rolling_ppp&gt;=1.251591 2561   425182.4 91.16009 *</code></pre>
+## 1) root 69948 12391050.0 71.40888  
+##   2) rolling_ppp&lt; 1.018203 32453  3751224.0 63.83552  
+##     4) rolling_ppp&lt; 0.8915091 9798   944632.7 57.13676 *
+##     5) rolling_ppp&gt;=0.8915091 22655  2176772.0 66.73264 *
+##   3) rolling_ppp&gt;=1.018203 37495  5167395.0 77.96384  
+##     6) rolling_ppp&lt; 1.152598 26496  2832432.0 75.09960 *
+##     7) rolling_ppp&gt;=1.152598 10999  1593963.0 84.86362 *</code></pre>
 <p>They can be a bit tough to read, but take the bottom three nodes. It says if rolling_ppp is greater than or equal to 1.17, your score is around 85 points a game. If it’s less than 1.17, you’ll score around 76 points.</p>
 <p>Easy to understand, right? The algorithm cuts branches when the splits stop reducing error, and there’s a limit But here’s where the crude instrument comes in.</p>
 <p>Let’s use our decision tree to predict some scores.</p>
@@ -294,9 +297,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard      10.3  
-## 2 rsq     standard       0.403
-## 3 mae     standard       8.05</code></pre>
+## 1 rmse    standard      10.4  
+## 2 rsq     standard       0.391
+## 3 mae     standard       8.11</code></pre>
 <p>Our rsquared is about .40, which isn’t terrible. And our MAE says we’re off by 8 points on average, but our RSME says were off by 10.3 points on a different average, indicating there’s some big misses.</p>
 <p>We can do better.</p>
 </div>
@@ -339,7 +342,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## Please use `extract_fit_parsnip()` instead.</code></pre>
 <pre><code>## parsnip model object
 ## 
-## Fit time:  1m 6.3s 
+## Fit time:  1m 4.8s 
 ## Ranger result
 ## 
 ## Call:
@@ -347,14 +350,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## Type:                             Regression 
 ## Number of trees:                  500 
-## Sample size:                      69525 
+## Sample size:                      69948 
 ## Number of independent variables:  3 
 ## Mtry:                             1 
 ## Target node size:                 5 
 ## Variable importance mode:         none 
 ## Splitrule:                        variance 
-## OOB prediction error (MSE):       103.9164 
-## R squared (OOB):                  0.4150091</code></pre>
+## OOB prediction error (MSE):       103.7798 
+## R squared (OOB):                  0.4141669</code></pre>
 <p>Similar to previous work, we can bind the prediction to our training data and evaluate the model.</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="decision-trees-and-random-forests.html#cb84-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
 <span id="cb84-2"><a href="decision-trees-and-random-forests.html#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(score_fit, game_train))</span></code></pre></div>
@@ -362,7 +365,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       4.87 
+## 1 rmse    standard       4.86 
 ## 2 rsq     standard       0.895
 ## 3 mae     standard       3.76</code></pre>
 <p>Note: The RMSE for this model is down to 4.8. The R-squared is absurdly high.</p>
@@ -374,8 +377,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
 ## 1 rmse    standard      10.3  
-## 2 rsq     standard       0.407
-## 3 mae     standard       8.02</code></pre>
+## 2 rsq     standard       0.412
+## 3 mae     standard       7.99</code></pre>
 <p>How well does the random forest algorithm do with Nebraska’s schedule in 2020-2021 prior to a month-long COVID break?</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="decision-trees-and-random-forests.html#cb90-1" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> modelgames <span class="sc">%&gt;%</span> <span class="fu">filter</span>(season <span class="sc">==</span> <span class="dv">2022</span>, team_short_display_name <span class="sc">==</span> <span class="st">&quot;Nebraska&quot;</span>)</span>
 <span id="cb90-2"><a href="decision-trees-and-random-forests.html#cb90-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -383,20 +386,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb90-4"><a href="decision-trees-and-random-forests.html#cb90-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(score_fit, nu))</span>
 <span id="cb90-5"><a href="decision-trees-and-random-forests.html#cb90-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb90-6"><a href="decision-trees-and-random-forests.html#cb90-6" aria-hidden="true" tabindex="-1"></a>nupreds <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">residual =</span> team_score <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(residual)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(team_short_display_name, opponent_name, team_score, .pred, residual)</span></code></pre></div>
-<pre><code>## # A tibble: 25 × 5
+<pre><code>## # A tibble: 26 × 5
 ##    team_short_display_name opponent_name    team_score .pred residual
 ##    &lt;chr&gt;                   &lt;chr&gt;                 &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Nebraska                NC State                100  87.3    12.7 
-##  2 Nebraska                Iowa                     75  66.9     8.07
-##  3 Nebraska                Michigan                 79  71.0     7.96
-##  4 Nebraska                Kennesaw State           88  81.0     7.00
-##  5 Nebraska                Minnesota                78  71.9     6.13
-##  6 Nebraska                Indiana                  71  65.6     5.36
-##  7 Nebraska                Michigan                 67  61.7     5.31
-##  8 Nebraska                Ohio State               79  74.4     4.56
-##  9 Nebraska                Western Illinois         74  69.7     4.31
-## 10 Nebraska                South Dakota             83  79.1     3.90
-## # … with 15 more rows</code></pre>
+##  1 Nebraska                NC State                100  88.2    11.8 
+##  2 Nebraska                Michigan                 67  55.5    11.5 
+##  3 Nebraska                Michigan                 79  71.4     7.56
+##  4 Nebraska                Kennesaw State           88  81.8     6.24
+##  5 Nebraska                Minnesota                78  72.3     5.65
+##  6 Nebraska                Ohio State               79  73.8     5.19
+##  7 Nebraska                Sam Houston              74  70.2     3.76
+##  8 Nebraska                Western Illinois         74  70.3     3.69
+##  9 Nebraska                Rutgers                  65  61.4     3.63
+## 10 Nebraska                Iowa                     75  72.1     2.88
+## # … with 16 more rows</code></pre>
 <p>Compare this to the multiple regression of the previous chapter. Take just the NC State game as an example. The multiple regression model was off by 28 points – which is a lot, but it’s a triple overtime game. But the random forest managed to be off by 12.</p>
 
 </div>

@@ -22,3 +22,6 @@ the-logistic-regression
 evaluating-the-fit
 comparing-it-to-test-data
 how-well-did-it-do-with-nebraska
+using-random-forests-to-predict-winners
+setup
+predicting-a-future-game
