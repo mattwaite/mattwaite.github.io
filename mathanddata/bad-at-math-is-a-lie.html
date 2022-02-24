@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Bad at math is a lie | Math with Spreadsheets for Beginning Reporters</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Bad at math is a lie | Math with Spreadsheets for Beginning Reporters" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Matt Waite" />
 
 
-<meta name="date" content="2020-02-21" />
+<meta name="date" content="2022-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,9 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="mean.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 
@@ -70,32 +74,38 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html"><i class="fa fa-check"></i><b>2</b> Bad at math is a lie</a><ul>
+<li class="chapter" data-level="2" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html"><i class="fa fa-check"></i><b>2</b> Bad at math is a lie</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#how-high-school-algebra-won-a-pulitzer-prize"><i class="fa fa-check"></i><b>2.1</b> How high school algebra won a Pulitzer Prize</a></li>
 <li class="chapter" data-level="2.2" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#the-basics-of-the-basics"><i class="fa fa-check"></i><b>2.2</b> The basics of the basics</a></li>
 <li class="chapter" data-level="2.3" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#spreadsheets"><i class="fa fa-check"></i><b>2.3</b> Spreadsheets</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="mean.html"><a href="mean.html"><i class="fa fa-check"></i><b>3</b> Mean</a><ul>
+<li class="chapter" data-level="3" data-path="mean.html"><a href="mean.html"><i class="fa fa-check"></i><b>3</b> Mean</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="mean.html"><a href="mean.html#how-to-calculate-a-mean"><i class="fa fa-check"></i><b>3.1</b> How to calculate a mean</a></li>
 <li class="chapter" data-level="3.2" data-path="mean.html"><a href="mean.html#how-to-calculate-a-mean-in-a-spreadsheet"><i class="fa fa-check"></i><b>3.2</b> How to calculate a mean in a spreadsheet</a></li>
 <li class="chapter" data-level="3.3" data-path="mean.html"><a href="mean.html#how-to-turn-a-mean-into-a-story"><i class="fa fa-check"></i><b>3.3</b> How to turn a mean into a story</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="median.html"><a href="median.html"><i class="fa fa-check"></i><b>4</b> Median</a><ul>
+<li class="chapter" data-level="4" data-path="median.html"><a href="median.html"><i class="fa fa-check"></i><b>4</b> Median</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="median.html"><a href="median.html#how-to-calculate-a-median"><i class="fa fa-check"></i><b>4.1</b> How to calculate a median</a></li>
 <li class="chapter" data-level="4.2" data-path="median.html"><a href="median.html#how-to-calculate-a-median-in-a-spreadsheet"><i class="fa fa-check"></i><b>4.2</b> How to calculate a median in a spreadsheet</a></li>
 <li class="chapter" data-level="4.3" data-path="median.html"><a href="median.html#how-to-turn-a-median-into-a-story"><i class="fa fa-check"></i><b>4.3</b> How to turn a median into a story</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html"><i class="fa fa-check"></i><b>5</b> Minimums, maximums, sorting and ranking</a><ul>
+<li class="chapter" data-level="5" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html"><i class="fa fa-check"></i><b>5</b> Minimums, maximums, sorting and ranking</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-calculate-a-minimum-maximum-sort-and-rank"><i class="fa fa-check"></i><b>5.1</b> How to calculate a minimum, maximum, sort and rank</a></li>
 <li class="chapter" data-level="5.2" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-calculate-a-minimum-or-maximum-in-a-spreadsheet"><i class="fa fa-check"></i><b>5.2</b> How to calculate a minimum or maximum in a spreadsheet</a></li>
 <li class="chapter" data-level="5.3" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-turn-a-minimum-or-maximum-into-a-story"><i class="fa fa-check"></i><b>5.3</b> How to turn a minimum or maximum into a story</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html"><i class="fa fa-check"></i><b>6</b> Percentages of a whole</a><ul>
+<li class="chapter" data-level="6" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html"><i class="fa fa-check"></i><b>6</b> Percentages of a whole</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-calculate-a-percentage"><i class="fa fa-check"></i><b>6.1</b> How to calculate a percentage</a></li>
 <li class="chapter" data-level="6.2" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-calculate-a-percentage-in-a-spreadsheet"><i class="fa fa-check"></i><b>6.2</b> How to calculate a percentage in a spreadsheet</a></li>
 <li class="chapter" data-level="6.3" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-turn-a-percentage-into-a-story"><i class="fa fa-check"></i><b>6.3</b> How to turn a percentage into a story</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="percent-change.html"><a href="percent-change.html"><i class="fa fa-check"></i><b>7</b> Percent change</a><ul>
+<li class="chapter" data-level="7" data-path="percent-change.html"><a href="percent-change.html"><i class="fa fa-check"></i><b>7</b> Percent change</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="percent-change.html"><a href="percent-change.html#how-to-calculate-a-percent-change"><i class="fa fa-check"></i><b>7.1</b> How to calculate a percent change</a></li>
 <li class="chapter" data-level="7.2" data-path="percent-change.html"><a href="percent-change.html#how-to-calculate-a-percent-change-in-a-spreadsheet"><i class="fa fa-check"></i><b>7.2</b> How to calculate a percent change in a spreadsheet</a></li>
 <li class="chapter" data-level="7.3" data-path="percent-change.html"><a href="percent-change.html#how-to-turn-a-percent-change-into-a-story"><i class="fa fa-check"></i><b>7.3</b> How to turn a percent change into a story</a></li>
@@ -120,7 +130,7 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bad-at-math-is-a-lie" class="section level1">
+<div id="bad-at-math-is-a-lie" class="section level1" number="2">
 <h1><span class="header-section-number">Chapter 2</span> Bad at math is a lie</h1>
 <p>Let me guess: There’s a not-insignificant part of you that’s pretty happy to be in journalism school because the math requirements are pretty minimal. Have you ever said, out loud, “I can’t do math, I’m a journalism major!” Have you ever thought “It’s okay, I’m bad at math.” Have you been bad at math your whole life?</p>
 <p>First, you’re not alone.</p>
@@ -130,7 +140,7 @@
 <p>Except with journalism today, you can’t continue to live the lie. You are surrounded by data. You are surrounded by numbers. If you continue to believe you’re bad at math, you will be easy to fool by people who aren’t. You’ll be unable to see stories that are sitting there in the numbers.</p>
 <p>In short: you won’t be a very good journalist.</p>
 <p>The good news? This isn’t very hard. The types of math that get you in the door are really quite easy. And you can do some very powerful things.</p>
-<div id="how-high-school-algebra-won-a-pulitzer-prize" class="section level2">
+<div id="how-high-school-algebra-won-a-pulitzer-prize" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> How high school algebra won a Pulitzer Prize</h2>
 <p>If you were at all paying attention in pre-college science classes, you have probably seen this equation:</p>
 <pre><code>d = rt or distance = rate*time</code></pre>
@@ -147,7 +157,7 @@
 <p>The story was a stunning find, and the newspaper documented case after case of police officers violating the law and escaping punishment. And, in 2013, they won the Pulitzer Prize for Public Service.</p>
 <p>All with simple high school algebra.</p>
 </div>
-<div id="the-basics-of-the-basics" class="section level2">
+<div id="the-basics-of-the-basics" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> The basics of the basics</h2>
 <p><strong>If you don’t know these, you are doomed from the start.</strong></p>
 <p>One of the most difficult hurdles for beginning students of mathematics to get over is notation. If you miss a day, tune out for a class, or just never get around to asking what something means, you’ll be lost. So lets just cover some bases and make sure we all understand some ultra-basic notation.</p>
@@ -198,7 +208,7 @@
 <p><strong>PEMDAS</strong> – <strong>P</strong>arenthesis, <strong>E</strong>xponents, <strong>M</strong>ultiplication, <strong>D</strong>ivision, <strong>A</strong>ddition, <strong>S</strong>ubtraction</p>
 <p>What that means is when you look at a mathematical formula, you do the calculations in the order PEMDAS tells you. Something in parenthesis? Do that first. Is there an exponent? Do that next. Multiplication or division? It’s next and so forth. Knowing PEMDAS will save you from stupid mistakes down the road.</p>
 </div>
-<div id="spreadsheets" class="section level2">
+<div id="spreadsheets" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Spreadsheets</h2>
 <p>Spreadsheets are one of the most basic tools for data analysis. They are the Swiss Army Knife of data analysis. They’re immensely useful. But like a Swiss Army Knife, they’re useful for a lot of things, but they’re never the best tool for that thing. Statistical analysis? Spreadsheets are great for that, but there are statistics software packages that are better. Graphics and visualizations? You can do amazing work in a spreadsheet, but there are visualization packages that are better. Complex queries? It can be done with a spreadsheet, but a database is better.</p>
 <p>But the simple truth is almost all data analysis, and data analysts, begin or end with a spreadsheet. They’re the one tool every data nerd has.</p>
@@ -220,7 +230,6 @@
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -239,6 +248,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -259,6 +269,10 @@ gitbook.start({
 "text": null
 },
 "download": ["mathforbeginningreporters.pdf", "mathforbeginningreporters.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Median | Math with Spreadsheets for Beginning Reporters</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Median | Math with Spreadsheets for Beginning Reporters" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Matt Waite" />
 
 
-<meta name="date" content="2020-02-21" />
+<meta name="date" content="2022-02-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,9 @@
   
 <link rel="prev" href="mean.html"/>
 <link rel="next" href="minimums-maximums-sorting-and-ranking.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,6 +51,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 
@@ -70,32 +74,38 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html"><i class="fa fa-check"></i><b>2</b> Bad at math is a lie</a><ul>
+<li class="chapter" data-level="2" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html"><i class="fa fa-check"></i><b>2</b> Bad at math is a lie</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#how-high-school-algebra-won-a-pulitzer-prize"><i class="fa fa-check"></i><b>2.1</b> How high school algebra won a Pulitzer Prize</a></li>
 <li class="chapter" data-level="2.2" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#the-basics-of-the-basics"><i class="fa fa-check"></i><b>2.2</b> The basics of the basics</a></li>
 <li class="chapter" data-level="2.3" data-path="bad-at-math-is-a-lie.html"><a href="bad-at-math-is-a-lie.html#spreadsheets"><i class="fa fa-check"></i><b>2.3</b> Spreadsheets</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="mean.html"><a href="mean.html"><i class="fa fa-check"></i><b>3</b> Mean</a><ul>
+<li class="chapter" data-level="3" data-path="mean.html"><a href="mean.html"><i class="fa fa-check"></i><b>3</b> Mean</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="mean.html"><a href="mean.html#how-to-calculate-a-mean"><i class="fa fa-check"></i><b>3.1</b> How to calculate a mean</a></li>
 <li class="chapter" data-level="3.2" data-path="mean.html"><a href="mean.html#how-to-calculate-a-mean-in-a-spreadsheet"><i class="fa fa-check"></i><b>3.2</b> How to calculate a mean in a spreadsheet</a></li>
 <li class="chapter" data-level="3.3" data-path="mean.html"><a href="mean.html#how-to-turn-a-mean-into-a-story"><i class="fa fa-check"></i><b>3.3</b> How to turn a mean into a story</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="median.html"><a href="median.html"><i class="fa fa-check"></i><b>4</b> Median</a><ul>
+<li class="chapter" data-level="4" data-path="median.html"><a href="median.html"><i class="fa fa-check"></i><b>4</b> Median</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="median.html"><a href="median.html#how-to-calculate-a-median"><i class="fa fa-check"></i><b>4.1</b> How to calculate a median</a></li>
 <li class="chapter" data-level="4.2" data-path="median.html"><a href="median.html#how-to-calculate-a-median-in-a-spreadsheet"><i class="fa fa-check"></i><b>4.2</b> How to calculate a median in a spreadsheet</a></li>
 <li class="chapter" data-level="4.3" data-path="median.html"><a href="median.html#how-to-turn-a-median-into-a-story"><i class="fa fa-check"></i><b>4.3</b> How to turn a median into a story</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html"><i class="fa fa-check"></i><b>5</b> Minimums, maximums, sorting and ranking</a><ul>
+<li class="chapter" data-level="5" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html"><i class="fa fa-check"></i><b>5</b> Minimums, maximums, sorting and ranking</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-calculate-a-minimum-maximum-sort-and-rank"><i class="fa fa-check"></i><b>5.1</b> How to calculate a minimum, maximum, sort and rank</a></li>
 <li class="chapter" data-level="5.2" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-calculate-a-minimum-or-maximum-in-a-spreadsheet"><i class="fa fa-check"></i><b>5.2</b> How to calculate a minimum or maximum in a spreadsheet</a></li>
 <li class="chapter" data-level="5.3" data-path="minimums-maximums-sorting-and-ranking.html"><a href="minimums-maximums-sorting-and-ranking.html#how-to-turn-a-minimum-or-maximum-into-a-story"><i class="fa fa-check"></i><b>5.3</b> How to turn a minimum or maximum into a story</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html"><i class="fa fa-check"></i><b>6</b> Percentages of a whole</a><ul>
+<li class="chapter" data-level="6" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html"><i class="fa fa-check"></i><b>6</b> Percentages of a whole</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-calculate-a-percentage"><i class="fa fa-check"></i><b>6.1</b> How to calculate a percentage</a></li>
 <li class="chapter" data-level="6.2" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-calculate-a-percentage-in-a-spreadsheet"><i class="fa fa-check"></i><b>6.2</b> How to calculate a percentage in a spreadsheet</a></li>
 <li class="chapter" data-level="6.3" data-path="percentages-of-a-whole.html"><a href="percentages-of-a-whole.html#how-to-turn-a-percentage-into-a-story"><i class="fa fa-check"></i><b>6.3</b> How to turn a percentage into a story</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="percent-change.html"><a href="percent-change.html"><i class="fa fa-check"></i><b>7</b> Percent change</a><ul>
+<li class="chapter" data-level="7" data-path="percent-change.html"><a href="percent-change.html"><i class="fa fa-check"></i><b>7</b> Percent change</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="percent-change.html"><a href="percent-change.html#how-to-calculate-a-percent-change"><i class="fa fa-check"></i><b>7.1</b> How to calculate a percent change</a></li>
 <li class="chapter" data-level="7.2" data-path="percent-change.html"><a href="percent-change.html#how-to-calculate-a-percent-change-in-a-spreadsheet"><i class="fa fa-check"></i><b>7.2</b> How to calculate a percent change in a spreadsheet</a></li>
 <li class="chapter" data-level="7.3" data-path="percent-change.html"><a href="percent-change.html#how-to-turn-a-percent-change-into-a-story"><i class="fa fa-check"></i><b>7.3</b> How to turn a percent change into a story</a></li>
@@ -120,20 +130,20 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="median" class="section level1">
+<div id="median" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Median</h1>
 <p>The median is the value in the middle – it’s where half the values are higher, and half are lower. Averages are sensitive to extremes, as we’ve discussed. So things like salaries, home values and numbers that don’t have some kind of constraint are vulnerable to the average’s sensitivity to extremes. Medians, however, are not.</p>
-<div id="how-to-calculate-a-median" class="section level2">
+<div id="how-to-calculate-a-median" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> How to calculate a median</h2>
 <p>Unfortunately, there’s not an easy way to calculate a median using basic math. You really just have to sort them into order and look for the point where half are above and half are below. If you have tens of thousands of records, this is a giant waste of time.</p>
 </div>
-<div id="how-to-calculate-a-median-in-a-spreadsheet" class="section level2">
+<div id="how-to-calculate-a-median-in-a-spreadsheet" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> How to calculate a median in a spreadsheet</h2>
 <p>Fortunately, spreadsheets make medians easy. And again, it’s the same regardless of your choice of platform.</p>
 <p><code>=MEDIAN(FirstCellInTheRange:LastCellInTheRange)</code></p>
 <p>So, with our college cost spreadsheet still open, let’s compare the Average to the Median. Column C is the In State Cost and Column D is the Out of State Cost. Immediately underneath the last record, in row 16 and in column C, let’s calculate the Average In State Cost. It’s <code>=AVERAGE(C2:C15)</code> and you get $27652.86. Under that, in Row 17 Column C, let’s calculate the Median In State Cost. To do that, it’s <code>=MEDIAN(C2:C15)</code> and you get $24473.50. See that? The median is about $3,000 cheaper than the average. You can do the same with Out of State costs, but the difference is much less significant.</p>
 </div>
-<div id="how-to-turn-a-median-into-a-story" class="section level2">
+<div id="how-to-turn-a-median-into-a-story" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> How to turn a median into a story</h2>
 <p>In 2004, at the dawn of what would become a economy-killing real estate bubble, I was working at a newspaper in Florida, which was one of the key states in the whole mess. But at the time, people were just astonished at how fast homes were selling and for how much. So I set out to quantify it. And what we found was that neighborhood after neighborhood, street by street, the entire area was being transformed by skyrocketing home prices. The entire story was built on medians. I used geographic information systems – maps – to calculate the median sale prices of a home in a neighborhood in a given year and then I calculated the same median home price in the current year, and did a percent change calculation.</p>
 
@@ -149,7 +159,6 @@
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -168,6 +177,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -188,6 +198,10 @@ gitbook.start({
 "text": null
 },
 "download": ["mathforbeginningreporters.pdf", "mathforbeginningreporters.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
