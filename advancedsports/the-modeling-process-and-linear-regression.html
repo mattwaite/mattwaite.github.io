@@ -24,7 +24,7 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2022-02-21" />
+<meta name="date" content="2022-02-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -177,6 +177,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="using-random-forests-to-predict-winners.html"><a href="using-random-forests-to-predict-winners.html#setup"><i class="fa fa-check"></i><b>7.1</b> Setup</a></li>
 <li class="chapter" data-level="7.2" data-path="using-random-forests-to-predict-winners.html"><a href="using-random-forests-to-predict-winners.html#predicting-a-future-game"><i class="fa fa-check"></i><b>7.2</b> Predicting a future game</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="xgboost-to-make-classifications.html"><a href="xgboost-to-make-classifications.html"><i class="fa fa-check"></i><b>8</b> XGBoost to make classifications</a></li>
+<li class="chapter" data-level="9" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>9</b> Support Vector Machines</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="support-vector-machines.html"><a href="support-vector-machines.html#logistic-regression-1"><i class="fa fa-check"></i><b>9.1</b> Logistic regression</a></li>
+<li class="chapter" data-level="9.2" data-path="support-vector-machines.html"><a href="support-vector-machines.html#random-forest-1"><i class="fa fa-check"></i><b>9.2</b> Random forest</a></li>
+<li class="chapter" data-level="9.3" data-path="support-vector-machines.html"><a href="support-vector-machines.html#support-vector-machine"><i class="fa fa-check"></i><b>9.3</b> Support Vector Machine</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -215,7 +222,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-2"><a href="the-modeling-process-and-linear-regression.html#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(field_goals_made_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;field_goals_made&quot;</span>,<span class="st">&quot;field_goals_attempted&quot;</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb4-3"><a href="the-modeling-process-and-linear-regression.html#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(three_point_field_goals_made_three_point_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;three_point_field_goals_made&quot;</span>,<span class="st">&quot;three_point_field_goals_attempted&quot;</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb4-4"><a href="the-modeling-process-and-linear-regression.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(free_throws_made_free_throws_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;free_throws_made&quot;</span>,<span class="st">&quot;free_throws_attempted&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb4-5"><a href="the-modeling-process-and-linear-regression.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">35</span>, as.numeric)</span></code></pre></div>
+<span id="cb4-5"><a href="the-modeling-process-and-linear-regression.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">34</span>, as.numeric)</span></code></pre></div>
 <div id="feature-engineering" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Feature engineering</h2>
 <p>Feature engineering is the process of using what you know about something – domain knowledge – to find features in data that can be used in machine learning algorithms. Sports is a great place for this because not only do we know a lot because we follow the sport, but lots of other people are looking at this all the time. Creativity is good.</p>
@@ -227,13 +234,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Then we’ll use the possessions estimate formula to get that, so we can then calculate points per possession. While we’re here, we’ll add true shooting percentage as well – to try and incorporate some free throw shooting into our metrics.</p>
 <p>We’ll save that to a new dataframe called <code>teamstats</code>.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="the-modeling-process-and-linear-regression.html#cb5-1" aria-hidden="true" tabindex="-1"></a>teamstats <span class="ot">&lt;-</span> teamgames <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="the-modeling-process-and-linear-regression.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(team_short_display_name) <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="the-modeling-process-and-linear-regression.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb5-4"><a href="the-modeling-process-and-linear-regression.html#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_score =</span> ((field_goals_made<span class="sc">-</span>three_point_field_goals_made) <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">+</span> (three_point_field_goals_made<span class="sc">*</span><span class="dv">3</span>) <span class="sc">+</span> free_throws_made,</span>
-<span id="cb5-5"><a href="the-modeling-process-and-linear-regression.html#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">possessions =</span> field_goals_attempted <span class="sc">-</span> offensive_rebounds <span class="sc">+</span> turnovers <span class="sc">+</span> (.<span class="dv">475</span> <span class="sc">*</span> free_throws_attempted),</span>
-<span id="cb5-6"><a href="the-modeling-process-and-linear-regression.html#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ppp =</span> team_score<span class="sc">/</span>possessions,</span>
-<span id="cb5-7"><a href="the-modeling-process-and-linear-regression.html#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">true_shooting_percentage =</span> (team_score <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>(field_goals_attempted <span class="sc">+</span> (.<span class="dv">44</span> <span class="sc">*</span> free_throws_attempted)))) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb5-8"><a href="the-modeling-process-and-linear-regression.html#cb5-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>()</span></code></pre></div>
+<span id="cb5-2"><a href="the-modeling-process-and-linear-regression.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-3"><a href="the-modeling-process-and-linear-regression.html#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_score =</span> ((field_goals_made<span class="sc">-</span>three_point_field_goals_made) <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">+</span> (three_point_field_goals_made<span class="sc">*</span><span class="dv">3</span>) <span class="sc">+</span> free_throws_made,</span>
+<span id="cb5-4"><a href="the-modeling-process-and-linear-regression.html#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">possessions =</span> field_goals_attempted <span class="sc">-</span> offensive_rebounds <span class="sc">+</span> turnovers <span class="sc">+</span> (.<span class="dv">475</span> <span class="sc">*</span> free_throws_attempted),</span>
+<span id="cb5-5"><a href="the-modeling-process-and-linear-regression.html#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ppp =</span> team_score<span class="sc">/</span>possessions,</span>
+<span id="cb5-6"><a href="the-modeling-process-and-linear-regression.html#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">true_shooting_percentage =</span> (team_score <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>(field_goals_attempted <span class="sc">+</span> (.<span class="dv">44</span> <span class="sc">*</span> free_throws_attempted)))) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb5-7"><a href="the-modeling-process-and-linear-regression.html#cb5-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>Now we begin the process of creating a model. Modeling in data science has a <strong>ton</strong> of details, but the process for each model type is similar.</p>
 <ol style="list-style-type: decimal">
 <li>Split your data into training and testing data sets. A common split is 80/20.</li>
@@ -247,12 +253,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>What a linear model says, in words is that we can predict y if we multiply a value – a coefficient – by our x value offset with b, which is really the y-intercept, but think of it like where the line starts. Or, expressed as y = mx + b: points = true_shooting_percentage * ? + some starting point. Think of some starting point as what the score should be if the true_shooting_percentage is zero. Should be zero, right? Intuitively, yes, but it won’t always work out so easily.</p>
 <p>What we’re trying to do here is predict how many points a team should score given their shooting prowess as a team or their efficiency with the ball, expressed as points per possession. However, to make a prediction, we need to know their stats BEFORE the game – what we knew about the team going into the game in question. We can do that using <code>zoo</code> and rolling means. We’ll add three new columns – the one game lagged rolling mean of shooting percentage, points per possession and true shooting percentage.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="the-modeling-process-and-linear-regression.html#cb6-1" aria-hidden="true" tabindex="-1"></a>teamstats <span class="ot">&lt;-</span> teamstats <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="the-modeling-process-and-linear-regression.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(team_short_display_name) <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a href="the-modeling-process-and-linear-regression.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-4"><a href="the-modeling-process-and-linear-regression.html#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">rolling_shooting_percentage =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(field_goal_pct, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">4</span>, <span class="at">fill=</span>field_goal_pct),</span>
-<span id="cb6-5"><a href="the-modeling-process-and-linear-regression.html#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">rolling_ppp =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(ppp, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">4</span>, <span class="at">fill=</span>ppp),</span>
-<span id="cb6-6"><a href="the-modeling-process-and-linear-regression.html#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">rolling_true_shooting_percentage =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(true_shooting_percentage, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">4</span>, <span class="at">fill=</span>true_shooting_percentage)</span>
-<span id="cb6-7"><a href="the-modeling-process-and-linear-regression.html#cb6-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>()</span></code></pre></div>
+<span id="cb6-2"><a href="the-modeling-process-and-linear-regression.html#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(team_short_display_name, season) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="the-modeling-process-and-linear-regression.html#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(game_date) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="the-modeling-process-and-linear-regression.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-5"><a href="the-modeling-process-and-linear-regression.html#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">rolling_shooting_percentage =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(field_goal_pct, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">4</span>, <span class="at">align=</span><span class="st">&quot;right&quot;</span>, <span class="at">fill=</span><span class="cn">NA</span>),</span>
+<span id="cb6-6"><a href="the-modeling-process-and-linear-regression.html#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">rolling_ppp =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(ppp, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">4</span>, <span class="at">align=</span><span class="st">&quot;right&quot;</span>, <span class="at">fill=</span><span class="cn">NA</span>),</span>
+<span id="cb6-7"><a href="the-modeling-process-and-linear-regression.html#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">rolling_true_shooting_percentage =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(true_shooting_percentage, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">4</span>, <span class="at">align=</span><span class="st">&quot;right&quot;</span>, <span class="at">fill=</span><span class="cn">NA</span>)</span>
+<span id="cb6-8"><a href="the-modeling-process-and-linear-regression.html#cb6-8" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>()</span></code></pre></div>
 </div>
 <div id="setting-up-the-modeling-process" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Setting up the modeling process</h2>
@@ -264,7 +271,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-2"><a href="the-modeling-process-and-linear-regression.html#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="the-modeling-process-and-linear-regression.html#cb8-3" aria-hidden="true" tabindex="-1"></a>game_split</span></code></pre></div>
 <pre><code>## &lt;Analysis/Assess/Total&gt;
-## &lt;70688/17672/88360&gt;</code></pre>
+## &lt;45549/11388/56937&gt;</code></pre>
 <p>What does this mean? It says that <code>initial_split</code> divided the data into 68,000+ games in analysis (or training), 17,000+ into assess (or test), of the 86,000+ total records in the dataset. But the split object isn’t useful to us. We need to assign them to dataframes. We do so like this:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="the-modeling-process-and-linear-regression.html#cb10-1" aria-hidden="true" tabindex="-1"></a>game_train <span class="ot">&lt;-</span> <span class="fu">training</span>(game_split)</span>
 <span id="cb10-2"><a href="the-modeling-process-and-linear-regression.html#cb10-2" aria-hidden="true" tabindex="-1"></a>game_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(game_split)</span></code></pre></div>
@@ -287,8 +294,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 2 × 7
 ##   term                 estimate std.error statistic   p.value conf.low conf.high
 ##   &lt;chr&gt;                   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-## 1 (Intercept)             13.7    0.415        32.9 2.87e-236    12.9      14.5 
-## 2 rolling_shooting_pe…     1.31   0.00940     140.  0             1.30      1.33</code></pre>
+## 1 (Intercept)            51.6      0.621       83.1 0           50.4      52.8  
+## 2 rolling_shooting_pe…    0.462    0.0139      33.2 2.67e-239    0.435     0.489</code></pre>
 <p>The two most important things to see here are the terms and the estimates. Start with rolling_shooting_percentage. What that says is for every 10 percentage points of shooting percentage, a team should score 13 points. <em>HOWEVER</em>, the intercept has something to say about this. What the intercept says is that a team with a big fat zero for shooting percentage is going to score 13 points.</p>
 <p>Wait … how? Well, are field goals the only way to score in basketball? No. So there’s some of your non-zero intercept.</p>
 <p>Think again about y = mx + b. We have our terms here: y is team score, m is 1.3 x is the team shooting percentage and b is 13.1. Let’s pretend for a minute that you coached a team that shot 40 percent in college basketball. Our model predicts you would score about 65 points.</p>
@@ -304,38 +311,33 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard      11.8  
-## 2 rsq     standard       0.218
-## 3 mae     standard       9.22</code></pre>
-<p>We’ll get more into RMSE and MAE later. For now, focus on rsq or r-squared. What that says is that changes in a four game rolling shooting percentage account for 22 percent of the variation in team score. That’s pretty good. Not great, but for one stat, it’s not bad.</p>
+## 1 rmse    standard     12.4   
+## 2 rsq     standard      0.0237
+## 3 mae     standard      9.80</code></pre>
+<p>We’ll get more into RMSE and MAE later. For now, focus on rsq or r-squared. What that says is that changes in a four game rolling shooting percentage account for … 2.3 percent of the variation in team score. That’s … not good.</p>
 <p>A way to look at this is with a scatterplot. The geom_smooth creates its own linear model and puts the line of best fit through our dots.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="the-modeling-process-and-linear-regression.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="cb20-2"><a href="the-modeling-process-and-linear-regression.html#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>teamstats, <span class="fu">aes</span>(<span class="at">x=</span>rolling_shooting_percentage, <span class="at">y=</span>team_score)) <span class="sc">+</span> </span>
 <span id="cb20-3"><a href="the-modeling-process-and-linear-regression.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data=</span>teamstats, <span class="fu">aes</span>(<span class="at">x=</span>rolling_shooting_percentage, <span class="at">y=</span>team_score), <span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 696 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 696 rows containing missing values (geom_point).</code></pre>
 <p><img src="advancedsportsdataanalysis_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>As you can see, there’s a lot of dots above the line and below the line. That gap is a called a residual. The residual is the actual thing minus the predicted thing. The truth minus our guess. A positive residual – in this case – is good. It means that player is scoring <em>more</em> than we’d predict they would. A negative residual means they’re not scoring as much as we’d expect.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="the-modeling-process-and-linear-regression.html#cb24-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="sc">%&gt;%</span> </span>
-<span id="cb24-2"><a href="the-modeling-process-and-linear-regression.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residual =</span> team_score <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span></span>
-<span id="cb24-3"><a href="the-modeling-process-and-linear-regression.html#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">label =</span> <span class="fu">case_when</span>(</span>
-<span id="cb24-4"><a href="the-modeling-process-and-linear-regression.html#cb24-4" aria-hidden="true" tabindex="-1"></a>    residual <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Positive&quot;</span>,</span>
-<span id="cb24-5"><a href="the-modeling-process-and-linear-regression.html#cb24-5" aria-hidden="true" tabindex="-1"></a>    residual <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Negative&quot;</span>)</span>
-<span id="cb24-6"><a href="the-modeling-process-and-linear-regression.html#cb24-6" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-7"><a href="the-modeling-process-and-linear-regression.html#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb24-8"><a href="the-modeling-process-and-linear-regression.html#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>rolling_shooting_percentage, <span class="at">y=</span>team_score, <span class="at">color=</span>label)) <span class="sc">+</span> </span>
-<span id="cb24-9"><a href="the-modeling-process-and-linear-regression.html#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x=</span>rolling_shooting_percentage, <span class="at">y=</span>team_score), <span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="the-modeling-process-and-linear-regression.html#cb22-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="the-modeling-process-and-linear-regression.html#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residual =</span> team_score <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="the-modeling-process-and-linear-regression.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">label =</span> <span class="fu">case_when</span>(</span>
+<span id="cb22-4"><a href="the-modeling-process-and-linear-regression.html#cb22-4" aria-hidden="true" tabindex="-1"></a>    residual <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Positive&quot;</span>,</span>
+<span id="cb22-5"><a href="the-modeling-process-and-linear-regression.html#cb22-5" aria-hidden="true" tabindex="-1"></a>    residual <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">&quot;Negative&quot;</span>)</span>
+<span id="cb22-6"><a href="the-modeling-process-and-linear-regression.html#cb22-6" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-7"><a href="the-modeling-process-and-linear-regression.html#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb22-8"><a href="the-modeling-process-and-linear-regression.html#cb22-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>rolling_shooting_percentage, <span class="at">y=</span>team_score, <span class="at">color=</span>label)) <span class="sc">+</span> </span>
+<span id="cb22-9"><a href="the-modeling-process-and-linear-regression.html#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x=</span>rolling_shooting_percentage, <span class="at">y=</span>team_score), <span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 573 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 573 rows containing missing values (geom_point).</code></pre>
 <p><img src="advancedsportsdataanalysis_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>Residuals, aside from telling us who is and isn’t playing well, can tell us if a linear model is appropriate for this data. We can use a scatterplot to reveal this.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="the-modeling-process-and-linear-regression.html#cb28-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="sc">%&gt;%</span> </span>
-<span id="cb28-2"><a href="the-modeling-process-and-linear-regression.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residual =</span> team_score <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-3"><a href="the-modeling-process-and-linear-regression.html#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb28-4"><a href="the-modeling-process-and-linear-regression.html#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>rolling_shooting_percentage, <span class="at">y=</span>residual))</span></code></pre></div>
-<pre><code>## Warning: Removed 573 rows containing missing values (geom_point).</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="the-modeling-process-and-linear-regression.html#cb24-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="the-modeling-process-and-linear-regression.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residual =</span> team_score <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="the-modeling-process-and-linear-regression.html#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb24-4"><a href="the-modeling-process-and-linear-regression.html#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>rolling_shooting_percentage, <span class="at">y=</span>residual))</span></code></pre></div>
 <p><img src="advancedsportsdataanalysis_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>What we’re looking for is for the dots to be randomly spaced around the plot. It should look like someone spilled Skittles on the floor. This … does. It means a linear model is appropriate here.</p>
 <p>More on that in the coming chapters.</p>
@@ -343,45 +345,45 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="predicting-data-we-havent-seen-before" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Predicting data we haven’t seen before</h2>
 <p>Now we can do the same thing, but with the test data.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="the-modeling-process-and-linear-regression.html#cb30-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> game_test <span class="sc">%&gt;%</span></span>
-<span id="cb30-2"><a href="the-modeling-process-and-linear-regression.html#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(fit_lm, game_test))</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="the-modeling-process-and-linear-regression.html#cb25-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> game_test <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="the-modeling-process-and-linear-regression.html#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(fit_lm, game_test))</span></code></pre></div>
 <p>What do these metrics look like?</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="the-modeling-process-and-linear-regression.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(testresults, <span class="at">truth =</span> team_score, <span class="at">estimate =</span> .pred)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="the-modeling-process-and-linear-regression.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(testresults, <span class="at">truth =</span> team_score, <span class="at">estimate =</span> .pred)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard      11.8  
-## 2 rsq     standard       0.224
-## 3 mae     standard       9.25</code></pre>
-<p>If you look at the r-squared value, you’ll note that when we apply the same model to our test data, the amount of variance that we can explain goes down a little. It’s not much, so the model does a decent job of predicting data we haven’t seen before, which is the whole point of creating a model.</p>
+## 1 rmse    standard     12.4   
+## 2 rsq     standard      0.0214
+## 3 mae     standard      9.85</code></pre>
+<p>If you look at the r-squared value, you’ll note that when we apply the same model to our test data, the amount of variance that we can explain goes down a little. It’s not much, so the model does the same job predicting the outcome that the training data did, which is the point of a model. It’s just, in our simple model here, it’s doing a terrible job of it.</p>
 </div>
 <div id="looking-locally" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Looking locally</h2>
 <p>We can get clearer picture of what these predictions look like if we look at something we know – like this season’s Nebraska team. What does the model say about how they are doing?</p>
 <p>First, we can get Nebraska’s games with a filter.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="the-modeling-process-and-linear-regression.html#cb33-1" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> teamstats <span class="sc">%&gt;%</span> <span class="fu">filter</span>(season <span class="sc">==</span> <span class="dv">2022</span>, team_short_display_name <span class="sc">==</span> <span class="st">&quot;Nebraska&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="the-modeling-process-and-linear-regression.html#cb28-1" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> teamstats <span class="sc">%&gt;%</span> <span class="fu">filter</span>(season <span class="sc">==</span> <span class="dv">2022</span>, team_short_display_name <span class="sc">==</span> <span class="st">&quot;Nebraska&quot;</span>)</span></code></pre></div>
 <p>Now apply the model to the games.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="the-modeling-process-and-linear-regression.html#cb34-1" aria-hidden="true" tabindex="-1"></a>nupreds <span class="ot">&lt;-</span> nu <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="the-modeling-process-and-linear-regression.html#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(fit_lm, nu))</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="the-modeling-process-and-linear-regression.html#cb29-1" aria-hidden="true" tabindex="-1"></a>nupreds <span class="ot">&lt;-</span> nu <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="the-modeling-process-and-linear-regression.html#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(fit_lm, nu))</span></code></pre></div>
 <p>To really see this clearly, we’ll calculate the residual, then sort by the residual. Where did the model miss the most, for good or bad?</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="the-modeling-process-and-linear-regression.html#cb35-1" aria-hidden="true" tabindex="-1"></a>nupreds <span class="sc">%&gt;%</span> </span>
-<span id="cb35-2"><a href="the-modeling-process-and-linear-regression.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residual =</span> team_score <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span> </span>
-<span id="cb35-3"><a href="the-modeling-process-and-linear-regression.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(residual)) <span class="sc">%&gt;%</span> </span>
-<span id="cb35-4"><a href="the-modeling-process-and-linear-regression.html#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(game_date, team_short_display_name, opponent_name, team_score, .pred, residual)</span></code></pre></div>
-<pre><code>## # A tibble: 26 × 6
-##    game_date  team_short_display_name opponent_name    team_score .pred residual
-##    &lt;date&gt;     &lt;chr&gt;                   &lt;chr&gt;                 &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-##  1 2021-12-02 Nebraska                NC State                100  71.2    28.8 
-##  2 2021-12-23 Nebraska                Kennesaw State           88  72.1    15.9 
-##  3 2021-11-27 Nebraska                South Dakota             83  68.1    14.9 
-##  4 2022-01-03 Nebraska                Ohio State               79  65.0    14.0 
-##  5 2022-02-02 Nebraska                Michigan                 79  68.0    11.0 
-##  6 2021-12-08 Nebraska                Michigan                 67  61.3     5.70
-##  7 2021-11-20 Nebraska                Idaho State              78  73.9     4.05
-##  8 2021-11-10 Nebraska                Western Illinois         74  70.6     3.44
-##  9 2022-02-13 Nebraska                Iowa                     75  71.8     3.19
-## 10 2021-11-17 Nebraska                Creighton                69  66.1     2.94
-## # … with 16 more rows</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="the-modeling-process-and-linear-regression.html#cb30-1" aria-hidden="true" tabindex="-1"></a>nupreds <span class="sc">%&gt;%</span> </span>
+<span id="cb30-2"><a href="the-modeling-process-and-linear-regression.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residual =</span> team_score <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-3"><a href="the-modeling-process-and-linear-regression.html#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(residual)) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-4"><a href="the-modeling-process-and-linear-regression.html#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(game_date, team_short_display_name, opponent_name, team_score, .pred, residual)</span></code></pre></div>
+<pre><code>## # A tibble: 24 × 6
+##    game_date  team_short_display_name opponent_name   team_score .pred residual
+##    &lt;date&gt;     &lt;chr&gt;                   &lt;chr&gt;                &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+##  1 2021-12-02 Nebraska                NC State               100  75.4    24.6 
+##  2 2021-12-23 Nebraska                Kennesaw State          88  68.3    19.7 
+##  3 2021-11-21 Nebraska                Southern                82  71.3    10.7 
+##  4 2022-01-03 Nebraska                Ohio State              79  70.0     8.96
+##  5 2022-02-02 Nebraska                Michigan                79  70.3     8.72
+##  6 2021-11-27 Nebraska                South Dakota            83  74.3     8.65
+##  7 2022-02-10 Nebraska                Minnesota               78  70.7     7.35
+##  8 2022-02-26 Nebraska                Iowa                    78  71.6     6.42
+##  9 2021-11-24 Nebraska                Tennessee State         79  73.0     6.05
+## 10 2022-02-13 Nebraska                Iowa                    75  71.6     3.39
+## # … with 14 more rows</code></pre>
 <p>What does this mean? It says the model predicted the team would score 75 against NC State and they put up 100, for a 25 point miss (residual). Might have had something to do with that game going to three overtimes, but alas, our model can’t get everything right. For most games, the prediction is within a few points, with some odd games with larger misses.</p>
 <p>Linear models are incredibly important to understand — they underpin many of the more advanced methods we’ll talk about going forward — so understanding them now is critical.</p>
 

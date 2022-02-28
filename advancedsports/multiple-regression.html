@@ -24,7 +24,7 @@
 <meta name="author" content="By Matt Waite" />
 
 
-<meta name="date" content="2022-02-21" />
+<meta name="date" content="2022-02-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -177,6 +177,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1" data-path="using-random-forests-to-predict-winners.html"><a href="using-random-forests-to-predict-winners.html#setup"><i class="fa fa-check"></i><b>7.1</b> Setup</a></li>
 <li class="chapter" data-level="7.2" data-path="using-random-forests-to-predict-winners.html"><a href="using-random-forests-to-predict-winners.html#predicting-a-future-game"><i class="fa fa-check"></i><b>7.2</b> Predicting a future game</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="xgboost-to-make-classifications.html"><a href="xgboost-to-make-classifications.html"><i class="fa fa-check"></i><b>8</b> XGBoost to make classifications</a></li>
+<li class="chapter" data-level="9" data-path="support-vector-machines.html"><a href="support-vector-machines.html"><i class="fa fa-check"></i><b>9</b> Support Vector Machines</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="support-vector-machines.html"><a href="support-vector-machines.html#logistic-regression-1"><i class="fa fa-check"></i><b>9.1</b> Logistic regression</a></li>
+<li class="chapter" data-level="9.2" data-path="support-vector-machines.html"><a href="support-vector-machines.html#random-forest-1"><i class="fa fa-check"></i><b>9.2</b> Random forest</a></li>
+<li class="chapter" data-level="9.3" data-path="support-vector-machines.html"><a href="support-vector-machines.html#support-vector-machine"><i class="fa fa-check"></i><b>9.3</b> Support Vector Machine</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -204,72 +211,74 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Enter the multiple regression.</p>
 <p>Multiple regressions are a step toward reality – where more than one thing influences the outcome. However, the more variance we attempt to explain, the more error and uncertainty we introduce into our model.</p>
 <p>Let’s begin by loading some libraries and installing a new one: <code>corrr</code></p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="multiple-regression.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb37-2"><a href="multiple-regression.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb37-3"><a href="multiple-regression.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span>
-<span id="cb37-4"><a href="multiple-regression.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hoopR)</span>
-<span id="cb37-5"><a href="multiple-regression.html#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="multiple-regression.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb32-2"><a href="multiple-regression.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb32-3"><a href="multiple-regression.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span>
+<span id="cb32-4"><a href="multiple-regression.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hoopR)</span>
+<span id="cb32-5"><a href="multiple-regression.html#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrr)</span></code></pre></div>
 <p>For this, we’ll work with our college basketball game data and we’ll continue down the road we started in the last chapter.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="multiple-regression.html#cb38-1" aria-hidden="true" tabindex="-1"></a>teamgames <span class="ot">&lt;-</span> <span class="fu">load_mbb_team_box</span>(<span class="at">seasons =</span> <span class="dv">2015</span><span class="sc">:</span><span class="dv">2022</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb38-2"><a href="multiple-regression.html#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(field_goals_made_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;field_goals_made&quot;</span>,<span class="st">&quot;field_goals_attempted&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb38-3"><a href="multiple-regression.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(three_point_field_goals_made_three_point_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;three_point_field_goals_made&quot;</span>,<span class="st">&quot;three_point_field_goals_attempted&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb38-4"><a href="multiple-regression.html#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(free_throws_made_free_throws_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;free_throws_made&quot;</span>,<span class="st">&quot;free_throws_attempted&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb38-5"><a href="multiple-regression.html#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">35</span>, as.numeric)</span></code></pre></div>
-<pre><code>## Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="multiple-regression.html#cb33-1" aria-hidden="true" tabindex="-1"></a>teamgames <span class="ot">&lt;-</span> <span class="fu">load_mbb_team_box</span>(<span class="at">seasons =</span> <span class="dv">2015</span><span class="sc">:</span><span class="dv">2022</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="multiple-regression.html#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(field_goals_made_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;field_goals_made&quot;</span>,<span class="st">&quot;field_goals_attempted&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="multiple-regression.html#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(three_point_field_goals_made_three_point_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;three_point_field_goals_made&quot;</span>,<span class="st">&quot;three_point_field_goals_attempted&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb33-4"><a href="multiple-regression.html#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(free_throws_made_free_throws_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;free_throws_made&quot;</span>,<span class="st">&quot;free_throws_attempted&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb33-5"><a href="multiple-regression.html#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">34</span>, as.numeric)</span></code></pre></div>
 <div id="a-multiple-regression-speed-run" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> A multiple regression speed run</h2>
 <p>First, let’s restore what we did in last chapter with the feature engineering we did, making the different metrics and the rolling numbers.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="multiple-regression.html#cb40-1" aria-hidden="true" tabindex="-1"></a>teamstats <span class="ot">&lt;-</span> teamgames <span class="sc">%&gt;%</span> </span>
-<span id="cb40-2"><a href="multiple-regression.html#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(team_short_display_name) <span class="sc">%&gt;%</span></span>
-<span id="cb40-3"><a href="multiple-regression.html#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb40-4"><a href="multiple-regression.html#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_score =</span> ((field_goals_made<span class="sc">-</span>three_point_field_goals_made) <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">+</span> (three_point_field_goals_made<span class="sc">*</span><span class="dv">3</span>) <span class="sc">+</span> free_throws_made,</span>
-<span id="cb40-5"><a href="multiple-regression.html#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">possessions =</span> field_goals_attempted <span class="sc">-</span> offensive_rebounds <span class="sc">+</span> turnovers <span class="sc">+</span> (.<span class="dv">475</span> <span class="sc">*</span> free_throws_attempted),</span>
-<span id="cb40-6"><a href="multiple-regression.html#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ppp =</span> team_score<span class="sc">/</span>possessions,</span>
-<span id="cb40-7"><a href="multiple-regression.html#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">true_shooting_percentage =</span> (team_score <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>(field_goals_attempted <span class="sc">+</span> (.<span class="dv">44</span> <span class="sc">*</span> free_throws_attempted)))) <span class="sc">*</span> <span class="dv">100</span>,</span>
-<span id="cb40-8"><a href="multiple-regression.html#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">rolling_shooting_percentage =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(field_goal_pct, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">2</span>, <span class="at">fill=</span>field_goal_pct),</span>
-<span id="cb40-9"><a href="multiple-regression.html#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">rolling_ppp =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(ppp, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">2</span>, <span class="at">fill=</span>ppp),</span>
-<span id="cb40-10"><a href="multiple-regression.html#cb40-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">rolling_true_shooting_percentage =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(true_shooting_percentage, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">2</span>, <span class="at">fill=</span>true_shooting_percentage)</span>
-<span id="cb40-11"><a href="multiple-regression.html#cb40-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="multiple-regression.html#cb34-1" aria-hidden="true" tabindex="-1"></a>teamstats <span class="ot">&lt;-</span> teamgames <span class="sc">%&gt;%</span> </span>
+<span id="cb34-2"><a href="multiple-regression.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(team_short_display_name, season) <span class="sc">%&gt;%</span></span>
+<span id="cb34-3"><a href="multiple-regression.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(game_date) <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a href="multiple-regression.html#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb34-5"><a href="multiple-regression.html#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_score =</span> ((field_goals_made<span class="sc">-</span>three_point_field_goals_made) <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">+</span> (three_point_field_goals_made<span class="sc">*</span><span class="dv">3</span>) <span class="sc">+</span> free_throws_made,</span>
+<span id="cb34-6"><a href="multiple-regression.html#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">possessions =</span> field_goals_attempted <span class="sc">-</span> offensive_rebounds <span class="sc">+</span> turnovers <span class="sc">+</span> (.<span class="dv">475</span> <span class="sc">*</span> free_throws_attempted),</span>
+<span id="cb34-7"><a href="multiple-regression.html#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ppp =</span> team_score<span class="sc">/</span>possessions,</span>
+<span id="cb34-8"><a href="multiple-regression.html#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">true_shooting_percentage =</span> (team_score <span class="sc">/</span> (<span class="dv">2</span><span class="sc">*</span>(field_goals_attempted <span class="sc">+</span> (.<span class="dv">44</span> <span class="sc">*</span> free_throws_attempted)))) <span class="sc">*</span> <span class="dv">100</span>,</span>
+<span id="cb34-9"><a href="multiple-regression.html#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">rolling_shooting_percentage =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(field_goal_pct, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">4</span>, <span class="at">align=</span><span class="st">&quot;right&quot;</span>, <span class="at">fill=</span><span class="cn">NA</span>),</span>
+<span id="cb34-10"><a href="multiple-regression.html#cb34-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">rolling_ppp =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(ppp, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">4</span>, <span class="at">align=</span><span class="st">&quot;right&quot;</span>, <span class="at">fill=</span><span class="cn">NA</span>),</span>
+<span id="cb34-11"><a href="multiple-regression.html#cb34-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">rolling_true_shooting_percentage =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(true_shooting_percentage, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">4</span>, <span class="at">align=</span><span class="st">&quot;right&quot;</span>, <span class="at">fill=</span><span class="cn">NA</span>)</span>
+<span id="cb34-12"><a href="multiple-regression.html#cb34-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-13"><a href="multiple-regression.html#cb34-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb34-14"><a href="multiple-regression.html#cb34-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code></pre></div>
 <p>Now we’ll split our data into training and testing, creating a linear model predicting score from the shooting percentage and producing the metrics for the results.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="multiple-regression.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb41-2"><a href="multiple-regression.html#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="multiple-regression.html#cb41-3" aria-hidden="true" tabindex="-1"></a>game_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(teamstats, <span class="at">prop =</span> .<span class="dv">8</span>)</span>
-<span id="cb41-4"><a href="multiple-regression.html#cb41-4" aria-hidden="true" tabindex="-1"></a>game_train <span class="ot">&lt;-</span> <span class="fu">training</span>(game_split)</span>
-<span id="cb41-5"><a href="multiple-regression.html#cb41-5" aria-hidden="true" tabindex="-1"></a>game_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(game_split)</span>
-<span id="cb41-6"><a href="multiple-regression.html#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-7"><a href="multiple-regression.html#cb41-7" aria-hidden="true" tabindex="-1"></a>lm_model <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb41-8"><a href="multiple-regression.html#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">&quot;lm&quot;</span>)</span>
-<span id="cb41-9"><a href="multiple-regression.html#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-10"><a href="multiple-regression.html#cb41-10" aria-hidden="true" tabindex="-1"></a>fit_lm <span class="ot">&lt;-</span> lm_model <span class="sc">%&gt;%</span></span>
-<span id="cb41-11"><a href="multiple-regression.html#cb41-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(team_score <span class="sc">~</span> rolling_shooting_percentage, <span class="at">data =</span> game_train)</span>
-<span id="cb41-12"><a href="multiple-regression.html#cb41-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-13"><a href="multiple-regression.html#cb41-13" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
-<span id="cb41-14"><a href="multiple-regression.html#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(fit_lm, game_train))</span>
-<span id="cb41-15"><a href="multiple-regression.html#cb41-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-16"><a href="multiple-regression.html#cb41-16" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(trainresults, <span class="at">truth =</span> team_score, <span class="at">estimate =</span> .pred)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="multiple-regression.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb35-2"><a href="multiple-regression.html#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="multiple-regression.html#cb35-3" aria-hidden="true" tabindex="-1"></a>game_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(teamstats, <span class="at">prop =</span> .<span class="dv">8</span>)</span>
+<span id="cb35-4"><a href="multiple-regression.html#cb35-4" aria-hidden="true" tabindex="-1"></a>game_train <span class="ot">&lt;-</span> <span class="fu">training</span>(game_split)</span>
+<span id="cb35-5"><a href="multiple-regression.html#cb35-5" aria-hidden="true" tabindex="-1"></a>game_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(game_split)</span>
+<span id="cb35-6"><a href="multiple-regression.html#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="multiple-regression.html#cb35-7" aria-hidden="true" tabindex="-1"></a>lm_model <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb35-8"><a href="multiple-regression.html#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">&quot;lm&quot;</span>)</span>
+<span id="cb35-9"><a href="multiple-regression.html#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-10"><a href="multiple-regression.html#cb35-10" aria-hidden="true" tabindex="-1"></a>fit_lm <span class="ot">&lt;-</span> lm_model <span class="sc">%&gt;%</span></span>
+<span id="cb35-11"><a href="multiple-regression.html#cb35-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(team_score <span class="sc">~</span> rolling_shooting_percentage, <span class="at">data =</span> game_train)</span>
+<span id="cb35-12"><a href="multiple-regression.html#cb35-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-13"><a href="multiple-regression.html#cb35-13" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
+<span id="cb35-14"><a href="multiple-regression.html#cb35-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(fit_lm, game_train))</span>
+<span id="cb35-15"><a href="multiple-regression.html#cb35-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-16"><a href="multiple-regression.html#cb35-16" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(trainresults, <span class="at">truth =</span> team_score, <span class="at">estimate =</span> .pred)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard      11.0  
-## 2 rsq     standard       0.319
-## 3 mae     standard       8.59</code></pre>
-<p>Bottom line: We can predict about 32 percent of the difference in team scores by the shooting percentage. But we know, because we’ve shot hoops in the driveway before, or went through a basketball unit in PE in the third grade, that sure, being a good shooter is important, but how many times you shoot the ball is also important. If you’re a 100 percent shooter, that’s insane, but it probably means you took one shot. Congrats, you scored two points (three if you’re gutsy). One shot is not going to win a game.</p>
-<p>In our feature engineering, we created another metric – points per posesssion. It’s a measure of efficiency – did you score when you had the ball? We created a rolling metric for this too.</p>
+## 1 rmse    standard     12.4   
+## 2 rsq     standard      0.0237
+## 3 mae     standard      9.80</code></pre>
+<p>Bottom line: We can predict about 2.3 percent of the difference in team scores by the rolling shooting percentage. But we know, because we’ve shot hoops in the driveway before, or went through a basketball unit in PE in the third grade, that sure, being a good shooter is important, but how many times you shoot the ball is also important. If you’re a 100 percent shooter, that’s insane, but it probably means you took one shot. Congrats, you scored two points (three if you’re gutsy). One shot is not going to win a game.</p>
+<p>In our feature engineering, we created another metric – points per posession. It’s a measure of efficiency – did you score when you had the ball? We created a rolling metric for this too.</p>
 <p>To add it to our model, it’s as simple as just adding <code>+ rolling_ppp</code></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="multiple-regression.html#cb43-1" aria-hidden="true" tabindex="-1"></a>fit_lm <span class="ot">&lt;-</span> lm_model <span class="sc">%&gt;%</span></span>
-<span id="cb43-2"><a href="multiple-regression.html#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(team_score <span class="sc">~</span> rolling_shooting_percentage <span class="sc">+</span> rolling_ppp, <span class="at">data =</span> game_train)</span>
-<span id="cb43-3"><a href="multiple-regression.html#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="multiple-regression.html#cb43-4" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
-<span id="cb43-5"><a href="multiple-regression.html#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(fit_lm, game_train))</span>
-<span id="cb43-6"><a href="multiple-regression.html#cb43-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-7"><a href="multiple-regression.html#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(trainresults, <span class="at">truth =</span> team_score, <span class="at">estimate =</span> .pred)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="multiple-regression.html#cb37-1" aria-hidden="true" tabindex="-1"></a>fit_lm <span class="ot">&lt;-</span> lm_model <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="multiple-regression.html#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(team_score <span class="sc">~</span> rolling_shooting_percentage <span class="sc">+</span> rolling_ppp, <span class="at">data =</span> game_train)</span>
+<span id="cb37-3"><a href="multiple-regression.html#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="multiple-regression.html#cb37-4" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
+<span id="cb37-5"><a href="multiple-regression.html#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(fit_lm, game_train))</span>
+<span id="cb37-6"><a href="multiple-regression.html#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="multiple-regression.html#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(trainresults, <span class="at">truth =</span> team_score, <span class="at">estimate =</span> .pred)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       9.94 
-## 2 rsq     standard       0.443
-## 3 mae     standard       7.74</code></pre>
-<p>And just like that, by acknowledging reality, we’ve jumped to 44 percent of variance explained and our root mean squared error – the average amount we’re off by – has dropped from 11 to 10.</p>
+## 1 rmse    standard     12.3   
+## 2 rsq     standard      0.0448
+## 3 mae     standard      9.69</code></pre>
+<p>And just like that, by acknowledging reality, we’ve jumped to … almost 5 percent of variance explained and our root mean squared error – the average amount we’re off by – has not really budged.</p>
 <p>Your temptation now is to start adding things until we get to 1 on the r-squared and 0 on the rmse. The problem with that is called “overfitting”</p>
 <p>Overfitting is where you produce a model that is too close to your training data, which makes it prone to fail with data you’ve never seen before – the model becomes unreliable when it’s not the training data anymore.</p>
 <p>A secondary problem you encounter is this: the point of this is to predict future events. In this class, we’re attempting to predict the outcome of things that have not yet happened. That means we are going to be estimating the inputs to these models, inputs that will no doubt have error. So our inputs have a range of possible outcomes, our model is not perfect, so the outcome is going to combine the two. The more elements of your model that you use as inputs, the more error – uncertainty – you are introducing.</p>
@@ -279,75 +288,75 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.2</span> Picking what moves the needle</h2>
 <p>There are multiple ways to find the right combination of inputs to your models. With multiple regressions, the most common is the correlation matrix. We’re looking to maximize r-squared by choosing inputs that are highly correlated to our target value, but <em>not</em> correlated with other things. Example: We can assume that field_goals_made and field_goal_pct are highly correlated to team_score, but the number of Field Goals made is also highly correlated with the field goal percentage.</p>
 <p>Using <code>corrr</code>, we can create a correlation matrix in a dataframe to find columns that are highly correlated with our target – team_score. To do this, we need to select the columns we’re working with – our three rolling metrics.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="multiple-regression.html#cb45-1" aria-hidden="true" tabindex="-1"></a>teamstats <span class="sc">%&gt;%</span> </span>
-<span id="cb45-2"><a href="multiple-regression.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(team_score, rolling_shooting_percentage, rolling_ppp, rolling_true_shooting_percentage) <span class="sc">%&gt;%</span> </span>
-<span id="cb45-3"><a href="multiple-regression.html#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlate</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="multiple-regression.html#cb39-1" aria-hidden="true" tabindex="-1"></a>teamstats <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2"><a href="multiple-regression.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(team_score, rolling_shooting_percentage, rolling_ppp, rolling_true_shooting_percentage) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-3"><a href="multiple-regression.html#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">correlate</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 5
 ##   term          team_score rolling_shooting_pe… rolling_ppp rolling_true_shooti…
 ##   &lt;chr&gt;              &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                &lt;dbl&gt;
-## 1 team_score        NA                    0.566       0.665                0.596
-## 2 rolling_shoo…      0.566               NA           0.817                0.930
-## 3 rolling_ppp        0.665                0.817      NA                    0.864
-## 4 rolling_true…      0.596                0.930       0.864               NA</code></pre>
+## 1 team_score        NA                    0.152       0.208                0.167
+## 2 rolling_shoo…      0.152               NA           0.798                0.919
+## 3 rolling_ppp        0.208                0.798      NA                    0.851
+## 4 rolling_true…      0.167                0.919       0.851               NA</code></pre>
 <p>Reading this can be a lot, and it helps to take some notes as you go.</p>
 <p>You read up and down and left and right – it’s a matrix. Follow the rolling_true_shooting_percentage row across to the rolling_shooting_percentage column and you’ll see they’re almost perfectly correlated with each other – 1 is a perfect correlation.</p>
 <p>What does that mean? It means including both is going to just add error without adding much value. They’re so similar. You pick the one that is more highly correlated with team_score – true shooting.</p>
 <p>So how does this look in a model? Since we already have the features – the columns – in our data and we have it split into training and testing, we just need to create a new fit.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="multiple-regression.html#cb47-1" aria-hidden="true" tabindex="-1"></a>new_fit_lm <span class="ot">&lt;-</span> lm_model <span class="sc">%&gt;%</span></span>
-<span id="cb47-2"><a href="multiple-regression.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(team_score <span class="sc">~</span> rolling_true_shooting_percentage <span class="sc">+</span> rolling_ppp, <span class="at">data =</span> game_train)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="multiple-regression.html#cb41-1" aria-hidden="true" tabindex="-1"></a>new_fit_lm <span class="ot">&lt;-</span> lm_model <span class="sc">%&gt;%</span></span>
+<span id="cb41-2"><a href="multiple-regression.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(team_score <span class="sc">~</span> rolling_true_shooting_percentage <span class="sc">+</span> rolling_ppp, <span class="at">data =</span> game_train)</span></code></pre></div>
 <p>Let’s take a peek at our model coefficients.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="multiple-regression.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(new_fit_lm, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="multiple-regression.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(new_fit_lm, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 7
-##   term                  estimate std.error statistic  p.value conf.low conf.high
-##   &lt;chr&gt;                    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-## 1 (Intercept)             -0.169    0.321     -0.526 5.99e- 1   -0.799     0.461
-## 2 rolling_true_shootin…    0.181    0.0116    15.6   4.28e-55    0.159     0.204
-## 3 rolling_ppp             60.2      0.574    105.    0          59.1      61.3</code></pre>
-<p>What this says is if we can manage one point per possession in a basketball game, we’ll score 60 points. The model says for each 10 points of true shooting percentage, we’ll add another 1.8 points. Now we play the games.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="multiple-regression.html#cb50-1" aria-hidden="true" tabindex="-1"></a>newtrainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
-<span id="cb50-2"><a href="multiple-regression.html#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(new_fit_lm, game_train))</span></code></pre></div>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="multiple-regression.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(newtrainresults, <span class="at">truth =</span> team_score, <span class="at">estimate =</span> .pred)</span></code></pre></div>
+##   term                 estimate std.error statistic   p.value conf.low conf.high
+##   &lt;chr&gt;                   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)           43.7       0.691      63.2  0           42.3     45.0   
+## 2 rolling_true_shooti…  -0.0990    0.0236     -4.20 2.70e-  5   -0.145   -0.0528
+## 3 rolling_ppp           32.6       1.18       27.7  2.74e-167   30.3     34.9</code></pre>
+<p>Now let’s apply.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="multiple-regression.html#cb44-1" aria-hidden="true" tabindex="-1"></a>newtrainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="multiple-regression.html#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(new_fit_lm, game_train))</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="multiple-regression.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(newtrainresults, <span class="at">truth =</span> team_score, <span class="at">estimate =</span> .pred)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       9.94 
-## 2 rsq     standard       0.443
-## 3 mae     standard       7.74</code></pre>
-<p>So … we’re up to an r-squared of .44 and an rmse under 10. The goal here is to add to r-squared and reduce our error metrics.</p>
+## 1 rmse    standard     12.3   
+## 2 rsq     standard      0.0446
+## 3 mae     standard      9.69</code></pre>
+<p>So … we’re up to an r-squared of .043 and an rmse a little lower than before. The goal here is to add to r-squared and reduce our error metrics.</p>
 <p>How well does the model do with data it hasn’t seen before?</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="multiple-regression.html#cb53-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> game_test <span class="sc">%&gt;%</span></span>
-<span id="cb53-2"><a href="multiple-regression.html#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(fit_lm, game_test))</span></code></pre></div>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="multiple-regression.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(testresults, <span class="at">truth =</span> team_score, <span class="at">estimate =</span> .pred)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="multiple-regression.html#cb47-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> game_test <span class="sc">%&gt;%</span></span>
+<span id="cb47-2"><a href="multiple-regression.html#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(fit_lm, game_test))</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="multiple-regression.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(testresults, <span class="at">truth =</span> team_score, <span class="at">estimate =</span> .pred)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   .metric .estimator .estimate
 ##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-## 1 rmse    standard       9.96 
-## 2 rsq     standard       0.446
-## 3 mae     standard       7.79</code></pre>
-<p>It’s remarkably stable. Our rmse is all but unchanged as is our r-squared. Until we find other metrics or other methods, this is solid.</p>
+## 1 rmse    standard     12.3   
+## 2 rsq     standard      0.0395
+## 3 mae     standard      9.74</code></pre>
+<p>It’s remarkably stable. Our rmse is all but unchanged as is our r-squared. Until we find other metrics or other methods, this is what we’ve got.</p>
 <p>Let’s put this against a set of games we’re familiar with.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="multiple-regression.html#cb56-1" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> teamstats <span class="sc">%&gt;%</span> </span>
-<span id="cb56-2"><a href="multiple-regression.html#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(season <span class="sc">==</span> <span class="dv">2022</span>, team_short_display_name <span class="sc">==</span> <span class="st">&quot;Nebraska&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="multiple-regression.html#cb57-1" aria-hidden="true" tabindex="-1"></a>nupreds <span class="ot">&lt;-</span> nu <span class="sc">%&gt;%</span></span>
-<span id="cb57-2"><a href="multiple-regression.html#cb57-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(new_fit_lm, nu))</span></code></pre></div>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="multiple-regression.html#cb58-1" aria-hidden="true" tabindex="-1"></a>nupreds <span class="sc">%&gt;%</span> </span>
-<span id="cb58-2"><a href="multiple-regression.html#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residual =</span> team_score <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span> </span>
-<span id="cb58-3"><a href="multiple-regression.html#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(residual)) <span class="sc">%&gt;%</span> </span>
-<span id="cb58-4"><a href="multiple-regression.html#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(game_date, team_short_display_name, opponent_name, team_score, .pred, residual)</span></code></pre></div>
-<pre><code>## # A tibble: 26 × 6
-##    game_date  team_short_display_name opponent_name    team_score .pred residual
-##    &lt;date&gt;     &lt;chr&gt;                   &lt;chr&gt;                 &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
-##  1 2021-12-02 Nebraska                NC State                100  71.9    28.1 
-##  2 2021-12-23 Nebraska                Kennesaw State           88  75.0    13.0 
-##  3 2022-02-02 Nebraska                Michigan                 79  66.6    12.4 
-##  4 2022-01-03 Nebraska                Ohio State               79  67.2    11.8 
-##  5 2021-12-08 Nebraska                Michigan                 67  56.6    10.4 
-##  6 2022-02-10 Nebraska                Minnesota                78  68.0    10.0 
-##  7 2021-11-10 Nebraska                Western Illinois         74  65.7     8.28
-##  8 2021-11-13 Nebraska                Sam Houston              74  68.9     5.13
-##  9 2022-02-13 Nebraska                Iowa                     75  70.1     4.88
-## 10 2021-11-27 Nebraska                South Dakota             83  78.2     4.78
-## # … with 16 more rows</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="multiple-regression.html#cb50-1" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> teamstats <span class="sc">%&gt;%</span> </span>
+<span id="cb50-2"><a href="multiple-regression.html#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(season <span class="sc">==</span> <span class="dv">2022</span>, team_short_display_name <span class="sc">==</span> <span class="st">&quot;Nebraska&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="multiple-regression.html#cb51-1" aria-hidden="true" tabindex="-1"></a>nupreds <span class="ot">&lt;-</span> nu <span class="sc">%&gt;%</span></span>
+<span id="cb51-2"><a href="multiple-regression.html#cb51-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_cols</span>(<span class="fu">predict</span>(new_fit_lm, nu))</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="multiple-regression.html#cb52-1" aria-hidden="true" tabindex="-1"></a>nupreds <span class="sc">%&gt;%</span> </span>
+<span id="cb52-2"><a href="multiple-regression.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residual =</span> team_score <span class="sc">-</span> .pred) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-3"><a href="multiple-regression.html#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(residual)) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-4"><a href="multiple-regression.html#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(game_date, team_short_display_name, opponent_name, team_score, .pred, residual)</span></code></pre></div>
+<pre><code>## # A tibble: 24 × 6
+##    game_date  team_short_display_name opponent_name   team_score .pred residual
+##    &lt;date&gt;     &lt;chr&gt;                   &lt;chr&gt;                &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+##  1 2021-12-02 Nebraska                NC State               100  74.5    25.5 
+##  2 2021-12-23 Nebraska                Kennesaw State          88  66.2    21.8 
+##  3 2022-01-03 Nebraska                Ohio State              79  68.3    10.7 
+##  4 2022-02-02 Nebraska                Michigan                79  68.5    10.5 
+##  5 2021-11-21 Nebraska                Southern                82  72.1     9.91
+##  6 2021-11-27 Nebraska                South Dakota            83  73.4     9.58
+##  7 2022-02-10 Nebraska                Minnesota               78  68.4     9.55
+##  8 2022-02-26 Nebraska                Iowa                    78  71.0     6.96
+##  9 2021-11-24 Nebraska                Tennessee State         79  72.8     6.24
+## 10 2022-02-13 Nebraska                Iowa                    75  69.8     5.24
+## # … with 14 more rows</code></pre>
 <p>The question to start thinking about is this – what else could we include?</p>
 
 </div>
