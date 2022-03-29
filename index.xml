@@ -6,7 +6,19 @@
     <description>Recent content on Matt Waite&#39;s Github Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Another year, another attempt, another bracket disaster</title>
+      <link>/2022/03/28/another-year-another-attempt-another-disaster/</link>
+      <pubDate>Mon, 28 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/03/28/another-year-another-attempt-another-disaster/</guid>
+      <description>Once again, I attempted to predict the outcome of the NCAA tournament using machine learning, and I had a class-load of students try the same.
+If you like the madness part of March Madness, this year is for you.
+It is not for machine learning algorithms based on regular season performance. At least not mine.
+Of the 14 brackets I and my students produced, using 14 different methods, we came up with 7 unique national title winners.</description>
+    </item>
+    
     <item>
       <title>Nebraska is not the best worst team in basketball again. They&#39;re third best worst.</title>
       <link>/2022/03/20/nebraska-is-not-the-best-worst-team-in-basketball-again-they-re-second-best-worst/</link>
