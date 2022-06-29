@@ -1,0 +1,343 @@
+URL,Institution,Conference,Games,Goals,Assists,ShAtt,SoG,Fouls,Red Cards,Yellow Cards,GC,Goal App,GGS,Goalie Min. Plyd,GA,Saves,Shutouts,Combined Sho,G Wins,G Loss,DSaves,Corners,PK,PK Att,GWG
+http://stats.ncaa.org/team/26172/15780,A&M-Corpus Christi,Southland,19,17,18,210,109,150,,10,,,,1750:00:00,27,111,5,,,,,67,3,3,6
+http://stats.ncaa.org/team/2/15780,Abilene Christian,WAC,16,20,18,243,94,121,1,10,,,,1489:09:00,26,79,2,,,,,82,1,2,6
+http://stats.ncaa.org/team/721/15780,Air Force,Mountain West,18,18,12,202,84,161,,17,,,,1700:22:00,26,73,4,,,,,63,,,6
+http://stats.ncaa.org/team/5/15780,Akron,MAC,19,12,9,179,77,155,,8,,,,1730:00:00,37,98,3,,,,,54,1,1,3
+http://stats.ncaa.org/team/8/15780,Alabama,SEC,22,29,26,311,132,219,,26,,,,2020:46:00,34,76,7,1,,,,143,1,1,11
+http://stats.ncaa.org/team/6/15780,Alabama A&M,SWAC,19,29,18,160,101,129,,15,,,,1743:53:00,34,147,9,,,,1,63,2,3,10
+http://stats.ncaa.org/team/7/15780,Alabama St.,SWAC,19,23,16,250,121,136,,10,,,,1792:13:00,29,116,5,,,,,67,3,5,7
+http://stats.ncaa.org/team/14/15780,Albany (NY),America East,18,22,10,279,125,227,1,11,,,,1708:18:00,24,95,5,,,,,89,2,2,6
+http://stats.ncaa.org/team/17/15780,Alcorn,SWAC,17,16,3,134,85,122,,7,,,,1549:35:00,88,126,1,,,,,40,1,2,2
+http://stats.ncaa.org/team/23/15780,American,Patriot,16,15,19,148,73,142,,5,,,,1480:00:00,24,74,3,,,,,53,,,5
+http://stats.ncaa.org/team/27/15780,App State,Sun Belt,19,21,20,168,79,141,1,11,,,,1731:00:00,26,118,3,,,,,89,1,1,7
+http://stats.ncaa.org/team/29/15780,Arizona,Pac-12,18,15,11,178,80,158,,8,,,,1629:43:00,34,103,1,,,,,61,1,2,5
+http://stats.ncaa.org/team/28/15780,Arizona St.,Pac-12,20,42,40,300,146,147,1,13,,,,1866:32:00,33,84,3,,,,,112,6,7,10
+http://stats.ncaa.org/team/2678/15780,Ark.-Pine Bluff,SWAC,20,41,24,276,149,117,1,15,,,,1798:34:00,59,116,6,,,,1,67,2,2,6
+http://stats.ncaa.org/team/31/15780,Arkansas,SEC,24,71,73,494,237,273,,31,,,,2195:16:00,24,74,9,1,,,,175,1,1,19
+http://stats.ncaa.org/team/30/15780,Arkansas St.,Sun Belt,18,25,28,249,108,178,,13,,,,1695:19:00,19,96,5,,,,,78,,1,10
+http://stats.ncaa.org/team/725/15780,Army West Point,Patriot,19,24,21,229,93,153,,1,,,,1783:26:00,26,77,2,,,,,104,1,1,7
+http://stats.ncaa.org/team/37/15780,Auburn,SEC,20,37,44,306,120,162,,11,,,,1832:38:00,24,59,7,,,,,107,2,2,12
+http://stats.ncaa.org/team/43/15780,Austin Peay,OVC,17,12,9,132,58,129,,3,,,,1594:36:00,26,92,3,,,,,48,,1,4
+http://stats.ncaa.org/team/47/15780,Ball St.,MAC,17,22,16,229,118,152,2,13,,,,1570:00:00,26,68,4,,,,,86,3,3,6
+http://stats.ncaa.org/team/51/15780,Baylor,Big 12,19,25,22,294,130,209,,20,,,,1798:40:00,16,71,8,1,,,,81,1,3,8
+http://stats.ncaa.org/team/52/15780,Bellarmine,ASUN,19,15,14,185,77,155,,5,,,,1892:50:00,22,98,5,,,,,94,2,2,4
+http://stats.ncaa.org/team/14927/15780,Belmont,OVC,17,16,15,139,84,142,,4,,,,1590:40:00,22,76,6,,,,,66,1,1,8
+http://stats.ncaa.org/team/62/15780,Binghamton,America East,19,20,14,265,111,239,,15,,,,1810:57:00,16,91,7,,,,,106,1,1,8
+http://stats.ncaa.org/team/66/15780,Boise St.,Mountain West,22,32,20,334,126,272,,26,,,,2084:45:00,21,71,8,2,,,,120,2,2,11
+http://stats.ncaa.org/team/67/15780,Boston College,ACC,18,33,28,263,121,174,,12,,,,1647:28:00,34,89,2,,,,,89,2,4,7
+http://stats.ncaa.org/team/68/15780,Boston U.,Patriot,20,26,26,235,106,159,,9,,,,1860:00:00,23,75,7,5,,,,96,1,2,11
+http://stats.ncaa.org/team/71/15780,Bowling Green,MAC,21,35,33,278,116,259,,25,,,,1962:21:00,24,86,10,2,,,,80,3,3,11
+http://stats.ncaa.org/team/80/15780,Brown,Ivy League,16,36,36,228,118,165,,6,,1,1,1448:52:00,16,43,6,2,,,,95,2,2,12
+http://stats.ncaa.org/team/81/15780,Bryant,NEC,18,23,17,227,109,140,,10,,,,1663:16:00,26,85,6,1,,,,81,2,2,8
+http://stats.ncaa.org/team/83/15780,Bucknell,Patriot,22,30,31,354,159,209,,13,,,,2045:08:00,29,118,9,1,,,,144,2,4,11
+http://stats.ncaa.org/team/86/15780,Buffalo,MAC,20,34,37,290,138,158,,10,,,,1878:22:00,20,67,8,1,,,,103,5,5,13
+http://stats.ncaa.org/team/87/15780,Butler,Big East,21,41,43,311,147,185,,13,,,,1932:18:00,19,66,9,,,,,96,1,1,15
+http://stats.ncaa.org/team/77/15780,BYU,WCC,24,77,70,573,236,229,,24,,,,2242:17:00,17,69,13,6,,,,226,3,4,17
+http://stats.ncaa.org/team/90/15780,Cal Poly,Big West,21,39,28,304,138,175,,10,,,,1900:19:00,25,81,6,1,,,,88,2,2,13
+http://stats.ncaa.org/team/97/15780,Cal St. Fullerton,Big West,20,29,29,232,96,153,,10,,,,1806:08:00,27,99,7,1,,,,111,5,6,10
+http://stats.ncaa.org/team/107/15780,California,Pac-12,18,18,17,239,90,178,,15,,,,1712:26:00,17,53,7,,,,,94,1,1,8
+http://stats.ncaa.org/team/30135/15780,California Baptist,WAC,17,13,9,221,101,180,3,13,,,,1598:50:00,23,57,6,,,,,76,,,6
+http://stats.ncaa.org/team/115/15780,Campbell,Big South,18,50,55,295,149,155,1,8,,,,1663:16:00,22,63,5,1,,,1,128,,,12
+http://stats.ncaa.org/team/116/15780,Canisius,MAAC,17,8,4,152,72,189,,13,,1,1,1570:00:00,39,94,1,,,,,53,2,2,
+http://stats.ncaa.org/team/1004/15780,Central Ark.,ASUN,18,37,24,240,118,120,,7,,,,1653:56:00,34,71,7,3,,,,93,1,1,9
+http://stats.ncaa.org/team/127/15780,Central Conn. St.,NEC,19,29,26,296,142,148,,6,,,,1713:16:00,20,70,9,1,,,,100,3,4,13
+http://stats.ncaa.org/team/129/15780,Central Mich.,MAC,18,20,8,232,108,153,,7,,,,1728:53:00,18,81,6,,,,,73,3,5,9
+http://stats.ncaa.org/team/48/15780,Charleston So.,Big South,15,14,11,158,78,118,,8,,,,1371:50:00,20,75,6,,,,,72,1,1,6
+http://stats.ncaa.org/team/458/15780,Charlotte,C-USA,16,22,17,198,92,162,,14,,1,1,1529:37:00,20,56,5,1,,,,104,1,1,7
+http://stats.ncaa.org/team/693/15780,Chattanooga,SoCon,20,14,11,222,104,191,,9,,,,1885:06:00,28,122,7,2,,,,74,,,6
+http://stats.ncaa.org/team/136/15780,Chicago St.,WAC,17,12,7,109,49,167,2,24,,,,1560:48:00,50,100,1,,,,,45,3,4,2
+http://stats.ncaa.org/team/140/15780,Cincinnati,AAC,17,28,22,215,99,151,,16,,,,1607:25:00,26,60,2,1,,,,88,1,1,7
+http://stats.ncaa.org/team/147/15780,Clemson,ACC,20,52,65,298,141,206,1,19,,1,1,1831:14:00,23,46,8,4,,,,106,4,4,12
+http://stats.ncaa.org/team/148/15780,Cleveland St.,Horizon,18,15,14,193,86,115,,7,,,,1664:55:00,37,81,4,,,,,84,,,5
+http://stats.ncaa.org/team/149/15780,Coastal Carolina,Sun Belt,17,15,15,176,83,146,,13,,,,1600:19:00,30,86,4,1,,,,75,,,5
+http://stats.ncaa.org/team/1014/15780,Col. of Charleston,CAA,18,17,11,221,90,172,1,8,,,,1703:35:00,40,100,2,1,,,,81,1,1,3
+http://stats.ncaa.org/team/153/15780,Colgate,Patriot,17,23,17,229,106,144,,5,,,,1576:52:00,20,62,5,,,,,88,3,4,6
+http://stats.ncaa.org/team/157/15780,Colorado,Pac-12,19,31,34,237,97,138,,12,,,,1815:40:00,30,77,4,,,,,93,2,2,8
+http://stats.ncaa.org/team/154/15780,Colorado Col.,Mountain West,18,15,13,267,112,163,,2,,,,1709:01:00,25,46,4,,,,,112,,1,5
+http://stats.ncaa.org/team/156/15780,Colorado St.,Mountain West,17,19,19,239,97,141,1,10,,,,1599:20:00,22,69,4,,,,,88,,,6
+http://stats.ncaa.org/team/158/15780,Columbia,Ivy League,16,27,28,209,108,157,,11,,1,1,1484:09:00,17,90,6,2,,,,66,3,4,9
+http://stats.ncaa.org/team/167/15780,Cornell,Ivy League,16,14,12,151,65,128,,4,,,,1481:23:00,31,68,3,,,,,58,,,3
+http://stats.ncaa.org/team/169/15780,Creighton,Big East,19,22,22,253,120,175,1,6,,,,1786:00:00,21,71,7,,,,,89,4,4,7
+http://stats.ncaa.org/team/94/15780,CSU Bakersfield,Big West,19,10,2,121,57,169,1,17,,,,1781:01:00,45,141,2,1,,,,62,1,1,3
+http://stats.ncaa.org/team/101/15780,CSUN,Big West,20,17,14,181,90,211,,17,,,,1811:46:00,55,104,1,,,,,59,,1,3
+http://stats.ncaa.org/team/172/15780,Dartmouth,Ivy League,15,22,26,200,88,135,1,6,,,,1387:22:00,27,79,1,1,,,,94,,,7
+http://stats.ncaa.org/team/173/15780,Davidson,Atlantic 10,18,13,9,161,90,125,,10,,,,1715:38:00,21,58,3,1,,,,78,,,4
+http://stats.ncaa.org/team/175/15780,Dayton,Atlantic 10,20,42,33,347,169,228,2,20,,,,1859:45:00,23,59,7,3,,,,111,5,7,12
+http://stats.ncaa.org/team/180/15780,Delaware,CAA,18,14,11,167,78,164,1,7,,,,1663:57:00,32,75,2,,,,,58,1,1,5
+http://stats.ncaa.org/team/178/15780,Delaware St.,DI Independent,15,7,5,101,47,113,2,9,,,,1370:00:00,47,105,2,,,,,54,1,3,3
+http://stats.ncaa.org/team/183/15780,Denver,Summit League,21,54,58,361,180,178,,8,,,,1931:10:00,26,44,9,1,,,,113,2,2,13
+http://stats.ncaa.org/team/176/15780,DePaul,Big East,18,18,14,181,94,189,,8,,,,1635:45:00,17,53,6,,,,,55,1,1,7
+http://stats.ncaa.org/team/184/15780,Detroit Mercy,Horizon,18,19,14,165,71,182,1,14,,,,1686:59:00,46,106,1,,,,,52,2,2,3
+http://stats.ncaa.org/team/30095/15780,Dixie St.,WAC,20,23,19,174,81,176,,10,,,,1824:53:00,45,140,2,,,,,85,1,1,6
+http://stats.ncaa.org/team/189/15780,Drake,MVC,20,21,18,182,82,209,1,19,,,,1927:14:00,24,143,9,,,,,62,1,1,8
+http://stats.ncaa.org/team/191/15780,Drexel,CAA,17,19,9,247,119,182,1,10,,,,1628:32:00,23,73,5,1,,,,100,3,3,6
+http://stats.ncaa.org/team/193/15780,Duke,ACC,21,46,34,321,148,167,,13,,,,1930:31:00,12,48,12,3,,,,118,4,4,16
+http://stats.ncaa.org/team/194/15780,Duquesne,Atlantic 10,16,19,17,187,96,129,1,20,,,,1489:20:00,30,82,1,,,,,51,2,3,4
+http://stats.ncaa.org/team/196/15780,East Carolina,AAC,19,23,19,240,105,158,1,18,,,,1790:59:00,27,79,5,1,,,,71,,1,8
+http://stats.ncaa.org/team/201/15780,Eastern Ill.,OVC,17,10,12,137,58,152,1,9,,,,1584:33:00,31,97,4,,,,,55,,,4
+http://stats.ncaa.org/team/202/15780,Eastern Ky.,ASUN,19,25,18,236,104,184,1,17,,,,1718:03:00,37,96,5,,,,,95,1,1,9
+http://stats.ncaa.org/team/204/15780,Eastern Mich.,MAC,18,13,8,177,73,163,,8,,,,1686:35:00,32,123,1,,,,,57,1,2,2
+http://stats.ncaa.org/team/207/15780,Eastern Wash.,Big Sky,17,16,14,157,65,153,,12,,,,1554:48:00,30,132,4,1,,,,52,1,1,5
+http://stats.ncaa.org/team/1068/15780,Elon,CAA,17,21,20,227,102,170,,15,,,,1595:05:00,19,64,6,,,,,72,2,2,9
+http://stats.ncaa.org/team/198/15780,ETSU,SoCon,16,11,9,173,86,191,1,22,,,,1511:58:00,14,75,7,,,,,76,,1,7
+http://stats.ncaa.org/team/219/15780,Evansville,MVC,19,22,20,194,95,124,1,10,,,,1868:09:00,24,106,6,,,,,64,1,2,7
+http://stats.ncaa.org/team/220/15780,Fairfield,MAAC,20,31,20,327,161,186,,9,,1,1,1890:51:00,27,85,7,2,,,,134,3,3,9
+http://stats.ncaa.org/team/222/15780,Fairleigh Dickinson,NEC,20,24,25,240,114,196,1,14,,,,1953:40:00,26,106,8,,,,,96,1,2,10
+http://stats.ncaa.org/team/28755/15780,FGCU,ASUN,18,25,23,265,118,191,,6,,,,1658:17:00,23,67,7,,,,,82,,,10
+http://stats.ncaa.org/team/231/15780,FIU,C-USA,16,14,10,189,92,133,,15,,,,1517:55:00,34,68,3,,,,,60,,2,2
+http://stats.ncaa.org/team/229/15780,Fla. Atlantic,C-USA,18,19,19,222,92,165,,10,,,,1756:25:00,19,72,4,,,,,109,3,4,6
+http://stats.ncaa.org/team/235/15780,Florida,SEC,20,22,20,183,86,221,1,22,,,,1892:06:00,39,106,5,1,,,,65,1,1,4
+http://stats.ncaa.org/team/234/15780,Florida St.,ACC,25,66,62,394,184,202,,17,,,,2325:32:00,13,40,14,,,,,159,4,5,21
+http://stats.ncaa.org/team/236/15780,Fordham,Atlantic 10,18,18,16,205,96,194,1,15,,,,1668:06:00,30,62,2,,,,,70,2,2,4
+http://stats.ncaa.org/team/96/15780,Fresno St.,Mountain West,19,29,30,201,89,181,,13,,,,1807:20:00,21,71,7,6,,,,113,3,3,9
+http://stats.ncaa.org/team/244/15780,Furman,SoCon,19,42,30,358,184,146,,4,,,,1731:38:00,27,89,7,4,,,,133,3,3,12
+http://stats.ncaa.org/team/253/15780,Ga. Southern,Sun Belt,22,34,25,270,117,149,,9,,,,2084:57:00,24,108,7,,,,,117,3,5,11
+http://stats.ncaa.org/team/1092/15780,Gardner-Webb,Big South,20,26,23,179,96,185,1,17,,,,1820:00:00,36,142,8,1,,,,72,3,6,8
+http://stats.ncaa.org/team/248/15780,George Mason,Atlantic 10,18,19,16,210,92,224,1,23,,,,1656:20:00,34,85,2,,,,,72,1,2,6
+http://stats.ncaa.org/team/249/15780,George Washington,Atlantic 10,18,18,16,201,98,162,,12,,,,1682:48:00,40,93,1,,,,,63,,,3
+http://stats.ncaa.org/team/251/15780,Georgetown,Big East,22,43,50,257,110,219,,7,,,,2114:38:00,11,57,13,2,,,,153,1,2,14
+http://stats.ncaa.org/team/257/15780,Georgia,SEC,19,47,42,381,174,148,1,3,,,,1779:11:00,26,73,6,,,,,97,4,4,11
+http://stats.ncaa.org/team/254/15780,Georgia St.,Sun Belt,20,39,27,331,143,179,,12,,,,1949:34:00,29,98,5,1,,,,109,1,4,9
+http://stats.ncaa.org/team/260/15780,Gonzaga,WCC,20,47,39,387,196,207,,9,,,,1800:00:00,19,74,12,6,,,,147,3,3,15
+http://stats.ncaa.org/team/261/15780,Grambling,SWAC,19,34,16,270,173,197,,25,,,,1778:51:00,18,72,6,1,,,,79,1,4,7
+http://stats.ncaa.org/team/1104/15780,Grand Canyon,WAC,22,60,59,376,177,192,,10,,1,1,2058:16:00,24,84,8,2,,,,100,3,4,16
+http://stats.ncaa.org/team/794/15780,Green Bay,Horizon,17,20,14,168,77,180,1,15,,,,1624:10:00,16,79,8,1,,,,56,2,2,8
+http://stats.ncaa.org/team/270/15780,Hampton,Big South,15,9,6,132,84,102,2,16,,,,1370:00:00,42,83,2,,,,,45,,,1
+http://stats.ncaa.org/team/272/15780,Hartford,America East,16,24,23,214,92,166,,10,,1,1,1530:00:00,11,69,7,,,,,79,1,2,8
+http://stats.ncaa.org/team/275/15780,Harvard,Ivy League,16,35,40,293,150,151,,5,,,,1482:38:00,15,35,6,3,,,,115,,,12
+http://stats.ncaa.org/team/277/15780,Hawaii,Big West,15,15,11,170,79,173,,7,,,,1413:57:00,31,64,4,1,,,,60,1,1,3
+http://stats.ncaa.org/team/19651/15780,High Point,Big South,20,44,39,311,150,127,,4,,,,1859:17:00,32,92,5,1,,,,99,2,3,10
+http://stats.ncaa.org/team/283/15780,Hofstra,CAA,22,51,57,426,193,260,,16,,1,1,2028:23:00,13,52,13,1,,,,165,3,4,17
+http://stats.ncaa.org/team/285/15780,Holy Cross,Patriot,17,13,11,143,58,164,1,6,,1,1,1550:00:00,43,103,1,,,,,63,,2,1
+http://stats.ncaa.org/team/288/15780,Houston,AAC,20,38,24,348,150,157,1,11,,,,1867:36:00,17,60,9,,,,,133,2,2,13
+http://stats.ncaa.org/team/287/15780,Houston Baptist,Southland,19,22,28,251,100,185,,16,,,,1791:16:00,28,97,3,,,,,78,1,2,5
+http://stats.ncaa.org/team/290/15780,Howard,NEC,14,21,15,174,85,126,1,5,,,,1327:37:00,17,77,4,,,,,61,1,1,6
+http://stats.ncaa.org/team/295/15780,Idaho,Big Sky,18,28,20,160,85,158,,3,,,,1713:56:00,23,102,6,,,,,70,2,2,10
+http://stats.ncaa.org/team/294/15780,Idaho St.,Big Sky,19,13,10,201,102,153,1,8,,,,1730:00:00,56,125,2,,,,,56,1,2,2
+http://stats.ncaa.org/team/301/15780,Illinois,Big Ten,17,27,15,229,103,181,,8,,,,1565:05:00,35,91,2,2,,,,81,1,3,5
+http://stats.ncaa.org/team/299/15780,Illinois St.,MVC,17,19,17,257,105,150,1,11,,,,1606:08:00,27,80,3,,,,,69,,1,4
+http://stats.ncaa.org/team/306/15780,Indiana,Big Ten,18,23,22,242,110,143,,13,,,,1680:44:00,12,48,10,1,,,,102,,,9
+http://stats.ncaa.org/team/305/15780,Indiana St.,MVC,17,25,17,187,96,146,,13,,,,1628:34:00,23,93,1,,,,,65,1,2,6
+http://stats.ncaa.org/team/310/15780,Iona,MAAC,19,27,28,208,103,209,1,10,,,,1723:48:00,30,82,8,2,,,,94,,,11
+http://stats.ncaa.org/team/312/15780,Iowa,Big Ten,20,31,32,290,139,247,,18,,,,1850:53:00,20,90,7,,,,,89,1,2,12
+http://stats.ncaa.org/team/311/15780,Iowa St.,Big 12,17,10,14,156,73,177,1,17,,,,1558:26:00,22,94,6,,,,,46,,,5
+http://stats.ncaa.org/team/2699/15780,IUPUI,Horizon,17,15,15,207,87,166,,11,,,,1610:29:00,24,110,6,1,,,,59,2,2,4
+http://stats.ncaa.org/team/314/15780,Jackson St.,SWAC,19,22,14,227,123,174,,25,,,,1781:51:00,32,109,3,1,,,,65,2,2,4
+http://stats.ncaa.org/team/316/15780,Jacksonville,ASUN,18,28,20,153,75,134,2,13,,,,1691:24:00,22,67,6,1,,,,88,3,3,6
+http://stats.ncaa.org/team/315/15780,Jacksonville St.,ASUN,19,23,18,213,115,136,,9,,,,1750:00:00,38,93,5,1,,,,51,1,2,7
+http://stats.ncaa.org/team/317/15780,James Madison,CAA,19,27,21,233,117,167,,14,,,,1756:07:00,24,87,6,1,,,,88,2,2,9
+http://stats.ncaa.org/team/328/15780,Kansas,Big 12,19,20,19,223,99,184,,16,,,,1761:24:00,25,83,4,,,,,91,1,1,7
+http://stats.ncaa.org/team/2707/15780,Kansas City,Summit League,19,16,18,180,75,174,,8,,,,1722:47:00,38,119,2,,,,,68,,,6
+http://stats.ncaa.org/team/327/15780,Kansas St.,Big 12,18,20,20,248,89,184,,12,,,,1668:21:00,24,98,6,,,,,60,,,6
+http://stats.ncaa.org/team/1157/15780,Kennesaw St.,ASUN,19,28,20,235,92,199,,17,,1,1,1803:29:00,29,108,3,1,,,,88,,,9
+http://stats.ncaa.org/team/331/15780,Kent St.,MAC,21,44,38,271,142,265,2,28,,,,1964:05:00,30,93,7,1,,,,107,5,5,13
+http://stats.ncaa.org/team/334/15780,Kentucky,SEC,19,33,25,278,123,166,,15,,,,1741:18:00,24,87,6,3,,,,80,2,4,7
+http://stats.ncaa.org/team/340/15780,La Salle,Atlantic 10,17,14,19,197,92,182,1,17,,,,1609:16:00,28,104,4,,,,,82,,,5
+http://stats.ncaa.org/team/342/15780,Lafayette,Patriot,15,15,11,117,66,127,1,8,,,,1360:00:00,26,65,3,2,,,,52,1,1,5
+http://stats.ncaa.org/team/346/15780,Lamar University,WAC,19,29,20,209,110,167,,14,,,,1767:34:00,27,120,7,,,,,92,1,1,9
+http://stats.ncaa.org/team/352/15780,Lehigh,Patriot,17,19,24,246,109,167,,9,,,,1551:59:00,25,78,1,,,,,77,,,6
+http://stats.ncaa.org/team/355/15780,Liberty,ASUN,19,35,27,214,108,174,,9,,,,1762:48:00,16,60,8,2,,,,99,1,1,11
+http://stats.ncaa.org/team/28600/15780,Lipscomb,ASUN,21,41,35,370,153,189,,9,,,,1940:15:00,13,82,13,,,,,123,3,3,15
+http://stats.ncaa.org/team/32/15780,Little Rock,Sun Belt,20,24,17,260,118,162,,13,,,,1925:59:00,22,85,8,1,,,,68,1,2,7
+http://stats.ncaa.org/team/361/15780,LIU,NEC,15,9,6,119,60,147,1,13,,,,1406:12:00,21,91,2,,,,,38,,,2
+http://stats.ncaa.org/team/370/15780,LMU (CA),WCC,19,7,4,139,58,170,,17,,,,1724:02:00,42,90,,,,,,44,1,1,
+http://stats.ncaa.org/team/99/15780,Long Beach St.,Big West,18,19,20,205,78,184,,12,,,,1686:32:00,16,79,5,1,,,,97,1,1,9
+http://stats.ncaa.org/team/363/15780,Longwood,Big South,20,24,23,236,119,147,,12,,,,1888:29:00,28,83,8,1,,,2,85,,,8
+http://stats.ncaa.org/team/671/15780,Louisiana,Sun Belt,19,23,23,216,116,188,,25,,,,1770:00:00,34,82,4,2,,,,70,1,2,6
+http://stats.ncaa.org/team/366/15780,Louisiana Tech,C-USA,17,34,21,232,110,173,1,19,,,,1599:41:00,21,89,5,1,,,,87,2,2,6
+http://stats.ncaa.org/team/367/15780,Louisville,ACC,16,26,20,205,87,169,,13,,,,1502:49:00,27,68,2,,,,,65,2,3,7
+http://stats.ncaa.org/team/371/15780,Loyola Chicago,MVC,18,41,38,338,146,161,,5,,,,1673:47:00,11,42,10,,,,,144,,1,13
+http://stats.ncaa.org/team/369/15780,Loyola Maryland,Patriot,18,20,20,153,65,228,2,13,,1,2,1701:19:00,19,83,7,,,,,70,2,3,8
+http://stats.ncaa.org/team/365/15780,LSU,SEC,20,40,28,302,134,202,,20,,,,1831:38:00,25,89,8,2,,,,111,3,5,11
+http://stats.ncaa.org/team/380/15780,Maine,America East,14,12,7,181,92,149,,4,,,,1340:00:00,17,79,3,,,,,55,,,3
+http://stats.ncaa.org/team/381/15780,Manhattan,MAAC,15,17,13,169,67,131,,10,,,,1394:11:00,19,99,4,,,,,58,,1,7
+http://stats.ncaa.org/team/386/15780,Marist,MAAC,15,12,12,183,82,178,,11,,1,2,1436:39:00,14,96,4,,,,,66,,,5
+http://stats.ncaa.org/team/387/15780,Marquette,Big East,17,23,21,175,97,198,,16,,,,1567:20:00,30,74,5,,,,,74,1,2,9
+http://stats.ncaa.org/team/388/15780,Marshall,C-USA,16,16,8,176,88,136,,12,,,,1442:14:00,32,78,3,1,,,,67,4,4,3
+http://stats.ncaa.org/team/392/15780,Maryland,Big Ten,18,19,13,224,91,142,1,11,,,,1720:30:00,29,91,5,2,,,,70,1,1,4
+http://stats.ncaa.org/team/400/15780,Massachusetts,Atlantic 10,21,32,28,282,110,229,,17,,,,2011:13:00,24,105,7,4,,,,97,1,1,11
+http://stats.ncaa.org/team/402/15780,McNeese,Southland,20,39,36,268,147,151,,16,,,,1845:11:00,13,77,11,4,,,,78,2,4,13
+http://stats.ncaa.org/team/404/15780,Memphis,AAC,21,41,26,382,173,237,1,15,,,,1952:45:00,11,51,12,2,,,,158,,1,14
+http://stats.ncaa.org/team/406/15780,Mercer,SoCon,18,31,22,328,156,179,,18,,,,1720:00:00,17,80,7,,,,,84,4,6,7
+http://stats.ncaa.org/team/410/15780,Merrimack,NEC,18,17,20,275,128,150,,7,,,,1695:25:00,30,99,2,2,,,,99,,,4
+http://stats.ncaa.org/team/415/15780,Miami (FL),ACC,16,11,11,118,50,123,,12,,,,1475:52:00,36,93,4,1,,,,63,,,4
+http://stats.ncaa.org/team/414/15780,Miami (OH),MAC,19,26,19,259,126,180,,12,,,,1781:13:00,23,60,6,,,,,106,2,4,8
+http://stats.ncaa.org/team/418/15780,Michigan,Big Ten,25,46,51,473,191,197,,18,,,,2318:31:00,18,90,12,2,,,,133,4,6,18
+http://stats.ncaa.org/team/416/15780,Michigan St.,Big Ten,18,26,16,297,116,223,,13,,,,1680:00:00,13,82,7,,,,,108,4,4,10
+http://stats.ncaa.org/team/419/15780,Middle Tenn.,C-USA,19,28,18,291,124,195,,7,,,,1787:42:00,27,84,4,,,,,69,5,6,9
+http://stats.ncaa.org/team/797/15780,Milwaukee,Horizon,21,63,80,406,207,202,,16,,,,1924:51:00,8,67,16,6,,,,124,4,4,19
+http://stats.ncaa.org/team/428/15780,Minnesota,Big Ten,17,27,21,257,103,148,,9,,,,1590:00:00,15,64,9,1,,,,111,3,3,7
+http://stats.ncaa.org/team/430/15780,Mississippi St.,SEC,16,15,17,194,88,144,,15,,,,1500:00:00,19,66,4,,,,,66,1,2,5
+http://stats.ncaa.org/team/432/15780,Mississippi Val.,SWAC,13,6,2,45,29,60,3,3,,,,1179:58:00,72,154,,,,,,9,,,
+http://stats.ncaa.org/team/434/15780,Missouri,SEC,17,22,22,183,82,135,1,15,,,,1553:54:00,42,82,3,1,,,,61,,,7
+http://stats.ncaa.org/team/669/15780,Missouri St.,MVC,17,17,18,190,101,176,,10,,,,1555:06:00,23,76,6,,,,,57,1,2,5
+http://stats.ncaa.org/team/439/15780,Monmouth,MAAC,21,37,33,298,138,149,,7,,1,1,1934:39:00,27,57,9,1,,,,121,2,2,15
+http://stats.ncaa.org/team/441/15780,Montana,Big Sky,20,27,24,272,131,178,,8,,,,1839:14:00,15,96,11,,,,,82,,,13
+http://stats.ncaa.org/team/444/15780,Morehead St.,OVC,18,10,5,166,81,152,,4,,,,1664:17:00,22,81,5,,,,,77,1,1,4
+http://stats.ncaa.org/team/450/15780,Mount St. Mary's,NEC,18,22,22,161,72,164,,16,,,,1671:18:00,37,138,3,,,,,42,,,5
+http://stats.ncaa.org/team/454/15780,Murray St.,OVC,18,31,22,228,126,148,,16,,,,1577:55:00,28,66,3,,,,,102,2,2,9
+http://stats.ncaa.org/team/726/15780,Navy,Patriot,20,33,30,290,118,174,,11,,,,1863:09:00,21,84,6,1,,,,96,1,1,11
+http://stats.ncaa.org/team/490/15780,NC State,ACC,20,28,22,192,84,166,,17,,,,1859:41:00,22,78,6,1,,,,78,1,1,9
+http://stats.ncaa.org/team/463/15780,Nebraska,Big Ten,18,30,30,282,145,195,,18,,,,1678:17:00,23,79,6,2,,,,95,,,7
+http://stats.ncaa.org/team/466/15780,Nevada,Mountain West,18,18,15,168,77,172,2,16,,,,1660:00:00,33,81,3,,,,,88,3,4,5
+http://stats.ncaa.org/team/469/15780,New Hampshire,America East,19,17,18,266,131,198,,9,,,,1793:16:00,18,86,8,,,,,109,1,4,6
+http://stats.ncaa.org/team/473/15780,New Mexico,Mountain West,21,40,31,304,132,198,,9,,,,1953:28:00,27,106,4,,,,,81,3,3,14
+http://stats.ncaa.org/team/472/15780,New Mexico St.,WAC,20,20,17,211,95,211,,12,,,,1836:20:00,35,91,3,,,,,71,2,2,9
+http://stats.ncaa.org/team/482/15780,Niagara,MAAC,18,45,46,301,164,212,1,17,,,,1648:10:00,28,58,3,1,,,,76,2,2,13
+http://stats.ncaa.org/team/483/15780,Nicholls,Southland,18,2,2,91,40,165,,16,,,,1606:14:00,55,136,,,,,,24,,,
+http://stats.ncaa.org/team/503/15780,NIU,MAC,19,17,10,150,75,199,,8,,,,1771:16:00,46,120,2,,,,,54,2,2,5
+http://stats.ncaa.org/team/471/15780,NJIT,America East,19,15,13,190,85,208,2,18,,,,1783:31:00,22,105,9,,,,,83,,,7
+http://stats.ncaa.org/team/487/15780,North Ala.,ASUN,18,10,9,156,76,134,,11,,,,1687:14:00,35,103,1,,,,,47,,,2
+http://stats.ncaa.org/team/457/15780,North Carolina,ACC,18,39,37,341,148,167,1,13,,,,1711:04:00,13,41,7,,,,,138,2,2,12
+http://stats.ncaa.org/team/494/15780,North Dakota,Summit League,17,18,8,193,92,175,,13,,,,1561:22:00,30,89,3,1,,,,62,,1,3
+http://stats.ncaa.org/team/493/15780,North Dakota St.,Summit League,16,9,6,136,57,163,,9,,,,1486:05:00,40,99,1,,,,,34,1,1,3
+http://stats.ncaa.org/team/2711/15780,North Florida,ASUN,16,18,16,198,94,155,,7,,,,1555:59:00,13,70,8,,,,,82,1,1,9
+http://stats.ncaa.org/team/497/15780,North Texas,C-USA,17,33,27,327,152,197,1,10,,,,1648:22:00,13,46,8,,,,,109,,1,8
+http://stats.ncaa.org/team/500/15780,Northeastern,CAA,19,19,18,207,89,167,,19,,,,1789:26:00,19,85,9,3,,,,79,3,3,9
+http://stats.ncaa.org/team/501/15780,Northern Ariz.,Big Sky,19,32,21,266,147,183,,18,,,,1732:06:00,36,102,5,1,,,,84,1,2,8
+http://stats.ncaa.org/team/502/15780,Northern Colo.,Big Sky,20,36,34,275,140,150,,8,,,,1840:14:00,28,98,5,,,,,98,1,1,10
+http://stats.ncaa.org/team/505/15780,Northern Ky.,Horizon,20,24,23,255,120,196,,12,,,,1859:19:00,24,77,6,1,,,,95,1,1,10
+http://stats.ncaa.org/team/509/15780,Northwestern,Big Ten,17,20,17,160,75,153,,11,,,,1559:23:00,21,74,3,,,,,91,1,1,7
+http://stats.ncaa.org/team/508/15780,Northwestern St.,Southland,20,28,29,266,124,168,,19,,,,1872:07:00,18,95,12,,,,,101,,,11
+http://stats.ncaa.org/team/513/15780,Notre Dame,ACC,22,52,36,351,153,193,,16,,,,2055:37:00,22,75,8,2,,,,142,4,5,14
+http://stats.ncaa.org/team/514/15780,Oakland,Horizon,21,36,33,264,125,190,,16,,,,1918:52:00,32,65,5,1,,,,96,5,5,11
+http://stats.ncaa.org/team/519/15780,Ohio,MAC,19,26,20,286,133,156,2,7,,,,1785:24:00,17,60,10,1,,,,90,,1,11
+http://stats.ncaa.org/team/518/15780,Ohio St.,Big Ten,20,28,32,304,121,181,1,11,,,,1840:34:00,30,81,3,,,,,98,2,4,9
+http://stats.ncaa.org/team/522/15780,Oklahoma,Big 12,20,30,28,276,136,240,1,30,,,,1866:44:00,44,87,4,1,,,,84,2,2,8
+http://stats.ncaa.org/team/521/15780,Oklahoma St.,Big 12,18,26,26,235,97,175,,14,,,,1697:21:00,19,69,7,,,,,106,1,1,9
+http://stats.ncaa.org/team/523/15780,Old Dominion,C-USA,19,25,22,279,112,196,,17,,,,1738:36:00,10,41,11,,,,,68,,,13
+http://stats.ncaa.org/team/433/15780,Ole Miss,SEC,21,36,44,269,107,170,,11,,,,1950:00:00,29,78,6,,,,,107,2,3,12
+http://stats.ncaa.org/team/464/15780,Omaha,Summit League,19,16,18,195,83,153,1,4,,,,1731:40:00,18,65,9,1,,,,72,,,9
+http://stats.ncaa.org/team/527/15780,Oral Roberts,Summit League,18,29,24,220,115,166,,11,,,,1660:00:00,31,96,2,1,,,,65,1,2,6
+http://stats.ncaa.org/team/529/15780,Oregon,Pac-12,19,29,28,248,120,181,1,14,,,,1847:16:00,20,91,9,,,,,99,2,4,9
+http://stats.ncaa.org/team/528/15780,Oregon St.,Pac-12,19,38,28,218,106,191,2,9,,,,1740:18:00,28,88,4,1,,,,111,1,1,11
+http://stats.ncaa.org/team/534/15780,Pacific,WCC,19,22,22,229,98,199,,13,,,,1801:20:00,20,89,9,,,,,84,1,1,10
+http://stats.ncaa.org/team/540/15780,Penn,Ivy League,16,29,31,214,103,151,,11,,,,1486:31:00,15,82,6,1,,,,83,,,9
+http://stats.ncaa.org/team/539/15780,Penn St.,Big Ten,21,40,32,273,121,121,,8,,,,1910:00:00,29,83,4,1,,,,96,1,1,12
+http://stats.ncaa.org/team/541/15780,Pepperdine,WCC,22,55,53,389,183,191,,13,,,,2016:03:00,13,68,13,1,,,,107,4,4,17
+http://stats.ncaa.org/team/545/15780,Pittsburgh,ACC,18,41,47,319,143,170,,10,,,,1620:30:00,22,77,9,3,,,,91,3,4,11
+http://stats.ncaa.org/team/551/15780,Portland,WCC,17,22,16,185,74,172,,9,,,,1530:00:00,19,64,8,,,,,56,2,3,9
+http://stats.ncaa.org/team/550/15780,Portland St.,Big Sky,16,17,11,211,98,165,,18,,,,1484:49:00,36,100,1,,,,,41,2,2,4
+http://stats.ncaa.org/team/553/15780,Prairie View,SWAC,19,35,26,290,147,143,,13,,,,1770:00:00,20,82,8,2,,,,87,5,10,12
+http://stats.ncaa.org/team/1320/15780,Presbyterian,Big South,18,10,5,141,65,135,,8,,,,1640:00:00,55,119,2,,,,,62,,,1
+http://stats.ncaa.org/team/554/15780,Princeton,Ivy League,19,43,55,291,169,196,,8,,,,1755:50:00,15,73,11,2,,,,99,5,8,15
+http://stats.ncaa.org/team/556/15780,Providence,Big East,20,33,28,325,148,196,,16,,1,1,1917:40:00,23,70,6,3,,,,99,1,1,10
+http://stats.ncaa.org/team/559/15780,Purdue,Big Ten,22,37,41,306,148,203,,8,,,,2062:04:00,21,118,7,,,,,103,,,15
+http://stats.ncaa.org/team/308/15780,Purdue Fort Wayne,Horizon,19,20,14,233,99,212,,17,,,,1856:43:00,29,109,4,,,,,69,3,3,5
+http://stats.ncaa.org/team/562/15780,Quinnipiac,MAAC,19,42,40,272,140,209,,25,,1,1,1744:18:00,16,54,9,3,,,,130,7,10,13
+http://stats.ncaa.org/team/563/15780,Radford,Big South,19,53,47,371,179,157,,10,,,,1758:25:00,19,74,11,1,,,,119,2,2,13
+http://stats.ncaa.org/team/572/15780,Rhode Island,Atlantic 10,17,15,9,178,84,196,,11,,,,1597:43:00,19,79,4,,,,,70,,,6
+http://stats.ncaa.org/team/574/15780,Rice,C-USA,18,25,34,250,125,186,1,13,,,,1731:10:00,17,108,4,,,,,108,1,1,10
+http://stats.ncaa.org/team/575/15780,Richmond,Atlantic 10,18,21,16,164,79,146,1,10,,,,1613:08:00,34,86,7,,,,,74,1,1,7
+http://stats.ncaa.org/team/576/15780,Rider,MAAC,17,18,17,171,90,124,,11,,,,1599:35:00,31,103,3,,,,,35,1,2,5
+http://stats.ncaa.org/team/579/15780,Robert Morris,Horizon,19,23,16,284,135,104,,7,,,,1790:19:00,34,87,3,,,,,104,2,2,6
+http://stats.ncaa.org/team/587/15780,Rutgers,Big Ten,25,64,62,493,255,173,,11,,,,2290:00:00,17,86,13,4,,,,158,5,7,19
+http://stats.ncaa.org/team/102/15780,Sacramento St.,Big Sky,19,19,16,187,88,189,1,7,,,,1768:41:00,34,106,3,,,,,76,1,1,5
+http://stats.ncaa.org/team/590/15780,Sacred Heart,NEC,17,27,15,245,123,159,,9,,1,1,1587:22:00,26,67,4,,,,,94,2,3,8
+http://stats.ncaa.org/team/600/15780,Saint Francis (PA),NEC,17,12,8,133,63,107,1,6,,,,1550:00:00,46,114,1,,,,,43,1,2,4
+http://stats.ncaa.org/team/606/15780,Saint Joseph's,Atlantic 10,20,15,19,195,91,197,,9,,,,1858:15:00,33,123,7,,,,,59,,,6
+http://stats.ncaa.org/team/609/15780,Saint Louis,Atlantic 10,23,33,30,354,159,215,,7,,,,2104:50:00,21,73,10,2,,,,170,2,2,13
+http://stats.ncaa.org/team/610/15780,Saint Mary's (CA),WCC,18,25,22,239,112,174,1,7,,,,1714:23:00,17,59,9,,,,,87,,1,10
+http://stats.ncaa.org/team/617/15780,Saint Peter's,MAAC,16,8,5,127,46,168,1,16,,1,1,1452:15:00,34,71,3,,,,,46,1,2,3
+http://stats.ncaa.org/team/624/15780,Sam Houston,WAC,18,20,19,171,91,120,,5,,,,1623:11:00,40,127,5,,,,,81,,,8
+http://stats.ncaa.org/team/625/15780,Samford,SoCon,22,48,37,321,159,261,,19,,,,2053:01:00,18,81,10,,,,,120,2,4,16
+http://stats.ncaa.org/team/627/15780,San Diego,WCC,18,17,11,214,97,162,,11,,,,1654:01:00,36,83,3,1,,,,76,2,2,6
+http://stats.ncaa.org/team/626/15780,San Diego St.,Mountain West,20,18,15,240,102,204,2,29,,,,1859:33:00,31,106,8,,,,,80,1,2,7
+http://stats.ncaa.org/team/629/15780,San Francisco,WCC,18,18,11,166,76,202,,20,,,,1620:05:00,20,97,7,2,,,,53,2,3,7
+http://stats.ncaa.org/team/630/15780,San Jose St.,Mountain West,19,17,12,222,94,222,1,19,,,,1758:59:00,29,87,5,2,,,,72,1,1,7
+http://stats.ncaa.org/team/631/15780,Santa Clara,WCC,23,40,46,377,185,250,1,25,,,,2150:45:00,19,71,10,2,,,,139,2,3,15
+http://stats.ncaa.org/team/1356/15780,Seattle U,WAC,19,19,19,226,108,188,,15,,,,1831:00:00,19,79,6,3,,,,72,1,1,7
+http://stats.ncaa.org/team/635/15780,Seton Hall,Big East,18,15,16,196,94,153,,10,,,,1637:01:00,29,94,4,,,,,66,,1,6
+http://stats.ncaa.org/team/676/15780,SFA,WAC,19,35,30,233,112,122,,12,,,,1730:00:00,35,96,6,,,,,67,2,2,10
+http://stats.ncaa.org/team/639/15780,Siena,MAAC,20,26,27,220,108,187,,11,,9,9,1856:47:00,26,107,4,,,,,75,,,9
+http://stats.ncaa.org/team/660/15780,SIUE,OVC,18,37,38,303,132,171,,8,,,,1622:58:00,21,57,8,1,,,,100,1,1,11
+http://stats.ncaa.org/team/663/15780,SMU,AAC,19,28,23,203,102,144,,17,,,,1758:35:00,22,100,10,3,,,,68,3,3,12
+http://stats.ncaa.org/team/646/15780,South Alabama,Sun Belt,20,60,43,353,191,146,,9,,,,1873:11:00,25,65,9,1,,,,111,2,4,12
+http://stats.ncaa.org/team/648/15780,South Carolina,SEC,22,37,40,261,119,160,,13,,,,2000:00:00,24,70,8,1,,,,126,2,3,14
+http://stats.ncaa.org/team/647/15780,South Carolina St.,DI Independent,14,28,21,162,91,60,,1,,,,1280:00:00,54,98,,,,,,34,2,12,2
+http://stats.ncaa.org/team/650/15780,South Dakota,Summit League,18,26,20,182,73,183,,3,,,,1716:03:00,12,92,10,2,,,,115,1,1,10
+http://stats.ncaa.org/team/649/15780,South Dakota St.,Summit League,22,52,47,324,150,167,,8,,,,2016:52:00,22,76,11,,,,,146,1,2,17
+http://stats.ncaa.org/team/651/15780,South Fla.,AAC,19,24,16,328,137,144,1,16,,,,1838:11:00,16,72,8,,,,,126,5,6,12
+http://stats.ncaa.org/team/654/15780,Southeast Mo. St.,OVC,19,14,15,114,68,166,1,9,,,,1764:02:00,29,103,7,,,,,55,,,7
+http://stats.ncaa.org/team/655/15780,Southeastern La.,Southland,19,30,24,225,115,137,1,12,,,,1770:00:00,20,89,5,1,,,,92,2,2,7
+http://stats.ncaa.org/team/657/15780,Southern California,Pac-12,20,56,53,361,162,172,,11,,,,1865:21:00,20,68,8,,,,,133,4,4,14
+http://stats.ncaa.org/team/659/15780,Southern Ill.,MVC,16,6,3,147,64,91,,3,,,,1460:00:00,44,87,1,,,,,41,,1,
+http://stats.ncaa.org/team/664/15780,Southern Miss.,C-USA,17,37,32,225,128,154,,14,,,,1633:25:00,15,92,7,1,,,,71,1,1,10
+http://stats.ncaa.org/team/665/15780,Southern U.,SWAC,17,23,14,246,119,141,,5,,,,1583:53:00,45,146,3,2,,,,52,,3,5
+http://stats.ncaa.org/team/667/15780,Southern Utah,Big Sky,17,10,8,184,91,184,,16,,,,1578:39:00,30,105,3,,,,,70,1,2,2
+http://stats.ncaa.org/team/596/15780,St. Bonaventure,Atlantic 10,19,19,10,200,99,199,,12,,,,1811:03:00,24,120,6,,,,,70,1,1,7
+http://stats.ncaa.org/team/599/15780,St. Francis Brooklyn,NEC,19,20,12,223,109,213,,20,,,,1846:36:00,31,117,5,,,,,74,2,3,5
+http://stats.ncaa.org/team/603/15780,St. John's (NY),Big East,23,42,45,225,121,231,,15,,1,1,2154:33:00,27,90,11,1,,,,78,3,3,13
+http://stats.ncaa.org/team/620/15780,St. Thomas (MN),Summit League,17,13,9,241,115,163,,10,,,,1582:42:00,25,88,5,,,,,72,,,4
+http://stats.ncaa.org/team/674/15780,Stanford,Pac-12,20,46,34,395,178,170,,8,,,,1828:27:00,17,48,9,4,,,,148,1,2,13
+http://stats.ncaa.org/team/678/15780,Stetson,ASUN,18,21,15,224,102,220,1,9,,,,1675:44:00,28,83,6,,,,,59,,3,6
+http://stats.ncaa.org/team/683/15780,Stony Brook,America East,17,16,18,197,89,152,,5,,,,1594:46:00,27,87,6,,,,,72,,2,7
+http://stats.ncaa.org/team/688/15780,Syracuse,ACC,17,13,6,165,79,114,,8,,,,1550:00:00,45,98,4,,,,,87,1,2,4
+http://stats.ncaa.org/team/698/15780,TCU,Big 12,24,60,72,461,197,202,,18,,,,2237:41:00,14,89,13,3,,,,182,1,2,19
+http://stats.ncaa.org/team/690/15780,Temple,AAC,16,17,11,146,69,150,,11,,,,1500:00:00,30,108,3,,,,,61,,,5
+http://stats.ncaa.org/team/694/15780,Tennessee,SEC,23,60,55,441,206,220,1,18,,,,2100:27:00,17,88,13,3,,,,207,2,2,20
+http://stats.ncaa.org/team/692/15780,Tennessee Tech,OVC,16,15,9,159,72,134,,8,,,,1565:50:00,20,83,5,,,,,63,2,2,6
+http://stats.ncaa.org/team/703/15780,Texas,Big 12,22,38,39,387,154,193,,10,,,,2113:01:00,21,87,10,1,,,,142,,,11
+http://stats.ncaa.org/team/697/15780,Texas A&M,SEC,18,31,36,263,105,176,,13,,,,1666:06:00,22,66,3,2,,,,90,2,5,7
+http://stats.ncaa.org/team/699/15780,Texas Southern,SWAC,16,16,11,164,87,136,,17,,,,1509:26:00,27,128,4,,,,,33,,4,5
+http://stats.ncaa.org/team/670/15780,Texas St.,Sun Belt,17,20,24,245,118,137,,14,,,,1582:41:00,22,74,4,,,,,80,,2,7
+http://stats.ncaa.org/team/700/15780,Texas Tech,Big 12,20,37,30,284,136,162,,19,,,,1860:00:00,19,56,8,,,,,116,,2,11
+http://stats.ncaa.org/team/141/15780,The Citadel,SoCon,19,43,34,327,158,152,,11,,1,1,1751:38:00,22,117,8,2,,,,77,2,3,10
+http://stats.ncaa.org/team/709/15780,Toledo,MAC,20,26,19,216,111,245,,17,,,,1894:44:00,16,83,10,1,,,,85,,2,10
+http://stats.ncaa.org/team/711/15780,Towson,CAA,18,27,27,293,134,178,,12,,,,1711:37:00,18,82,6,1,,,,106,4,6,8
+http://stats.ncaa.org/team/716/15780,Troy,Sun Belt,18,16,11,187,90,159,2,14,,,,1658:19:00,22,84,5,,,,,78,2,2,7
+http://stats.ncaa.org/team/719/15780,Tulsa,AAC,17,22,12,209,89,184,,13,,,,1600:48:00,28,85,2,,,,,51,2,2,6
+http://stats.ncaa.org/team/9/15780,UAB,C-USA,19,20,17,270,121,200,1,20,,,,1820:11:00,27,56,4,,,,,99,1,2,7
+http://stats.ncaa.org/team/108/15780,UC Davis,Big West,18,28,30,299,127,127,,9,,,,1626:38:00,22,63,5,1,,,,89,,,10
+http://stats.ncaa.org/team/109/15780,UC Irvine,Big West,22,43,39,268,135,237,1,21,,,,2012:23:00,20,79,10,,,,,104,6,6,16
+http://stats.ncaa.org/team/111/15780,UC Riverside,Big West,17,16,7,146,70,176,,10,,,,1581:30:00,30,80,3,,,,,64,2,4,4
+http://stats.ncaa.org/team/112/15780,UC San Diego,Big West,17,21,18,196,89,167,,8,,,,1587:27:00,32,86,1,,,,,91,2,3,5
+http://stats.ncaa.org/team/104/15780,UC Santa Barbara,Big West,20,17,18,195,86,251,1,20,,,,1873:01:00,26,87,7,,,,,66,1,1,8
+http://stats.ncaa.org/team/128/15780,UCF,AAC,16,32,28,186,84,107,,10,,,,1479:12:00,18,81,7,2,,,,56,2,4,8
+http://stats.ncaa.org/team/110/15780,UCLA,Pac-12,20,40,44,314,140,144,,14,,,,1895:27:00,12,71,10,1,,,,129,1,2,16
+http://stats.ncaa.org/team/164/15780,UConn,Big East,18,21,21,246,109,157,,14,,,,1685:39:00,26,101,5,1,,,,84,,,9
+http://stats.ncaa.org/team/302/15780,UIC,Horizon,17,9,4,165,75,187,,18,,,,1593:42:00,29,90,3,1,,,,62,2,2,2
+http://stats.ncaa.org/team/2743/15780,UIW,Southland,21,24,17,276,129,208,,12,,,,1939:59:00,22,73,6,,,,,93,2,2,8
+http://stats.ncaa.org/team/498/15780,ULM,Sun Belt,20,53,40,383,194,145,,18,,,,1813:23:00,21,87,6,2,,,,91,2,3,14
+http://stats.ncaa.org/team/368/15780,UMass Lowell,America East,17,22,16,265,124,183,,8,,,,1622:36:00,21,84,5,,,,,84,3,3,8
+http://stats.ncaa.org/team/391/15780,UMBC,America East,17,17,13,185,104,187,,11,,,,1590:00:00,26,108,4,,,,,56,1,1,5
+http://stats.ncaa.org/team/456/15780,UNC Asheville,Big South,18,19,15,187,86,147,,13,,,,1665:52:00,33,102,3,,,,,50,,,6
+http://stats.ncaa.org/team/459/15780,UNC Greensboro,SoCon,18,14,14,202,108,172,,12,,,,1727:03:00,20,112,7,,,,,82,,2,3
+http://stats.ncaa.org/team/460/15780,UNCW,CAA,16,28,32,161,98,155,,10,,,,1498:51:00,15,72,6,1,,,,97,,,11
+http://stats.ncaa.org/team/504/15780,UNI,MVC,18,24,16,233,119,114,,3,,,,1677:48:00,26,58,6,2,,,,100,,,6
+http://stats.ncaa.org/team/465/15780,UNLV,Mountain West,20,32,17,244,100,191,1,13,,,,1844:22:00,23,74,7,2,,,,100,4,4,12
+http://stats.ncaa.org/team/10411/15780,USC Upstate,Big South,15,15,16,178,83,122,1,7,,,,1381:45:00,23,127,6,1,,,,51,,,5
+http://stats.ncaa.org/team/695/15780,UT Martin,OVC,18,27,23,217,104,178,,8,,,,1660:16:00,16,78,6,,,,,81,,,11
+http://stats.ncaa.org/team/732/15780,Utah,Pac-12,20,19,11,220,103,176,3,14,,,,1897:16:00,30,81,4,1,,,,93,3,3,6
+http://stats.ncaa.org/team/731/15780,Utah St.,Mountain West,22,30,34,270,117,242,,20,,,,2108:27:00,20,103,8,1,,,,86,,,13
+http://stats.ncaa.org/team/30024/15780,Utah Valley,WAC,22,41,41,346,146,212,1,13,,1,1,2048:35:00,28,57,11,3,,,,119,1,3,13
+http://stats.ncaa.org/team/704/15780,UTEP,C-USA,16,13,18,131,62,137,,12,,,,1456:22:00,26,83,3,,,,,35,2,4,4
+http://stats.ncaa.org/team/536/15780,UTRGV,WAC,20,20,16,248,116,183,1,25,,,,1854:36:00,33,92,6,1,,,,74,,1,6
+http://stats.ncaa.org/team/706/15780,UTSA,C-USA,19,28,29,254,109,202,1,13,,,,1820:33:00,16,54,8,,,,,90,4,5,10
+http://stats.ncaa.org/team/735/15780,Valparaiso,MVC,18,27,23,260,130,170,1,10,,,,1678:22:00,19,91,8,1,,,,85,2,2,10
+http://stats.ncaa.org/team/736/15780,Vanderbilt,SEC,19,31,35,238,112,175,,19,,,,1774:50:00,21,66,6,2,,,,103,1,3,8
+http://stats.ncaa.org/team/740/15780,VCU,Atlantic 10,17,25,20,269,111,147,,10,,,,1554:18:00,14,55,6,,,,,114,2,3,13
+http://stats.ncaa.org/team/738/15780,Vermont,America East,19,32,24,271,131,181,,13,,,,1782:56:00,22,125,7,1,,,,86,2,3,12
+http://stats.ncaa.org/team/739/15780,Villanova,Big East,18,24,20,201,93,203,1,22,,1,1,1665:43:00,35,95,2,,,,,73,3,3,7
+http://stats.ncaa.org/team/746/15780,Virginia,ACC,23,58,51,409,186,122,,5,,,,2110:00:00,13,50,13,4,,,,164,2,2,18
+http://stats.ncaa.org/team/742/15780,Virginia Tech,ACC,20,41,48,265,138,239,2,23,,,,1840:00:00,24,74,6,1,,,,93,2,2,12
+http://stats.ncaa.org/team/741/15780,VMI,SoCon,20,21,19,224,103,216,,12,,1,1,1837:38:00,44,154,3,,,,,41,1,5,3
+http://stats.ncaa.org/team/748/15780,Wagner,NEC,18,22,9,211,102,178,,10,,,,1648:18:00,25,95,5,,,,,70,,,8
+http://stats.ncaa.org/team/749/15780,Wake Forest,ACC,22,43,35,380,165,234,1,23,,,,2005:32:00,17,63,12,3,,,,119,5,8,16
+http://stats.ncaa.org/team/756/15780,Washington,Pac-12,18,26,20,255,107,164,1,11,,,,1715:07:00,29,77,3,,,,,69,1,1,6
+http://stats.ncaa.org/team/754/15780,Washington St.,Pac-12,21,45,38,419,182,224,1,25,,,,1978:36:00,13,66,13,4,,,,147,4,4,14
+http://stats.ncaa.org/team/758/15780,Weber St.,Big Sky,20,31,23,271,130,204,,10,,,,1813:03:00,26,63,6,,,,,79,2,2,11
+http://stats.ncaa.org/team/768/15780,West Virginia,Big 12,20,31,25,283,135,166,,5,,,,1876:04:00,12,53,11,2,,,,140,2,2,10
+http://stats.ncaa.org/team/769/15780,Western Caro.,SoCon,20,23,17,301,136,190,,18,,,,1824:12:00,22,77,9,1,,,,89,,1,11
+http://stats.ncaa.org/team/771/15780,Western Ill.,Summit League,18,31,18,259,133,157,,14,,,,1648:01:00,30,87,3,,,,,67,4,5,11
+http://stats.ncaa.org/team/772/15780,Western Ky.,C-USA,16,21,14,179,84,124,,8,,,,1403:38:00,13,61,6,,,,,96,4,5,10
+http://stats.ncaa.org/team/774/15780,Western Mich.,MAC,18,30,28,207,113,113,,4,,,,1641:58:00,40,100,5,,,,,72,2,2,6
+http://stats.ncaa.org/team/786/15780,William & Mary,CAA,16,6,4,147,67,153,,14,,,,1518:53:00,21,69,6,1,,,,53,1,1,4
+http://stats.ncaa.org/team/792/15780,Winthrop,Big South,15,22,17,164,75,124,,5,,,,1419:53:00,28,82,3,,,,,69,,1,6
+http://stats.ncaa.org/team/796/15780,Wisconsin,Big Ten,22,30,20,323,145,229,,14,,,,2128:18:00,17,83,10,1,,,,118,2,3,10
+http://stats.ncaa.org/team/2915/15780,Wofford,SoCon,19,17,12,195,101,144,,10,,,,1779:42:00,37,112,2,1,,,,70,,,5
+http://stats.ncaa.org/team/810/15780,Wright St.,Horizon,18,21,12,205,104,206,2,11,,,,1700:29:00,30,95,2,1,,,,65,1,2,5
+http://stats.ncaa.org/team/811/15780,Wyoming,Mountain West,19,30,11,226,107,196,,17,,,,1730:00:00,37,86,1,,,,,78,2,3,8
+http://stats.ncaa.org/team/812/15780,Xavier,Big East,20,31,28,317,144,209,,12,,,,1830:58:00,11,55,10,,,,,131,2,2,16
+http://stats.ncaa.org/team/813/15780,Yale,Ivy League,17,18,17,183,85,157,,11,,,,1534:06:00,43,86,3,1,,,2,84,1,2,3
+http://stats.ncaa.org/team/817/15780,Youngstown St.,Horizon,18,10,10,160,57,215,,15,,,,1734:03:00,31,133,4,,,,,60,,,2
