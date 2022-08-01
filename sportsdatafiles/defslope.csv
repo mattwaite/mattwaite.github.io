@@ -1,0 +1,258 @@
+Season,Team,Conference,DefensiveYardsPerPlay
+2021,Cincinnati,American Athletic Conference,4.468341708542714
+2021,East Carolina,American Athletic Conference,5.984810126582278
+2021,Houston,American Athletic Conference,4.937062937062937
+2021,Memphis,American Athletic Conference,5.4468546637744035
+2021,Navy,American Athletic Conference,6.0201149425287355
+2021,SMU,American Athletic Conference,5.894549763033176
+2021,South Florida,American Athletic Conference,7.001237623762377
+2021,Temple,American Athletic Conference,5.570257611241217
+2021,Tulane,American Athletic Conference,5.854875283446712
+2021,Tulsa,American Athletic Conference,5.436158192090396
+2021,UCF,American Athletic Conference,5.093220338983051
+2021,Boston College,Atlantic Coast Conference,5.435526315789474
+2021,Clemson,Atlantic Coast Conference,4.471444568868981
+2021,Duke,Atlantic Coast Conference,7.138920780711826
+2021,Florida State,Atlantic Coast Conference,5.2215843857634905
+2021,Georgia Tech,Atlantic Coast Conference,6.627878787878788
+2021,Louisville,Atlantic Coast Conference,5.846496106785317
+2021,Miami (FL),Atlantic Coast Conference,5.404624277456647
+2021,North Carolina,Atlantic Coast Conference,6.125
+2021,North Carolina State,Atlantic Coast Conference,4.9775
+2021,Pitt,Atlantic Coast Conference,5.056179775280899
+2021,Syracuse,Atlantic Coast Conference,5.153945666235447
+2021,Virginia,Atlantic Coast Conference,6.617751479289941
+2021,Virginia Tech,Atlantic Coast Conference,5.863060989643268
+2021,Wake Forest,Atlantic Coast Conference,5.8603238866396765
+2021,Baylor,Big 12 Conference,5.205128205128205
+2021,Iowa State,Big 12 Conference,5.081761006289308
+2021,Kansas,Big 12 Conference,7.247831474597274
+2021,Kansas State,Big 12 Conference,5.370059880239521
+2021,Oklahoma,Big 12 Conference,5.76077097505669
+2021,Oklahoma State,Big 12 Conference,4.51925192519252
+2021,Texas,Big 12 Conference,6.075919335705812
+2021,Texas Christian,Big 12 Conference,7.26605504587156
+2021,Texas Tech,Big 12 Conference,5.858888888888889
+2021,West Virginia,Big 12 Conference,5.552439024390244
+2021,Illinois,Big Ten Conference,5.249403341288783
+2021,Indiana,Big Ten Conference,5.62958435207824
+2021,Iowa,Big Ten Conference,4.729979466119096
+2021,Maryland,Big Ten Conference,5.73956043956044
+2021,Michigan,Big Ten Conference,4.926517571884984
+2021,Michigan State,Big Ten Conference,5.613880742913001
+2021,Minnesota,Big Ten Conference,4.872311827956989
+2021,Nebraska,Big Ten Conference,5.3438639125151886
+2021,Northwestern,Big Ten Conference,6.184210526315789
+2021,Ohio State,Big Ten Conference,5.3487348734873486
+2021,Penn State,Big Ten Conference,4.758835758835759
+2021,Purdue,Big Ten Conference,5.63133097762073
+2021,Rutgers,Big Ten Conference,5.996523754345307
+2021,Wisconsin,Big Ten Conference,4.188172043010753
+2021,Charlotte,Conference USA,7.157692307692308
+2021,Florida Atlantic,Conference USA,5.845422116527943
+2021,Florida International,Conference USA,6.702947845804989
+2021,Louisiana Tech,Conference USA,6.130588235294118
+2021,Marshall,Conference USA,5.144710578842315
+2021,Middle Tennessee State,Conference USA,5.190831556503198
+2021,North Texas,Conference USA,5.698394495412844
+2021,Old Dominion,Conference USA,5.326943556975506
+2021,Rice,Conference USA,6.716666666666667
+2021,Southern Mississippi,Conference USA,5.822733423545332
+2021,UAB,Conference USA,5.024647887323944
+2021,UTEP,Conference USA,5.263035921205098
+2021,UTSA,Conference USA,5.648970747562297
+2021,Western Kentucky,Conference USA,5.6334256694367495
+2021,Army,Independent,5.825850340136054
+2021,BYU,Independent,5.742889647326507
+2021,Connecticut,Independent,5.971397139713972
+2021,Liberty,Independent,4.7631578947368425
+2021,Massachusetts,Independent,7.332912988650693
+2021,New Mexico State,Independent,7.363864491844416
+2021,Notre Dame,Independent,5.27683615819209
+2021,Akron,Mid-American Conference,7.187739463601533
+2021,Ball State,Mid-American Conference,5.917570498915401
+2021,Bowling Green State,Mid-American Conference,5.276470588235294
+2021,Buffalo,Mid-American Conference,6.3341804320203305
+2021,Central Michigan,Mid-American Conference,5.600225225225225
+2021,Eastern Michigan,Mid-American Conference,6.303769401330377
+2021,Kent State,Mid-American Conference,6.196060037523452
+2021,Miami (OH),Mid-American Conference,5.546296296296297
+2021,Northern Illinois,Mid-American Conference,6.855135135135135
+2021,Ohio,Mid-American Conference,6.0465657741559955
+2021,Toledo,Mid-American Conference,4.887096774193548
+2021,Western Michigan,Mid-American Conference,5.812162162162162
+2021,Air Force,Mountain West Conference,5.26566757493188
+2021,Boise State,Mountain West Conference,5.504391468005019
+2021,Colorado State,Mountain West Conference,5.484921592279855
+2021,Fresno State,Mountain West Conference,5.258741258741258
+2021,Hawaii,Mountain West Conference,5.751984126984127
+2021,Nevada,Mountain West Conference,5.61854583772392
+2021,Nevada-Las Vegas,Mountain West Conference,6.153942428035044
+2021,New Mexico,Mountain West Conference,5.363636363636363
+2021,San Diego State,Mountain West Conference,4.74321503131524
+2021,San Jose State,Mountain West Conference,5.13840830449827
+2021,Utah State,Mountain West Conference,5.819047619047619
+2021,Wyoming,Mountain West Conference,5.463882618510158
+2021,Arizona,Pac-12 Conference,5.920529801324503
+2021,Arizona State,Pac-12 Conference,5.002347417840376
+2021,California,Pac-12 Conference,5.378476420798065
+2021,Colorado,Pac-12 Conference,6.057553956834532
+2021,Oregon,Pac-12 Conference,5.451874366767984
+2021,Oregon State,Pac-12 Conference,5.719636776390465
+2021,Stanford,Pac-12 Conference,6.59030303030303
+2021,UCLA,Pac-12 Conference,5.541766109785203
+2021,USC,Pac-12 Conference,6.43586387434555
+2021,Utah,Pac-12 Conference,5.266155531215772
+2021,Washington,Pac-12 Conference,5.042394014962594
+2021,Washington State,Pac-12 Conference,5.516930022573363
+2021,Alabama,Southeastern Conference,4.6473859844271415
+2021,Arkansas,Southeastern Conference,5.406108597285068
+2021,Auburn,Southeastern Conference,5.320568927789934
+2021,Florida,Southeastern Conference,5.47766323024055
+2021,Georgia,Southeastern Conference,4.111990950226244
+2021,Kentucky,Southeastern Conference,5.516811955168119
+2021,LSU,Southeastern Conference,5.547297297297297
+2021,Mississippi State,Southeastern Conference,5.560099132589839
+2021,Missouri,Southeastern Conference,6.376975169300226
+2021,Ole Miss,Southeastern Conference,5.514631685166498
+2021,South Carolina,Southeastern Conference,5.617826617826617
+2021,Tennessee,Southeastern Conference,5.422354104846686
+2021,Texas A&M,Southeastern Conference,4.6884661117717
+2021,Vanderbilt,Southeastern Conference,6.798516687268233
+2021,Appalachian State,Sun Belt Conference,5.292073832790445
+2021,Arkansas State,Sun Belt Conference,7.240762812872467
+2021,Coastal Carolina,Sun Belt Conference,5.316546762589928
+2021,Georgia Southern,Sun Belt Conference,6.473300970873787
+2021,Georgia State,Sun Belt Conference,5.444906444906445
+2021,Louisiana,Sun Belt Conference,5.105882352941176
+2021,Louisiana-Monroe,Sun Belt Conference,6.3676814988290396
+2021,South Alabama,Sun Belt Conference,5.460358056265985
+2021,Texas State,Sun Belt Conference,5.837837837837838
+2021,Troy,Sun Belt Conference,5.082810539523212
+2020,Cincinnati,American Athletic Conference,4.618309859154929
+2020,East Carolina,American Athletic Conference,6.212962962962963
+2020,Houston,American Athletic Conference,5.77536231884058
+2020,Memphis,American Athletic Conference,5.680142687277051
+2020,Navy,American Athletic Conference,5.986024844720497
+2020,SMU,American Athletic Conference,5.644385026737968
+2020,South Florida,American Athletic Conference,6.054878048780488
+2020,Temple,American Athletic Conference,6.408033826638478
+2020,Tulane,American Athletic Conference,5.640711902113459
+2020,Tulsa,American Athletic Conference,4.686520376175548
+2020,UCF,American Athletic Conference,6.193954659949622
+2020,Boston College,Atlantic Coast Conference,6.12
+2020,Clemson,Atlantic Coast Conference,5.021766965428937
+2020,Duke,Atlantic Coast Conference,6.241071428571429
+2020,Florida State,Atlantic Coast Conference,6.4575471698113205
+2020,Georgia Tech,Atlantic Coast Conference,5.858418367346939
+2020,Louisville,Atlantic Coast Conference,5.77524893314367
+2020,Miami (FL),Atlantic Coast Conference,5.594022415940224
+2020,North Carolina,Atlantic Coast Conference,5.803377563329312
+2020,North Carolina State,Atlantic Coast Conference,5.478547854785479
+2020,Notre Dame,Atlantic Coast Conference,5.574324324324325
+2020,Pitt,Atlantic Coast Conference,4.882352941176471
+2020,Syracuse,Atlantic Coast Conference,5.819840364880274
+2020,Virginia,Atlantic Coast Conference,6.391053391053391
+2020,Virginia Tech,Atlantic Coast Conference,6.188916876574307
+2020,Wake Forest,Atlantic Coast Conference,5.914027149321267
+2020,Baylor,Big 12 Conference,5.5216
+2020,Iowa State,Big 12 Conference,5.393421052631579
+2020,Kansas,Big 12 Conference,6.634028892455858
+2020,Kansas State,Big 12 Conference,6.108516483516484
+2020,Oklahoma,Big 12 Conference,5.2045760430686405
+2020,Oklahoma State,Big 12 Conference,5.325670498084291
+2020,Texas,Big 12 Conference,5.224935732647815
+2020,Texas Christian,Big 12 Conference,5.324734446130501
+2020,Texas Tech,Big 12 Conference,5.725868725868726
+2020,West Virginia,Big 12 Conference,4.654952076677317
+2020,Illinois,Big Ten Conference,6.534965034965035
+2020,Indiana,Big Ten Conference,5.5200729927007295
+2020,Iowa,Big Ten Conference,4.342560553633218
+2020,Maryland,Big Ten Conference,5.338308457711443
+2020,Michigan,Big Ten Conference,5.592274678111588
+2020,Michigan State,Big Ten Conference,5.269449715370019
+2020,Minnesota,Big Ten Conference,6.890995260663507
+2020,Nebraska,Big Ten Conference,5.4628975265017665
+2020,Northwestern,Big Ten Conference,4.859177215189874
+2020,Ohio State,Big Ten Conference,5.567741935483871
+2020,Penn State,Big Ten Conference,5.049572649572649
+2020,Purdue,Big Ten Conference,5.391891891891892
+2020,Rutgers,Big Ten Conference,5.976470588235294
+2020,Wisconsin,Big Ten Conference,5.009546539379475
+2020,Charlotte,Conference USA,6.5546875
+2020,Florida Atlantic,Conference USA,5.124792013311148
+2020,Florida International,Conference USA,5.760217983651226
+2020,Louisiana Tech,Conference USA,6.113018597997139
+2020,Marshall,Conference USA,4.4
+2020,Middle Tennessee State,Conference USA,6.093939393939394
+2020,North Texas,Conference USA,6.936254980079681
+2020,Rice,Conference USA,5.693333333333333
+2020,Southern Mississippi,Conference USA,5.767575322812052
+2020,UAB,Conference USA,4.72986577181208
+2020,UTEP,Conference USA,6.112224448897796
+2020,UTSA,Conference USA,5.664619164619165
+2020,Western Kentucky,Conference USA,5.054413542926239
+2020,Army,Independent,4.998487140695915
+2020,BYU,Independent,4.822784810126582
+2020,Liberty,Independent,5.239880059970015
+2020,Massachusetts,Independent,6.885714285714286
+2020,Akron,Mid-American Conference,7.558904109589041
+2020,Ball State,Mid-American Conference,5.939550949913644
+2020,Bowling Green State,Mid-American Conference,6.682584269662922
+2020,Buffalo,Mid-American Conference,5.22360248447205
+2020,Central Michigan,Mid-American Conference,5.8451025056947605
+2020,Eastern Michigan,Mid-American Conference,6.40958605664488
+2020,Kent State,Mid-American Conference,6.498084291187739
+2020,Miami (OH),Mid-American Conference,5.9847715736040605
+2020,Northern Illinois,Mid-American Conference,6.630606860158311
+2020,Ohio,Mid-American Conference,5.47887323943662
+2020,Toledo,Mid-American Conference,5.352216748768473
+2020,Western Michigan,Mid-American Conference,5.602803738317757
+2020,Air Force,Mountain West Conference,5.117647058823529
+2020,Boise State,Mountain West Conference,5.248995983935743
+2020,Colorado State,Mountain West Conference,4.815436241610739
+2020,Fresno State,Mountain West Conference,6.142857142857143
+2020,Hawaii,Mountain West Conference,5.738317757009346
+2020,Nevada,Mountain West Conference,5.403815580286168
+2020,Nevada-Las Vegas,Mountain West Conference,7.160891089108911
+2020,New Mexico,Mountain West Conference,6.821350762527233
+2020,San Diego State,Mountain West Conference,4.384169884169884
+2020,San Jose State,Mountain West Conference,5.016157989228007
+2020,Utah State,Mountain West Conference,6.558558558558558
+2020,Wyoming,Mountain West Conference,4.932330827067669
+2020,Arizona,Pac-12 Conference,6.737891737891738
+2020,Arizona State,Pac-12 Conference,5.413043478260869
+2020,California,Pac-12 Conference,5.689922480620155
+2020,Colorado,Pac-12 Conference,6.0625
+2020,Oregon,Pac-12 Conference,5.350282485875706
+2020,Oregon State,Pac-12 Conference,6.491596638655462
+2020,Stanford,Pac-12 Conference,6.58
+2020,UCLA,Pac-12 Conference,5.444022770398482
+2020,USC,Pac-12 Conference,5.49009900990099
+2020,Utah,Pac-12 Conference,5.496987951807229
+2020,Washington,Pac-12 Conference,5.347490347490347
+2020,Washington State,Pac-12 Conference,6.692028985507246
+2020,Alabama,Southeastern Conference,5.003541912632822
+2020,Arkansas,Southeastern Conference,5.6533166458072595
+2020,Auburn,Southeastern Conference,5.624685138539043
+2020,Florida,Southeastern Conference,6.063754427390791
+2020,Georgia,Southeastern Conference,4.856278366111952
+2020,Kentucky,Southeastern Conference,5.481675392670157
+2020,LSU,Southeastern Conference,7.256637168141593
+2020,Mississippi State,Southeastern Conference,5.496153846153846
+2020,Missouri,Southeastern Conference,6.1032934131736525
+2020,Ole Miss,Southeastern Conference,6.67095115681234
+2020,South Carolina,Southeastern Conference,6.5625
+2020,Tennessee,Southeastern Conference,5.828326180257511
+2020,Texas A&M,Southeastern Conference,5.350758853288364
+2020,Vanderbilt,Southeastern Conference,7.281923714759536
+2020,Appalachian State,Sun Belt Conference,4.953634085213032
+2020,Arkansas State,Sun Belt Conference,6.339045287637699
+2020,Coastal Carolina,Sun Belt Conference,5.4714285714285715
+2020,Georgia Southern,Sun Belt Conference,5.113526570048309
+2020,Georgia State,Sun Belt Conference,5.612859097127223
+2020,Louisiana,Sun Belt Conference,4.916981132075471
+2020,Louisiana-Monroe,Sun Belt Conference,6.848082595870206
+2020,South Alabama,Sun Belt Conference,6.473045822102426
+2020,Texas State,Sun Belt Conference,6.359275053304904
+2020,Troy,Sun Belt Conference,5.544776119402985
