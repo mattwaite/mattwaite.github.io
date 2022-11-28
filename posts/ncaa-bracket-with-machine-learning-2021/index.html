@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.14">
+<meta name="generator" content="quarto-1.2.247">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -55,7 +60,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -68,7 +73,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -151,26 +156,29 @@ ga('send', {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Matt Waite’s Collection of Miscellany</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">About</a>
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/mattwaite"><i class="bi bi-github" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com/mattwaite"><i class="bi bi-twitter" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -209,6 +217,7 @@ ga('send', {
         <p class="date">March 22, 2021</p>
       </div>
     </div>
+    
       
     </div>
     
@@ -568,7 +577,7 @@ date  (1): Date
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fnpifounhq .gt_table {
+:where(#fnpifounhq) .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -593,7 +602,7 @@ date  (1): Date
   border-left-color: #D3D3D3;
 }
 
-#fnpifounhq .gt_heading {
+:where(#fnpifounhq) .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -605,7 +614,7 @@ date  (1): Date
   border-right-color: #D3D3D3;
 }
 
-#fnpifounhq .gt_title {
+:where(#fnpifounhq) .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -617,7 +626,7 @@ date  (1): Date
   border-bottom-width: 0;
 }
 
-#fnpifounhq .gt_subtitle {
+:where(#fnpifounhq) .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -629,13 +638,13 @@ date  (1): Date
   border-top-width: 0;
 }
 
-#fnpifounhq .gt_bottom_border {
+:where(#fnpifounhq) .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fnpifounhq .gt_col_headings {
+:where(#fnpifounhq) .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -650,7 +659,7 @@ date  (1): Date
   border-right-color: #D3D3D3;
 }
 
-#fnpifounhq .gt_col_heading {
+:where(#fnpifounhq) .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -670,7 +679,7 @@ date  (1): Date
   overflow-x: hidden;
 }
 
-#fnpifounhq .gt_column_spanner_outer {
+:where(#fnpifounhq) .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -682,15 +691,15 @@ date  (1): Date
   padding-right: 4px;
 }
 
-#fnpifounhq .gt_column_spanner_outer:first-child {
+:where(#fnpifounhq) .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fnpifounhq .gt_column_spanner_outer:last-child {
+:where(#fnpifounhq) .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fnpifounhq .gt_column_spanner {
+:where(#fnpifounhq) .gt_column_spanner {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -702,7 +711,7 @@ date  (1): Date
   width: 100%;
 }
 
-#fnpifounhq .gt_group_heading {
+:where(#fnpifounhq) .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -727,7 +736,7 @@ date  (1): Date
   vertical-align: middle;
 }
 
-#fnpifounhq .gt_empty_group_heading {
+:where(#fnpifounhq) .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -742,15 +751,15 @@ date  (1): Date
   vertical-align: middle;
 }
 
-#fnpifounhq .gt_from_md > :first-child {
+:where(#fnpifounhq) .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fnpifounhq .gt_from_md > :last-child {
+:where(#fnpifounhq) .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fnpifounhq .gt_row {
+:where(#fnpifounhq) .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -769,7 +778,7 @@ date  (1): Date
   overflow-x: hidden;
 }
 
-#fnpifounhq .gt_stub {
+:where(#fnpifounhq) .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -782,7 +791,7 @@ date  (1): Date
   padding-right: 5px;
 }
 
-#fnpifounhq .gt_stub_row_group {
+:where(#fnpifounhq) .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -796,11 +805,11 @@ date  (1): Date
   vertical-align: top;
 }
 
-#fnpifounhq .gt_row_group_first td {
+:where(#fnpifounhq) .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fnpifounhq .gt_summary_row {
+:where(#fnpifounhq) .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -810,16 +819,16 @@ date  (1): Date
   padding-right: 5px;
 }
 
-#fnpifounhq .gt_first_summary_row {
+:where(#fnpifounhq) .gt_first_summary_row {
   border-top-style: none;
   border-top-color: #D3D3D3;
 }
 
-#fnpifounhq .gt_first_summary_row.thick {
+:where(#fnpifounhq) .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fnpifounhq .gt_last_summary_row {
+:where(#fnpifounhq) .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -829,7 +838,7 @@ date  (1): Date
   border-bottom-color: #D3D3D3;
 }
 
-#fnpifounhq .gt_grand_summary_row {
+:where(#fnpifounhq) .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -839,7 +848,7 @@ date  (1): Date
   padding-right: 5px;
 }
 
-#fnpifounhq .gt_first_grand_summary_row {
+:where(#fnpifounhq) .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -849,11 +858,11 @@ date  (1): Date
   border-top-color: #D3D3D3;
 }
 
-#fnpifounhq .gt_striped {
+:where(#fnpifounhq) .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fnpifounhq .gt_table_body {
+:where(#fnpifounhq) .gt_table_body {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -862,7 +871,7 @@ date  (1): Date
   border-bottom-color: #D3D3D3;
 }
 
-#fnpifounhq .gt_footnotes {
+:where(#fnpifounhq) .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -876,7 +885,7 @@ date  (1): Date
   border-right-color: #D3D3D3;
 }
 
-#fnpifounhq .gt_footnote {
+:where(#fnpifounhq) .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-left: 4px;
@@ -885,7 +894,7 @@ date  (1): Date
   padding-right: 5px;
 }
 
-#fnpifounhq .gt_sourcenotes {
+:where(#fnpifounhq) .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -899,7 +908,7 @@ date  (1): Date
   border-right-color: #D3D3D3;
 }
 
-#fnpifounhq .gt_sourcenote {
+:where(#fnpifounhq) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -907,36 +916,36 @@ date  (1): Date
   padding-right: 5px;
 }
 
-#fnpifounhq .gt_left {
+:where(#fnpifounhq) .gt_left {
   text-align: left;
 }
 
-#fnpifounhq .gt_center {
+:where(#fnpifounhq) .gt_center {
   text-align: center;
 }
 
-#fnpifounhq .gt_right {
+:where(#fnpifounhq) .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fnpifounhq .gt_font_normal {
+:where(#fnpifounhq) .gt_font_normal {
   font-weight: normal;
 }
 
-#fnpifounhq .gt_font_bold {
+:where(#fnpifounhq) .gt_font_bold {
   font-weight: bold;
 }
 
-#fnpifounhq .gt_font_italic {
+:where(#fnpifounhq) .gt_font_italic {
   font-style: italic;
 }
 
-#fnpifounhq .gt_super {
+:where(#fnpifounhq) .gt_super {
   font-size: 65%;
 }
 
-#fnpifounhq .gt_two_val_uncert {
+:where(#fnpifounhq) .gt_two_val_uncert {
   display: inline-block;
   line-height: 1em;
   text-align: right;
@@ -945,31 +954,31 @@ date  (1): Date
   margin-left: 0.1em;
 }
 
-#fnpifounhq .gt_footnote_marks {
+:where(#fnpifounhq) .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 75%;
   vertical-align: 0.4em;
 }
 
-#fnpifounhq .gt_asterisk {
+:where(#fnpifounhq) .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fnpifounhq .gt_slash_mark {
+:where(#fnpifounhq) .gt_slash_mark {
   font-size: 0.7em;
   line-height: 0.7em;
   vertical-align: 0.15em;
 }
 
-#fnpifounhq .gt_fraction_numerator {
+:where(#fnpifounhq) .gt_fraction_numerator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: 0.45em;
 }
 
-#fnpifounhq .gt_fraction_denominator {
+:where(#fnpifounhq) .gt_fraction_denominator {
   font-size: 0.6em;
   line-height: 0.6em;
   vertical-align: -0.05em;
@@ -1019,10 +1028,10 @@ date  (1): Date
 <p>When the dust has settled, I’m going to come back and evaluate. Here’s screenshots of my bracket.</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="Screen%20Shot%202021-03-22%20at%2010.39.09%20PM.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="Screen Shot 2021-03-22 at 10.39.09 PM.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
-<p><img src="Screen%20Shot%202021-03-22%20at%2010.39.24%20PM.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="Screen Shot 2021-03-22 at 10.39.24 PM.png" class="img-fluid" style="width:100.0%"></p>
 
 
 </section>
@@ -1042,7 +1051,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   const toggleBodyColorPrimary = () => {
-    toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
   }
   toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
@@ -1096,6 +1108,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       }
     }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
   }
   const isFileUrl = () => { 
     return window.location.protocol === 'file:';
@@ -1147,7 +1169,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -1169,7 +1193,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1197,31 +1238,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
