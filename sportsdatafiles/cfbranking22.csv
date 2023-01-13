@@ -1,7 +1,7 @@
-﻿Wk,Rk,School
+﻿Week,Rank,Team
 15,1,Georgia 
 15,2,Michigan 
-15,3,Texas Christian 
+15,3,TCU
 15,4,Ohio State 
 15,5,Alabama 
 15,6,Tennessee 
@@ -11,7 +11,7 @@
 15,10,USC 
 14,1,Georgia 
 14,2,Michigan 
-14,3,Texas Christian 
+14,3,TCU
 14,4,USC 
 14,5,Ohio State 
 14,6,Alabama 
@@ -22,7 +22,7 @@
 13,1,Georgia 
 13,2,Ohio State 
 13,3,Michigan 
-13,4,Texas Christian 
+13,4,TCU 
 13,5,LSU 
 13,6,USC 
 13,7,Alabama 
@@ -32,7 +32,7 @@
 12,1,Georgia 
 12,2,Ohio State 
 12,3,Michigan 
-12,4,Texas Christian 
+12,4,TCU 
 12,5,Tennessee 
 12,6,LSU 
 12,7,USC 
@@ -42,7 +42,7 @@
 11,1,Georgia 
 11,2,Ohio State 
 11,3,Michigan 
-11,4,Texas Christian 
+11,4,TCU 
 11,5,Tennessee 
 11,6,Oregon 
 11,7,LSU 
@@ -55,7 +55,7 @@
 10,4,Clemson 
 10,5,Michigan 
 10,6,Alabama 
-10,7,Texas Christian 
+10,7,TCU 
 10,8,Oregon 
 10,9,USC 
 10,10,LSU 
