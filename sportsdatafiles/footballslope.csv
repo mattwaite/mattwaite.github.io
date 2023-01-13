@@ -1,131 +1,4 @@
 Season,Team,Conference,YardsPerPlay
-2020,Air Force,Mountain West Conference,6.262734584450402
-2020,Akron,Mid-American Conference,4.686111111111111
-2020,Alabama,Southeastern Conference,7.8508557457212715
-2020,Appalachian State,Sun Belt Conference,6.41371158392435
-2020,Arizona,Pac-12 Conference,4.951742627345845
-2020,Arizona State,Pac-12 Conference,7.277777777777778
-2020,Arkansas,Southeastern Conference,5.774336283185841
-2020,Arkansas State,Sun Belt Conference,6.345111896348645
-2020,Army,Independent,4.8106060606060606
-2020,Auburn,Southeastern Conference,5.584880636604774
-2020,Ball State,Mid-American Conference,5.815235008103728
-2020,Baylor,Big 12 Conference,4.43879173290938
-2020,Boise State,Mountain West Conference,5.484444444444445
-2020,Boston College,Atlantic Coast Conference,5.652463382157124
-2020,Bowling Green State,Mid-American Conference,5.197452229299363
-2020,Buffalo,Mid-American Conference,7.291938997821351
-2020,BYU,Independent,7.910691823899371
-2020,California,Pac-12 Conference,4.4475524475524475
-2020,Central Michigan,Mid-American Conference,5.840277777777778
-2020,Charlotte,Conference USA,5.449519230769231
-2020,Cincinnati,American Athletic Conference,6.671597633136095
-2020,Clemson,Atlantic Coast Conference,6.690344062153163
-2020,Coastal Carolina,Sun Belt Conference,6.705590062111801
-2020,Colorado,Pac-12 Conference,5.469162995594714
-2020,Colorado State,Mountain West Conference,4.757352941176471
-2020,Duke,Atlantic Coast Conference,5.030193236714976
-2020,East Carolina,American Athletic Conference,5.532824427480916
-2020,Eastern Michigan,Mid-American Conference,5.746411483253588
-2020,Florida,Southeastern Conference,7.283333333333333
-2020,Florida Atlantic,Conference USA,4.909243697478992
-2020,Florida International,Conference USA,4.571895424836601
-2020,Florida State,Atlantic Coast Conference,5.543478260869565
-2020,Fresno State,Mountain West Conference,6.198275862068965
-2020,Georgia,Southeastern Conference,6.209370424597364
-2020,Georgia Southern,Sun Belt Conference,5.9287469287469285
-2020,Georgia State,Sun Belt Conference,5.657333333333334
-2020,Georgia Tech,Atlantic Coast Conference,5.634393063583815
-2020,Hawaii,Mountain West Conference,5.411580594679187
-2020,Houston,American Athletic Conference,5.54406779661017
-2020,Illinois,Big Ten Conference,5.369230769230769
-2020,Indiana,Big Ten Conference,5.1436170212765955
-2020,Iowa,Big Ten Conference,5.420955882352941
-2020,Iowa State,Big 12 Conference,6.323671497584541
-2020,Kansas,Big 12 Conference,3.662480376766091
-2020,Kansas State,Big 12 Conference,5.630615640599002
-2020,Kent State,Mid-American Conference,7.441717791411043
-2020,Kentucky,Southeastern Conference,5.154867256637168
-2020,Liberty,Independent,6.700379266750948
-2020,Louisiana,Sun Belt Conference,6.304347826086956
-2020,Louisiana Tech,Conference USA,4.498575498575499
-2020,Louisiana-Monroe,Sun Belt Conference,4.844690966719493
-2020,Louisville,Atlantic Coast Conference,6.653950953678474
-2020,LSU,Southeastern Conference,5.520356234096692
-2020,Marshall,Conference USA,5.857784431137724
-2020,Maryland,Big Ten Conference,6.608414239482201
-2020,Massachusetts,Independent,3.456221198156682
-2020,Memphis,American Athletic Conference,6.125153374233129
-2020,Miami (FL),Atlantic Coast Conference,6.028678304239402
-2020,Miami (OH),Mid-American Conference,5.924324324324324
-2020,Michigan,Big Ten Conference,5.942857142857143
-2020,Michigan State,Big Ten Conference,4.796257796257796
-2020,Middle Tennessee State,Conference USA,5.177672955974843
-2020,Minnesota,Big Ten Conference,5.678423236514523
-2020,Mississippi State,Southeastern Conference,4.917214191852826
-2020,Missouri,Southeastern Conference,5.630252100840337
-2020,Navy,American Athletic Conference,4.53960396039604
-2020,Nebraska,Big Ten Conference,5.5630550621669625
-2020,Nevada,Mountain West Conference,6.460162601626016
-2020,Nevada-Las Vegas,Mountain West Conference,4.7214285714285715
-2020,New Mexico,Mountain West Conference,5.468253968253968
-2020,North Carolina,Atlantic Coast Conference,7.593639575971731
-2020,North Carolina State,Atlantic Coast Conference,5.5443645083932855
-2020,North Texas,Conference USA,6.58793324775353
-2020,Northern Illinois,Mid-American Conference,4.98868778280543
-2020,Northwestern,Big Ten Conference,4.787610619469026
-2020,Notre Dame,Atlantic Coast Conference,6.206459054209919
-2020,Ohio,Mid-American Conference,6.362573099415204
-2020,Ohio State,Big Ten Conference,7.5078740157480315
-2020,Oklahoma,Big 12 Conference,6.967989756722151
-2020,Oklahoma State,Big 12 Conference,5.521790341578328
-2020,Ole Miss,Southeastern Conference,6.974905897114178
-2020,Oregon,Pac-12 Conference,6.752336448598131
-2020,Oregon State,Pac-12 Conference,5.828920570264766
-2020,Penn State,Big Ten Conference,5.46262341325811
-2020,Pitt,Atlantic Coast Conference,5.138820638820639
-2020,Purdue,Big Ten Conference,5.700729927007299
-2020,Rice,Conference USA,4.813753581661891
-2020,Rutgers,Big Ten Conference,4.627659574468085
-2020,San Diego State,Mountain West Conference,5.028673835125448
-2020,San Jose State,Mountain West Conference,6.692456479690522
-2020,SMU,American Athletic Conference,6.567065073041169
-2020,South Alabama,Sun Belt Conference,5.137841352405721
-2020,South Carolina,Southeastern Conference,5.34789156626506
-2020,South Florida,American Athletic Conference,5.058461538461539
-2020,Southern Mississippi,Conference USA,5.785381026438569
-2020,Stanford,Pac-12 Conference,6.016706443914081
-2020,Syracuse,Atlantic Coast Conference,4.448170731707317
-2020,Temple,American Athletic Conference,4.652671755725191
-2020,Tennessee,Southeastern Conference,5.245454545454545
-2020,Texas,Big 12 Conference,6.648951048951049
-2020,Texas A&M,Southeastern Conference,6.477876106194691
-2020,Texas Christian,Big 12 Conference,6.036603221083455
-2020,Texas State,Sun Belt Conference,5.719433719433719
-2020,Texas Tech,Big 12 Conference,5.8435374149659864
-2020,Toledo,Mid-American Conference,6.415584415584416
-2020,Troy,Sun Belt Conference,5.511479591836735
-2020,Tulane,American Athletic Conference,5.727602905569007
-2020,Tulsa,American Athletic Conference,5.639939485627837
-2020,UAB,Conference USA,5.921311475409836
-2020,UCF,American Athletic Conference,6.613504074505238
-2020,UCLA,Pac-12 Conference,6.136801541425819
-2020,USC,Pac-12 Conference,5.567928730512249
-2020,Utah,Pac-12 Conference,5.904899135446686
-2020,Utah State,Mountain West Conference,4.571823204419889
-2020,UTEP,Conference USA,5.166975881261595
-2020,UTSA,Conference USA,5.762124711316397
-2020,Vanderbilt,Southeastern Conference,4.714285714285714
-2020,Virginia,Atlantic Coast Conference,5.681879194630873
-2020,Virginia Tech,Atlantic Coast Conference,6.65934065934066
-2020,Wake Forest,Atlantic Coast Conference,5.798550724637681
-2020,Washington,Pac-12 Conference,6.033707865168539
-2020,Washington State,Pac-12 Conference,5.862595419847328
-2020,West Virginia,Big 12 Conference,5.436100131752306
-2020,Western Kentucky,Conference USA,4.6251655629139075
-2020,Western Michigan,Mid-American Conference,7.341836734693878
-2020,Wisconsin,Big Ten Conference,4.886868686868687
-2020,Wyoming,Mountain West Conference,5.469437652811736
 2021,Air Force,Mountain West Conference,5.841101694915254
 2021,Akron,Mid-American Conference,5.249679897567222
 2021,Alabama,Southeastern Conference,6.689555125725338
@@ -256,3 +129,134 @@ Season,Team,Conference,YardsPerPlay
 2021,Western Michigan,Mid-American Conference,6.332638164754953
 2021,Wisconsin,Big Ten Conference,5.587485515643105
 2021,Wyoming,Mountain West Conference,5.800715990453461
+2022,Air Force,Mountain West Conference,5.8076490438695165
+2022,Akron,Mid-American Conference,5.110857142857143
+2022,Alabama,Southeastern Conference,6.921875
+2022,Appalachian State,Sun Belt Conference,6.559423769507803
+2022,Arizona,Pac-12 Conference,6.834771886559802
+2022,Arizona State,Pac-12 Conference,5.895939086294416
+2022,Arkansas,Southeastern Conference,6.37006237006237
+2022,Arkansas State,Sun Belt Conference,4.861003861003861
+2022,Army,Independent,5.841755319148936
+2022,Auburn,Southeastern Conference,5.706030150753769
+2022,Ball State,Mid-American Conference,5.133630289532294
+2022,Baylor,Big 12 Conference,5.803667745415318
+2022,Boise State,Mountain West Conference,5.790374331550802
+2022,Boston College,Atlantic Coast Conference,4.636363636363637
+2022,Bowling Green,Mid-American Conference,5.04215456674473
+2022,Buffalo,Mid-American Conference,4.894211576846307
+2022,BYU,Independent,6.67710843373494
+2022,California,Pac-12 Conference,5.573248407643312
+2022,Central Michigan,Mid-American Conference,5.284172661870503
+2022,Charlotte,Conference USA,5.80625
+2022,Cincinnati,American Athletic Conference,5.756242568370987
+2022,Clemson,Atlantic Coast Conference,5.598440545808967
+2022,Coastal Carolina,Sun Belt Conference,6.030892448512586
+2022,Colorado,Pac-12 Conference,4.518072289156627
+2022,Colorado State,Mountain West Conference,4.8500707213578504
+2022,Connecticut,Independent,4.921348314606742
+2022,Duke,Atlantic Coast Conference,6.113122171945701
+2022,East Carolina,American Athletic Conference,6.6158940397351
+2022,Eastern Michigan,Mid-American Conference,5.297206703910614
+2022,Florida,Southeastern Conference,6.578758949880668
+2022,Florida Atlantic,Conference USA,5.675862068965517
+2022,Florida International,Conference USA,4.714805825242719
+2022,Florida State,Atlantic Coast Conference,6.963495575221239
+2022,Fresno State,Mountain West Conference,6.005324813631523
+2022,Georgia,Southeastern Conference,7.159047619047619
+2022,Georgia Southern,Sun Belt Conference,6.1794087665647295
+2022,Georgia State,Sun Belt Conference,5.718857142857143
+2022,Georgia Tech,Atlantic Coast Conference,4.830235439900868
+2022,Hawaii,Mountain West Conference,4.973214285714286
+2022,Houston,American Athletic Conference,6.569844789356985
+2022,Illinois,Big Ten Conference,5.2388059701492535
+2022,Indiana,Big Ten Conference,4.48122866894198
+2022,Iowa,Big Ten Conference,4.237046632124352
+2022,Iowa State,Big 12 Conference,5.088302752293578
+2022,James Madison,Sun Belt Conference,6.16728624535316
+2022,Kansas,Big 12 Conference,6.979192166462668
+2022,Kansas State,Big 12 Conference,6.120041753653445
+2022,Kent State,Mid-American Conference,5.78175519630485
+2022,Kentucky,Southeastern Conference,5.198275862068965
+2022,Liberty,Independent,5.694038245219348
+2022,Louisiana,Sun Belt Conference,5.276169265033408
+2022,Louisiana Tech,Conference USA,5.647058823529412
+2022,Louisiana-Monroe,Sun Belt Conference,5.216
+2022,Louisville,Atlantic Coast Conference,5.959367945823928
+2022,LSU,Southeastern Conference,6.36308926780341
+2022,Marshall,Sun Belt Conference,5.3661825726141075
+2022,Maryland,Big Ten Conference,5.704918032786885
+2022,Massachusetts,Independent,4.001254705144291
+2022,Memphis,American Athletic Conference,5.784582893347413
+2022,Miami (FL),Atlantic Coast Conference,5.326481257557437
+2022,Miami (OH),Mid-American Conference,4.839220462850183
+2022,Michigan,Big Ten Conference,6.621649484536082
+2022,Michigan State,Big Ten Conference,5.479948253557568
+2022,Middle Tennessee State,Conference USA,5.02901554404145
+2022,Minnesota,Big Ten Conference,5.874709976798144
+2022,Mississippi State,Southeastern Conference,5.498385360602799
+2022,Missouri,Southeastern Conference,5.427765237020316
+2022,Navy,American Athletic Conference,4.7026378896882495
+2022,Nebraska,Big Ten Conference,5.427069645203679
+2022,Nevada,Mountain West Conference,4.416464891041162
+2022,Nevada-Las Vegas,Mountain West Conference,5.53735255570118
+2022,New Mexico,Mountain West Conference,3.9438040345821324
+2022,New Mexico State,Independent,5.670184696569921
+2022,North Carolina,Atlantic Coast Conference,6.26595744680851
+2022,North Carolina State,Atlantic Coast Conference,4.838992332968236
+2022,North Texas,Conference USA,6.678719008264463
+2022,Northern Illinois,Mid-American Conference,5.554590570719603
+2022,Northwestern,Big Ten Conference,4.542889390519187
+2022,Notre Dame,Independent,5.919540229885057
+2022,Ohio,Mid-American Conference,6.1619644723093
+2022,Ohio State,Big Ten Conference,7.281963470319635
+2022,Oklahoma,Big 12 Conference,6.2368421052631575
+2022,Oklahoma State,Big 12 Conference,5.266
+2022,Old Dominion,Sun Belt Conference,5.564207650273224
+2022,Ole Miss,Southeastern Conference,6.446553446553446
+2022,Oregon,Pac-12 Conference,6.922340425531915
+2022,Oregon State,Pac-12 Conference,6.085106382978723
+2022,Penn State,Big Ten Conference,6.187705817782656
+2022,Pitt,Atlantic Coast Conference,5.7839912280701755
+2022,Purdue,Big Ten Conference,5.335557673975215
+2022,Rice,Conference USA,5.646171693735499
+2022,Rutgers,Big Ten Conference,4.435695538057743
+2022,San Diego State,Mountain West Conference,5.1891891891891895
+2022,San Jose State,Mountain West Conference,5.709302325581396
+2022,SMU,American Athletic Conference,6.116417910447761
+2022,South Alabama,Sun Belt Conference,5.779643231899265
+2022,South Carolina,Southeastern Conference,5.919471153846154
+2022,South Florida,American Athletic Conference,6.1147327249022165
+2022,Southern Mississippi,Sun Belt Conference,5.497572815533981
+2022,Stanford,Pac-12 Conference,5.265776699029126
+2022,Syracuse,Atlantic Coast Conference,5.970588235294118
+2022,Temple,American Athletic Conference,5.2443890274314215
+2022,Tennessee,Southeastern Conference,7.229629629629629
+2022,Texas,Big 12 Conference,6.381714285714286
+2022,Texas A&M,Southeastern Conference,5.721268163804491
+2022,Texas Christian,Big 12 Conference,6.6911764705882355
+2022,Texas State,Sun Belt Conference,4.71825876662636
+2022,Texas Tech,Big 12 Conference,5.508675799086758
+2022,Toledo,Mid-American Conference,5.520588235294118
+2022,Troy,Sun Belt Conference,5.616499442586399
+2022,Tulane,American Athletic Conference,6.601495726495727
+2022,Tulsa,American Athletic Conference,5.862396204033215
+2022,UAB,Conference USA,6.7008244994110715
+2022,UCF,American Athletic Conference,6.166979362101313
+2022,UCLA,Pac-12 Conference,7.009635974304069
+2022,USC,Pac-12 Conference,7.178137651821863
+2022,Utah,Pac-12 Conference,6.497017892644135
+2022,Utah State,Mountain West Conference,4.858649789029536
+2022,UTEP,Conference USA,5.471563981042654
+2022,UTSA,Conference USA,6.37093690248566
+2022,Vanderbilt,Southeastern Conference,5.268015170670038
+2022,Virginia,Atlantic Coast Conference,5.135820895522388
+2022,Virginia Tech,Atlantic Coast Conference,4.697547683923705
+2022,Wake Forest,Atlantic Coast Conference,5.880368098159509
+2022,Washington,Pac-12 Conference,6.876923076923077
+2022,Washington State,Pac-12 Conference,5.408304498269896
+2022,West Virginia,Big 12 Conference,5.503448275862069
+2022,Western Kentucky,Conference USA,6.713596914175506
+2022,Western Michigan,Mid-American Conference,4.52875
+2022,Wisconsin,Big Ten Conference,5.71584038694075
+2022,Wyoming,Mountain West Conference,5.206896551724138
