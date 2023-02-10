@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Advanced Sports Data Analysis - 5&nbsp; LightGBM</title>
+<title>Advanced Sports Data Analysis - 6&nbsp; LightGBM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./random-forest.html" rel="prev">
+<link href="./xgboost.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -132,7 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LightGBM</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LightGBM</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -194,7 +194,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lightgbm.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LightGBM</span></a>
+  <a href="./xgboost.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">XGBoost</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lightgbm.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LightGBM</span></a>
   </div>
 </li>
     </ul>
@@ -206,15 +211,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-basics" id="toc-the-basics" class="nav-link active" data-scroll-target="#the-basics"><span class="toc-section-number">5.1</span>  The basics</a></li>
-  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="toc-section-number">5.2</span>  Setup</a>
+  <li><a href="#the-basics" id="toc-the-basics" class="nav-link active" data-scroll-target="#the-basics"><span class="toc-section-number">6.1</span>  The basics</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="toc-section-number">6.2</span>  Setup</a>
   <ul class="collapse">
-  <li><a href="#exercise-1-setting-up-your-data" id="toc-exercise-1-setting-up-your-data" class="nav-link" data-scroll-target="#exercise-1-setting-up-your-data"><span class="toc-section-number">5.2.1</span>  Exercise 1: setting up your data</a></li>
-  <li><a href="#exercise-2-setting-up-the-receipe" id="toc-exercise-2-setting-up-the-receipe" class="nav-link" data-scroll-target="#exercise-2-setting-up-the-receipe"><span class="toc-section-number">5.2.2</span>  Exercise 2: setting up the receipe</a></li>
-  <li><a href="#exercise-3-making-workflows" id="toc-exercise-3-making-workflows" class="nav-link" data-scroll-target="#exercise-3-making-workflows"><span class="toc-section-number">5.2.3</span>  Exercise 3: making workflows</a></li>
-  <li><a href="#exercise-4-fitting-our-models" id="toc-exercise-4-fitting-our-models" class="nav-link" data-scroll-target="#exercise-4-fitting-our-models"><span class="toc-section-number">5.2.4</span>  Exercise 4: fitting our models</a></li>
-  <li><a href="#exercise-5-the-first-metrics" id="toc-exercise-5-the-first-metrics" class="nav-link" data-scroll-target="#exercise-5-the-first-metrics"><span class="toc-section-number">5.2.5</span>  Exercise 5: The first metrics</a></li>
-  <li><a href="#exercise-6-lightgbm-metrics" id="toc-exercise-6-lightgbm-metrics" class="nav-link" data-scroll-target="#exercise-6-lightgbm-metrics"><span class="toc-section-number">5.2.6</span>  Exercise 6: LightGBM metrics</a></li>
+  <li><a href="#exercise-1-setting-up-your-data" id="toc-exercise-1-setting-up-your-data" class="nav-link" data-scroll-target="#exercise-1-setting-up-your-data"><span class="toc-section-number">6.2.1</span>  Exercise 1: setting up your data</a></li>
+  <li><a href="#exercise-2-setting-up-the-receipe" id="toc-exercise-2-setting-up-the-receipe" class="nav-link" data-scroll-target="#exercise-2-setting-up-the-receipe"><span class="toc-section-number">6.2.2</span>  Exercise 2: setting up the receipe</a></li>
+  <li><a href="#exercise-3-making-workflows" id="toc-exercise-3-making-workflows" class="nav-link" data-scroll-target="#exercise-3-making-workflows"><span class="toc-section-number">6.2.3</span>  Exercise 3: making workflows</a></li>
+  <li><a href="#exercise-4-fitting-our-models" id="toc-exercise-4-fitting-our-models" class="nav-link" data-scroll-target="#exercise-4-fitting-our-models"><span class="toc-section-number">6.2.4</span>  Exercise 4: fitting our models</a></li>
+  <li><a href="#exercise-5-the-first-metrics" id="toc-exercise-5-the-first-metrics" class="nav-link" data-scroll-target="#exercise-5-the-first-metrics"><span class="toc-section-number">6.2.5</span>  Exercise 5: The first metrics</a></li>
+  <li><a href="#exercise-6-lightgbm-metrics" id="toc-exercise-6-lightgbm-metrics" class="nav-link" data-scroll-target="#exercise-6-lightgbm-metrics"><span class="toc-section-number">6.2.6</span>  Exercise 6: LightGBM metrics</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -224,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LightGBM</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LightGBM</span></h1>
 </div>
 
 
@@ -239,8 +244,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="the-basics" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="the-basics"><span class="header-section-number">5.1</span> The basics</h2>
+<section id="the-basics" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="the-basics"><span class="header-section-number">6.1</span> The basics</h2>
 <p>LIGHTGBM</p>
 <p>Let’s implement one. We start with libraries.</p>
 <div class="cell">
@@ -322,11 +327,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>For this tutorial, we’re going to create three models from three workflows so that we can compare a logistic regression to a random forest to a lightbgm model.</p>
 </section>
-<section id="setup" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="setup"><span class="header-section-number">5.2</span> Setup</h2>
+<section id="setup" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="setup"><span class="header-section-number">6.2</span> Setup</h2>
 <p>We’re going to go through the steps of modeling again, starting with splitting our <code>modelgames</code> data.</p>
-<section id="exercise-1-setting-up-your-data" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="exercise-1-setting-up-your-data"><span class="header-section-number">5.2.1</span> Exercise 1: setting up your data</h3>
+<section id="exercise-1-setting-up-your-data" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="exercise-1-setting-up-your-data"><span class="header-section-number">6.2.1</span> Exercise 1: setting up your data</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>game_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(??????????, <span class="at">prop =</span> .<span class="dv">8</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>game_train <span class="ot">&lt;-</span> <span class="fu">training</span>(game_split)</span>
@@ -337,8 +342,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>The recipe we’ll create is the same for both, so we’ll use it three times.</p>
 </section>
-<section id="exercise-2-setting-up-the-receipe" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="exercise-2-setting-up-the-receipe"><span class="header-section-number">5.2.2</span> Exercise 2: setting up the receipe</h3>
+<section id="exercise-2-setting-up-the-receipe" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="exercise-2-setting-up-the-receipe"><span class="header-section-number">6.2.2</span> Exercise 2: setting up the receipe</h3>
 <p>So what data are we feeding into our recipe?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>game_recipe <span class="ot">&lt;-</span> </span>
@@ -382,8 +387,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Now we have enough for our workflows. We have three models and one recipe.</p>
 </section>
-<section id="exercise-3-making-workflows" class="level3" data-number="5.2.3">
-<h3 data-number="5.2.3" class="anchored" data-anchor-id="exercise-3-making-workflows"><span class="header-section-number">5.2.3</span> Exercise 3: making workflows</h3>
+<section id="exercise-3-making-workflows" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="exercise-3-making-workflows"><span class="header-section-number">6.2.3</span> Exercise 3: making workflows</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>log_workflow <span class="ot">&lt;-</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">workflow</span>() <span class="sc">%&gt;%</span> </span>
@@ -405,8 +410,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Now we can fit our models to the data.</p>
 </section>
-<section id="exercise-4-fitting-our-models" class="level3" data-number="5.2.4">
-<h3 data-number="5.2.4" class="anchored" data-anchor-id="exercise-4-fitting-our-models"><span class="header-section-number">5.2.4</span> Exercise 4: fitting our models</h3>
+<section id="exercise-4-fitting-our-models" class="level3" data-number="6.2.4">
+<h3 data-number="6.2.4" class="anchored" data-anchor-id="exercise-4-fitting-our-models"><span class="header-section-number">6.2.4</span> Exercise 4: fitting our models</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>log_fit <span class="ot">&lt;-</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  log_workflow <span class="sc">%&gt;%</span> </span>
@@ -445,8 +450,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Now, how did we do?</p>
 </section>
-<section id="exercise-5-the-first-metrics" class="level3" data-number="5.2.5">
-<h3 data-number="5.2.5" class="anchored" data-anchor-id="exercise-5-the-first-metrics"><span class="header-section-number">5.2.5</span> Exercise 5: The first metrics</h3>
+<section id="exercise-5-the-first-metrics" class="level3" data-number="6.2.5">
+<h3 data-number="6.2.5" class="anchored" data-anchor-id="exercise-5-the-first-metrics"><span class="header-section-number">6.2.5</span> Exercise 5: The first metrics</h3>
 <p>What prediction dataset do we feed into our metrics? Let’s look first at the random forest, because it’s a tree-based method just like lightgbm.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(?????????, team_result, .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -463,8 +468,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Same as last time, the random forest produces bonkers training numbers. Can you say overfit?</p>
 <p>How about the lightgbm?</p>
 </section>
-<section id="exercise-6-lightgbm-metrics" class="level3" data-number="5.2.6">
-<h3 data-number="5.2.6" class="anchored" data-anchor-id="exercise-6-lightgbm-metrics"><span class="header-section-number">5.2.6</span> Exercise 6: LightGBM metrics</h3>
+<section id="exercise-6-lightgbm-metrics" class="level3" data-number="6.2.6">
+<h3 data-number="6.2.6" class="anchored" data-anchor-id="exercise-6-lightgbm-metrics"><span class="header-section-number">6.2.6</span> Exercise 6: LightGBM metrics</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(????????predict, team_result, .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -656,8 +661,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./random-forest.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Decision trees and random forests</span></span>
+      <a href="./xgboost.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">XGBoost</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
