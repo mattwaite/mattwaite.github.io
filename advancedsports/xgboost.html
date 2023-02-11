@@ -212,7 +212,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#hyperparameters" id="toc-hyperparameters" class="nav-link active" data-scroll-target="#hyperparameters"><span class="toc-section-number">5.1</span>  Hyperparameters</a></li>
+  <li><a href="#the-basics" id="toc-the-basics" class="nav-link active" data-scroll-target="#the-basics"><span class="toc-section-number">5.1</span>  The basics</a></li>
+  <li><a href="#hyperparameters" id="toc-hyperparameters" class="nav-link" data-scroll-target="#hyperparameters"><span class="toc-section-number">5.2</span>  Hyperparameters</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-making-a-workflow" id="toc-exercise-1-making-a-workflow" class="nav-link" data-scroll-target="#exercise-1-making-a-workflow"><span class="toc-section-number">5.2.1</span>  Exercise 1: making a workflow</a></li>
+  <li><a href="#exercise-2-creating-our-cross-fold-validation-set" id="toc-exercise-2-creating-our-cross-fold-validation-set" class="nav-link" data-scroll-target="#exercise-2-creating-our-cross-fold-validation-set"><span class="toc-section-number">5.2.2</span>  Exercise 2: creating our cross-fold validation set</a></li>
+  </ul></li>
+  <li><a href="#finalizing-our-model" id="toc-finalizing-our-model" class="nav-link" data-scroll-target="#finalizing-our-model"><span class="toc-section-number">5.3</span>  Finalizing our model</a>
+  <ul class="collapse">
+  <li><a href="#exercise-3-making-our-final-workflow" id="toc-exercise-3-making-our-final-workflow" class="nav-link" data-scroll-target="#exercise-3-making-our-final-workflow"><span class="toc-section-number">5.3.1</span>  Exercise 3: making our final workflow</a></li>
+  <li><a href="#exercise-4-prediction-time" id="toc-exercise-4-prediction-time" class="nav-link" data-scroll-target="#exercise-4-prediction-time"><span class="toc-section-number">5.3.2</span>  Exercise 4: prediction time</a></li>
+  <li><a href="#exercise-5-metrics" id="toc-exercise-5-metrics" class="nav-link" data-scroll-target="#exercise-5-metrics"><span class="toc-section-number">5.3.3</span>  Exercise 5: metrics</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -236,10 +247,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<section id="the-basics" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="the-basics"><span class="header-section-number">5.1</span> The basics</h2>
 <p>As we learned in the previous chapter, random forests (and bagged methods) average together a large number of trees to get to an answer. Random forests add a wrinkle by randomly choosing features at each branch to make it so each tree is not correlated and the trees are rather deep. The idea behind averaging them together is to cut down on the variance in predictions – random forests tend to be somewhat harder to fit to unseen data because of the variance. Random forests are fairly simple to implement, and are very popular.</p>
 <p>Boosting methods are another wrinkle in the tree based methods. Instead of deep trees, boosting methods intentionally pick shallow trees – called stumps – that, at least initially, do a poor job of predicting the outcome. Then, each subsequent stump takes the job the previous one did, optimizes to reduce the residuals – the gap between prediction and reality – and makes a prediction. And then the next one does the same, and so on and so on.</p>
-<p>The path to a boosted method is complex, the results can take a lot of your computer’s time, but the models are more generalizable, meaning they handle new data better than other methods. Among data scientists, boosted methods, such as xgboost, are very popular for solving a wide variety of problems.</p>
-<p>Let’s re-implement our predictions in an XGBoost algorithm. First, we’ll load libraries and we’re going to introduce a new one here – doParallel – which handles using more of your computer’s processor cores to accomplish tasks in parallel instead of one core at a time. In other words, instead of one task, it can do X at a time in parallel and put the answers together after.</p>
+<p>The path to a boosted method is complex, the results can take a lot of your computer’s time, but the models are more generalizable, meaning they handle new data better than other methods. Among data scientists, boosted methods, such as xgboost and lightgbm, are very popular for solving a wide variety of problems.</p>
+<p>Let’s re-implement our predictions in an XGBoost algorithm. First, we’ll load libraries.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
@@ -344,87 +357,110 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>To this point, everything looks like what we’ve done before. Nothing has really changed. It’s about to.</p>
-<section id="hyperparameters" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="hyperparameters"><span class="header-section-number">5.1</span> Hyperparameters</h2>
-<p>The hyperparameters are the inputs into the algorithm that make the fit. To find the ideal hyperparameters, you need to tune them. But first, let’s talk about the hyperparameters:</p>
-<ol type="1">
-<li>Number of trees – this is the total number of trees in the sequence. A gradient boosting algorithm will minimize residuals forever, so you need to tell it where to stop. That stopping point is different for every problem.</li>
+</section>
+<section id="hyperparameters" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="hyperparameters"><span class="header-section-number">5.2</span> Hyperparameters</h2>
+<p>The hyperparameters are the inputs into the algorithm that make the fit. To find the ideal hyperparameters, you need to tune them. But first, let’s talk about the hyperparameters we are going to tune (there are others we can, but every addition to the number of hyperparameters means more computation):</p>
+<ul>
+<li>Number of trees – this is the total number of trees in the sequence. A gradient boosting algorithm will minimize residuals forever, so you need to tell it where to stop. That stopping point is different for every problem. You can tune this, but I’ll warn you – this is the most computationally expensive tuning. For our example, we’re going to set the number of trees at 30. The default is 15. Tuning it can take a good computer more than an hour to complete, and you’ll have gained .1 percent of accuracy. If we’re Amazon and billions of dollars are on the line, it’s worth it. For predicting NCAA tournament games, it is not.</li>
 <li>Learn rate – this controls how fast the algorithm goes down the gradient descent – how fast it learns. Too fast and you’ll overshoot the optimal stopping point and start going up the error curve. Too slow and you’ll never get to the optimal stopping point.</li>
 <li>Tree depth – controls the depth of each individual tree. Too short and you’ll need a lot of them to get good results. Too deep and you risk overfitting.</li>
-<li>Minimum number of observations in the terminal node – controls the complexity of each tree. Typical values range from 5-15, and higher values keep a model from figuring out relationships that are unique to that training set (ie overfitting).</li>
-</ol>
-<p>Other settings:</p>
-<p>Loss reduction – this is the minimum loss reduction to make a new tree split. If the improvement hits this minimum, a split occurs. A low value and you get a complex tree. High value and you get a tree more robust to new data, but it’s more conservative. Sample size – The fraction of the total training set that can be used for each boosting round. Low values may lead to underfitting, high to overfitting. mtry – the number of predictors that will be randomly sampled at each split when making trees.</p>
+<li>Minimum number of observations in the terminal node (min_n) – controls the complexity of each tree. Typical values range from 5-15, and higher values keep a model from figuring out relationships that are unique to that training set (ie overfitting).</li>
+<li>Loss reduction – this is the minimum loss reduction to make a new tree split. If the improvement hits this minimum, a split occurs. A low value and you get a complex tree. High value and you get a tree more robust to new data, but it’s more conservative.</li>
+</ul>
+<p>Others you can tune, but have sensible defaults:</p>
+<ul>
+<li>Sample size – The fraction of the total training set that can be used for each boosting round. Low values may lead to underfitting, high to overfitting.</li>
+<li>mtry – the number of predictors that will be randomly sampled at each split when making trees.</li>
+</ul>
 <p>All of these combine to make the model, and each has their own specific ideal. How do we find it? Tuning.</p>
-<p>First, we make a mode and label each parameter as tune()</p>
+<p>First, we make a model and label each parameter as tune()</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>xg_mod <span class="ot">&lt;-</span>   <span class="fu">boost_tree</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">learn_rate =</span> <span class="fu">tune</span>(),</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">tree_depth =</span> <span class="fu">tune</span>(), </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">min_n =</span> <span class="fu">tune</span>(),</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">loss_reduction =</span> <span class="fu">tune</span>()</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>xg_mod <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">trees =</span> <span class="dv">30</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mtry =</span> <span class="fu">tune</span>(),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">learn_rate =</span> ????(),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">tree_depth =</span> ????(), </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">min_n =</span> ????(),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">loss_reduction =</span> ????()</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+
+</div>
+<section id="exercise-1-making-a-workflow" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="exercise-1-making-a-workflow"><span class="header-section-number">5.2.1</span> Exercise 1: making a workflow</h3>
 <p>Let’s make a workflow now that we have our recipe and our model.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>game_wflow <span class="ot">&lt;-</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">workflow</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(xg_mod) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(game_recipe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(??_???) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(????_recipe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now, to tune the model, we have to create a grid. The grid is essentially a random sample of parameters to try. The latin hypercube is a method of creating a near-random sample of parameter values in multidimentional distributions (ie there’s more than one predictor). The latin hypercube is near-random because there has to be one sample in each row and column of the hypercube. Essentially, it removes the possibility of totally empty spaces in the cube. What follows is what parameters the hypercube will tune.</p>
+<div class="cell">
+
+</div>
+<p>Now, to tune the model, we have to create a grid. The grid is essentially a random sample of parameters to try. The latin hypercube is a method of creating a near-random sample of parameter values in multidimentional distributions (ie there’s more than one predictor). The latin hypercube is near-random because there has to be one sample in each row and column of the hypercube. Essentially, it removes the possibility of totally empty spaces in the cube. Why is that important? Because this hypercube is how your tuning is going to find the optimal outputs.</p>
+<p>What follows is what parameters the hypercube will tune.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>xgb_grid <span class="ot">&lt;-</span> <span class="fu">grid_latin_hypercube</span>(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tree_depth</span>(),</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">min_n</span>(),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">loss_reduction</span>(),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">learn_rate</span>(),</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="dv">30</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>xgb_grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">finalize</span>(<span class="fu">mtry</span>(), game_train),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tree_depth</span>(),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">min_n</span>(),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">loss_reduction</span>(),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">learn_rate</span>(),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="dv">30</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>xgb_grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 30 × 4
-   tree_depth min_n loss_reduction learn_rate
-        &lt;int&gt; &lt;int&gt;          &lt;dbl&gt;      &lt;dbl&gt;
- 1         11    23  0.00000000170   3.56e-10
- 2          2    32  0.0186          1.61e- 9
- 3         13     9  1.75            3.03e- 6
- 4         10    29  0.000000101     2.67e- 2
- 5         13     7  0.0000539       8.38e- 2
- 6          9    16  0.358           8.68e- 5
- 7         13    36  0.000101        4.80e- 7
- 8          2    39  0.0377          4.58e- 4
- 9          1    19  0.0887          7.85e- 9
-10          7    34  0.819           1.72e-10
+<pre><code># A tibble: 30 × 5
+    mtry tree_depth min_n loss_reduction    learn_rate
+   &lt;int&gt;      &lt;int&gt; &lt;int&gt;          &lt;dbl&gt;         &lt;dbl&gt;
+ 1     8         13     3       1.45e- 7 0.0000379    
+ 2     6         11    27       3.91e- 1 0.00000483   
+ 3     5          9    25       3.91e- 9 0.00000000226
+ 4     5          2     5       3.31e- 7 0.000000379  
+ 5     5          3    26       1.67e- 8 0.0100       
+ 6     2         10    22       4.58e-10 0.00151      
+ 7     5          1    19       1.78e- 4 0.000425     
+ 8     6         13    29       2.83e- 5 0.00000944   
+ 9     6          8    13       5.71e- 3 0.0302       
+10     8         14    18       2.94e- 1 0.0000152    
 # … with 20 more rows</code></pre>
 </div>
 </div>
-<p>How do we tune it? Using something called cross fold validation. Cross fold validation takes our grid, applies it to a set of subsets (in our case 10 subsets) and compares. When it’s done, each validation set will have a set of tuned values and outcomes that we can evaluate and pick the optimal set to get a result.</p>
+<p>How do we tune it? Using something called cross fold validation. Cross fold validation takes our grid, applies it to a set of subsets (in our case 10 subsets) and compares. It’ll take a random square in the hypercube, try the combinations in there, and see what happens. It’ll then keep doing that, over and over and over and over. When it’s done, each validation set will have a set of tuned values and outcomes that we can evaluate and pick the optimal set to get a result.</p>
+</section>
+<section id="exercise-2-creating-our-cross-fold-validation-set" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="exercise-2-creating-our-cross-fold-validation-set"><span class="header-section-number">5.2.2</span> Exercise 2: creating our cross-fold validation set</h3>
+<p>This will create the folds, which are just 10 random subsets of the training data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>game_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(game_train)</span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>game_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(game_?????)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>game_folds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>#  10-fold cross-validation 
 # A tibble: 10 × 2
    splits               id    
    &lt;list&gt;               &lt;chr&gt; 
- 1 &lt;split [55082/6121]&gt; Fold01
- 2 &lt;split [55082/6121]&gt; Fold02
- 3 &lt;split [55082/6121]&gt; Fold03
- 4 &lt;split [55083/6120]&gt; Fold04
- 5 &lt;split [55083/6120]&gt; Fold05
- 6 &lt;split [55083/6120]&gt; Fold06
- 7 &lt;split [55083/6120]&gt; Fold07
- 8 &lt;split [55083/6120]&gt; Fold08
- 9 &lt;split [55083/6120]&gt; Fold09
-10 &lt;split [55083/6120]&gt; Fold10</code></pre>
+ 1 &lt;split [55193/6133]&gt; Fold01
+ 2 &lt;split [55193/6133]&gt; Fold02
+ 3 &lt;split [55193/6133]&gt; Fold03
+ 4 &lt;split [55193/6133]&gt; Fold04
+ 5 &lt;split [55193/6133]&gt; Fold05
+ 6 &lt;split [55193/6133]&gt; Fold06
+ 7 &lt;split [55194/6132]&gt; Fold07
+ 8 &lt;split [55194/6132]&gt; Fold08
+ 9 &lt;split [55194/6132]&gt; Fold09
+10 &lt;split [55194/6132]&gt; Fold10</code></pre>
 </div>
 </div>
-<p>This part takes about 25-30 minutes on my machine and it will saturate all of your processors, so your computer just needs to sit there. No texting, no YouTube, nothing. Let it burn.</p>
+<p>Now we come to the part that is going to take some time on your computer. How long? It depends. On my old 2018 Intel Mac, this part took about 25-30 minutes on my machine and made it sounds like it was attempting liftoff. My 2022 M1 Mac? Right around 10 minutes. Depending on how new and how powerful you computer is, it could take minutes, or it could take hours. The point being, start it up, walk away, and let it burn.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>xgb_res <span class="ot">&lt;-</span> <span class="fu">tune_grid</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  game_wflow,</span>
@@ -433,47 +469,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">control_grid</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>So our grid has run on all of our validation samples, and what do we see?</p>
+<p>Our grid has run on all of our validation samples, and what do we see?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(xgb_res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 60 × 10
-   min_n tree_depth learn_rate loss_reduction .metric  .estimator  mean     n
-   &lt;int&gt;      &lt;int&gt;      &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;
- 1    23         11   3.56e-10  0.00000000170 accuracy binary     0.500    10
- 2    23         11   3.56e-10  0.00000000170 roc_auc  binary     0.5      10
- 3    32          2   1.61e- 9  0.0186        accuracy binary     0.500    10
- 4    32          2   1.61e- 9  0.0186        roc_auc  binary     0.5      10
- 5     9         13   3.03e- 6  1.75          accuracy binary     0.591    10
- 6     9         13   3.03e- 6  1.75          roc_auc  binary     0.632    10
- 7    29         10   2.67e- 2  0.000000101   accuracy binary     0.610    10
- 8    29         10   2.67e- 2  0.000000101   roc_auc  binary     0.653    10
- 9     7         13   8.38e- 2  0.0000539     accuracy binary     0.603    10
-10     7         13   8.38e- 2  0.0000539     roc_auc  binary     0.643    10
-# … with 50 more rows, and 2 more variables: std_err &lt;dbl&gt;, .config &lt;chr&gt;</code></pre>
+<pre><code># A tibble: 60 × 11
+    mtry min_n tree_depth    learn_rate loss_reduction .metric  .estimator  mean
+   &lt;int&gt; &lt;int&gt;      &lt;int&gt;         &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;
+ 1     8     3         13 0.0000379      0.000000145   accuracy binary     0.588
+ 2     8     3         13 0.0000379      0.000000145   roc_auc  binary     0.623
+ 3     6    27         11 0.00000483     0.391         accuracy binary     0.606
+ 4     6    27         11 0.00000483     0.391         roc_auc  binary     0.647
+ 5     5    25          9 0.00000000226  0.00000000391 accuracy binary     0.500
+ 6     5    25          9 0.00000000226  0.00000000391 roc_auc  binary     0.510
+ 7     5     5          2 0.000000379    0.000000331   accuracy binary     0.576
+ 8     5     5          2 0.000000379    0.000000331   roc_auc  binary     0.617
+ 9     5    26          3 0.0100         0.0000000167  accuracy binary     0.611
+10     5    26          3 0.0100         0.0000000167  roc_auc  binary     0.653
+# … with 50 more rows, and 3 more variables: n &lt;int&gt;, std_err &lt;dbl&gt;,
+#   .config &lt;chr&gt;</code></pre>
 </div>
 </div>
-<p>Well we see 60 combinations and the metrics from them. But that doesn’t mean much to us just eyeballing it. We want to see the best combination.</p>
+<p>Well we see 60 combinations and the metrics from them. But that doesn’t mean much to us just eyeballing it. We want to see the best combination. There’s a function to just show us the best one called … wait for it … <code>show_best</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show_best</span>(xgb_res, <span class="st">"accuracy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 10
-  min_n tree_depth  learn_rate loss_reduction .metric  .estimator  mean     n
-  &lt;int&gt;      &lt;int&gt;       &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;
-1    37          7 0.00986           4.81e-10 accuracy binary     0.611    10
-2    29         10 0.0267            1.01e- 7 accuracy binary     0.610    10
-3    15          6 0.0000107         2.32e- 4 accuracy binary     0.610    10
-4    12          7 0.000000137       3.94e+ 0 accuracy binary     0.609    10
-5    16          8 0.000909          4.24e- 4 accuracy binary     0.608    10
-# … with 2 more variables: std_err &lt;dbl&gt;, .config &lt;chr&gt;</code></pre>
+<pre><code># A tibble: 5 × 11
+   mtry min_n tree_depth  learn_rate loss_reduction .metric  .estimator  mean
+  &lt;int&gt; &lt;int&gt;      &lt;int&gt;       &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;
+1     7    39          5 0.0639        0.142        accuracy binary     0.615
+2     6    13          8 0.0302        0.00571      accuracy binary     0.614
+3     3    17          6 0.0210        0.0424       accuracy binary     0.614
+4     6    36          6 0.00000128    0.000369     accuracy binary     0.614
+5     4    28          5 0.000000100   0.0000000714 accuracy binary     0.612
+# … with 3 more variables: n &lt;int&gt;, std_err &lt;dbl&gt;, .config &lt;chr&gt;</code></pre>
 </div>
 </div>
-<p>The best combination as of this data update comes up with an accuracy of X.</p>
-<p>Let’s capture our best set of hyperparameters.</p>
+<p>The best combination as of this data update comes up with an accuracy of about 61.5 percent.</p>
+</section>
+</section>
+<section id="finalizing-our-model" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="finalizing-our-model"><span class="header-section-number">5.3</span> Finalizing our model</h2>
+<p>Let’s capture our best set of hyperparameters so we can use them in our model.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>best_acc <span class="ot">&lt;-</span> <span class="fu">select_best</span>(xgb_res, <span class="st">"accuracy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>And now put that into a final workflow. Pay attention to the main arguments in the output below.</p>
+<p>And now we put that into a final workflow. Pay attention to the main arguments in the output below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>final_xgb <span class="ot">&lt;-</span> <span class="fu">finalize_workflow</span>(</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  game_wflow,</span>
@@ -493,90 +534,105 @@ Model: boost_tree()
 Boosted Tree Model Specification (classification)
 
 Main Arguments:
-  min_n = 37
-  tree_depth = 7
-  learn_rate = 0.0098647494379839
-  loss_reduction = 4.80971650158781e-10
+  mtry = 7
+  trees = 30
+  min_n = 39
+  tree_depth = 5
+  learn_rate = 0.0638697307094032
+  loss_reduction = 0.141518399318604
 
 Computational engine: xgboost </code></pre>
 </div>
 </div>
 <p>There’s our best set of hyperparameters. We’ve tuned this model to give the best possible set of results in those settings. Now we apply it like we have been doing all along.</p>
-<p>We create a fit.</p>
+<section id="exercise-3-making-our-final-workflow" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="exercise-3-making-our-final-workflow"><span class="header-section-number">5.3.1</span> Exercise 3: making our final workflow</h3>
+<p>We create a fit using our finalized workflow.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>xg_fit <span class="ot">&lt;-</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  final_xgb <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  ?????_xgb <span class="sc">%&gt;%</span> </span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(<span class="at">data =</span> game_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can see something things about that fit, including all the iterations of our XGBoost model. Note: our tuned number of trees is 1,743 – and in the workflow fit, you can see 1,743 iterations. Remember: Boosted models work sequentially. One after the other. So you can see it at work. The error goes down with each iteration as we go down the gradient descent.</p>
+<div class="cell">
+
+</div>
+<p>We can see something things about that fit, including all the iterations of our XGBoost model. Remember: Boosted models work sequentially. One after the other. So you can see it at work. The error goes down with each iteration as we go down the gradient descent.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>xg_fit <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull_workflow_fit</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: `pull_workflow_fit()` was deprecated in workflows 0.2.3.
-Please use `extract_fit_parsnip()` instead.</code></pre>
-</div>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_fit_parsnip</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>parsnip model object
 
 ##### xgb.Booster
-raw: 113.5 Kb 
+raw: 82 Kb 
 call:
-  xgboost::xgb.train(params = list(eta = 0.0098647494379839, max_depth = 7L, 
-    gamma = 4.80971650158781e-10, colsample_bytree = 1, colsample_bynode = 1, 
-    min_child_weight = 37L, subsample = 1), data = x$data, nrounds = 15, 
+  xgboost::xgb.train(params = list(eta = 0.0638697307094032, max_depth = 5L, 
+    gamma = 0.141518399318604, colsample_bytree = 1, colsample_bynode = 1, 
+    min_child_weight = 39L, subsample = 1), data = x$data, nrounds = 30, 
     watchlist = x$watchlist, verbose = 0, nthread = 1, objective = "binary:logistic")
 params (as set within xgb.train):
-  eta = "0.0098647494379839", max_depth = "7", gamma = "4.80971650158781e-10", colsample_bytree = "1", colsample_bynode = "1", min_child_weight = "37", subsample = "1", nthread = "1", objective = "binary:logistic", validate_parameters = "TRUE"
+  eta = "0.0638697307094032", max_depth = "5", gamma = "0.141518399318604", colsample_bytree = "1", colsample_bynode = "1", min_child_weight = "39", subsample = "1", nthread = "1", objective = "binary:logistic", validate_parameters = "TRUE"
 xgb.attributes:
   niter
 callbacks:
   cb.evaluation.log()
 # of features: 2 
-niter: 15
+niter: 30
 nfeatures : 2 
 evaluation_log:
     iter training_logloss
-       1        0.6922803
-       2        0.6914307
+       1        0.6881808
+       2        0.6837934
 ---                      
-      14        0.6824192
-      15        0.6817569</code></pre>
+      29        0.6488872
+      30        0.6486669</code></pre>
 </div>
 </div>
+</section>
+<section id="exercise-4-prediction-time" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="exercise-4-prediction-time"><span class="header-section-number">5.3.2</span> Exercise 4: prediction time</h3>
 <p>Now, like before, we can bind our predictions using our xg_fit to the game_train data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(xg_fit, game_train))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(??_???, game_train))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+
+</div>
+</section>
+<section id="exercise-5-metrics" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="exercise-5-metrics"><span class="header-section-number">5.3.3</span> Exercise 5: metrics</h3>
 <p>And now see how we did.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(trainresults, <span class="at">truth =</span> team_result, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(????????????, <span class="at">truth =</span> team_result, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
 1 accuracy binary         0.621
-2 kap      binary         0.241</code></pre>
+2 kap      binary         0.242</code></pre>
 </div>
 </div>
 <p>How about the test data?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> game_test <span class="sc">%&gt;%</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(xg_fit, game_test))</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(testresults, <span class="at">truth =</span> team_result, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> game_test <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(xg_fit, game_test))</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(testresults, <span class="at">truth =</span> team_result, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
 1 accuracy binary         0.613
-2 kap      binary         0.226</code></pre>
+2 kap      binary         0.225</code></pre>
 </div>
 </div>
 <p>Unlike the random forest, not nearly the drop in metrics between train and test.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

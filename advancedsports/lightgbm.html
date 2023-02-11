@@ -218,8 +218,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#exercise-2-setting-up-the-receipe" id="toc-exercise-2-setting-up-the-receipe" class="nav-link" data-scroll-target="#exercise-2-setting-up-the-receipe"><span class="toc-section-number">6.2.2</span>  Exercise 2: setting up the receipe</a></li>
   <li><a href="#exercise-3-making-workflows" id="toc-exercise-3-making-workflows" class="nav-link" data-scroll-target="#exercise-3-making-workflows"><span class="toc-section-number">6.2.3</span>  Exercise 3: making workflows</a></li>
   <li><a href="#exercise-4-fitting-our-models" id="toc-exercise-4-fitting-our-models" class="nav-link" data-scroll-target="#exercise-4-fitting-our-models"><span class="toc-section-number">6.2.4</span>  Exercise 4: fitting our models</a></li>
-  <li><a href="#exercise-5-the-first-metrics" id="toc-exercise-5-the-first-metrics" class="nav-link" data-scroll-target="#exercise-5-the-first-metrics"><span class="toc-section-number">6.2.5</span>  Exercise 5: The first metrics</a></li>
-  <li><a href="#exercise-6-lightgbm-metrics" id="toc-exercise-6-lightgbm-metrics" class="nav-link" data-scroll-target="#exercise-6-lightgbm-metrics"><span class="toc-section-number">6.2.6</span>  Exercise 6: LightGBM metrics</a></li>
+  </ul></li>
+  <li><a href="#prediction-time" id="toc-prediction-time" class="nav-link" data-scroll-target="#prediction-time"><span class="toc-section-number">6.3</span>  Prediction time</a>
+  <ul class="collapse">
+  <li><a href="#exercise-5-the-first-metrics" id="toc-exercise-5-the-first-metrics" class="nav-link" data-scroll-target="#exercise-5-the-first-metrics"><span class="toc-section-number">6.3.1</span>  Exercise 5: The first metrics</a></li>
+  <li><a href="#exercise-6-lightgbm-metrics" id="toc-exercise-6-lightgbm-metrics" class="nav-link" data-scroll-target="#exercise-6-lightgbm-metrics"><span class="toc-section-number">6.3.2</span>  Exercise 6: LightGBM metrics</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -246,8 +249,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="the-basics" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="the-basics"><span class="header-section-number">6.1</span> The basics</h2>
-<p>LIGHTGBM</p>
-<p>Let’s implement one. We start with libraries.</p>
+<p>LightGBM is another tree-based method that is similar to XGBoost but differs in ways that make it computationally more efficient. Where XGBoost and Random Forests are based on branches, LightGBM grows leaf-wise. Think of it like this – XGBoost uses lots of short trees with branches – it comes to a fork, makes a decision that reduces the amount of error the last tree got, and makes a new branch. LightGBM on the other hand, makes new leaves of each branch, which can mean lots of little splits, instead of big ones. That can lead to over-fitting on small datasets, but it also means it’s much faster than XGBoost.</p>
+<p>LightGBM also uses histograms of the data to make choices, where XGBoost is comptutationally optimizing those choices. Roughly translated – LightGBM is looking at the fat part of a normal distribution to make choices, where XGBoost is tuning parameters to find the optimal path forward. It’s another reason why LightGBM is faster, but also not reliable with small datasets.</p>
+<p>Let’s implement a LightGBM model. We start with libraries.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
@@ -257,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let’s use what we had from the last tutorial – a rolling window of points per possession for team and opponent. I’ve gone ahead and run it all in the background. You can see modelgames by using <code>head</code> in the block.</p>
+<p>We’ll continue to use what we’ve done for feature engineering – a rolling window of points per possession for team and opponent. You should be quite familiar with this by now.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>teamgames <span class="ot">&lt;-</span> <span class="fu">load_mbb_team_box</span>(<span class="at">seasons =</span> <span class="dv">2015</span><span class="sc">:</span><span class="dv">2023</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(field_goals_made_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"field_goals_made"</span>,<span class="st">"field_goals_attempted"</span>)) <span class="sc">%&gt;%</span></span>
@@ -428,6 +432,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 
 </div>
+</section>
+</section>
+<section id="prediction-time" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="prediction-time"><span class="header-section-number">6.3</span> Prediction time</h2>
 <p>Now we can bind our predictions to the training data and see how we did.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>logpredict <span class="ot">&lt;-</span> log_fit <span class="sc">%&gt;%</span> <span class="fu">predict</span>(<span class="at">new_data =</span> game_train) <span class="sc">%&gt;%</span></span>
@@ -449,9 +457,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(lightgbmpredict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, how did we do?</p>
-</section>
-<section id="exercise-5-the-first-metrics" class="level3" data-number="6.2.5">
-<h3 data-number="6.2.5" class="anchored" data-anchor-id="exercise-5-the-first-metrics"><span class="header-section-number">6.2.5</span> Exercise 5: The first metrics</h3>
+<section id="exercise-5-the-first-metrics" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="exercise-5-the-first-metrics"><span class="header-section-number">6.3.1</span> Exercise 5: The first metrics</h3>
 <p>What prediction dataset do we feed into our metrics? Let’s look first at the random forest, because it’s a tree-based method just like lightgbm.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(?????????, team_result, .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -462,14 +469,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
 1 accuracy binary         0.961
-2 kap      binary         0.921</code></pre>
+2 kap      binary         0.923</code></pre>
 </div>
 </div>
 <p>Same as last time, the random forest produces bonkers training numbers. Can you say overfit?</p>
 <p>How about the lightgbm?</p>
 </section>
-<section id="exercise-6-lightgbm-metrics" class="level3" data-number="6.2.6">
-<h3 data-number="6.2.6" class="anchored" data-anchor-id="exercise-6-lightgbm-metrics"><span class="header-section-number">6.2.6</span> Exercise 6: LightGBM metrics</h3>
+<section id="exercise-6-lightgbm-metrics" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="exercise-6-lightgbm-metrics"><span class="header-section-number">6.3.2</span> Exercise 6: LightGBM metrics</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(????????predict, team_result, .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -479,7 +486,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
 1 accuracy binary         0.628
-2 kap      binary         0.255</code></pre>
+2 kap      binary         0.256</code></pre>
 </div>
 </div>
 <p>About 63 percent accuracy. Which, if you’ll recall, is a few percentage points better than logistic regression, and worse than random forest <em>WITH A HUGE ASTERISK.</em></p>
@@ -497,8 +504,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code># A tibble: 2 × 3
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-1 accuracy binary         0.571
-2 kap      binary         0.141</code></pre>
+1 accuracy binary         0.577
+2 kap      binary         0.153</code></pre>
 </div>
 </div>
 <p>Right at 57 percent. A little bit lower than logistic regression. But did they come to the same answers to get those numbers? No.</p>
@@ -515,8 +522,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code># A tibble: 2 × 3
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-1 accuracy binary         0.613
-2 kap      binary         0.226</code></pre>
+1 accuracy binary         0.610
+2 kap      binary         0.220</code></pre>
 </div>
 </div>
 <p>Our three models, based on our very basic feature engineering, are <em>still</em> only slightly better than flipping a coin. If we want to get better, we’ve still got work to do.</p>
