@@ -215,14 +215,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#the-basics" id="toc-the-basics" class="nav-link active" data-scroll-target="#the-basics"><span class="toc-section-number">5.1</span>  The basics</a></li>
   <li><a href="#hyperparameters" id="toc-hyperparameters" class="nav-link" data-scroll-target="#hyperparameters"><span class="toc-section-number">5.2</span>  Hyperparameters</a>
   <ul class="collapse">
-  <li><a href="#exercise-1-making-a-workflow" id="toc-exercise-1-making-a-workflow" class="nav-link" data-scroll-target="#exercise-1-making-a-workflow"><span class="toc-section-number">5.2.1</span>  Exercise 1: making a workflow</a></li>
-  <li><a href="#exercise-2-creating-our-cross-fold-validation-set" id="toc-exercise-2-creating-our-cross-fold-validation-set" class="nav-link" data-scroll-target="#exercise-2-creating-our-cross-fold-validation-set"><span class="toc-section-number">5.2.2</span>  Exercise 2: creating our cross-fold validation set</a></li>
+  <li><a href="#exercise-1-tuning" id="toc-exercise-1-tuning" class="nav-link" data-scroll-target="#exercise-1-tuning"><span class="toc-section-number">5.2.1</span>  Exercise 1: tuning</a></li>
+  <li><a href="#exercise-2-making-a-workflow" id="toc-exercise-2-making-a-workflow" class="nav-link" data-scroll-target="#exercise-2-making-a-workflow"><span class="toc-section-number">5.2.2</span>  Exercise 2: making a workflow</a></li>
+  <li><a href="#exercise-3-creating-our-cross-fold-validation-set" id="toc-exercise-3-creating-our-cross-fold-validation-set" class="nav-link" data-scroll-target="#exercise-3-creating-our-cross-fold-validation-set"><span class="toc-section-number">5.2.3</span>  Exercise 3: creating our cross-fold validation set</a></li>
   </ul></li>
   <li><a href="#finalizing-our-model" id="toc-finalizing-our-model" class="nav-link" data-scroll-target="#finalizing-our-model"><span class="toc-section-number">5.3</span>  Finalizing our model</a>
   <ul class="collapse">
-  <li><a href="#exercise-3-making-our-final-workflow" id="toc-exercise-3-making-our-final-workflow" class="nav-link" data-scroll-target="#exercise-3-making-our-final-workflow"><span class="toc-section-number">5.3.1</span>  Exercise 3: making our final workflow</a></li>
-  <li><a href="#exercise-4-prediction-time" id="toc-exercise-4-prediction-time" class="nav-link" data-scroll-target="#exercise-4-prediction-time"><span class="toc-section-number">5.3.2</span>  Exercise 4: prediction time</a></li>
-  <li><a href="#exercise-5-metrics" id="toc-exercise-5-metrics" class="nav-link" data-scroll-target="#exercise-5-metrics"><span class="toc-section-number">5.3.3</span>  Exercise 5: metrics</a></li>
+  <li><a href="#exercise-4-making-our-final-workflow" id="toc-exercise-4-making-our-final-workflow" class="nav-link" data-scroll-target="#exercise-4-making-our-final-workflow"><span class="toc-section-number">5.3.1</span>  Exercise 4: making our final workflow</a></li>
+  <li><a href="#exercise-5-prediction-time" id="toc-exercise-5-prediction-time" class="nav-link" data-scroll-target="#exercise-5-prediction-time"><span class="toc-section-number">5.3.2</span>  Exercise 5: prediction time</a></li>
+  <li><a href="#exercise-6-metrics" id="toc-exercise-6-metrics" class="nav-link" data-scroll-target="#exercise-6-metrics"><span class="toc-section-number">5.3.3</span>  Exercise 6: metrics</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -362,7 +363,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="5.2" class="anchored" data-anchor-id="hyperparameters"><span class="header-section-number">5.2</span> Hyperparameters</h2>
 <p>The hyperparameters are the inputs into the algorithm that make the fit. To find the ideal hyperparameters, you need to tune them. But first, let’s talk about the hyperparameters we are going to tune (there are others we can, but every addition to the number of hyperparameters means more computation):</p>
 <ul>
-<li>Number of trees – this is the total number of trees in the sequence. A gradient boosting algorithm will minimize residuals forever, so you need to tell it where to stop. That stopping point is different for every problem. You can tune this, but I’ll warn you – this is the most computationally expensive tuning. For our example, we’re going to set the number of trees at 30. The default is 15. Tuning it can take a good computer more than an hour to complete, and you’ll have gained .1 percent of accuracy. If we’re Amazon and billions of dollars are on the line, it’s worth it. For predicting NCAA tournament games, it is not.</li>
+<li>mtry – the number of predictors that will be randomly sampled at each split when making trees.</li>
 <li>Learn rate – this controls how fast the algorithm goes down the gradient descent – how fast it learns. Too fast and you’ll overshoot the optimal stopping point and start going up the error curve. Too slow and you’ll never get to the optimal stopping point.</li>
 <li>Tree depth – controls the depth of each individual tree. Too short and you’ll need a lot of them to get good results. Too deep and you risk overfitting.</li>
 <li>Minimum number of observations in the terminal node (min_n) – controls the complexity of each tree. Typical values range from 5-15, and higher values keep a model from figuring out relationships that are unique to that training set (ie overfitting).</li>
@@ -370,10 +371,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Others you can tune, but have sensible defaults:</p>
 <ul>
+<li>Number of trees – this is the total number of trees in the sequence. A gradient boosting algorithm will minimize residuals forever, so you need to tell it where to stop. That stopping point is different for every problem. You can tune this, but I’ll warn you – this is the most computationally expensive tuning. For our example, we’re going to set the number of trees at 30. The default is 15. Tuning it can take a good computer more than an hour to complete, and you’ll have gained .1 percent of accuracy. If we’re Amazon and billions of dollars are on the line, it’s worth it. For predicting NCAA tournament games, it is not.</li>
 <li>Sample size – The fraction of the total training set that can be used for each boosting round. Low values may lead to underfitting, high to overfitting.</li>
-<li>mtry – the number of predictors that will be randomly sampled at each split when making trees.</li>
 </ul>
 <p>All of these combine to make the model, and each has their own specific ideal. How do we find it? Tuning.</p>
+<section id="exercise-1-tuning" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="exercise-1-tuning"><span class="header-section-number">5.2.1</span> Exercise 1: tuning</h3>
 <p>First, we make a model and label each parameter as tune()</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>xg_mod <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>(</span>
@@ -390,8 +393,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 
 </div>
-<section id="exercise-1-making-a-workflow" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="exercise-1-making-a-workflow"><span class="header-section-number">5.2.1</span> Exercise 1: making a workflow</h3>
+</section>
+<section id="exercise-2-making-a-workflow" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="exercise-2-making-a-workflow"><span class="header-section-number">5.2.2</span> Exercise 2: making a workflow</h3>
 <p>Let’s make a workflow now that we have our recipe and our model.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>game_wflow <span class="ot">&lt;-</span> </span>
@@ -417,25 +421,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>xgb_grid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 30 × 5
-    mtry tree_depth min_n loss_reduction    learn_rate
-   &lt;int&gt;      &lt;int&gt; &lt;int&gt;          &lt;dbl&gt;         &lt;dbl&gt;
- 1     8         13     3       1.45e- 7 0.0000379    
- 2     6         11    27       3.91e- 1 0.00000483   
- 3     5          9    25       3.91e- 9 0.00000000226
- 4     5          2     5       3.31e- 7 0.000000379  
- 5     5          3    26       1.67e- 8 0.0100       
- 6     2         10    22       4.58e-10 0.00151      
- 7     5          1    19       1.78e- 4 0.000425     
- 8     6         13    29       2.83e- 5 0.00000944   
- 9     6          8    13       5.71e- 3 0.0302       
-10     8         14    18       2.94e- 1 0.0000152    
+    mtry tree_depth min_n loss_reduction learn_rate
+   &lt;int&gt;      &lt;int&gt; &lt;int&gt;          &lt;dbl&gt;      &lt;dbl&gt;
+ 1     5         11    12       9.68e+ 0   7.33e- 3
+ 2     2          6    33       5.23e- 4   2.73e- 3
+ 3     3         11     9       3.49e- 9   6.81e-10
+ 4     5          3    29       2.37e- 4   6.51e- 8
+ 5     4         14    26       1.26e+ 0   1.03e- 7
+ 6     5          1    25       2.94e+ 0   9.73e- 5
+ 7     4          8    30       1.90e-10   6.59e- 6
+ 8     4         12    40       8.71e- 7   5.07e- 4
+ 9     1          2    32       6.77e- 6   1.46e- 5
+10     6         11     5       1.21e- 2   2.86e- 6
 # … with 20 more rows</code></pre>
 </div>
 </div>
 <p>How do we tune it? Using something called cross fold validation. Cross fold validation takes our grid, applies it to a set of subsets (in our case 10 subsets) and compares. It’ll take a random square in the hypercube, try the combinations in there, and see what happens. It’ll then keep doing that, over and over and over and over. When it’s done, each validation set will have a set of tuned values and outcomes that we can evaluate and pick the optimal set to get a result.</p>
 </section>
-<section id="exercise-2-creating-our-cross-fold-validation-set" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="exercise-2-creating-our-cross-fold-validation-set"><span class="header-section-number">5.2.2</span> Exercise 2: creating our cross-fold validation set</h3>
+<section id="exercise-3-creating-our-cross-fold-validation-set" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="exercise-3-creating-our-cross-fold-validation-set"><span class="header-section-number">5.2.3</span> Exercise 3: creating our cross-fold validation set</h3>
 <p>This will create the folds, which are just 10 random subsets of the training data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>game_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(game_?????)</span>
@@ -448,16 +452,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 # A tibble: 10 × 2
    splits               id    
    &lt;list&gt;               &lt;chr&gt; 
- 1 &lt;split [55193/6133]&gt; Fold01
- 2 &lt;split [55193/6133]&gt; Fold02
- 3 &lt;split [55193/6133]&gt; Fold03
- 4 &lt;split [55193/6133]&gt; Fold04
- 5 &lt;split [55193/6133]&gt; Fold05
- 6 &lt;split [55193/6133]&gt; Fold06
- 7 &lt;split [55194/6132]&gt; Fold07
- 8 &lt;split [55194/6132]&gt; Fold08
- 9 &lt;split [55194/6132]&gt; Fold09
-10 &lt;split [55194/6132]&gt; Fold10</code></pre>
+ 1 &lt;split [55431/6159]&gt; Fold01
+ 2 &lt;split [55431/6159]&gt; Fold02
+ 3 &lt;split [55431/6159]&gt; Fold03
+ 4 &lt;split [55431/6159]&gt; Fold04
+ 5 &lt;split [55431/6159]&gt; Fold05
+ 6 &lt;split [55431/6159]&gt; Fold06
+ 7 &lt;split [55431/6159]&gt; Fold07
+ 8 &lt;split [55431/6159]&gt; Fold08
+ 9 &lt;split [55431/6159]&gt; Fold09
+10 &lt;split [55431/6159]&gt; Fold10</code></pre>
 </div>
 </div>
 <p>Now we come to the part that is going to take some time on your computer. How long? It depends. On my old 2018 Intel Mac, this part took about 25-30 minutes on my machine and made it sounds like it was attempting liftoff. My 2022 M1 Mac? Right around 10 minutes. Depending on how new and how powerful you computer is, it could take minutes, or it could take hours. The point being, start it up, walk away, and let it burn.</p>
@@ -474,18 +478,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(xgb_res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 60 × 11
-    mtry min_n tree_depth    learn_rate loss_reduction .metric  .estimator  mean
-   &lt;int&gt; &lt;int&gt;      &lt;int&gt;         &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;
- 1     8     3         13 0.0000379      0.000000145   accuracy binary     0.588
- 2     8     3         13 0.0000379      0.000000145   roc_auc  binary     0.623
- 3     6    27         11 0.00000483     0.391         accuracy binary     0.606
- 4     6    27         11 0.00000483     0.391         roc_auc  binary     0.647
- 5     5    25          9 0.00000000226  0.00000000391 accuracy binary     0.500
- 6     5    25          9 0.00000000226  0.00000000391 roc_auc  binary     0.510
- 7     5     5          2 0.000000379    0.000000331   accuracy binary     0.576
- 8     5     5          2 0.000000379    0.000000331   roc_auc  binary     0.617
- 9     5    26          3 0.0100         0.0000000167  accuracy binary     0.611
-10     5    26          3 0.0100         0.0000000167  roc_auc  binary     0.653
+    mtry min_n tree_depth learn_rate loss_reduction .metric  .estimator  mean
+   &lt;int&gt; &lt;int&gt;      &lt;int&gt;      &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;
+ 1     5    12         11   7.33e- 3  9.68          accuracy binary     0.611
+ 2     5    12         11   7.33e- 3  9.68          roc_auc  binary     0.658
+ 3     2    33          6   2.73e- 3  0.000523      accuracy binary     0.611
+ 4     2    33          6   2.73e- 3  0.000523      roc_auc  binary     0.658
+ 5     3     9         11   6.81e-10  0.00000000349 accuracy binary     0.500
+ 6     3     9         11   6.81e-10  0.00000000349 roc_auc  binary     0.5  
+ 7     5    29          3   6.51e- 8  0.000237      accuracy binary     0.607
+ 8     5    29          3   6.51e- 8  0.000237      roc_auc  binary     0.639
+ 9     4    26         14   1.03e- 7  1.26          accuracy binary     0.603
+10     4    26         14   1.03e- 7  1.26          roc_auc  binary     0.644
 # … with 50 more rows, and 3 more variables: n &lt;int&gt;, std_err &lt;dbl&gt;,
 #   .config &lt;chr&gt;</code></pre>
 </div>
@@ -495,13 +499,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show_best</span>(xgb_res, <span class="st">"accuracy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 11
-   mtry min_n tree_depth  learn_rate loss_reduction .metric  .estimator  mean
-  &lt;int&gt; &lt;int&gt;      &lt;int&gt;       &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;
-1     7    39          5 0.0639        0.142        accuracy binary     0.615
-2     6    13          8 0.0302        0.00571      accuracy binary     0.614
-3     3    17          6 0.0210        0.0424       accuracy binary     0.614
-4     6    36          6 0.00000128    0.000369     accuracy binary     0.614
-5     4    28          5 0.000000100   0.0000000714 accuracy binary     0.612
+   mtry min_n tree_depth learn_rate loss_reduction .metric  .estimator  mean
+  &lt;int&gt; &lt;int&gt;      &lt;int&gt;      &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;
+1     8     2          2  0.0478     0.00000000913 accuracy binary     0.612
+2     5    12         11  0.00733    9.68          accuracy binary     0.611
+3     3    13          6  0.0000306  0.120         accuracy binary     0.611
+4     7    23          8  0.0215     0.0000224     accuracy binary     0.611
+5     2    33          6  0.00273    0.000523      accuracy binary     0.611
 # … with 3 more variables: n &lt;int&gt;, std_err &lt;dbl&gt;, .config &lt;chr&gt;</code></pre>
 </div>
 </div>
@@ -534,19 +538,19 @@ Model: boost_tree()
 Boosted Tree Model Specification (classification)
 
 Main Arguments:
-  mtry = 7
+  mtry = 8
   trees = 30
-  min_n = 39
-  tree_depth = 5
-  learn_rate = 0.0638697307094032
-  loss_reduction = 0.141518399318604
+  min_n = 2
+  tree_depth = 2
+  learn_rate = 0.0478471146705376
+  loss_reduction = 9.13322009844852e-09
 
 Computational engine: xgboost </code></pre>
 </div>
 </div>
 <p>There’s our best set of hyperparameters. We’ve tuned this model to give the best possible set of results in those settings. Now we apply it like we have been doing all along.</p>
-<section id="exercise-3-making-our-final-workflow" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="exercise-3-making-our-final-workflow"><span class="header-section-number">5.3.1</span> Exercise 3: making our final workflow</h3>
+<section id="exercise-4-making-our-final-workflow" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="exercise-4-making-our-final-workflow"><span class="header-section-number">5.3.1</span> Exercise 4: making our final workflow</h3>
 <p>We create a fit using our finalized workflow.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>xg_fit <span class="ot">&lt;-</span> </span>
@@ -564,14 +568,14 @@ Computational engine: xgboost </code></pre>
 <pre><code>parsnip model object
 
 ##### xgb.Booster
-raw: 82 Kb 
+raw: 30.2 Kb 
 call:
-  xgboost::xgb.train(params = list(eta = 0.0638697307094032, max_depth = 5L, 
-    gamma = 0.141518399318604, colsample_bytree = 1, colsample_bynode = 1, 
-    min_child_weight = 39L, subsample = 1), data = x$data, nrounds = 30, 
+  xgboost::xgb.train(params = list(eta = 0.0478471146705376, max_depth = 2L, 
+    gamma = 9.13322009844852e-09, colsample_bytree = 1, colsample_bynode = 1, 
+    min_child_weight = 2L, subsample = 1), data = x$data, nrounds = 30, 
     watchlist = x$watchlist, verbose = 0, nthread = 1, objective = "binary:logistic")
 params (as set within xgb.train):
-  eta = "0.0638697307094032", max_depth = "5", gamma = "0.141518399318604", colsample_bytree = "1", colsample_bynode = "1", min_child_weight = "39", subsample = "1", nthread = "1", objective = "binary:logistic", validate_parameters = "TRUE"
+  eta = "0.0478471146705376", max_depth = "2", gamma = "9.13322009844852e-09", colsample_bytree = "1", colsample_bynode = "1", min_child_weight = "2", subsample = "1", nthread = "1", objective = "binary:logistic", validate_parameters = "TRUE"
 xgb.attributes:
   niter
 callbacks:
@@ -581,16 +585,16 @@ niter: 30
 nfeatures : 2 
 evaluation_log:
     iter training_logloss
-       1        0.6881808
-       2        0.6837934
+       1        0.6906536
+       2        0.6883864
 ---                      
-      29        0.6488872
-      30        0.6486669</code></pre>
+      29        0.6609857
+      30        0.6605502</code></pre>
 </div>
 </div>
 </section>
-<section id="exercise-4-prediction-time" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="exercise-4-prediction-time"><span class="header-section-number">5.3.2</span> Exercise 4: prediction time</h3>
+<section id="exercise-5-prediction-time" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="exercise-5-prediction-time"><span class="header-section-number">5.3.2</span> Exercise 5: prediction time</h3>
 <p>Now, like before, we can bind our predictions using our xg_fit to the game_train data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
@@ -600,8 +604,8 @@ evaluation_log:
 
 </div>
 </section>
-<section id="exercise-5-metrics" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="exercise-5-metrics"><span class="header-section-number">5.3.3</span> Exercise 5: metrics</h3>
+<section id="exercise-6-metrics" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="exercise-6-metrics"><span class="header-section-number">5.3.3</span> Exercise 6: metrics</h3>
 <p>And now see how we did.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(????????????, <span class="at">truth =</span> team_result, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -611,8 +615,8 @@ evaluation_log:
 <pre><code># A tibble: 2 × 3
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-1 accuracy binary         0.621
-2 kap      binary         0.242</code></pre>
+1 accuracy binary         0.616
+2 kap      binary         0.233</code></pre>
 </div>
 </div>
 <p>How about the test data?</p>
@@ -625,7 +629,7 @@ evaluation_log:
 <pre><code># A tibble: 2 × 3
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-1 accuracy binary         0.613
+1 accuracy binary         0.612
 2 kap      binary         0.225</code></pre>
 </div>
 </div>
