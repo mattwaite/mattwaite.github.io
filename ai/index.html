@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.247">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>AI + Journalism = ?? - JOMC 491/891 Special Topics: AI + Journalism = ?</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">AI + Journalism = ??</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#course-description" id="toc-course-description" class="nav-link active" data-scroll-target="#course-description">Course description</a></li>
+  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
+  <li><a href="#attendance-policy" id="toc-attendance-policy" class="nav-link" data-scroll-target="#attendance-policy">Attendance policy</a></li>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning outcomes:</a></li>
+  <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity">Academic integrity:</a></li>
+  <li><a href="#recording-of-lecturesdiscussions" id="toc-recording-of-lecturesdiscussions" class="nav-link" data-scroll-target="#recording-of-lecturesdiscussions">Recording of Lectures/Discussions</a></li>
+  <li><a href="#diversity-and-inclusiveness" id="toc-diversity-and-inclusiveness" class="nav-link" data-scroll-target="#diversity-and-inclusiveness">Diversity and Inclusiveness</a></li>
+  <li><a href="#trespass-policy-regents-policy-6.4.7" id="toc-trespass-policy-regents-policy-6.4.7" class="nav-link" data-scroll-target="#trespass-policy-regents-policy-6.4.7">Trespass Policy (Regents’ Policy 6.4.7)</a></li>
+  <li><a href="#classroom-emergency-preparedness-and-response-information" id="toc-classroom-emergency-preparedness-and-response-information" class="nav-link" data-scroll-target="#classroom-emergency-preparedness-and-response-information">Classroom emergency preparedness and response information</a></li>
+  <li><a href="#course-schedule" id="toc-course-schedule" class="nav-link" data-scroll-target="#course-schedule">Course Schedule</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">JOMC 491/891 Special Topics: <br>AI + Journalism = ?</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This is extremely preliminary. At the pace AI is moving, very little set down in Spring 2023 is going to be the same in Fall 2023.</p>
+<p>Fall 2023<br>
+M/W 3:30 - 4:45 p.m.<br>
+Andersen Hall 333<br>
+Instructor: Matt Waite<br>
+Email: <a href="mailto:matt.waite@unl.edu">matt.waite@unl.edu</a><br>
+Phone: (402) 472-5840 office<br>
+Office: 244 Andersen Hall</p>
+<section id="course-description" class="level3">
+<h3 class="anchored" data-anchor-id="course-description">Course description</h3>
+<p>AI went from science fiction to current fact with breathtaking speed. Soon, you’ll have AI plugged into every tool you use, including Word, Google Docs and your email. Journalism and communications, let alone society at large, are only starting to grapple with this. This class, the first of its kind at CoJMC, will explore three areas: 1. What is AI, how does it work, what is it good and bad at? 2. How can you use current public AI tools to be a better writer, reporter, communicator and human? 3. What if we trained our own AI on a local news source? It’s possible with open tools. Would it be any good? Would it be accurate enough to be useful? What could you do with your own AI tool?</p>
+<p><strong>Prerequisites:</strong> None.</p>
+<p><strong>Required Materials:</strong></p>
+<ul>
+<li><p>A functioning laptop computer that you must bring with you to class every time and ~7 GB of free hard drive space.</p></li>
+<li><p>Online materials and class handouts, as needed.</p></li>
+<li><p>Slack, installed on your computer and on your phone.</p></li>
+<li><p>A willingness to try something that may not work, and an open mind that something might be a terrible idea.</p></li>
+</ul>
+</section>
+<section id="grading" class="level3">
+<h3 class="anchored" data-anchor-id="grading">Grading</h3>
+<p>I use the standard basic grading scale.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Grade</th>
+<th>Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A+</td>
+<td>97-100</td>
+</tr>
+<tr class="even">
+<td>A</td>
+<td>93-96</td>
+</tr>
+<tr class="odd">
+<td>A-</td>
+<td>90-92</td>
+</tr>
+<tr class="even">
+<td>B+</td>
+<td>87-89</td>
+</tr>
+<tr class="odd">
+<td>B</td>
+<td>83-86</td>
+</tr>
+<tr class="even">
+<td>B-</td>
+<td>80-82</td>
+</tr>
+<tr class="odd">
+<td>C+</td>
+<td>77-79</td>
+</tr>
+<tr class="even">
+<td>C</td>
+<td>73-76</td>
+</tr>
+<tr class="odd">
+<td>C-</td>
+<td>70-72</td>
+</tr>
+<tr class="even">
+<td>D+</td>
+<td>67-69</td>
+</tr>
+<tr class="odd">
+<td>D</td>
+<td>63-66</td>
+</tr>
+<tr class="even">
+<td>D-</td>
+<td>60-62</td>
+</tr>
+<tr class="odd">
+<td>F</td>
+<td>59 or below</td>
+</tr>
+</tbody>
+</table>
+<p>However, your final letter grade will be weighted:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Assignment</th>
+<th>Percentage of your grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Build your own AI</td>
+<td>30%</td>
+</tr>
+<tr class="even">
+<td>Regular assignments</td>
+<td>60%</td>
+</tr>
+<tr class="odd">
+<td>Quizzes</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Build your own AI:</strong> At the end of the semester, we will work with open source tools to create our own text AI out of a corpus of text from the Daily Nebraskan. You’ll build your AI through an account at the Holland Computing Center. You will also evalute it for accuracy, quality and usefulness. At the end, you’ll write a report about it’s strengths, weaknesses, successes, failures and suitability to serve campus.</p>
+<p><strong>Assignments:</strong> Regularly throughout the semester, there will be challenges covering a topic around AI. Assignments will include exploring what is thought and how AI approaches it, prompt engineering and refining queries and creating works to help others use AI tools more effectively while avoiding academic dishonesty.</p>
+<p><strong>Quizzes:</strong> To reinforce the in-class lectures and the course readings, there will be regular quizzes. They will be short and on Canvas.</p>
+<p><strong>Class participation and attendance:</strong> You are bad at college if you don’t know what this means. Get involved in class, speak up, ask questions, challenge ideas and, most importantly, show up. This is how I determine who gets rounded up when you have an 89.4 and who doesn’t. Skip class and you won’t get any benefit of the doubt.</p>
+<p>NOTE: Canvas automatically deducts 40 percent per day an assignment is late. If it’s due at 3:30 p.m. and you turn it in at 3:40, you’ll lose points.</p>
+<p><strong>Other learning opportunities</strong></p>
+<p>News Nerd Slack: I use <a href="https://slack.com/">Slack</a> as a way for students to get help from each other and me when we’re not in class or not even in the building. I have one News Nerd Slack that includes my current code classes, students of past classes and alumni who have gone on to do data journalism professionally. You’ll be added to the slack during the semester, and at the end, I’ll remove you unless you tell me otherwise. If you like it, stay. If not, no worries and no judgments.</p>
+</section>
+<section id="attendance-policy" class="level3">
+<h3 class="anchored" data-anchor-id="attendance-policy">Attendance policy</h3>
+<p>I do not take attendance, but I do actively work at punishing people who don’t go to class. I cover things directly relevant to the work at hand. I will tell you what you need to do to get a good grade. I will tell you how you’re going to go wrong before you do it. And if you skip class, I’ll know it because you’ll do the thing I told you not to do.</p>
+<p>So show up. If you’re sick or even think you might be sick, don’t come to class, but tell me before class and we’ll work it out. If you have COVID or are in quarantine because of an exposure, contact me about a Zoom link. Bottom line: Show up.</p>
+</section>
+<section id="learning-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="learning-outcomes">Learning outcomes:</h3>
+<ul>
+<li>Explore the current state of AI</li>
+<li>Experiment with prompt engineering and query refining to get useful results.</li>
+<li>Critically analyze AI outputs for use in creative fields like journalism and media.</li>
+<li>Create your own AI tool using a corpus of text.</li>
+</ul>
+</section>
+<section id="academic-integrity" class="level3">
+<h3 class="anchored" data-anchor-id="academic-integrity">Academic integrity:</h3>
+<p>Every student must adhere to the policy on academic integrity set forth in the UNL Student Code of Conduct as outlined in the UNL Bulletin. Students who plagiarize may receive a failing grade on an assignment or for an entire course and may be reported to the Student Judicial Review Board. The work a student submits in a class must be the student’s own work and must be work completed for that particular class and assignment. Students wishing to build on an old project or work on a similar project in two classes must discuss this with both professors. Academic dishonesty includes:</p>
+<ul>
+<li>handing in another’s work or part of another’s work as your own.</li>
+<li>turning in one of your old papers (including something you wrote in high school) for a current class.</li>
+<li>turning in the same or similar paper for two different classes,</li>
+<li>using notes or other study aids or otherwise obtaining another’s answers for a quiz or an examination.</li>
+</ul>
+<p>Anything and everything you include in your papers that comes from another source must be attributed with proper citation. That includes ideas and opinions. Plagiarism consists of using phrases, sentences or paragraphs from any source and republishing them without alteration or attribution. The sources include, but are not limited to, books, magazines, newspapers, television or radio reports, Web sites and other students’ papers.</p>
+</section>
+<section id="recording-of-lecturesdiscussions" class="level3">
+<h3 class="anchored" data-anchor-id="recording-of-lecturesdiscussions">Recording of Lectures/Discussions</h3>
+<p>So as to create a classroom environment in which everyone may feel comfortable participating in discussions, it is expected that no audio or video recordings of class will be made without the prior knowledge and consent of the instructor. Students with disabilities for which reasonable accommodation would include making such recordings should work with the Services for Students with Disabilities office and the instructor to make arrangements.</p>
+</section>
+<section id="diversity-and-inclusiveness" class="level3">
+<h3 class="anchored" data-anchor-id="diversity-and-inclusiveness">Diversity and Inclusiveness</h3>
+<p>The University of Nebraska-Lincoln does not discriminate on the basis of race, ethnicity, color, national origin, sex (including pregnancy), religion, age, disability, sexual orientation, gender identity, genetic information, veteran status, marital status, and/or political affiliation.</p>
+<p>The College of Journalism and Mass Communications values diversity in the broadest sense - gender, age, race, ethnicity, sexual orientation, economic status, physical and intellectual ability, religion, education and geography. We recognize that acknowledging, building understanding and incorporating diversity throughout the curriculum prepare students for communications careers in a global society. As communicators, we know journalism, advertising, public relations, broadcasting and other forms of strategic communications must reflect society in order to be credible, reliable and effective. Inaccuracies or biases in our written, spoken and visual reports mean we have failed as journalists. Diverse voices and perspectives improve our accuracy and truthfulness. In advertising and public relations, we cannot succeed if we do not understand the value of or know how to create inclusive communications that reflect a diverse society.</p>
+</section>
+<section id="trespass-policy-regents-policy-6.4.7" class="level3">
+<h3 class="anchored" data-anchor-id="trespass-policy-regents-policy-6.4.7">Trespass Policy (Regents’ Policy 6.4.7)</h3>
+<p>The areas of University academic, research, public service, and administrative buildings of the University used for classrooms, laboratories, faculty and staff offices, and the areas of University student residence buildings used for student living quarters are not open to the general public. Any person not authorized to be or remain in any such building area will be deemed to be trespassing on University property, and may be cited and subject to prosecution for criminal trespass in violation of Neb. Rev.&nbsp;Stat., § 28-520 or § 28-521.</p>
+</section>
+<section id="classroom-emergency-preparedness-and-response-information" class="level2">
+<h2 class="anchored" data-anchor-id="classroom-emergency-preparedness-and-response-information">Classroom emergency preparedness and response information</h2>
+<p><strong>UNL Alert</strong></p>
+<p>UNL Alert provides free notification by landline, cell phone, text message, e-mail, fax, and pager during an emergency. Visit http://emergency.unl.edu for a link and instructions on how to sign up for alerts pertaining to UNL. If you receive a UNL Alert notification during class, please share the information immediately.</p>
+<p><strong>Additional Information</strong></p>
+<p>Additional information about emergency preparedness and response at UNL as well as the university’s operating status can be found on emergency.unl.edu.</p>
+<p><strong>WEATHER EXTREMES</strong></p>
+<ul>
+<li>Listen to the latest National Weather Service warnings and bulletins on radio and television.</li>
+</ul>
+<p><strong>During a Tornado</strong></p>
+<ul>
+<li><p>When sirens activate, move to the lowest, interior area of building or designated tornado shelter.</p></li>
+<li><p>Stay away from windows.</p></li>
+<li><p>Stay near inside wall when possible.</p></li>
+<li><p>Keep calm. Even though a warning is issued, the chance of a tornado striking your building or location is slight.</p></li>
+</ul>
+<p><strong>During a Winter Storm</strong></p>
+<ul>
+<li><p>If conditions worsen during the day, the administration may decide to close the university early. When such determination is made, you will be notified through UNL Alert, campus email, and UNL’s Web site.</p></li>
+<li><p>Decisions to close for the day are communicated usually by 6 a.m.</p></li>
+<li><p>If roads leading to your home have been closed, caution should be used in determining whether to travel home.</p></li>
+</ul>
+<p><strong>MOBILITY ASSISTANCE</strong></p>
+<ul>
+<li><p>Anyone who needs/wants help with moving to evacuation or shelter-in-place locations should let me know.</p></li>
+<li><p>I will locate volunteers students in this class who will assist you in the event we evacuate or shelter-in-place</p></li>
+</ul>
+<p><strong>SHELTER-IN-PLACE (Hostile Intruder, External Hazardous Materials Release)</strong></p>
+<ul>
+<li>Remain calm.</li>
+<li>If it is possible to flee the area safely and avoid danger, do so.</li>
+<li>Notify anyone you encounter to exit the building immediately. Evacuate to a safe area away from the danger and take protective cover. Stay there until help arrives.</li>
+<li>Call UNL Police Department or 9-1-1 with your location if possible. If you cannot get through by phone and have text message capability, text University Police at 41513. Enter the letters UNLPD and then type your message. Dispatch will receive and respond to the message.</li>
+<li>If flight is impossible, secure yourself in your space. Barricade doors and block windows. Turn off all the lights, close blinds and close and lock all windows and lock and barricade all doors.</li>
+<li>Seek protective cover for yourself and any others (concrete walls, thick desks, filing cabinets may protect you from bullets).</li>
+<li>Keep calm, quiet and out of sight.</li>
+<li>Silence cell phones (mute or turn off cell phone ringer). Consider turning off radios and computer monitors.</li>
+<li>Do not answer the door. If you do not recognize the voice that is giving instructions, do not change your status (stay put). Unknown or unfamiliar voices may be false and designed to give false assurances.</li>
+<li>Place signs in exterior windows to identify the location of injured persons.</li>
+<li>Do Not Approach Emergency Responders-let them come to you.</li>
+<li>Remain where you are until an “all clear* instruction is given by an authorized known voice.</li>
+</ul>
+<p><strong>EVACUATION (Fire, Internal Hazardous Materials Release)</strong></p>
+<ul>
+<li>Always evacuate if the fire alarm sounds.</li>
+<li>In the event of an evacuation, gather your personal belongings quickly (purse, keys, cell phone, NCard, etc.) and proceed to the nearest exit.</li>
+<li>Do not use the elevator.</li>
+<li>Move away from the problem, use alternative exits.</li>
+<li>Help those who need assistance moving.</li>
+<li>Be ready to be guided by additional instructions.</li>
+</ul>
+</section>
+<section id="course-schedule" class="level2">
+<h2 class="anchored" data-anchor-id="course-schedule">Course Schedule</h2>
+<p><strong>Week 1</strong></p>
+<p>Topics included: Setup, accounts, introductions, foundations</p>
+<p><strong>Week 2</strong></p>
+<p>Topics included: Descartes, Locke, Hume, Kant and what philosophers from 400 years ago have to do with AI</p>
+<p><strong>Week 3</strong></p>
+<p>Labor Day on Monday.</p>
+<p>Topics included: How AI reads Descartes, Locke, Hume and Kant.</p>
+<p><strong>Week 4</strong></p>
+<p>Topics included: Using GPT-?, an introduction</p>
+<p><strong>Week 5</strong></p>
+<p>Topics included: Using GPT-? for journalism</p>
+<p><strong>Week 6</strong></p>
+<p>Topics included: Using GPT-? for life</p>
+<p><strong>Week 7</strong></p>
+<p>Topics included: Intro to HCC</p>
+<p><strong>Week 8</strong></p>
+<p>Topics included: Intro to Stanford Alpaca and installations</p>
+<p><strong>Week 9</strong></p>
+<p>Topics included: Evaluating Stanford Alpaca for journalism</p>
+<p><strong>Week 10</strong></p>
+<p>Topics included: Evaluating Stanford Alpaca for other purposes</p>
+<p><strong>Week 11</strong></p>
+<p>Topics included: Working with a text corpus</p>
+<p><strong>Week 12</strong></p>
+<p>Topics included: Creating ChatGPT plugins 1</p>
+<p><strong>Week 13</strong></p>
+<p>Topics included: Creating ChatGPT plugin 2</p>
+<p>Week <strong>14</strong></p>
+<p>Thanksgiving</p>
+<p><strong>Week 15</strong></p>
+<p>Topics included: Testing and evaluating plugin</p>
+<p><strong>Week 16</strong></p>
+<p>Project presentations</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
