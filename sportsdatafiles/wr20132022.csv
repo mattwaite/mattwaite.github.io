@@ -1,0 +1,325 @@
+college_athlete_id,nfl_athlete_id,college_id,college_team,college_conference,nfl_team,year,overall,round,pick,name,position,height,weight,pre_draft_ranking,pre_draft_position_ranking,pre_draft_grade,hometown_info_city,hometown_info_state,hometown_info_country,hometown_info_latitude,hometown_info_longitude,hometown_info_county_fips
+487982,29974,277,West Virginia,Big 12,Los Angeles,2013,8,1,8,Tavon Austin,Wide Receiver,69,174,12,1,93,Baltimore,MD,USA,39.2908816,-76.610759,24510
+501689,30261,228,Clemson,ACC,Houston,2013,27,1,27,DeAndre Hopkins,Wide Receiver,73,214,47,6,86,Central,SC,USA,34.7257424,-82.7804999,45077
+532092,30260,2633,Tennessee,SEC,Minnesota,2013,29,1,29,Cordarrelle Patterson,Wide Receiver,74,216,29,3,89,Rock Hill,SC,USA,34.9248667,-81.0250784,45091
+501520,29238,2633,Tennessee,SEC,Tennessee,2013,34,2,2,Justin Hunter,Wide Receiver,76,196,25,2,90,Virginia Beach,VA,USA,36.8529841,-75.9774183,51810
+500234,29964,30,USC,Pac-12,Buffalo,2013,41,2,9,Robert Woods,Wide Receiver,72,201,32,4,88,Carson ,CA,USA,33.8322043,-118.2517547,06037
+483949,29968,276,Marshall,Conference USA,New England,2013,59,2,27,Aaron Dobson,Wide Receiver,75,210,62,9,80,Dunbar,WV,USA,38.3606509,-81.7373485,54039
+379892,29277,239,Baylor,Big 12,Dallas,2013,74,3,12,Terrance Williams,Wide Receiver,74,208,60,8,81,Dallas,TX,USA,32.7762719,-96.7968559,48113
+501550,29250,25,California,Pac-12,Los Angeles,2013,76,3,14,Keenan Allen,Wide Receiver,74,206,38,5,88,Greensboro,NC,USA,36.0726355,-79.7919754,37081
+481791,29305,251,Texas,Big 12,Buffalo,2013,78,3,16,Marquise Goodwin,Wide Receiver,69,183,115,12,69,Garland,TX,USA,32.912624,-96.6388833,48113
+482558,29269,204,Oregon State,Pac-12,Pittsburgh,2013,79,3,17,Markus Wheaton,Wide Receiver,71,189,88,11,74,Chandler,AZ,USA,33.3062223,-111.8413317,04013
+487983,30171,277,West Virginia,Big 12,Los Angeles,2013,92,3,30,Stedman Bailey,Wide Receiver,70,193,75,10,77,Miramar,FL,USA,25.975911449999998,-80.33472128115224,12011
+504290,30367,2579,South Carolina,SEC,Jacksonville,2013,101,4,4,Ace Sanders,Wide Receiver,67,173,171,20,56,Bradenton,FL,USA,27.4989278,-82.5748194,12081
+481315,29977,2628,TCU,Big 12,New England,2013,102,4,5,Josh Boyce,Wide Receiver,71,206,130,15,66,Copperas Cove,TX,USA,31.124062,-97.9030785,48099
+487950,30014,2306,Kansas State,Big 12,Seattle,2013,123,4,26,Chris Harper,Wide Receiver,73,229,147,16,61,Wichita,KS,USA,37.6922361,-97.3375448,20173
+512774,30207,2348,Louisiana Tech,Western Athletic,San Francisco,2013,128,4,31,Quinton Patton,Wide Receiver,72,204,58,7,82,La Vergne,TN,USA,36.0156178,-86.5819394,47149
+480237,29990,130,Michigan,Big Ten,Jacksonville,2013,135,5,2,Denard Robinson,Wide Receiver,71,199,184,22,54,Deerfield Beach,FL,USA,26.318342,-80.0996306,12011
+501915,29261,201,Oklahoma,Big 12,New Orleans,2013,144,5,11,Kenny Stills,Wide Receiver,73,194,178,21,55,Encinitas,CA,USA,33.0369867,-117.2919818,06073
+378226,30160,61,Georgia,SEC,Denver,2013,161,5,28,Tavarres King,Wide Receiver,72,189,151,17,60,Mount Airy,GA,USA,34.5187106,-83.5007265,13137
+501213,29750,259,Virginia Tech,ACC,Detroit,2013,171,6,3,Corey Fuller,Wide Receiver,74,204,NA,36,37,Baltimore,MD,USA,39.2908816,-76.610759,24510
+483069,30198,245,Texas A&M,SEC,Arizona,2013,174,6,6,Ryan Swope,Wide Receiver,72,205,126,14,67,Austin,TX,USA,30.2711286,-97.7436995,48453
+2477972,29576,213,Penn State,Big Ten,Pittsburgh,2013,186,6,18,Justin Brown,Wide Receiver,75,207,NA,69,30,NA,NA,NA,NA,NA,NA
+485553,30371,55,Jacksonville State,OVC,Houston,2013,195,6,27,Alan Bonner,Wide Receiver,70,193,188,23,53,NA,NA,NA,NA,NA,NA
+482678,30168,8,Arkansas,SEC,Cincinnati,2013,197,6,29,Cobi Hamilton,Wide Receiver,74,212,166,19,57,Texarkana,TX,USA,33.44628645,-94.07638067493534,48037
+379396,29614,21,San Diego State,Mountain West,Las Vegas,2013,209,7,3,Brice Butler,Wide Receiver,75,199,NA,127,30,Norcross,GA,USA,33.9412127,-84.2135309,13135
+NA,29844,125,Grand Valley State,NA,Green Bay,2013,216,7,10,Charles Johnson,Wide Receiver,74,209,199,25,51,NA,NA,NA,NA,NA,NA
+377686,29456,120,Maryland,ACC,Green Bay,2013,224,7,18,Kevin Dorsey,Wide Receiver,73,211,NA,129,30,Forestville,MD,USA,38.8451131,-76.8749722,24033
+504845,29253,265,Washington State,Pac-12,Chicago,2013,236,7,30,Marquess Wilson,Wide Receiver,75,194,208,26,50,Tulare,CA,USA,36.2077351,-119.3473421,06107
+480273,29188,2210,Elon,Southern,Baltimore,2013,238,7,32,Aaron Mellette,Wide Receiver,74,217,161,18,58,NA,NA,NA,NA,NA,NA
+512839,33609,228,Clemson,ACC,Buffalo,2014,4,1,4,Sammy Watkins,Wide Receiver,73,211,4,1,96,Fort Myers,FL,USA,26.640628,-81.8723084,12071
+517502,34120,245,Texas A&M,SEC,Tampa Bay,2014,7,1,7,Mike Evans,Wide Receiver,77,231,7,2,94,Galveston,TX,USA,29.299328,-94.7945882,48167
+517215,33072,99,LSU,SEC,New York,2014,12,1,12,Odell Beckham Jr.,Wide Receiver,71,198,10,3,93,New Orleans,LA,USA,29.9499323,-90.0701156,22071
+511476,34722,204,Oregon State,Pac-12,New Orleans,2014,20,1,20,Brandin Cooks,Wide Receiver,70,189,19,4,91,Stockton,CA,USA,37.9577016,-121.2907796,06077
+514119,34718,52,Florida State,ACC,Carolina,2014,28,1,28,Kelvin Benjamin,Wide Receiver,77,240,69,13,75,Belle Glade,FL,USA,26.6845104,-80.6675577,12099
+513334,33604,30,USC,Pac-12,Jacksonville,2014,39,2,7,Marqise Lee,Wide Receiver,72,192,24,5,90,Inglewood,CA,USA,33.9562003,-118.353132,06037
+500884,34123,238,Vanderbilt,SEC,Philadelphia,2014,42,2,10,Jordan Matthews,Wide Receiver,75,212,49,9,83,Madison,AL,USA,34.6928726,-86.7511427,01089
+505345,34721,38,Colorado,Pac-12,Seattle,2014,45,2,13,Paul Richardson,Wide Receiver,72,175,71,14,74,Los Angeles,CA,USA,34.0536909,-118.2427666,06037
+520581,34753,278,Fresno State,Mountain West,Green Bay,2014,53,2,21,Davante Adams,Wide Receiver,73,212,44,7,85,Palo Alto,CA,USA,37.4443293,-122.1598465,06085
+513025,34758,84,Indiana,Big Ten,Denver,2014,56,2,24,Cody Latimer,Wide Receiver,75,215,35,6,88,Dayton,OH,USA,39.7589478,-84.1916069,39113
+518204,34759,213,Penn State,Big Ten,Jacksonville,2014,61,2,29,Allen Robinson,Wide Receiver,75,220,62,11,78,Southfield,MI,USA,42.4733689,-83.2218731,26125
+517229,34757,99,LSU,SEC,Miami,2014,63,2,31,Jarvis Landry,Wide Receiver,72,205,48,8,84,Convent,LA,USA,30.0207573,-90.8298165,22093
+504757,33679,2483,Oregon,Pac-12,Philadelphia,2014,86,3,22,Josh Huff,Wide Receiver,71,206,133,20,60,Houston,TX,USA,29.7589382,-95.3676974,48201
+512013,34115,145,Ole Miss,SEC,Indianapolis,2014,90,3,26,Donte Moncrief,Wide Receiver,74,221,99,16,68,Raleigh,MS,USA,32.033488,-89.5222911,28129
+2318712,33445,90,Pittsburg State,NA,Arizona,2014,91,3,27,John Brown,Wide Receiver,70,179,137,21,59,NA,NA,NA,NA,NA,NA
+504939,33635,201,Oklahoma,Big 12,New York,2014,104,4,4,Jalen Saunders,Wide Receiver,69,165,131,19,61,Elk Grove,CA,USA,38.4087993,-121.3716178,06067
+515826,34755,2579,South Carolina,SEC,San Francisco,2014,106,4,6,Bruce Ellington,Wide Receiver,69,197,58,10,79,Moncks Corner,SC,USA,33.1960027,-80.0131374,45015
+480216,34140,26,UCLA,Pac-12,New York,2014,115,4,15,Shaq Evans,Wide Receiver,73,213,152,23,57,NA,NA,NA,NA,NA,NA
+512321,34754,228,Clemson,ACC,Pittsburgh,2014,118,4,18,Martavis Bryant,Wide Receiver,76,211,66,12,76,Calhoun Falls,SC,USA,34.0923375,-82.5956875,45001
+482670,33694,333,Alabama,SEC,Seattle,2014,123,4,23,Kevin Norwood,Wide Receiver,74,198,109,18,66,D'Iberville,MS,USA,30.4263092,-88.8908638,28047
+483321,33428,2655,Tulane,Conference USA,Washington,2014,142,5,2,Ryan Grant,Wide Receiver,72,199,180,27,51,Beaumont,TX,USA,30.0860459,-94.1018461,48245
+482855,33640,221,Pittsburgh,ACC,Dallas,2014,146,5,6,Devin Street,Wide Receiver,75,189,222,32,44,Bethlehem,PA,USA,40.6178915,-75.3786521,42095
+482381,34134,275,Wisconsin,Big Ten,Green Bay,2014,176,5,36,Jared Abbrederis,Wide Receiver,73,195,201,29,48,Wautoma,WI,USA,44.0746995,-89.287897,55137
+503072,33070,2751,Wyoming,Mountain West,Tampa Bay,2014,185,6,9,Robert Herron,Wide Receiver,69,193,103,17,67,Los Angeles,CA,USA,34.0536909,-118.2427666,06037
+500915,34707,87,Notre Dame,FBS Independents,Detroit,2014,189,6,13,TJ Jones,Wide Receiver,72,188,169,25,53,Roswell,GA,USA,34.02332,-84.360022,13121
+498387,33417,324,Coastal Carolina,Big South,Miami,2014,190,6,14,Matt Hazel,Wide Receiver,73,198,211,31,46,NA,NA,NA,NA,NA,NA
+2508564,33452,93,Murray State,OVC,Arizona,2014,196,6,20,Walt Powell,Wide Receiver,71,189,NA,46,30,NA,NA,NA,NA,NA,NA
+501848,33434,158,Nebraska,Big Ten,New York,2014,209,6,33,Quincy Enunwa,Wide Receiver,74,225,256,36,39,Moreno Valley,CA,USA,33.937517,-117.2305944,06065
+481645,33641,154,Wake Forest,ACC,Baltimore,2014,218,7,3,Michael Campanaro,Wide Receiver,69,192,206,30,47,Clarksville,MD,USA,39.2065447,-76.9429182,24027
+3089998,33656,129,Saginaw Valley,NA,Green Bay,2014,236,7,21,Jeff Janis,Wide Receiver,75,219,173,26,52,NA,NA,NA,NA,NA,NA
+504188,35159,99,LSU,SEC,Cincinnati,2014,239,7,24,James Wright,Wide Receiver,NA,203,NA,NA,NA,Belle Chasse,LA,USA,29.8549287,-89.9906253,22075
+480747,33414,239,Baylor,Big 12,Los Angeles,2014,240,7,25,Tevin Reese,Wide Receiver,71,163,193,28,49,Temple,TX,USA,31.098207,-97.3427847,48027
+480899,33433,130,Michigan,Big Ten,New England,2014,244,7,29,Jeremy Gallon,Wide Receiver,68,185,NA,45,30,Apopka,FL,USA,28.6779683,-81.5115214,12095
+534458,46812,333,Alabama,SEC,Las Vegas,2015,4,1,4,Amari Cooper,Wide Receiver,73,211,3,1,94,Miami,FL,USA,25.7742658,-80.1936589,12086
+546052,46816,277,West Virginia,Big 12,Chicago,2015,7,1,7,Kevin White,Wide Receiver,75,215,7,2,93,Plainfield,NJ,USA,40.6337136,-74.4073737,34039
+511615,46818,97,Louisville,ACC,Miami,2015,14,1,14,DeVante Parker,Wide Receiver,75,209,9,3,92,Louisville,KY,USA,38.2542376,-85.759407,21111
+531010,46832,30,USC,Pac-12,Philadelphia,2015,20,1,20,Nelson Agholor,Wide Receiver,72,198,23,5,89,Tampa,FL,USA,27.9477595,-82.458444,12057
+531670,46829,2116,UCF,American Athletic,Baltimore,2015,26,1,26,Breshad Perriman,Wide Receiver,74,212,20,4,90,Lithonia,GA,USA,33.7123305,-84.1051939,13089
+517570,46836,2390,Miami,ACC,Indianapolis,2015,29,1,29,Phillip Dorsett,Wide Receiver,70,185,27,6,88,Ft. Lauderdale,FL,USA,26.1223084,-80.1433786,12011
+514181,46837,194,Ohio State,Big Ten,New York,2015,37,2,5,Devin Smith,Wide Receiver,72,196,28,7,88,Massillon,OH,USA,40.7967244,-81.5215093,39151
+2971433,46868,142,Missouri,SEC,Tennessee,2015,40,2,8,Dorial Green-Beckham,Wide Receiver,77,237,59,11,80,NA,NA,NA,NA,NA,NA
+535145,46849,130,Michigan,Big Ten,Carolina,2015,41,2,9,Devin Funchess,Wide Receiver,76,232,40,9,87,Farmington Hills,MI,USA,42.4853125,-83.3771553,26125
+515181,46861,2306,Kansas State,Big 12,Seattle,2015,69,3,5,Tyler Lockett,Wide Receiver,70,182,52,10,82,Tulsa,OK,USA,36.1556805,-95.9929113,40143
+546465,46839,9,Arizona State,Pac-12,Houston,2015,70,3,6,Jaelen Strong,Wide Receiver,74,217,30,8,88,Philadelphia,PA,USA,39.9527237,-75.1635262,42101
+513146,46937,61,Georgia,SEC,Kansas City,2015,76,3,12,Chris Conley,Wide Receiver,74,211,128,20,61,Dallas,GA,USA,33.9237141,-84.8407732,13223
+515949,46881,2,Auburn,SEC,Pittsburgh,2015,87,3,23,Sammie Coates,Wide Receiver,73,212,72,12,77,Leroy,AL,USA,31.5046086,-87.9847237,01129
+516363,46916,24,Stanford,Pac-12,Green Bay,2015,94,3,30,Ty Montgomery,Wide Receiver,72,221,107,16,68,Dallas,TX,USA,32.7762719,-96.7968559,48113
+517452,46932,150,Duke,ACC,Washington,2015,105,4,6,Jamison Crowder,Wide Receiver,68,185,123,19,64,Monroe,NC,USA,34.9854275,-80.5495112,37179
+505407,46887,151,East Carolina,American Athletic,Atlanta,2015,107,4,8,Justin Hardy,Wide Receiver,70,192,78,14,73,Vanceboro ,NC,USA,35.3084953,-77.1541195,37049
+550634,46960,265,Washington State,Pac-12,Cleveland,2015,123,4,24,Vince Mayle,Wide Receiver,74,224,151,23,55,Natomas,CA,USA,38.6084044,-121.47800773507802,06067
+551571,46990,59,Georgia Tech,ACC,San Francisco,2015,132,4,33,DeAndre Smelter,Wide Receiver,74,226,181,28,50,Macon,GA,USA,32.8406946,-83.6324022,13021
+-1010967,46882,52,Florida State,ACC,Jacksonville,2015,139,5,3,Rashad Greene,Wide Receiver,71,182,73,13,77,Albany,GA,USA,31.5782062,-84.1556809,13095
+534249,46918,120,Maryland,Big Ten,Minnesota,2015,146,5,10,Stefon Diggs,Wide Receiver,72,195,109,17,68,Gaithersburg,MD,USA,39.1434406,-77.2013705,24031
+503204,47022,127,Michigan State,Big Ten,Miami,2015,156,5,20,Tony Lippett,Wide Receiver,75,192,213,33,45,Detroit,MI,USA,42.3315509,-83.0466403,26163
+503642,47100,5,UAB,Conference USA,Arizona,2015,159,5,23,J.J. Nelson,Wide Receiver,NA,156,NA,NA,NA,Midfield,AL,USA,33.4614966,-86.9088808,01073
+501842,46914,158,Nebraska,Big Ten,Tampa Bay,2015,162,5,26,Kenny Bell,Wide Receiver,73,197,105,15,69,Boulder,CO,USA,40.0149856,-105.2705456,08013
+503206,47438,127,Michigan State,Big Ten,Houston,2015,175,5,39,Keith Mumphery,Wide Receiver,72,215,NA,51,30,Vienna,GA,USA,32.0913402,-83.7964675,13093
+504726,47128,254,Utah,Pac-12,Tampa Bay,2015,184,6,8,Kaelin Clay,Wide Receiver,70,195,319,45,32,Long Beach,CA,USA,33.7690164,-118.1916048,06037
+502295,47009,41,Connecticut,American Athletic,New York,2015,186,6,10,Geremy Davis,Wide Receiver,74,216,200,31,47,Lawrenceville,GA,USA,33.9562149,-83.9879625,13135
+514182,47424,194,Ohio State,Big Ten,Washington,2015,187,6,11,Evan Spencer,Wide Receiver,73,208,NA,49,30,Vernon Hills,IL,USA,42.2204892,-87.9803604,17097
+501832,47119,142,Missouri,SEC,Los Angeles,2015,201,6,25,Bud Sasser,Wide Receiver,75,219,310,44,33,Denton,TX,USA,33.2150386,-97.1330516,48121
+513727,46965,59,Georgia Tech,ACC,Baltimore,2015,204,6,28,Darren Waller,Wide Receiver,78,238,156,24,53,Acworth,GA,USA,34.0659329,-84.6768796,13067
+2513770,47510,2405,Monmouth,Big South,Jacksonville,2015,220,7,3,Neal Sterling,Wide Receiver,75,238,NA,72,30,NA,NA,NA,NA,NA,NA
+480211,47531,57,Florida,SEC,Las Vegas,2015,221,7,4,Andre Debose,Wide Receiver,72,190,NA,93,30,Sanford,FL,USA,28.8117297,-81.2680345,12117
+502538,47037,2459,Northern Illinois,Mid-American,Kansas City,2015,233,7,16,Da'Ron Brown,Wide Receiver,72,205,228,35,42,Chicago,IL,USA,41.8755616,-87.6244212,17031
+2567965,46956,2110,Central Arkansas,Southland,Buffalo,2015,234,7,17,Dez Lewis,Wide Receiver,76,214,147,22,56,NA,NA,NA,NA,NA,NA
+550507,47015,277,West Virginia,Big 12,Cincinnati,2015,238,7,21,Mario Alford,Wide Receiver,69,180,206,32,46,Greenville,GA,USA,33.0287373,-84.7129848,13199
+2566041,46922,2729,William & Mary,CAA,Tennessee,2015,245,7,28,Tre McBride,Wide Receiver,72,210,113,18,67,NA,NA,NA,NA,NA,NA
+535497,50135,239,Baylor,Big 12,Cleveland,2016,15,1,15,Corey Coleman,Wide Receiver,71,194,20,3,90,Richardson,TX,USA,32.9481789,-96.7297206,48113
+-1026400,50132,87,Notre Dame,FBS Independents,Houston,2016,21,1,21,Will Fuller,Wide Receiver,72,186,21,4,90,Philadelphia,PA,USA,39.9527237,-75.1635262,42101
+516301,50131,2628,TCU,Big 12,Washington,2016,22,1,22,Josh Doctson,Wide Receiver,74,202,15,2,91,Mansfield,TX,USA,32.5631924,-97.1416768,48439
+550014,50129,145,Ole Miss,SEC,Minnesota,2016,23,1,23,Laquon Treadwell,Wide Receiver,74,221,14,1,91,Crete,IL,USA,41.4445334,-87.6313829,17197
+534448,50143,201,Oklahoma,Big 12,New York,2016,40,2,9,Sterling Shepard,Wide Receiver,70,194,61,9,79,Oklahoma City,OK,USA,35.4729886,-97.5170536,40109
+534311,50539,194,Ohio State,Big Ten,New Orleans,2016,47,2,16,Michael Thomas,Wide Receiver,75,212,37,5,86,Los Angeles,CA,USA,34.0536909,-118.2427666,06037
+546650,50133,221,Pittsburgh,ACC,Cincinnati,2016,55,2,24,Tyler Boyd,Wide Receiver,74,197,39,6,84,Clairton,PA,USA,40.2922938,-79.8817181,42003
+512838,50146,194,Ohio State,Big Ten,Houston,2016,85,3,22,Braxton Miller,Wide Receiver,73,201,51,8,81,Huber Heights,OH,USA,39.85902405,-84.11136295364687,39113
+537313,50149,164,Rutgers,Big Ten,Miami,2016,86,3,23,Leonte Carroo,Wide Receiver,72,211,67,10,78,Edison,NJ,USA,40.5382375,-74.39451734508772,34023
+512073,50140,2132,Cincinnati,American Athletic,Baltimore,2016,107,4,9,Chris Moore,Wide Receiver,73,206,46,7,82,Tampa,FL,USA,27.9477595,-82.458444,12057
+512178,50163,61,Georgia,SEC,New England,2016,112,4,14,Malcolm Mitchell,Wide Receiver,72,198,123,14,66,Valdosta,GA,USA,30.8327022,-83.2784851,13185
+530907,50176,2,Auburn,SEC,Cleveland,2016,114,4,16,Ricardo Louis,Wide Receiver,74,215,243,37,45,Miami,FL,USA,25.7742658,-80.1936589,12086
+548173,50138,2579,South Carolina,SEC,Los Angeles,2016,117,4,19,Pharoh Cooper,Wide Receiver,71,203,72,11,77,Havelock,NC,USA,34.8785,-76.9014457,37049
+546314,50445,57,Florida,SEC,Kansas City,2016,126,4,28,Demarcus Robinson,Wide Receiver,73,203,245,38,44,Fort Valley,GA,USA,32.5537585,-83.8874084,13225
+2566659,50436,163,Princeton,Ivy,Cleveland,2016,138,4,40,Seth Devalve,Wide Receiver,74,244,NA,131,20,NA,NA,NA,NA,NA,NA
+537063,50158,113,UMass,Mid-American,Tennessee,2016,140,5,1,Tajae Sharpe,Wide Receiver,74,194,180,22,56,Piscataway,NJ,USA,40.5462553,-74.4660408,34023
+530981,50136,26,UCLA,Pac-12,Cleveland,2016,154,5,15,Jordan Payton,Wide Receiver,73,207,83,12,75,Santa Monica,CA,USA,34.0250724,-118.4965129,06037
+516956,50448,25,California,Pac-12,Green Bay,2016,163,5,24,Trevor Davis,Wide Receiver,73,188,226,32,48,Oakley,CA,USA,37.9974219,-121.7124536,06013
+3116406,50463,2695,West Alabama,Gulf South,Kansas City,2016,165,5,26,Tyreek Hill,Wide Receiver,70,185,NA,65,30,Pearson,GA,USA,31.297703,-82.8523668,13003
+546244,50139,36,Colorado State,Mountain West,Cleveland,2016,172,5,33,Rashard Higgins,Wide Receiver,73,196,140,17,61,Dallas,TX,USA,32.7762719,-96.7968559,48113
+NA,50530,3,Birmingham-Southern,Southern Athletic,Minnesota,2016,180,6,5,Moritz Boehringer,Wide Receiver,76,225,NA,46,36,NA,NA,NA,NA,NA,NA
+530568,50460,2426,Navy,American Athletic,Baltimore,2016,182,6,7,Keenan Reynolds,Wide Receiver,70,190,334,51,32,Antioch,TN,USA,36.0806394,-83.7799037,47093
+514493,50486,2641,Texas Tech,Big 12,Miami,2016,186,6,11,Jakeem Grant,Wide Receiver,66,165,303,47,35,Mesquite,TX,USA,32.7666103,-96.599472,48113
+531231,50154,2628,TCU,Big 12,Buffalo,2016,192,6,17,Kolby Listenbee,Wide Receiver,72,197,158,18,59,Arlington,TX,USA,32.701938999999996,-97.10562379033699,48439
+536197,50159,145,Ole Miss,SEC,Cincinnati,2016,199,6,24,Cody Core,Wide Receiver,75,205,278,44,38,Auburn,AL,USA,32.6550905,-85.50364346309962,01081
+3123986,50130,2572,Southern Mississippi,Conference USA,Los Angeles,2016,206,6,31,Michael Thomas,Wide Receiver,73,193,324,49,33,Chicago,IL,USA,41.8755616,-87.6244212,17031
+535857,50441,127,Michigan State,Big Ten,San Francisco,2016,213,6,38,Aaron Burbridge,Wide Receiver,72,206,134,16,62,Farmington Hills,MI,USA,42.4853125,-83.3771553,26125
+511983,50453,9,Arizona State,Pac-12,New England,2016,225,7,4,Devin Lucien,Wide Receiver,73,201,NA,55,30,Encino,CA,USA,34.1591324,-118.5016166,06037
+545543,50440,248,Houston,American Athletic,Pittsburgh,2016,229,7,8,Demarcus Ayers,Wide Receiver,69,182,232,34,47,Lancaster,TX,USA,32.5920798,-96.7561083,48113
+532661,50447,2711,Western Michigan,Mid-American,Chicago,2016,230,7,9,Daniel Braverman,Wide Receiver,70,180,189,25,54,Miramar,FL,USA,25.975911449999998,-80.33472128115224,12011
+547596,50443,26,UCLA,Pac-12,Miami,2016,231,7,10,Thomas Duarte,Wide Receiver,74,231,163,20,58,Fullerton,CA,USA,33.8708215,-117.9294165,06059
+-1038275,50189,26,UCLA,Pac-12,Atlanta,2016,238,7,17,Devin Fuller,Wide Receiver,72,194,NA,64,30,Norwood,NJ,USA,40.9981532,-73.9618039,34003
+511213,50165,228,Clemson,ACC,New York,2016,241,7,20,Charone Peake,Wide Receiver,74,209,117,13,68,Moore,SC,USA,34.8334519,-81.9920461,45083
+535270,50437,25,California,Pac-12,Seattle,2016,243,7,22,Kenny Lawler,Wide Receiver,75,203,128,15,65,Pomona,CA,USA,34.0553813,-117.7517496,06037
+545923,51674,2711,Western Michigan,Mid-American,Tennessee,2017,5,1,5,Corey Davis,Wide Receiver,75,209,15,2,91,Wheaton,IL,USA,41.8646959,-88.1101709,17043
+546644,51583,228,Clemson,ACC,Los Angeles,2017,7,1,7,Mike Williams,Wide Receiver,76,218,12,1,91,Vance,SC,USA,33.4337744,-80.4228665,45075
+550330,51811,264,Washington,Pac-12,Cincinnati,2017,9,1,9,John Ross,Wide Receiver,71,188,20,3,90,Long Beach,CA,USA,33.7690164,-118.1916048,06037
+4044154,51683,151,East Carolina,American Athletic,Buffalo,2017,37,2,5,Zay Jones,Wide Receiver,74,201,32,4,87,NA,NA,NA,NA,NA,NA
+3121427,51813,194,Ohio State,Big Ten,Carolina,2017,40,2,8,Curtis Samuel,Wide Receiver,71,196,42,5,86,Brooklyn,NY,USA,40.6501038,-73.9495823,36047
+3120348,51581,30,USC,Pac-12,Pittsburgh,2017,62,2,30,JuJu Smith-Schuster,Wide Receiver,73,215,51,6,83,Long Beach,CA,USA,33.7690164,-118.1916048,06037
+534695,51682,331,Eastern Washington,Big Sky,Los Angeles,2017,69,3,5,Cooper Kupp,Wide Receiver,74,204,64,7,79,NA,NA,NA,NA,NA,NA
+552775,51710,98,Western Kentucky,Conference USA,Tennessee,2017,72,3,8,Taywan Taylor,Wide Receiver,71,203,80,8,76,Louisville,KY,USA,38.2542376,-85.759407,21111
+551307,101496,333,Alabama,SEC,New York,2017,79,3,15,ArDarius Stewart,Wide Receiver,71,204,87,9,74,Fultondale,AL,USA,33.631438,-86.78332454213484,01073
+545669,51815,2348,Louisiana Tech,Conference USA,Denver,2017,82,3,18,Carlos Henderson,Wide Receiver,71,199,108,12,72,New Orleans,LA,USA,29.9499323,-90.0701156,22071
+3116165,51796,213,Penn State,Big Ten,Tampa Bay,2017,84,3,20,Chris Godwin,Wide Receiver,73,209,106,11,72,Middletown,DE,USA,39.4496857,-75.7166811,10003
+533961,51987,2459,Northern Illinois,Mid-American,Detroit,2017,96,3,32,Kenny Golladay,Wide Receiver,76,218,201,29,50,Chicago,IL,USA,41.8755616,-87.6244212,17031
+554568,52077,2755,Grambling,SWAC,Arizona,2017,98,3,34,Chad Williams,Wide Receiver,73,207,213,32,48,NA,NA,NA,NA,NA,NA
+535165,51684,130,Michigan,Big Ten,Seattle,2017,106,3,42,Amara Darboh,Wide Receiver,74,214,112,14,71,West Des Moines,IA,USA,41.5645337,-93.7595281,19153
+3892889,51814,201,Oklahoma,Big 12,Jacksonville,2017,110,4,3,Dede Westbrook,Wide Receiver,72,178,188,27,52,Cameron,TX,USA,30.8532454,-96.9769304,48331
+559694,51587,245,Texas A&M,SEC,Los Angeles,2017,117,4,10,Josh Reynolds,Wide Receiver,75,194,130,17,67,San Antonio,TX,USA,29.4246002,-98.4951405,48029
+540210,51671,153,North Carolina,ACC,Philadelphia,2017,118,4,12,Mack Hollins,Wide Receiver,76,221,100,10,73,Rockville,MD,USA,39.0840054,-77.1527573,24031
+559718,51799,2633,Tennessee,SEC,Cincinnati,2017,128,4,22,Josh Malone,Wide Receiver,75,208,111,13,71,Gallatin,TN,USA,36.3883031,-86.4475898,47165
+545256,51712,153,North Carolina,ACC,Dallas,2017,133,4,27,Ryan Switzer,Wide Receiver,69,181,139,18,63,Charleston,WV,USA,38.3505995,-81.6332812,54039
+535167,51584,130,Michigan,Big Ten,Kansas City,2017,139,4,33,Jehu Chesson,Wide Receiver,75,204,159,21,59,St. Louis,MO,USA,38.6268039,-90.1994097,29510
+554399,51803,25,California,Pac-12,New York,2017,141,4,35,Chad Hansen,Wide Receiver,74,202,163,22,58,Fillmore,CA,USA,34.38395800000001,-118.93659550000001,06111
+546034,51849,277,West Virginia,Big 12,Philadelphia,2017,166,5,22,Shelton Gibson,Wide Receiver,71,191,142,19,62,Cleveland Heights,OH,USA,41.5200518,-81.556235,39035
+552748,51945,58,South Florida,American Athletic,Minnesota,2017,170,5,27,Rodney Adams,Wide Receiver,73,189,303,51,35,St. Petersburg,FL,USA,27.7703796,-82.6695085,12103
+3128724,51802,61,Georgia,SEC,Denver,2017,172,5,29,Isaiah McKenzie,Wide Receiver,68,173,152,20,60,Miami,FL,USA,25.7742658,-80.1936589,12086
+3052470,52072,2509,Purdue,Big Ten,Green Bay,2017,175,5,32,Deangelo Yancey,Wide Receiver,74,220,194,28,51,NA,NA,NA,NA,NA,NA
+545677,51804,2348,Louisiana Tech,Conference USA,San Francisco,2017,177,5,34,Trent Taylor,Wide Receiver,68,181,266,45,40,Shreveport,LA,USA,32.5221828,-93.7651944,22017
+545837,51988,2247,Georgia State,Sun Belt,Washington,2017,209,6,25,Robert Davis,Wide Receiver,75,219,178,23,56,Warner Robins,GA,USA,32.6200973,-83.606568,13153
+550046,49372,2390,Miami,ACC,Minnesota,2017,219,7,1,Stacy Coley,Wide Receiver,72,195,228,37,45,Pompano Beach,FL,USA,26.2378597,-80.1247667,12011
+4212909,52081,2191,East Central,Great American,Seattle,2017,226,7,8,David Moore,Wide Receiver,73,219,NA,87,30,NA,NA,NA,NA,NA,NA
+3124069,51709,259,Virginia Tech,ACC,Miami,2017,237,7,19,Isaiah Ford,Wide Receiver,73,194,218,35,47,Jacksonville,FL,USA,30.3321838,-81.655651,12031
+3121409,51798,194,Ohio State,Big Ten,Dallas,2017,239,7,21,Noah Brown,Wide Receiver,74,222,226,36,46,Flanders,NJ,USA,40.8456549,-74.6948843,34027
+559754,51582,99,LSU,SEC,Green Bay,2017,247,7,29,Malachi Dupre,Wide Receiver,75,196,113,15,70,New Orleans,LA,USA,29.9499323,-90.0701156,22071
+3915416,101759,120,Maryland,Big Ten,Carolina,2018,24,1,24,D.J. Moore,Wide Receiver,72,210,22,2,89,Philadelphia,PA,USA,39.9527237,-75.1635262,42101
+3925357,101515,333,Alabama,SEC,Atlanta,2018,26,1,26,Calvin Ridley,Wide Receiver,73,189,20,1,90,Fort Lauderdale,FL,USA,26.1223084,-80.1433786,12011
+3128429,101521,2567,SMU,American Athletic,Denver,2018,40,2,8,Courtland Sutton,Wide Receiver,75,218,44,4,84,Brenham,TX,USA,30.1668828,-96.3977442,48477
+3127306,101565,264,Washington,Pac-12,San Francisco,2018,44,2,12,Dante Pettis,Wide Receiver,73,186,71,8,77,San Clemente,CA,USA,33.4270275,-117.6124179,06059
+3895856,101517,245,Texas A&M,SEC,Arizona,2018,47,2,15,Christian Kirk,Wide Receiver,70,201,42,3,85,Scottsdale,AZ,USA,33.4942189,-111.9260184,04013
+549623,101607,235,Memphis,American Athletic,Chicago,2018,51,2,19,Anthony Miller,Wide Receiver,71,201,46,5,84,Memphis,TN,USA,35.1490215,-90.0516285,47157
+3122449,101552,197,Oklahoma State,Big 12,Pittsburgh,2018,60,2,28,James Washington,Wide Receiver,71,213,50,7,83,Stamford,TX,USA,32.9439359,-99.798715,48253
+559613,101544,99,LSU,SEC,Jacksonville,2018,61,2,29,D.J. Chark,Wide Receiver,75,199,48,6,84,Alexandria,LA,USA,31.311248,-92.4449087,27041
+4036348,101615,36,Colorado State,Mountain West,Dallas,2018,81,3,17,Michael Gallup,Wide Receiver,73,205,110,14,69,Monroe,GA,USA,33.7948364,-83.713229,13297
+3128451,101794,2116,UCF,American Athletic,New Orleans,2018,91,3,27,Tre'Quan Smith,Wide Receiver,74,210,86,10,73,Delray Beach,FL,USA,26.4614625,-80.0728201,12099
+3915823,101780,2641,Texas Tech,Big 12,Houston,2018,103,4,3,Keke Coutee,Wide Receiver,70,181,129,17,67,Lufkin,TX,USA,31.3386242,-94.7288558,48005
+3915097,101561,57,Florida,SEC,Cleveland,2018,105,4,5,Antonio Callaway,Wide Receiver,71,200,119,15,68,Miami,FL,USA,25.7742658,-80.1936589,12086
+552330,101832,213,Penn State,Big Ten,Denver,2018,113,4,13,DaeSean Hamilton,Wide Receiver,73,203,82,9,74,Fredericksburg,VA,USA,38.3031837,-77.4605399,51630
+4040792,101636,166,New Mexico State,Sun Belt,Baltimore,2018,132,4,32,Jaleel Scott,Wide Receiver,77,218,231,28,46,Rock Hill,SC,USA,34.9248667,-81.0250784,45091
+550100,101571,142,Missouri,SEC,Green Bay,2018,133,4,33,J'Mon Moore,Wide Receiver,75,207,217,25,50,Missouri City,TX,USA,29.6185669,-95.5377215,48157
+3118892,101807,219,Pennsylvania,Ivy,Tampa Bay,2018,144,5,7,Justin Watson,Wide Receiver,74,215,NA,46,30,Bridgeville,PA,USA,40.3561805,-80.1100556,42003
+3120659,101796,2460,Northern Iowa,MVFC,Indianapolis,2018,159,5,22,Daurice Fountain,Wide Receiver,74,209,104,11,70,Lubbock,TX,USA,33.5635206,-101.879336,48303
+3134302,101839,26,UCLA,Pac-12,Baltimore,2018,162,5,25,Jordan Lasley,Wide Receiver,73,203,125,16,67,Compton,CA,USA,33.894927,-118.226624,06037
+549962,101850,58,South Florida,American Athletic,Green Bay,2018,174,5,37,Marquez Valdes-Scantling,Wide Receiver,76,206,243,30,44,St. Petersburg ,FL,USA,27.7703796,-82.6695085,12103
+3895857,102341,245,Texas A&M,SEC,Cleveland,2018,175,6,1,Damion Ratley,Wide Receiver,74,193,NA,47,30,Yoakum,TX,USA,29.289352,-97.1492978,48123
+3728254,101579,228,Clemson,ACC,Indianapolis,2018,185,6,11,Deon Cain,Wide Receiver,74,202,107,12,70,Tampa,FL,USA,27.9477595,-82.458444,12057
+3728262,101800,228,Clemson,ACC,Buffalo,2018,187,6,13,Ray-Ray McCloud,Wide Receiver,70,190,291,35,36,Tampa,FL,USA,27.9477595,-82.458444,12057
+550364,101635,2641,Texas Tech,Big 12,Los Angeles,2018,191,6,17,Dylan Cantrell,Wide Receiver,75,226,248,31,43,Whitehouse,TX,USA,32.2268666,-95.2259279,48423
+559597,102094,99,LSU,SEC,Atlanta,2018,194,6,20,Russell Gage,Wide Receiver,72,183,303,36,35,Baton Rouge,LA,USA,30.4459596,-91.18738,22033
+3932442,101808,87,Notre Dame,FBS Independents,Green Bay,2018,207,6,33,Equanimeous St. Brown,Wide Receiver,77,214,139,19,64,Anaheim,CA,USA,33.8347516,-117.911732,06059
+4036335,101833,68,Boise State,Mountain West,Dallas,2018,208,6,34,Cedrick Wilson,Wide Receiver,74,188,134,18,65,Memphis,TN,USA,35.1490215,-90.0516285,47157
+3123075,101761,2390,Miami,ACC,New England,2018,210,6,36,Braxton Berrios,Wide Receiver,69,184,220,26,49,Raleigh,NC,USA,35.7803977,-78.6390989,37183
+4035019,101734,61,Georgia,SEC,Chicago,2018,224,7,6,Javon Wims,Wide Receiver,75,215,258,32,42,Miami,FL,USA,25.7742658,-80.1936589,12086
+547253,101587,197,Oklahoma State,Big 12,Las Vegas,2018,228,7,10,Marcell Ateman,Wide Receiver,77,216,185,22,56,Dallas,TX,USA,32.7762719,-96.7968559,48113
+3122899,101762,2393,Middle Tennessee,Conference USA,San Francisco,2018,240,7,22,Richie James,Wide Receiver,70,185,NA,41,30,Sarasota,FL,USA,27.3364347,-82.5306527,12115
+3921564,101845,52,Florida State,ACC,Cincinnati,2018,253,7,35,Auden Tate,Wide Receiver,77,228,192,23,55,Irmo,SC,USA,34.08846885,-81.18021121302588,45063
+3116680,102092,153,North Carolina,ACC,Buffalo,2018,255,7,37,Austin Proehl,Wide Receiver,69,175,NA,79,30,Charlotte,NC,USA,35.2272,-80.843083,37119
+559753,101773,2567,SMU,American Athletic,Washington,2018,256,7,38,Trey Quinn,Wide Receiver,71,203,153,20,61,Lake Charles,LA,USA,30.2265949,-93.2173759,22019
+4241372,103527,201,Oklahoma,Big 12,Baltimore,2019,25,1,25,Marquise Brown,Wide Receiver,69,166,11,1,90,Hollywood,FL,USA,26.0112014,-80.1494901,12011
+4047839,103534,9,Arizona State,Pac-12,New England,2019,32,1,32,N'Keal Harry,Wide Receiver,74,228,33,2,87,Chandler,AZ,USA,33.3062223,-111.8413317,04013
+3126486,103567,2579,South Carolina,SEC,San Francisco,2019,36,2,4,Deebo Samuel,Wide Receiver,71,214,39,3,86,Inman,SC,USA,35.0470617,-82.0901088,45083
+4047646,103532,145,Ole Miss,SEC,Tennessee,2019,51,2,19,A.J. Brown,Wide Receiver,73,226,45,5,85,Starkville,MS,USA,33.4503998,-88.8183872,28105
+4035004,103860,61,Georgia,SEC,Kansas City,2019,56,2,24,Mecole Hardman,Wide Receiver,70,187,67,12,78,Bowman,GA,USA,34.2048296,-83.0307002,13105
+3931397,103574,24,Stanford,Pac-12,Philadelphia,2019,57,2,25,JJ Arcega-Whiteside,Wide Receiver,74,225,48,6,84,Inman,SC,USA,35.0470617,-82.0901088,45083
+3121410,103553,194,Ohio State,Big Ten,Indianapolis,2019,59,2,27,Parris Campbell,Wide Receiver,72,205,49,7,84,Akron ,OH,USA,41.083064,-81.518485,39153
+3914328,103715,113,UMass,FBS Independents,Arizona,2019,62,2,30,Andy Isabella,Wide Receiver,69,188,110,15,70,Mayfield,OH,USA,41.541872,-81.439452,39035
+4047650,103557,145,Ole Miss,SEC,Seattle,2019,64,2,32,DK Metcalf,Wide Receiver,75,228,40,4,86,Oxford,MS,USA,34.3664127,-89.5187664,28071
+3932905,103915,2649,Toledo,Mid-American,Pittsburgh,2019,66,3,2,Diontae Johnson,Wide Receiver,71,183,137,19,66,Ruskin,FL,USA,27.7208575,-82.4331528,12057
+559716,103716,239,Baylor,Big 12,San Francisco,2019,67,3,3,Jalen Hurd,Wide Receiver,77,226,130,18,67,Hendersonville,TN,USA,36.3049177,-86.621443,47165
+3121422,103800,194,Ohio State,Big Ten,Washington,2019,76,3,12,Terry McLaurin,Wide Receiver,72,208,57,8,81,Indianapolis ,IN,USA,39.7683331,-86.1583502,18097
+3932423,103864,87,Notre Dame,FBS Independents,Baltimore,2019,93,3,29,Miles Boykin,Wide Receiver,76,220,61,9,80,Tinley Park,IL,USA,41.5733669,-87.7844944,17031
+3917940,103546,66,Iowa State,Big 12,Arizona,2019,103,4,1,Hakeem Butler,Wide Receiver,77,227,66,11,78,Baltimore,MD,USA,39.2908816,-76.610759,24510
+3916071,103686,277,West Virginia,Big 12,Seattle,2019,120,4,18,Gary Jennings Jr.,Wide Receiver,73,214,173,24,60,Stafford,VA,USA,38.4222681,-77.4084067,51179
+4035015,103858,61,Georgia,SEC,Chicago,2019,126,4,24,Riley Ridley,Wide Receiver,73,199,65,10,78,Coconut Creek,FL,USA,26.271462800000002,-80.18180791688866,12011
+3135321,103624,228,Clemson,ACC,Las Vegas,2019,149,5,11,Hunter Renfrow,Wide Receiver,70,184,306,40,39,Myrtle Beach,SC,USA,33.6956461,-78.8900409,45051
+3916945,103862,2,Auburn,SEC,New York,2019,171,5,33,Darius Slayton,Wide Receiver,73,190,112,16,70,Norcross,GA,USA,33.9412127,-84.2135309,13135
+3124537,103717,278,Fresno State,Mountain West,Arizona,2019,174,6,1,Keesean Johnson,Wide Receiver,73,201,159,23,62,Palo Alto,CA,USA,37.4443293,-122.1598465,06085
+3139522,103903,295,Old Dominion,Conference USA,Detroit,2019,184,6,11,Travis Fulgham,Wide Receiver,75,215,89,13,73,Ashburn,VA,USA,39.0437192,-77.4874899,51107
+3128317,104046,38,Colorado,Pac-12,Denver,2019,187,6,14,Juwann Winfree,Wide Receiver,75,215,NA,NA,NA,Englewood,NJ,USA,40.8928771,-73.9726381,34003
+3124964,104050,2433,Louisiana Monroe,Sun Belt,Atlanta,2019,203,6,30,Marcus Green,Wide Receiver,68,190,NA,NA,NA,Pontotoc,MS,USA,34.2478831,-88.998673,28115
+4036163,103580,152,NC State,ACC,Washington,2019,206,6,33,Kelvin Harmon,Wide Receiver,75,221,100,14,72,Palmyra,NJ,USA,40.0070565,-75.0282271,34005
+3914397,104052,189,Bowling Green,Mid-American,Tampa Bay,2019,208,6,35,Scott Miller,Wide Receiver,69,174,NA,NA,NA,Barrington,IL,USA,42.1539141,-88.1361888,17031
+3933064,103882,62,Hawai'i,Mountain West,Seattle,2019,236,7,22,John Ursua,Wide Receiver,69,178,335,45,35,Kailua-Kona,HI,USA,19.641941,-155.996933,15001
+3915174,103594,61,Georgia,SEC,Carolina,2019,237,7,23,Terry Godwin,Wide Receiver,71,184,274,35,44,Hogansville,GA,USA,33.1731769,-84.914936,13285
+4038938,103887,2483,Oregon,Pac-12,Minnesota,2019,239,7,25,Dillon Mitchell,Wide Receiver,73,197,188,25,58,Memphis,TN,USA,35.1490215,-90.0516285,47157
+3917067,103769,36,Colorado State,Mountain West,Minnesota,2019,247,7,33,Olabisi Johnson,Wide Receiver,73,204,224,28,52,Lakewood,CO,USA,39.631108499999996,-105.11005818223015,08059
+4241475,104103,333,Alabama,SEC,Las Vegas,2020,12,1,12,Henry Ruggs III,Wide Receiver,71,188,11,3,92,Montgomery,AL,USA,32.3669656,-86.3006485,01101
+4241463,104094,333,Alabama,SEC,Denver,2020,15,1,15,Jerry Jeudy,Wide Receiver,73,193,6,1,94,Deerfield Beach,FL,USA,26.318342,-80.0996306,12011
+4241389,104100,201,Oklahoma,Big 12,Dallas,2020,17,1,17,CeeDee Lamb,Wide Receiver,74,198,10,2,92,Richmond,TX,USA,29.5821811,-95.7607832,48157
+4241802,104117,2628,TCU,Big 12,Philadelphia,2020,21,1,21,Jalen Reagor,Wide Receiver,71,206,53,9,82,Waxahachie,TX,USA,32.3944908,-96.8439365,48139
+4262921,104360,99,LSU,SEC,Minnesota,2020,22,1,22,Justin Jefferson,Wide Receiver,73,202,14,4,91,Saint Rose,LA,USA,38.6820405,-89.55343803342507,17027
+4360438,104224,9,Arizona State,Pac-12,San Francisco,2020,25,1,25,Brandon Aiyuk,Wide Receiver,72,205,23,5,90,Rocklin,CA,USA,38.7907339,-121.2357828,06061
+4239993,104116,228,Clemson,ACC,Cincinnati,2020,33,2,1,Tee Higgins,Wide Receiver,76,216,30,6,88,Oak Ridge,TN,USA,36.0103562,-84.2696449,47001
+4035687,104217,30,USC,Pac-12,Indianapolis,2020,34,2,2,Michael Pittman Jr.,Wide Receiver,76,223,42,7,86,Woodland Hills,CA,USA,34.1684364,-118.6058382,06037
+4243160,104108,38,Colorado,Pac-12,Jacksonville,2020,42,2,10,Laviska Shenault Jr.,Wide Receiver,73,227,61,10,79,Desoto,TX,USA,32.6061241,-96.865612653687,48113
+4240380,104361,213,Penn State,Big Ten,Denver,2020,46,2,14,KJ Hamler,Wide Receiver,69,176,74,12,75,Pontiac,MI,USA,42.6389216,-83.2910468,26125
+4046692,104180,87,Notre Dame,FBS Independents,Pittsburgh,2020,49,2,17,Chase Claypool,Wide Receiver,76,238,62,11,78,Abbotsford,BC,CAN,NA,NA,NA
+3930066,104391,57,Florida,SEC,Los Angeles,2020,57,2,25,Van Jefferson,Wide Receiver,74,200,113,18,67,Brentwood,TN,USA,36.0325687,-86.7825235,47187
+4035403,104228,239,Baylor,Big 12,New York,2020,59,2,27,Denzel Mims,Wide Receiver,75,207,46,8,85,Daingerfield,TX,USA,33.0318031,-94.7219895,48343
+4360294,104491,235,Memphis,American Athletic,Washington,2020,66,3,2,Antonio Gibson,Wide Receiver,72,228,119,10,65,Stockbridge,GA,USA,33.5442781,-84.2338093,13151
+4259979,104441,96,Kentucky,SEC,Las Vegas,2020,80,3,16,Lynn Bowden Jr.,Wide Receiver,71,204,144,24,60,Youngstown,OH,USA,41.1035786,-80.6520161,39099
+4038818,20394,2579,South Carolina,SEC,Las Vegas,2020,81,3,17,Bryan Edwards,Wide Receiver,75,212,100,16,69,Conway,SC,USA,33.8360035,-79.0478143,45051
+4039050,104227,251,Texas,Big 12,Baltimore,2020,92,3,28,Devin Duvernay,Wide Receiver,71,200,81,13,74,Sachse,TX,USA,32.9762327,-96.5952703,48113
+4243537,104457,2116,UCF,American Athletic,Buffalo,2020,128,4,22,Gabriel Davis,Wide Receiver,74,216,156,27,57,Sanford,FL,USA,28.8117297,-81.2680345,12117
+4029893,104394,2335,Liberty,FBS Independents,Washington,2020,142,4,36,Antonio Gandy-Golden,Wide Receiver,76,223,83,14,73,Dallas,GA,USA,33.9237141,-84.8407732,13223
+4037591,104373,258,Virginia,ACC,Los Angeles,2020,151,5,5,Joe Reed,Wide Receiver,73,224,118,19,66,Charlotte Court House,VA,USA,37.0565362,-78.638334,51037
+246044,104174,135,Minnesota,Big Ten,Tampa Bay,2020,161,5,16,Tyler Johnson,Wide Receiver,73,206,173,29,54,Minneapolis,MN,USA,44.9772995,-93.2654692,27053
+4039043,104137,251,Texas,Big 12,Jacksonville,2020,165,5,20,Collin Johnson,Wide Receiver,78,222,107,17,68,San Jose,CA,USA,37.3361905,-121.8905833,06085
+4035793,104480,275,Wisconsin,Big Ten,Detroit,2020,166,5,21,Quintez Cephus,Wide Receiver,73,202,248,38,39,Macon,GA,USA,32.8406946,-83.6324022,13021
+4373673,104652,68,Boise State,Mountain West,Philadelphia,2020,168,5,23,John Hightower,Wide Receiver,74,189,231,36,41,Landover,MD,USA,38.9340002,-76.8966397,24033
+4248504,104647,227,Rhode Island,CAA,Houston,2020,171,5,26,Isaiah Coulter,Wide Receiver,74,198,178,30,53,Lubbock,TX,USA,33.5635206,-101.879336,48303
+4040655,104683,2655,Tulane,American Athletic,Chicago,2020,173,5,28,Darnell Mooney,Wide Receiver,70,176,NA,NA,NA,Gadsden,AL,USA,34.010929,-85.9989596,01055
+3916566,104551,2390,Miami,ACC,Minnesota,2020,176,5,31,K.J. Osborn,Wide Receiver,72,203,293,44,32,Ypsilanti,MI,USA,42.24253,-83.6171426940706,26161
+4258195,104140,130,Michigan,Big Ten,Cleveland,2020,187,6,8,Donovan Peoples-Jones,Wide Receiver,74,212,126,21,64,Detroit,MI,USA,42.3315509,-83.0466403,26163
+4050373,104449,2572,Southern Mississippi,Conference USA,Philadelphia,2020,200,6,21,Quez Watkins,Wide Receiver,72,185,136,23,61,Athens,AL,USA,34.828382500000004,-86.91713375,01083
+3916204,104495,2567,SMU,American Athletic,Baltimore,2020,201,6,22,James Proche,Wide Receiver,71,201,164,28,55,Dallas,TX,USA,32.7762719,-96.7968559,48113
+4242540,104439,204,Oregon State,Pac-12,Buffalo,2020,207,6,28,Isaiah Hodgins,Wide Receiver,76,210,187,32,51,Oakley,CA,USA,37.9974219,-121.7124536,06013
+4054085,104239,265,Washington State,Pac-12,Indianapolis,2020,212,6,33,Dezmon Patmon,Wide Receiver,76,225,200,33,48,San Diego,CA,USA,32.7174209,-117.1627714,06073
+4034950,104693,57,Florida,SEC,Seattle,2020,214,6,36,Freddie Swain,Wide Receiver,72,197,NA,NA,NA,Ocala,FL,USA,29.1871986,-82.1400923,12083
+3886598,104248,2633,Tennessee,SEC,San Francisco,2020,217,7,3,Jauan Jennings,Wide Receiver,75,215,278,42,34,Murfreesboro,TN,USA,35.845999,-86.3920452,47149
+3915522,104166,194,Ohio State,Big Ten,Los Angeles,2020,220,7,6,K.J. Hill,Wide Receiver,72,196,98,15,70,Little Rock,AR,USA,34.7464809,-92.2895948,05119
+4039436,104709,2426,Navy,American Athletic,Miami,2020,246,7,32,Malcolm Perry,Wide Receiver,69,186,NA,NA,NA,Clarksville,TN,USA,36.5277607,-87.3588703,47125
+4034964,104531,57,Florida,SEC,Denver,2020,252,7,38,Tyrie Cleveland,Wide Receiver,74,209,256,39,38,Houston,TX,USA,29.7589382,-95.3676974,48201
+4362628,104737,99,LSU,SEC,Cincinnati,2021,5,1,5,Ja'Marr Chase,Wide Receiver,72,201,3,1,94,Harvey,LA,USA,29.9035387,-90.0772944,17031
+4372016,104744,333,Alabama,SEC,Miami,2021,6,1,6,Jaylen Waddle,Wide Receiver,70,180,7,3,93,Houston,TX,USA,29.7589382,-95.3676974,48201
+4241478,104741,333,Alabama,SEC,Philadelphia,2021,10,1,10,DeVonta Smith,Wide Receiver,72,170,6,2,93,Amite,LA,USA,30.7265747,-90.5089815,22105
+4240600,105142,57,Florida,SEC,New York,2021,20,1,20,Kadarius Toney,Wide Receiver,72,193,32,6,88,Mobile,AL,USA,30.6943566,-88.0430541,01097
+4360939,104740,135,Minnesota,Big Ten,Baltimore,2021,27,1,27,Rashod Bateman,Wide Receiver,72,190,29,5,89,Tifton,GA,USA,31.4522765,-83.5096866,13277
+4372414,105139,145,Ole Miss,SEC,New York,2021,34,2,2,Elijah Moore,Wide Receiver,70,178,23,4,90,Fort Lauderdale,FL,USA,26.1223084,-80.1433786,12011
+4372485,104779,2509,Purdue,Big Ten,Arizona,2021,49,2,17,Rondale Moore,Wide Receiver,67,181,54,9,81,New Albany,IN,USA,38.2856247,-85.8241312,18043
+4043016,105167,2711,Western Michigan,Mid-American,Seattle,2021,56,2,24,D'Wayne Eskridge,Wide Receiver,69,190,57,10,80,Bluffton,IN,USA,40.7386579,-85.1716368,18179
+4360797,104822,97,Louisville,ACC,Los Angeles,2021,57,2,25,Tutu Atwell,Wide Receiver,69,155,44,7,85,Miami,FL,USA,25.7742658,-80.1936589,12086
+4362630,105140,99,LSU,SEC,Carolina,2021,59,2,27,Terrace Marshall Jr.,Wide Receiver,75,205,46,8,84,Bossier City,LA,USA,32.5369356,-93.6952689,22015
+4242433,104837,2633,Tennessee,SEC,Los Angeles,2021,77,3,14,Josh Palmer,Wide Receiver,73,210,183,31,55,Brampton,ON,CAN,NA,NA,NA
+4361577,105274,153,North Carolina,ACC,Washington,2021,82,3,19,Dyami Brown,Wide Receiver,73,189,98,17,71,Charlotte,NC,USA,35.2272,-80.843083,37119
+4239992,105190,228,Clemson,ACC,Green Bay,2021,85,3,22,Amari Rodgers,Wide Receiver,70,212,86,14,74,Knoxville,TN,USA,35.9603948,-83.9210261,47093
+4258173,104759,130,Michigan,Big Ten,Houston,2021,89,3,26,Nico Collins,Wide Receiver,76,215,76,13,75,Birmingham,AL,USA,33.5206824,-86.8024326,01073
+4371986,105302,2,Auburn,SEC,Cleveland,2021,91,3,28,Anthony Schwartz,Wide Receiver,72,186,72,11,76,Pembroke Pines,FL,USA,26.02322025,-80.34123906625615,12011
+4036026,105171,97,Louisville,ACC,Tennessee,2021,109,4,4,Dez Fitzpatrick,Wide Receiver,74,208,176,29,57,Farmington Hills,MI,USA,42.4853125,-83.3771553,26125
+4374302,105283,30,USC,Pac-12,Detroit,2021,112,4,7,Amon-Ra St. Brown,Wide Receiver,72,197,133,21,66,Anaheim Hills,CA,USA,33.8256835,-117.7565662,06059
+4243830,105435,249,North Texas,Conference USA,Tampa Bay,2021,129,4,24,Jaelon Darden,Wide Receiver,68,174,314,47,31,Houston,TX,USA,29.7589382,-95.3676974,48201
+4241424,104781,197,Oklahoma State,Big 12,Baltimore,2021,131,4,26,Tylan Wallace,Wide Receiver,71,194,75,12,76,Fort Worth,TX,USA,32.753177,-97.3327459,48439
+3932144,105482,2116,UCF,American Athletic,Los Angeles,2021,141,4,36,Jacob Harris,Wide Receiver,77,211,NA,NA,NA,Palm Harbor,FL,USA,28.0780718,-82.7637127,12103
+4240573,104790,2294,Iowa,Big Ten,Minnesota,2021,157,5,13,Ihmir Smith-Marsette,Wide Receiver,73,181,170,28,58,Newark,NJ,USA,40.735657,-74.1723667,34013
+4360739,105292,24,Stanford,Pac-12,Dallas,2021,179,5,35,Simi Fehoko,Wide Receiver,76,222,180,30,56,Sandy,UT,USA,40.5664878,-111.838904,49035
+4035465,105203,228,Clemson,ACC,Kansas City,2021,181,5,37,Cornell Powell,Wide Receiver,72,204,230,39,41,Greenville,NC,USA,35.612661,-77.3663538,37147
+4047836,105197,9,Arizona State,Pac-12,Atlanta,2021,187,6,3,Frank Darby,Wide Receiver,72,201,137,22,65,Jersey City,NJ,USA,40.7281575,-74.0776417,34017
+4039307,104798,248,Houston,American Athletic,Buffalo,2021,203,6,19,Marquez Stevenson,Wide Receiver,70,180,143,24,63,Shreveport,LA,USA,32.5221828,-93.7651944,22017
+4259499,104917,2579,South Carolina,SEC,Carolina,2021,204,6,20,Shi Smith,Wide Receiver,70,186,89,15,73,Union,SC,USA,34.7151939,-81.6237462,45087
+4242231,105188,99,LSU,SEC,Tennessee,2021,205,6,21,Racey McMath,Wide Receiver,75,211,241,40,39,New Orleans,LA,USA,29.9499323,-90.0701156,22071
+4037311,105488,59,Georgia Tech,ACC,Jacksonville,2021,209,6,25,Jalen Camp,Wide Receiver,74,220,NA,NA,NA,Cumming,GA,USA,34.2073196,-84.1401926,13117
+4035826,105149,26,UCLA,Pac-12,Cleveland,2021,211,6,27,Demetric Felton,Wide Receiver,69,189,140,7,64,Temecula,CA,USA,33.4946353,-117.1473661,06065
+4371974,105290,2,Auburn,SEC,Denver,2021,219,6,35,Seth Williams,Wide Receiver,75,211,165,27,59,Cottondale,AL,USA,33.1895629,-87.4516703,01125
+4240661,105308,153,North Carolina,ACC,Chicago,2021,221,6,37,Dazz Newsome,Wide Receiver,70,190,255,41,37,Hampton,VA,USA,37.0520315,-76.2856365,51650
+4589245,105299,2128,Charleston (WV),Mountain East,Indianapolis,2021,229,7,1,Mike Strachan,Wide Receiver,77,226,223,37,43,NA,NA,NA,NA,NA,NA
+4047648,105436,2116,UCF,American Athletic,New England,2021,242,7,15,Tre Nixon,Wide Receiver,72,187,315,48,31,Viera,FL,USA,28.243006,-80.7301522,12009
+4035656,105179,87,Notre Dame,FBS Independents,Los Angeles,2021,249,7,22,Ben Skowronek,Wide Receiver,75,220,210,36,48,Fort Wayne,IN,USA,41.0799898,-85.1386015,18003
+4068152,105496,6,South Alabama,Sun Belt,New Orleans,2021,255,7,28,Kawaan Baker,Wide Receiver,73,215,NA,NA,NA,Atlanta,GA,USA,33.7490987,-84.3901849,13121
+4373642,105318,252,BYU,FBS Independents,Washington,2021,258,7,31,Dax Milne,Wide Receiver,73,193,279,44,34,South Jordan,UT,USA,40.5621704,-111.929658,49035
+4426502,105554,30,USC,Pac-12,Atlanta,2022,8,1,8,Drake London,Wide Receiver,76,219,11,2,92,Moorpark,CA,USA,34.285558,-118.8820414,06111
+4569618,105540,194,Ohio State,Big Ten,New York,2022,10,1,10,Garrett Wilson,Wide Receiver,72,183,6,1,93,Austin,TX,USA,30.2711286,-97.7436995,48453
+4361370,105544,194,Ohio State,Big Ten,New Orleans,2022,11,1,11,Chris Olave,Wide Receiver,72,187,15,4,91,San Marcos,CA,USA,33.1433723,-117.1661449,06073
+4426388,105553,333,Alabama,SEC,Detroit,2022,12,1,12,Jameson Williams,Wide Receiver,74,179,13,3,92,Saint Louis,MO,USA,38.6264178,-90.1998378,29510
+4361409,105545,213,Penn State,Big Ten,Washington,2022,16,1,16,Jahan Dotson,Wide Receiver,71,178,25,6,89,Nazareth,PA,USA,40.7423309,-75.3112095,42095
+4567156,105550,8,Arkansas,SEC,Tennessee,2022,18,1,18,Treylon Burks,Wide Receiver,74,225,24,5,89,Warren,AR,USA,33.6126086,-92.0645831,05011
+4248528,105939,2449,North Dakota State,MVFC,Green Bay,2022,34,2,2,Christian Watson,Wide Receiver,76,208,39,7,87,Tampa,FL,USA,27.9477595,-82.458444,12057
+4569587,106066,96,Kentucky,SEC,New York,2022,43,2,11,Wan'Dale Robinson,Wide Receiver,68,178,80,14,77,Frankfort,KY,USA,38.2009055,-84.8732836,21073
+4567096,105560,333,Alabama,SEC,Houston,2022,44,2,12,John Metchie III,Wide Receiver,71,187,55,9,84,Brampton,ON,CAN,NA,NA,NA
+4362921,106107,239,Baylor,Big 12,New England,2022,50,2,18,Tyquan Thornton,Wide Receiver,74,181,117,18,69,Miami,FL,USA,25.7742658,-80.1936589,12086
+4426354,105609,61,Georgia,SEC,Pittsburgh,2022,52,2,20,George Pickens,Wide Receiver,75,195,58,10,83,Hoover,AL,USA,33.3848933,-86.8070484,01073
+4360078,105892,2132,Cincinnati,American Athletic,Indianapolis,2022,53,2,21,Alec Pierce,Wide Receiver,75,211,61,11,82,Visalia,CA,USA,36.3302284,-119.2920585,06107
+4430191,106025,2711,Western Michigan,Mid-American,Kansas City,2022,54,2,22,Skyy Moore,Wide Receiver,70,195,40,8,87,New Kensington,PA,USA,40.5697893,-79.7647705,42129
+4035693,106028,2633,Tennessee,SEC,Chicago,2022,71,3,7,Velus Jones Jr.,Wide Receiver,72,204,106,17,70,Saraland,AL,USA,30.820742,-88.0705556,01097
+4249417,105614,6,South Alabama,Sun Belt,Dallas,2022,88,3,24,Jalen Tolbert,Wide Receiver,73,194,74,12,79,Mobile,AL,USA,30.6943566,-88.0430541,01097
+4570409,105594,2509,Purdue,Big Ten,Cleveland,2022,99,3,35,David Bell,Wide Receiver,73,212,94,15,73,Indianapolis,IN,USA,39.7683331,-86.1583502,18097
+4689546,105931,2567,SMU,American Athletic,San Francisco,2022,105,3,41,Danny Gray,Wide Receiver,72,186,177,24,58,Dallas,TX,USA,32.7762719,-96.7968559,48113
+4362186,106074,2641,Texas Tech,Big 12,Miami,2022,125,4,20,Erik Ezukanma,Wide Receiver,74,209,165,23,59,Fort Worth,TX,USA,32.753177,-97.3327459,48439
+4361432,105684,2440,Nevada,Mountain West,Green Bay,2022,132,4,27,Romeo Doubs,Wide Receiver,74,201,157,22,60,Los Angeles,CA,USA,34.0536909,-118.2427666,06037
+4243389,105948,235,Memphis,American Athletic,Pittsburgh,2022,138,4,33,Calvin Austin III,Wide Receiver,68,170,76,13,78,Memphis,TN,USA,35.1490215,-90.0516285,47157
+4373678,105886,68,Boise State,Mountain West,Buffalo,2022,148,5,5,Khalil Shakir,Wide Receiver,72,196,102,16,71,Murrieta,CA,USA,33.577752399999994,-117.18845420205307,06065
+4248822,106246,2535,Samford,Southern,Denver,2022,162,5,19,Montrell Washington,Wide Receiver,70,170,NA,NA,NA,Lubbock,TX,USA,33.5635206,-101.879336,48303
+4367175,106131,26,UCLA,Pac-12,Tennessee,2022,163,5,20,Kyle Philips,Wide Receiver,71,189,126,19,67,San Marcos,CA,USA,33.1433723,-117.1661449,06073
+4382466,106093,127,Michigan State,Big Ten,Minnesota,2022,191,6,12,Jalen Nailor,Wide Receiver,71,186,237,29,48,Palmdale,CA,USA,34.5793131,-118.1171108,06037
+4360174,106250,201,Oklahoma,Big 12,Cleveland,2022,202,6,24,Michael Woods II,Wide Receiver,73,198,NA,NA,NA,Magnolia,TX,USA,30.2093794,-95.7507815,48339
+4259305,105932,164,Rutgers,Big Ten,Seattle,2022,229,7,8,Bo Melton,Wide Receiver,71,189,137,20,64,Mays Landing,NJ,USA,39.4523326,-74.727661,34001
+4401805,106240,2331,Lenoir-Rhyne,South Atlantic,Seattle,2022,233,7,12,Dareke Young,Wide Receiver,NA,NA,335,39,34,NA,NA,NA,NA,NA,NA
+4027873,106270,158,Nebraska,Big Ten,Green Bay,2022,258,7,37,Samori Toure,Wide Receiver,75,190,NA,NA,NA,Lubbock,TX,USA,33.5635206,-101.879336,48303
