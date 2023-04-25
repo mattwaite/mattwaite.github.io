@@ -240,7 +240,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#exercise-2-what-is-the-truth" id="toc-exercise-2-what-is-the-truth" class="nav-link" data-scroll-target="#exercise-2-what-is-the-truth"><span class="toc-section-number">9.3.2</span>  Exercise 2: What is the truth?</a></li>
   <li><a href="#exercise-3-how-does-it-fare" id="toc-exercise-3-how-does-it-fare" class="nav-link" data-scroll-target="#exercise-3-how-does-it-fare"><span class="toc-section-number">9.3.3</span>  Exercise 3: How does it fare?</a></li>
   </ul></li>
-  <li><a href="#multiple-regression" id="toc-multiple-regression" class="nav-link" data-scroll-target="#multiple-regression"><span class="toc-section-number">9.4</span>  Multiple regression</a></li>
+  <li><a href="#multiple-regression" id="toc-multiple-regression" class="nav-link" data-scroll-target="#multiple-regression"><span class="toc-section-number">9.4</span>  Multiple regression</a>
+  <ul class="collapse">
+  <li><a href="#exercise-4-adding-another-variable" id="toc-exercise-4-adding-another-variable" class="nav-link" data-scroll-target="#exercise-4-adding-another-variable"><span class="toc-section-number">9.4.1</span>  Exercise 4: Adding another variable</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -397,6 +400,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Enter the multiple regression.</p>
 <p>Multiple regressions are a step toward reality – where more than one thing influences the outcome. However, the more variance we attempt to explain, the more error and uncertainty we introduce into our model.</p>
 <p>To add a variable to your regression model to make a multiple regression model, you simply use + and add it in. Let’s add pre_draft_grade.</p>
+<section id="exercise-4-adding-another-variable" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="exercise-4-adding-another-variable"><span class="header-section-number">9.4.1</span> Exercise 4: Adding another variable</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>lm_model <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set_engine</span>(<span class="st">"lm"</span>)</span>
@@ -457,6 +462,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>What does that mean? It means including both is going to just add error without adding much value. They’re so similar. You pick the one that is more highly correlated with fantasy points – overall pick.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
