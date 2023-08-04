@@ -1,241 +1,271 @@
-Team,Season,OffRtg
-Atlanta Hawks,2014-2015,109.99512195121952
-Atlanta Hawks,2015-2016,105.75121951219512
-Atlanta Hawks,2016-2017,105.54634146341463
-Atlanta Hawks,2017-2018,105.75243902439024
-Atlanta Hawks,2018-2019,108.70853658536585
-Atlanta Hawks,2019-2020,107.85671641791045
-Atlanta Hawks,2020-2021,115.99031007751938
-Atlanta Hawks,2021-2022,117.29634146341463
-Boston Celtics,2014-2015,105.32073170731708
-Boston Celtics,2015-2016,107.30121951219512
-Boston Celtics,2016-2017,111.88536585365854
-Boston Celtics,2017-2018,108.39268292682927
-Boston Celtics,2018-2019,112.77926829268293
-Boston Celtics,2019-2020,114.14027777777778
-Boston Celtics,2020-2021,114.40426356589147
-Boston Celtics,2021-2022,115.36341463414634
-Brooklyn Nets,2014-2015,105.15121951219513
-Brooklyn Nets,2015-2016,103.74146341463414
-Brooklyn Nets,2016-2017,104.61341463414634
-Brooklyn Nets,2017-2018,107.70853658536585
-Brooklyn Nets,2018-2019,110.30609756097562
-Brooklyn Nets,2019-2020,109.68611111111112
-Brooklyn Nets,2020-2021,118.9748062015504
-Brooklyn Nets,2021-2022,114.68780487804878
-Charlotte Hornets,2014-2015,100.91951219512195
-Charlotte Hornets,2015-2016,107.7329268292683
-Charlotte Hornets,2016-2017,109.5670731707317
-Charlotte Hornets,2017-2018,109.95731707317073
-Charlotte Hornets,2018-2019,112.09146341463415
-Charlotte Hornets,2019-2020,107.31076923076922
-Charlotte Hornets,2020-2021,111.81725490196078
-Charlotte Hornets,2021-2022,114.93414634146342
-Chicago Bulls,2014-2015,108.47804878048781
-Chicago Bulls,2015-2016,105.85
-Chicago Bulls,2016-2017,108.03780487804877
-Chicago Bulls,2017-2018,104.40975609756097
-Chicago Bulls,2018-2019,105.44268292682926
-Chicago Bulls,2019-2020,107.60307692307693
-Chicago Bulls,2020-2021,112.13529411764706
-Chicago Bulls,2021-2022,114.07439024390244
-Cleveland Cavaliers,2014-2015,111.9329268292683
-Cleveland Cavaliers,2015-2016,111.80243902439024
-Cleveland Cavaliers,2016-2017,114.25121951219512
-Cleveland Cavaliers,2017-2018,113.58048780487805
-Cleveland Cavaliers,2018-2019,108.50365853658536
-Cleveland Cavaliers,2019-2020,108.14615384615385
-Cleveland Cavaliers,2020-2021,107.08392156862745
-Cleveland Cavaliers,2021-2022,112.9219512195122
-Dallas Mavericks,2014-2015,110.29512195121951
-Dallas Mavericks,2015-2016,107.29512195121951
-Dallas Mavericks,2016-2017,106.28414634146341
-Dallas Mavericks,2017-2018,106.93414634146342
-Dallas Mavericks,2018-2019,110.19512195121952
-Dallas Mavericks,2019-2020,117.49466666666666
-Dallas Mavericks,2020-2021,115.74274509803922
-Dallas Mavericks,2021-2022,113.81951219512194
-Denver Nuggets,2014-2015,105.10853658536585
-Denver Nuggets,2015-2016,106.22195121951219
-Denver Nuggets,2016-2017,113.89634146341463
-Denver Nuggets,2017-2018,113.02560975609757
-Denver Nuggets,2018-2019,113.75487804878048
-Denver Nuggets,2019-2020,114.05616438356165
-Denver Nuggets,2020-2021,118.35764705882353
-Denver Nuggets,2021-2022,115.21219512195123
-Detroit Pistons,2014-2015,106.21219512195123
-Detroit Pistons,2015-2016,106.79024390243903
-Detroit Pistons,2016-2017,106.52804878048781
-Detroit Pistons,2017-2018,107.95121951219512
-Detroit Pistons,2018-2019,109.93170731707318
-Detroit Pistons,2019-2020,109.96363636363637
-Detroit Pistons,2020-2021,109.31434108527132
-Detroit Pistons,2021-2022,106.95853658536585
-Golden State Warriors,2014-2015,112.17560975609756
-Golden State Warriors,2015-2016,115.18536585365854
-Golden State Warriors,2016-2017,116.25121951219512
-Golden State Warriors,2017-2018,114.31585365853658
-Golden State Warriors,2018-2019,116.63536585365854
-Golden State Warriors,2019-2020,105.92461538461538
-Golden State Warriors,2020-2021,110.98682170542635
-Golden State Warriors,2021-2022,113.32926829268293
-Houston Rockets,2014-2015,107.86829268292684
-Houston Rockets,2015-2016,109.22926829268293
-Houston Rockets,2016-2017,115.58658536585367
-Houston Rockets,2017-2018,115.49512195121952
-Houston Rockets,2018-2019,116.25487804878048
-Houston Rockets,2019-2020,113.71388888888889
-Houston Rockets,2020-2021,107.30232558139535
-Houston Rockets,2021-2022,109.27926829268293
-Indiana Pacers,2014-2015,104.43780487804878
-Indiana Pacers,2015-2016,105.27926829268293
-Indiana Pacers,2016-2017,109.3280487804878
-Indiana Pacers,2017-2018,110.24024390243902
-Indiana Pacers,2018-2019,110.62073170731708
-Indiana Pacers,2019-2020,110.90273972602739
-Indiana Pacers,2020-2021,112.52352941176471
-Indiana Pacers,2021-2022,113.60853658536585
-Los Angeles Clippers,2014-2015,113.20243902439024
-Los Angeles Clippers,2015-2016,109.04756097560976
-Los Angeles Clippers,2016-2017,113.38292682926829
-Los Angeles Clippers,2017-2018,110.96585365853659
-Los Angeles Clippers,2018-2019,113.14146341463415
-Los Angeles Clippers,2019-2020,114.65416666666667
-Los Angeles Clippers,2020-2021,118.71340996168583
-Los Angeles Clippers,2021-2022,110.85731707317073
-Los Angeles Lakers,2014-2015,104.06951219512194
-Los Angeles Lakers,2015-2016,102.29146341463415
-Los Angeles Lakers,2016-2017,106.68780487804878
-Los Angeles Lakers,2017-2018,107.10731707317073
-Los Angeles Lakers,2018-2019,108.52317073170731
-Los Angeles Lakers,2019-2020,112.78873239436619
-Los Angeles Lakers,2020-2021,110.63686274509804
-Los Angeles Lakers,2021-2022,111.15365853658537
-Memphis Grizzlies,2014-2015,106.44634146341464
-Memphis Grizzlies,2015-2016,106.3719512195122
-Memphis Grizzlies,2016-2017,108.58536585365853
-Memphis Grizzlies,2017-2018,105.28170731707317
-Memphis Grizzlies,2018-2019,106.96219512195123
-Memphis Grizzlies,2019-2020,109.99453924914675
-Memphis Grizzlies,2020-2021,112.77579365079364
-Memphis Grizzlies,2021-2022,115.50365853658536
-Miami Heat,2014-2015,104.86463414634146
-Miami Heat,2015-2016,107.00853658536586
-Miami Heat,2016-2017,108.72804878048781
-Miami Heat,2017-2018,107.64268292682927
-Miami Heat,2018-2019,108.21951219512195
-Miami Heat,2019-2020,113.3
-Miami Heat,2020-2021,110.84728682170542
-Miami Heat,2021-2022,114.82926829268293
-Milwaukee Bucks,2014-2015,103.56951219512194
-Milwaukee Bucks,2015-2016,105.05609756097562
-Milwaukee Bucks,2016-2017,109.92560975609756
-Milwaukee Bucks,2017-2018,110.67682926829268
-Milwaukee Bucks,2018-2019,114.22560975609755
-Milwaukee Bucks,2019-2020,112.97397260273972
-Milwaukee Bucks,2020-2021,117.38588235294118
-Milwaukee Bucks,2021-2022,115.86585365853658
-Minnesota Timberwolves,2014-2015,103.62682926829268
-Minnesota Timberwolves,2015-2016,107.16585365853659
-Minnesota Timberwolves,2016-2017,111.55
-Minnesota Timberwolves,2017-2018,114.2439024390244
-Minnesota Timberwolves,2018-2019,112.04634146341463
-Minnesota Timberwolves,2019-2020,108.9140625
-Minnesota Timberwolves,2020-2021,109.34214559386973
-Minnesota Timberwolves,2021-2022,115.15
-New Orleans Pelicans,2014-2015,108.95487804878049
-New Orleans Pelicans,2015-2016,106.27317073170732
-New Orleans Pelicans,2016-2017,105.80121951219512
-New Orleans Pelicans,2017-2018,110.28536585365853
-New Orleans Pelicans,2018-2019,111.84390243902439
-New Orleans Pelicans,2019-2020,111.425
-New Orleans Pelicans,2020-2021,115.42862745098039
-New Orleans Pelicans,2021-2022,112.83658536585367
-New York Knicks,2014-2015,100.88414634146342
-New York Knicks,2015-2016,105.40365853658537
-New York Knicks,2016-2017,108.57560975609756
-New York Knicks,2017-2018,107.73048780487805
-New York Knicks,2018-2019,105.13292682926829
-New York Knicks,2019-2020,107.10151515151514
-New York Knicks,2020-2021,111.37441860465117
-New York Knicks,2021-2022,111.47317073170731
-Oklahoma City Thunder,2014-2015,108.41219512195121
-Oklahoma City Thunder,2015-2016,113.7560975609756
-Oklahoma City Thunder,2016-2017,108.95731707317073
-Oklahoma City Thunder,2017-2018,111.47804878048781
-Oklahoma City Thunder,2018-2019,110.84756097560975
-Oklahoma City Thunder,2019-2020,111.74444444444444
-Oklahoma City Thunder,2020-2021,104.69961240310077
-Oklahoma City Thunder,2021-2022,105.25121951219512
-Orlando Magic,2014-2015,102.25975609756098
-Orlando Magic,2015-2016,105.73536585365854
-Orlando Magic,2016-2017,104.23170731707317
-Orlando Magic,2017-2018,105.83292682926829
-Orlando Magic,2018-2019,109.45365853658537
-Orlando Magic,2019-2020,109.1027397260274
-Orlando Magic,2020-2021,106.09490196078431
-Orlando Magic,2021-2022,105.25365853658536
-Philadelphia 76ers,2014-2015,96.39634146341463
-Philadelphia 76ers,2015-2016,99.64512195121951
-Philadelphia 76ers,2016-2017,103.95731707317073
-Philadelphia 76ers,2017-2018,110.27682926829269
-Philadelphia 76ers,2018-2019,113.21341463414635
-Philadelphia 76ers,2019-2020,112.0958904109589
-Philadelphia 76ers,2020-2021,113.37137254901961
-Philadelphia 76ers,2021-2022,114.39024390243902
-Phoenix Suns,2014-2015,105.93048780487806
-Phoenix Suns,2015-2016,102.94268292682926
-Phoenix Suns,2016-2017,107.3170731707317
-Phoenix Suns,2017-2018,104.26341463414634
-Phoenix Suns,2018-2019,106.28658536585365
-Phoenix Suns,2019-2020,112.38219178082191
-Phoenix Suns,2020-2021,117.30431372549019
-Phoenix Suns,2021-2022,115.65365853658537
-Portland Trail Blazers,2014-2015,108.80609756097562
-Portland Trail Blazers,2015-2016,109.54634146341463
-Portland Trail Blazers,2016-2017,110.93414634146342
-Portland Trail Blazers,2017-2018,109.58292682926829
-Portland Trail Blazers,2018-2019,115.45
-Portland Trail Blazers,2019-2020,114.27946127946127
-Portland Trail Blazers,2020-2021,117.30980392156863
-Portland Trail Blazers,2021-2022,108.80121951219512
-Sacramento Kings,2014-2015,106.01341463414634
-Sacramento Kings,2015-2016,106.57317073170732
-Sacramento Kings,2016-2017,107.97195121951219
-Sacramento Kings,2017-2018,104.47195121951219
-Sacramento Kings,2018-2019,111.16707317073171
-Sacramento Kings,2019-2020,111.09166666666667
-Sacramento Kings,2020-2021,115.06392156862745
-Sacramento Kings,2021-2022,110.69634146341464
-San Antonio Spurs,2014-2015,109.25487804878048
-San Antonio Spurs,2015-2016,111.04634146341463
-San Antonio Spurs,2016-2017,111.80853658536586
-San Antonio Spurs,2017-2018,108.49024390243902
-San Antonio Spurs,2018-2019,113.30121951219512
-San Antonio Spurs,2019-2020,112.98028169014084
-San Antonio Spurs,2020-2021,111.61071428571428
-San Antonio Spurs,2021-2022,113.03414634146341
-Toronto Raptors,2014-2015,112.05975609756098
-Toronto Raptors,2015-2016,111.11707317073171
-Toronto Raptors,2016-2017,113.19756097560976
-Toronto Raptors,2017-2018,114.60487804878049
-Toronto Raptors,2018-2019,113.98780487804878
-Toronto Raptors,2019-2020,112.02083333333333
-Toronto Raptors,2020-2021,113.38333333333333
-Toronto Raptors,2021-2022,113.93170731707318
-Utah Jazz,2014-2015,106.19024390243902
-Utah Jazz,2015-2016,106.8170731707317
-Utah Jazz,2016-2017,110.4560975609756
-Utah Jazz,2017-2018,109.07439024390244
-Utah Jazz,2018-2019,111.34756097560975
-Utah Jazz,2019-2020,113.1375
-Utah Jazz,2020-2021,118.09882352941176
-Utah Jazz,2021-2022,117.6829268292683
-Washington Wizards,2014-2015,104.55731707317074
-Washington Wizards,2015-2016,106.08780487804879
-Washington Wizards,2016-2017,111.97926829268293
-Washington Wizards,2017-2018,109.96219512195123
-Washington Wizards,2018-2019,111.71829268292683
-Washington Wizards,2019-2020,111.69027777777778
-Washington Wizards,2020-2021,110.81843137254901
-Washington Wizards,2021-2022,111.71951219512195
+Season,Team,PTS
+2015,Atlanta Hawks,102.5
+2016,Atlanta Hawks,102.8
+2017,Atlanta Hawks,103.2
+2018,Atlanta Hawks,103.4
+2019,Atlanta Hawks,113.3
+2020,Atlanta Hawks,111.8
+2021,Atlanta Hawks,113.3
+2022,Atlanta Hawks,113.9
+2023,Atlanta Hawks,118.4
+2015,Boston Celtics,101.4
+2016,Boston Celtics,105.7
+2017,Boston Celtics,108
+2018,Boston Celtics,104
+2019,Boston Celtics,112.4
+2020,Boston Celtics,113.7
+2021,Boston Celtics,112
+2022,Boston Celtics,111.8
+2023,Boston Celtics,117.9
+2015,Brooklyn Nets,98
+2016,Brooklyn Nets,98.6
+2017,Brooklyn Nets,105.8
+2018,Brooklyn Nets,106.6
+2019,Brooklyn Nets,112.2
+2020,Brooklyn Nets,111.8
+2021,Brooklyn Nets,118.7
+2022,Brooklyn Nets,112.9
+2023,Brooklyn Nets,113.4
+2015,Charlotte Hornets,94.2
+2016,Charlotte Hornets,103.4
+2017,Charlotte Hornets,104.9
+2018,Charlotte Hornets,108.2
+2019,Charlotte Hornets,110.7
+2020,Charlotte Hornets,102.9
+2021,Charlotte Hornets,109.8
+2022,Charlotte Hornets,115.3
+2023,Charlotte Hornets,111
+2015,Chicago Bulls,100.8
+2016,Chicago Bulls,101.6
+2017,Chicago Bulls,102.9
+2018,Chicago Bulls,102.9
+2019,Chicago Bulls,104.9
+2020,Chicago Bulls,106.8
+2021,Chicago Bulls,111.6
+2022,Chicago Bulls,111.6
+2023,Chicago Bulls,113.1
+2015,Cleveland Cavaliers,103.1
+2016,Cleveland Cavaliers,104.3
+2017,Cleveland Cavaliers,110.3
+2018,Cleveland Cavaliers,110.9
+2019,Cleveland Cavaliers,104.5
+2020,Cleveland Cavaliers,106.9
+2021,Cleveland Cavaliers,104
+2022,Cleveland Cavaliers,107.8
+2023,Cleveland Cavaliers,112.3
+2015,Dallas Mavericks,105.2
+2016,Dallas Mavericks,102.3
+2017,Dallas Mavericks,97.9
+2018,Dallas Mavericks,102.3
+2019,Dallas Mavericks,108.9
+2020,Dallas Mavericks,117
+2021,Dallas Mavericks,111.8
+2022,Dallas Mavericks,108
+2023,Dallas Mavericks,114.2
+2015,Denver Nuggets,101.5
+2016,Denver Nuggets,101.9
+2017,Denver Nuggets,111.7
+2018,Denver Nuggets,110
+2019,Denver Nuggets,110.7
+2020,Denver Nuggets,111.3
+2021,Denver Nuggets,115.5
+2022,Denver Nuggets,112.7
+2023,Denver Nuggets,115.8
+2015,Detroit Pistons,98.5
+2016,Detroit Pistons,102
+2017,Detroit Pistons,101.3
+2018,Detroit Pistons,103.8
+2019,Detroit Pistons,107
+2020,Detroit Pistons,107.2
+2021,Detroit Pistons,107.4
+2022,Detroit Pistons,104.8
+2023,Detroit Pistons,110.3
+2015,Golden State Warriors,110
+2016,Golden State Warriors,114.9
+2017,Golden State Warriors,115.9
+2018,Golden State Warriors,113.5
+2019,Golden State Warriors,117.7
+2020,Golden State Warriors,106.3
+2021,Golden State Warriors,112.9
+2022,Golden State Warriors,111
+2023,Golden State Warriors,118.9
+2015,Houston Rockets,103.9
+2016,Houston Rockets,106.5
+2017,Houston Rockets,115.3
+2018,Houston Rockets,112.4
+2019,Houston Rockets,113.9
+2020,Houston Rockets,117.8
+2021,Houston Rockets,107.6
+2022,Houston Rockets,109.7
+2023,Houston Rockets,110.7
+2015,Indiana Pacers,97.3
+2016,Indiana Pacers,102.2
+2017,Indiana Pacers,105.1
+2018,Indiana Pacers,105.6
+2019,Indiana Pacers,108
+2020,Indiana Pacers,109.4
+2021,Indiana Pacers,114
+2022,Indiana Pacers,111.5
+2023,Indiana Pacers,116.3
+2015,Los Angeles Clippers,106.7
+2016,Los Angeles Clippers,104.5
+2017,Los Angeles Clippers,108.7
+2018,Los Angeles Clippers,109
+2019,Los Angeles Clippers,115.1
+2020,Los Angeles Clippers,116.3
+2021,Los Angeles Clippers,114.7
+2022,Los Angeles Clippers,108.4
+2023,Los Angeles Clippers,113.6
+2015,Los Angeles Lakers,98.5
+2016,Los Angeles Lakers,97.3
+2017,Los Angeles Lakers,104.6
+2018,Los Angeles Lakers,108.1
+2019,Los Angeles Lakers,111.8
+2020,Los Angeles Lakers,113.4
+2021,Los Angeles Lakers,109.7
+2022,Los Angeles Lakers,112.1
+2023,Los Angeles Lakers,117.2
+2015,Memphis Grizzlies,98.3
+2016,Memphis Grizzlies,99.1
+2017,Memphis Grizzlies,100.5
+2018,Memphis Grizzlies,99.3
+2019,Memphis Grizzlies,103.5
+2020,Memphis Grizzlies,112.6
+2021,Memphis Grizzlies,113.7
+2022,Memphis Grizzlies,115.6
+2023,Memphis Grizzlies,116.9
+2015,Miami Heat,94.7
+2016,Miami Heat,100
+2017,Miami Heat,103.2
+2018,Miami Heat,103.4
+2019,Miami Heat,105.7
+2020,Miami Heat,112
+2021,Miami Heat,106.3
+2022,Miami Heat,110
+2023,Miami Heat,109.5
+2015,Milwaukee Bucks,97.8
+2016,Milwaukee Bucks,99
+2017,Milwaukee Bucks,103.6
+2018,Milwaukee Bucks,106.5
+2019,Milwaukee Bucks,118.1
+2020,Milwaukee Bucks,118.7
+2021,Milwaukee Bucks,119.2
+2022,Milwaukee Bucks,115.5
+2023,Milwaukee Bucks,116.9
+2015,Minnesota Timberwolves,97.8
+2016,Minnesota Timberwolves,102.4
+2017,Minnesota Timberwolves,105.6
+2018,Minnesota Timberwolves,109.5
+2019,Minnesota Timberwolves,112.5
+2020,Minnesota Timberwolves,113.3
+2021,Minnesota Timberwolves,110.6
+2022,Minnesota Timberwolves,115.9
+2023,Minnesota Timberwolves,115.8
+2015,New Orleans Pelicans,99.4
+2016,New Orleans Pelicans,102.7
+2017,New Orleans Pelicans,104.3
+2018,New Orleans Pelicans,111.7
+2019,New Orleans Pelicans,115.4
+2020,New Orleans Pelicans,115.8
+2021,New Orleans Pelicans,115
+2022,New Orleans Pelicans,109.3
+2023,New Orleans Pelicans,114.4
+2015,New York Knicks,91.9
+2016,New York Knicks,98.4
+2017,New York Knicks,104.3
+2018,New York Knicks,104.5
+2019,New York Knicks,104.6
+2020,New York Knicks,105.8
+2021,New York Knicks,106.9
+2022,New York Knicks,106.5
+2023,New York Knicks,116
+2015,Oklahoma City Thunder,104
+2016,Oklahoma City Thunder,110.2
+2017,Oklahoma City Thunder,106.6
+2018,Oklahoma City Thunder,107.9
+2019,Oklahoma City Thunder,114.5
+2020,Oklahoma City Thunder,110.4
+2021,Oklahoma City Thunder,105.5
+2022,Oklahoma City Thunder,103.7
+2023,Oklahoma City Thunder,117.5
+2015,Orlando Magic,95.7
+2016,Orlando Magic,102.1
+2017,Orlando Magic,101.1
+2018,Orlando Magic,103.4
+2019,Orlando Magic,107.3
+2020,Orlando Magic,107.3
+2021,Orlando Magic,104.3
+2022,Orlando Magic,104.2
+2023,Orlando Magic,111.4
+2015,Philadelphia 76ers,92
+2016,Philadelphia 76ers,97.4
+2017,Philadelphia 76ers,102.4
+2018,Philadelphia 76ers,109.8
+2019,Philadelphia 76ers,115.2
+2020,Philadelphia 76ers,110.7
+2021,Philadelphia 76ers,113.3
+2022,Philadelphia 76ers,109.9
+2023,Philadelphia 76ers,115.2
+2015,Phoenix Suns,102.4
+2016,Phoenix Suns,100.9
+2017,Phoenix Suns,107.7
+2018,Phoenix Suns,103.9
+2019,Phoenix Suns,107.5
+2020,Phoenix Suns,113.6
+2021,Phoenix Suns,114.3
+2022,Phoenix Suns,114.8
+2023,Phoenix Suns,113.6
+2015,Portland Trail Blazers,102.8
+2016,Portland Trail Blazers,105.1
+2017,Portland Trail Blazers,107.9
+2018,Portland Trail Blazers,105.6
+2019,Portland Trail Blazers,114.7
+2020,Portland Trail Blazers,115
+2021,Portland Trail Blazers,114.7
+2022,Portland Trail Blazers,106.2
+2023,Portland Trail Blazers,113.4
+2015,Sacramento Kings,101.3
+2016,Sacramento Kings,106.6
+2017,Sacramento Kings,102.8
+2018,Sacramento Kings,98.8
+2019,Sacramento Kings,114.2
+2020,Sacramento Kings,110.1
+2021,Sacramento Kings,114.6
+2022,Sacramento Kings,110.3
+2023,Sacramento Kings,120.7
+2015,San Antonio Spurs,103.2
+2016,San Antonio Spurs,103.5
+2017,San Antonio Spurs,105.3
+2018,San Antonio Spurs,102.7
+2019,San Antonio Spurs,111.7
+2020,San Antonio Spurs,114.1
+2021,San Antonio Spurs,110.7
+2022,San Antonio Spurs,113.2
+2023,San Antonio Spurs,113
+2015,Toronto Raptors,104
+2016,Toronto Raptors,102.7
+2017,Toronto Raptors,106.9
+2018,Toronto Raptors,111.7
+2019,Toronto Raptors,114.4
+2020,Toronto Raptors,112.8
+2021,Toronto Raptors,111.7
+2022,Toronto Raptors,109.4
+2023,Toronto Raptors,112.9
+2015,Utah Jazz,95.1
+2016,Utah Jazz,97.7
+2017,Utah Jazz,100.7
+2018,Utah Jazz,104.1
+2019,Utah Jazz,111.7
+2020,Utah Jazz,111.3
+2021,Utah Jazz,116.2
+2022,Utah Jazz,113.6
+2023,Utah Jazz,117.1
+2015,Washington Wizards,98.5
+2016,Washington Wizards,104.1
+2017,Washington Wizards,109.2
+2018,Washington Wizards,106.6
+2019,Washington Wizards,114
+2020,Washington Wizards,114.4
+2021,Washington Wizards,114.9
+2022,Washington Wizards,108.6
+2023,Washington Wizards,113.2
