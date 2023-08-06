@@ -9,13 +9,13 @@ Season,Team,Conference,YardsPerPlay
 2021,Arkansas State,Sun Belt Conference,5.434135166093929
 2021,Army,Independent,5.630184331797235
 2021,Auburn,Southeastern Conference,5.818283166109253
+2021,BYU,Independent,6.7620689655172415
 2021,Ball State,Mid-American Conference,4.992063492063492
 2021,Baylor,Big 12 Conference,6.353004291845494
 2021,Boise State,Mountain West Conference,5.327944572748268
 2021,Boston College,Atlantic Coast Conference,5.4282018111254855
 2021,Bowling Green State,Mid-American Conference,4.941785252263907
 2021,Buffalo,Mid-American Conference,5.450221238938053
-2021,BYU,Independent,6.7620689655172415
 2021,California,Pac-12 Conference,5.935979513444302
 2021,Central Michigan,Mid-American Conference,5.957600827300931
 2021,Charlotte,Conference USA,5.909866017052376
@@ -47,12 +47,12 @@ Season,Team,Conference,YardsPerPlay
 2021,Kansas State,Big 12 Conference,6.316353887399464
 2021,Kent State,Mid-American Conference,6.582699619771863
 2021,Kentucky,Southeastern Conference,6.460280373831775
+2021,LSU,Southeastern Conference,5.39527027027027
 2021,Liberty,Independent,6.358426966292135
 2021,Louisiana,Sun Belt Conference,5.96078431372549
 2021,Louisiana Tech,Conference USA,5.573155985489722
 2021,Louisiana-Monroe,Sun Belt Conference,4.620164126611958
 2021,Louisville,Atlantic Coast Conference,6.70554272517321
-2021,LSU,Southeastern Conference,5.39527027027027
 2021,Marshall,Conference USA,6.324813631522897
 2021,Maryland,Big Ten Conference,6.178879310344827
 2021,Massachusetts,Independent,4.829986613119143
@@ -90,9 +90,9 @@ Season,Team,Conference,YardsPerPlay
 2021,Purdue,Big Ten Conference,5.956295525494276
 2021,Rice,Conference USA,5.32518337408313
 2021,Rutgers,Big Ten Conference,4.515659955257271
+2021,SMU,American Athletic Conference,6.316798196166855
 2021,San Diego State,Mountain West Conference,5.194833153928956
 2021,San Jose State,Mountain West Conference,5.479250334672021
-2021,SMU,American Athletic Conference,6.316798196166855
 2021,South Alabama,Sun Belt Conference,5.249110320284697
 2021,South Carolina,Southeastern Conference,5.343446601941747
 2021,South Florida,American Athletic Conference,5.002378121284186
@@ -114,10 +114,10 @@ Season,Team,Conference,YardsPerPlay
 2021,UCF,American Athletic Conference,6.064814814814815
 2021,UCLA,Pac-12 Conference,6.353919239904988
 2021,USC,Pac-12 Conference,5.922135706340378
-2021,Utah,Pac-12 Conference,6.402969247083775
-2021,Utah State,Mountain West Conference,5.896713615023474
 2021,UTEP,Conference USA,6.078384798099762
 2021,UTSA,Conference USA,6.1448551448551445
+2021,Utah,Pac-12 Conference,6.402969247083775
+2021,Utah State,Mountain West Conference,5.896713615023474
 2021,Vanderbilt,Southeastern Conference,4.5150421179302045
 2021,Virginia,Atlantic Coast Conference,6.917040358744394
 2021,Virginia Tech,Atlantic Coast Conference,5.544811320754717
@@ -139,13 +139,13 @@ Season,Team,Conference,YardsPerPlay
 2022,Arkansas State,Sun Belt Conference,4.861003861003861
 2022,Army,Independent,5.841755319148936
 2022,Auburn,Southeastern Conference,5.706030150753769
+2022,BYU,Independent,6.67710843373494
 2022,Ball State,Mid-American Conference,5.133630289532294
 2022,Baylor,Big 12 Conference,5.803667745415318
 2022,Boise State,Mountain West Conference,5.790374331550802
 2022,Boston College,Atlantic Coast Conference,4.636363636363637
 2022,Bowling Green,Mid-American Conference,5.04215456674473
 2022,Buffalo,Mid-American Conference,4.894211576846307
-2022,BYU,Independent,6.67710843373494
 2022,California,Pac-12 Conference,5.573248407643312
 2022,Central Michigan,Mid-American Conference,5.284172661870503
 2022,Charlotte,Conference USA,5.80625
@@ -178,12 +178,12 @@ Season,Team,Conference,YardsPerPlay
 2022,Kansas State,Big 12 Conference,6.120041753653445
 2022,Kent State,Mid-American Conference,5.78175519630485
 2022,Kentucky,Southeastern Conference,5.198275862068965
+2022,LSU,Southeastern Conference,6.36308926780341
 2022,Liberty,Independent,5.694038245219348
 2022,Louisiana,Sun Belt Conference,5.276169265033408
 2022,Louisiana Tech,Conference USA,5.647058823529412
 2022,Louisiana-Monroe,Sun Belt Conference,5.216
 2022,Louisville,Atlantic Coast Conference,5.959367945823928
-2022,LSU,Southeastern Conference,6.36308926780341
 2022,Marshall,Sun Belt Conference,5.3661825726141075
 2022,Maryland,Big Ten Conference,5.704918032786885
 2022,Massachusetts,Independent,4.001254705144291
@@ -221,9 +221,9 @@ Season,Team,Conference,YardsPerPlay
 2022,Purdue,Big Ten Conference,5.335557673975215
 2022,Rice,Conference USA,5.646171693735499
 2022,Rutgers,Big Ten Conference,4.435695538057743
+2022,SMU,American Athletic Conference,6.116417910447761
 2022,San Diego State,Mountain West Conference,5.1891891891891895
 2022,San Jose State,Mountain West Conference,5.709302325581396
-2022,SMU,American Athletic Conference,6.116417910447761
 2022,South Alabama,Sun Belt Conference,5.779643231899265
 2022,South Carolina,Southeastern Conference,5.919471153846154
 2022,South Florida,American Athletic Conference,6.1147327249022165
@@ -245,10 +245,10 @@ Season,Team,Conference,YardsPerPlay
 2022,UCF,American Athletic Conference,6.166979362101313
 2022,UCLA,Pac-12 Conference,7.009635974304069
 2022,USC,Pac-12 Conference,7.178137651821863
-2022,Utah,Pac-12 Conference,6.497017892644135
-2022,Utah State,Mountain West Conference,4.858649789029536
 2022,UTEP,Conference USA,5.471563981042654
 2022,UTSA,Conference USA,6.37093690248566
+2022,Utah,Pac-12 Conference,6.497017892644135
+2022,Utah State,Mountain West Conference,4.858649789029536
 2022,Vanderbilt,Southeastern Conference,5.268015170670038
 2022,Virginia,Atlantic Coast Conference,5.135820895522388
 2022,Virginia Tech,Atlantic Coast Conference,4.697547683923705
