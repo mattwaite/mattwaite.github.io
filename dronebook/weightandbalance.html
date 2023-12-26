@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Matt Waite">
-<meta name="dcterms.date" content="2023-12-23">
 
-<title>Drone Journalism</title>
+<title>Drone Journalism - 7&nbsp; Aircraft weight and performance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./part48.html" rel="next">
+<link href="./emergencies.html" rel="next">
+<link href="./weather.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Drone Journalism</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Aircraft weight and performance</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -113,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -143,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./weightandbalance.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Aircraft weight and performance</span></a>
+  <a href="./weightandbalance.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Aircraft weight and performance</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -190,10 +189,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started"><span class="toc-section-number">1</span>  Getting Started</a>
-  <ul class="collapse">
-  <li><a href="#the-faa-test" id="toc-the-faa-test" class="nav-link" data-scroll-target="#the-faa-test"><span class="toc-section-number">1.1</span>  The FAA Test</a></li>
-  </ul></li>
+  <li><a href="#load-factors" id="toc-load-factors" class="nav-link active" data-scroll-target="#load-factors"><span class="toc-section-number">7.1</span>  Load Factors</a></li>
+  <li><a href="#basic-aircraft-equipment-inside-out" id="toc-basic-aircraft-equipment-inside-out" class="nav-link" data-scroll-target="#basic-aircraft-equipment-inside-out"><span class="toc-section-number">7.2</span>  Basic aircraft equipment: Inside out</a></li>
+  <li><a href="#weight-and-balance" id="toc-weight-and-balance" class="nav-link" data-scroll-target="#weight-and-balance"><span class="toc-section-number">7.3</span>  Weight and balance</a></li>
+  <li><a href="#aircraft-performance" id="toc-aircraft-performance" class="nav-link" data-scroll-target="#aircraft-performance"><span class="toc-section-number">7.4</span>  Aircraft performance</a></li>
   </ul>
 </nav>
     </div>
@@ -202,27 +201,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Drone Journalism</h1>
-<p class="subtitle lead">What you need to know to get a drone license in the US and what separates a journalist from just someone with a controller in their hand.</p>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Aircraft weight and performance</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Matt Waite </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">December 23, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -230,121 +216,114 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="getting-started" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Getting Started</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cover.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Cover Image of the Book</figcaption><p></p>
-</figure>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p><strong>In their simplest form, drones are cameras that fly.</strong> They encapsulate the complexities of both a camera and a flying object. The ethical and privacy issues associated with cameras have been debated since the Civil War. The concept of flying objects, while relatively newer (since 1903), has never been as accessible as it is today with flying cameras.</p>
-<p><strong>Purpose of Flying Cameras:</strong> Before delving into the legal aspects, consider what you can achieve with a drone. They offer unprecedented views and provide a scale for understanding the magnitude of various scenes and landscapes.</p>
-<p><strong>Legal and Ethical Aspects:</strong> In the United States, operating a drone requires passing an FAA test. To be both a knowledgeable user and a responsible journalist, understanding the history, law, and ethical boundaries is crucial before launching a drone into the skies.</p>
-<section id="the-faa-test" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="the-faa-test"><span class="header-section-number">1.1</span> The FAA Test</h2>
-<p><strong>Requirements for FAA Part 107 Certification:</strong></p>
-<ul>
-<li><p>Minimum age of 16 years.</p></li>
-<li><p>Proficiency in reading, writing, and understanding English.</p></li>
-<li><p>Successful completion of the FAA’s aeronautical knowledge test.</p></li>
-<li><p>Clearing a Department of Homeland Security background check.</p></li>
-</ul>
-<p>This book primarily aids in preparing for the aeronautical knowledge test.</p>
-<p><strong>Test Locations and Format:</strong> The test, conducted by the Federal Aviation Administration, is available at <a href="https://www.faa.gov/training_testing/testing/media/test_centers.pdf">nearly 700 certified testing facilities nationwide</a>. It comprises 60 multiple-choice questions for first-time takers and 40 for renewals.</p>
-<p><strong>FAA’s Airman Certification Standards:</strong> <a href="https://www.faa.gov/training_testing/testing/acs/media/uas_acs.pdf">FAA’s Airman Certification Standards</a> provides a detailed breakdown of the exam topics. Insights from over 150 successful candidates are also included.</p>
-<table class="table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Certification Knowledge Exam</th>
-<th>Share</th>
-<th>Number</th>
-<th>Author’s Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Regulations</td>
-<td>15-25%</td>
-<td>9-15</td>
-<td>Generally at the higher end</td>
-</tr>
-<tr class="even">
-<td>Airspace and Requirements</td>
-<td>15-25%</td>
-<td>9-15</td>
-<td>Expect challenging questions</td>
-</tr>
-<tr class="odd">
-<td>Weather</td>
-<td>11-16%</td>
-<td>7-10</td>
-<td>Topics vary widely</td>
-</tr>
-<tr class="even">
-<td>Loading and Performance</td>
-<td>7-11%</td>
-<td>4-7</td>
-<td>More straightforward</td>
-</tr>
-<tr class="odd">
-<td>Operations</td>
-<td>35-45%</td>
-<td>21-27</td>
-<td>Diverse and extensive</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Recurrent Test Topics:</strong> For those renewing their certification, the recurrent test focuses on several key areas, though specific details are still emerging.</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Recurrent Knowledge Exam</th>
-<th>Topic</th>
-<th>Share</th>
-<th>Number</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Area 1</td>
-<td>Operating Rules</td>
-<td>30-40%</td>
-<td>12-16</td>
-</tr>
-<tr class="even">
-<td>Area 2</td>
-<td>Airspace Operations</td>
-<td>30-40%</td>
-<td>12-16</td>
-</tr>
-<tr class="odd">
-<td>Area 3</td>
-<td>Emergency Procedures</td>
-<td>20-30%</td>
-<td>8-12</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Additional Test Details:</strong></p>
-<ul>
-<li><p>The test is computer-based with immediate results.</p></li>
-<li><p>Only a basic calculator is allowed; no cell phones.</p></li>
-<li><p>Valid identification is required.</p></li>
-<li><p>Test fee: $160.</p></li>
-<li><p>A 14-day waiting period is mandatory before a retake.</p></li>
-<li><p>A passing score is 70%.</p></li>
-</ul>
-<p><strong>Scoring:</strong> For first-time takers, up to 18 incorrect answers are permissible. The test is pass/fail; scores above 70% are for personal satisfaction.</p>
-
-
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/phak/chapter-5-aerodynamics-flight">Read Chapter 5 in the Pilot’s Handbook of Aeronautical Knowledge</a>.</p>
+</div>
+</div>
+<p>There are four forces in flight: <strong>Lift, weight, thrust and drag</strong>. These forces are the same for fixed wings as with multi-rotors.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/smotion.gif" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<p>The difference is lift: On a fixed wing aircraft, air moving around the wing creates lift – called Bernoulli’s Principle – where a multi-rotor aircraft generates the lift from power.</p>
+<p><strong>TO BE CLEAR WITH MULTI-ROTORS: NO POWER = NO LIFT = YOU CRASH</strong>. This is why monitoring battery and ensuring you have a reserve is so vitally important. Power is the only thing keeping a multi-rotor in the air.</p>
+<p>Of the four forces:</p>
+<ol type="1">
+<li>Lift is achieved by all blades spinning fast enough for the upward force, created by forcing air down, to overcome the weight. When hovering, the upward force and the downward pull of the weight are at equilibrium.</li>
+<li>Thrust is achieved through changing the angle of the lift by changing the speed of some of the propellers. To go forward, the aircraft will tilt the leading edges of the aircraft down, changing the angle of the thrust. DOING SO CHANGES THE LIFT. Pitching the aircraft forward without an increase in thrust will cause the aircraft to descend.</li>
+<li>Weight is the combined weight of the aircraft and the payload, along with gravity acting upon it. Each aircraft is designed to carry a maximum payload, based on the size of the rotors and power to the engines. The more weight you carry, the more thrust you need to stay aloft. The more thrust needed to stay aloft, the more power is consumed. The more power consumed, the less flight time.</li>
+<li>Drag is a combination of the aerodynamics of the aircraft – how air moves over the surfaces of the aircraft – and the amount of air moving across the aircraft. The amount of air moving across the aircraft is a combination of the forward speed of the aircraft and the wind present in the environment. On a calm day, the aircraft will generally have about 28 minutes of flight time per battery. With a 25 percent reserve, that’s about 21 minutes of effective flight time. Any wind will negatively affect the amount of power used. Aggressive, high speed maneuvers will negatively affect the amount of power used. A strong wind can halve the amount of battery life, and therefore the flight time.</li>
+</ol>
+<section id="load-factors" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="load-factors"><span class="header-section-number">7.1</span> Load Factors</h2>
+<p>Load factor is the ratio of the maximum load an aircraft can sustain to the gross weight of the aircraft. For example, a load factor of 3 means the total load on the aircraft is three times the gross weight of the aircraft. Any change from straight and level flight imposes load on the aircraft. The more severe the maneuver, the more severe the load factor. Steep turns are where load factors occur most, and mostly this is a fixed wing aircraft issue. Between 30 degrees of bank and 60 degrees of bank, the load doubles, from 1 (the force of gravity) to 2. From 30 degrees of bank to 80 degrees of bank, the load factor goes from 2 to 6 – an exponential increase. That load primarily rests on the wings. Exceeding the load factor on your UAS will cause damage.</p>
 </section>
+<section id="basic-aircraft-equipment-inside-out" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="basic-aircraft-equipment-inside-out"><span class="header-section-number">7.2</span> Basic aircraft equipment: Inside out</h2>
+<p><strong>Frame</strong>: The structure of the aircraft. For example, the DJI products have two parts to the frame: The external shell and the internal structure. The Phantom has a more significant external shell than the Inspire. The Inspire’s internal structures aren’t internal.</p>
+<p><strong>Radio receiver</strong>: Receives commands from the controller and sends them to the control board.</p>
+<p><strong>Control board</strong>: This is the internal computer brain that controls the autopilot, provides automated flight controls and translates the inputs from the controller into movement. The control boards on the two aircraft have gyroscopes, accelerometers and GPS chips providing them information constantly that help control the aircraft while in the air.</p>
+<p><strong>Battery</strong>: The sole source of power for all components. The battery is also the largest single source of weight on the aircraft.</p>
+<p><strong>Power distribution board</strong>: A simple circuit board that connects the electronic speed controllers to the battery.</p>
+<p><strong>Electronic Speed Controller</strong>: The ESC converts DC power from the battery to AC power to the motors. The ESC receives instruction from the control board to change the amount of power sent to the motor, which controls the thrust.</p>
+<p><strong>Motor</strong>: Creates force to spin the propellers.</p>
+<p><strong>Propeller</strong>: Directly connected to the motor. When spun, it creates thrust that is directly proportional to the speed of the spin. Each propeller spins opposite of the propeller counter to it in order to keep the multi-rotor from itself spinning.</p>
+<p><strong>Payload</strong>: The generic term for the stuff the aircraft carries. Each aircraft will be different. For example, most UAS will have an external payload of a camera and a gimbal.</p>
+</section>
+<section id="weight-and-balance" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="weight-and-balance"><span class="header-section-number">7.3</span> Weight and balance</h2>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/phak/chapter-10-weight-and-balance">Read Chapter 10 in the Pilot’s Handbook of Aeronautical Knowledge</a></p>
+</div>
+</div>
+<p>With drones being as small as they are, any change to the load on the aircraft is going to have a negative impact on the performance. Depending on if it’s a fixed wing or a multi rotor, the effects could be:</p>
+<ul>
+<li>Higher takeoff speed/greater power required for liftoff</li>
+<li>Longer takeoff run</li>
+<li>Reduced climbing ability</li>
+<li>Shorter range</li>
+<li>Reduced maneuverability</li>
+<li>Reduced stability</li>
+<li>Reduced control</li>
+</ul>
+<p>The main concern – <strong>and a likely test question</strong> – is the Center of Gravity, or CG. Primarily, CG calculations are mostly concerned with fixed wing aircraft, though it can be applied to multi rotors, and is concerned with the position of the CG fore and aft on the longitudinal axis (the length from the nose to the tail).</p>
+<ul>
+<li>If your CG is too far aft, the nose of the aircraft will lift up, making it difficult to control and creating a substantial stall risk.</li>
+<li>If your CG is too far forward, the nose will point down, making climbing difficult.</li>
+</ul>
+<p>Lateral balance is also important – it will cause one side or another.</p>
+<p>CG limits – the fore and aft limits of where the center of gravity can reside – are determined by the manufacturer. Rarely do small drone manufacturers provide this, so it is incumbent upon the pilot in command, after any change in load, to test the aircraft and its flight characteristics in a safe location before attempting any mission. Suffice it to say – on a small aircraft such as a small UAS, the CG limits are going to be measured in inches/centimeters, and the weights that could substantially alter the flight characteristics measured in ounces/grams. <strong>It will not take much to substantially alter the controls of your drone, so be careful.</strong></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The key idea here is that the center of gravity, balance and weight information for your drone will come from your drone manufacturer. If “refer to the manuals” is a test answer, it is immediately a top possibility as the correct answer.</p>
+</div>
+</div>
+</section>
+<section id="aircraft-performance" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="aircraft-performance"><span class="header-section-number">7.4</span> Aircraft performance</h2>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/phak/chapter-11-aircraft-performance">Read Chapter 11 in the Pilot’s Handbook of Aeronautical Knowledge</a></p>
+</div>
+</div>
+<p>The remote pilot certificate airman certification standards call for understanding performance charts to predict the effect on the aircraft’s performance. You should read chapter 11 and familiarize yourself with these, but no standard charts exist for UAS. The most common test questions to come from this chapter – density altitude and load factor calculations. Rarely, a center-of-gravity question appears.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -483,10 +462,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./weather.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Weather</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./part48.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Part 48</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./emergencies.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Emergency Procedures</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

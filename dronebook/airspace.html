@@ -1,81 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 4 Airspace | Drone Journalism</title>
-<meta name="author" content="Matt Waite">
-<meta name="description" content="Read Chapter 15 in the Pilot’s Handbook of Aeronautical Knowledge The National Airspace System is divided into slices that are described as an upside-down birthday cake. In each place, the rules...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 4 Airspace | Drone Journalism">
-<meta property="og:type" content="book">
-<meta property="og:url" content="http://mattwaite.github.io/dronebook/airspace.html">
-<meta property="og:image" content="http://mattwaite.github.io/dronebook/images/cover.jpg">
-<meta property="og:description" content="Read Chapter 15 in the Pilot’s Handbook of Aeronautical Knowledge The National Airspace System is divided into slices that are described as an upside-down birthday cake. In each place, the rules...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 4 Airspace | Drone Journalism">
-<meta name="twitter:description" content="Read Chapter 15 in the Pilot’s Handbook of Aeronautical Knowledge The National Airspace System is divided into slices that are described as an upside-down birthday cake. In each place, the rules...">
-<meta name="twitter:image" content="http://mattwaite.github.io/dronebook/images/cover.jpg">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<meta name="generator" content="quarto-1.2.247">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Drone Journalism - 5&nbsp; Airspace</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./weather.html" rel="next">
+<link href="./part107.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
 </head>
-<body data-spy="scroll" data-target="#toc">
 
-<div class="container-fluid">
-<div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<body class="nav-sidebar floating">
 
-    <div class="d-flex align-items-start justify-content-between">
-      <h1>
-        <a href="index.html" title="">Drone Journalism</a>
-      </h1>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Airspace</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
     </div>
-
-    <div id="main-nav" class="collapse-lg">
-      <form role="search">
-        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
-
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> Getting started</a></li>
-<li><a class="" href="part-48.html"><span class="header-section-number">2</span> Part 48</a></li>
-<li><a class="" href="part-107.html"><span class="header-section-number">3</span> Part 107</a></li>
-<li><a class="active" href="airspace.html"><span class="header-section-number">4</span> Airspace</a></li>
-<li><a class="" href="weather.html"><span class="header-section-number">5</span> Weather</a></li>
-<li><a class="" href="aircraft-weight-and-performance.html"><span class="header-section-number">6</span> Aircraft weight and performance</a></li>
-<li><a class="" href="emergency-procedures.html"><span class="header-section-number">7</span> Emergency Procedures</a></li>
-<li><a class="" href="physiology.html"><span class="header-section-number">8</span> Physiology</a></li>
-<li><a class="" href="aeronautical-decision-making-and-crew-resource-management.html"><span class="header-section-number">9</span> Aeronautical decision-making and crew resource management</a></li>
-<li><a class="" href="airport-operations-and-radio-procedures.html"><span class="header-section-number">10</span> Airport Operations and Radio Procedures</a></li>
-<li><a class="" href="history-and-the-law.html"><span class="header-section-number">11</span> History and the law</a></li>
-<li><a class="" href="basic-operations.html"><span class="header-section-number">12</span> Basic Operations</a></li>
-<li><a class="" href="ethics-and-privacy.html"><span class="header-section-number">13</span> Ethics and Privacy</a></li>
-<li><a class="" href="practice.html"><span class="header-section-number">14</span> Practice</a></li>
-</ul>
-
-        <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/mattwaite/Drone-Journalism-Update">View book source <i class="fab fa-github"></i></a></p>
-        </div>
-      </nav>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Drone Journalism</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Drone-Journalism.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Drone-Journalism.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="airspace" class="section level1" number="4">
-<h1>
-<span class="header-section-number">4</span> Airspace<a class="anchor" aria-label="anchor" href="#airspace"><i class="fas fa-link"></i></a>
-</h1>
-<blockquote>
-<p>Read Chapter 15 in the Pilot’s Handbook of Aeronautical Knowledge</p>
-</blockquote>
-<p>The National Airspace System is divided into slices that are described as an upside-down birthday cake. In each place, the rules are different. You must know how to identify what airspace you are flying in prior to going to the site to determine what is required of you.</p>
-<div class="inline-figure"><img src="images/airspace.jpg" width="100%"></div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part48.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Part 48</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part89.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Part 89</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part107.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Part 107</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./airspace.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Airspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weather.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Weather</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weightandbalance.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Aircraft weight and performance</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./emergencies.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Emergency Procedures</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./physiology.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Physiology</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./adm.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aeronautical decision-making and crew resource management</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./airportoperations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Airport Operations and Radio Procedures</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">History and the law</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basicops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Basic Operations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ethics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Ethics and Privacy</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#reading-a-sectional-chart" id="toc-reading-a-sectional-chart" class="nav-link active" data-scroll-target="#reading-a-sectional-chart"><span class="toc-section-number">5.1</span>  Reading a sectional chart</a></li>
+  <li><a href="#the-afd" id="toc-the-afd" class="nav-link" data-scroll-target="#the-afd"><span class="toc-section-number">5.2</span>  The AFD</a></li>
+  <li><a href="#airspace-operational-requirements" id="toc-airspace-operational-requirements" class="nav-link" data-scroll-target="#airspace-operational-requirements"><span class="toc-section-number">5.3</span>  Airspace Operational Requirements</a></li>
+  <li><a href="#atc-clearances" id="toc-atc-clearances" class="nav-link" data-scroll-target="#atc-clearances"><span class="toc-section-number">5.4</span>  ATC clearances</a>
+  <ul class="collapse">
+  <li><a href="#maximum-altitude-limit" id="toc-maximum-altitude-limit" class="nav-link" data-scroll-target="#maximum-altitude-limit"><span class="toc-section-number">5.4.1</span>  Maximum altitude limit</a></li>
+  <li><a href="#operations-near-airports" id="toc-operations-near-airports" class="nav-link" data-scroll-target="#operations-near-airports"><span class="toc-section-number">5.4.2</span>  Operations near airports</a></li>
+  <li><a href="#miscellaneous-hazards" id="toc-miscellaneous-hazards" class="nav-link" data-scroll-target="#miscellaneous-hazards"><span class="toc-section-number">5.4.3</span>  Miscellaneous hazards</a></li>
+  </ul></li>
+  <li><a href="#notams" id="toc-notams" class="nav-link" data-scroll-target="#notams"><span class="toc-section-number">5.5</span>  NOTAMS</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Airspace</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>First, <a href="https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/phak/chapter-15-airspace">read Chapter 15 in the Pilot’s Handbook of Aeronautical Knowledge</a>. These notes will highlight the important parts, and try to put them in non-aviation terms, but it won’t cover everything on the test.</p>
+</div>
+</div>
+<p>The National Airspace System is divided into slices that are described as an <strong>upside-down birthday cake</strong>. In each place, the rules are different. <strong>You must know how to identify what airspace you are flying in prior to going to the site to determine what is required of you.</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/airspace.jpg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
 <p><strong>Notes</strong></p>
-<ol style="list-style-type: decimal">
-<li><p>There are two kinds of altitude: AGL and MSL – Above Ground Level and Mean Sea Level. In aviation, both are used. You need to know when.</p></li>
-<li><p>On a sectional chart, MSL is used. For drone operations, AGL is used. To translate MSL to AGL, you need to know the elevation you are at. Most of the time, the nearest airport will suffice. The airport elevation is in the Airport Facilities Directory, which we will discuss soon. So, for example, Class C airspace in Lincoln is controlled from the surface to 5,200 MSL. The Lincoln airport elevation is 1,200 feet above sea level. So Class C airspace extends from the surface to 4,000 feet AGL, or 3,600 feet higher than you can fly legally.</p></li>
+<ol type="1">
+<li><p>There are two kinds of altitude: <strong>AGL and MSL</strong> – <strong>Above Ground Level</strong> and <strong>Mean Sea Level</strong>. In aviation, both are used. You need to know when.</p></li>
+<li><p><strong>On a sectional chart, MSL is used</strong>. <strong>For drone operations, AGL is used</strong>. To translate MSL to AGL, you need to know the elevation you are at. Most of the time, the nearest airport will suffice. The airport elevation is in the Airport Facilities Directory, which we will discuss soon. So, for example, Class C airspace in Lincoln is controlled from the surface to 5,200 MSL. The Lincoln airport elevation is 1,200 feet above sea level. So Class C airspace extends from the surface to 4,000 feet AGL, or 3,600 feet higher than you can fly legally.</p></li>
 <li><p><strong>Class A</strong> airspace starts at 18,000 MSL. You do not need to know about Class A airspace, other than to know it exists and you can not fly in it.</p></li>
 <li><p><strong>Class B</strong> airspace surrounds the busiest airports in the country. Think Atlanta, Chicago, New York, Washington DC, Dallas, LA, San Francisco. If you change planes at that airport, it’s likely a Class B airport. For drone operators, the Class B airspace that governs operators extends 5 miles from the Class B designated airport. For aircraft pilots, the Class B designation extends 30 nautical miles from the airport above 10,000 feet, and requires special training to enter and permission from Air Traffic Control (ATC) to enter.</p></li>
 <li><p><strong>Class C</strong> airspace surrounds the next level of airport. Think of places like Omaha and Des Moines – places with commercial jet traffic but not busy hubs. The surface control zone that includes drone operators extends 5 miles from the airport in all directions. Outside of 5 miles, the Class C control zone extends to 10 miles from the airport above 1500 feet AGL, which is more than 1000 feet higher than an operator is allowed to fly legally.</p></li>
@@ -83,14 +252,20 @@
 <li><p><strong>Class E</strong> airspace is airspace that is either overlying Class G (or uncontrolled) airspace above 700 AGL or 1200 AGL, or airspace above an airport that has no tower but does have an instrument approach procedure for manned aircraft.</p></li>
 <li><p><strong>Class G</strong> airspace is the airspace we will most often work in. In areas near airports but not in surface control zones, Class G airspace extends to 700 feet AGL, which encompasses all of the 400 feet AGL drone operators can fly in. If the airspace is outside of 5 miles from an airport, and it is not designated with a restriction for some other reason, it is Class G airspace in the places where drone operators can fly.</p></li>
 </ol>
-<div id="reading-a-sectional-chart" class="section level2" number="4.1">
-<h2>
-<span class="header-section-number">4.1</span> Reading a sectional chart<a class="anchor" aria-label="anchor" href="#reading-a-sectional-chart"><i class="fas fa-link"></i></a>
-</h2>
+<section id="reading-a-sectional-chart" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="reading-a-sectional-chart"><span class="header-section-number">5.1</span> Reading a sectional chart</h2>
 <p>Each sectional chart has a chart legend, which is useful.</p>
-<div class="inline-figure"><img src="images/sectional.jpg" width="100%"></div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/sectional.jpg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
 <p>And the most important is the airspace markers on the sectional.</p>
-<div class="inline-figure"><img src="images/sectionaldetail.png" width="50%"></div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/sectionaldetail.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
 <ul>
 <li>Class B = solid blue</li>
 <li>Class C = solid purple</li>
@@ -98,162 +273,263 @@
 <li>Class E (surface) = dotted purple</li>
 <li>Class G = fuzzy purple</li>
 </ul>
-<p><strong>Note</strong>:</p>
-<p>Class B and Class C airspaces have multiple segments. Only the innermost shapes go to the ground. For example, the Class C airspace around Lincoln is broken up into two segments - 5 miles from the tower (inner ring) and 10 miles from the tower (outer ring).</p>
-<div class="inline-figure"><img src="images/lincolnsectional.png" width="100%"></div>
-<p>Only the inner circle goes to the surface. How do you know? The fractions. Each class B and C airspace will have markers that look like fraction that tell you what the floor (the denominator) is as well as the ceiling (the numerator).</p>
-<div class="inline-figure"><img src="images/sectionalfraction.png" width="100%"></div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Class B and Class C airspaces have <strong>multiple segments</strong>. Only the innermost shapes go to the ground. For example, the Class C airspace around Lincoln is broken up into two segments - 5 miles from the tower (inner ring) and 10 miles from the tower (outer ring).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/lincolnsectional.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</div>
+</div>
+<p>Only the inner circle in Class B or Class C airspace goes to the surface. How do you know? The fractions. <strong>Each class B and C airspace will have markers that look like fraction that tell you what the floor (the denominator) is as well as the ceiling (the numerator).</strong></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/sectionalfraction.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
 <p><strong>Other airspaces</strong>:</p>
 <ul>
 <li>Prohibited areas. No flights are allowed, generally for national security reasons.</li>
 <li>Restricted areas. Flight is not prohibited, but requires additional levels of permissions to fly there. Generally they are areas where the military conducts exercises hazardous to aircraft.</li>
 <li>Military operations areas. MOAs are designated on the sectional chart with purple hashing, and again on the back of the sectional. MOAs are only active during certain times, and those times are designated on the sectional. Also included is the controlling agency in which to ask for permission.</li>
 </ul>
-<div class="inline-figure"><img src="images/moa.png" width="100%"></div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/moa.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
 <ul>
 <li>Alert areas. Must be vigilant.</li>
 <li>Military Training Routes. Denoted on a sectional chart as IRXXXX and VRXXXX. They are routes where the military conducts training flights at lower altitudes and at high speeds. If the route is all below 1500 feet AGL, the route will have a four-digit number, ex. VR1205. If one or more of the segments are above 1500 feet AGL, it will have three digits, ex. VR207. What do they mean? They mean extra vigilance. You can fly there, but you have to be extra cautious.</li>
 </ul>
-<div class="inline-figure"><img src="images/otherairspace.png" width="100%"></div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/otherairspace.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Things you will be tested on</strong>:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>If I want to fly in X place, what airspace am I in?</li>
 <li>What restrictions do I have?</li>
 <li>What are the restrictions or responsibilities if I am near a symbol on the map?</li>
 </ol>
 </div>
-<div id="the-afd" class="section level2" number="4.2">
-<h2>
-<span class="header-section-number">4.2</span> The AFD<a class="anchor" aria-label="anchor" href="#the-afd"><i class="fas fa-link"></i></a>
-</h2>
-<p>The FAA publishes a book of information about each and every airport in the United States. It’s called the AFD – the Airport Facilities Directory. <a href="https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/">The digital version is here</a>. Airports are found through their formal airport code designation, and most will begin with the letter K. Lincoln, for example, is KLNK. Omaha is KOMA.</p>
 </div>
-<div id="airspace-operational-requirements" class="section level2" number="4.3">
-<h2>
-<span class="header-section-number">4.3</span> Airspace Operational Requirements<a class="anchor" aria-label="anchor" href="#airspace-operational-requirements"><i class="fas fa-link"></i></a>
-</h2>
+</section>
+<section id="the-afd" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="the-afd"><span class="header-section-number">5.2</span> The AFD</h2>
+<p>The FAA publishes a book of information about each and every airport in the United States. It’s now called the Chart Supplements US, but most pilots know it as the AFD – the Airport Facilities Directory. <a href="https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/">The digital version is here</a>. Airports are found through their formal airport code designation, and most will begin with the letter K. Lincoln, for example, is KLNK. Omaha is KOMA.</p>
+<p>The AFD is most useful for finding out what elevation an airport is at. That’s how you can convert MSL to AGL.</p>
+</section>
+<section id="airspace-operational-requirements" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="airspace-operational-requirements"><span class="header-section-number">5.3</span> Airspace Operational Requirements</h2>
 <p><strong>Basic weather minimums</strong></p>
 <p>Each airspace classification has a set of weather minimums that manned pilots must comply with. UAS pilots, under Part 107, have a much more simplified weather minimums:</p>
 <ul>
 <li>3 statute miles or greater visibility</li>
 <li>Minimum cloud distances: 500 feet below, 2,000 feet laterally.</li>
 </ul>
-<p>In certain airspaces, manned aircraft can fly with lower visibility levels. You can not. These are the only weather minimums listed in Part 107. Practically speaking, wind, temperature and precipitation will have a significant impact on your operations. You should refer to your manufacturer’s manual or the Drone Journalism Lab Operations Manual for more information.</p>
-</div>
-<div id="atc-clearances" class="section level2" number="4.4">
-<h2>
-<span class="header-section-number">4.4</span> ATC clearances<a class="anchor" aria-label="anchor" href="#atc-clearances"><i class="fas fa-link"></i></a>
-</h2>
-<p>To fly in controlled airspace, you need to get permission from ATC. How this is done isn’t set in Part 107. How it currently works is a system called LAANC – Low Altitude Authorization and Notification Capability. Most access is granted through smartphone apps – the FAA has one, and it’s terrible. You apply to fly in a location, specifying altitude and duration. You provide a name and a phone number and the FAA text you if you have permission. It takes seconds and is free.</p>
-<div id="maximum-altitude-limit" class="section level3" number="4.4.1">
-<h3>
-<span class="header-section-number">4.4.1</span> Maximum altitude limit<a class="anchor" aria-label="anchor" href="#maximum-altitude-limit"><i class="fas fa-link"></i></a>
-</h3>
+<p>In certain airspaces, manned aircraft can fly with lower visibility levels. <strong>You can not.</strong> <strong>These are the only weather minimums listed in Part 107.</strong> Practically speaking, wind, temperature and precipitation will have a significant impact on your operations. You should refer to your manufacturer’s manual or the Drone Journalism Lab Operations Manual for more information.</p>
+</section>
+<section id="atc-clearances" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="atc-clearances"><span class="header-section-number">5.4</span> ATC clearances</h2>
+<p>To fly in controlled airspace, you need to get permission from ATC. How this is done isn’t set in Part 107. How it currently works is a system called <strong>LAANC – Low Altitude Authorization and Notification Capability</strong>. Most access is granted through smartphone apps – the FAA has one, and it’s terrible. You apply to fly in a location, specifying altitude and duration. You provide a name and a phone number and the FAA text you if you have permission. It takes seconds and is free.</p>
+<section id="maximum-altitude-limit" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="maximum-altitude-limit"><span class="header-section-number">5.4.1</span> Maximum altitude limit</h3>
 <p>Under Part 107, all UAS flights must stay at or below 400 feet AGL unless they are close to a tall structure. Then they can go to 400 feet above the structure. Under certain circumstances, ATC may require a lower ceiling to ensure safety. For example: 400 feet above the Nebraska Capitol is 800 AGL and can be in a busy airway for manned aircraft on certain days. You may not get ATC permission for that altitude, even though it is Part 107 compliant.</p>
-</div>
-<div id="operations-near-airports" class="section level3" number="4.4.2">
-<h3>
-<span class="header-section-number">4.4.2</span> Operations near airports<a class="anchor" aria-label="anchor" href="#operations-near-airports"><i class="fas fa-link"></i></a>
-</h3>
+</section>
+<section id="operations-near-airports" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="operations-near-airports"><span class="header-section-number">5.4.2</span> Operations near airports</h3>
 <p>Part 107 is clear that you may not interfere with airport operations. In AC 107, the FAA elaborates:</p>
+<blockquote class="blockquote">
 <p>In order to avoid interfering with operations in a traffic pattern, remote PICs should avoid operating in the traffic pattern or published approach corridors used by manned aircraft. When operational necessity requires the remote PIC to operate at an airport in uncontrolled airspace, the remote PIC should operate the small UA in such a way that the manned aircraft pilot does not need to alter his or her flightpath in the traffic pattern or on a published instrument approach in order to avoid a potential collision. Because remote PICs have an obligation to yield right-of-way to all other aircraft and avoid interfering in traffic pattern operations, the FAA expects that most remote PICs will avoid operating in the vicinity of airports because their aircraft generally do not require airport infrastructure, and the concentration of other aircraft increases in the vicinity of airports.</p>
-</div>
-</div>
-<div id="common-aircraft-accident-causal-factors" class="section level2" number="4.5">
-<h2>
-<span class="header-section-number">4.5</span> Common aircraft accident causal factors<a class="anchor" aria-label="anchor" href="#common-aircraft-accident-causal-factors"><i class="fas fa-link"></i></a>
-</h2>
-<blockquote>
-<p>These come from chapter 7 of the <a href="https://www.faa.gov/air_traffic/publications/atpubs/aim_html/">Aeronautical Information Manual</a></p>
 </blockquote>
-<p>These are the top 10 causes of accidents in manned flight. Most of them will be applicable to unmanned aircraft.</p>
+</section>
+<section id="miscellaneous-hazards" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="miscellaneous-hazards"><span class="header-section-number">5.4.3</span> Miscellaneous hazards</h3>
 <ul>
-<li>Inadequate preflight preparation and/or planning</li>
-<li>Failure to obtain and/or maintain flying speed</li>
-<li>Failure to maintain direction control</li>
-<li>Improper level off</li>
-<li>Failure to see and avoid objects or obstructions</li>
-<li>Mismanagement of fuel</li>
-<li>Improper in-flight decisions or planning</li>
-<li>Misjudgment of distance and speed</li>
-<li>Selection of unsuitable terrain</li>
-<li>Improper operation of of flight controls.</li>
+<li>Avoid flight beneath unmanned balloons. They often have tethers or hard-to-see wiring beneath them. Areas with frequent balloon operations are marked on the sectional chart.</li>
+<li>Flying near wires requires a substantial degree of caution and risk awareness. Wires can be difficult to impossible to see, so great care must be taken when flying near radio towers or high capacity electrical lines. Areas with tall towers are marked on the sectional.</li>
+<li>Should go without saying, but windmills are also a significant hazard to your drone. Wind farms are also marked on the sectional.</li>
 </ul>
-<div id="laser-operations-and-reporting-illuminating-aircraft" class="section level3" number="4.5.1">
-<h3>
-<span class="header-section-number">4.5.1</span> Laser operations and reporting illuminating aircraft<a class="anchor" aria-label="anchor" href="#laser-operations-and-reporting-illuminating-aircraft"><i class="fas fa-link"></i></a>
-</h3>
-<p>The FAA, for years, has received reports of people aiming lasers at aircraft. In the AIM, it says these lasers can temporarily blind manned aircraft pilots, creating a major hazard to flight, which is not allowed. All pilots, UAS or otherwise, are asked to report any laser illumination of aircraft to the nearest ATC facility.</p>
-</div>
-<div id="miscellaneous-hazards" class="section level3" number="4.5.2">
-<h3>
-<span class="header-section-number">4.5.2</span> Miscellaneous hazards<a class="anchor" aria-label="anchor" href="#miscellaneous-hazards"><i class="fas fa-link"></i></a>
-</h3>
-<ul>
-<li>Avoid flight beneath unmanned balloons. They often have tethers or hard-to-see wiring beneath them.</li>
-<li>Avoid flying near thermal plumes such as smoke stacks and cooling towers. The unstable and rapidly rising air will make control difficult and greatly increase the risk of a crash.</li>
-<li>Flying near wires requires a substantial degree of caution and risk awareness. Wires can be difficult to impossible to see, so great care must be taken when flying near radio towers or high capacity electrical lines.</li>
-<li>Precipitation static can occur when aircraft come in contact with precipitation that is uncharged. The result is a significant negative charge can build up, which will discharge into something called a “cornona.” The coronoa will discharge the energy out of the aircraft’s extremities, and will cause massive disruption to the aircraft’s electrical systems. This is highly unlikely to occur on small UAS, especially those with plastic shells, and especially those that are not weatherized.</li>
-</ul>
-</div>
-</div>
-<div id="notams" class="section level2" number="4.6">
-<h2>
-<span class="header-section-number">4.6</span> NOTAMS<a class="anchor" aria-label="anchor" href="#notams"><i class="fas fa-link"></i></a>
-</h2>
+</section>
+</section>
+<section id="notams" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="notams"><span class="header-section-number">5.5</span> NOTAMS</h2>
 <p>A NOTAM is a Notice To Airmen that alerts a pilot to something that could affect flight. Most often, they are issues with airport equipment, which will not affect you. But you need to check them to make sure it is safe to fly.</p>
 <p><a href="https://notams.aim.faa.gov/notamSearch/nsapp.html">NOTAMs can be found through a web interface</a>, through various commercial apps and through a Flight Services briefing, either by phone or online.</p>
 
-</div>
-</div>
-  <div class="chapter-nav">
-<div class="prev"><a href="part-107.html"><span class="header-section-number">3</span> Part 107</a></div>
-<div class="next"><a href="weather.html"><span class="header-section-number">5</span> Weather</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#airspace"><span class="header-section-number">4</span> Airspace</a></li>
-<li><a class="nav-link" href="#reading-a-sectional-chart"><span class="header-section-number">4.1</span> Reading a sectional chart</a></li>
-<li><a class="nav-link" href="#the-afd"><span class="header-section-number">4.2</span> The AFD</a></li>
-<li><a class="nav-link" href="#airspace-operational-requirements"><span class="header-section-number">4.3</span> Airspace Operational Requirements</a></li>
-<li>
-<a class="nav-link" href="#atc-clearances"><span class="header-section-number">4.4</span> ATC clearances</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#maximum-altitude-limit"><span class="header-section-number">4.4.1</span> Maximum altitude limit</a></li>
-<li><a class="nav-link" href="#operations-near-airports"><span class="header-section-number">4.4.2</span> Operations near airports</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#common-aircraft-accident-causal-factors"><span class="header-section-number">4.5</span> Common aircraft accident causal factors</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#laser-operations-and-reporting-illuminating-aircraft"><span class="header-section-number">4.5.1</span> Laser operations and reporting illuminating aircraft</a></li>
-<li><a class="nav-link" href="#miscellaneous-hazards"><span class="header-section-number">4.5.2</span> Miscellaneous hazards</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#notams"><span class="header-section-number">4.6</span> NOTAMS</a></li>
-</ul>
 
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/mattwaite/Drone-Journalism-Update/blob/master/03-airspace.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/mattwaite/Drone-Journalism-Update/edit/master/03-airspace.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
-</div>
-    </nav>
-</div>
+</section>
 
-</div>
-</div> <!-- .container -->
-
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Drone Journalism</strong>" was written by Matt Waite. It was last built on 2021-12-27.</p>
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./part107.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Part 107</span></span>
+      </a>          
   </div>
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  <div class="nav-page nav-page-next">
+      <a href="./weather.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Weather</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
+</nav>
+</div> <!-- /content -->
 
-</div></div>
-</footer>
-</body>
-</html>
+
+
+</body></html>

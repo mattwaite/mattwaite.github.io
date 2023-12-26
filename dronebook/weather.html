@@ -1,127 +1,295 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 5 Weather | Drone Journalism</title>
-<meta name="author" content="Matt Waite">
-<meta name="description" content="Read Chapter 12 in the Pilot’s Handbook of Aeronautical Knowledge. It’s good, and it will be one of the largest areas tested. Weather for drones is pretty simple: Precipitation: If it’s wet out,...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 5 Weather | Drone Journalism">
-<meta property="og:type" content="book">
-<meta property="og:url" content="http://mattwaite.github.io/dronebook/weather.html">
-<meta property="og:image" content="http://mattwaite.github.io/dronebook/images/cover.jpg">
-<meta property="og:description" content="Read Chapter 12 in the Pilot’s Handbook of Aeronautical Knowledge. It’s good, and it will be one of the largest areas tested. Weather for drones is pretty simple: Precipitation: If it’s wet out,...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 5 Weather | Drone Journalism">
-<meta name="twitter:description" content="Read Chapter 12 in the Pilot’s Handbook of Aeronautical Knowledge. It’s good, and it will be one of the largest areas tested. Weather for drones is pretty simple: Precipitation: If it’s wet out,...">
-<meta name="twitter:image" content="http://mattwaite.github.io/dronebook/images/cover.jpg">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<meta name="generator" content="quarto-1.2.247">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Drone Journalism - 6&nbsp; Weather</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./weightandbalance.html" rel="next">
+<link href="./airspace.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
 </head>
-<body data-spy="scroll" data-target="#toc">
 
-<div class="container-fluid">
-<div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+<body class="nav-sidebar floating">
 
-    <div class="d-flex align-items-start justify-content-between">
-      <h1>
-        <a href="index.html" title="">Drone Journalism</a>
-      </h1>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Weather</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
     </div>
-
-    <div id="main-nav" class="collapse-lg">
-      <form role="search">
-        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
-
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> Getting started</a></li>
-<li><a class="" href="part-48.html"><span class="header-section-number">2</span> Part 48</a></li>
-<li><a class="" href="part-107.html"><span class="header-section-number">3</span> Part 107</a></li>
-<li><a class="" href="airspace.html"><span class="header-section-number">4</span> Airspace</a></li>
-<li><a class="active" href="weather.html"><span class="header-section-number">5</span> Weather</a></li>
-<li><a class="" href="aircraft-weight-and-performance.html"><span class="header-section-number">6</span> Aircraft weight and performance</a></li>
-<li><a class="" href="emergency-procedures.html"><span class="header-section-number">7</span> Emergency Procedures</a></li>
-<li><a class="" href="physiology.html"><span class="header-section-number">8</span> Physiology</a></li>
-<li><a class="" href="aeronautical-decision-making-and-crew-resource-management.html"><span class="header-section-number">9</span> Aeronautical decision-making and crew resource management</a></li>
-<li><a class="" href="airport-operations-and-radio-procedures.html"><span class="header-section-number">10</span> Airport Operations and Radio Procedures</a></li>
-<li><a class="" href="history-and-the-law.html"><span class="header-section-number">11</span> History and the law</a></li>
-<li><a class="" href="basic-operations.html"><span class="header-section-number">12</span> Basic Operations</a></li>
-<li><a class="" href="ethics-and-privacy.html"><span class="header-section-number">13</span> Ethics and Privacy</a></li>
-<li><a class="" href="practice.html"><span class="header-section-number">14</span> Practice</a></li>
-</ul>
-
-        <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/mattwaite/Drone-Journalism-Update">View book source <i class="fab fa-github"></i></a></p>
-        </div>
-      </nav>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Drone Journalism</a> 
+        <div class="sidebar-tools-main">
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Drone-Journalism.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Drone-Journalism.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="weather" class="section level1" number="5">
-<h1>
-<span class="header-section-number">5</span> Weather<a class="anchor" aria-label="anchor" href="#weather"><i class="fas fa-link"></i></a>
-</h1>
-<blockquote>
-<p>Read Chapter 12 in the Pilot’s Handbook of Aeronautical Knowledge. It’s good, and it will be one of the largest areas tested.</p>
-</blockquote>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part48.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Part 48</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part89.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Part 89</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part107.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Part 107</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./airspace.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Airspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weather.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Weather</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weightandbalance.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Aircraft weight and performance</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./emergencies.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Emergency Procedures</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./physiology.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Physiology</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./adm.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aeronautical decision-making and crew resource management</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./airportoperations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Airport Operations and Radio Procedures</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./history.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">History and the law</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basicops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Basic Operations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ethics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Ethics and Privacy</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#weather-theory" id="toc-weather-theory" class="nav-link active" data-scroll-target="#weather-theory"><span class="toc-section-number">6.1</span>  Weather theory</a>
+  <ul class="collapse">
+  <li><a href="#density-altitude" id="toc-density-altitude" class="nav-link" data-scroll-target="#density-altitude"><span class="toc-section-number">6.1.1</span>  Density altitude</a></li>
+  <li><a href="#wind-and-currents-air-masses-and-fronts" id="toc-wind-and-currents-air-masses-and-fronts" class="nav-link" data-scroll-target="#wind-and-currents-air-masses-and-fronts"><span class="toc-section-number">6.1.2</span>  Wind and currents, air masses and fronts</a></li>
+  <li><a href="#stability" id="toc-stability" class="nav-link" data-scroll-target="#stability"><span class="toc-section-number">6.1.3</span>  Stability</a></li>
+  <li><a href="#temperature-and-humidity" id="toc-temperature-and-humidity" class="nav-link" data-scroll-target="#temperature-and-humidity"><span class="toc-section-number">6.1.4</span>  Temperature and humidity</a></li>
+  </ul></li>
+  <li><a href="#cloud-ceilings-and-visibility" id="toc-cloud-ceilings-and-visibility" class="nav-link" data-scroll-target="#cloud-ceilings-and-visibility"><span class="toc-section-number">6.2</span>  Cloud ceilings and visibility</a></li>
+  <li><a href="#aviation-weather-sources" id="toc-aviation-weather-sources" class="nav-link" data-scroll-target="#aviation-weather-sources"><span class="toc-section-number">6.3</span>  Aviation weather sources</a>
+  <ul class="collapse">
+  <li><a href="#decoding-metar" id="toc-decoding-metar" class="nav-link" data-scroll-target="#decoding-metar"><span class="toc-section-number">6.3.1</span>  Decoding METAR</a></li>
+  <li><a href="#asosawos" id="toc-asosawos" class="nav-link" data-scroll-target="#asosawos"><span class="toc-section-number">6.3.2</span>  ASOS/AWOS</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Weather</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/phak/chapter-12-weather-theory">Read Chapter 12 in the Pilot’s Handbook of Aeronautical Knowledge</a>. It’s good, and it will be one of the largest areas tested.</p>
+</div>
+</div>
 <p>Weather for drones is pretty simple:</p>
 <p><strong>Precipitation</strong>: If it’s wet out, you don’t fly. Period. These devices aren’t waterproof and water will kill them. Snow, rain, sleet, etc. is a no go.</p>
-<p><strong>Temperature</strong>: If it’s bitter cold out, you will ruin your batteries. You might still fly if it’s worth torching $75-$150 batteries, but understand anything below 50 degrees will degrade battery performance and flight time.</p>
-<p><strong>Visibility</strong>: Part 107, you are limited to flights in VFR conditions: 3 miles of visibility, 500 feet below and 2,000 feet laterally from clouds. So how do you determine if there is 3 miles of visibility?</p>
-<ol style="list-style-type: decimal">
+<p><strong>Temperature</strong>: If it’s bitter cold out, you will ruin your batteries. You might still fly if it’s worth torching $75-$150 batteries, but understand that if your battery temperature dips below 50 degrees, it will degrade battery performance and flight time.</p>
+<p><strong>Visibility</strong>: Part 107, you are limited to flights in VFR conditions: <strong>3 miles of visibility, 500 feet below and 2,000 feet laterally from clouds</strong>. So how do you determine if there is 3 miles of visibility?</p>
+<ol type="1">
 <li>Be smart. If you look outside and it’s foggy, you do not have 3 miles of visibility.</li>
 <li>Check visibility at the nearest airport at <a href="http://aviationweather.gov/">aviationweather.gov</a>. Click METAR and search for the airport code of the nearest airport.</li>
 <li>Look for a prominent landmark near you that you can either map or estimate the distance to it.</li>
 </ol>
-<div id="weather-theory" class="section level2" number="5.1">
-<h2>
-<span class="header-section-number">5.1</span> Weather theory<a class="anchor" aria-label="anchor" href="#weather-theory"><i class="fas fa-link"></i></a>
-</h2>
+<section id="weather-theory" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="weather-theory"><span class="header-section-number">6.1</span> Weather theory</h2>
 <p>Weather is the result of the uneven heating of the planet, which creates air of different temperatures and air pressures. The interaction of these things is what makes weather.</p>
-<p><strong>Chapter 12 of the Pilot’s Handbook of Aeronautical Knowledge covers this in-depth and it’s very much worth reading.</strong></p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/phak/chapter-12-weather-theory">Chapter 12 of the Pilot’s Handbook of Aeronautical Knowledge</a> covers this in-depth and it’s very much worth reading.</p>
+</div>
+</div>
 <p>We will cover the parts of weather specifically mentioned by the airman certification standards.</p>
-<div id="density-altitude" class="section level3" number="5.1.1">
-<h3>
-<span class="header-section-number">5.1.1</span> Density altitude<a class="anchor" aria-label="anchor" href="#density-altitude"><i class="fas fa-link"></i></a>
-</h3>
+<section id="density-altitude" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="density-altitude"><span class="header-section-number">6.1.1</span> Density altitude</h3>
 <p>There are multiple concepts to understand here:</p>
 <ul>
 <li><p>Atmospheric pressure: The force the air exerts. As altitude increases, air pressure decreases. Standard pressure, at sea level is 29.92 millibars of mercury. Pressure at altitude is adjusted to be on the same scale as sea level pressure for altimeters. For drones, this isn’t an issue.</p></li>
 <li><p>Density altitude: The altitude of your aircraft adjusted for non-standard temperature and pressure. As you go up, the air gets thinner. With less air to work with, aircraft performance is affected. Airplanes need longer distances to take off. Propellers become less effective. As pressure decreases, there is a pronounced effect on performance.</p></li>
 </ul>
-</div>
-<div id="wind-and-currents-air-masses-and-fronts" class="section level3" number="5.1.2">
-<h3>
-<span class="header-section-number">5.1.2</span> Wind and currents, air masses and fronts<a class="anchor" aria-label="anchor" href="#wind-and-currents-air-masses-and-fronts"><i class="fas fa-link"></i></a>
-</h3>
+</section>
+<section id="wind-and-currents-air-masses-and-fronts" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="wind-and-currents-air-masses-and-fronts"><span class="header-section-number">6.1.2</span> Wind and currents, air masses and fronts</h3>
 <p><strong>General information</strong>: Air flows from high pressure to low. High pressure systems are usually dry, stable descending air masses. Low pressure systems tend to be unstable and brings clouds and precipitation.</p>
 <p><strong>Convective currents</strong>: In warm weather, different surfaces radiate heat at different rates. This can cause air to rise at different rates, which creates updrafts. In warm weather at low altitudes, you can expect turbulence because of that rising air.</p>
 <p><strong>Low-level wind shear</strong>: Wind shear is a sudden, drastic change in wind speed or direction. Wind shear can subject aircraft to violent changes in altitude and attitude. Most often associated with passing frontal systems, thunderstorms and temperature inversions with strong upper level winds.</p>
-</div>
-<div id="stability" class="section level3" number="5.1.3">
-<h3>
-<span class="header-section-number">5.1.3</span> Stability<a class="anchor" aria-label="anchor" href="#stability"><i class="fas fa-link"></i></a>
-</h3>
+</section>
+<section id="stability" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="stability"><span class="header-section-number">6.1.3</span> Stability</h3>
 <p>Stability of the air depends on its ability to resist vertical motion. Rising air is unstable. Some impacts on stability:</p>
 <p><strong>Inversion</strong>: When air rises, it expands and cools. But sometimes, the temperature <em>rises</em> with altitude. That’s an inversion. It’s usually a shallow layer of smooth stable air close to the ground. If the humidity of the air below the inversion layer is high, it could lead clouds, fog, haze or smoke diminishing visibility.</p>
-</div>
-<div id="temperature-and-humidity" class="section level3" number="5.1.4">
-<h3>
-<span class="header-section-number">5.1.4</span> Temperature and humidity<a class="anchor" aria-label="anchor" href="#temperature-and-humidity"><i class="fas fa-link"></i></a>
-</h3>
+</section>
+<section id="temperature-and-humidity" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="temperature-and-humidity"><span class="header-section-number">6.1.4</span> Temperature and humidity</h3>
 <p>Temperature and humidity has an impact on aircraft performance. Warm humid air decreases aircraft performance – water vapor is lighter than air, which makes it rise.</p>
-</div>
-</div>
-<div id="cloud-ceilings-and-visibility" class="section level2" number="5.2">
-<h2>
-<span class="header-section-number">5.2</span> Cloud ceilings and visibility<a class="anchor" aria-label="anchor" href="#cloud-ceilings-and-visibility"><i class="fas fa-link"></i></a>
-</h2>
+</section>
+</section>
+<section id="cloud-ceilings-and-visibility" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="cloud-ceilings-and-visibility"><span class="header-section-number">6.2</span> Cloud ceilings and visibility</h2>
 <p>With clouds, there are various levels of intensity:</p>
 <ul>
 <li>CLR or clear = less than 1/8</li>
@@ -130,86 +298,222 @@
 <li>BKN or broken 5/8 - 7/8</li>
 <li>OVC or overcast 8/8.</li>
 </ul>
-<p>A cloud ceiling is the lowest layer of clouds reported as broken or overcast. The cloud ceiling is reported in AGL. So a cloud ceiling report of BKN at 700 would be broken at 700 feet AGL. Since drones have to be 500 feet from clouds, that would limit your ceiling to 200 feet AGL.</p>
+<p><strong>A cloud ceiling is the lowest layer of clouds reported as broken or overcast.</strong> <strong>The cloud ceiling is reported in AGL.</strong> So a cloud ceiling report of BKN at 700 would be broken at 700 feet AGL. <strong>Since drones have to be 500 feet from clouds, that would limit your ceiling to 200 feet AGL.</strong></p>
 <p>Visibility is the greatest horizontal distance at which prominent objects can be seen with the naked eye. It is reported in statute miles.</p>
+</section>
+<section id="aviation-weather-sources" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="aviation-weather-sources"><span class="header-section-number">6.3</span> Aviation weather sources</h2>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="aviation-weather-sources" class="section level2" number="5.3">
-<h2>
-<span class="header-section-number">5.3</span> Aviation weather sources<a class="anchor" aria-label="anchor" href="#aviation-weather-sources"><i class="fas fa-link"></i></a>
-</h2>
-<p>Chapter 13 of the Pilot’s Handbook of Aeronautical Knowledge goes into detail on all of the services available. You should especially study the differences between a standard briefing, an abbreviated briefing and an outlook briefing.</p>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/phak/chapter-13-aviation-weather-services">Chapter 13 of the Pilot’s Handbook of Aeronautical Knowledge</a> goes into detail on all of the services available. You should especially study the differences between a standard briefing, an abbreviated briefing and an outlook briefing.</p>
+</div>
+</div>
 <p>The most commonly used weather report is the METAR (Aviation Routine Weather Report) and the TAF (Terminal Area Forecast).</p>
-<div id="decoding-metar" class="section level3" number="5.3.1">
-<h3>
-<span class="header-section-number">5.3.1</span> Decoding METAR<a class="anchor" aria-label="anchor" href="#decoding-metar"><i class="fas fa-link"></i></a>
-</h3>
+<section id="decoding-metar" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="decoding-metar"><span class="header-section-number">6.3.1</span> Decoding METAR</h3>
 <p>This is a METAR report that you’ll have to decode.</p>
 <p>KLNK 151754Z 23006KT 10SM CLR 06/01 A2983 RMK AO2 SLP109 I6000 T00560006 10056 21044 58015</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This will at first look like a string of gibberish, but every weather report contains the same things, in the same places, in the same format. Once you can decode what each chunk says, it becomes much easier.</p>
+</div>
+</div>
 <p><strong>Decoding KLNK 151754Z</strong>: This is raw METAR output for KLNK. It’s for the 15th of the month, at 1745 ZULU time, which is six hours ahead of US Central Standard Time. It drops to five with Daylight Savings Time.</p>
-<p><strong>Decoding 23006KT</strong>: Winds are at 230 degrees at 6 knots. South is 180. North is 0. East is 090, west is 270. So the winds are out of the southwest at 6 knots.</p>
-<p><strong>Decoding 10SM CLR</strong>: This is the visibility. In this case, it’s 10 Statute Miles Clear. If there are clouds, it will note it here. Instead of CLR, it’ll give the cloud ceilings. In Omaha right now, the visibility report says 10SM FEW250 – meaning there are a few clouds at 25,000 feet. If it said FEW008 it would mean there were clouds at 800 feet, and you’d have to fly no higher than 300 feet to maintain 500 feet of clearance from clouds.</p>
-<p><strong>Decoding 06/01</strong>: This is the temperature and dew point in Celsius. 6 degrees C with a dew point of 1 degree C. That’s about 43 degrees F. To be totally safe with the batteries, the temperature should be 10 C, or 50 F.</p>
-<p><strong>Wind</strong>: The aircraft you are using are going to be between 3 and 6 pounds, which means winds will factor in greatly. The maximum winds these devices can be expected to even function in is 20 knots (about 25 miles per hour). The Drone Journalism Lab Safety Manual caps operations at 15. If the winds are in excess of 15 knots, control will be too unpredictable and minimum safety levels can’t be guaranteed. If safety is ever questioned, we scrub the flight.</p>
-<div class="inline-figure"><img src="images/metar.png" width="100%"></div>
-<p><strong>NOTE</strong>: If the visibility report includes SH (showers), TS (thunderstorms), FZ (freezing) or DZ (drizzle), RA (rain), SN (snow) or about anything else, it means there is weather at the airport and that pretty much scrubs the flight. Remember: Wet = Drone death.</p>
+<p><strong>Decoding 23006KT</strong>: Winds are at 230 degrees at 6 knots. South is 180. North is 0. East is 090, west is 270. So the winds are out of the southwest at 6 knots. The direction is always the first three characters, the speed is always the next set of characters. Occasionally, with gusty winds, your wind speed will say something like 16G25KT, which would mean 16 gusting to 25 knots.</p>
+<p><strong>Decoding 10SM CLR</strong>: This is the visibility. In this case, it’s 10 Statute Miles Clear. If there are clouds, it will note it here. Instead of CLR, it’ll give the cloud ceilings. In Omaha as of this same report, the visibility report says 10SM FEW250 – meaning there are a few clouds at 25,000 feet. If it said FEW008 it would mean there were clouds at 800 feet, and you’d have to fly no higher than 300 feet to maintain 500 feet of clearance from clouds.</p>
+<p><strong>Decoding 06/01</strong>: This is the temperature and dew point in Celsius. 6 degrees C with a dew point of 1 degree C. That’s about 43 degrees F. This is a hint to keep your batteries warm until you’re ready to use them.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/metar.png" class="img-fluid" style="width:100.0%"></p>
 </div>
-<div id="asosawos" class="section level3" number="5.3.2">
-<h3>
-<span class="header-section-number">5.3.2</span> ASOS/AWOS<a class="anchor" aria-label="anchor" href="#asosawos"><i class="fas fa-link"></i></a>
-</h3>
-<p>Stands for Automate Surface Observing System or Automated Weather Observing System. Very similar to a METAR. Is online at <a href="https://www.faa.gov/air_traffic/weather/asos/">https://www.faa.gov/air_traffic/weather/asos/</a></p>
-<p><strong>NOTE</strong>: Study the PHAK on Weather Charts as well.</p>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the visibility report includes SH (showers), TS (thunderstorms), RA (rain), BR (mist), FZ (freezing rain), DZ (drizzle), SN (snow) or about anything else, it means there is weather at the airport and that pretty much scrubs the flight. Remember: Wet = Drone death.</p>
+</div>
+</div>
+</section>
+<section id="asosawos" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="asosawos"><span class="header-section-number">6.3.2</span> ASOS/AWOS</h3>
+<p>Stands for Automated Surface Observing System or Automated Weather Observing System. Very similar to a METAR. Is online at <a href="https://www.faa.gov/air_traffic/weather/asos/" class="uri">https://www.faa.gov/air_traffic/weather/asos/</a></p>
+<p>It’s unlikely, but you might get a question that says you got a weather briefing from AWOS or ASOS – or even ATIS, which stands for Automated Terminal Information System. You can just read all of these as sources of weather information. The exact method of you getting the weather usually isn’t important to the question.</p>
 
-</div>
-</div>
-</div>
-  <div class="chapter-nav">
-<div class="prev"><a href="airspace.html"><span class="header-section-number">4</span> Airspace</a></div>
-<div class="next"><a href="aircraft-weight-and-performance.html"><span class="header-section-number">6</span> Aircraft weight and performance</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#weather"><span class="header-section-number">5</span> Weather</a></li>
-<li>
-<a class="nav-link" href="#weather-theory"><span class="header-section-number">5.1</span> Weather theory</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#density-altitude"><span class="header-section-number">5.1.1</span> Density altitude</a></li>
-<li><a class="nav-link" href="#wind-and-currents-air-masses-and-fronts"><span class="header-section-number">5.1.2</span> Wind and currents, air masses and fronts</a></li>
-<li><a class="nav-link" href="#stability"><span class="header-section-number">5.1.3</span> Stability</a></li>
-<li><a class="nav-link" href="#temperature-and-humidity"><span class="header-section-number">5.1.4</span> Temperature and humidity</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#cloud-ceilings-and-visibility"><span class="header-section-number">5.2</span> Cloud ceilings and visibility</a></li>
-<li>
-<a class="nav-link" href="#aviation-weather-sources"><span class="header-section-number">5.3</span> Aviation weather sources</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#decoding-metar"><span class="header-section-number">5.3.1</span> Decoding METAR</a></li>
-<li><a class="nav-link" href="#asosawos"><span class="header-section-number">5.3.2</span> ASOS/AWOS</a></li>
-</ul>
-</li>
-</ul>
 
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/mattwaite/Drone-Journalism-Update/blob/master/04-weather.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/mattwaite/Drone-Journalism-Update/edit/master/04-weather.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
-</div>
-    </nav>
-</div>
+</section>
+</section>
 
-</div>
-</div> <!-- .container -->
-
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Drone Journalism</strong>" was written by Matt Waite. It was last built on 2021-12-27.</p>
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./airspace.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Airspace</span></span>
+      </a>          
   </div>
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  <div class="nav-page nav-page-next">
+      <a href="./weightandbalance.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Aircraft weight and performance</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
+</nav>
+</div> <!-- /content -->
 
-</div></div>
-</footer>
-</body>
-</html>
+
+
+</body></html>

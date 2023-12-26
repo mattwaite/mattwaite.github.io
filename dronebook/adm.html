@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Matt Waite">
-<meta name="dcterms.date" content="2023-12-23">
 
-<title>Drone Journalism</title>
+<title>Drone Journalism - 10&nbsp; Aeronautical decision-making and crew resource management</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./part48.html" rel="next">
+<link href="./airportoperations.html" rel="next">
+<link href="./physiology.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Drone Journalism</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aeronautical decision-making and crew resource management</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -113,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -158,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./adm.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aeronautical decision-making and crew resource management</span></a>
+  <a href="./adm.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aeronautical decision-making and crew resource management</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -190,10 +189,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started"><span class="toc-section-number">1</span>  Getting Started</a>
+  <li><a href="#hazardous-attitudes-and-antidotes" id="toc-hazardous-attitudes-and-antidotes" class="nav-link active" data-scroll-target="#hazardous-attitudes-and-antidotes"><span class="toc-section-number">10.1</span>  Hazardous attitudes and antidotes</a></li>
+  <li><a href="#risk-assessment" id="toc-risk-assessment" class="nav-link" data-scroll-target="#risk-assessment"><span class="toc-section-number">10.2</span>  Risk assessment</a>
   <ul class="collapse">
-  <li><a href="#the-faa-test" id="toc-the-faa-test" class="nav-link" data-scroll-target="#the-faa-test"><span class="toc-section-number">1.1</span>  The FAA Test</a></li>
+  <li><a href="#imsafe" id="toc-imsafe" class="nav-link" data-scroll-target="#imsafe"><span class="toc-section-number">10.2.1</span>  IMSAFE</a></li>
+  <li><a href="#pave" id="toc-pave" class="nav-link" data-scroll-target="#pave"><span class="toc-section-number">10.2.2</span>  PAVE</a></li>
   </ul></li>
+  <li><a href="#crew-resource-management-and-effective-communication" id="toc-crew-resource-management-and-effective-communication" class="nav-link" data-scroll-target="#crew-resource-management-and-effective-communication"><span class="toc-section-number">10.3</span>  Crew resource management and effective communication</a></li>
   </ul>
 </nav>
     </div>
@@ -202,27 +204,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Drone Journalism</h1>
-<p class="subtitle lead">What you need to know to get a drone license in the US and what separates a journalist from just someone with a controller in their hand.</p>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aeronautical decision-making and crew resource management</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Matt Waite </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">December 23, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -230,121 +219,122 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="getting-started" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Getting Started</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cover.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Cover Image of the Book</figcaption><p></p>
-</figure>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p><strong>In their simplest form, drones are cameras that fly.</strong> They encapsulate the complexities of both a camera and a flying object. The ethical and privacy issues associated with cameras have been debated since the Civil War. The concept of flying objects, while relatively newer (since 1903), has never been as accessible as it is today with flying cameras.</p>
-<p><strong>Purpose of Flying Cameras:</strong> Before delving into the legal aspects, consider what you can achieve with a drone. They offer unprecedented views and provide a scale for understanding the magnitude of various scenes and landscapes.</p>
-<p><strong>Legal and Ethical Aspects:</strong> In the United States, operating a drone requires passing an FAA test. To be both a knowledgeable user and a responsible journalist, understanding the history, law, and ethical boundaries is crucial before launching a drone into the skies.</p>
-<section id="the-faa-test" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="the-faa-test"><span class="header-section-number">1.1</span> The FAA Test</h2>
-<p><strong>Requirements for FAA Part 107 Certification:</strong></p>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://www.faa.gov/regulationspolicies/handbooksmanuals/aviation/phak/chapter-2-aeronautical-decision-making">Read Chapter 2 in the Pilot’s Handbook of Aeronautical Knowledge</a></p>
+</div>
+</div>
+<p>Aeronautical decision-making is a structured, formal approach to dealing with problems in aviation. It is meant to find the best course of action to safely accomplish the mission. It is very acronym heavy, seemingly humorous in parts, and obvious in others.</p>
+<p>The steps to ADM:</p>
 <ul>
-<li><p>Minimum age of 16 years.</p></li>
-<li><p>Proficiency in reading, writing, and understanding English.</p></li>
-<li><p>Successful completion of the FAA’s aeronautical knowledge test.</p></li>
-<li><p>Clearing a Department of Homeland Security background check.</p></li>
+<li>Identifying hazardous attitudes</li>
+<li>Learning behavior modification</li>
+<li>Learning how to recognize and cope with stress</li>
+<li>Developing risk assessment skills</li>
+<li>Using all resources</li>
+<li>Evaluating the effectiveness of your ADM skills</li>
 </ul>
-<p>This book primarily aids in preparing for the aeronautical knowledge test.</p>
-<p><strong>Test Locations and Format:</strong> The test, conducted by the Federal Aviation Administration, is available at <a href="https://www.faa.gov/training_testing/testing/media/test_centers.pdf">nearly 700 certified testing facilities nationwide</a>. It comprises 60 multiple-choice questions for first-time takers and 40 for renewals.</p>
-<p><strong>FAA’s Airman Certification Standards:</strong> <a href="https://www.faa.gov/training_testing/testing/acs/media/uas_acs.pdf">FAA’s Airman Certification Standards</a> provides a detailed breakdown of the exam topics. Insights from over 150 successful candidates are also included.</p>
+<section id="hazardous-attitudes-and-antidotes" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="hazardous-attitudes-and-antidotes"><span class="header-section-number">10.1</span> Hazardous attitudes and antidotes</h2>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hazardous attitude questions will be on your test. They are on every sample test the FAA gives. Study them.</p>
+</div>
+</div>
+<p>The hazardous attitudes, an example and their antidotes are:</p>
 <table class="table">
 <colgroup>
 <col style="width: 25%">
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 25%">
+<col style="width: 33%">
+<col style="width: 41%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Certification Knowledge Exam</th>
-<th>Share</th>
-<th>Number</th>
-<th>Author’s Notes</th>
+<th>Hazardous attitude</th>
+<th>Example</th>
+<th>Antidote</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Regulations</td>
-<td>15-25%</td>
-<td>9-15</td>
-<td>Generally at the higher end</td>
+<td>Anti-authority</td>
+<td>“No one can tell me what to do”</td>
+<td>Follow the rules</td>
 </tr>
 <tr class="even">
-<td>Airspace and Requirements</td>
-<td>15-25%</td>
-<td>9-15</td>
-<td>Expect challenging questions</td>
+<td>Impulsivity</td>
+<td>“Do it now”</td>
+<td>Slow down, assess the situation and act</td>
 </tr>
 <tr class="odd">
-<td>Weather</td>
-<td>11-16%</td>
-<td>7-10</td>
-<td>Topics vary widely</td>
+<td>Invulnerability</td>
+<td>“It won’t happen to me”</td>
+<td>It can happen to me</td>
 </tr>
 <tr class="even">
-<td>Loading and Performance</td>
-<td>7-11%</td>
-<td>4-7</td>
-<td>More straightforward</td>
+<td>Macho</td>
+<td>“I can do it”</td>
+<td>I have nothing to prove to anyone</td>
 </tr>
 <tr class="odd">
-<td>Operations</td>
-<td>35-45%</td>
-<td>21-27</td>
-<td>Diverse and extensive</td>
+<td>Resignation</td>
+<td>“What’s the use?”</td>
+<td>I am in control</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Recurrent Test Topics:</strong> For those renewing their certification, the recurrent test focuses on several key areas, though specific details are still emerging.</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Recurrent Knowledge Exam</th>
-<th>Topic</th>
-<th>Share</th>
-<th>Number</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Area 1</td>
-<td>Operating Rules</td>
-<td>30-40%</td>
-<td>12-16</td>
-</tr>
-<tr class="even">
-<td>Area 2</td>
-<td>Airspace Operations</td>
-<td>30-40%</td>
-<td>12-16</td>
-</tr>
-<tr class="odd">
-<td>Area 3</td>
-<td>Emergency Procedures</td>
-<td>20-30%</td>
-<td>8-12</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Additional Test Details:</strong></p>
-<ul>
-<li><p>The test is computer-based with immediate results.</p></li>
-<li><p>Only a basic calculator is allowed; no cell phones.</p></li>
-<li><p>Valid identification is required.</p></li>
-<li><p>Test fee: $160.</p></li>
-<li><p>A 14-day waiting period is mandatory before a retake.</p></li>
-<li><p>A passing score is 70%.</p></li>
-</ul>
-<p><strong>Scoring:</strong> For first-time takers, up to 18 incorrect answers are permissible. The test is pass/fail; scores above 70% are for personal satisfaction.</p>
-
-
 </section>
+<section id="risk-assessment" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="risk-assessment"><span class="header-section-number">10.2</span> Risk assessment</h2>
+<p>The most basic tool for risk assessment is a matrix. On one axis is the likelihood, on the other is the severity. Things that are likely to occur and contain a high level of severity are in the upper left corner, and unlikely things that are low risk are on the other.</p>
+<p>Risk has two parts: Identifying risks, and mitigating them. The FAA has several mnemonics to do this.</p>
+<section id="imsafe" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="imsafe"><span class="header-section-number">10.2.1</span> IMSAFE</h3>
+<p>IMSAFE is a mnemonic devices to help pilots determine whether they are physically and mentally ready to fly.</p>
+<ul>
+<li>Illness – Sickness is an obvious risk.</li>
+<li>Medication – Are you on any medications that would increase risk?</li>
+<li>Stress – Is there anything going on in your life that will distract you from the flight?</li>
+<li>Alcohol – Have you been drinking within the past 8 hours? Are you hung over?</li>
+<li>Fatigue – Are you tired? Have you slept adequately?</li>
+<li>Eating – Are you adequately nourished for the flight?</li>
+</ul>
+<p>If any of these present a problem, the pilot should not fly.</p>
+</section>
+<section id="pave" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="pave"><span class="header-section-number">10.2.2</span> PAVE</h3>
+<p>PAVE is a pre-flight hazard identification mnemonic.</p>
+<ul>
+<li>Pilot in command – See IMSAFE</li>
+<li>Aircraft – Can this aircraft safely execute the flight?</li>
+<li>enVironment – Have you checked weather, terrain, airport/airspace prior to flight and will they permit a safe flight?</li>
+<li>External pressures – Are there external pressures – bosses, impressing someone, client desires – that are pushing you to act in an unsafe manner?</li>
+</ul>
+</section>
+</section>
+<section id="crew-resource-management-and-effective-communication" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="crew-resource-management-and-effective-communication"><span class="header-section-number">10.3</span> Crew resource management and effective communication</h2>
+<p>According to the FAA, <strong>“CRM refers to the effective use of all available resources: human resources, hardware, and information.”</strong> CRM training is designed to ensure that crews are working together optimally. CRM primarily is about how matters are communicated among a team, how each person understands their role in the flight, and how each person does their job.</p>
+<p>“The importance of clear and unambiguous communication must be stressed in all training activities involving pilots, flight attendants, and aircraft dispatchers. The greater one’s concern in flight-related matters, the greater is the need for clear communication,” the FAA wrote in Advisory Circular 120-51e.</p>
+<p><strong>Prior to every flight, the pilot in command must brief the crew on the flight, the goals, and inform each person what their job is while making sure they know what that is.</strong> In the briefing, emergency procedures should be discussed including actions others must take. The pilot in command is the leader and must ensure everyone has the information they need to do their job.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -483,10 +473,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./physiology.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Physiology</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./part48.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Part 48</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./airportoperations.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Airport Operations and Radio Procedures</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
