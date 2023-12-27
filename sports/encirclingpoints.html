@@ -428,7 +428,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </a></p></pre>
 <p>And while we’re loading it, let’s filter out anyone who hasn’t played.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>players <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/players20.csv"</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(MP <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>players <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/players20.csv"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(MP <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 5452 Columns: 57
 ── Column specification ────────────────────────────────────────────────────────
@@ -450,7 +450,7 @@ dbl (49): #, Weight, Rk.x, G, GS, MP, FG, FGA, FG%, 2P, 2PA, 2P%, 3P, 3PA, 3...
 <p>So we can see right away that there are some dots at the very top that we’d want to highlight. Who are these scoring machines?</p>
 <p>Like we have done in the past, let’s make a dataframe of top scorers. We’ll set the cutoff at 650 points in a season.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>topscorers <span class="ot">&lt;-</span> players <span class="sc">%&gt;%</span> <span class="fu">filter</span>(PTS <span class="sc">&gt;</span> <span class="dv">650</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>topscorers <span class="ot">&lt;-</span> players <span class="sc">|&gt;</span> <span class="fu">filter</span>(PTS <span class="sc">&gt;</span> <span class="dv">650</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And like we’ve done in the past, we can add it to the chart with another geom_point. We’ll make all the players grey, we’ll make all the top scorers black.</p>
 <div class="cell">
@@ -521,7 +521,7 @@ dbl (49): #, Weight, Rk.x, G, GS, MP, FG, FGA, FG%, 2P, 2PA, 2P%, 3P, 3PA, 3...
 <p>Works the same way – use layering and color smartly and tell the story with all your tools.</p>
 <p>Let’s grab the top three point attempt takers on the Nebraska roster. As of now, only one will be coming back.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>nutop <span class="ot">&lt;-</span> players <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Team <span class="sc">==</span> <span class="st">"Nebraska Cornhuskers"</span>) <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">3</span>, <span class="st">`</span><span class="at">3PA</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>nutop <span class="ot">&lt;-</span> players <span class="sc">|&gt;</span> <span class="fu">filter</span>(Team <span class="sc">==</span> <span class="st">"Nebraska Cornhuskers"</span>) <span class="sc">|&gt;</span> <span class="fu">top_n</span>(<span class="dv">3</span>, <span class="st">`</span><span class="at">3PA</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And just like above, we can plug in our players geom, our nutop dataframe into another geom, then encircle that dataframe. Slap some headlines and annotations on it and here’s what we get:</p>
 <div class="cell">

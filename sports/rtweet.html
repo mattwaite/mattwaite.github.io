@@ -517,7 +517,10 @@ dttm  (3): created_at, quoted_created_at, account_created_at
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gbrTweets <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/gbrTweets.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: One or more parsing issues, see `problems()` for details</code></pre>
+<pre><code>Warning: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat &lt;- vroom(...)
+  problems(dat)</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 5678 Columns: 90
@@ -543,7 +546,7 @@ dttm  (3): created_at, quoted_created_at, account_created_at
 <p>To provide a little context, I pulled the data in this chapter on Sunday, November 3, 2019. This was the day after Nebraska Football lost to Purdue, and Nebraska Volleyball won against Penn State. You can follow the steps above to download this data for the following examples.</p>
 <p>To make it easier to work with, I am going to combine these two data sets into one using the <code>bind_rows()</code> function from <code>dplyr</code>. There is a slight problem though, some people may have had a tweet that contained both the <strong>#huskers</strong> and <strong>#GBR</strong> hashtags in their tweet. So if we combine these two data sets, there might be duplicate data. To dedupe the data, we can apply a <code>distinct(text, .keep_all = TRUE)</code> to remove any duplicates. The <code>.keep_all = TRUE</code> argument just tells R to keep all columns in the data frame after our data has been deduped.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tweet_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(huskerTweets, gbrTweets) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tweet_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(huskerTweets, gbrTweets) <span class="sc">|&gt;</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(text, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -650,7 +653,7 @@ $ profile_image_url       &lt;chr&gt; "http://pbs.twimg.com/profile_images/11813
 </div>
 <p>As you can see, <code>glimpse()</code> returns a lot of columns that are not really relevant to our analysis. Let’s apply a <code>select()</code> function to only retain the data relevant to our analysis, .</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tweet_data <span class="ot">&lt;-</span> tweet_data <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tweet_data <span class="ot">&lt;-</span> tweet_data <span class="sc">|&gt;</span> </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(user_id, status_id, created_at, screen_name, text, display_text_width,</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>         favorite_count, retweet_count, hashtags, description, followers_count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -663,9 +666,9 @@ $ profile_image_url       &lt;chr&gt; "http://pbs.twimg.com/profile_images/11813
 <p>We will use the <code>with_tz()</code> on our <code>created_at</code> variable within our <code>mutate()</code> function to transform the <code>created_at</code> column into Central Standard Time (CST). We do this by setting the <code>tzone</code> argument to <code>"America/Chicago"</code>. Once out time is adjusted, we need group tweets within a specific bin of time. For this example I have decided to bin tweets to the nearest 5 minute mark. We can do this by using the <code>round_time()</code> function provided to us by the <code>lubridate</code> package.</p>
 <p>Then, since we are only interested in tweets during the game, we can apply a <code>dplyr</code> <code>filter()</code> function to window our data set to tweets being posted around the start and end of the game.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>volleyball_tweets <span class="ot">&lt;-</span> tweet_data <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>volleyball_tweets <span class="ot">&lt;-</span> tweet_data <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">created_at =</span> <span class="fu">with_tz</span>(created_at, <span class="at">tzone =</span> <span class="st">"America/Chicago"</span>),</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">created_at =</span> <span class="fu">round_time</span>(created_at, <span class="st">"5 mins"</span>, <span class="at">tz =</span> <span class="st">"America/Chicago"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">created_at =</span> <span class="fu">round_time</span>(created_at, <span class="st">"5 mins"</span>, <span class="at">tz =</span> <span class="st">"America/Chicago"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(created_at <span class="sc">&gt;=</span> <span class="st">"2019-11-02 18:30:00"</span> <span class="sc">&amp;</span> created_at <span class="sc">&lt;=</span> <span class="st">"2019-11-02 23:30:00"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -675,8 +678,8 @@ $ profile_image_url       &lt;chr&gt; "http://pbs.twimg.com/profile_images/11813
 <p>One question we might have pertains to the number of tweets that occur during the course of the match. To do this, all we need to do is <code>group_by()</code> our tweets by our <code>created_at</code> variable, and then use the <code>count()</code> function to count the number of tweets within each five minute bin. We then use <code>ggplot</code> to plot a line chart where <code>created_at</code> is placed on the x-axis and <code>n</code>, number of tweets, is placed on the y-axis.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>start_time <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">time =</span> <span class="fu">as_datetime</span>(<span class="st">"2019-11-02 19:35:00"</span>, <span class="at">tz =</span> <span class="st">"America/Chicago"</span>), <span class="at">label =</span> <span class="st">"Start Time"</span>) </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>volleyball_time <span class="ot">&lt;-</span> volleyball_tweets <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(created_at) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>volleyball_time <span class="ot">&lt;-</span> volleyball_tweets <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(created_at) <span class="sc">|&gt;</span> </span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -703,23 +706,23 @@ $ profile_image_url       &lt;chr&gt; "http://pbs.twimg.com/profile_images/11813
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>afinn <span class="ot">&lt;-</span> <span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>volleyball_tweets_tidy <span class="ot">&lt;-</span> volleyball_tweets <span class="sc">%&gt;%</span> </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>volleyball_tweets_tidy <span class="ot">&lt;-</span> volleyball_tweets <span class="sc">|&gt;</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">|&gt;</span> </span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Joining, by = "word"</code></pre>
+<pre><code>Joining with `by = join_by(word)`</code></pre>
 </div>
 </div>
 <section id="fan-sentiment-over-the-game" class="level4" data-number="34.7.0.1">
 <h4 data-number="34.7.0.1" class="anchored" data-anchor-id="fan-sentiment-over-the-game"><span class="header-section-number">34.7.0.1</span> Fan sentiment over the game</h4>
 <p>Now that we have a tidied textual data set, all we need to do is apply our sentiment scores to these words using the <code>inner_join()</code>, then <code>group_by()</code> our <code>created_at</code> variable, and calculate the mean sentiment for each five minute interval. At this point, we will use <code>ggplot</code> to plot sentiment of the tweets over time. We will do this by plotting the <code>created_at</code> variable on the x-axis and the newly calculated <code>sentiment</code> variable on the y-axis. The rest is just adding annotations and styling, which we are already familiar with.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>volleyball_tweets_sentiment <span class="ot">&lt;-</span> volleyball_tweets_tidy <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(afinn) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(created_at) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>volleyball_tweets_sentiment <span class="ot">&lt;-</span> volleyball_tweets_tidy <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(afinn) <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(created_at) <span class="sc">|&gt;</span> </span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sentiment =</span> <span class="fu">mean</span>(value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Joining, by = "word"</code></pre>
+<pre><code>Joining with `by = join_by(word)`</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> volleyball_tweets_sentiment, <span class="fu">aes</span>(<span class="at">x =</span> created_at, <span class="at">y =</span> sentiment)) <span class="sc">+</span></span>
@@ -750,15 +753,15 @@ $ profile_image_url       &lt;chr&gt; "http://pbs.twimg.com/profile_images/11813
 <p>The Nebraska Cornhuskers–<a href="https://nebraska.rivals.com/news/nebraska-at-purdue-keys-to-victory-hol-score-predictions">a 3-point favorite going into West Lafayette, IN</a>–squared off with the Purdue Boilermakers on November 2, 2019. Purdue was 2-6 on the season. Nebraska, with a 4-4 record coming off of a 38-31 home loss to Indiana, had many fans hoping Scott Frost could lead his team to a must needed win. <a href="https://journalstar.com/sports/huskers/sipple/steven-m-sipple-frost-s-reaction-to-moos-six-win/article_bcebc067-865e-59a7-948d-c99290201294.html">Especially given the expectation was the Cornhuskers would go 6-6 on the season</a>, and the team still had to play Wisconsin (6-2), Maryland (3-6), and Iowa (6-2) to get to those needed six wins to become bowl eligible. So, how did people particularly take this loss? Let’s use our Twitter data to get an answer.</p>
 <p>Again, we need to fix the time zone with the <code>with_tz()</code> function so the data is represented in Central Standard Time (CST). Then we apply our <code>filter()</code> command to window our data to when the game was taking place.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>football_tweets <span class="ot">&lt;-</span> tweet_data <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>football_tweets <span class="ot">&lt;-</span> tweet_data <span class="sc">|&gt;</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">created_at =</span> <span class="fu">with_tz</span>(created_at, <span class="at">tzone =</span> <span class="st">"America/Chicago"</span>),</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">created_at =</span> <span class="fu">round_time</span>(created_at, <span class="st">"5 mins"</span>, <span class="at">tz =</span> <span class="st">"America/Chicago"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">created_at =</span> <span class="fu">round_time</span>(created_at, <span class="st">"5 mins"</span>, <span class="at">tz =</span> <span class="st">"America/Chicago"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(created_at <span class="sc">&gt;=</span> <span class="st">"2019-11-02 11:00:00"</span> <span class="sc">&amp;</span> created_at <span class="sc">&lt;=</span> <span class="st">"2019-11-02 15:30:00"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, let’s just get a sense of the number of tweets that occurred at certain points in the game. We again need to do some data wrangling with <code>group_by()</code>, and then we use the <code>count()</code> function to add up all the tweets during each five minute interval. Once the data is wrangled, we can use our <code>ggplot</code> code to visualize tweet volume throughout the game.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>football_time <span class="ot">&lt;-</span> football_tweets <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(created_at) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>football_time <span class="ot">&lt;-</span> football_tweets <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(created_at) <span class="sc">|&gt;</span> </span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>()</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -774,23 +777,23 @@ $ profile_image_url       &lt;chr&gt; "http://pbs.twimg.com/profile_images/11813
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>afinn <span class="ot">&lt;-</span> <span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>football_tweets_tidy <span class="ot">&lt;-</span> football_tweets <span class="sc">%&gt;%</span> </span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>football_tweets_tidy <span class="ot">&lt;-</span> football_tweets <span class="sc">|&gt;</span> </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">|&gt;</span> </span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Joining, by = "word"</code></pre>
+<pre><code>Joining with `by = join_by(word)`</code></pre>
 </div>
 </div>
 <p>We now have our clean textual data, let’s apply sentiment scores for each word using the <code>inner_join(affin)</code> function, <code>group_by(created_at)</code> to create a group for each five minute interval, and then use <code>summarise()</code> to calculate then mean sentiment for each time period.</p>
 <p>You can then use the <code>ggplot</code> code to plot sentiment over time, introduce annotations to highlight specific aspects within our plot, and then apply styling to the plot to move it closer to publication readiness. Now for the big reveal, how did people take the loss to a 2-6 Purdue? Run the code and find out.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>football_tweets_sentiment <span class="ot">&lt;-</span> football_tweets_tidy <span class="sc">%&gt;%</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(afinn) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(created_at) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sentiment =</span> <span class="fu">mean</span>(value)) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>football_tweets_sentiment <span class="ot">&lt;-</span> football_tweets_tidy <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(afinn) <span class="sc">|&gt;</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(created_at) <span class="sc">|&gt;</span> </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sentiment =</span> <span class="fu">mean</span>(value)) <span class="sc">|&gt;</span> </span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(sentiment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Joining, by = "word"</code></pre>
+<pre><code>Joining with `by = join_by(word)`</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> football_tweets_sentiment, <span class="fu">aes</span>(<span class="at">x =</span> created_at, <span class="at">y =</span> sentiment)) <span class="sc">+</span></span>

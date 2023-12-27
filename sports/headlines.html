@@ -448,9 +448,9 @@ dbl (8): G, Rush Yards, Pass Yards, Plays, Total Yards, Yards/Play, Yards/G,...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>offense <span class="ot">&lt;-</span> total <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(scoring, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"Name"</span>, <span class="st">"Year"</span>))</span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>offense <span class="ot">&lt;-</span> total <span class="sc">|&gt;</span> <span class="fu">left_join</span>(scoring, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"Name"</span>, <span class="st">"Year"</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> offense <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Name <span class="sc">==</span> <span class="st">"Nebraska"</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">2018</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>nu <span class="ot">&lt;-</span> offense <span class="sc">|&gt;</span> <span class="fu">filter</span>(Name <span class="sc">==</span> <span class="st">"Nebraska"</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">2018</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(offense, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Yards/G</span><span class="st">`</span>, <span class="at">y=</span><span class="st">`</span><span class="at">Points/G</span><span class="st">`</span>)) <span class="sc">+</span> </span>
@@ -466,7 +466,7 @@ dbl (8): G, Rush Yards, Pass Yards, Plays, Total Yards, Yards/Play, Yards/G,...
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>nu, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Yards/G</span><span class="st">`</span>, <span class="at">y=</span><span class="st">`</span><span class="at">Points/G</span><span class="st">`</span>), <span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span> </span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>nu, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Yards/G</span><span class="st">`</span>, <span class="at">y=</span><span class="st">`</span><span class="at">Points/G</span><span class="st">`</span>, <span class="at">label=</span><span class="st">"Nebraska 2018"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="headlines_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
@@ -495,7 +495,7 @@ dbl (8): G, Rush Yards, Pass Yards, Plays, Total Yards, Yards/Play, Yards/G,...
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>nu, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Yards/G</span><span class="st">`</span>, <span class="at">y=</span><span class="st">`</span><span class="at">Points/G</span><span class="st">`</span>), <span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span> </span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>nu, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Yards/G</span><span class="st">`</span>, <span class="at">y=</span><span class="st">`</span><span class="at">Points/G</span><span class="st">`</span>, <span class="at">label=</span><span class="st">"Nebraska 2018"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="headlines_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
@@ -523,7 +523,7 @@ dbl (8): G, Rush Yards, Pass Yards, Plays, Total Yards, Yards/Play, Yards/G,...
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>nu, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Yards/G</span><span class="st">`</span>, <span class="at">y=</span><span class="st">`</span><span class="at">Points/G</span><span class="st">`</span>), <span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span> </span>
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>nu, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Yards/G</span><span class="st">`</span>, <span class="at">y=</span><span class="st">`</span><span class="at">Points/G</span><span class="st">`</span>, <span class="at">label=</span><span class="st">"Nebraska 2018"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="headlines_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
@@ -552,7 +552,7 @@ dbl (8): G, Rush Yards, Pass Yards, Plays, Total Yards, Yards/Play, Yards/G,...
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>nu, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Yards/G</span><span class="st">`</span>, <span class="at">y=</span><span class="st">`</span><span class="at">Points/G</span><span class="st">`</span>), <span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span> </span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>nu, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Yards/G</span><span class="st">`</span>, <span class="at">y=</span><span class="st">`</span><span class="at">Points/G</span><span class="st">`</span>, <span class="at">label=</span><span class="st">"Nebraska 2018"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="headlines_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
@@ -579,7 +579,7 @@ dbl (8): G, Rush Yards, Pass Yards, Plays, Total Yards, Yards/Play, Yards/G,...
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>nu, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Yards/G</span><span class="st">`</span>, <span class="at">y=</span><span class="st">`</span><span class="at">Points/G</span><span class="st">`</span>), <span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span> </span>
 <span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="at">data=</span>nu, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Yards/G</span><span class="st">`</span>, <span class="at">y=</span><span class="st">`</span><span class="at">Points/G</span><span class="st">`</span>, <span class="at">label=</span><span class="st">"Nebraska 2018"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="headlines_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>

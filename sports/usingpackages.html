@@ -449,7 +449,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">epa_wpa =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>• 13:47:30 | Start processing of 1 game...</code></pre>
+<pre><code>• 09:46:54 | Start processing of 1 game...</code></pre>
 </div>
 </div>
 <p>There’s not an easy way to get all of a single team’s games. A way to do it that’s not very pretty but it works is like this:</p>
@@ -477,18 +477,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The sys.sleep bits just pauses for two seconds before running the next block. Since we’re requesting data from someone else’s computer, we want to be kind. Week 8 was a bye week for Nebraska, so if you request it, you’ll get an empty request and a warning. The <code>bind_rows</code> parts puts all the dataframes into a single dataframe.</p>
 <p>Now you’re ready to look at heartbreak. How do we define heartbreak? How about like this: you first have to lose the game, it comes in the third or fourth quarter, it involves a play (i.e.&nbsp;not a timeout), and it results in the biggest drop in win probability.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nuplays <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(pos_team <span class="sc">==</span> <span class="st">"Nebraska"</span> <span class="sc">&amp;</span> def_pos_team <span class="sc">!=</span> <span class="st">"Fordham"</span> <span class="sc">&amp;</span> def_pos_team <span class="sc">!=</span> <span class="st">"Buffalo"</span> <span class="sc">&amp;</span> def_pos_team <span class="sc">!=</span> <span class="st">"Northwestern"</span> <span class="sc">&amp;</span> play_type <span class="sc">!=</span> <span class="st">"Timeout"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(period <span class="sc">==</span> <span class="dv">3</span> <span class="sc">|</span> period <span class="sc">==</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">HeartbreakLevel =</span> wp_before <span class="sc">-</span> wp_after) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(HeartbreakLevel)) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">5</span>, <span class="at">wt=</span>HeartbreakLevel) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nuplays <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(pos_team <span class="sc">==</span> <span class="st">"Nebraska"</span> <span class="sc">&amp;</span> def_pos_team <span class="sc">!=</span> <span class="st">"Fordham"</span> <span class="sc">&amp;</span> def_pos_team <span class="sc">!=</span> <span class="st">"Buffalo"</span> <span class="sc">&amp;</span> def_pos_team <span class="sc">!=</span> <span class="st">"Northwestern"</span> <span class="sc">&amp;</span> play_type <span class="sc">!=</span> <span class="st">"Timeout"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(period <span class="sc">==</span> <span class="dv">3</span> <span class="sc">|</span> period <span class="sc">==</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">HeartbreakLevel =</span> wp_before <span class="sc">-</span> wp_after) <span class="sc">|&gt;</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(HeartbreakLevel)) <span class="sc">|&gt;</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">5</span>, <span class="at">wt=</span>HeartbreakLevel) <span class="sc">|&gt;</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(period, clock.minutes, def_pos_team, play_type, play_text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── play-by-play data from CollegeFootballData.com ──────────── cfbfastR 1.9.0 ──</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ Data updated: 2022-07-14 13:47:32 CDT</code></pre>
+<pre><code>ℹ Data updated: 2023-12-27 09:46:57 CST</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 5
@@ -519,12 +519,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>With progressr, you’ll see a progress bar in the console, which lets you know that your command is still working, since some of these requests take minutes to complete. Player box scores is quicker – five seasons was a matter of seconds.</p>
 <p>If you look at the wbb_player_box data we now have, we have each player in each game over each season – more than 300,000 records. Finding out who Nebraska’s top 10 single-season scoring leaders are is a matter of grouping, summing and filtering.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>wbb_player_box <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(team_short_display_name <span class="sc">==</span> <span class="st">"Nebraska"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(athlete_display_name, season) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">totalPoints =</span> <span class="fu">sum</span>(<span class="fu">as.numeric</span>(pts))) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(totalPoints)) <span class="sc">%&gt;%</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>wbb_player_box <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(team_short_display_name <span class="sc">==</span> <span class="st">"Nebraska"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(athlete_display_name, season) <span class="sc">|&gt;</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">totalPoints =</span> <span class="fu">sum</span>(<span class="fu">as.numeric</span>(points))) <span class="sc">|&gt;</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(totalPoints)) <span class="sc">|&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">10</span>, <span class="at">wt=</span>totalPoints)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
@@ -533,13 +533,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  1 Jessica Shepard        2017         538
  2 Sam Haiby              2021         438
  3 Leigha Brown           2020         433
- 4 Hannah Whitish         2018         391
- 5 Kate Cain              2018         312
- 6 Isabelle Bourne        2021         300
- 7 Sam Haiby              2020         300
- 8 Hannah Whitish         2019         292
- 9 Sam Haiby              2019         285
-10 Maddie Simon           2018         282</code></pre>
+ 4 Hannah Whitish         2018         403
+ 5 Kate Cain              2018         316
+ 6 Sam Haiby              2020         300
+ 7 Hannah Whitish         2019         292
+ 8 Sam Haiby              2019         285
+ 9 Leigha Brown           2019         280
+10 Kate Cain              2020         278</code></pre>
 </div>
 </div>
 <p>This just in: Sam Haiby is good at basketball.</p>

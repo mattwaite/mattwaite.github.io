@@ -440,7 +440,7 @@ date  (1): Date
 </div>
 <p>First, let’s make the columns we’ll need.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>residualmodel <span class="ot">&lt;-</span> logs <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">differential =</span> TeamScore <span class="sc">-</span> OpponentScore, <span class="at">NetYards =</span> OffensiveYards <span class="sc">-</span> DefYards)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>residualmodel <span class="ot">&lt;-</span> logs <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">differential =</span> TeamScore <span class="sc">-</span> OpponentScore, <span class="at">NetYards =</span> OffensiveYards <span class="sc">-</span> DefYards)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now let’s create our model.</p>
 <div class="cell">
@@ -472,11 +472,11 @@ F-statistic:  1967 on 1 and 1098 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Last: Look at the p-value. We are looking for a p-value smaller than .05. At .05, we can say that our correlation didn’t happen at random. And, in this case, it REALLY didn’t happen at random. But if you know a little bit about football, it doesn’t surprise you that the more you outgain your opponent, the more you win by. It’s an intuitive result.</p>
 <p>What we want to do now is look at those residuals. We want to add them to our individual game records. We can do that by creating two new fields – predicted and residuals – to our dataframe like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>residualmodel <span class="ot">&lt;-</span> residualmodel <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">predicted =</span> <span class="fu">predict</span>(fit), <span class="at">residuals =</span> <span class="fu">residuals</span>(fit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>residualmodel <span class="ot">&lt;-</span> residualmodel <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">predicted =</span> <span class="fu">predict</span>(fit), <span class="at">residuals =</span> <span class="fu">residuals</span>(fit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we can sort our data by those residuals. Sorting in descending order gives us the games where teams overperformed the model. To make it easier to read, I’m going to use select to give us just the columns we need to see.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>residualmodel <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(residuals)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Team, Opponent, Result, differential, NetYards, predicted, residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>residualmodel <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(residuals)) <span class="sc">|&gt;</span> <span class="fu">select</span>(Team, Opponent, Result, differential, NetYards, predicted, residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,100 × 7
    Team              Opponent   Result differential NetYards predicted residuals
@@ -491,7 +491,7 @@ F-statistic:  1967 on 1 and 1098 DF,  p-value: &lt; 2.2e-16</code></pre>
  8 Notre Dame        South Flo… W (52…           52      198     20.4       31.6
  9 Texas             Oklahoma … W (41…            7     -243    -24.4       31.4
 10 BYU               North Ala… W (66…           52      201     20.8       31.2
-# … with 1,090 more rows</code></pre>
+# ℹ 1,090 more rows</code></pre>
 </div>
 </div>
 <p>So looking at this table, what you see here are the teams who scored more than their net yards would indicate. One of them should jump off the page at you.</p>
@@ -506,7 +506,7 @@ F-statistic:  1967 on 1 and 1098 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Another way to view your residuals is by connecting the predicted value with the actual value.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="residuals_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
@@ -517,7 +517,7 @@ F-statistic:  1967 on 1 and 1098 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h2 data-number="11.1" class="anchored" data-anchor-id="penalties"><span class="header-section-number">11.1</span> Penalties</h2>
 <p>Now let’s look at it where it doesn’t work: Penalties.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>penalties <span class="ot">&lt;-</span> logs <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>penalties <span class="ot">&lt;-</span> logs <span class="sc">|&gt;</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">differential =</span> TeamScore <span class="sc">-</span> OpponentScore, </span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalPenalties =</span> Penalties<span class="sc">+</span>DefPenalties,</span>
@@ -558,7 +558,7 @@ F-statistic: 0.05029 on 1 and 1098 DF,  p-value: 0.8226</code></pre>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>penalties<span class="sc">$</span>residuals <span class="ot">&lt;-</span> <span class="fu">residuals</span>(pfit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>penalties <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(residuals)) <span class="sc">%&gt;%</span> <span class="fu">select</span>(Team, Opponent, Result, TotalPenaltyYards, residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>penalties <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(residuals)) <span class="sc">|&gt;</span> <span class="fu">select</span>(Team, Opponent, Result, TotalPenaltyYards, residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,100 × 5
    Team          Opponent         Result    TotalPenaltyYards residuals
@@ -573,7 +573,7 @@ F-statistic: 0.05029 on 1 and 1098 DF,  p-value: 0.8226</code></pre>
  8 Wake Forest   Campbell         W (66-14)                82      51.1
  9 BYU           North Alabama    W (66-14)                74      51.0
 10 Notre Dame    South Florida    W (52-0)                 65      51.0
-# … with 1,090 more rows</code></pre>
+# ℹ 1,090 more rows</code></pre>
 </div>
 </div>
 <p>First, note all of the biggest misses here are all blowout games. The worst games of the season, the worst being Clemson vs Georgia Tech. The model missed that differential by … 65 points. The margin of victory? 66 points. In other words, this model is terrible. But let’s look at it anyway.</p>
@@ -586,7 +586,7 @@ F-statistic: 0.05029 on 1 and 1098 DF,  p-value: 0.8226</code></pre>
 <p>Here’s the segment plot of residuals – you’ll see some really long lines. That’s a bad sign. Another bad sign? A flat fit line. It means there’s no relationship between these two things. Which we already know.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula 'y ~ x'</code></pre>
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
 <div class="cell-output-display">
 <p><img src="residuals_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>

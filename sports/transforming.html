@@ -455,13 +455,13 @@ dbl (6): 2013, 2014, 2015, 2016, 2017, 2018
  8 Arkansas        SEC             431174 399124 471279 487067 442569 367748
  9 Arkansas St.    Sun Belt        149477 149163 138043 136200 119538 119001
 10 Army West Point FBS Independent 169781 171310 185946 163267 185543 190156
-# … with 140 more rows</code></pre>
+# ℹ 140 more rows</code></pre>
 </div>
 </div>
 <p>So as you can see, each row represents a school, and then each column represents a year. This is great for calculating the percent change – we can subtract a column from a column and divide by that column. But later, when we want to chart each school’s attendance over the years, we have to have each row be one team for one year. Nebraska in 2013, then Nebraska in 2014, and Nebraska in 2015 and so on.</p>
 <p>To do that, we use <code>pivot_longer</code> because we’re making wide data long. Since all of the columns we want to make rows start with 20, we can use that in our <code>cols</code> directive. Then we give that column a name – Year – and the values for each year need a name too. Those are the attendance figure. We can see right away how this works.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>attendance <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"20"</span>), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"Attendance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>attendance <span class="sc">|&gt;</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"20"</span>), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"Attendance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 900 × 4
    Institution Conference Year  Attendance
@@ -476,7 +476,7 @@ dbl (6): 2013, 2014, 2015, 2016, 2017, 2018
  8 Akron       MAC        2014       55019
  9 Akron       MAC        2015      108588
 10 Akron       MAC        2016       62021
-# … with 890 more rows</code></pre>
+# ℹ 890 more rows</code></pre>
 </div>
 </div>
 <p>We’ve gone from 150 rows to 900, but that’s expected when we have 6 years for each team.</p>
@@ -487,7 +487,7 @@ dbl (6): 2013, 2014, 2015, 2016, 2017, 2018
 <p>In some cases, you’re going to be given long data and you need to calculate some metric using two of the years – a percent change for instance. So you’ll need to make the data wide to do that. You might then have to re-lengthen the data now with the percent change. Some project require you to do all kinds of flexing like this. It just depends on the data.</p>
 <p>So let’s take what we made above and turn it back into wide data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>longdata <span class="ot">&lt;-</span> attendance <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"20"</span>), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"Attendance"</span>)</span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>longdata <span class="ot">&lt;-</span> attendance <span class="sc">|&gt;</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"20"</span>), <span class="at">names_to =</span> <span class="st">"Year"</span>, <span class="at">values_to =</span> <span class="st">"Attendance"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>longdata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -504,12 +504,12 @@ dbl (6): 2013, 2014, 2015, 2016, 2017, 2018
  8 Akron       MAC        2014       55019
  9 Akron       MAC        2015      108588
 10 Akron       MAC        2016       62021
-# … with 890 more rows</code></pre>
+# ℹ 890 more rows</code></pre>
 </div>
 </div>
 <p>To <code>pivot_wider</code>, we just need to say where our column names are coming from – the Year – and where the data under it should come from – Attendance.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>longdata <span class="sc">%&gt;%</span> <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Year, <span class="at">values_from =</span> Attendance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>longdata <span class="sc">|&gt;</span> <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Year, <span class="at">values_from =</span> Attendance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 150 × 8
    Institution     Conference      `2013` `2014` `2015` `2016` `2017` `2018`
@@ -524,7 +524,7 @@ dbl (6): 2013, 2014, 2015, 2016, 2017, 2018
  8 Arkansas        SEC             431174 399124 471279 487067 442569 367748
  9 Arkansas St.    Sun Belt        149477 149163 138043 136200 119538 119001
 10 Army West Point FBS Independent 169781 171310 185946 163267 185543 190156
-# … with 140 more rows</code></pre>
+# ℹ 140 more rows</code></pre>
 </div>
 </div>
 <p>And just like that, we’re back.</p>
@@ -535,7 +535,7 @@ dbl (6): 2013, 2014, 2015, 2016, 2017, 2018
 <p>So let me walk you through an example using this data.</p>
 <p>Let’s look at Nebraska’s attendance over the time period. In order to do that, I need long data because that’s what the charting library, <code>ggplot2</code>, needs. You’re going to learn a lot more about ggplot later.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>nebraska <span class="ot">&lt;-</span> longdata <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Institution <span class="sc">==</span> <span class="st">"Nebraska"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>nebraska <span class="ot">&lt;-</span> longdata <span class="sc">|&gt;</span> <span class="fu">filter</span>(Institution <span class="sc">==</span> <span class="st">"Nebraska"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now that we have long data for just Nebraska, we can chart it.</p>
 <div class="cell">

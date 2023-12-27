@@ -445,7 +445,7 @@ date  (1): Date
 <p>But is there one?</p>
 <p>We’re going create a new dataframe called newcorrelations that takes our data that we imported and adds a column called <code>differential</code> because we don’t have separate offense and defense penalties, and then we’ll use correlations to see how related those two things are.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>newcorrelations <span class="ot">&lt;-</span> correlations <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>newcorrelations <span class="ot">&lt;-</span> correlations <span class="sc">|&gt;</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">differential =</span> TeamScore <span class="sc">-</span> OpponentScore, </span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">TotalPenalties =</span> Penalties<span class="sc">+</span>DefPenalties, </span>
@@ -454,7 +454,7 @@ date  (1): Date
 </div>
 <p>In R, there is a <code>cor</code> function, and it works much the same as <code>mean</code> or <code>median</code>. So we want to see if <code>differential</code> is correlated with <code>TotalPenaltyYards</code>, which is the yards of penalties a team gets in a game. We do that by referencing <code>differential</code> and <code>TotalPenaltyYards</code> and specifying we want a <code>pearson</code> correlation. The number we get back is the correlation coefficient.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>newcorrelations <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">correlation =</span> <span class="fu">cor</span>(differential, TotalPenaltyYards, <span class="at">method=</span><span class="st">"pearson"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>newcorrelations <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">correlation =</span> <span class="fu">cor</span>(differential, TotalPenaltyYards, <span class="at">method=</span><span class="st">"pearson"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   correlation
@@ -465,7 +465,7 @@ date  (1): Date
 <p>So on a scale of -1 to 1, where 0 means there’s no relationship at all and 1 or -1 means a perfect relationship, penalty yards and whether or not the team scores more points than it give up are at -0.0068. You could say they’re .7 percent related toward the negative – more penalties, the lower your differential. Another way to say it? They’re 99.3 percent not related.</p>
 <p>What about the number of penalties instead of the yards?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>newcorrelations <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>newcorrelations <span class="sc">|&gt;</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">correlation =</span> <span class="fu">cor</span>(differential, TotalPenalties, <span class="at">method=</span><span class="st">"pearson"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
@@ -520,11 +520,11 @@ F-statistic: 0.05029 on 1 and 1098 DF,  p-value: 0.8226</code></pre>
 <p>So we’ve <strong>firmly</strong> established that penalties aren’t predictive. But what is?</p>
 <p>So instead of looking at penalty yards, let’s make a new metric: Net Yards. Can we predict the score differential by looking at the yards a team gained minus the yards they gave up.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>regressions <span class="ot">&lt;-</span> newcorrelations <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">NetYards =</span> OffensiveYards <span class="sc">-</span> DefYards)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>regressions <span class="ot">&lt;-</span> newcorrelations <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">NetYards =</span> OffensiveYards <span class="sc">-</span> DefYards)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>First, let’s look at the correlation coefficent.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>regressions <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>regressions <span class="sc">|&gt;</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">correlation =</span> <span class="fu">cor</span>(differential, NetYards, <span class="at">method=</span><span class="st">"pearson"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
