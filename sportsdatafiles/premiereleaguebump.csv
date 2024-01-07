@@ -1,121 +1,141 @@
 matchday,rk,squad
-3,1,Man City
-3,2,West Ham
-3,3,Tottenham
-3,4,Liverpool
-3,5,Arsenal
-3,6,Brighton
-3,7,Aston Villa
-3,8,Man Utd
-3,9,Brentford
-3,10,Chelsea
-3,11,Crystal Palace
-3,12,Fulham
-3,13,Newcastle
-3,14,Nottm Forest
-3,15,Wolves
-3,16,Burnley
-3,17,Bournemouth
-3,18,Sheff Utd
-3,19,Everton
-3,20,Luton
-4,1,Man City
-4,2,Tottenham
-4,3,Liverpool
-4,4,West Ham
-4,5,Arsenal
-4,6,Brighton
-4,7,Crystal Palace
-4,8,Brentford
-4,9,Nottm Forest
-4,10,Aston Villa
-4,11,Man Utd
-4,12,Chelsea
-4,13,Fulham
-4,14,Newcastle
-4,15,Wolves
-4,16,Burnley
-4,17,Bournemouth
-4,18,Sheff Utd
-4,19,Everton
-4,20,Luton
-5,1,Man City
-5,2,Tottenham
-5,3,Liverpool
-5,4,Arsenal
-5,5,Brighton
-5,6,West Ham
-5,7,Aston Villa
-5,8,Nottm Forest
-5,9,Crystal Palace
-5,10,Fulham
-5,11,Brentford
-5,12,Newcastle
-5,13,Man Utd
-5,14,Chelsea
-5,15,Burnley
-5,16,Bournemouth
-5,17,Wolves
-5,18,Sheff Utd
-5,19,Everton
-5,20,Luton
-6,1,Man City
-6,2,Liverpool
-6,3,Brighton
-6,4,Tottenham
-6,5,Arsenal
-6,6,Aston Villa
-6,7,West Ham
-6,8,Newcastle
-6,9,Man Utd
-6,10,Crystal Palace
-6,11,Fulham
-6,12,Nottm Forest
-6,13,Brentford
-6,14,Chelsea
-6,15,Everton
-6,16,Wolves
-6,17,Burnley
-6,18,Bournemouth
-6,19,Luton
-6,20,Sheff Utd
-7,1,Man City
-7,2,Tottenham
-7,3,Arsenal
-7,4,Liverpool
-7,5,Aston Villa
-7,6,Brighton
-7,7,West Ham
-7,8,Newcastle
-7,9,Crystal Palace
-7,10,Man Utd
-7,11,Chelsea
-7,12,Nottm Forest
-7,13,Fulham
-7,14,Brentford
-7,15,Wolves
-7,16,Everton
-7,17,Luton
-7,18,Burnley
-7,19,Bournemouth
-7,20,Sheff Utd
-8,1,Tottenham
-8,2,Arsenal
-8,3,Man City
-8,4,Liverpool
-8,5,Aston Villa
-8,6,Brighton
-8,7,West Ham
-8,8,Newcastle
-8,9,Crystal Palace
-8,10,Man Utd
-8,11,Chelsea
-8,12,Fulham
-8,13,Nottm Forest
-8,14,Wolves
-8,15,Brentford
-8,16,Everton
-8,17,Luton
-8,18,Burnley
-8,19,Bournemouth
-8,20,Sheff Utd
+14,1,Arsenal
+14,2,Liverpool
+14,3,Man City
+14,4,Aston Villa
+14,5,Tottenham
+14,6,Newcastle
+14,7,Man Utd
+14,8,Brighton
+14,9,West Ham
+14,10,Chelsea
+14,11,Brentford
+14,12,Crystal Palace
+14,13,Wolves
+14,14,Fulham
+14,15,Nottm Forest
+14,16,Bournemouth
+14,17,Luton
+14,18,Everton
+14,19,Burnley
+14,20,Sheff Utd
+15,1,Arsenal
+15,2,Liverpool
+15,3,Aston Villa
+15,4,Man City
+15,5,Tottenham
+15,6,Man Utd
+15,7,Newcastle
+15,8,Brighton
+15,9,West Ham
+15,10,Chelsea
+15,11,Brentford
+15,12,Fulham
+15,13,Wolves
+15,14,Crystal Palace
+15,15,Bournemouth
+15,16,Nottm Forest
+15,17,Everton
+15,18,Luton
+15,19,Burnley
+15,20,Sheff Utd
+16,1,Liverpool
+16,2,Arsenal
+16,3,Aston Villa
+16,4,Man City
+16,5,Tottenham
+16,6,Man Utd
+16,7,Newcastle
+16,8,Brighton
+16,9,West Ham
+16,10,Fulham
+16,11,Brentford
+16,12,Chelsea
+16,13,Wolves
+16,14,Bournemouth
+16,15,Crystal Palace
+16,16,Nottm Forest
+16,17,Everton
+16,18,Luton
+16,19,Burnley
+16,20,Sheff Utd
+17,1,Arsenal
+17,2,Liverpool
+17,3,Aston Villa
+17,4,Man City
+17,5,Tottenham
+17,6,Newcastle
+17,7,Man Utd
+17,8,West Ham
+17,9,Brighton
+17,10,Chelsea
+17,11,Fulham
+17,12,Brentford
+17,13,Wolves
+17,14,Bournemouth
+17,15,Crystal Palace
+17,16,Everton
+17,17,Nottm Forest
+17,18,Luton
+17,19,Burnley
+17,20,Sheff Utd
+18,1,Arsenal
+18,2,Liverpool
+18,3,Aston Villa
+18,4,Tottenham
+18,5,Man City
+18,6,West Ham
+18,7,Newcastle
+18,8,Man Utd
+18,9,Brighton
+18,10,Chelsea
+18,11,Wolves
+18,12,Bournemouth
+18,13,Fulham
+18,14,Brentford
+18,15,Crystal Palace
+18,16,Everton
+18,17,Nottm Forest
+18,18,Luton
+18,19,Burnley
+18,20,Sheff Utd
+19,1,Liverpool
+19,2,Arsenal
+19,3,Aston Villa
+19,4,Man City
+19,5,Tottenham
+19,6,West Ham
+19,7,Man Utd
+19,8,Brighton
+19,9,Newcastle
+19,10,Chelsea
+19,11,Wolves
+19,12,Bournemouth
+19,13,Fulham
+19,14,Brentford
+19,15,Crystal Palace
+19,16,Nottm Forest
+19,17,Everton
+19,18,Luton
+19,19,Burnley
+19,20,Sheff Utd
+20,1,Liverpool
+20,2,Aston Villa
+20,3,Man City
+20,4,Arsenal
+20,5,Tottenham
+20,6,West Ham
+20,7,Brighton
+20,8,Man Utd
+20,9,Newcastle
+20,10,Chelsea
+20,11,Wolves
+20,12,Bournemouth
+20,13,Fulham
+20,14,Crystal Palace
+20,15,Nottm Forest
+20,16,Brentford
+20,17,Everton
+20,18,Luton
+20,19,Burnley
+20,20,Sheff Utd
