@@ -305,13 +305,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>What we need to do here is get both sides of the game. We’ll start with getting the box scores and cleaning them up a bit. We’ll split the shooting columns into made and missed and turn everything into a number.</p>
+<p>What we need to do here is get both sides of the game. We’ll start with getting the box scores.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>teamgames <span class="ot">&lt;-</span> <span class="fu">load_mbb_team_box</span>(<span class="at">seasons =</span> <span class="dv">2015</span><span class="sc">:</span><span class="dv">2023</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(field_goals_made_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"field_goals_made"</span>,<span class="st">"field_goals_attempted"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(three_point_field_goals_made_three_point_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"three_point_field_goals_made"</span>,<span class="st">"three_point_field_goals_attempted"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(free_throws_made_free_throws_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"free_throws_made"</span>,<span class="st">"free_throws_attempted"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">34</span>, as.numeric)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>teamgames <span class="ot">&lt;-</span> <span class="fu">load_mbb_team_box</span>(<span class="at">seasons =</span> <span class="dv">2015</span><span class="sc">:</span><span class="dv">2024</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="feature-engineering" class="level2" data-number="3.2">
@@ -326,11 +322,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="exercise-1-setting-up-your-data" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="exercise-1-setting-up-your-data"><span class="header-section-number">3.2.1</span> Exercise 1: setting up your data</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>teamstats <span class="ot">&lt;-</span> teamgames <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>teamstats <span class="ot">&lt;-</span> teamgames <span class="sc">|&gt;</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_score =</span> ((field_goals_made<span class="sc">-</span>three_point_field_goals_made) <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">+</span> (three_point_field_goals_made<span class="sc">*</span><span class="dv">3</span>) <span class="sc">+</span> free_throws_made,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">possessions =</span> ?????_?????_attempted <span class="sc">-</span> offensive_rebounds <span class="sc">+</span> ????????? <span class="sc">+</span> (.<span class="dv">475</span> <span class="sc">*</span> free_throws_attempted),</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ppp =</span> team_score<span class="sc">/</span>possessions</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">possessions =</span> ?????_?????_attempted <span class="sc">-</span> offensive_rebounds <span class="sc">+</span> ????????? <span class="sc">+</span> (.<span class="dv">475</span> <span class="sc">*</span> free_throws_attempted),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ppp =</span> team_score<span class="sc">/</span>possessions,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">oppp =</span> opponent_team_score<span class="sc">/</span>possessions</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -354,13 +350,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="exercise-2-lagging" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="exercise-2-lagging"><span class="header-section-number">3.2.2</span> Exercise 2: Lagging</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>rollingteamstats <span class="ot">&lt;-</span> teamstats <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(game_date) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(team_short_display_name, season) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>rollingteamstats <span class="ot">&lt;-</span> teamstats <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(game_date) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(team_short_display_name, season) <span class="sc">|&gt;</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_score =</span> ((field_goals_made<span class="sc">-</span>three_point_field_goals_made) <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">+</span> (three_point_field_goals_made<span class="sc">*</span><span class="dv">3</span>) <span class="sc">+</span> free_throws_made,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_rolling_ppp =</span> <span class="fu">rollmean</span>(???(ppp, <span class="at">n=</span>?), <span class="at">k=</span><span class="dv">5</span>, <span class="at">align=</span><span class="st">"right"</span>, <span class="at">fill=</span><span class="cn">NA</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_rolling_ppp =</span> <span class="fu">rollmean</span>(???(ppp, <span class="at">n=</span>?), <span class="at">k=</span><span class="dv">5</span>, <span class="at">align=</span><span class="st">"right"</span>, <span class="at">fill=</span><span class="cn">NA</span>),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_rolling_oppp =</span> <span class="fu">rollmean</span>(???(oppp, <span class="at">n=</span>?), <span class="at">k=</span><span class="dv">5</span>, <span class="at">align=</span><span class="st">"right"</span>, <span class="at">fill=</span><span class="cn">NA</span>),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -368,49 +364,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Now we need to do something that at first will seem kind of odd, but isn’t when you think about it. Our data has half of the box score – just one team. But a game has two teams in it. To get it, we need the team AND the opponent. How can you decide if a team is going to win if you don’t know who they are playing and if that team is any good or not? So we need to create two dataframes that have column names that indicate these stats are the team stats and these stats are the opponent stats. We can do that with some selecting and some renaming.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>team_side <span class="ot">&lt;-</span> rollingteamstats <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>team_side <span class="ot">&lt;-</span> rollingteamstats <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    game_id,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    team_id, </span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    team_short_display_name, </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    opponent_id, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    opponent_team_id, </span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    game_date, </span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    season, </span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    team_score, </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    team_rolling_ppp</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>opponent_side <span class="ot">&lt;-</span> team_side <span class="sc">%&gt;%</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>opponent_id) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_id =</span> team_id,</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_short_display_name =</span> team_short_display_name,</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_score =</span> team_score,</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_rolling_ppp =</span> team_rolling_ppp</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">opponent_id =</span> <span class="fu">as.numeric</span>(opponent_id)</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    team_rolling_ppp,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    team_rolling_oppp</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>opponent_side <span class="ot">&lt;-</span> team_side <span class="sc">|&gt;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>opponent_team_id) <span class="sc">|&gt;</span> </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_team_id =</span> team_id,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_short_display_name =</span> team_short_display_name,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_score =</span> team_score,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_rolling_ppp =</span> team_rolling_ppp,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_rolling_oppp =</span> team_rolling_oppp</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we’ll join them together.</p>
 </section>
 <section id="exercise-3-joining-the-data-together" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="exercise-3-joining-the-data-together"><span class="header-section-number">3.2.3</span> Exercise 3: Joining the data together</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>games <span class="ot">&lt;-</span> ????_side <span class="sc">%&gt;%</span> <span class="fu">inner_join</span>(?????????_side)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>games <span class="ot">&lt;-</span> ????_side <span class="sc">|&gt;</span> <span class="fu">inner_join</span>(?????????_side)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
-<pre><code>Joining, by = c("game_id", "opponent_id", "game_date", "season")</code></pre>
+<pre><code>Joining with `by = join_by(game_id, opponent_team_id, game_date, season)`</code></pre>
 </div>
 </div>
 <p>The last problem to solve? Who won? We can add this with conditional logic. The other thing we’re doing here is we’re going to is we’re going to convert our new team_result column into a factor. What is a factor? A factor is a type of data in R that stores categorical values that have a limited number of differences. So wins and losses are a perfect factor. Modeling libraries are looking for factors so it can treat the differences in the data as categories, so that’s why we’re converting it here.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>games <span class="ot">&lt;-</span> games <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>games <span class="ot">&lt;-</span> games <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">team_result =</span> <span class="fu">as.factor</span>(<span class="fu">case_when</span>(</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    team_score <span class="sc">&gt;</span> opponent_score <span class="sc">~</span> <span class="st">"W"</span>,</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    opponent_score <span class="sc">&gt;</span> team_score <span class="sc">~</span> <span class="st">"L"</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>))) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>))) <span class="sc">|&gt;</span> <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now that we’ve done that, we need to look at the order of our factors.</p>
 </section>
@@ -441,7 +437,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>For simplicity, let’s limit the number of columns we’re going to feed our model.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>modelgames <span class="ot">&lt;-</span> games <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>modelgames <span class="ot">&lt;-</span> games <span class="sc">|&gt;</span> </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    game_id, </span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    game_date, </span>
@@ -449,9 +445,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    opponent_short_display_name, </span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    season, </span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    team_rolling_ppp, </span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    opponent_rolling_ppp, </span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    team_result</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    team_rolling_oppp,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    opponent_rolling_ppp,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    opponent_rolling_oppp,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    team_result</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -486,31 +484,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>First step to making a model is to set what type of model this will be. We’re going to name our model object – log_mod works because this is a logistic regression model. We’ll use the logistic_reg function in parsnip (the modeling library in Tidymodels) and set the engine to “glm”. The mode in our case is “classification” because we’re trying to classify something as a W or L. Later, we’ll use “regression” to predict numbers.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>log_mod <span class="ot">&lt;-</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The next step is to create a recipe. This is a series of steps we’ll use to put our data into our model. For example – what is predicting what? And what aren’t predictors and what are? And do we have to do any pre-processing of the data?</p>
 <p>The first part of the recipe is the formula. In this case, we’re saying – in real words – <code>team_result</code> <em>is approximately modeled by</em> our predictors, which we represent as <code>.</code> which means all the stuff. Then, importantly, we say what <em>isn’t</em> a predictor next with update_role. So the team name, the game date and things like that are <em>not</em> predictors. So we need to tell it that. The last step is normalizing our numbers. With logistic regression, scale differences in numbers can skew things, so we’re going to turn everything into Z-scores.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>log_recipe <span class="ot">&lt;-</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(team_result <span class="sc">~</span> ., <span class="at">data =</span> log_train) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(game_id, game_date, team_short_display_name, opponent_short_display_name, season, <span class="at">new_role =</span> <span class="st">"ID"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(team_result <span class="sc">~</span> ., <span class="at">data =</span> log_train) <span class="sc">|&gt;</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(game_id, game_date, team_short_display_name, opponent_short_display_name, season, <span class="at">new_role =</span> <span class="st">"ID"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_predictors</span>())</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(log_recipe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 4
-  variable                    type    role      source  
-  &lt;chr&gt;                       &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;   
-1 game_id                     numeric ID        original
-2 game_date                   date    ID        original
-3 team_short_display_name     nominal ID        original
-4 opponent_short_display_name nominal ID        original
-5 season                      numeric ID        original
-6 team_rolling_ppp            numeric predictor original
-7 opponent_rolling_ppp        numeric predictor original
-8 team_result                 nominal outcome   original</code></pre>
+<pre><code># A tibble: 10 × 4
+   variable                    type      role      source  
+   &lt;chr&gt;                       &lt;list&gt;    &lt;chr&gt;     &lt;chr&gt;   
+ 1 game_id                     &lt;chr [2]&gt; ID        original
+ 2 game_date                   &lt;chr [1]&gt; ID        original
+ 3 team_short_display_name     &lt;chr [3]&gt; ID        original
+ 4 opponent_short_display_name &lt;chr [3]&gt; ID        original
+ 5 season                      &lt;chr [2]&gt; ID        original
+ 6 team_rolling_ppp            &lt;chr [2]&gt; predictor original
+ 7 team_rolling_oppp           &lt;chr [2]&gt; predictor original
+ 8 opponent_rolling_ppp        &lt;chr [2]&gt; predictor original
+ 9 opponent_rolling_oppp       &lt;chr [2]&gt; predictor original
+10 team_result                 &lt;chr [3]&gt; outcome   original</code></pre>
 </div>
 </div>
 <p>Now we have enough for a workflow. A workflow is what we use to put it all together. In it, we add our model definition and our recipe.</p>
@@ -519,8 +519,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="3.4.2" class="anchored" data-anchor-id="exercise-7-making-a-workflow"><span class="header-section-number">3.4.2</span> Exercise 7: Making a workflow</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>log_workflow <span class="ot">&lt;-</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">workflow</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(log_???) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">workflow</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(log_???) <span class="sc">|&gt;</span> </span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(log_??????)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -529,7 +529,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>And now we fit our model (this can take a few minutes).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>log_fit <span class="ot">&lt;-</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  log_workflow <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  log_workflow <span class="sc">|&gt;</span> </span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(<span class="at">data =</span> log_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -539,51 +539,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>With logistic regression, there’s two things we’re looking at: The prediction and the probabilities. We can get those with two different fits and combine them together.</p>
 <p>First, you can see the predictions like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>trainpredict <span class="ot">&lt;-</span> log_fit <span class="sc">%&gt;%</span> <span class="fu">predict</span>(<span class="at">new_data =</span> log_train) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>trainpredict <span class="ot">&lt;-</span> log_fit <span class="sc">|&gt;</span> <span class="fu">predict</span>(<span class="at">new_data =</span> log_train) <span class="sc">|&gt;</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(log_train)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>trainpredict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 61,020 × 9
-   .pred_class   game_id game_date  team_short_display_… opponent_short_… season
-   &lt;fct&gt;           &lt;int&gt; &lt;date&gt;     &lt;chr&gt;                &lt;chr&gt;             &lt;int&gt;
- 1 W           401083976 2019-02-03 UNC Wilmington       James Madison      2019
- 2 L           400839389 2016-02-11 Nebraska             Wisconsin          2016
- 3 W           400988107 2018-02-10 Wichita State        UConn              2018
- 4 L           401373737 2022-02-25 UC Davis             UCSB               2022
- 5 W           401309755 2021-03-05 Cincinnati           Vanderbilt         2021
- 6 L           401377777 2022-02-27 Temple               Tulane             2022
- 7 L           400868397 2016-03-04 Manhattan            Marist             2016
- 8 L           400988599 2018-02-04 Seton Hall           Villanova          2018
- 9 W           401172379 2020-01-18 Towson               James Madison      2020
-10 W           400847285 2016-02-27 South Dakota St      Oral Roberts       2016
-# … with 61,010 more rows, and 3 more variables: team_rolling_ppp &lt;dbl&gt;,
-#   opponent_rolling_ppp &lt;dbl&gt;, team_result &lt;fct&gt;</code></pre>
+<pre><code># A tibble: 67,448 × 11
+   .pred_class  game_id game_date  team_short_display_n…¹ opponent_short_displ…²
+   &lt;fct&gt;          &lt;int&gt; &lt;date&gt;     &lt;chr&gt;                  &lt;chr&gt;                 
+ 1 L             4.01e8 2019-01-26 Columbia               Cornell               
+ 2 L             4.01e8 2016-02-08 VMI                    Wofford               
+ 3 L             4.01e8 2018-02-03 San José St            New Mexico            
+ 4 L             4.02e8 2023-12-28 UC Riverside           UC Irvine             
+ 5 L             4.02e8 2023-11-19 Wichita St             Saint Louis           
+ 6 L             4.01e8 2022-02-12 C Connecticut          St Francis BK         
+ 7 L             4.01e8 2021-02-20 South Carolina         Missouri              
+ 8 L             4.01e8 2022-02-17 Sam Houston            Abilene Chrstn        
+ 9 W             4.01e8 2016-03-03 Portland St            N Arizona             
+10 W             4.01e8 2018-01-29 Nebraska               Wisconsin             
+# ℹ 67,438 more rows
+# ℹ abbreviated names: ¹​team_short_display_name, ²​opponent_short_display_name
+# ℹ 6 more variables: season &lt;int&gt;, team_rolling_ppp &lt;dbl&gt;,
+#   team_rolling_oppp &lt;dbl&gt;, opponent_rolling_ppp &lt;dbl&gt;,
+#   opponent_rolling_oppp &lt;dbl&gt;, team_result &lt;fct&gt;</code></pre>
 </div>
 </div>
 <p>Then, we can just add it to <code>trainpredict</code> using <code>bind_cols</code>, which means we’re going to bind the columns of this new fit to the old trainpredict.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>trainpredict <span class="ot">&lt;-</span> log_fit <span class="sc">%&gt;%</span> <span class="fu">predict</span>(<span class="at">new_data =</span> log_train, <span class="at">type=</span><span class="st">"prob"</span>) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>trainpredict <span class="ot">&lt;-</span> log_fit <span class="sc">|&gt;</span> <span class="fu">predict</span>(<span class="at">new_data =</span> log_train, <span class="at">type=</span><span class="st">"prob"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(trainpredict)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>trainpredict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 61,020 × 11
+<pre><code># A tibble: 67,448 × 13
    .pred_W .pred_L .pred_class   game_id game_date  team_short_display_name
      &lt;dbl&gt;   &lt;dbl&gt; &lt;fct&gt;           &lt;int&gt; &lt;date&gt;     &lt;chr&gt;                  
- 1   0.688   0.312 W           401083976 2019-02-03 UNC Wilmington         
- 2   0.430   0.570 L           400839389 2016-02-11 Nebraska               
- 3   0.618   0.382 W           400988107 2018-02-10 Wichita State          
- 4   0.346   0.654 L           401373737 2022-02-25 UC Davis               
- 5   0.506   0.494 W           401309755 2021-03-05 Cincinnati             
- 6   0.289   0.711 L           401377777 2022-02-27 Temple                 
- 7   0.262   0.738 L           400868397 2016-03-04 Manhattan              
- 8   0.176   0.824 L           400988599 2018-02-04 Seton Hall             
- 9   0.715   0.285 W           401172379 2020-01-18 Towson                 
-10   0.622   0.378 W           400847285 2016-02-27 South Dakota St        
-# … with 61,010 more rows, and 5 more variables:
-#   opponent_short_display_name &lt;chr&gt;, season &lt;int&gt;, team_rolling_ppp &lt;dbl&gt;,
-#   opponent_rolling_ppp &lt;dbl&gt;, team_result &lt;fct&gt;</code></pre>
+ 1   0.481   0.519 L           401087929 2019-01-26 Columbia               
+ 2   0.268   0.732 L           400845047 2016-02-08 VMI                    
+ 3   0.270   0.730 L           400991788 2018-02-03 San José St            
+ 4   0.416   0.584 L           401573471 2023-12-28 UC Riverside           
+ 5   0.487   0.513 L           401582115 2023-11-19 Wichita St             
+ 6   0.429   0.571 L           401370826 2022-02-12 C Connecticut          
+ 7   0.471   0.529 L           401258819 2021-02-20 South Carolina         
+ 8   0.426   0.574 L           401371528 2022-02-17 Sam Houston            
+ 9   0.708   0.292 W           400841543 2016-03-03 Portland St            
+10   0.736   0.264 W           400986537 2018-01-29 Nebraska               
+# ℹ 67,438 more rows
+# ℹ 7 more variables: opponent_short_display_name &lt;chr&gt;, season &lt;int&gt;,
+#   team_rolling_ppp &lt;dbl&gt;, team_rolling_oppp &lt;dbl&gt;,
+#   opponent_rolling_ppp &lt;dbl&gt;, opponent_rolling_oppp &lt;dbl&gt;, team_result &lt;fct&gt;</code></pre>
 </div>
 </div>
 <p>There’s several metrics to look at to evaluate the model on our training data, but the two we will use are accuracy and roc_auc. They both are pointing toward how well the model did in two different ways. The accuracy metric looks at the number of predictions that are correct when compared to known results. The inputs here are the data, the column that has the actual result, and the column with the prediction, called <code>.pred_class</code>.</p>
@@ -597,8 +601,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code># A tibble: 2 × 3
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-1 accuracy binary         0.617
-2 kap      binary         0.233</code></pre>
+1 accuracy binary         0.639
+2 kap      binary         0.278</code></pre>
 </div>
 </div>
 <p>So how accurate is our model? If we’re looking for perfection, we’re far from it. But if we’re looking to make straight up win loss bets … we’re doing okay!</p>
@@ -607,15 +611,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="exercise-9-confusion-matrix" class="level3" data-number="3.5.2">
 <h3 data-number="3.5.2" class="anchored" data-anchor-id="exercise-9-confusion-matrix"><span class="header-section-number">3.5.2</span> Exercise 9: Confusion matrix</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>trainpredict <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>trainpredict <span class="sc">|&gt;</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">conf_mat</span>(????_result, .pred_?????)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>          Truth
 Prediction     W     L
-         W 18923 11744
-         L 11647 18706</code></pre>
+         W 21589 12195
+         L 12166 21498</code></pre>
 </div>
 </div>
 </section>
@@ -624,10 +628,10 @@ Prediction     W     L
 <h2 data-number="3.6" class="anchored" data-anchor-id="comparing-it-to-test-data"><span class="header-section-number">3.6</span> Comparing it to test data</h2>
 <p>Now we can apply our fit to the test data to see how robust it is. If the metrics are similar, that’s good – it means our model is robust. If the metrics change a lot, that’s bad. It means our model is guessing.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>testpredict <span class="ot">&lt;-</span> log_fit <span class="sc">%&gt;%</span> <span class="fu">predict</span>(<span class="at">new_data =</span> log_test) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>testpredict <span class="ot">&lt;-</span> log_fit <span class="sc">|&gt;</span> <span class="fu">predict</span>(<span class="at">new_data =</span> log_test) <span class="sc">|&gt;</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(log_test)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>testpredict <span class="ot">&lt;-</span> log_fit <span class="sc">%&gt;%</span> <span class="fu">predict</span>(<span class="at">new_data =</span> log_test, <span class="at">type=</span><span class="st">"prob"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>testpredict <span class="ot">&lt;-</span> log_fit <span class="sc">|&gt;</span> <span class="fu">predict</span>(<span class="at">new_data =</span> log_test, <span class="at">type=</span><span class="st">"prob"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(testpredict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And now some metrics on the test data.</p>
@@ -641,20 +645,20 @@ Prediction     W     L
 <pre><code># A tibble: 2 × 3
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-1 accuracy binary         0.614
-2 kap      binary         0.229</code></pre>
+1 accuracy binary         0.636
+2 kap      binary         0.273</code></pre>
 </div>
 </div>
 <p>How does that compare to our training data? Is it lower? Higher? Are the changes large – like are we talking about single digit changes or double digit changes? The less it changes, the better.</p>
 <p>And now the confusion matrix.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>testpredict <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>testpredict <span class="sc">|&gt;</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">conf_mat</span>(team_result, .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          Truth
 Prediction    W    L
-         W 4639 2954
-         L 2929 4734</code></pre>
+         W 5358 3091
+         L 3042 5371</code></pre>
 </div>
 </div>
 <p>How does that compare to the training data?</p>
@@ -664,24 +668,36 @@ Prediction    W    L
 <h2 data-number="3.7" class="anchored" data-anchor-id="how-well-did-it-do-with-nebraska"><span class="header-section-number">3.7</span> How well did it do with Nebraska?</h2>
 <p>Let’s grab predictions for Nebraska from both our test and train data and take a look.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>nutrain <span class="ot">&lt;-</span> trainpredict <span class="sc">%&gt;%</span> <span class="fu">filter</span>(team_short_display_name <span class="sc">==</span> <span class="st">"Nebraska"</span> <span class="sc">&amp;</span>  season <span class="sc">==</span> <span class="dv">2023</span>)</span>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>nutrain <span class="ot">&lt;-</span> trainpredict <span class="sc">|&gt;</span> <span class="fu">filter</span>(team_short_display_name <span class="sc">==</span> <span class="st">"Nebraska"</span> <span class="sc">&amp;</span>  season <span class="sc">==</span> <span class="dv">2024</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>nutest <span class="ot">&lt;-</span> testpredict <span class="sc">%&gt;%</span> <span class="fu">filter</span>(team_short_display_name <span class="sc">==</span> <span class="st">"Nebraska"</span> <span class="sc">&amp;</span> season <span class="sc">==</span> <span class="dv">2023</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>nutest <span class="ot">&lt;-</span> testpredict <span class="sc">|&gt;</span> <span class="fu">filter</span>(team_short_display_name <span class="sc">==</span> <span class="st">"Nebraska"</span> <span class="sc">&amp;</span> season <span class="sc">==</span> <span class="dv">2024</span>)</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(nutrain, nutest) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(game_date) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(.pred_W, .pred_class, team_result, team_short_display_name, opponent_short_display_name) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(nutrain, nutest) <span class="sc">|&gt;</span> </span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(game_date) <span class="sc">|&gt;</span> </span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(.pred_W, .pred_class, team_result, team_short_display_name, opponent_short_display_name) <span class="sc">|&gt;</span> </span>
 <span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="araxpaksnv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>html {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+<div id="dvqnyttijv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dvqnyttijv table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:where(#araxpaksnv) .gt_table {
+#dvqnyttijv thead, #dvqnyttijv tbody, #dvqnyttijv tfoot, #dvqnyttijv tr, #dvqnyttijv td, #dvqnyttijv th {
+  border-style: none;
+}
+
+#dvqnyttijv p {
+  margin: 0;
+  padding: 0;
+}
+
+#dvqnyttijv .gt_table {
   display: table;
   border-collapse: collapse;
+  line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
@@ -704,19 +720,12 @@ Prediction    W    L
   border-left-color: #D3D3D3;
 }
 
-:where(#araxpaksnv) .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
+#dvqnyttijv .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
-:where(#araxpaksnv) .gt_title {
+#dvqnyttijv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -728,25 +737,37 @@ Prediction    W    L
   border-bottom-width: 0;
 }
 
-:where(#araxpaksnv) .gt_subtitle {
+#dvqnyttijv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
-  padding-top: 0;
-  padding-bottom: 6px;
+  padding-top: 3px;
+  padding-bottom: 5px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
   border-top-width: 0;
 }
 
-:where(#araxpaksnv) .gt_bottom_border {
+#dvqnyttijv .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#dvqnyttijv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-:where(#araxpaksnv) .gt_col_headings {
+#dvqnyttijv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -761,7 +782,7 @@ Prediction    W    L
   border-right-color: #D3D3D3;
 }
 
-:where(#araxpaksnv) .gt_col_heading {
+#dvqnyttijv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -781,7 +802,7 @@ Prediction    W    L
   overflow-x: hidden;
 }
 
-:where(#araxpaksnv) .gt_column_spanner_outer {
+#dvqnyttijv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -793,15 +814,15 @@ Prediction    W    L
   padding-right: 4px;
 }
 
-:where(#araxpaksnv) .gt_column_spanner_outer:first-child {
+#dvqnyttijv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-:where(#araxpaksnv) .gt_column_spanner_outer:last-child {
+#dvqnyttijv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-:where(#araxpaksnv) .gt_column_spanner {
+#dvqnyttijv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -813,7 +834,11 @@ Prediction    W    L
   width: 100%;
 }
 
-:where(#araxpaksnv) .gt_group_heading {
+#dvqnyttijv .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#dvqnyttijv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -836,9 +861,10 @@ Prediction    W    L
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
+  text-align: left;
 }
 
-:where(#araxpaksnv) .gt_empty_group_heading {
+#dvqnyttijv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -853,15 +879,15 @@ Prediction    W    L
   vertical-align: middle;
 }
 
-:where(#araxpaksnv) .gt_from_md > :first-child {
+#dvqnyttijv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-:where(#araxpaksnv) .gt_from_md > :last-child {
+#dvqnyttijv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-:where(#araxpaksnv) .gt_row {
+#dvqnyttijv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -880,7 +906,7 @@ Prediction    W    L
   overflow-x: hidden;
 }
 
-:where(#araxpaksnv) .gt_stub {
+#dvqnyttijv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -893,7 +919,7 @@ Prediction    W    L
   padding-right: 5px;
 }
 
-:where(#araxpaksnv) .gt_stub_row_group {
+#dvqnyttijv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -907,11 +933,15 @@ Prediction    W    L
   vertical-align: top;
 }
 
-:where(#araxpaksnv) .gt_row_group_first td {
+#dvqnyttijv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-:where(#araxpaksnv) .gt_summary_row {
+#dvqnyttijv .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#dvqnyttijv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -921,16 +951,16 @@ Prediction    W    L
   padding-right: 5px;
 }
 
-:where(#araxpaksnv) .gt_first_summary_row {
+#dvqnyttijv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-:where(#araxpaksnv) .gt_first_summary_row.thick {
+#dvqnyttijv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-:where(#araxpaksnv) .gt_last_summary_row {
+#dvqnyttijv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -940,7 +970,7 @@ Prediction    W    L
   border-bottom-color: #D3D3D3;
 }
 
-:where(#araxpaksnv) .gt_grand_summary_row {
+#dvqnyttijv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -950,7 +980,7 @@ Prediction    W    L
   padding-right: 5px;
 }
 
-:where(#araxpaksnv) .gt_first_grand_summary_row {
+#dvqnyttijv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -960,11 +990,21 @@ Prediction    W    L
   border-top-color: #D3D3D3;
 }
 
-:where(#araxpaksnv) .gt_striped {
+#dvqnyttijv .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#dvqnyttijv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-:where(#araxpaksnv) .gt_table_body {
+#dvqnyttijv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -973,7 +1013,7 @@ Prediction    W    L
   border-bottom-color: #D3D3D3;
 }
 
-:where(#araxpaksnv) .gt_footnotes {
+#dvqnyttijv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -987,30 +1027,8 @@ Prediction    W    L
   border-right-color: #D3D3D3;
 }
 
-:where(#araxpaksnv) .gt_footnote {
+#dvqnyttijv .gt_footnote {
   margin: 0px;
-  font-size: 90%;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-:where(#araxpaksnv) .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-:where(#araxpaksnv) .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1018,171 +1036,160 @@ Prediction    W    L
   padding-right: 5px;
 }
 
-:where(#araxpaksnv) .gt_left {
+#dvqnyttijv .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#dvqnyttijv .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#dvqnyttijv .gt_left {
   text-align: left;
 }
 
-:where(#araxpaksnv) .gt_center {
+#dvqnyttijv .gt_center {
   text-align: center;
 }
 
-:where(#araxpaksnv) .gt_right {
+#dvqnyttijv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-:where(#araxpaksnv) .gt_font_normal {
+#dvqnyttijv .gt_font_normal {
   font-weight: normal;
 }
 
-:where(#araxpaksnv) .gt_font_bold {
+#dvqnyttijv .gt_font_bold {
   font-weight: bold;
 }
 
-:where(#araxpaksnv) .gt_font_italic {
+#dvqnyttijv .gt_font_italic {
   font-style: italic;
 }
 
-:where(#araxpaksnv) .gt_super {
+#dvqnyttijv .gt_super {
   font-size: 65%;
 }
 
-:where(#araxpaksnv) .gt_two_val_uncert {
-  display: inline-block;
-  line-height: 1em;
-  text-align: right;
-  font-size: 60%;
-  vertical-align: -0.25em;
-  margin-left: 0.1em;
-}
-
-:where(#araxpaksnv) .gt_footnote_marks {
-  font-style: italic;
-  font-weight: normal;
+#dvqnyttijv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
+  position: initial;
 }
 
-:where(#araxpaksnv) .gt_asterisk {
+#dvqnyttijv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-:where(#araxpaksnv) .gt_slash_mark {
-  font-size: 0.7em;
-  line-height: 0.7em;
-  vertical-align: 0.15em;
+#dvqnyttijv .gt_indent_1 {
+  text-indent: 5px;
 }
 
-:where(#araxpaksnv) .gt_fraction_numerator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: 0.45em;
+#dvqnyttijv .gt_indent_2 {
+  text-indent: 10px;
 }
 
-:where(#araxpaksnv) .gt_fraction_denominator {
-  font-size: 0.6em;
-  line-height: 0.6em;
-  vertical-align: -0.05em;
+#dvqnyttijv .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#dvqnyttijv .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#dvqnyttijv .gt_indent_5 {
+  text-indent: 25px;
 }
 </style>
-<table class="gt_table">
-  
-  <thead class="gt_col_headings">
-    <tr>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1">.pred_W</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">.pred_class</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">team_result</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">team_short_display_name</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1">opponent_short_display_name</th>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id=".pred_W">.pred_W</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id=".pred_class">.pred_class</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="team_result">team_result</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="team_short_display_name">team_short_display_name</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="opponent_short_display_name">opponent_short_display_name</th>
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr><td class="gt_row gt_right">0.5497281</td>
-<td class="gt_row gt_center">W</td>
-<td class="gt_row gt_center">W</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Florida St</td></tr>
-    <tr><td class="gt_row gt_right">0.5973002</td>
-<td class="gt_row gt_center">W</td>
-<td class="gt_row gt_center">W</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Boston College</td></tr>
-    <tr><td class="gt_row gt_right">0.5175988</td>
-<td class="gt_row gt_center">W</td>
-<td class="gt_row gt_center">W</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Creighton</td></tr>
-    <tr><td class="gt_row gt_right">0.4341151</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Indiana</td></tr>
-    <tr><td class="gt_row gt_right">0.2667989</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Purdue</td></tr>
-    <tr><td class="gt_row gt_right">0.4810879</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Kansas St</td></tr>
-    <tr><td class="gt_row gt_right">0.3176467</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">W</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Queens</td></tr>
-    <tr><td class="gt_row gt_right">0.3050453</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">W</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Iowa</td></tr>
-    <tr><td class="gt_row gt_right">0.3458684</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Michigan St</td></tr>
-    <tr><td class="gt_row gt_right">0.4699218</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">W</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Minnesota</td></tr>
-    <tr><td class="gt_row gt_right">0.4310008</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Illinois</td></tr>
-    <tr><td class="gt_row gt_right">0.2072669</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Purdue</td></tr>
-    <tr><td class="gt_row gt_right">0.3605986</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">W</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Ohio State</td></tr>
-    <tr><td class="gt_row gt_right">0.2536178</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Penn State</td></tr>
-    <tr><td class="gt_row gt_right">0.3102129</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Northwestern</td></tr>
-    <tr><td class="gt_row gt_right">0.2234788</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Maryland</td></tr>
-    <tr><td class="gt_row gt_right">0.3468551</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_center">L</td>
-<td class="gt_row gt_left">Nebraska</td>
-<td class="gt_row gt_left">Illinois</td></tr>
+    <tr><td headers=".pred_W" class="gt_row gt_right">0.6570560</td>
+<td headers=".pred_class" class="gt_row gt_center">W</td>
+<td headers="team_result" class="gt_row gt_center">W</td>
+<td headers="team_short_display_name" class="gt_row gt_left">Nebraska</td>
+<td headers="opponent_short_display_name" class="gt_row gt_left">Duquesne</td></tr>
+    <tr><td headers=".pred_W" class="gt_row gt_right">0.8452890</td>
+<td headers=".pred_class" class="gt_row gt_center">W</td>
+<td headers="team_result" class="gt_row gt_center">W</td>
+<td headers="team_short_display_name" class="gt_row gt_left">Nebraska</td>
+<td headers="opponent_short_display_name" class="gt_row gt_left">Fullerton</td></tr>
+    <tr><td headers=".pred_W" class="gt_row gt_right">0.5910652</td>
+<td headers=".pred_class" class="gt_row gt_center">W</td>
+<td headers="team_result" class="gt_row gt_center">L</td>
+<td headers="team_short_display_name" class="gt_row gt_left">Nebraska</td>
+<td headers="opponent_short_display_name" class="gt_row gt_left">Creighton</td></tr>
+    <tr><td headers=".pred_W" class="gt_row gt_right">0.5494702</td>
+<td headers=".pred_class" class="gt_row gt_center">W</td>
+<td headers="team_result" class="gt_row gt_center">L</td>
+<td headers="team_short_display_name" class="gt_row gt_left">Nebraska</td>
+<td headers="opponent_short_display_name" class="gt_row gt_left">Minnesota</td></tr>
+    <tr><td headers=".pred_W" class="gt_row gt_right">0.3608115</td>
+<td headers=".pred_class" class="gt_row gt_center">L</td>
+<td headers="team_result" class="gt_row gt_center">W</td>
+<td headers="team_short_display_name" class="gt_row gt_left">Nebraska</td>
+<td headers="opponent_short_display_name" class="gt_row gt_left">Michigan St</td></tr>
+    <tr><td headers=".pred_W" class="gt_row gt_right">0.2956497</td>
+<td headers=".pred_class" class="gt_row gt_center">L</td>
+<td headers="team_result" class="gt_row gt_center">W</td>
+<td headers="team_short_display_name" class="gt_row gt_left">Nebraska</td>
+<td headers="opponent_short_display_name" class="gt_row gt_left">Kansas St</td></tr>
+    <tr><td headers=".pred_W" class="gt_row gt_right">0.3810477</td>
+<td headers=".pred_class" class="gt_row gt_center">L</td>
+<td headers="team_result" class="gt_row gt_center">W</td>
+<td headers="team_short_display_name" class="gt_row gt_left">Nebraska</td>
+<td headers="opponent_short_display_name" class="gt_row gt_left">North Dakota</td></tr>
+    <tr><td headers=".pred_W" class="gt_row gt_right">0.5662615</td>
+<td headers=".pred_class" class="gt_row gt_center">W</td>
+<td headers="team_result" class="gt_row gt_center">W</td>
+<td headers="team_short_display_name" class="gt_row gt_left">Nebraska</td>
+<td headers="opponent_short_display_name" class="gt_row gt_left">SC State</td></tr>
+    <tr><td headers=".pred_W" class="gt_row gt_right">0.6143640</td>
+<td headers=".pred_class" class="gt_row gt_center">W</td>
+<td headers="team_result" class="gt_row gt_center">W</td>
+<td headers="team_short_display_name" class="gt_row gt_left">Nebraska</td>
+<td headers="opponent_short_display_name" class="gt_row gt_left">Indiana</td></tr>
+    <tr><td headers=".pred_W" class="gt_row gt_right">0.5626390</td>
+<td headers=".pred_class" class="gt_row gt_center">W</td>
+<td headers="team_result" class="gt_row gt_center">L</td>
+<td headers="team_short_display_name" class="gt_row gt_left">Nebraska</td>
+<td headers="opponent_short_display_name" class="gt_row gt_left">Wisconsin</td></tr>
+    <tr><td headers=".pred_W" class="gt_row gt_right">0.3437593</td>
+<td headers=".pred_class" class="gt_row gt_center">L</td>
+<td headers="team_result" class="gt_row gt_center">W</td>
+<td headers="team_short_display_name" class="gt_row gt_left">Nebraska</td>
+<td headers="opponent_short_display_name" class="gt_row gt_left">Purdue</td></tr>
+    <tr><td headers=".pred_W" class="gt_row gt_right">0.4378474</td>
+<td headers=".pred_class" class="gt_row gt_center">L</td>
+<td headers="team_result" class="gt_row gt_center">L</td>
+<td headers="team_short_display_name" class="gt_row gt_left">Nebraska</td>
+<td headers="opponent_short_display_name" class="gt_row gt_left">Iowa</td></tr>
   </tbody>
   
   

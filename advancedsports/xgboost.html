@@ -294,60 +294,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>We’ll load our game data and do a spot of feature engineering that we used with our other models.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>teamgames <span class="ot">&lt;-</span> <span class="fu">load_mbb_team_box</span>(<span class="at">seasons =</span> <span class="dv">2015</span><span class="sc">:</span><span class="dv">2023</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(field_goals_made_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"field_goals_made"</span>,<span class="st">"field_goals_attempted"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(three_point_field_goals_made_three_point_field_goals_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"three_point_field_goals_made"</span>,<span class="st">"three_point_field_goals_attempted"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(free_throws_made_free_throws_attempted, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"free_throws_made"</span>,<span class="st">"free_throws_attempted"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="dv">12</span><span class="sc">:</span><span class="dv">34</span>, as.numeric)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>teamstats <span class="ot">&lt;-</span> teamgames <span class="sc">%&gt;%</span> </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_score =</span> ((field_goals_made<span class="sc">-</span>three_point_field_goals_made) <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">+</span> (three_point_field_goals_made<span class="sc">*</span><span class="dv">3</span>) <span class="sc">+</span> free_throws_made,</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">possessions =</span> field_goals_attempted <span class="sc">-</span> offensive_rebounds <span class="sc">+</span> turnovers <span class="sc">+</span> (.<span class="dv">475</span> <span class="sc">*</span> free_throws_attempted),</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">ppp =</span> team_score<span class="sc">/</span>possessions</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>rollingteamstats <span class="ot">&lt;-</span> teamstats <span class="sc">%&gt;%</span> </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(team_short_display_name, season) <span class="sc">%&gt;%</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(game_date) <span class="sc">%&gt;%</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_score =</span> ((field_goals_made<span class="sc">-</span>three_point_field_goals_made) <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">+</span> (three_point_field_goals_made<span class="sc">*</span><span class="dv">3</span>) <span class="sc">+</span> free_throws_made,</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_rolling_ppp =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(ppp, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">5</span>, <span class="at">align=</span><span class="st">"right"</span>, <span class="at">fill=</span><span class="cn">NA</span>)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() </span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>team_side <span class="ot">&lt;-</span> rollingteamstats <span class="sc">%&gt;%</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    game_id,</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    team_id, </span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    team_short_display_name, </span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    opponent_id, </span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    game_date, </span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    season, </span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    team_score, </span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    team_rolling_ppp</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    ) </span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>opponent_side <span class="ot">&lt;-</span> team_side <span class="sc">%&gt;%</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>opponent_id) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_id =</span> team_id,</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_short_display_name =</span> team_short_display_name,</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_score =</span> team_score,</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_rolling_ppp =</span> team_rolling_ppp</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">opponent_id =</span> <span class="fu">as.numeric</span>(opponent_id)</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>)</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>teamgames <span class="ot">&lt;-</span> <span class="fu">load_mbb_team_box</span>(<span class="at">seasons =</span> <span class="dv">2015</span><span class="sc">:</span><span class="dv">2024</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>teamstats <span class="ot">&lt;-</span> teamgames <span class="sc">|&gt;</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">possessions =</span> field_goals_attempted <span class="sc">-</span> offensive_rebounds <span class="sc">+</span> turnovers <span class="sc">+</span> (.<span class="dv">475</span> <span class="sc">*</span> free_throws_attempted),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ppp =</span> team_score<span class="sc">/</span>possessions,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">oppp =</span> opponent_team_score<span class="sc">/</span>possessions</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>rollingteamstats <span class="ot">&lt;-</span> teamstats <span class="sc">|&gt;</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(team_short_display_name, season) <span class="sc">|&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(game_date) <span class="sc">|&gt;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_rolling_ppp =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(ppp, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">5</span>, <span class="at">align=</span><span class="st">"right"</span>, <span class="at">fill=</span><span class="cn">NA</span>),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">team_rolling_oppp =</span> <span class="fu">rollmean</span>(<span class="fu">lag</span>(oppp, <span class="at">n=</span><span class="dv">1</span>), <span class="at">k=</span><span class="dv">5</span>, <span class="at">align=</span><span class="st">"right"</span>, <span class="at">fill=</span><span class="cn">NA</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>team_side <span class="ot">&lt;-</span> rollingteamstats <span class="sc">|&gt;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    game_id,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    team_id, </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    team_short_display_name, </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    opponent_team_id, </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    game_date, </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    season, </span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    team_score, </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    team_rolling_ppp,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    team_rolling_oppp</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>opponent_side <span class="ot">&lt;-</span> team_side <span class="sc">|&gt;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>opponent_team_id) <span class="sc">|&gt;</span> </span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_team_id =</span> team_id,</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_short_display_name =</span> team_short_display_name,</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_score =</span> team_score,</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_rolling_ppp =</span> team_rolling_ppp,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">opponent_rolling_oppp =</span> team_rolling_oppp</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">opponent_id =</span> <span class="fu">as.numeric</span>(opponent_team_id)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>games <span class="ot">&lt;-</span> team_side <span class="sc">|&gt;</span> <span class="fu">inner_join</span>(opponent_side)</span>
 <span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>games <span class="ot">&lt;-</span> team_side <span class="sc">%&gt;%</span> <span class="fu">inner_join</span>(opponent_side)</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>games <span class="ot">&lt;-</span> games <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  <span class="at">team_result =</span> <span class="fu">as.factor</span>(<span class="fu">case_when</span>(</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    team_score <span class="sc">&gt;</span> opponent_score <span class="sc">~</span> <span class="st">"W"</span>,</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    opponent_score <span class="sc">&gt;</span> team_score <span class="sc">~</span> <span class="st">"L"</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>))) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>()</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>games <span class="ot">&lt;-</span> games <span class="sc">|&gt;</span> <span class="fu">mutate</span>(</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  <span class="at">team_result =</span> <span class="fu">as.factor</span>(<span class="fu">case_when</span>(</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    team_score <span class="sc">&gt;</span> opponent_score <span class="sc">~</span> <span class="st">"W"</span>,</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    opponent_score <span class="sc">&gt;</span> team_score <span class="sc">~</span> <span class="st">"L"</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>)))</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>games<span class="sc">$</span>team_result <span class="ot">&lt;-</span> <span class="fu">relevel</span>(games<span class="sc">$</span>team_result, <span class="at">ref=</span><span class="st">"W"</span>)</span>
 <span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>modelgames <span class="ot">&lt;-</span> games <span class="sc">%&gt;%</span> </span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>modelgames <span class="ot">&lt;-</span> games <span class="sc">|&gt;</span> </span>
 <span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
 <span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    game_id, </span>
 <span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    game_date, </span>
@@ -355,10 +355,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    opponent_short_display_name, </span>
 <span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    season, </span>
 <span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    team_rolling_ppp, </span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    opponent_rolling_ppp, </span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    team_result</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    team_rolling_oppp,</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    opponent_rolling_ppp,</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    opponent_rolling_oppp,</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    team_result</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Per usual, we split our data into training and testing.</p>
 <div class="cell">
@@ -369,22 +371,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>And our recipe.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>game_recipe <span class="ot">&lt;-</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(team_result <span class="sc">~</span> ., <span class="at">data =</span> game_train) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(team_result <span class="sc">~</span> ., <span class="at">data =</span> game_train) <span class="sc">|&gt;</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">update_role</span>(game_id, game_date, team_short_display_name, opponent_short_display_name, season, <span class="at">new_role =</span> <span class="st">"ID"</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(game_recipe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 4
-  variable                    type    role      source  
-  &lt;chr&gt;                       &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;   
-1 game_id                     numeric ID        original
-2 game_date                   date    ID        original
-3 team_short_display_name     nominal ID        original
-4 opponent_short_display_name nominal ID        original
-5 season                      numeric ID        original
-6 team_rolling_ppp            numeric predictor original
-7 opponent_rolling_ppp        numeric predictor original
-8 team_result                 nominal outcome   original</code></pre>
+<pre><code># A tibble: 10 × 4
+   variable                    type      role      source  
+   &lt;chr&gt;                       &lt;list&gt;    &lt;chr&gt;     &lt;chr&gt;   
+ 1 game_id                     &lt;chr [2]&gt; ID        original
+ 2 game_date                   &lt;chr [1]&gt; ID        original
+ 3 team_short_display_name     &lt;chr [3]&gt; ID        original
+ 4 opponent_short_display_name &lt;chr [3]&gt; ID        original
+ 5 season                      &lt;chr [2]&gt; ID        original
+ 6 team_rolling_ppp            &lt;chr [2]&gt; predictor original
+ 7 team_rolling_oppp           &lt;chr [2]&gt; predictor original
+ 8 opponent_rolling_ppp        &lt;chr [2]&gt; predictor original
+ 9 opponent_rolling_oppp       &lt;chr [2]&gt; predictor original
+10 team_result                 &lt;chr [3]&gt; outcome   original</code></pre>
 </div>
 </div>
 <p>To this point, everything looks like what we’ve done before. Nothing has really changed. It’s about to.</p>
@@ -416,8 +420,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">tree_depth =</span> ????(), </span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">min_n =</span> ????(),</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">loss_reduction =</span> ????()</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -429,8 +433,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s make a workflow now that we have our recipe and our model.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>game_wflow <span class="ot">&lt;-</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">workflow</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(??_???) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">workflow</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(??_???) <span class="sc">|&gt;</span> </span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(????_recipe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -453,17 +457,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code># A tibble: 30 × 5
     mtry tree_depth min_n loss_reduction learn_rate
    &lt;int&gt;      &lt;int&gt; &lt;int&gt;          &lt;dbl&gt;      &lt;dbl&gt;
- 1     5         11    12       9.68e+ 0   7.33e- 3
- 2     2          6    33       5.23e- 4   2.73e- 3
- 3     3         11     9       3.49e- 9   6.81e-10
- 4     5          3    29       2.37e- 4   6.51e- 8
- 5     4         14    26       1.26e+ 0   1.03e- 7
- 6     5          1    25       2.94e+ 0   9.73e- 5
- 7     4          8    30       1.90e-10   6.59e- 6
- 8     4         12    40       8.71e- 7   5.07e- 4
- 9     1          2    32       6.77e- 6   1.46e- 5
-10     6         11     5       1.21e- 2   2.86e- 6
-# … with 20 more rows</code></pre>
+ 1     3          6    10        4.14e-3   1.84e- 4
+ 2     2          9    16        1.27e-4   6.39e- 3
+ 3    10          2    23        1.02e-5   9.98e-10
+ 4     5         12    20        4.56e-7   5.62e-10
+ 5     9          8    33        1.79e+1   6.33e- 2
+ 6     6          8    15        1.19e-9   2.62e- 3
+ 7     5          5     7        1.44e-1   7.97e- 5
+ 8     7         12    28        3.41e-8   4.06e- 5
+ 9     1         13    25        1.04e+1   1.29e-10
+10     4          5     6        1.37e+0   6.46e- 7
+# ℹ 20 more rows</code></pre>
 </div>
 </div>
 <p>How do we tune it? Using something called cross fold validation. Cross fold validation takes our grid, applies it to a set of subsets (in our case 10 subsets) and compares. It’ll take a random square in the hypercube, try the combinations in there, and see what happens. It’ll then keep doing that, over and over and over and over. When it’s done, each validation set will have a set of tuned values and outcomes that we can evaluate and pick the optimal set to get a result.</p>
@@ -482,16 +486,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 # A tibble: 10 × 2
    splits               id    
    &lt;list&gt;               &lt;chr&gt; 
- 1 &lt;split [55431/6159]&gt; Fold01
- 2 &lt;split [55431/6159]&gt; Fold02
- 3 &lt;split [55431/6159]&gt; Fold03
- 4 &lt;split [55431/6159]&gt; Fold04
- 5 &lt;split [55431/6159]&gt; Fold05
- 6 &lt;split [55431/6159]&gt; Fold06
- 7 &lt;split [55431/6159]&gt; Fold07
- 8 &lt;split [55431/6159]&gt; Fold08
- 9 &lt;split [55431/6159]&gt; Fold09
-10 &lt;split [55431/6159]&gt; Fold10</code></pre>
+ 1 &lt;split [60703/6745]&gt; Fold01
+ 2 &lt;split [60703/6745]&gt; Fold02
+ 3 &lt;split [60703/6745]&gt; Fold03
+ 4 &lt;split [60703/6745]&gt; Fold04
+ 5 &lt;split [60703/6745]&gt; Fold05
+ 6 &lt;split [60703/6745]&gt; Fold06
+ 7 &lt;split [60703/6745]&gt; Fold07
+ 8 &lt;split [60703/6745]&gt; Fold08
+ 9 &lt;split [60704/6744]&gt; Fold09
+10 &lt;split [60704/6744]&gt; Fold10</code></pre>
 </div>
 </div>
 <p>Now we come to the part that is going to take some time on your computer. How long? It depends. On my old 2018 Intel Mac, this part took about 25-30 minutes on my machine and made it sounds like it was attempting liftoff. My 2022 M1 Mac? Right around 10 minutes. Depending on how new and how powerful you computer is, it could take minutes, or it could take hours. The point being, start it up, walk away, and let it burn.</p>
@@ -510,18 +514,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code># A tibble: 60 × 11
     mtry min_n tree_depth learn_rate loss_reduction .metric  .estimator  mean
    &lt;int&gt; &lt;int&gt;      &lt;int&gt;      &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;
- 1     5    12         11   7.33e- 3  9.68          accuracy binary     0.611
- 2     5    12         11   7.33e- 3  9.68          roc_auc  binary     0.658
- 3     2    33          6   2.73e- 3  0.000523      accuracy binary     0.611
- 4     2    33          6   2.73e- 3  0.000523      roc_auc  binary     0.658
- 5     3     9         11   6.81e-10  0.00000000349 accuracy binary     0.500
- 6     3     9         11   6.81e-10  0.00000000349 roc_auc  binary     0.5  
- 7     5    29          3   6.51e- 8  0.000237      accuracy binary     0.607
- 8     5    29          3   6.51e- 8  0.000237      roc_auc  binary     0.639
- 9     4    26         14   1.03e- 7  1.26          accuracy binary     0.603
-10     4    26         14   1.03e- 7  1.26          roc_auc  binary     0.644
-# … with 50 more rows, and 3 more variables: n &lt;int&gt;, std_err &lt;dbl&gt;,
-#   .config &lt;chr&gt;</code></pre>
+ 1     3    10          6   1.84e- 4    0.00414     accuracy binary     0.628
+ 2     3    10          6   1.84e- 4    0.00414     roc_auc  binary     0.680
+ 3     2    16          9   6.39e- 3    0.000127    accuracy binary     0.633
+ 4     2    16          9   6.39e- 3    0.000127    roc_auc  binary     0.687
+ 5    10    23          2   9.98e-10    0.0000102   accuracy binary     0.500
+ 6    10    23          2   9.98e-10    0.0000102   roc_auc  binary     0.5  
+ 7     5    20         12   5.62e-10    0.000000456 accuracy binary     0.500
+ 8     5    20         12   5.62e-10    0.000000456 roc_auc  binary     0.5  
+ 9     9    33          8   6.33e- 2   17.9         accuracy binary     0.636
+10     9    33          8   6.33e- 2   17.9         roc_auc  binary     0.689
+# ℹ 50 more rows
+# ℹ 3 more variables: n &lt;int&gt;, std_err &lt;dbl&gt;, .config &lt;chr&gt;</code></pre>
 </div>
 </div>
 <p>Well we see 60 combinations and the metrics from them. But that doesn’t mean much to us just eyeballing it. We want to see the best combination. There’s a function to just show us the best one called … wait for it … <code>show_best</code>.</p>
@@ -531,12 +535,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code># A tibble: 5 × 11
    mtry min_n tree_depth learn_rate loss_reduction .metric  .estimator  mean
   &lt;int&gt; &lt;int&gt;      &lt;int&gt;      &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;
-1     8     2          2  0.0478     0.00000000913 accuracy binary     0.612
-2     5    12         11  0.00733    9.68          accuracy binary     0.611
-3     3    13          6  0.0000306  0.120         accuracy binary     0.611
-4     7    23          8  0.0215     0.0000224     accuracy binary     0.611
-5     2    33          6  0.00273    0.000523      accuracy binary     0.611
-# … with 3 more variables: n &lt;int&gt;, std_err &lt;dbl&gt;, .config &lt;chr&gt;</code></pre>
+1     9    33          8  0.0633     17.9          accuracy binary     0.636
+2     1    34         11  0.0170      0.0000000846 accuracy binary     0.635
+3     2    16          9  0.00639     0.000127     accuracy binary     0.633
+4     2    30         11  0.0276      0.00000530   accuracy binary     0.633
+5     2    20          7  0.0000202   0.0372       accuracy binary     0.632
+# ℹ 3 more variables: n &lt;int&gt;, std_err &lt;dbl&gt;, .config &lt;chr&gt;</code></pre>
 </div>
 </div>
 <p>The best combination as of this data update comes up with an accuracy of about 61.5 percent.</p>
@@ -568,12 +572,12 @@ Model: boost_tree()
 Boosted Tree Model Specification (classification)
 
 Main Arguments:
-  mtry = 8
+  mtry = 9
   trees = 30
-  min_n = 2
-  tree_depth = 2
-  learn_rate = 0.0478471146705376
-  loss_reduction = 9.13322009844852e-09
+  min_n = 33
+  tree_depth = 8
+  learn_rate = 0.0633417088937915
+  loss_reduction = 17.9327965928095
 
 Computational engine: xgboost </code></pre>
 </div>
@@ -584,7 +588,7 @@ Computational engine: xgboost </code></pre>
 <p>We create a fit using our finalized workflow.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>xg_fit <span class="ot">&lt;-</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  ?????_xgb <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  ?????_xgb <span class="sc">|&gt;</span> </span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(<span class="at">data =</span> game_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -592,34 +596,34 @@ Computational engine: xgboost </code></pre>
 </div>
 <p>We can see something things about that fit, including all the iterations of our XGBoost model. Remember: Boosted models work sequentially. One after the other. So you can see it at work. The error goes down with each iteration as we go down the gradient descent.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>xg_fit <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>xg_fit <span class="sc">|&gt;</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_fit_parsnip</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>parsnip model object
 
 ##### xgb.Booster
-raw: 30.2 Kb 
+raw: 292.2 Kb 
 call:
-  xgboost::xgb.train(params = list(eta = 0.0478471146705376, max_depth = 2L, 
-    gamma = 9.13322009844852e-09, colsample_bytree = 1, colsample_bynode = 1, 
-    min_child_weight = 2L, subsample = 1), data = x$data, nrounds = 30, 
+  xgboost::xgb.train(params = list(eta = 0.0633417088937915, max_depth = 8L, 
+    gamma = 17.9327965928095, colsample_bytree = 1, colsample_bynode = 1, 
+    min_child_weight = 33L, subsample = 1), data = x$data, nrounds = 30, 
     watchlist = x$watchlist, verbose = 0, nthread = 1, objective = "binary:logistic")
 params (as set within xgb.train):
-  eta = "0.0478471146705376", max_depth = "2", gamma = "9.13322009844852e-09", colsample_bytree = "1", colsample_bynode = "1", min_child_weight = "2", subsample = "1", nthread = "1", objective = "binary:logistic", validate_parameters = "TRUE"
+  eta = "0.0633417088937915", max_depth = "8", gamma = "17.9327965928095", colsample_bytree = "1", colsample_bynode = "1", min_child_weight = "33", subsample = "1", nthread = "1", objective = "binary:logistic", validate_parameters = "TRUE"
 xgb.attributes:
   niter
 callbacks:
   cb.evaluation.log()
-# of features: 2 
+# of features: 4 
 niter: 30
-nfeatures : 2 
+nfeatures : 4 
 evaluation_log:
     iter training_logloss
-       1        0.6906536
-       2        0.6883864
+       1        0.6866136
+       2        0.6808034
 ---                      
-      29        0.6609857
-      30        0.6605502</code></pre>
+      29        0.6308232
+      30        0.6303655</code></pre>
 </div>
 </div>
 </section>
@@ -627,7 +631,7 @@ evaluation_log:
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="exercise-5-prediction-time"><span class="header-section-number">5.3.2</span> Exercise 5: prediction time</h3>
 <p>Now, like before, we can bind our predictions using our xg_fit to the game_train data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>trainresults <span class="ot">&lt;-</span> game_train <span class="sc">|&gt;</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(??_???, game_train))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -645,13 +649,13 @@ evaluation_log:
 <pre><code># A tibble: 2 × 3
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-1 accuracy binary         0.616
-2 kap      binary         0.233</code></pre>
+1 accuracy binary         0.646
+2 kap      binary         0.293</code></pre>
 </div>
 </div>
 <p>How about the test data?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> game_test <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>testresults <span class="ot">&lt;-</span> game_test <span class="sc">|&gt;</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(<span class="fu">predict</span>(xg_fit, game_test))</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(testresults, <span class="at">truth =</span> team_result, <span class="at">estimate =</span> .pred_class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -659,8 +663,8 @@ evaluation_log:
 <pre><code># A tibble: 2 × 3
   .metric  .estimator .estimate
   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-1 accuracy binary         0.612
-2 kap      binary         0.225</code></pre>
+1 accuracy binary         0.632
+2 kap      binary         0.264</code></pre>
 </div>
 </div>
 <p>Unlike the random forest, not nearly the drop in metrics between train and test.</p>

@@ -183,6 +183,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#part-2-install-r-and-r-studio" id="toc-part-2-install-r-and-r-studio" class="nav-link" data-scroll-target="#part-2-install-r-and-r-studio"><span class="toc-section-number">2.0.2</span>  Part 2: Install R and R Studio</a></li>
   <li><a href="#part-3-installing-r-libraries" id="toc-part-3-installing-r-libraries" class="nav-link" data-scroll-target="#part-3-installing-r-libraries"><span class="toc-section-number">2.0.3</span>  Part 3: Installing R libraries</a></li>
   <li><a href="#part-4-install-slack" id="toc-part-4-install-slack" class="nav-link" data-scroll-target="#part-4-install-slack"><span class="toc-section-number">2.0.4</span>  Part 4: Install Slack</a></li>
+  <li><a href="#part-5-install-the-tutorials" id="toc-part-5-install-the-tutorials" class="nav-link" data-scroll-target="#part-5-install-the-tutorials"><span class="toc-section-number">2.0.5</span>  Part 5: Install the tutorials</a></li>
   </ul>
 </nav>
     </div>
@@ -211,21 +212,16 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="2.0.1" class="anchored" data-anchor-id="part-1-update-and-patch-your-operating-system"><span class="header-section-number">2.0.1</span> Part 1: Update and patch your operating system</h3>
 <p><strong>On a Mac:</strong></p>
 <ol type="1">
-<li>Open System Preferences. Then click on Software Update:</li>
+<li><p>Open System Preferences.</p>
+<p>Depending on how old your Mac OS is, you might see this:</p></li>
 </ol>
 <p><img src="images/Screen Shot 2020-07-30 at 5.35.08 PM.png" class="img-fluid"></p>
+<p>Or you might see this:</p>
+<p><img src="images/MacUpdate2.png" class="img-fluid"></p>
 <ol start="2" type="1">
-<li>Check and see if you have the latest version of the Mac OS installed. If your computer says “Your Mac is up to date”, then you’re good to go, regardless of what comes next.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/Screen Shot 2021-08-09 at 11.27.01 AM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">The latest version of the Mac OS is called Ventura.</figcaption><p></p>
-</figure>
-</div>
-<ol start="3" type="1">
-<li><p>If you aren’t on Ventura and you can update to it, you should do it. This will take some time – hours, so don’t do it when you need your laptop – but it’s important for you and your computer to stay up to date on operating systems.</p></li>
-<li><p>When you’re done, make sure you click the Automatically keep my Mac up to date box and install those updates regularly. Don’t ignore them. Don’t snooze them. Install them.</p></li>
+<li><p>Check and see if you have the latest version of the Mac OS installed. If your computer says “Your Mac is up to date”, then you’re good to go, regardless of what comes next.</p></li>
+<li><p>If you aren’t on Sonoma and you can update to it, you should do it. This will take some time – hours, so don’t do it when you need your laptop – but it’s important for you and your computer to stay up to date on operating systems.</p></li>
+<li><p>When you’re done, make sure you click the Automatically keep my Mac up to date box and install those updates regularly. <strong>Don’t ignore them. Don’t snooze them. Install them</strong>.</p></li>
 <li><p>With an up-to-date operating system, now install the command line tools. To do this, click on the magnifying glass in the top right of the screen and type terminal. Hit enter – the first entry is the terminal app.</p></li>
 <li><p>In the terminal app, type <code>xcode-select --install</code> and hit enter. Let it run.</p></li>
 </ol>
@@ -239,41 +235,30 @@ ul.task-list li input[type="checkbox"] {
 <li>After the search for updates completes, apply any that you have. Depending on if you’d done this recently or if you have automatic updates set, this might take a long time or go very quickly.</li>
 </ol>
 <p><img src="images/Screen Shot 2020-07-30 at 5.47.33 PM.png" class="img-fluid"></p>
-<pre><code>3.  When you're done, make sure you set up automatic updates for your Windows machine and install those updates regularly. Don't ignore them. Don't snooze them. Install them.</code></pre>
+<ol start="3" type="1">
+<li>When you’re done, make sure you set up automatic updates for your Windows machine and install those updates regularly. Don’t ignore them. Don’t snooze them. Install them.</li>
+</ol>
 </section>
 <section id="part-2-install-r-and-r-studio" class="level3" data-number="2.0.2">
 <h3 data-number="2.0.2" class="anchored" data-anchor-id="part-2-install-r-and-r-studio"><span class="header-section-number">2.0.2</span> Part 2: Install R and R Studio</h3>
-<p><strong>On a Mac:</strong></p>
 <ol type="1">
-<li><a href="https://rweb.crmda.ku.edu/cran/">Download the latest version of R from CRAN</a> for Mac.</li>
+<li><p>Go <a href="https://posit.co/download/rstudio-desktop/">here</a>. Go to Step 1 and click Download and Install R</p>
+<ul>
+<li><p>If you’re on a Mac, click on Download R for MacOS. If you have a newer Mac with an M1/M2/M3 chip, you want the arm64 version. If you’re on an older Mac with an Intel chip, you want the X86_64 version.</p></li>
+<li><p>If you’re on Windows, install the base package <em>AND</em> install Rtools. When either downloads, run the executable and accept the defaults and license agreement.</p></li>
+</ul>
+<p><img src="images/Screen Shot 2020-07-30 at 6.20.00 PM.png" class="img-fluid"></p></li>
+<li><p>Go back to <a href="https://posit.co/download/rstudio-desktop/">here</a>. Go to Step 2 and click R Studio Desktop for your version.</p></li>
 </ol>
-<p><img src="images/Screen Shot 2020-07-30 at 5.26.45 PM.png" class="img-fluid"></p>
-<p><img src="images/Screen Shot 2021-08-09 at 11.33.39 AM.png" class="img-fluid"></p>
-<ol start="2" type="1">
-<li><p>If it doesn’t open automatically, double click on the file that downloads to your downloads folder, click okay and accept the defaults and the license agreement.</p></li>
-<li><p><a href="https://posit.co/download/rstudio-desktop/">Download the latest R Studio for Mac under Step 2.</a> The number will be different from the screenshot below, but the process is the same.</p></li>
-<li><p>Click, hold and drag the RStudio icon into the Applications folder shortcut.</p></li>
-</ol>
-<p><img src="images/Screen Shot 2020-07-30 at 6.07.20 PM.png" class="img-fluid"></p>
-<ol start="5" type="1">
-<li>To get the RStudio icon to appear in your dock – you are going to use Rstudio for every single class we have this semester, so it would make sense – open a Finder window, go to your applications, open R Studio there, and then drag the icon to where you want it to appear in your dock. It will stay there after you have quit the program. To get rid of it after the semester is over, just drag the icon far enough out of the dock until you see a cloud icon appear.</li>
-</ol>
-<p><strong>On Windows:</strong></p>
-<ol type="1">
-<li><a href="https://rweb.crmda.ku.edu/cran/">Download R 4.2.2 from CRAN</a> for Windows. The numbers in the screenshots below are 4.0.2, but the process is the same.</li>
-</ol>
-<p><img src="images/Screen Shot 2020-07-30 at 5.26.45 PM.png" class="img-fluid"></p>
-<p><img src="images/Screen Shot 2020-07-30 at 6.15.51 PM.png" class="img-fluid"></p>
-<p><img src="images/Screen Shot 2021-08-09 at 11.36.34 AM.png" class="img-fluid"></p>
-<ol start="2" type="1">
-<li>Open and run the executable, accept the defaults and license agreement.</li>
-</ol>
-<p><img src="images/Screen Shot 2020-07-30 at 6.20.00 PM.png" class="img-fluid"></p>
-<ol start="3" type="1">
-<li>Go back to the screen where you downloaded the base R language, then download and install R Tools.</li>
-<li><a href="https://posit.co/download/rstudio-desktop/">Download R Studio for Windows on step 2 of this page.</a> Open the executable the same way you opened R. Hit next until it starts installing.</li>
-<li>You can find it by typing RStudio into the Cortana search.</li>
-</ol>
+<p><strong>Mac users:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Screen Shot 2020-07-30 at 6.07.20 PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Make sure you drag the R Studio icon into the Applications folder icon.</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Windows users:</strong></p>
+<p>You can find it by typing RStudio into the Cortana search.</p>
 </section>
 <section id="part-3-installing-r-libraries" class="level3" data-number="2.0.3">
 <h3 data-number="2.0.3" class="anchored" data-anchor-id="part-3-installing-r-libraries"><span class="header-section-number">2.0.3</span> Part 3: Installing R libraries</h3>
@@ -281,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Open R Studio. It should show the Console view by default. We’ll talk a lot more about the console later.</li>
 <li>Copy and paste this into the console and hit enter:</li>
 </ol>
-<p><code>install.packages(c("tidyverse", "rmarkdown", "lubridate", "janitor", "cowplot", "learnr", "remotes", "devtools", "hoopr", "nflfastR", "cfbfastR", "rvest", "Hmisc", "cluster", "tidymodels", "bonsai"))</code></p>
+<p><code>install.packages(c("tidyverse", "rmarkdown", "lubridate", "janitor", "cowplot", "learnr", "remotes", "devtools", "hoopr", "nflfastR", "cfbfastR", "rvest", "Hmisc", "cluster", "tidymodels", "bonsai", "lightgbm", "ranger", "xgboost", "kernlab", "corrr"))</code></p>
 <p><img src="images/Screen Shot 2020-07-30 at 6.30.16 PM.png" class="img-fluid"></p>
 </section>
 <section id="part-4-install-slack" class="level3" data-number="2.0.4">
@@ -293,6 +278,20 @@ ul.task-list li input[type="checkbox"] {
 <li>Add the #r channel for general help I’ll send to everyone in the channel and, if you want, the #jobstuff channel for news about jobs I come across.</li>
 </ol>
 <p><img src="images/Screen Shot 2020-07-30 at 7.06.05 PM.png" class="img-fluid"></p>
+</section>
+<section id="part-5-install-the-tutorials" class="level3" data-number="2.0.5">
+<h3 data-number="2.0.5" class="anchored" data-anchor-id="part-5-install-the-tutorials"><span class="header-section-number">2.0.5</span> Part 5: Install the tutorials</h3>
+<p>To get the tutorials, do the following.</p>
+<ol type="1">
+<li><p>Open R Studio. <img src="images/tutorials1.png" class="img-fluid"></p></li>
+<li><p>R Studio defaults to the console view. This is good, This is where you want to be.<img src="images/tutorials2.png" class="img-fluid"></p></li>
+<li><p>In the console, enter the following:</p>
+<p><code>devtools::install_github("mattwaite/SportsDataTutorials", force=TRUE)</code></p></li>
+<li><p>You should see some automated output. If you are told there are newer libraries and asked if you want to install them, just hit enter. When it is done, quit R Studio and restart it. This is what it will look like when done.<img src="images/tutorials3.png" class="img-fluid"></p></li>
+<li><p>Now do this:</p>
+<p><code>devtools::install_github("mattwaite/AdvancedSportsDataTutorials")</code></p></li>
+<li><p>Restart R Studio. You should now see both the Sports Data Tutorials and the Advanced Sports Data Tutorials in the tutorial pane.</p></li>
+</ol>
 
 
 </section>
