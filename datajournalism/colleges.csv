@@ -1,0 +1,1829 @@
+INSTNM,CITY,STABBR,MAIN,HIGHDEG,ADM_RATE,TUITIONFEE_IN,TUITIONFEE_OUT
+Alabama A & M University,Normal,AL,1,4,0.716,10024,18634
+University of Alabama at Birmingham,Birmingham,AL,1,4,0.8854,8568,20400
+Amridge University,Montgomery,AL,1,4,NULL,NULL,NULL
+University of Alabama in Huntsville,Huntsville,AL,1,4,0.7367,11488,23884
+Alabama State University,Montgomery,AL,1,4,0.9799,11068,19396
+The University of Alabama,Tuscaloosa,AL,1,4,0.789,11620,31090
+Athens State University,Athens,AL,1,4,NULL,NULL,NULL
+Auburn University at Montgomery,Montgomery,AL,1,4,0.968,8860,18820
+Auburn University,Auburn,AL,1,4,0.7118,11826,31986
+Faulkner University,Montgomery,AL,1,4,0.646,23490,23490
+Heritage Christian University,Florence,AL,1,4,NULL,11632,11632
+Jacksonville State University,Jacksonville,AL,1,4,0.7634,11120,20840
+University of West Alabama,Livingston,AL,1,4,0.7433,10990,20090
+University of Mobile,Mobile,AL,1,4,0.6409,24855,24855
+University of Montevallo,Montevallo,AL,1,4,0.9009,13710,26730
+University of North Alabama,Florence,AL,1,4,0.8997,10620,20220
+Oakwood University,Huntsville,AL,1,4,0.7185,19990,19990
+Samford University,Birmingham,AL,1,4,0.8387,35360,35360
+University of South Alabama,Mobile,AL,1,4,0.7078,8756,17012
+Spring Hill College,Mobile,AL,1,4,0.7152,21100,21100
+Talladega College,Talladega,AL,1,4,NULL,13886,13886
+Troy University,Troy,AL,1,4,0.9527,9312,18624
+Tuskegee University,Tuskegee,AL,1,4,0.342,22614,22614
+United States Sports Academy,Daphne,AL,1,4,1,16418,16418
+University of Alaska Anchorage,Anchorage,AK,1,4,0.6905,8622,25228
+University of Alaska Fairbanks,Fairbanks,AK,1,4,0.6469,7248,21384
+University of Alaska Southeast,Juneau,AK,1,4,0.5625,6960,21096
+Alaska Pacific University,Anchorage,AK,1,4,0.9603,20760,20760
+Brookline College-Phoenix,Phoenix,AZ,1,4,NULL,NULL,NULL
+Arizona State University Campus Immersion,Tempe,AZ,1,4,0.8819,11348,29438
+University of Arizona,Tucson,AZ,1,4,0.8727,12736,37258
+The School of Architecture,Paradise Valley,AZ,1,4,NULL,NULL,NULL
+Grand Canyon University,Phoenix,AZ,1,4,0.8284,17800,17800
+Northern Arizona University,Flagstaff,AZ,1,4,0.7835,11896,26642
+Prescott College,Prescott,AZ,1,4,0.9932,34701,34701
+University of Arkansas at Little Rock,Little Rock,AR,1,4,0.5769,8366,18957
+University of Arkansas for Medical Sciences,Little Rock,AR,1,4,NULL,NULL,NULL
+University of Arkansas,Fayetteville,AR,1,4,0.8267,9574,26390
+University of Arkansas at Pine Bluff,Pine Bluff,AR,1,4,0.6753,8398,15268
+Arkansas State University,Jonesboro,AR,1,4,0.6329,7130,12698
+Arkansas Tech University,Russellville,AR,1,4,0.9437,7900,13636
+University of Arkansas at Monticello,Monticello,AR,1,4,NULL,8029,13879
+University of Central Arkansas,Conway,AR,1,4,0.9237,9563,16433
+Harding University,Searcy,AR,1,4,0.5414,22230,22230
+Henderson State University,Arkadelphia,AR,1,4,0.7501,7560,9768
+Hendrix College,Conway,AR,1,4,0.683,33350,33350
+John Brown University,Siloam Springs,AR,1,4,0.5287,28924,28924
+Ouachita Baptist University,Arkadelphia,AR,1,4,0.7375,30140,30140
+Williams Baptist University,Walnut Ridge,AR,1,4,0.641,18570,18570
+Southern Arkansas University Main Campus,Magnolia,AR,1,4,0.626,9410,14630
+University of Arkansas-Fort Smith,Fort Smith,AR,1,4,NULL,5754,13026
+Academy of Art University,San Francisco,CA,1,4,NULL,25424,25424
+Academy of Chinese Culture and Health Sciences,Oakland,CA,1,4,NULL,NULL,NULL
+Berkeley School of Theology,Berkeley,CA,1,4,NULL,NULL,NULL
+American Film Institute Conservatory,Los Angeles,CA,1,4,NULL,NULL,NULL
+American Conservatory Theater,San Francisco,CA,1,4,NULL,30800,30800
+Art Center College of Design,Pasadena,CA,1,4,0.7556,48044,48044
+Azusa Pacific University,Azusa,CA,1,4,0.941,41510,41510
+Bethesda University,Anaheim,CA,1,4,NULL,6560,6560
+Biola University,La Mirada,CA,1,4,0.6077,44382,44382
+California Institute of Integral Studies,San Francisco,CA,1,4,NULL,NULL,NULL
+California Baptist University,Riverside,CA,1,4,0.6373,37018,37018
+California College of the Arts,San Francisco,CA,1,4,0.7763,52312,52312
+University of California-Hastings College of Law,San Francisco,CA,1,4,NULL,NULL,NULL
+California Institute of Technology,Pasadena,CA,1,4,0.0392,58680,58680
+California Lutheran University,Thousand Oaks,CA,1,4,0.8194,46012,46012
+California Polytechnic State University-San Luis Obispo,San Luis Obispo,CA,1,4,0.33,10195,28105
+Alliant International University-San Diego,San Diego,CA,1,4,1,13680,13680
+California State University-Bakersfield,Bakersfield,CA,1,4,0.8521,7579,19459
+California State University-Stanislaus,Turlock,CA,1,4,0.9476,7644,19524
+California State University-San Bernardino,San Bernardino,CA,1,4,0.9097,7213,19093
+California State Polytechnic University-Pomona,Pomona,CA,1,4,0.6062,7439,19319
+California State University-Chico,Chico,CA,1,4,0.8547,7864,19744
+California State University-Dominguez Hills,Carson,CA,1,4,0.8959,7060,18940
+California State University-Fresno,Fresno,CA,1,4,0.9728,6653,18533
+California State University-Fullerton,Fullerton,CA,1,4,0.5943,6976,18856
+California State University-East Bay,Hayward,CA,1,4,0.8236,6995,18875
+California State University-Long Beach,Long Beach,CA,1,4,0.4685,6846,18726
+California State University-Los Angeles,Los Angeles,CA,1,4,0.9054,6785,18665
+California State University-Northridge,Northridge,CA,1,4,0.881,7043,18923
+California State University-Sacramento,Sacramento,CA,1,4,0.9368,7392,19272
+University of California-Berkeley,Berkeley,CA,1,4,0.1444,14226,43980
+University of California-Davis,Davis,CA,1,4,0.4875,14645,44399
+University of California-Irvine,Irvine,CA,1,4,0.2882,13775,43529
+University of California-Los Angeles,Los Angeles,CA,1,4,0.1077,13258,43012
+University of California-Riverside,Riverside,CA,1,4,0.6538,13754,43508
+University of California-San Diego,La Jolla,CA,1,4,0.342,14700,44454
+University of California-San Francisco,San Francisco,CA,1,4,NULL,NULL,NULL
+University of California-Santa Barbara,Santa Barbara,CA,1,4,0.2918,14417,44171
+University of California-Santa Cruz,Santa Cruz,CA,1,4,0.5864,14070,43824
+Sofia University,Palo Alto,CA,1,4,NULL,NULL,NULL
+California Institute of the Arts,Valencia,CA,1,4,0.2898,53466,53466
+California State University Maritime Academy,Vallejo,CA,1,4,0.8209,7116,18996
+California Western School of Law,San Diego,CA,1,4,NULL,NULL,NULL
+Chapman University,Orange,CA,1,4,0.6037,58634,58634
+Charles R Drew University of Medicine and Science,Los Angeles,CA,1,4,0.6329,14954,14954
+Concordia University-Irvine,Irvine,CA,1,4,0.8138,38740,38740
+San Diego Christian College,Spring Valley,CA,1,4,0.527,34310,34310
+Church Divinity School of the Pacific,Berkeley,CA,1,4,NULL,NULL,NULL
+Claremont Graduate University,Claremont,CA,1,4,NULL,NULL,NULL
+Claremont McKenna College,Claremont,CA,1,4,0.1124,58111,58111
+University of Silicon Valley,San Jose,CA,1,4,0.5065,21784,21784
+Western University of Health Sciences,Pomona,CA,1,4,NULL,NULL,NULL
+Dominican University of California,San Rafael,CA,1,4,0.9293,47910,47910
+Dominican School of Philosophy & Theology,Berkeley,CA,1,4,NULL,NULL,NULL
+Emperor's College of Traditional Oriental Medicine,Santa Monica,CA,1,4,NULL,NULL,NULL
+Empire College,Santa Rosa,CA,1,4,NULL,NULL,NULL
+FIDM-Fashion Institute of Design & Merchandising,Los Angeles,CA,1,4,0.3597,32645,32645
+Fielding Graduate University,Santa Barbara,CA,1,4,NULL,NULL,NULL
+Five Branches University,Santa Cruz,CA,1,4,NULL,NULL,NULL
+Franciscan School of Theology,San Diego,CA,1,4,NULL,NULL,NULL
+Fresno Pacific University,Fresno,CA,1,4,0.7786,33452,33452
+Fuller Theological Seminary,Pasadena,CA,1,4,NULL,NULL,NULL
+Golden Gate University,San Francisco,CA,1,4,NULL,NULL,NULL
+Graduate Theological Union,Berkeley,CA,1,4,NULL,NULL,NULL
+Holy Names University,Oakland,CA,1,4,0.9531,40904,40904
+Pacifica Graduate Institute,Carpinteria,CA,1,4,NULL,NULL,NULL
+California State Polytechnic University-Humboldt,Arcata,CA,1,4,0.9146,7864,19744
+Humphreys University-Stockton and Modesto Campuses,Stockton,CA,1,4,NULL,14580,14580
+Interior Designers Institute,Newport Beach,CA,1,4,NULL,20250,20250
+American Jewish University,Los Angeles,CA,1,4,NULL,NULL,NULL
+Life Pacific University,San Dimas,CA,1,4,0.9397,18300,18300
+University of La Verne,La Verne,CA,1,4,0.7194,45850,45850
+Laguna College of Art and Design,Laguna Beach,CA,1,4,0.833,33600,33600
+Life Chiropractic College West,Hayward,CA,1,4,NULL,NULL,NULL
+Lincoln University,Oakland,CA,1,4,NULL,11420,11420
+Southern California Seminary,El Cajon,CA,1,4,NULL,17736,17736
+La Sierra University,Riverside,CA,1,4,0.6607,34218,34218
+Loma Linda University,Loma Linda,CA,1,4,NULL,NULL,NULL
+Southern California University of Health Sciences,Whittier,CA,1,4,NULL,NULL,NULL
+The Master's University and Seminary,Santa Clarita,CA,1,4,0.6698,28870,28870
+Loyola Marymount University,Los Angeles,CA,1,4,0.4582,53526,53526
+Marymount California University,Rancho Palos Verdes,CA,1,4,NULL,36908,36908
+Mills College,Oakland,CA,1,4,0.7981,30950,30950
+Mount Saint Mary's University,Los Angeles,CA,1,4,0.9012,45388,45388
+National University,San Diego,CA,1,4,0.5455,13320,13320
+Naval Postgraduate School,Monterey,CA,1,4,NULL,NULL,NULL
+Newschool of Architecture and Design,San Diego,CA,1,4,0.6085,29427,29427
+Notre Dame de Namur University,Belmont,CA,1,4,NULL,NULL,NULL
+Otis College of Art and Design,Los Angeles,CA,1,4,0.7982,50950,50950
+Hope International University,Fullerton,CA,1,4,0.3997,35450,35450
+Palo Alto University,Palo Alto,CA,1,4,NULL,NULL,NULL
+Pacific Oaks College,Pasadena,CA,1,4,0.1304,11692,11692
+Pacific School of Religion,Berkeley,CA,1,4,NULL,NULL,NULL
+Pacific States University,Los Angeles,CA,1,4,NULL,7380,7380
+Pacific Union College,Angwin,CA,1,4,0.5773,32103,32103
+University of the Pacific,Stockton,CA,1,4,0.793,52352,52352
+Pepperdine University,Malibu,CA,1,4,0.5271,59702,59702
+Point Loma Nazarene University,San Diego,CA,1,4,0.8366,39500,39500
+Pardee RAND Graduate School,Santa Monica,CA,1,4,NULL,NULL,NULL
+University of Redlands,Redlands,CA,1,4,0.8297,54066,54066
+Dongguk University Los Angeles,Los Angeles,CA,1,4,NULL,NULL,NULL
+Samuel Merritt University,Oakland,CA,1,4,NULL,NULL,NULL
+San Diego State University,San Diego,CA,1,4,0.379,8136,20016
+University of San Diego,San Diego,CA,1,4,0.527,52864,52864
+San Francisco Art Institute,San Francisco,CA,1,4,NULL,NULL,NULL
+San Francisco Conservatory of Music,San Francisco,CA,1,4,0.4645,50800,50800
+San Francisco State University,San Francisco,CA,1,4,0.9292,7304,19184
+University of San Francisco,San Francisco,CA,1,4,0.7092,53472,53472
+San Joaquin College of Law,Clovis,CA,1,4,NULL,NULL,NULL
+William Jessup University,Rocklin,CA,1,4,0.7778,37000,37000
+San Jose State University,San Jose,CA,1,4,0.8437,7852,19732
+Santa Clara University,Santa Clara,CA,1,4,0.5398,55860,55860
+Saybrook University,Pasadena,CA,1,4,NULL,NULL,NULL
+Scripps College,Claremont,CA,1,4,0.2954,58442,58442
+Shasta Bible College and Graduate School,Redding,CA,1,4,1,12860,12860
+Simpson University,Redding,CA,1,4,0.6695,35900,35900
+Saint Mary's College of California,Moraga,CA,1,4,0.7008,51768,51768
+Sonoma State University,Rohnert Park,CA,1,4,0.9373,7988,19868
+South Baylo University,Anaheim,CA,1,4,NULL,NULL,NULL
+Vanguard University of Southern California,Costa Mesa,CA,1,4,0.6901,37700,37700
+Starr King School for the Ministry,Oakland,CA,1,4,NULL,NULL,NULL
+Marshall B Ketchum University,Fullerton,CA,1,4,NULL,NULL,NULL
+Southern California Institute of Architecture,Los Angeles,CA,1,4,0.6486,49016,49016
+University of Southern California,Los Angeles,CA,1,4,0.1251,61503,61503
+Southwestern Law School,Los Angeles,CA,1,4,NULL,NULL,NULL
+Claremont School of Theology,Claremont,CA,1,4,NULL,NULL,NULL
+Epic Bible College & Graduate School,Sacramento,CA,1,4,NULL,9689,9689
+The Santa Barbara and Ventura Colleges of Law at Ventura,Ventura,CA,1,4,NULL,NULL,NULL
+Walden University,Minneapolis,MN,1,4,NULL,12180,12180
+Westminster Theological Seminary in California,Escondido,CA,1,4,NULL,NULL,NULL
+Whittier College,Whittier,CA,1,4,0.8249,49514,49514
+Woodbury University,Burbank,CA,1,4,0.6304,43418,43418
+The Wright Institute,Berkeley,CA,1,4,NULL,NULL,NULL
+Thomas Jefferson School of Law,San Diego,CA,1,4,NULL,NULL,NULL
+Adams State University,Alamosa,CO,1,4,0.9983,9680,17933
+University of Colorado Denver/Anschutz Medical Campus,Denver,CO,1,4,0.7205,9384,26376
+University of Colorado Colorado Springs,Colorado Springs,CO,1,4,0.9527,8766,21222
+University of Colorado Boulder,Boulder,CO,1,4,0.7958,12496,38314
+Colorado Christian University,Lakewood,CO,1,4,NULL,35436,35436
+Colorado College,Colorado Springs,CO,1,4,0.1425,62070,62070
+Colorado School of Mines,Golden,CO,1,4,0.5688,19538,40838
+Colorado State University-Fort Collins,Fort Collins,CO,1,4,0.8964,12331,31613
+Colorado Technical University-Colorado Springs,Colorado Springs,CO,1,4,NULL,12581,12581
+Denver Seminary,Littleton,CO,1,4,NULL,NULL,NULL
+University of Denver,Denver,CO,1,4,0.6363,54819,54819
+Fort Lewis College,Durango,CO,1,4,0.9275,9004,19660
+Iliff School of Theology,Denver,CO,1,4,NULL,NULL,NULL
+Colorado Mesa University,Grand Junction,CO,1,4,0.8024,9000,22322
+Metropolitan State University of Denver,Denver,CO,1,4,0.8882,10021,27502
+Naropa University,Boulder,CO,1,4,1,34800,34800
+University of Northern Colorado,Greeley,CO,1,4,0.9113,10666,23785
+Red Rocks Community College,Lakewood,CO,1,4,NULL,4379,15801
+Regis University,Denver,CO,1,4,0.8137,39610,39610
+Colorado State University Pueblo,Pueblo,CO,1,4,0.9917,9005,15659
+Western Colorado University,Gunnison,CO,1,4,0.9087,10662,22446
+Albertus Magnus College,New Haven,CT,1,4,0.8173,36442,36442
+University of Bridgeport,Bridgeport,CT,1,4,0.7314,35760,35760
+Central Connecticut State University,New Britain,CT,1,4,0.7483,11542,24946
+Charter Oak State College,New Britain,CT,1,4,NULL,8254,10654
+University of Connecticut,Storrs,CT,1,4,0.556,18524,41192
+Goodwin University,East Hartford,CT,1,4,NULL,21198,21198
+Eastern Connecticut State University,Willimantic,CT,1,4,0.732,12304,25708
+Fairfield University,Fairfield,CT,1,4,0.5581,52870,52870
+Hartford International University for Religion and Peace,Hartford,CT,1,4,NULL,NULL,NULL
+University of Hartford,West Hartford,CT,1,4,0.7879,44885,44885
+Holy Apostles College and Seminary,Cromwell,CT,1,4,NULL,9080,9080
+University of New Haven,West Haven,CT,1,4,0.9413,42898,42898
+Post University,Waterbury,CT,1,4,NULL,16610,16610
+Quinnipiac University,Hamden,CT,1,4,0.8812,51270,51270
+Sacred Heart University,Fairfield,CT,1,4,0.6612,45230,45230
+University of Saint Joseph,West Hartford,CT,1,4,0.7825,43084,43084
+Southern Connecticut State University,New Haven,CT,1,4,0.8293,11882,25286
+Trinity College,Hartford,CT,1,4,0.3775,61370,61370
+Wesleyan University,Middletown,CT,1,4,0.1944,62049,62049
+Western Connecticut State University,Danbury,CT,1,4,0.8485,11781,25185
+Yale University,New Haven,CT,1,4,0.0531,59950,59950
+Delaware State University,Dover,DE,1,4,0.5884,8358,18280
+University of Delaware,Newark,DE,1,4,0.7235,15020,36880
+Goldey-Beacom College,Wilmington,DE,1,4,0.6288,12750,12750
+Wilmington University,New Castle,DE,1,4,NULL,11760,11760
+American University,Washington,DC,1,4,0.6409,53334,53334
+The Catholic University of America,Washington,DC,1,4,0.8601,52156,52156
+University of the District of Columbia,Washington,DC,1,4,NULL,6152,13004
+Pontifical Faculty of the Immaculate Conception at the Dominican House of Studies,Washington,DC,1,4,NULL,NULL,NULL
+Gallaudet University,Washington,DC,1,4,0.6169,17712,17712
+George Washington University,Washington,DC,1,4,0.4971,59870,59870
+Georgetown University,Washington,DC,1,4,0.1198,59957,59957
+Howard University,Washington,DC,1,4,0.3525,28916,28916
+Strayer University-District of Columbia,Washington,DC,1,4,NULL,13515,13515
+Trinity Washington University,Washington,DC,1,4,0.9729,25110,25110
+Wesley Theological Seminary,Washington,DC,1,4,NULL,NULL,NULL
+The Baptist College of Florida,Graceville,FL,1,4,1,12150,12150
+Barry University,Miami,FL,1,4,0.6369,31540,31540
+Bethune-Cookman University,Daytona Beach,FL,1,4,0.9984,14794,14794
+Lynn University,Boca Raton,FL,1,4,0.8301,40900,40900
+University of Central Florida,Orlando,FL,1,4,0.3637,6368,22467
+Embry-Riddle Aeronautical University-Daytona Beach,Daytona Beach,FL,1,4,0.723,39066,39066
+Florida Agricultural and Mechanical University,Tallahassee,FL,1,4,0.3529,5785,17725
+Florida Atlantic University,Boca Raton,FL,1,4,0.7801,4879,17324
+Flagler College,Saint Augustine,FL,1,4,0.7404,21140,21140
+AdventHealth University,Orlando,FL,1,4,0.9027,20340,20340
+Florida Institute of Technology,Melbourne,FL,1,4,0.6588,43246,43246
+Florida International University,Miami,FL,1,4,0.6401,6565,18963
+Florida Memorial University,Miami Gardens,FL,1,4,0.5676,16836,16836
+Florida Southern College,Lakeland,FL,1,4,0.6088,38980,38980
+Florida State University,Tallahassee,FL,1,4,0.3707,5656,18786
+University of Florida,Gainesville,FL,1,4,0.3013,6381,28659
+Full Sail University,Winter Park,FL,1,4,NULL,25687,25687
+Hobe Sound Bible College,Hobe Sound,FL,1,4,NULL,7698,7698
+AI Miami International University of Art and Design,Miami,FL,1,4,NULL,19354,19354
+Jacksonville University,Jacksonville,FL,1,4,0.7762,42400,42400
+Keiser University-Ft Lauderdale,Fort Lauderdale,FL,1,4,0.9607,22000,22000
+Luther Rice College & Seminary,Lithonia,GA,1,4,0.4737,9088,9088
+University of Miami,Coral Gables,FL,1,4,0.2849,54760,54760
+University of North Florida,Jacksonville,FL,1,4,0.7749,6389,20793
+Nova Southeastern University,Fort Lauderdale,FL,1,4,0.925,34570,34570
+Palm Beach Atlantic University,West Palm Beach,FL,1,4,0.8986,34134,34134
+Saint Vincent de Paul Regional Seminary,Boynton Beach,FL,1,4,NULL,NULL,NULL
+Rollins College,Winter Park,FL,1,4,0.4869,54740,54740
+Saint Leo University,Saint Leo,FL,1,4,0.7066,26050,26050
+University of South Florida,Tampa,FL,1,4,0.4938,6410,17324
+St. Thomas University,Miami Gardens,FL,1,4,0.7086,32940,32940
+Stetson University,DeLand,FL,1,4,0.9164,50800,50800
+Southeastern University,Lakeland,FL,1,4,0.4492,28320,28320
+The University of Tampa,Tampa,FL,1,4,0.5355,31274,31274
+Trinity Baptist College,Jacksonville,FL,1,4,0.4301,13180,13180
+Warner University,Lake Wales,FL,1,4,0.5313,26744,26744
+Webber International University,Babson Park,FL,1,4,0.4574,29534,29534
+The University of West Florida,Pensacola,FL,1,4,0.5281,6360,19241
+Agnes Scott College,Decatur,GA,1,4,0.6985,44250,44250
+Albany State University,Albany,GA,1,4,NULL,6053,17433
+Point University,West Point,GA,1,4,0.4656,21850,21850
+Atlanta's John Marshall Law School,Atlanta,GA,1,4,NULL,NULL,NULL
+Clark Atlanta University,Atlanta,GA,1,4,0.5824,24012,24012
+Berry College,Mount Berry,GA,1,4,0.699,38656,38656
+Beulah Heights University,Atlanta,GA,1,4,NULL,8492,8492
+Brenau University,Gainesville,GA,1,4,0.8911,32530,32530
+Clayton  State University,Morrow,GA,1,4,0.6256,5568,16290
+Columbia Theological Seminary,Decatur,GA,1,4,NULL,NULL,NULL
+Columbus State University,Columbus,GA,1,4,0.7852,6241,17295
+Covenant College,Lookout Mountain,GA,1,4,0.8854,37770,37770
+South University-Savannah,Savannah,GA,1,4,NULL,17014,17014
+Emory University,Atlanta,GA,1,4,0.1305,55468,55468
+Fort Valley State University,Fort Valley,GA,1,4,0.7226,5832,16554
+Georgia Institute of Technology-Main Campus,Atlanta,GA,1,4,0.1596,12852,33964
+Georgia Southwestern State University,Americus,GA,1,4,0.8558,5464,16186
+Georgia College & State University,Milledgeville,GA,1,4,0.8768,9524,28704
+Georgia Southern University,Statesboro,GA,1,4,0.9051,6485,17539
+Georgia State University,Atlanta,GA,1,4,0.9999,9286,24517
+University of Georgia,Athens,GA,1,4,0.3998,12068,31108
+Interdenominational Theological Center,Atlanta,GA,1,4,NULL,NULL,NULL
+LaGrange College,Lagrange,GA,1,4,0.7482,32840,32840
+Life University,Marietta,GA,1,4,0.9591,13911,13911
+Mercer University,Macon,GA,1,4,0.7541,38746,38746
+Morehouse School of Medicine,Atlanta,GA,1,4,NULL,NULL,NULL
+Piedmont University,Demorest,GA,1,4,0.67,28340,28340
+Reinhardt University,Waleska,GA,1,4,0.704,26180,26180
+Savannah College of Art and Design,Savannah,GA,1,4,0.8078,38840,38840
+Savannah State University,Savannah,GA,1,4,NULL,5902,11079
+Shorter University,Rome,GA,1,4,0.812,22810,22810
+Thomas University,Thomasville,GA,1,4,0.2884,11080,11080
+Truett McConnell University,Cleveland,GA,1,4,0.6882,22852,22852
+Valdosta State University,Valdosta,GA,1,4,0.7637,6583,17638
+Wesleyan College,Macon,GA,1,4,0.6216,26390,26390
+University of West Georgia,Carrollton,GA,1,4,0.697,6521,17576
+Young Harris College,Young Harris,GA,1,4,0.7476,29962,29962
+Chaminade University of Honolulu,Honolulu,HI,1,4,0.9008,27454,27454
+University of Hawaii at Hilo,Hilo,HI,1,4,0.9217,7838,20798
+University of Hawaii at Manoa,Honolulu,HI,1,4,0.6998,12186,34218
+Hawaii Pacific University,Honolulu,HI,1,4,0.8532,30020,30020
+Boise State University,Boise,ID,1,4,0.8313,8060,24980
+Idaho State University,Pocatello,ID,1,4,NULL,7872,25326
+University of Idaho,Moscow,ID,1,4,0.8138,8340,27576
+The College of Idaho,Caldwell,ID,1,4,0.5629,33755,33755
+Northwest Nazarene University,Nampa,ID,1,4,0.8815,34390,34390
+Adler University,Chicago,IL,1,4,NULL,NULL,NULL
+American Islamic College,Chicago,IL,1,4,1,7650,7650
+School of the Art Institute of Chicago,Chicago,IL,1,4,0.8098,53160,53160
+Aurora University,Aurora,IL,1,4,0.8642,26760,26760
+Bethany Theological Seminary,Richmond,IN,1,4,NULL,NULL,NULL
+Blessing Rieman College of Nursing and Health Sciences,Quincy,IL,1,4,NULL,NULL,NULL
+Bradley University,Peoria,IL,1,4,0.7586,36360,36360
+Catholic Theological Union at Chicago,Chicago,IL,1,4,NULL,NULL,NULL
+Midwestern University-Downers Grove,Downers Grove,IL,1,4,NULL,NULL,NULL
+Chicago State University,Chicago,IL,1,4,0.4747,11366,11204
+Chicago Theological Seminary,Chicago,IL,1,4,NULL,NULL,NULL
+University of Chicago,Chicago,IL,1,4,0.0648,62241,62241
+Columbia College Chicago,Chicago,IL,1,4,0.9564,27786,27786
+Concordia University-Chicago,River Forest,IL,1,4,0.8781,34310,34310
+DePaul University,Chicago,IL,1,4,0.6944,42012,42012
+Eastern Illinois University,Charleston,IL,1,4,0.7174,12562,14930
+Elmhurst University,Elmhurst,IL,1,4,0.7129,39400,39400
+Garrett-Evangelical Theological Seminary,Evanston,IL,1,4,NULL,NULL,NULL
+Governors State University,University Park,IL,1,4,0.5205,10108,17620
+Greenville University,Greenville,IL,1,4,0.7954,29810,29810
+Rosalind Franklin University of Medicine and Science,North Chicago,IL,1,4,NULL,NULL,NULL
+University of Illinois Chicago,Chicago,IL,1,4,0.788,14126,28476
+Benedictine University,Lisle,IL,1,4,0.8002,34290,34290
+Illinois College of Optometry,Chicago,IL,1,4,NULL,NULL,NULL
+University of Illinois Urbana-Champaign,Champaign,IL,1,4,0.5966,15442,32892
+Illinois Institute of Technology,Chicago,IL,1,4,0.6611,50490,50490
+Illinois State University,Normal,IL,1,4,0.9154,15319,26843
+Institute for Clinical Social Work,Chicago,IL,1,4,NULL,NULL,NULL
+Judson University,Elgin,IL,1,4,0.624,29870,29870
+Lake Forest College,Lake Forest,IL,1,4,0.6443,51002,51002
+Lake Forest Graduate School of Management,Lake Forest,IL,1,4,NULL,NULL,NULL
+Lewis University,Romeoville,IL,1,4,0.7126,35472,35472
+Lincoln Christian University,Lincoln,IL,1,4,NULL,14520,14520
+Loyola University Chicago,Chicago,IL,1,4,0.7698,47808,47808
+Lutheran School of Theology at Chicago,Chicago,IL,1,4,NULL,NULL,NULL
+Trinity College of Nursing & Health Sciences,Rock Island,IL,1,4,NULL,28244,28244
+McCormick Theological Seminary,Chicago,IL,1,4,NULL,NULL,NULL
+McKendree University,Lebanon,IL,1,4,0.7768,33050,33050
+Meadville Theological School of Lombard College,Chicago,IL,1,4,NULL,NULL,NULL
+Methodist College,Peoria,IL,1,4,1,18008,18008
+Millikin University,Decatur,IL,1,4,0.7481,26792,39592
+Moody Bible Institute,Chicago,IL,1,4,0.9765,14335,14335
+National Louis University,Chicago,IL,1,4,0.9704,11505,11505
+National University of Health Sciences,Lombard,IL,1,4,NULL,NULL,NULL
+North Central College,Naperville,IL,1,4,0.684,42206,42206
+North Park University,Chicago,IL,1,4,0.6714,33050,33050
+Northern Baptist Theological Seminary,Lisle,IL,1,4,NULL,NULL,NULL
+Northern Illinois University,Dekalb,IL,1,4,0.7045,12478,12478
+Northwestern University,Evanston,IL,1,4,0.0697,60768,60768
+Northeastern Illinois University,Chicago,IL,1,4,0.6211,12064,22155
+Olivet Nazarene University,Bourbonnais,IL,1,4,0.6055,37440,37440
+Quincy University,Quincy,IL,1,4,0.598,31160,31160
+Rockford University,Rockford,IL,1,4,0.6678,34000,34000
+Roosevelt University,Chicago,IL,1,4,0.9229,31493,31493
+Dominican University,River Forest,IL,1,4,0.8094,35570,35570
+Rush University,Chicago,IL,1,4,NULL,NULL,NULL
+Saint Francis Medical Center College of Nursing,Peoria,IL,1,4,NULL,NULL,NULL
+University of St Francis,Joliet,IL,1,4,0.6823,35000,35000
+St. John's College-Department of Nursing,Springfield,IL,1,4,NULL,NULL,NULL
+Saint Xavier University,Chicago,IL,1,4,0.8479,35060,35060
+University of Illinois Springfield,Springfield,IL,1,4,0.7949,11911,21526
+University of Saint Mary of the Lake,Mundelein,IL,1,4,NULL,NULL,NULL
+Spertus College,Chicago,IL,1,4,NULL,NULL,NULL
+Saint Anthony College of Nursing,Rockford,IL,1,4,1,27611,27611
+Southern Illinois University-Carbondale,Carbondale,IL,1,4,0.9515,15240,15240
+Southern Illinois University-Edwardsville,Edwardsville,IL,1,4,0.9807,12219,12219
+Telshe Yeshiva-Chicago,Chicago,IL,1,4,0.9333,16000,16000
+Trinity Christian College,Palos Heights,IL,1,4,0.7624,33325,33325
+Trinity International University-Illinois,Deerfield,IL,1,4,0.9142,33298,33298
+VanderCook College of Music,Chicago,IL,1,4,1,29800,29800
+Oak Point University,Oak Brook,IL,1,4,NULL,NULL,NULL
+Western Illinois University,Macomb,IL,1,4,0.7248,13669,13669
+Wheaton College,Wheaton,IL,1,4,0.8625,40820,40820
+Anderson University,Anderson,IN,1,4,0.6245,32950,32950
+Ball State University,Muncie,IN,1,4,0.6817,10290,27524
+Bethel University,Mishawaka,IN,1,4,0.9792,30830,30830
+Butler University,Indianapolis,IN,1,4,0.8055,43400,43400
+Calumet College of Saint Joseph,Whiting,IN,1,4,NULL,20470,20470
+Christian Theological Seminary,Indianapolis,IN,1,4,NULL,NULL,NULL
+Concordia Theological Seminary,Fort Wayne,IN,1,4,NULL,NULL,NULL
+Earlham College,Richmond,IN,1,4,0.6908,49323,49323
+University of Evansville,Evansville,IN,1,4,0.7495,39806,39806
+Franklin College,Franklin,IN,1,4,0.9465,34966,34966
+Goshen College,Goshen,IN,1,4,0.9285,35940,35940
+Grace College and Theological Seminary,Winona Lake,IN,1,4,0.8316,28228,28228
+Huntington University,Huntington,IN,1,4,0.7877,28192,28192
+Purdue University Fort Wayne,Fort Wayne,IN,1,4,0.832,8857,21265
+Indiana University-Purdue University-Indianapolis,Indianapolis,IN,1,4,0.8361,10044,32101
+University of Indianapolis,Indianapolis,IN,1,4,0.7785,33520,33520
+Indiana Institute of Technology,Fort Wayne,IN,1,4,0.6501,28840,28840
+University of Southern Indiana,Evansville,IN,1,4,0.9641,9424,21212
+Indiana State University,Terre Haute,IN,1,4,0.9368,9598,20862
+Indiana University-Kokomo,Kokomo,IN,1,4,0.9035,7827,20934
+Indiana University-South Bend,South Bend,IN,1,4,0.8894,7827,20934
+Indiana University-Bloomington,Bloomington,IN,1,4,0.8504,11333,38352
+Indiana University-Northwest,Gary,IN,1,4,0.8548,7827,20934
+Indiana University-Southeast,New Albany,IN,1,4,0.9005,7827,20934
+Indiana University-East,Richmond,IN,1,4,0.8051,7827,20934
+Manchester University,North Manchester,IN,1,4,0.7608,34436,34436
+Marian University,Indianapolis,IN,1,4,0.7309,36600,36600
+Indiana Wesleyan University-Marion,Marion,IN,1,4,0.9191,28960,28960
+Martin University,Indianapolis,IN,1,4,NULL,13200,13200
+Anabaptist Mennonite Biblical Seminary,Elkhart,IN,1,4,NULL,NULL,NULL
+University of Notre Dame,Notre Dame,IN,1,4,0.1507,58843,58843
+Oakland City University,Oakland City,IN,1,4,0.7262,25740,25740
+Rose-Hulman Institute of Technology,Terre Haute,IN,1,4,0.774,53019,53019
+University of Saint Francis-Fort Wayne,Fort Wayne,IN,1,4,0.994,33390,33390
+Saint Mary-of-the-Woods College,Saint Mary of the Woods,IN,1,4,0.7032,31425,31425
+Saint Mary's College,Notre Dame,IN,1,4,0.8307,48010,48010
+Saint Meinrad School of Theology,St. Meinrad,IN,1,4,NULL,NULL,NULL
+Taylor University,Upland,IN,1,4,0.7285,36570,36570
+Trine University,Angola,IN,1,4,0.7852,34180,34180
+Valparaiso University,Valparaiso,IN,1,4,0.9317,44796,44796
+Allen College,Waterloo,IA,1,4,1,19718,19718
+Briar Cliff University,Sioux City,IA,1,4,NULL,33998,33998
+Buena Vista University,Storm Lake,IA,1,4,0.6598,37518,37518
+Clarke University,Dubuque,IA,1,4,0.8878,36870,36870
+Dordt University,Sioux Center,IA,1,4,0.7323,34170,34170
+Drake University,Des Moines,IA,1,4,0.6907,45912,45912
+University of Dubuque,Dubuque,IA,1,4,0.7643,36010,36010
+Faith Baptist Bible College and Theological Seminary,Ankeny,IA,1,4,0.5614,18180,18180
+Graceland University-Lamoni,Lamoni,IA,1,4,0.6662,31920,31920
+Grand View University,Des Moines,IA,1,4,0.9955,30864,30864
+Iowa State University,Ames,IA,1,4,0.9112,9634,25446
+Iowa Wesleyan University,Mount Pleasant,IA,1,4,0.819,33650,33650
+University of Iowa,Iowa City,IA,1,4,0.8621,9942,31905
+Loras College,Dubuque,IA,1,4,0.7196,35268,35268
+Maharishi International University,Fairfield,IA,1,4,0.9483,16530,16530
+Morningside University,Sioux City,IA,1,4,0.738,35270,35270
+Mount Mercy University,Cedar Rapids,IA,1,4,0.8099,36540,36540
+Ashford University,San Diego,CA,1,4,NULL,14278,14278
+University of Northern Iowa,Cedar Falls,IA,1,4,0.8579,9053,19753
+Northwestern College,Orange City,IA,1,4,0.8302,33590,33590
+Des Moines University-Osteopathic Medical Center,Des Moines,IA,1,4,NULL,NULL,NULL
+Palmer College of Chiropractic,Davenport,IA,1,4,NULL,NULL,NULL
+Saint Ambrose University,Davenport,IA,1,4,0.7241,33570,33570
+Simpson College,Indianola,IA,1,4,0.9083,44030,44030
+Upper Iowa University,Fayette,IA,1,4,0.6492,33609,33609
+Waldorf University,Forest City,IA,1,4,0.7229,23666,23666
+Wartburg Theological Seminary,Dubuque,IA,1,4,NULL,NULL,NULL
+William Penn University,Oskaloosa,IA,1,4,0.5768,27200,27200
+Baker University,Baldwin City,KS,1,4,0.9906,31700,31700
+Benedictine College,Atchison,KS,1,4,0.985,32630,32630
+Emporia State University,Emporia,KS,1,4,0.8837,7001,14918
+Fort Hays State University,Hays,KS,1,4,0.9034,5430,15870
+Barclay College,Haviland,KS,1,4,0.5415,23850,23850
+Friends University,Wichita,KS,1,4,0.5767,30864,30864
+University of Kansas,Lawrence,KS,1,4,0.925,11166,28034
+Newman University,Wichita,KS,1,4,0.7165,34460,34460
+Kansas State University,Manhattan,KS,1,4,0.9561,10420,26491
+Kansas Wesleyan University,Salina,KS,1,4,0.6764,31340,31340
+McPherson College,McPherson,KS,1,4,0.8462,32408,32408
+MidAmerica Nazarene University,Olathe,KS,1,4,0.6465,33840,33840
+Ottawa University-Ottawa,Ottawa,KS,1,4,0.6657,36780,36780
+Pittsburg State University,Pittsburg,KS,1,4,0.9364,7744,19088
+University of Saint Mary,Leavenworth,KS,1,4,0.8094,31630,31630
+Southwestern College,Winfield,KS,1,4,0.6913,34900,34900
+Sterling College,Sterling,KS,1,4,0.474,28500,28500
+Tabor College,Hillsboro,KS,1,4,0.5447,33400,33400
+Washburn University,Topeka,KS,1,4,NULL,8872,19876
+Wichita State University,Wichita,KS,1,4,0.9106,8800,18165
+Asbury University,Wilmore,KY,1,4,0.7744,32652,32652
+Asbury Theological Seminary,Wilmore,KY,1,4,NULL,NULL,NULL
+Bellarmine University,Louisville,KY,1,4,0.855,44920,44920
+Brescia University,Owensboro,KY,1,4,0.5313,26950,26950
+Campbellsville University,Campbellsville,KY,1,4,NULL,25000,25000
+University of the Cumberlands,Williamsburg,KY,1,4,0.8503,9875,9875
+Eastern Kentucky University,Richmond,KY,1,4,0.9835,9752,20024
+Frontier Nursing University,Versailles,KY,1,4,NULL,NULL,NULL
+Georgetown College,Georgetown,KY,1,4,0.7453,41200,41200
+Kentucky State University,Frankfort,KY,1,4,0.652,9020,12870
+University of Kentucky,Lexington,KY,1,4,0.9401,12610,31608
+Kentucky Christian University,Grayson,KY,1,4,0.5768,22130,22130
+Lexington Theological Seminary,Lexington,KY,1,4,NULL,NULL,NULL
+Lindsey Wilson College,Columbia,KY,1,4,NULL,25718,25718
+University of Louisville,Louisville,KY,1,4,0.7469,12370,28716
+Louisville Presbyterian Theological Seminary,Louisville,KY,1,4,NULL,NULL,NULL
+Midway University,Midway,KY,1,4,0.7774,24850,24850
+Morehead State University,Morehead,KY,1,4,0.8983,9462,14106
+Murray State University,Murray,KY,1,4,0.8516,9252,18528
+Northern Kentucky University,Highland Heights,KY,1,4,0.8029,10392,20448
+University of Pikeville,Pikeville,KY,1,4,NULL,22650,22650
+The Southern Baptist Theological Seminary,Louisville,KY,1,4,0.8028,11896,11896
+Spalding University,Louisville,KY,1,4,0.8978,26550,26550
+Sullivan University,Louisville,KY,1,4,NULL,13500,13500
+Thomas More University,Crestview Hills,KY,1,4,0.9643,34760,34760
+Union College,Barbourville,KY,1,4,0.5643,28889,28889
+Western Kentucky University,Bowling Green,KY,1,4,0.9848,10992,27000
+Centenary College of Louisiana,Shreveport,LA,1,4,0.6313,38060,38060
+Grambling State University,Grambling,LA,1,4,0.7246,7683,16706
+Louisiana State University Health Sciences Center-New Orleans,New Orleans,LA,1,4,NULL,NULL,NULL
+Louisiana State University and Agricultural & Mechanical College,Baton Rouge,LA,1,4,0.7086,11958,28635
+Louisiana State University-Shreveport,Shreveport,LA,1,4,0.9073,7327,20481
+Louisiana Christian University,Pineville,LA,1,4,0.7609,17950,17950
+Louisiana Tech University,Ruston,LA,1,4,0.6583,10065,16806
+Loyola University New Orleans,New Orleans,LA,1,4,0.7827,43498,43498
+McNeese State University,Lake Charles,LA,1,4,0.6876,8380,16418
+University of New Orleans,New Orleans,LA,1,4,0.8058,9072,13908
+New Orleans Baptist Theological Seminary,New Orleans,LA,1,4,NULL,9760,9760
+Nicholls State University,Thibodaux,LA,1,4,0.9719,7946,9039
+University of Louisiana at Monroe,Monroe,LA,1,4,0.6989,9058,21158
+Northwestern State University of Louisiana,Natchitoches,LA,1,4,0.9628,8672,19460
+University of Holy Cross,New Orleans,LA,1,4,0.75,15280,15280
+Franciscan Missionaries of Our Lady University,Baton Rouge,LA,1,4,0.5453,14938,14938
+Southeastern Louisiana University,Hammond,LA,1,4,0.9894,8289,20767
+Southern University and A & M College,Baton Rouge,LA,1,4,0.5888,9842,17192
+Southern University at New Orleans,New Orleans,LA,1,4,0.7929,7059,15960
+University of Louisiana at Lafayette,Lafayette,LA,1,4,0.7835,10346,24074
+Tulane University of Louisiana,New Orleans,LA,1,4,0.0963,60814,60814
+Xavier University of Louisiana,New Orleans,LA,1,4,0.9541,26398,26398
+University of Maine at Farmington,Farmington,ME,1,4,0.9669,9590,20780
+University of Maine,Orono,ME,1,4,0.9646,11986,33586
+Maine Maritime Academy,Castine,ME,1,4,0.5771,14338,29258
+University of New England,Biddeford,ME,1,4,0.8999,39820,39820
+Maine College of Art & Design,Portland,ME,1,4,0.7207,38690,38690
+Saint Joseph's College of Maine,Standish,ME,1,4,0.8058,39986,39986
+University of Southern Maine,Portland,ME,1,4,0.8699,9904,23904
+Thomas College,Waterville,ME,1,4,NULL,29152,29152
+Unity College,New Gloucester,ME,1,4,0.9142,12640,12640
+University of Baltimore,Baltimore,MD,1,4,0.8943,9364,22550
+Bowie State University,Bowie,MD,1,4,0.8704,8558,19298
+Capitol Technology University,Laurel,MD,1,4,0.4654,26934,26934
+Washington Adventist University,Takoma Park,MD,1,4,0.6175,25200,25200
+Coppin State University,Baltimore,MD,1,4,0.4792,6809,13334
+Frostburg State University,Frostburg,MD,1,4,0.8605,9594,24080
+Goucher College,Baltimore,MD,1,4,0.8234,48200,48200
+Hood College,Frederick,MD,1,4,0.7679,43140,43140
+Johns Hopkins University,Baltimore,MD,1,4,0.0752,58720,58720
+Loyola University Maryland,Baltimore,MD,1,4,0.8421,53530,53530
+University of Maryland Global Campus,Adelphi,MD,1,4,NULL,7704,12336
+University of Maryland Baltimore,Baltimore,MD,1,4,NULL,NULL,NULL
+University of Maryland-Baltimore County,Baltimore,MD,1,4,0.812,12280,28470
+University of Maryland-College Park,College Park,MD,1,4,0.5203,10955,38636
+Maryland Institute College of Art,Baltimore,MD,1,4,0.8575,52040,52040
+University of Maryland Eastern Shore,Princess Anne,MD,1,4,0.819,8724,19343
+Morgan State University,Baltimore,MD,1,4,0.871,8008,18479
+Mount St. Mary's University,Emmitsburg,MD,1,4,0.8175,44750,44750
+Ner Israel Rabbinical College,Baltimore,MD,1,4,0.8235,13200,13200
+Notre Dame of Maryland University,Baltimore,MD,1,4,0.6509,39745,39745
+Salisbury University,Salisbury,MD,1,4,0.8646,10188,20458
+St. Mary's College of Maryland,St. Mary's City,MD,1,4,0.7733,15124,31200
+St. John's College,Annapolis,MD,1,4,0.5315,36170,36170
+Towson University,Towson,MD,1,4,0.8792,10464,25516
+Maryland University of Integrative Health,Laurel,MD,1,4,NULL,NULL,NULL
+Stevenson University,Owings Mills,MD,1,4,0.9088,38168,38168
+McDaniel College,Westminster,MD,1,4,0.8668,46336,46336
+Hult International Business School,Cambridge,MA,1,4,0.507,49950,49950
+American International College,Springfield,MA,1,4,0.5787,39370,39370
+Anna Maria College,Paxton,MA,1,4,0.7285,40208,40208
+Assumption University,Worcester,MA,1,4,0.8649,45900,45900
+Babson College,Wellesley,MA,1,4,0.2535,54944,54944
+Bay Path University,Longmeadow,MA,1,4,0.7541,35781,35781
+Bentley University,Waltham,MA,1,4,0.6094,54910,54910
+Berklee College of Music,Boston,MA,1,4,0.5517,46800,46800
+Boston Architectural College,Boston,MA,1,4,NULL,22144,22144
+Boston Graduate School of Psychoanalysis Inc,Brookline,MA,1,4,NULL,NULL,NULL
+Boston College,Chestnut Hill,MA,1,4,0.1904,61706,61706
+Boston University,Boston,MA,1,4,0.1865,59816,59816
+Brandeis University,Waltham,MA,1,4,0.3914,60006,60006
+Bridgewater State University,Bridgewater,MA,1,4,0.8638,10732,16872
+Cambridge College,Boston,MA,1,4,NULL,16442,16442
+Clark University,Worcester,MA,1,4,0.4803,50302,50302
+Curry College,Milton,MA,1,4,0.8032,43650,43650
+Eastern Nazarene College,Quincy,MA,1,4,0.6408,27212,27212
+Emerson College,Boston,MA,1,4,0.4528,52190,52190
+Emmanuel College,Boston,MA,1,4,0.7388,43572,43572
+Endicott College,Beverly,MA,1,4,0.7721,36614,36614
+Fisher College,Boston,MA,1,4,0.7235,33500,33500
+Fitchburg State University,Fitchburg,MA,1,4,0.8527,10830,16910
+Framingham State University,Framingham,MA,1,4,0.838,11380,17460
+Gordon College,Wenham,MA,1,4,0.7743,26250,26250
+Gordon-Conwell Theological Seminary,South Hamilton,MA,1,4,NULL,NULL,NULL
+Harvard University,Cambridge,MA,1,4,0.0401,55587,55587
+Hebrew College,Newton Centre,MA,1,4,NULL,NULL,NULL
+Hellenic College-Holy Cross Greek Orthodox School of Theology,Brookline,MA,1,4,0.7568,22490,22490
+Lasell University,Newton,MA,1,4,0.8506,42000,42000
+Lesley University,Cambridge,MA,1,4,0.8695,29550,29550
+University of Massachusetts-Lowell,Lowell,MA,1,4,0.8457,15698,33624
+University of Massachusetts-Amherst,Amherst,MA,1,4,0.6553,16439,36964
+University of Massachusetts-Boston,Boston,MA,1,4,0.789,14677,35139
+MCPHS University,Boston,MA,1,4,0.9771,35800,35800
+Massachusetts College of Art and Design,Boston,MA,1,4,0.7867,14200,39800
+Massachusetts Institute of Technology,Cambridge,MA,1,4,0.0411,55878,55878
+Massachusetts Maritime Academy,Buzzards Bay,MA,1,4,0.9008,10516,25104
+University of Massachusetts Chan Medical School,Worcester,MA,1,4,NULL,NULL,NULL
+William James College,Newton,MA,1,4,NULL,NULL,NULL
+Merrimack College,North Andover,MA,1,4,0.803,46916,46916
+MGH Institute of Health Professions,Boston,MA,1,4,NULL,NULL,NULL
+Mount Holyoke College,South Hadley,MA,1,4,0.523,56518,56518
+The New England Conservatory of Music,Boston,MA,1,4,0.4328,53730,53730
+New England College of Optometry,Boston,MA,1,4,NULL,NULL,NULL
+New England Law-Boston,Boston,MA,1,4,NULL,NULL,NULL
+Nichols College,Dudley,MA,1,4,0.8477,37300,37300
+Massachusetts College of Liberal Arts,North Adams,MA,1,4,0.9096,11306,20251
+Northeastern University,Boston,MA,1,4,0.1838,57592,57592
+College of Our Lady of the Elms,Chicopee,MA,1,4,0.6792,39449,39449
+Pine Manor College,Chestnut Hill,MA,1,4,NULL,31600,31600
+Pope St John XXIII National Seminary,Weston,MA,1,4,NULL,NULL,NULL
+Regis College,Weston,MA,1,4,0.8906,44809,44809
+Saint John's Seminary,Brighton,MA,1,4,NULL,NULL,NULL
+Salem State University,Salem,MA,1,4,0.9001,11675,18480
+Simmons University,Boston,MA,1,4,0.8353,43062,43062
+Smith College,Northampton,MA,1,4,0.2991,56114,56114
+Springfield College,Springfield,MA,1,4,0.769,40480,40480
+University of Massachusetts-Dartmouth,North Dartmouth,MA,1,4,0.9222,14408,30153
+Stonehill College,Easton,MA,1,4,0.72,47808,47808
+Suffolk University,Boston,MA,1,4,0.8803,41648,41648
+Tufts University,Medford,MA,1,4,0.1143,63000,63000
+Wentworth Institute of Technology,Boston,MA,1,4,0.8954,37650,37650
+Western New England University,Springfield,MA,1,4,0.8988,40380,40380
+Westfield State University,Westfield,MA,1,4,0.9435,11139,17219
+Williams College,Williamstown,MA,1,4,0.0883,59660,59660
+Worcester Polytechnic Institute,Worcester,MA,1,4,0.6021,55731,55731
+Worcester State University,Worcester,MA,1,4,0.8932,10586,16666
+Adrian College,Adrian,MI,1,4,0.7599,39107,39107
+Andrews University,Berrien Springs,MI,1,4,0.8151,31782,31782
+Aquinas College,Grand Rapids,MI,1,4,0.8904,36134,36134
+Baker College,Owosso,MI,1,4,0.4099,12420,12420
+Calvin University,Grand Rapids,MI,1,4,0.7506,38240,38240
+Calvin Theological Seminary,Grand Rapids,MI,1,4,NULL,NULL,NULL
+Michigan School of Psychology,Farmington Hills,MI,1,4,NULL,NULL,NULL
+Central Michigan University,Mount Pleasant,MI,1,4,0.7708,13200,13200
+Cleary University,Howell,MI,1,4,0.7587,22230,22230
+Cranbrook Academy of Art,Bloomfield Hills,MI,1,4,NULL,NULL,NULL
+College for Creative Studies,Detroit,MI,1,4,0.538,47585,47585
+Davenport University,Grand Rapids,MI,1,4,0.9827,20964,20964
+University of Detroit Mercy,Detroit,MI,1,4,0.9324,30154,30154
+Eastern Michigan University,Ypsilanti,MI,1,4,0.8461,15700,15700
+Ferris State University,Big Rapids,MI,1,4,0.8477,12740,12740
+Kettering University,Flint,MI,1,4,0.8559,44380,44380
+Grace Christian University,Wyoming,MI,1,4,1,14400,14400
+Cornerstone University,Grand Rapids,MI,1,4,0.9132,27040,27040
+Grand Valley State University,Allendale,MI,1,4,0.9165,13560,19296
+Hillsdale College,Hillsdale,MI,1,4,0.2368,30042,30042
+Lawrence Technological University,Southfield,MI,1,4,0.8107,37680,37680
+Madonna University,Livonia,MI,1,4,0.5226,24900,24900
+Rochester University,Rochester Hills,MI,1,4,0.9809,25462,25462
+University of Michigan-Ann Arbor,Ann Arbor,MI,1,4,0.2015,16178,53232
+Michigan State University,East Lansing,MI,1,4,0.8325,14750,40562
+Michigan Technological University,Houghton,MI,1,4,0.8575,16966,38112
+University of Michigan-Dearborn,Dearborn,MI,1,4,0.6877,13816,28048
+University of Michigan-Flint,Flint,MI,1,4,0.7386,12750,24974
+Northern Michigan University,Marquette,MI,1,4,0.7127,12918,18414
+Northwood University,Midland,MI,1,4,0.8335,30520,30520
+Oakland University,Rochester Hills,MI,1,4,0.9209,13934,24708
+Olivet College,Olivet,MI,1,4,0.885,31104,31104
+Kuyper College,Grand Rapids,MI,1,4,0.6887,24630,24630
+Sacred Heart Major Seminary,Detroit,MI,1,4,1,21272,21272
+Saginaw Valley State University,University Center,MI,1,4,0.7781,11130,26144
+Siena Heights University,Adrian,MI,1,4,0.6844,28502,28502
+Spring Arbor University,Spring Arbor,MI,1,4,0.5994,31080,31080
+Western Michigan University-Thomas M. Cooley Law School,Lansing,MI,1,4,NULL,NULL,NULL
+Walsh College,Troy,MI,1,4,NULL,NULL,NULL
+Wayne State University,Detroit,MI,1,4,0.6326,14043,30013
+Western Michigan University,Kalamazoo,MI,1,4,0.8281,13434,16768
+Western Theological Seminary,Holland,MI,1,4,NULL,NULL,NULL
+Augsburg University,Minneapolis,MN,1,4,0.7637,41007,41007
+Bemidji State University,Bemidji,MN,1,4,0.7495,9806,9806
+Bethel University,Saint Paul,MN,1,4,0.8868,40080,40080
+Concordia College at Moorhead,Moorhead,MN,1,4,0.72,28016,28016
+Concordia University-Saint Paul,Saint Paul,MN,1,4,0.6789,23900,23900
+Martin Luther College,New Ulm,MN,1,4,0.9137,16910,16910
+Hamline University,Saint Paul,MN,1,4,0.7643,46221,46221
+Hazelden Betty Ford Graduate School of Addiction Studies,Center City,MN,1,4,NULL,NULL,NULL
+Luther Seminary,Saint Paul,MN,1,4,NULL,NULL,NULL
+Minnesota State University-Mankato,Mankato,MN,1,4,0.6948,9146,18200
+Mayo Clinic College of Medicine and Science,Rochester,MN,1,4,0.4906,3242,3242
+Metropolitan State University,Saint Paul,MN,1,4,0.6662,9395,9395
+University of Minnesota-Twin Cities,Minneapolis,MN,1,4,0.7323,15254,33818
+Minneapolis College of Art and Design,Minneapolis,MN,1,4,0.6552,41794,41794
+University of Minnesota-Duluth,Duluth,MN,1,4,0.7954,13850,19148
+Minnesota State University Moorhead,Moorhead,MN,1,4,0.7171,9468,17564
+North Central University,Minneapolis,MN,1,4,0.9403,27200,27200
+University of Northwestern-St Paul,Saint Paul,MN,1,4,0.8233,34180,34180
+Northwestern Health Sciences University,Bloomington,MN,1,4,NULL,11700,11700
+Saint Cloud State University,Saint Cloud,MN,1,4,0.9432,9170,18010
+Saint Johns University,Collegeville,MN,1,4,0.8865,49842,49842
+Saint Mary's University of Minnesota,Winona,MN,1,4,0.9779,39410,39410
+Crown College,Saint Bonifacius,MN,1,4,0.6509,28110,28110
+The College of Saint Scholastica,Duluth,MN,1,4,0.7369,39410,39410
+University of St Thomas,Saint Paul,MN,1,4,0.7553,48329,48329
+St Catherine University,Saint Paul,MN,1,4,0.7489,46494,46494
+Rasmussen University-Minnesota,St. Cloud,MN,1,4,NULL,12263,12263
+Southwest Minnesota State University,Marshall,MN,1,4,0.9103,9482,9482
+United Theological Seminary of the Twin Cities,St. Paul,MN,1,4,NULL,NULL,NULL
+Winona State University,Winona,MN,1,4,0.7691,10184,16684
+Mitchell Hamline School of Law,Saint Paul,MN,1,4,NULL,NULL,NULL
+Alcorn State University,Alcorn State,MS,1,4,0.3891,8176,8176
+Belhaven University,Jackson,MS,1,4,0.6402,27825,27825
+Blue Mountain Christian University,Blue Mountain,MS,1,4,0.9909,17380,17380
+Delta State University,Cleveland,MS,1,4,0.9978,8360,8360
+Jackson State University,Jackson,MS,1,4,0.6211,8445,9445
+Millsaps College,Jackson,MS,1,4,0.6806,42960,42960
+University of Mississippi,University,MS,1,4,0.8966,9044,25886
+Mississippi University for Women,Columbus,MS,1,4,0.9929,7756,7756
+Mississippi Valley State University,Itta Bena,MS,1,4,0.7861,7068,7068
+Mississippi College,Clinton,MS,1,4,0.49,20364,20364
+Mississippi State University,Mississippi State,MS,1,4,0.7612,9220,24900
+University of Southern Mississippi,Hattiesburg,MS,1,4,0.9579,9204,11204
+Tougaloo College,Tougaloo,MS,1,4,0.5581,10861,10861
+Wesley Biblical Seminary,Ridgeland,MS,1,4,NULL,11000,11000
+William Carey University,Hattiesburg,MS,1,4,0.5745,14100,14100
+Aquinas Institute of Theology,Saint Louis,MO,1,4,NULL,NULL,NULL
+Avila University,Kansas City,MO,1,4,0.68,21740,21740
+Baptist Bible College,Springfield,MO,1,4,NULL,14890,14890
+Cox College,Springfield,MO,1,4,0.3939,12600,12600
+Calvary University,Kansas City,MO,1,4,0.593,11576,11576
+Central Christian College of the Bible,Moberly,MO,1,4,NULL,9250,9250
+University of Central Missouri,Warrensburg,MO,1,4,0.7578,9071,16819
+Cleveland University-Kansas City,Overland Park,KS,1,4,1,14840,14840
+Columbia College,Columbia,MO,1,4,NULL,23840,23840
+Concordia Seminary,Saint Louis,MO,1,4,NULL,NULL,NULL
+Covenant Theological Seminary,Saint Louis,MO,1,4,NULL,NULL,NULL
+Culver-Stockton College,Canton,MO,1,4,0.9254,28495,28495
+Drury University,Springfield,MO,1,4,0.6542,32430,32430
+Eden Theological Seminary,Webster Groves,MO,1,4,NULL,NULL,NULL
+Evangel University,Springfield,MO,1,4,0.6364,25748,25748
+Fontbonne University,Saint Louis,MO,1,4,0.7811,28200,28200
+Hannibal-LaGrange University,Hannibal,MO,1,4,0.6505,24500,24500
+Barnes-Jewish College Goldfarb School of Nursing,Saint Louis,MO,1,4,NULL,NULL,NULL
+Kenrick Glennon Seminary,Saint Louis,MO,1,4,NULL,NULL,NULL
+A T Still University of Health Sciences,Kirksville,MO,1,4,NULL,NULL,NULL
+Lincoln University,Jefferson City,MO,1,4,NULL,8370,15360
+Lindenwood University,Saint Charles,MO,1,4,0.7484,18640,18640
+Logan University,Chesterfield,MO,1,4,0.6552,6600,6600
+Maryville University of Saint Louis,Saint Louis,MO,1,4,0.9154,27166,27166
+Midwestern Baptist Theological Seminary,Kansas City,MO,1,4,0.9764,8410,8410
+Missouri Baptist University,Saint Louis,MO,1,4,0.618,30548,30548
+Missouri Southern State University,Joplin,MO,1,4,0.9687,7244,14836
+Missouri Valley College,Marshall,MO,1,4,0.6588,22000,22000
+Missouri Western State University,Saint Joseph,MO,1,4,NULL,8875,15400
+University of Missouri-Columbia,Columbia,MO,1,4,0.7655,11475,30450
+University of Missouri-Kansas City,Kansas City,MO,1,4,0.7598,10599,26235
+Missouri University of Science and Technology,Rolla,MO,1,4,0.854,10813,29097
+University of Missouri-St Louis,Saint Louis,MO,1,4,0.5661,11214,28532
+Nazarene Theological Seminary,Kansas City,MO,1,4,NULL,NULL,NULL
+Truman State University,Kirksville,MO,1,4,0.6099,8689,16410
+Northwest Missouri State University,Maryville,MO,1,4,0.8558,8852,14919
+Park University,Parkville,MO,1,4,NULL,12280,12280
+Research College of Nursing,Kansas City,MO,1,4,NULL,NULL,NULL
+Rockhurst University,Kansas City,MO,1,4,0.6666,40480,40480
+Saint Louis University,Saint Louis,MO,1,4,0.7005,48824,48824
+University of Health Sciences and Pharmacy in St. Louis,Saint Louis,MO,1,4,0.9108,30708,30708
+Saint Paul School of Theology,Leawood,KS,1,4,NULL,NULL,NULL
+Southwest Baptist University,Bolivar,MO,1,4,0.9621,26128,26128
+Stephens College,Columbia,MO,1,4,0.6366,24570,24570
+Southeast Missouri State University,Cape Girardeau,MO,1,4,0.793,8715,15285
+Missouri State University-Springfield,Springfield,MO,1,4,0.9385,8294,16498
+Kansas City University,Kansas City,MO,1,4,NULL,NULL,NULL
+Washington University in St Louis,Saint Louis,MO,1,4,0.13,58866,58866
+Webster University,Saint Louis,MO,1,4,0.5945,28700,28700
+William Jewell College,Liberty,MO,1,4,0.47,19310,19310
+William Woods University,Fulton,MO,1,4,0.683,26730,26730
+Carroll College,Helena,MT,1,4,0.8392,38106,38106
+Montana State University Billings,Billings,MT,1,4,NULL,6022,19352
+University of Providence,Great Falls,MT,1,4,1,26812,26812
+Montana Technological University,Butte,MT,1,4,0.8984,7400,22570
+Montana State University,Bozeman,MT,1,4,0.73,7528,28264
+The University of Montana,Missoula,MT,1,4,0.8214,7432,28416
+Montana State University-Northern,Havre,MT,1,4,NULL,5955,18665
+Rocky Mountain College,Billings,MT,1,4,0.8066,31335,31335
+Bellevue University,Bellevue,NE,1,4,NULL,8310,8310
+Clarkson College,Omaha,NE,1,4,0.96,14880,14880
+Bryan College of Health Sciences,Lincoln,NE,1,4,0.9091,17766,17766
+Chadron State College,Chadron,NE,1,4,NULL,7844,7874
+Concordia University-Nebraska,Seward,NE,1,4,0.8475,36310,36310
+Creighton University,Omaha,NE,1,4,0.7775,44524,44524
+Doane University,Crete,NE,1,4,0.772,37880,37880
+Hastings College,Hastings,NE,1,4,0.7089,33590,33590
+University of Nebraska at Kearney,Kearney,NE,1,4,0.9032,7986,14238
+Nebraska Methodist College of Nursing & Allied Health,Omaha,NE,1,4,0.8381,16207,16207
+Midland University,Fremont,NE,1,4,0.6375,36746,36746
+University of Nebraska at Omaha,Omaha,NE,1,4,0.8725,8136,21718
+University of Nebraska Medical Center,Omaha,NE,1,4,NULL,NULL,NULL
+Nebraska Wesleyan University,Lincoln,NE,1,4,0.8181,38334,38334
+University of Nebraska-Lincoln,Lincoln,NE,1,4,0.8107,9872,27002
+Peru State College,Peru,NE,1,4,NULL,7680,7680
+College of Saint Mary,Omaha,NE,1,4,0.3819,21800,21800
+Union College,Lincoln,NE,1,4,0.9848,26060,26060
+Wayne State College,Wayne,NE,1,4,NULL,7618,7618
+York University,York,NE,1,4,0.618,19900,19900
+University of Nevada-Las Vegas,Las Vegas,NV,1,4,0.8348,8737,24828
+University of Nevada-Reno,Reno,NV,1,4,0.8816,8588,24680
+Sierra Nevada University,Incline Village,NV,1,4,0.6667,35508,35508
+Dartmouth College,Hanover,NH,1,4,0.0617,60870,60870
+Franklin Pierce University,Rindge,NH,1,4,0.8853,42100,42100
+New England College,Henniker,NH,1,4,0.9998,40642,40642
+Southern New Hampshire University,Manchester,NH,1,4,0.9207,15380,15380
+University of New Hampshire-Main Campus,Durham,NH,1,4,0.8672,18962,37202
+Keene State College,Keene,NH,1,4,0.8809,14638,24994
+Plymouth State University,Plymouth,NH,1,4,0.9167,14492,24432
+Rivier University,Nashua,NH,1,4,0.8368,35512,35512
+Granite State College,Concord,NH,1,4,NULL,7791,9015
+Berkeley College-Woodland Park,Woodland Park,NJ,1,4,NULL,27600,27600
+Beth Medrash Govoha,Lakewood,NJ,1,4,NULL,NULL,NULL
+Bloomfield College,Bloomfield,NJ,1,4,0.8403,30680,30680
+Caldwell University,Caldwell,NJ,1,4,0.9596,36900,36900
+Centenary University,Hackettstown,NJ,1,4,0.9762,34498,34498
+Drew University,Madison,NJ,1,4,0.797,42952,42952
+Fairleigh Dickinson University-Metropolitan Campus,Teaneck,NJ,1,4,0.8473,33114,33114
+Felician University,Lodi,NJ,1,4,0.9198,35700,35700
+Georgian Court University,Lakewood,NJ,1,4,0.796,34481,34481
+Rowan University,Glassboro,NJ,1,4,0.8377,14376,23408
+New Jersey City University,Jersey City,NJ,1,4,0.9066,15072,25364
+Kean University,Union,NJ,1,4,0.7916,12595,19771
+Monmouth University,West Long Branch,NJ,1,4,0.8354,41680,41680
+Montclair State University,Montclair,NJ,1,4,0.9061,13298,21418
+New Brunswick Theological Seminary,New Brunswick,NJ,1,4,NULL,NULL,NULL
+New Jersey Institute of Technology,Newark,NJ,1,4,0.6914,18016,34034
+Princeton Theological Seminary,Princeton,NJ,1,4,NULL,NULL,NULL
+Princeton University,Princeton,NJ,1,4,0.0438,56010,56010
+Rabbinical College of America,Morristown,NJ,1,4,0.8675,12000,12000
+Ramapo College of New Jersey,Mahwah,NJ,1,4,0.701,14952,24694
+Rider University,Lawrenceville,NJ,1,4,0.8195,35850,35850
+Rutgers University-New Brunswick,New Brunswick,NJ,1,4,0.6816,15804,33005
+Saint Peter's University,Jersey City,NJ,1,4,0.9284,38760,38760
+Seton Hall University,South Orange,NJ,1,4,0.7661,46880,46880
+Saint Elizabeth University,Morristown,NJ,1,4,0.737,34876,34876
+Stevens Institute of Technology,Hoboken,NJ,1,4,0.5269,56920,56920
+Stockton University,Galloway,NJ,1,4,0.8454,14885,22467
+Thomas Edison State University,Trenton,NJ,1,4,NULL,7182,9342
+The College of New Jersey,Ewing,NJ,1,4,0.6198,17287,29594
+William Paterson University of New Jersey,Wayne,NJ,1,4,0.8326,14210,22948
+Eastern New Mexico University-Main Campus,Portales,NM,1,4,0.325,6648,8688
+Institute of American Indian and Alaska Native Culture and Arts Development,Santa Fe,NM,1,4,1,5321,5321
+New Mexico Highlands University,Las Vegas,NM,1,4,NULL,6876,11532
+New Mexico Institute of Mining and Technology,Socorro,NM,1,4,0.9672,8425,24254
+University of New Mexico-Main Campus,Albuquerque,NM,1,4,0.9727,7905,25243
+New Mexico State University-Main Campus,Las Cruces,NM,1,4,0.5726,7301,23767
+University of the Southwest,Hobbs,NM,1,4,NULL,16200,16200
+Southwestern College,Santa Fe,NM,1,4,NULL,NULL,NULL
+Western New Mexico University,Silver City,NM,1,4,NULL,6558,13541
+Vaughn College of Aeronautics and Technology,Flushing,NY,1,4,NULL,26150,26150
+Adelphi University,Garden City,NY,1,4,0.7746,42475,42475
+Albany College of Pharmacy and Health Sciences,Albany,NY,1,4,0.7182,37115,37115
+Albany Law School,Albany,NY,1,4,NULL,NULL,NULL
+Albany Medical College,Albany,NY,1,4,NULL,NULL,NULL
+Alfred University,Alfred,NY,1,4,0.6716,33864,34960
+Bank Street College of Education,New York,NY,1,4,NULL,NULL,NULL
+Bard College,Annandale-On-Hudson,NY,1,4,0.5992,57968,57968
+Boricua College,New York,NY,1,4,NULL,11025,11025
+Brooklyn Law School,Brooklyn,NY,1,4,NULL,NULL,NULL
+Canisius College,Buffalo,NY,1,4,0.8146,30910,30910
+Central Yeshiva Tomchei Tmimim Lubavitz,Brooklyn,NY,1,4,0.9222,7700,7700
+Clarkson University,Potsdam,NY,1,4,0.7458,54370,54370
+Colgate Rochester Crozer Divinity School,Rochester,NY,1,4,NULL,NULL,NULL
+Colgate University,Hamilton,NY,1,4,0.1719,61966,61966
+Metropolitan College of New York,New York,NY,1,4,0.7727,20188,20188
+Columbia University in the City of New York,New York,NY,1,4,0.0413,63530,63530
+The Cooper Union for the Advancement of Science and Art,New York,NY,1,4,0.1468,46820,46820
+Cornell University,Ithaca,NY,1,4,0.0869,61015,61015
+Culinary Institute of America,Hyde Park,NY,1,4,0.981,35550,35550
+CUNY Bernard M Baruch College,New York,NY,1,4,0.5056,7464,15414
+CUNY Brooklyn College,Brooklyn,NY,1,4,0.5136,7440,15390
+College of Staten Island CUNY,Staten Island,NY,1,4,NULL,7490,15440
+CUNY City College,New York,NY,1,4,0.6406,7340,15290
+CUNY Graduate School and University Center,New York,NY,1,4,NULL,7410,15360
+CUNY Hunter College,New York,NY,1,4,0.459,7382,15332
+CUNY John Jay College of Criminal Justice,New York,NY,1,4,0.4458,7470,15420
+CUNY Lehman College,Bronx,NY,1,4,0.5789,7410,15360
+CUNY Queens College,Queens,NY,1,4,0.6078,7538,15488
+CUNY School of Law,Long Island City,NY,1,4,NULL,NULL,NULL
+CUNY York College,Jamaica,NY,1,4,0.6702,7358,15308
+D'Youville  University,Buffalo,NY,1,4,0.9245,30108,30108
+Daemen University,Amherst,NY,1,4,0.7844,31250,31250
+Dominican University New York,Orangeburg,NY,1,4,0.756,31460,31460
+Elmira College,Elmira,NY,1,4,0.9378,36228,36228
+Fashion Institute of Technology,New York,NY,1,4,0.5168,5913,16493
+Five Towns College,Dix Hills,NY,1,4,0.4578,25235,25235
+Fordham University,Bronx,NY,1,4,0.583,56161,56161
+The General Theological Seminary,New York,NY,1,4,NULL,NULL,NULL
+Hilbert College,Hamburg,NY,1,4,0.9264,25680,25680
+Hobart William Smith Colleges,Geneva,NY,1,4,0.6743,60240,60240
+Hofstra University,Hempstead,NY,1,4,0.6776,49410,49410
+Houghton University,Houghton,NY,1,4,0.7907,16446,16446
+Iona University,New Rochelle,NY,1,4,0.9256,42828,42828
+Ithaca College,Ithaca,NY,1,4,0.7773,46760,46760
+Jewish Theological Seminary of America,New York,NY,1,4,0.5043,66064,66064
+The Juilliard School,New York,NY,1,4,0.0743,51230,51230
+Keuka College,Keuka Park,NY,1,4,0.9364,35030,35030
+LIM College,New York,NY,1,4,0.8427,29454,29454
+Le Moyne College,Syracuse,NY,1,4,0.734,36610,36610
+Long Island University,Brookville,NY,1,4,0.9332,39290,39290
+Manhattan College,Riverdale,NY,1,4,0.7479,47220,47220
+Manhattan School of Music,New York,NY,1,4,0.4899,50840,50840
+Manhattanville College,Purchase,NY,1,4,0.8294,40380,40380
+Marist College,Poughkeepsie,NY,1,4,0.5995,43410,43410
+Medaille University,Buffalo,NY,1,4,0.6999,33250,33250
+Mercy College,Dobbs Ferry,NY,1,4,0.8578,20734,20734
+Mesivta Torah Vodaath Rabbinical Seminary,Brooklyn,NY,1,4,0.72,13160,13160
+Mesivtha Tifereth Jerusalem of America,New York,NY,1,4,0.64,12250,12250
+Mirrer Yeshiva Cent Institute,Brooklyn,NY,1,4,0.8,11670,11670
+Molloy College,Rockville Centre,NY,1,4,0.7933,34310,34310
+Monroe College,Bronx,NY,1,4,0.3914,16686,16686
+Mount Saint Mary College,Newburgh,NY,1,4,0.9145,36132,36132
+College of Mount Saint Vincent,Bronx,NY,1,4,0.8211,40980,40980
+Icahn School of Medicine at Mount Sinai,New York,NY,1,4,NULL,NULL,NULL
+Nazareth College,Rochester,NY,1,4,0.8563,37815,37815
+The New School,New York,NY,1,4,0.663,52494,52494
+Northeast College of Health Sciences,Seneca Falls,NY,1,4,NULL,NULL,NULL
+New York Law School,New York,NY,1,4,NULL,NULL,NULL
+New York Medical College,Valhalla,NY,1,4,NULL,NULL,NULL
+New York Theological Seminary,New York,NY,1,4,NULL,NULL,NULL
+New York University,New York,NY,1,4,0.1296,56500,56500
+Niagara University,Niagara University,NY,1,4,0.922,35980,35980
+New York College of Podiatric Medicine,New York,NY,1,4,NULL,NULL,NULL
+New York Institute of Technology,Old Westbury,NY,1,4,0.8035,39760,39760
+New York School of Interior Design,New York,NY,1,4,0.5393,27200,27200
+Alliance University,New York,NY,1,4,0.9965,26500,26500
+Pace University,New York,NY,1,4,0.8762,48830,48830
+Pratt Institute-Main,Brooklyn,NY,1,4,0.6786,55590,55590
+Rabbinical Academy Mesivta Rabbi Chaim Berlin,Brooklyn,NY,1,4,0.9138,12450,12450
+Rabbinical College Bobover Yeshiva Bnei Zion,Brooklyn,NY,1,4,NULL,9000,9000
+Rabbinical Seminary of America,Flushing,NY,1,4,0.9569,9900,9900
+Rensselaer Polytechnic Institute,Troy,NY,1,4,0.5302,58526,58526
+Roberts Wesleyan University,Rochester,NY,1,4,0.8739,34390,34390
+Rochester Institute of Technology,Rochester,NY,1,4,0.7136,52756,52756
+University of Rochester,Rochester,NY,1,4,0.4055,59378,59378
+The Rockefeller University,New York,NY,1,4,NULL,NULL,NULL
+Russell Sage College,Troy,NY,1,4,0.7309,33894,33894
+St Bernard's School of Theology and Ministry,Rochester,NY,1,4,NULL,NULL,NULL
+St Bonaventure University,Saint Bonaventure,NY,1,4,0.7811,37640,37640
+St. Francis College,Brooklyn,NY,1,4,0.8525,27298,27298
+St Lawrence University,Canton,NY,1,4,0.5655,60220,60220
+The College of Saint Rose,Albany,NY,1,4,0.7633,35400,35400
+St. Thomas Aquinas College,Sparkill,NY,1,4,0.892,35300,35300
+Sarah Lawrence College,Bronxville,NY,1,4,0.5847,59470,59470
+Siena College,Loudonville,NY,1,4,0.8283,40960,40960
+St. Joseph's University-New York,Brooklyn,NY,1,4,0.7977,30576,30576
+Saint Vladimirs Orthodox Theological Seminary,Yonkers,NY,1,4,NULL,NULL,NULL
+St. John Fisher University,Rochester,NY,1,4,0.711,36352,36352
+St. John's University-New York,Queens,NY,1,4,0.8514,46050,46050
+SUNY College of Technology at Delhi,Delhi,NY,1,4,0.8841,8640,12410
+Farmingdale State College,Farmingdale,NY,1,4,0.7251,8576,18486
+SUNY at Albany,Albany,NY,1,4,0.6799,10408,28248
+Binghamton University,Vestal,NY,1,4,0.4415,10390,26420
+University at Buffalo,Buffalo,NY,1,4,0.7009,10782,28702
+Stony Brook University,Stony Brook,NY,1,4,0.4806,10455,28375
+SUNY College of Environmental Science and Forestry,Syracuse,NY,1,4,0.6532,9206,19966
+SUNY Polytechnic Institute,Utica,NY,1,4,0.7725,8548,19308
+SUNY Brockport,Brockport,NY,1,4,0.7645,8678,18588
+SUNY Buffalo State University,Buffalo,NY,1,4,0.8454,8486,18396
+SUNY Cortland,Cortland,NY,1,4,0.605,8815,18725
+SUNY at Fredonia,Fredonia,NY,1,4,0.9075,8760,18670
+SUNY College at Geneseo,Geneseo,NY,1,4,0.7385,8927,18837
+State University of New York at New Paltz,New Paltz,NY,1,4,0.4614,8523,18433
+SUNY Oneonta,Oneonta,NY,1,4,0.6961,8786,18696
+State University of New York at Oswego,Oswego,NY,1,4,0.7965,8769,18679
+SUNY College at Potsdam,Potsdam,NY,1,4,0.8133,8712,18622
+SUNY at Purchase College,Purchase,NY,1,4,0.7541,8953,18863
+SUNY College of Optometry,New York,NY,1,4,NULL,NULL,NULL
+SUNY College at Old Westbury,Old Westbury,NY,1,4,0.7657,8379,18289
+SUNY College at Plattsburgh,Plattsburgh,NY,1,4,0.6796,8911,18821
+SUNY Downstate Health Sciences University,Brooklyn,NY,1,4,NULL,NULL,NULL
+SUNY Empire State College,Saratoga Springs,NY,1,4,NULL,7630,17540
+SUNY Maritime College,Throggs Neck,NY,1,4,0.7405,8522,18432
+Upstate Medical University,Syracuse,NY,1,4,NULL,NULL,NULL
+Syracuse University,Syracuse,NY,1,4,0.5919,57591,57591
+Teachers College at Columbia University,New York,NY,1,4,NULL,NULL,NULL
+Touro University,New York,NY,1,4,0.7695,20750,20750
+Excelsior University,Albany,NY,1,4,NULL,NULL,NULL
+Union Theological Seminary in the City of New York,New York,NY,1,4,NULL,NULL,NULL
+United States Merchant Marine Academy,Kings Point,NY,1,4,0.2521,780,780
+Utica University,Utica,NY,1,4,0.8944,24214,24214
+School of Visual Arts,New York,NY,1,4,0.7129,45000,45000
+Wagner College,Staten Island,NY,1,4,0.8173,50330,50330
+Yeshiva Derech Chaim,Brooklyn,NY,1,4,0.6765,12100,12100
+Yeshiva of Nitra Rabbinical College,Chester,NY,1,4,NULL,12750,12750
+Yeshiva University,New York,NY,1,4,0.627,47500,47500
+Appalachian State University,Boone,NC,1,4,0.8469,7410,23017
+Barton College,Wilson,NC,1,4,0.986,33430,33430
+Cabarrus College of Health Sciences,Concord,NC,1,4,0.46,14370,14370
+Campbell University,Buies Creek,NC,1,4,0.8725,38160,38160
+Duke University,Durham,NC,1,4,0.0589,60244,60244
+East Carolina University,Greenville,NC,1,4,0.9389,7297,23574
+Elizabeth City State University,Elizabeth City,NC,1,4,0.7679,3326,7326
+Elon University,Elon,NC,1,4,0.7771,38725,38725
+Fayetteville State University,Fayetteville,NC,1,4,0.8206,5379,16987
+Gardner-Webb University,Boiling Springs,NC,1,4,0.7895,32200,32200
+Greensboro College,Greensboro,NC,1,4,0.8814,18960,18960
+Guilford College,Greensboro,NC,1,4,0.8209,41140,41140
+High Point University,High Point,NC,1,4,0.8028,39752,39752
+Johnson C Smith University,Charlotte,NC,1,4,0.4453,18944,18944
+Lees-McRae College,Banner Elk,NC,1,4,0.592,28290,28290
+Lenoir-Rhyne University,Hickory,NC,1,4,0.8572,41500,41500
+Mars Hill University,Mars Hill,NC,1,4,0.7951,35655,35655
+Meredith College,Raleigh,NC,1,4,0.6987,41224,41224
+Methodist University,Fayetteville,NC,1,4,0.7859,36960,36960
+Montreat College,Montreat,NC,1,4,0.9024,29462,29462
+University of Mount Olive,Mount Olive,NC,1,4,0.8258,22618,22618
+North Carolina A & T State University,Greensboro,NC,1,4,0.5735,6733,20243
+University of North Carolina at Asheville,Asheville,NC,1,4,0.8163,7319,24667
+University of North Carolina at Chapel Hill,Chapel Hill,NC,1,4,0.204,9028,36891
+University of North Carolina at Charlotte,Charlotte,NC,1,4,0.7945,7188,20622
+University of North Carolina at Greensboro,Greensboro,NC,1,4,0.9084,7468,22627
+North Carolina Central University,Durham,NC,1,4,0.7602,6644,19351
+University of North Carolina School of the Arts,Winston Salem,NC,1,4,0.2975,8941,26175
+North Carolina State University at Raleigh,Raleigh,NC,1,4,0.4748,9131,29916
+North Carolina Wesleyan University,Rocky Mount,NC,1,4,0.2802,33371,33371
+University of North Carolina Wilmington,Wilmington,NC,1,4,0.6798,7238,21303
+University of North Carolina at Pembroke,Pembroke,NC,1,4,0.9184,3495,7495
+Pfeiffer University,Misenheimer,NC,1,4,0.7176,32480,32480
+Queens University of Charlotte,Charlotte,NC,1,4,0.692,38726,38726
+Salem College,Winston-Salem,NC,1,4,0.9019,31016,31016
+Shaw University,Raleigh,NC,1,4,0.6534,16480,16480
+Southeastern Baptist Theological Seminary,Wake Forest,NC,1,4,0.8989,10202,10202
+Wake Forest University,Winston-Salem,NC,1,4,0.2518,59770,59770
+Warren Wilson College,Swannanoa,NC,1,4,0.774,38450,38450
+Wingate University,Wingate,NC,1,4,0.8453,40170,40170
+Carolina Christian College,Winston Salem,NC,1,4,NULL,8930,8930
+Winston-Salem State University,Winston-Salem,NC,1,4,0.8147,6247,16903
+Western Carolina University,Cullowhee,NC,1,4,0.7942,4367,8367
+Dickinson State University,Dickinson,ND,1,4,0.9935,8122,9942
+University of Jamestown,Jamestown,ND,1,4,0.7579,23498,23498
+University of Mary,Bismarck,ND,1,4,0.7879,20290,20290
+Mayville State University,Mayville,ND,1,4,0.6099,7622,10756
+Minot State University,Minot,ND,1,4,0.8838,8164,8164
+University of North Dakota,Grand Forks,ND,1,4,0.8903,10596,15037
+North Dakota State University-Main Campus,Fargo,ND,1,4,0.9546,10601,15076
+Sitting Bull College,Fort Yates,ND,1,4,NULL,4010,4010
+Trinity Bible College and Graduate School,Ellendale,ND,1,4,0.9688,17686,17686
+Valley City State University,Valley City,ND,1,4,0.8145,8195,12969
+Air Force Institute of Technology-Graduate School of Engineering & Management,Wright-Patterson AFB,OH,1,4,NULL,NULL,NULL
+University of Akron Main Campus,Akron,OH,1,4,0.8492,11880,11880
+Art Academy of Cincinnati,Cincinnati,OH,1,4,1,35290,35290
+Ashland University,Ashland,OH,1,4,0.7001,23090,23090
+Athenaeum of Ohio,Cincinnati,OH,1,4,NULL,NULL,NULL
+Baldwin Wallace University,Berea,OH,1,4,0.7901,35966,35966
+Bluffton University,Bluffton,OH,1,4,0.7522,34502,34502
+Bowling Green State University-Main Campus,Bowling Green,OH,1,4,0.7873,13061,21049
+Capital University,Columbus,OH,1,4,0.7417,39338,39338
+Case Western Reserve University,Cleveland,OH,1,4,0.3024,54532,54532
+Cedarville University,Cedarville,OH,1,4,0.6224,33374,33374
+University of Cincinnati-Main Campus,Cincinnati,OH,1,4,0.8483,12598,27932
+Ohio Christian University,Circleville,OH,1,4,NULL,22506,22506
+Cleveland Institute of Music,Cleveland,OH,1,4,0.3289,42116,42116
+Cleveland State University,Cleveland,OH,1,4,0.9129,11690,16653
+Columbus College of Art and Design,Columbus,OH,1,4,0.9438,37370,37370
+University of Dayton,Dayton,OH,1,4,0.8063,44890,44890
+Defiance College,Defiance,OH,1,4,0.6221,34804,34804
+The University of Findlay,Findlay,OH,1,4,0.836,37188,37188
+Franklin University,Columbus,OH,1,4,NULL,9577,9577
+Gods Bible School and College,Cincinnati,OH,1,4,0.6458,7046,7046
+Hebrew Union College-Jewish Institute of Religion,New York,NY,1,4,NULL,NULL,NULL
+Heidelberg University,Tiffin,OH,1,4,0.8636,33600,33600
+Hiram College,Hiram,OH,1,4,0.9342,25000,25000
+John Carroll University,University Heights,OH,1,4,0.8811,45514,45514
+Kent State University at Kent,Kent,OH,1,4,0.8731,11934,20810
+Kettering College,Kettering,OH,1,4,0.253,14232,14232
+Lake Erie College,Painesville,OH,1,4,0.5473,34046,34046
+Lourdes University,Sylvania,OH,1,4,0.7524,27072,27072
+Malone University,Canton,OH,1,4,0.7803,33400,33400
+Marietta College,Marietta,OH,1,4,0.8309,37460,37460
+Mercy College of Ohio,Toledo,OH,1,4,0.4097,18950,18950
+Methodist Theological School in Ohio,Delaware,OH,1,4,NULL,NULL,NULL
+Miami University-Oxford,Oxford,OH,1,4,0.886,16704,37379
+Mount Carmel College of Nursing,Columbus,OH,1,4,0.5221,15109,15109
+University of Mount Union,Alliance,OH,1,4,0.7974,33400,33400
+Mount Vernon Nazarene University,Mount Vernon,OH,1,4,0.8723,32864,32864
+Mount Saint Joseph University,Cincinnati,OH,1,4,0.6316,33250,33250
+Muskingum University,New Concord,OH,1,4,0.8562,30090,30090
+Notre Dame College,Cleveland,OH,1,4,0.8239,31350,31350
+Northeast Ohio Medical University,Rootstown,OH,1,4,NULL,NULL,NULL
+University of Northwestern Ohio,Lima,OH,1,4,NULL,11550,11550
+Oberlin College,Oberlin,OH,1,4,0.3434,60240,60240
+Ohio Dominican University,Columbus,OH,1,4,0.5355,33380,33380
+Ohio Northern University,Ada,OH,1,4,0.689,35380,35380
+Ohio State University-Main Campus,Columbus,OH,1,4,0.5718,11936,35019
+Ohio University-Main Campus,Athens,OH,1,4,0.8855,12840,22810
+Otterbein University,Westerville,OH,1,4,0.829,33674,33674
+Payne Theological Seminary,Wilberforce,OH,1,4,NULL,NULL,NULL
+Pontifical College Josephinum,Columbus,OH,1,4,0.8,27900,27900
+Rabbinical College Telshe,Wickliffe,OH,1,4,0.8438,13700,13700
+University of Rio Grande,Rio Grande,OH,1,4,NULL,20060,20060
+Shawnee State University,Portsmouth,OH,1,4,NULL,8604,14646
+Franciscan University of Steubenville,Steubenville,OH,1,4,0.6845,30180,30180
+Tiffin University,Tiffin,OH,1,4,0.7374,28480,28480
+University of Toledo,Toledo,OH,1,4,0.9652,11490,20850
+Union Institute & University,Cincinnati,OH,1,4,NULL,17141,17141
+United Theological Seminary,Dayton,OH,1,4,NULL,NULL,NULL
+Ursuline College,Pepper Pike,OH,1,4,0.8246,35720,35720
+Walsh University,North Canton,OH,1,4,0.7992,32315,32315
+Wilberforce University,Wilberforce,OH,1,4,0.388,13250,13250
+Winebrenner Theological Seminary,Findlay,OH,1,4,NULL,NULL,NULL
+Wittenberg University,Springfield,OH,1,4,0.9227,42288,42288
+Wright State University-Main Campus,Dayton,OH,1,4,0.9604,10390,19808
+Xavier University,Cincinnati,OH,1,4,0.8402,42460,42460
+Youngstown State University,Youngstown,OH,1,4,0.7815,10021,10381
+Oklahoma Wesleyan University,Bartlesville,OK,1,4,0.5391,29498,29498
+Southern Nazarene University,Bethany,OK,1,4,NULL,27000,27000
+Cameron University,Lawton,OK,1,4,NULL,6450,15870
+University of Central Oklahoma,Edmond,OK,1,4,0.813,8030,18917
+East Central University,Ada,OK,1,4,0.6468,7195,16555
+Randall University,Moore,OK,1,4,0.5533,16190,16190
+Langston University,Langston,OK,1,4,NULL,6509,13889
+Northeastern State University,Tahlequah,OK,1,4,0.9946,7115,15755
+Northwestern Oklahoma State University,Alva,OK,1,4,0.593,8280,15398
+Oklahoma State University Center for Health Sciences,Tulsa,OK,1,4,NULL,NULL,NULL
+Oklahoma Christian University,Edmond,OK,1,4,0.9653,25090,25090
+Oklahoma State University-Main Campus,Stillwater,OK,1,4,0.6837,9244,24764
+Oklahoma Baptist University,Shawnee,OK,1,4,0.5574,32050,32050
+Oklahoma City University,Oklahoma City,OK,1,4,0.7924,32744,32744
+University of Oklahoma-Norman Campus,Norman,OK,1,4,0.8523,12012,27816
+Oral Roberts University,Tulsa,OK,1,4,0.8499,31558,31558
+Rogers State University,Claremore,OK,1,4,NULL,7620,15960
+Southeastern Oklahoma State University,Durant,OK,1,4,0.737,6930,15870
+Southwestern Christian University,Bethany,OK,1,4,NULL,19908,19908
+Southwestern Oklahoma State University,Weatherford,OK,1,4,0.9412,7913,15023
+University of Tulsa,Tulsa,OK,1,4,0.7524,45673,45673
+Eastern Oregon University,La Grande,OR,1,4,0.9768,9696,22386
+George Fox University,Newberg,OR,1,4,0.8254,38520,38520
+Lewis & Clark College,Portland,OR,1,4,0.7945,57404,57404
+Mount Angel Seminary,Saint Benedict,OR,1,4,0.4,26256,26256
+Multnomah University,Portland,OR,1,4,0.5938,28810,28810
+National University of Natural Medicine,Portland,OR,1,4,NULL,NULL,NULL
+Bushnell University,Eugene,OR,1,4,0.6798,32320,32320
+Oregon Health & Science University,Portland,OR,1,4,NULL,NULL,NULL
+Oregon Institute of Technology,Klamath Falls,OR,1,4,0.9062,11622,32515
+Oregon State University,Corvallis,OR,1,4,0.8921,12188,31579
+University of Oregon,Eugene,OR,1,4,0.9342,14421,40464
+Pacific Northwest College of Art,Portland,OR,1,4,0.9753,42768,42768
+Pacific University,Forest Grove,OR,1,4,0.9104,50070,50070
+Portland State University,Portland,OR,1,4,0.9843,10386,29286
+University of Portland,Portland,OR,1,4,0.8119,49864,49864
+Reed College,Portland,OR,1,4,0.4381,62730,62730
+Southern Oregon University,Ashland,OR,1,4,0.897,11142,28962
+Warner Pacific University,Portland,OR,1,4,0.7562,19860,19860
+Corban University,Salem,OR,1,4,0.375,34756,34756
+Western Seminary,Portland,OR,1,4,NULL,NULL,NULL
+Willamette University,Salem,OR,1,4,0.7962,44234,44234
+Western Oregon University,Monmouth,OR,1,4,0.9157,10269,29709
+University of Western States,Portland,OR,1,4,NULL,NULL,NULL
+Bryn Athyn College of the New Church,Bryn Athyn,PA,1,4,0.9056,26214,26214
+Academy of Vocal Arts,Philadelphia,PA,1,4,NULL,NULL,NULL
+Albright College,Reading,PA,1,4,0.7631,27678,27678
+DeSales University,Center Valley,PA,1,4,0.7822,41000,41000
+Alvernia University,Reading,PA,1,4,0.5777,39280,39280
+American College of Financial Services,King of Prussia,PA,1,4,NULL,NULL,NULL
+Clarks Summit University,Clarks Summit,PA,1,4,0.5827,27200,27200
+Arcadia University,Glenside,PA,1,4,0.8242,46220,46220
+Missio Theological Seminary,Philadelphia,PA,1,4,NULL,5950,5950
+Bloomsburg University of Pennsylvania,Bloomsburg,PA,1,4,0.901,10982,22806
+Bryn Mawr College,Bryn Mawr,PA,1,4,0.3934,56320,56320
+Bucknell University,Lewisburg,PA,1,4,0.345,59802,59802
+Cabrini University,Radnor,PA,1,4,0.8004,33845,33845
+California University of Pennsylvania,California,PA,1,4,0.9708,11108,15726
+Carlow University,Pittsburgh,PA,1,4,0.9205,32390,32390
+Carnegie Mellon University,Pittsburgh,PA,1,4,0.1354,58924,58924
+Cedar Crest College,Allentown,PA,1,4,0.6878,42591,42591
+Central Penn College,Summerdale,PA,1,4,0.8866,18714,18714
+Chatham University,Pittsburgh,PA,1,4,0.7339,40877,40877
+Chestnut Hill College,Philadelphia,PA,1,4,0.9791,38635,38635
+Clarion University of Pennsylvania,Clarion,PA,1,4,0.9921,11223,16102
+Curtis Institute of Music,Philadelphia,PA,1,4,0.048,5015,5015
+Delaware Valley University,Doylestown,PA,1,4,0.9283,41380,41380
+Drexel University,Philadelphia,PA,1,4,0.8263,57136,57136
+Duquesne University,Pittsburgh,PA,1,4,0.8426,43526,43526
+East Stroudsburg University of Pennsylvania,East Stroudsburg,PA,1,4,0.9339,11559,20097
+Eastern University,Saint Davids,PA,1,4,0.687,35590,35590
+Edinboro University of Pennsylvania,Edinboro,PA,1,4,0.9237,10544,15062
+Elizabethtown College,Elizabethtown,PA,1,4,0.7948,34600,34600
+Evangelical Theological Seminary,Myerstown,PA,1,4,NULL,NULL,NULL
+Gannon University,Erie,PA,1,4,0.8359,34526,34526
+Geneva College,Beaver Falls,PA,1,4,0.7937,29970,29970
+Gratz College,Melrose Park,PA,1,4,NULL,NULL,NULL
+Gwynedd Mercy University,Gwynedd Valley,PA,1,4,0.906,36244,36244
+Holy Family University,Philadelphia,PA,1,4,0.7703,31640,31640
+Immaculata University,Immaculata,PA,1,4,0.7958,27750,27750
+Indiana University of Pennsylvania-Main Campus,Indiana,PA,1,4,0.942,13144,18897
+Juniata College,Huntingdon,PA,1,4,0.7443,51076,51076
+Keystone College,La Plume,PA,1,4,0.8215,17300,17300
+King's College,Wilkes-Barre,PA,1,4,0.9584,40880,40880
+Kutztown University of Pennsylvania,Kutztown,PA,1,4,0.9725,11170,15278
+La Roche University,Pittsburgh,PA,1,4,0.9813,31570,31570
+La Salle University,Philadelphia,PA,1,4,0.8135,33150,33150
+Lancaster Bible College,Lancaster,PA,1,4,0.96,27370,27370
+Lancaster Theological Seminary,Lancaster,PA,1,4,NULL,NULL,NULL
+Lebanon Valley College,Annville,PA,1,4,0.7764,47180,47180
+Lehigh University,Bethlehem,PA,1,4,0.4597,57470,57470
+Lincoln University,Lincoln University,PA,1,4,0.7975,11556,17912
+Lock Haven University,Lock Haven,PA,1,4,0.9499,10878,20702
+United Lutheran Seminary,Gettysburg,PA,1,4,NULL,NULL,NULL
+Manor College,Jenkintown,PA,1,4,0.9526,18880,18880
+Mansfield University of Pennsylvania,Mansfield,PA,1,4,0.944,10682,13248
+Marywood University,Scranton,PA,1,4,0.8186,37284,37284
+Mercyhurst University,Erie,PA,1,4,0.8238,42680,42680
+Messiah University,Mechanicsburg,PA,1,4,0.7738,38370,38370
+Millersville University of Pennsylvania,Millersville,PA,1,4,0.9637,12256,22226
+Misericordia University,Dallas,PA,1,4,0.891,35940,35940
+Moore College of Art and Design,Philadelphia,PA,1,4,0.5813,46150,46150
+Moravian University,Bethlehem,PA,1,4,0.7809,48730,48730
+Mount Aloysius College,Cresson,PA,1,4,0.9237,24890,24890
+Neumann University,Aston,PA,1,4,0.842,34460,34460
+Salus University,Elkins Park,PA,1,4,NULL,NULL,NULL
+Peirce College,Philadelphia,PA,1,4,NULL,15060,15060
+Pennsylvania Academy of the Fine Arts,Philadelphia,PA,1,4,0.8361,40376,40376
+University of Pennsylvania,Philadelphia,PA,1,4,0.0587,61710,61710
+The University of the Arts,Philadelphia,PA,1,4,0.8515,48530,48530
+Cairn University-Langhorne,Langhorne,PA,1,4,0.8232,31020,31020
+Philadelphia College of Osteopathic Medicine,Philadelphia,PA,1,4,NULL,NULL,NULL
+University of the Sciences,Philadelphia,PA,1,4,0.6132,27500,27500
+University of Pittsburgh-Pittsburgh Campus,Pittsburgh,PA,1,4,0.6668,20362,35394
+Pittsburgh Theological Seminary,Pittsburgh,PA,1,4,NULL,NULL,NULL
+Point Park University,Pittsburgh,PA,1,4,0.8232,35610,35610
+Reconstructionist Rabbinical College,Wyncote,PA,1,4,NULL,NULL,NULL
+Robert Morris University,Moon Township,PA,1,4,0.9395,32770,32770
+Rosemont College,Rosemont,PA,1,4,0.8002,20785,20785
+Saint Francis University,Loretto,PA,1,4,0.7334,39502,39502
+Saint Joseph's University,Philadelphia,PA,1,4,0.8309,47940,47940
+Saint Vincent College,Latrobe,PA,1,4,0.7303,38741,38741
+University of Scranton,Scranton,PA,1,4,0.8029,48462,48462
+Seton Hill University,Greensburg,PA,1,4,0.7381,39068,39068
+Shippensburg University of Pennsylvania,Shippensburg,PA,1,4,0.9312,13544,14272
+Slippery Rock University of Pennsylvania,Slippery Rock,PA,1,4,0.795,10507,14615
+Saint Charles Borromeo Seminary-Overbrook,Wynnewood,PA,1,4,1,23134,23134
+Susquehanna University,Selinsgrove,PA,1,4,0.7663,53060,53060
+Temple University,Philadelphia,PA,1,4,0.7233,17378,30602
+Theological Seminary of the Reformed Episcopal Church,Blue Bell,PA,1,4,NULL,NULL,NULL
+Thiel College,Greenville,PA,1,4,0.8804,34470,34470
+Thomas Jefferson University,Philadelphia,PA,1,4,0.7809,43116,43116
+Trinity Episcopal School for Ministry,Ambridge,PA,1,4,NULL,NULL,NULL
+University of Valley Forge,Phoenixville,PA,1,4,0.8197,23070,23070
+Villanova University,Villanova,PA,1,4,0.2524,59020,59020
+Waynesburg University,Waynesburg,PA,1,4,0.7496,27450,27450
+West Chester University of Pennsylvania,West Chester,PA,1,4,0.8936,10471,22295
+Westminster College,New Wilmington,PA,1,4,0.8214,38230,38230
+Westminster Theological Seminary,Glenside,PA,1,4,NULL,NULL,NULL
+Widener University,Chester,PA,1,4,0.8453,49706,49706
+Wilkes University,Wilkes-Barre,PA,1,4,0.9477,39914,39914
+Wilson College,Chambersburg,PA,1,4,0.9287,26200,26200
+York College of Pennsylvania,York,PA,1,4,0.7769,22350,22350
+Brown University,Providence,RI,1,4,0.0551,62304,62304
+Bryant University,Smithfield,RI,1,4,0.7361,47782,47782
+Johnson & Wales University-Providence,Providence,RI,1,4,0.8842,36324,36324
+New England Institute of Technology,East Greenwich,RI,1,4,0.6846,32807,32807
+Providence College,Providence,RI,1,4,0.5798,55988,55988
+Rhode Island College,Providence,RI,1,4,0.8483,10702,25900
+University of Rhode Island,Kingston,RI,1,4,0.7646,15332,33354
+Rhode Island School of Design,Providence,RI,1,4,0.1868,56290,56290
+Roger Williams University,Bristol,RI,1,4,0.9098,39594,39594
+Salve Regina University,Newport,RI,1,4,0.7343,44200,44200
+Northpoint Bible College,Haverhill,MA,1,4,NULL,13670,13670
+Allen University,Columbia,SC,1,4,0.5663,13340,13340
+Anderson University,Anderson,SC,1,4,0.5029,30720,30720
+Charleston Southern University,Charleston,SC,1,4,0.5721,28930,28930
+Bob Jones University,Greenville,SC,1,4,NULL,20950,20950
+Southern Wesleyan University,Central,SC,1,4,0.5661,26498,26498
+College of Charleston,Charleston,SC,1,4,0.7611,12978,34438
+Citadel Military College of South Carolina,Charleston,SC,1,4,0.864,12570,35826
+Claflin University,Orangeburg,SC,1,4,0.6247,17046,17046
+Clemson University,Clemson,SC,1,4,0.4922,15558,38550
+Coker University,Hartsville,SC,1,4,0.9763,31524,31524
+Columbia International University,Columbia,SC,1,4,0.4563,25590,25590
+Columbia College,Columbia,SC,1,4,0.9859,20880,20880
+Converse University,Spartanburg,SC,1,4,0.8198,19850,19850
+Erskine College,Due West,SC,1,4,0.6267,36510,36510
+Francis Marion University,Florence,SC,1,4,0.8613,11160,21544
+Furman University,Greenville,SC,1,4,0.7135,53372,53372
+Lander University,Greenwood,SC,1,4,0.6905,11700,21300
+Limestone University,Gaffney,SC,1,4,0.8723,26300,26300
+Medical University of South Carolina,Charleston,SC,1,4,NULL,NULL,NULL
+North Greenville University,Tigerville,SC,1,4,0.6974,22470,22470
+Presbyterian College,Clinton,SC,1,4,0.7098,41080,41080
+University of South Carolina Aiken,Aiken,SC,1,4,0.8352,10760,21218
+University of South Carolina-Columbia,Columbia,SC,1,4,0.6156,12688,33928
+Coastal Carolina University,Conway,SC,1,4,0.7914,11640,27394
+South Carolina State University,Orangeburg,SC,1,4,0.8759,11060,21750
+University of South Carolina-Upstate,Spartanburg,SC,1,4,0.757,11583,22545
+Sherman College of Chiropractic,Spartanburg,SC,1,4,NULL,NULL,NULL
+Winthrop University,Rock Hill,SC,1,4,0.639,15846,30176
+Augustana University,Sioux Falls,SD,1,4,0.7182,35914,35914
+Black Hills State University,Spearfish,SD,1,4,0.9725,9000,12100
+Dakota State University,Madison,SD,1,4,0.8561,9633,12735
+Dakota Wesleyan University,Mitchell,SD,1,4,0.7574,30880,30880
+Mount Marty University,Yankton,SD,1,4,0.6737,29980,29980
+National American University-Rapid City,Rapid City,SD,1,4,NULL,15660,15660
+Kairos University,Sioux Falls,SD,1,4,0.6207,3600,3600
+Northern State University,Aberdeen,SD,1,4,0.7982,8845,11947
+Oglala Lakota College,Kyle,SD,1,4,NULL,2684,2684
+Presentation College,Aberdeen,SD,1,4,0.9373,22006,22006
+South Dakota School of Mines and Technology,Rapid City,SD,1,4,0.8048,12110,16530
+South Dakota State University,Brookings,SD,1,4,0.8743,9299,12809
+Sinte Gleska University,Mission,SD,1,4,NULL,3154,3154
+University of Sioux Falls,Sioux Falls,SD,1,4,0.7665,19900,19900
+University of South Dakota,Vermillion,SD,1,4,0.8701,9432,12942
+Austin Peay State University,Clarksville,TN,1,4,0.9343,8431,13975
+Baptist Health Sciences University,Memphis,TN,1,4,0.3492,12572,12572
+Belmont University,Nashville,TN,1,4,0.8808,38430,38430
+Bethel University,McKenzie,TN,1,4,0.4995,17482,17482
+Bryan College-Dayton,Dayton,TN,1,4,NULL,17360,17360
+Carson-Newman University,Jefferson City,TN,1,4,0.7887,31320,31320
+Christian Brothers University,Memphis,TN,1,4,0.9657,34820,34820
+Pentecostal Theological Seminary,Cleveland,TN,1,4,NULL,NULL,NULL
+Cumberland University,Lebanon,TN,1,4,0.5776,25412,25412
+Lipscomb University,Nashville,TN,1,4,0.7399,35752,35752
+East Tennessee State University,Johnson City,TN,1,4,0.874,9438,12740
+Fisk University,Nashville,TN,1,4,0.6111,22906,22906
+Welch College,Gallatin,TN,1,4,NULL,19582,19582
+Freed-Hardeman University,Henderson,TN,1,4,0.8788,23300,23300
+Johnson University,Knoxville,TN,1,4,0.8092,19274,19274
+King University,Bristol,TN,1,4,0.6619,32838,32838
+South College,Knoxville,TN,1,4,NULL,17335,17335
+Lee University,Cleveland,TN,1,4,0.8294,20500,20500
+Lincoln Memorial University,Harrogate,TN,1,4,0.699,24210,24210
+The University of Tennessee Southern,Pulaski,TN,1,4,0.9216,10200,10200
+Meharry Medical College,Nashville,TN,1,4,NULL,NULL,NULL
+University of Memphis,Memphis,TN,1,4,0.9521,10056,14088
+Memphis Theological Seminary,Memphis,TN,1,4,NULL,NULL,NULL
+Middle Tennessee State University,Murfreesboro,TN,1,4,0.684,9232,28264
+Middle Tennessee School of Anesthesia Inc,Madison,TN,1,4,NULL,NULL,NULL
+Rhodes College,Memphis,TN,1,4,0.5688,50910,50910
+The University of the South,Sewanee,TN,1,4,0.6026,49418,49418
+Southern Adventist University,Collegedale,TN,1,4,0.744,23210,23210
+Southern College of Optometry,Memphis,TN,1,4,NULL,NULL,NULL
+Tennessee Wesleyan University,Athens,TN,1,4,0.5962,26590,26590
+The University of Tennessee-Chattanooga,Chattanooga,TN,1,4,0.8568,9848,25966
+The University of Tennessee-Knoxville,Knoxville,TN,1,4,0.7494,13244,31664
+The University of Tennessee-Martin,Martin,TN,1,4,0.7512,9912,15952
+Tennessee State University,Nashville,TN,1,4,NULL,8336,21692
+Tennessee Technological University,Cookeville,TN,1,4,0.7915,9802,19834
+Trevecca Nazarene University,Nashville,TN,1,4,0.777,26898,26898
+Tusculum University,Greeneville,TN,1,4,0.7703,26510,26510
+Union University,Jackson,TN,1,4,0.5289,35510,35510
+Vanderbilt University,Nashville,TN,1,4,0.0714,56966,56966
+Abilene Christian University,Abilene,TX,1,4,0.7011,39350,39350
+Amberton University,Garland,TX,1,4,NULL,NULL,NULL
+Angelo State University,San Angelo,TX,1,4,0.7007,8186,17978
+Austin College,Sherman,TX,1,4,0.4271,43525,43525
+Austin Presbyterian Theological Seminary,Austin,TX,1,4,NULL,NULL,NULL
+Baptist Missionary Association Theological Seminary,Jacksonville,TX,1,4,0.85,7650,7650
+Baylor College of Medicine,Houston,TX,1,4,NULL,NULL,NULL
+Baylor University,Waco,TX,1,4,0.5669,50232,50232
+Concordia University Texas,Austin,TX,1,4,0.8904,34500,34500
+Texas A & M University-Corpus Christi,Corpus Christi,TX,1,4,0.9128,9748,20745
+Dallas Baptist University,Dallas,TX,1,4,0.94,33620,33620
+Dallas Theological Seminary,Dallas,TX,1,4,NULL,NULL,NULL
+University of Dallas,Irving,TX,1,4,0.5836,46864,46864
+East Texas Baptist University,Marshall,TX,1,4,0.6452,27980,27980
+Texas A&M University-Texarkana,Texarkana,TX,1,4,0.9601,7930,20659
+Texas A & M University-Commerce,Commerce,TX,1,4,0.8666,10026,22266
+Episcopal Theological Seminary of the Southwest,Austin,TX,1,4,NULL,NULL,NULL
+Hallmark University,San Antonio,TX,1,4,0.5609,NULL,NULL
+Hardin-Simmons University,Abilene,TX,1,4,0.9459,31686,31686
+Houston Baptist University,Houston,TX,1,4,0.8487,35500,35500
+University of Houston-Clear Lake,Houston,TX,1,4,0.9119,7698,20994
+University of Houston-Downtown,Houston,TX,1,4,0.9484,7708,17524
+University of Houston-Victoria,Victoria,TX,1,4,0.5335,7499,17291
+University of Houston,Houston,TX,1,4,0.6552,9699,21891
+Howard Payne University,Brownwood,TX,1,4,0.5926,30178,30178
+Huston-Tillotson University,Austin,TX,1,4,0.5003,14703,14703
+University of the Incarnate Word,San Antonio,TX,1,4,0.9422,33100,33100
+Lamar University,Beaumont,TX,1,4,0.8806,8690,18482
+Texas A & M International University,Laredo,TX,1,4,0.5438,7845,19358
+LeTourneau University,Longview,TX,1,4,0.5419,33490,33490
+Lubbock Christian University,Lubbock,TX,1,4,0.9518,24900,24900
+University of Mary Hardin-Baylor,Belton,TX,1,4,0.9934,31500,31500
+McMurry University,Abilene,TX,1,4,0.7835,29400,29400
+Midwestern State University,Wichita Falls,TX,1,4,0.946,9954,11904
+University of North Texas,Denton,TX,1,4,0.8142,11090,20906
+Oblate School of Theology,San Antonio,TX,1,4,NULL,NULL,NULL
+Our Lady of the Lake University,San Antonio,TX,1,4,0.6578,29926,29926
+The University of Texas Rio Grande Valley,Edinburg,TX,1,4,0.939,9541,19333
+Prairie View A & M University,Prairie View,TX,1,4,0.77,11299,26874
+Rice University,Houston,TX,1,4,0.0948,52895,52895
+Saint Edward's University,Austin,TX,1,4,0.9217,49996,49996
+University of St Thomas,Houston,TX,1,4,0.9842,31560,31560
+Sam Houston State University,Huntsville,TX,1,4,0.9658,8960,18752
+Schreiner University,Kerrville,TX,1,4,0.8378,33927,33927
+St. Mary's University,San Antonio,TX,1,4,0.8846,34564,34564
+South Texas College of Law Houston,Houston,TX,1,4,NULL,NULL,NULL
+Southern Methodist University,Dallas,TX,1,4,0.5313,60236,60236
+Southwestern Assemblies of God University,Waxahachie,TX,1,4,0.8541,17404,17404
+Stephen F Austin State University,Nacogdoches,TX,1,4,0.8313,10600,21616
+Texas State University,San Marcos,TX,1,4,0.6999,11135,22559
+Southwestern Adventist University,Keene,TX,1,4,0.5751,23508,23508
+Sul Ross State University,Alpine,TX,1,4,1,9004,21244
+Tarleton State University,Stephenville,TX,1,4,0.5681,7790,17582
+University of Texas Southwestern Medical Center,Dallas,TX,1,4,NULL,NULL,NULL
+The University of Texas Health Science Center at San Antonio,San Antonio,TX,1,4,NULL,NULL,NULL
+The University of Texas Medical Branch at Galveston,Galveston,TX,1,4,NULL,NULL,NULL
+Texas A & M University-Kingsville,Kingsville,TX,1,4,0.9287,9892,25746
+Texas A & M University-College Station,College Station,TX,1,4,0.6428,13239,40134
+The University of Texas at Arlington,Arlington,TX,1,4,0.927,11727,29299
+The University of Texas at Austin,Austin,TX,1,4,0.2875,11752,40996
+The University of Texas at Dallas,Richardson,TX,1,4,0.8721,14564,39776
+The University of Texas at El Paso,El Paso,TX,1,4,0.9998,9744,25152
+The University of Texas at Tyler,Tyler,TX,1,4,0.9388,9596,25142
+Texas Chiropractic College Foundation Inc,Pasadena,TX,1,4,NULL,NULL,NULL
+Texas Christian University,Fort Worth,TX,1,4,0.5361,51660,51660
+University of North Texas Health Science Center,Fort Worth,TX,1,4,NULL,NULL,NULL
+Texas Lutheran University,Seguin,TX,1,4,0.6293,32970,32970
+The University of Texas Permian Basin,Odessa,TX,1,4,0.6469,8806,21460
+The University of Texas at San Antonio,San Antonio,TX,1,4,0.905,9231,21528
+Texas Southern University,Houston,TX,1,4,0.6305,9173,21413
+Texas Tech University,Lubbock,TX,1,4,0.6786,11852,24122
+Texas Wesleyan University,Fort Worth,TX,1,4,0.5753,34412,34412
+Texas Woman's University,Denton,TX,1,4,0.957,8394,18186
+Trinity University,San Antonio,TX,1,4,0.3372,47392,47392
+The University of Texas Health Science Center at Houston,Houston,TX,1,4,NULL,NULL,NULL
+Texas Tech University Health Sciences Center,Lubbock,TX,1,4,NULL,NULL,NULL
+Wayland Baptist University,Plainview,TX,1,4,0.8076,22004,22004
+West Texas A & M University,Canyon,TX,1,4,0.9704,9202,11208
+Brigham Young University,Provo,UT,1,4,0.5918,6120,6120
+Broadview College,West Jordan,UT,1,4,NULL,15435,15435
+Utah Tech University,Saint George,UT,1,4,NULL,5862,16986
+Eagle Gate College-Murray,Murray,UT,1,4,NULL,17112,17112
+Southern Utah University,Cedar City,UT,1,4,0.8873,6726,20542
+Utah State University,Logan,UT,1,4,0.9263,8960,24080
+Utah Valley University,Orem,UT,1,4,NULL,6010,17092
+University of Utah,Salt Lake City,UT,1,4,0.9497,8893,28345
+Weber State University,Ogden,UT,1,4,NULL,6228,16644
+Westminster College,Salt Lake City,UT,1,4,0.7573,39200,39200
+Bennington College,Bennington,VT,1,4,0.6692,59638,59638
+Castleton University,Castleton,VT,1,4,0.8729,13078,30046
+Champlain College,Burlington,VT,1,4,0.6243,42984,42984
+Goddard College,Plainfield,VT,1,4,1,19147,19147
+Northern Vermont University,Johnson,VT,1,4,0.7539,12804,26892
+Middlebury College,Middlebury,VT,1,4,0.1345,59770,59770
+Norwich University,Northfield,VT,1,4,0.8677,44020,44020
+Saint Michael's College,Colchester,VT,1,4,0.8588,48690,48690
+SIT Graduate Institute,Brattleboro,VT,1,4,NULL,NULL,NULL
+Vermont Law and Graduate School,South Royalton,VT,1,4,NULL,NULL,NULL
+Vermont Technical College,Randolph,VT,1,4,0.5568,16082,29498
+University of Vermont,Burlington,VT,1,4,0.6351,19002,43890
+Averett University,Danville,VA,1,4,0.4772,37050,37050
+Bluefield University,Bluefield,VA,1,4,0.7225,28870,28870
+Bridgewater College,Bridgewater,VA,1,4,0.7509,38460,38460
+William & Mary,Williamsburg,VA,1,4,0.3654,23812,47038
+Regent University,Virginia Beach,VA,1,4,0.4071,18820,18820
+Christopher Newport University,Newport News,VA,1,4,0.8854,14924,27790
+Eastern Virginia Medical School,Norfolk,VA,1,4,NULL,NULL,NULL
+Emory & Henry College,Emory,VA,1,4,0.8721,35165,35165
+Eastern Mennonite University,Harrisonburg,VA,1,4,0.9523,39990,39990
+George Mason University,Fairfax,VA,1,4,0.913,13119,36579
+Hampton University,Hampton,VA,1,4,0.8012,29312,29312
+Hollins University,Roanoke,VA,1,4,0.7472,40170,40170
+James Madison University,Harrisonburg,VA,1,4,0.8625,12638,29564
+Liberty University,Lynchburg,VA,1,4,0.9928,22713,22713
+Longwood University,Farmville,VA,1,4,0.8998,14334,25730
+University of Lynchburg,Lynchburg,VA,1,4,0.9687,33500,33500
+Mary Baldwin University,Staunton,VA,1,4,NULL,31140,31140
+University of Mary Washington,Fredericksburg,VA,1,4,0.8192,13830,30256
+Marymount University,Arlington,VA,1,4,0.8366,36050,36050
+American National University,Salem,VA,1,4,NULL,10288,10288
+Sentara College of Health Sciences,Chesapeake,VA,1,4,NULL,NULL,NULL
+Norfolk State University,Norfolk,VA,1,4,0.8864,9622,20790
+Old Dominion University,Norfolk,VA,1,4,0.9623,10800,30960
+Radford University,Radford,VA,1,4,0.9531,11542,23624
+Randolph College,Lynchburg,VA,1,4,0.938,26890,26890
+University of Richmond,University of Richmond,VA,1,4,0.2877,58570,58570
+Shenandoah University,Winchester,VA,1,4,0.7435,34490,34490
+Sweet Briar College,Sweet Briar,VA,1,4,0.8003,23080,23080
+Union Presbyterian Seminary,Richmond,VA,1,4,NULL,NULL,NULL
+Virginia Polytechnic Institute and State University,Blacksburg,VA,1,4,0.5647,14174,33857
+Virginia Commonwealth University,Richmond,VA,1,4,0.9277,15319,36657
+University of Virginia-Main Campus,Charlottesville,VA,1,4,0.2074,19244,53626
+Virginia State University,Petersburg,VA,1,4,0.9608,9154,20909
+Virginia Union University,Richmond,VA,1,4,0.9378,13530,13530
+Virginia Wesleyan University,Virginia Beach,VA,1,4,0.8637,36910,36910
+Washington and Lee University,Lexington,VA,1,4,0.1885,59380,59380
+Central Washington University,Ellensburg,WA,1,4,0.8845,8685,25213
+City University of Seattle,Seattle,WA,1,4,NULL,NULL,NULL
+Eastern Washington University,Cheney,WA,1,4,0.9707,7922,25748
+The Evergreen State College,Olympia,WA,1,4,0.9946,8529,29172
+Gonzaga University,Spokane,WA,1,4,0.7615,48470,48470
+Heritage University,Toppenish,WA,1,4,NULL,18500,18500
+Bastyr University,Kenmore,WA,1,4,NULL,NULL,NULL
+Northwest University,Kirkland,WA,1,4,0.9598,33980,33980
+Pacific Lutheran University,Tacoma,WA,1,4,0.8839,48226,48226
+University of Puget Sound,Tacoma,WA,1,4,0.883,55670,55670
+Saint Martin's University,Lacey,WA,1,4,0.7162,40690,40690
+Seattle Pacific University,Seattle,WA,1,4,0.9195,35646,35646
+Seattle University,Seattle,WA,1,4,0.8212,49335,49335
+Walla Walla University,College Place,WA,1,4,NULL,30531,30531
+Washington State University,Pullman,WA,1,4,0.8577,12417,27733
+University of Washington-Seattle Campus,Seattle,WA,1,4,0.5348,12076,39906
+Western Washington University,Bellingham,WA,1,4,0.961,8703,25930
+Whitworth University,Spokane,WA,1,4,0.9146,47590,47590
+Alderson Broaddus University,Philippi,WV,1,4,0.6653,30020,30020
+Appalachian Bible College,Mount Hope,WV,1,4,0.4615,15830,15830
+Bethany College,Bethany,WV,1,4,0.7355,31600,31600
+University of Charleston,Charleston,WV,1,4,0.6971,31350,31350
+Concord University,Athens,WV,1,4,0.9563,8690,18440
+Fairmont State University,Fairmont,WV,1,4,0.9875,7892,17150
+Marshall University,Huntington,WV,1,4,0.978,8552,19606
+Salem University,Salem,WV,1,4,NULL,13150,13390
+Shepherd University,Shepherdstown,WV,1,4,0.9641,7784,18224
+West Virginia School of Osteopathic Medicine,Lewisburg,WV,1,4,NULL,NULL,NULL
+West Virginia State University,Institute,WV,1,4,0.9655,8437,14125
+West Liberty University,West Liberty,WV,1,4,0.7385,8345,16294
+West Virginia Wesleyan College,Buckhannon,WV,1,4,0.8443,32612,32612
+West Virginia University,Morgantown,WV,1,4,0.8982,8976,25320
+Wheeling University,Wheeling,WV,1,4,0.7807,29290,29290
+Alverno College,Milwaukee,WI,1,4,0.9084,31258,31258
+Madison Area Technical College,Madison,WI,1,4,NULL,4600,6769
+Bellin College,Green Bay,WI,1,4,0.8529,21785,21785
+Cardinal Stritch University,Milwaukee,WI,1,4,0.8891,34762,34762
+Carroll University,Waukesha,WI,1,4,0.705,35140,35140
+Carthage College,Kenosha,WI,1,4,0.7569,33000,33000
+Concordia University-Wisconsin,Mequon,WI,1,4,0.6859,31952,31952
+Edgewood College,Madison,WI,1,4,0.9549,32600,32600
+Lakeland University,Plymouth,WI,1,4,0.8011,31316,31316
+Maranatha Baptist University,Watertown,WI,1,4,0.803,18050,18050
+Marian University,Fond Du Lac,WI,1,4,0.7627,29130,29130
+Marquette University,Milwaukee,WI,1,4,0.8626,45766,45766
+Medical College of Wisconsin,Milwaukee,WI,1,4,NULL,NULL,NULL
+Milwaukee School of Engineering,Milwaukee,WI,1,4,0.6672,45099,45099
+Mount Mary University,Milwaukee,WI,1,4,0.6236,32760,32760
+Nashotah House,Nashotah,WI,1,4,NULL,NULL,NULL
+Sacred Heart Seminary and School of Theology,Franklin,WI,1,4,NULL,NULL,NULL
+Saint Norbert College,De Pere,WI,1,4,0.8515,41887,41887
+Viterbo University,La Crosse,WI,1,4,0.7746,29920,29920
+University of Wisconsin-Whitewater,Whitewater,WI,1,4,0.8297,7730,16602
+Wisconsin School of Professional Psychology,Milwaukee,WI,1,4,NULL,NULL,NULL
+University of Wisconsin-Eau Claire,Eau Claire,WI,1,4,0.7746,8874,17149
+University of Wisconsin-Green Bay,Green Bay,WI,1,4,0.9143,7873,16091
+University of Wisconsin-La Crosse,La Crosse,WI,1,4,0.7385,9195,18014
+Wisconsin Lutheran College,Milwaukee,WI,1,4,0.9802,32766,32766
+University of Wisconsin-Oshkosh,Oshkosh,WI,1,4,0.8989,7733,15306
+University of Wisconsin-Parkside,Kenosha,WI,1,4,0.7497,7444,15714
+Herzing University-Madison,Madison,WI,1,4,0.9425,14200,14200
+University of Wisconsin-Stout,Menomonie,WI,1,4,0.9139,9553,17820
+University of Wisconsin-Superior,Superior,WI,1,4,0.7623,8155,15728
+University of Wisconsin-Madison,Madison,WI,1,4,0.6035,10720,38608
+University of Wisconsin-Milwaukee,Milwaukee,WI,1,4,0.8896,9610,21475
+University of Wisconsin-Platteville,Platteville,WI,1,4,0.8757,7844,16483
+University of Wisconsin-River Falls,River Falls,WI,1,4,0.8624,8088,15661
+University of Wisconsin-Stevens Point,Stevens Point,WI,1,4,0.9016,8331,17035
+University of Wyoming,Laramie,WY,1,4,0.9678,6277,20827
+University of Guam,Mangilao,GU,1,4,NULL,6242,11678
+American University of Puerto Rico,Bayamon,PR,1,4,NULL,6751,6751
+Universidad Adventista de las Antillas,Mayaguez,PR,1,4,1,7250,7250
+Atlantic University College,Guaynabo,PR,1,4,NULL,6915,6915
+Universidad Central de Bayamon,Bayamón,PR,1,4,0.9829,5522,5522
+Columbia Central University-Caguas,Caguas,PR,1,4,NULL,7370,7370
+Albizu University-San Juan,San Juan,PR,1,4,0.9341,7434,7434
+Caribbean University-Bayamon,Bayamon,PR,1,4,NULL,5505,5505
+Pontifical Catholic University of Puerto Rico-Ponce,Ponce,PR,1,4,0.8528,5545,5545
+Universidad Teologica del Caribe,Trujillo Alto,PR,1,4,NULL,6510,6510
+Universidad Ana G. Mendez-Cupey Campus,San Juan,PR,1,4,NULL,5820,5820
+Puerto Rico Conservatory of Music,San Juan,PR,1,4,0.5077,3370,3370
+Center for Advanced Studies On Puerto Rico and the Caribbean,San Juan,PR,1,4,NULL,NULL,NULL
+Inter American University of Puerto Rico-San German,San German,PR,1,4,0.5476,5292,5292
+Inter American University of Puerto Rico-Aguadilla,Aguadilla,PR,1,4,0.5688,5254,5254
+Inter American University of Puerto Rico-Arecibo,Arecibo,PR,1,4,0.5287,5292,5292
+Inter American University of Puerto Rico-Barranquitas,Barranquitas,PR,1,4,0.7948,5254,5254
+Inter American University of Puerto Rico-Metro,San Juan,PR,1,4,0.6536,5292,5292
+Inter American University of Puerto Rico-Ponce,Mercedita,PR,1,4,0.6163,5292,5292
+Inter American University of Puerto Rico-Fajardo,Fajardo,PR,1,4,0.5312,5292,5292
+Inter American University of Puerto Rico-Guayama,Guayama,PR,1,4,0.9186,5292,5292
+Inter American University of Puerto Rico-Bayamon,Bayamon,PR,1,4,0.6754,5292,5292
+Inter American University of Puerto Rico-School of Law,San Juan,PR,1,4,NULL,NULL,NULL
+NUC University,Bayamon,PR,1,4,NULL,6919,11995
+Ponce Health Sciences University,Ponce,PR,1,4,NULL,NULL,NULL
+University of Puerto Rico-Mayaguez,Mayaguez,PR,1,4,0.4938,4870,4870
+University of Puerto Rico-Medical Sciences,San Juan,PR,1,4,NULL,NULL,NULL
+University of Puerto Rico-Rio Piedras,San Juan,PR,1,4,0.5026,4940,4940
+Universidad Ana G. Mendez-Carolina Campus,Carolina,PR,1,4,NULL,5820,5820
+Universidad del Sagrado Corazon,Santurce,PR,1,4,0.6156,6120,6120
+Seminario Evangelico de Puerto Rico,San Juan,PR,1,4,NULL,NULL,NULL
+Universidad Central Del Caribe,Bayamon,PR,1,4,0.5833,6597,6597
+Universidad Politecnica de Puerto Rico,Hato Rey,PR,1,4,NULL,8640,8640
+Universidad Ana G. Mendez-Gurabo Campus,Gurabo,PR,1,4,NULL,5820,5820
+University of the Virgin Islands,Charlotte Amalie,VI,1,4,0.9841,5235,14496
+Stanford University,Stanford,CA,1,4,0.0395,56169,56169
+Purdue University-Main Campus,West Lafayette,IN,1,4,0.6881,9992,28794
+Parker University,Dallas,TX,1,4,NULL,15718,15718
+EDP University of Puerto Rico Inc-San Juan,San Juan,PR,1,4,0.4292,6200,6200
+St. John's College,Santa Fe,NM,1,4,0.6272,35710,35710
+Antioch University,Yellow Springs,OH,1,4,NULL,NULL,NULL
+Mid-America Christian University,Oklahoma City,OK,1,4,NULL,18838,18838
+Houston Graduate School of Theology,Houston,TX,1,4,NULL,NULL,NULL
+Unification Theological Seminary,New York,NY,1,4,NULL,NULL,NULL
+Ecumenical Theological Seminary,Detroit,MI,1,4,NULL,NULL,NULL
+Landmark College,Putney,VT,1,4,0.5288,61490,61490
+Yeshiva Gedolah of Greater Detroit,Oak Park,MI,1,4,0.8636,8600,8600
+Austin Graduate School of Theology,Austin,TX,1,4,NULL,NULL,NULL
+ECPI University,Virginia Beach,VA,1,4,0.8247,17479,17479
+University of Massachusetts Global,Irvine,CA,1,4,0.9286,12480,12480
+New College of Florida,Sarasota,FL,1,4,0.7418,6916,29944
+University of Advancing Technology,Tempe,AZ,1,4,0.9118,18966,18966
+South Florida Bible College and Theological Seminary,Deerfield Beach,FL,1,4,NULL,7140,7140
+New York Academy of Art,New York,NY,1,4,NULL,NULL,NULL
+Southwest Acupuncture College-Santa Fe,Santa Fe,NM,1,4,NULL,NULL,NULL
+California State University-San Marcos,San Marcos,CA,1,4,0.933,7727,19607
+Hodges University,Fort Myers,FL,1,4,NULL,14780,14780
+University of St. Augustine for Health Sciences,San Marcos,CA,1,4,NULL,NULL,NULL
+Massachusetts School of Law,Andover,MA,1,4,NULL,NULL,NULL
+Bryan University,Springfield,MO,1,4,NULL,15782,15782
+Oregon College of Oriental Medicine,Portland,OR,1,4,NULL,NULL,NULL
+Fremont University,Cerritos,CA,1,4,NULL,NULL,NULL
+Adler Graduate School,Minnetonka,MN,1,4,NULL,NULL,NULL
+Pacific College of Health and Science,San Diego,CA,1,4,NULL,9826,9826
+Colorado School of Traditional Chinese Medicine,Denver,CO,1,4,NULL,NULL,NULL
+Phoenix Seminary,Scottsdale,AZ,1,4,NULL,NULL,NULL
+Midwest College of Oriental Medicine-Racine,Racine,WI,1,4,NULL,NULL,NULL
+Acupuncture and Integrative Medicine College-Berkeley,Berkeley,CA,1,4,NULL,NULL,NULL
+University of the Potomac-Washington DC Campus,Washington,DC,1,4,NULL,6660,6660
+Albert Einstein College of Medicine,Bronx,NY,1,4,NULL,NULL,NULL
+Everglades University,Boca Raton,FL,1,4,0.6042,18920,18920
+Soka University of America,Aliso Viejo,CA,1,4,0.5241,34166,34166
+World Mission University,Los Angeles,CA,1,4,NULL,6440,6440
+Yo San University of Traditional Chinese Medicine,Los Angeles,CA,1,4,NULL,NULL,NULL
+Inter American University of Puerto Rico-School of Optometry,Bayamon,PR,1,4,NULL,NULL,NULL
+Schiller International University,Tampa,FL,1,4,NULL,14360,14360
+Lake Erie College of Osteopathic Medicine,Erie,PA,1,4,NULL,NULL,NULL
+Florida National University-Main Campus,Hialeah,FL,1,4,NULL,13688,13688
+Erikson Institute,Chicago,IL,1,4,NULL,NULL,NULL
+California State University-Monterey Bay,Seaside,CA,1,4,0.9281,7218,19098
+Capella University,Minneapolis,MN,1,4,NULL,14148,14148
+Phillips Theological Seminary,Tulsa,OK,1,4,NULL,NULL,NULL
+The University of Texas MD Anderson Cancer Center,Houston,TX,1,4,NULL,NULL,NULL
+Cedars Sinai Medical Center,Los Angeles,CA,1,4,NULL,NULL,NULL
+New York College of Health Professions,Syosset,NY,1,4,NULL,14235,14235
+Sonoran University of Health Sciences,Tempe,AZ,1,4,NULL,NULL,NULL
+Bakke Graduate University,Dallas,TX,1,4,NULL,NULL,NULL
+American College of Acupuncture and Oriental Med,Houston,TX,1,4,NULL,NULL,NULL
+AOMA Graduate School of Integrative Medicine,Austin,TX,1,4,NULL,NULL,NULL
+San Juan Bautista School of Medicine,Caguas,PR,1,4,0.7727,9192,15042
+Texas Health and Science University,Austin,TX,1,4,NULL,NULL,NULL
+Appalachian School of Law,Grundy,VA,1,4,NULL,NULL,NULL
+American University of Health Sciences,Signal Hill,CA,1,4,NULL,22975,22975
+Western Governors University,Salt Lake City,UT,1,4,NULL,7452,7452
+California Aeronautical University,Bakersfield,CA,1,4,NULL,30331,30331
+Florida Gulf Coast University,Fort Myers,FL,1,4,0.8921,6118,25162
+Florida College of Integrative Medicine,Orlando,FL,1,4,NULL,NULL,NULL
+Louisiana State University Health Sciences Center-Shreveport,Shreveport,LA,1,4,NULL,NULL,NULL
+International Baptist College and Seminary,Chandler,AZ,1,4,NULL,12900,12900
+University of Management and Technology,Arlington,VA,1,4,NULL,9450,9450
+Stratford University,Alexandria,VA,1,4,NULL,15135,15135
+East West College of Natural Medicine,Sarasota,FL,1,4,NULL,NULL,NULL
+Atlantic Institute of Oriental Medicine,Fort Lauderdale,FL,1,4,NULL,NULL,NULL
+The King's University,Southlake,TX,1,4,1,15900,15900
+New York College of Traditional Chinese Medicine,Mineola,NY,1,4,NULL,NULL,NULL
+Northeastern Seminary,Rochester,NY,1,4,NULL,NULL,NULL
+Seattle Institute of East Asian Medicine,Seattle,WA,1,4,NULL,NULL,NULL
+Acupuncture and Massage College,Miami,FL,1,4,NULL,10943,10943
+Upper Valley Educators Institute,Lebanon,NH,1,4,NULL,NULL,NULL
+Keck Graduate Institute,Claremont,CA,1,4,NULL,NULL,NULL
+New Saint Andrews College,Moscow,ID,1,4,NULL,13950,13950
+Pillar College,Newark,NJ,1,4,NULL,22756,22756
+Richmont Graduate University,Chattanooga,TN,1,4,NULL,NULL,NULL
+The Seattle School of Theology & Psychology,Seattle,WA,1,4,NULL,NULL,NULL
+Irell & Manella Graduate School of Biological Sciences at City of Hope,Duarte,CA,1,4,NULL,NULL,NULL
+American Institute of Alternative Medicine,Columbus,OH,1,4,1,14532,14532
+Universidad Pentecostal Mizpa,Rio Piedras,PR,1,4,NULL,4220,4220
+Nevada State College,Henderson,NV,1,4,0.7902,6075,19440
+California State University-Channel Islands,Camarillo,CA,1,4,0.93,6817,18697
+Won Institute of Graduate Studies,Warminster,PA,1,4,NULL,NULL,NULL
+Ave Maria School of Law,Naples,FL,1,4,NULL,NULL,NULL
+Pennsylvania College of Health Sciences,Lancaster,PA,1,4,0.4909,29922,29922
+St Louis College of Health Careers-Fenton,Fenton,MO,1,4,1,NULL,NULL
+University of Arkansas Grantham,LIttle Rock,AR,1,4,NULL,8280,8280
+Edward Via College of Osteopathic Medicine,Blacksburg,VA,1,4,NULL,NULL,NULL
+University of Antelope Valley,Lancaster,CA,1,4,NULL,NULL,NULL
+NorthShore University HealthSystem School of Nurse Anesthesia,Evanston,IL,1,4,NULL,NULL,NULL
+Faith International University,Tacoma,WA,1,4,NULL,11250,11250
+Family of Faith Christian University,Shawnee,OK,1,4,NULL,8040,8040
+Hood Theological Seminary,Salisbury,NC,1,4,NULL,NULL,NULL
+International Technological University,Santa Clara,CA,1,4,NULL,NULL,NULL
+Williamson Christian College,Franklin,TN,1,4,NULL,14755,14755
+DigiPen Institute of Technology,Redmond,WA,1,4,0.4602,34900,34900
+American College of Healthcare Sciences,Portland,OR,1,4,0.619,11928,11928
+Bexley Hall Seabury Western Theological Seminary Federation Inc.,Chicago,IL,1,4,NULL,NULL,NULL
+Byzantine Catholic Seminary of Saints Cyril and Methodius,Pittsburgh,PA,1,4,NULL,NULL,NULL
+Northcentral University,San Diego,CA,1,4,NULL,NULL,NULL
+Institute of Clinical Acupuncture & Oriental Med,Honolulu,HI,1,4,NULL,NULL,NULL
+Charlotte Christian College and Theological Seminary,Charlotte,NC,1,4,NULL,11125,11125
+American InterContinental University,Chandler,AZ,1,4,NULL,12418,12418
+Toyota Technological Institute at Chicago,Chicago,IL,1,4,NULL,NULL,NULL
+University of California-Merced,Merced,CA,1,4,0.866,13657,43411
+Roseman University of Health Sciences,Henderson,NV,1,4,NULL,NULL,NULL
+Divine Mercy University,Sterling,VA,1,4,NULL,NULL,NULL
+American Academy of Health and Wellness,Roseville,MN,1,4,NULL,NULL,NULL
+Arizona School of Acupuncture and Oriental Medicine,Tucson,AZ,1,4,NULL,NULL,NULL
+Ave Maria University,Ave Maria,FL,1,4,0.6405,24610,24610
+Eastern School of Acupuncture and Traditional Medicine,Bloomfield,NJ,1,4,NULL,NULL,NULL
+Stanbridge University,Irvine,CA,1,4,0.105,NULL,NULL
+Harrisburg University of Science and Technology,Harrisburg,PA,1,4,NULL,23900,23900
+United States University,San Diego,CA,1,4,NULL,6480,6480
+Phoenix Institute of Herbal Medicine & Acupuncture,Phoenix,AZ,1,4,NULL,NULL,NULL
+University of East-West Medicine,Sunnyvale,CA,1,4,NULL,NULL,NULL
+SUM Bible College and Theological Seminary,El Dorado Hills,CA,1,4,1,10540,10540
+International Institute for Restorative Practices,Bethlehem,PA,1,4,NULL,NULL,NULL
+American Public University System,Charles Town,WV,1,4,NULL,7360,7360
+Huntsville Bible College,Huntsville,AL,1,4,NULL,4730,4730
+Dragon Rises College of Oriental Medicine,Gainesville,FL,1,4,NULL,NULL,NULL
+Visible Music College,Memphis,TN,1,4,0.3663,20000,20000
+Virginia Beach Theological Seminary,Virginia Beach,VA,1,4,NULL,NULL,NULL
+University of the West,Rosemead,CA,1,4,NULL,13604,13604
+American College of Education,Indianapolis,IN,1,4,NULL,NULL,NULL
+Appalachian College of Pharmacy,Oakwood,VA,1,4,NULL,NULL,NULL
+Columbia Southern University,Orange Beach,AL,1,4,NULL,5775,5775
+Academy for Five Element Acupuncture,Gainesville,FL,1,4,NULL,NULL,NULL
+Miami Regional University,Miami Springs,FL,1,4,NULL,NULL,NULL
+Charleston School of Law,Charleston,SC,1,4,NULL,NULL,NULL
+Chamberlain University-Illinois,Addison,IL,1,4,0.9286,20250,20250
+Taft University System,Lakewood,CO,1,4,NULL,NULL,NULL
+Aspen University,Phoenix,AZ,1,4,NULL,5110,5110
+Institute of Taoist Education and Acupuncture,Louisville,CO,1,4,NULL,NULL,NULL
+Denver College of Nursing,Denver,CO,1,4,NULL,NULL,NULL
+Urshan Graduate School of Theology,Wentzville,MO,1,4,NULL,NULL,NULL
+Daoist Traditions College of Chinese Medical Arts,Asheville,NC,1,4,NULL,NULL,NULL
+Pacific Northwest University of Health Sciences,Yakima,WA,1,4,NULL,NULL,NULL
+The Chicago School of Professional Psychology at Los Angeles,Los Angeles,CA,1,4,0.3662,12712,12712
+Institute of World Politics,Washington,DC,1,4,NULL,NULL,NULL
+Pontifical John Paul II Institute for Studies on Marriage and Family,Washington,DC,1,4,NULL,NULL,NULL
+Vermont College of Fine Arts,Montpelier,VT,1,4,NULL,NULL,NULL
+Geisinger Commonwealth School of Medicine,Scranton,PA,1,4,NULL,NULL,NULL
+Homestead Schools,Torrance,CA,1,4,NULL,NULL,NULL
+Academy for Jewish Religion-California,Los Angeles,CA,1,4,NULL,NULL,NULL
+University of Fort Lauderdale,Lauderhill,FL,1,4,NULL,7410,7410
+Pacific Rim Christian University,Honolulu,HI,1,4,NULL,12380,12380
+City Vision University,Kansas City,MO,1,4,NULL,6000,6000
+Touro University Worldwide,Los Alamitos,CA,1,4,NULL,14600,14600
+Touro University California,Vallejo,CA,1,4,NULL,NULL,NULL
+Texas A&M University-San Antonio,San Antonio,TX,1,4,0.7274,9093,22764
+Fairfax University of America,Fairfax,VA,1,4,1,10128,10128
+American Sentinel College of Nursing and Health Sciences,Waterbury,CT,1,4,NULL,NULL,NULL
+National Paralegal College,Phoenix,AZ,1,4,NULL,7995,7995
+Omega Graduate School,Dayton,TN,1,4,NULL,NULL,NULL
+Jung Tao School of Classical Chinese Medicine,Sugar Grove,NC,1,4,NULL,NULL,NULL
+New York Film Academy,Burbank,CA,1,4,NULL,34090,34090
+Jose Maria Vargas University,Pembroke Pines,FL,1,4,NULL,10740,10740
+Shepherds Theological Seminary,Cary,NC,1,4,NULL,NULL,NULL
+Manna University,Fayetteville,NC,1,4,0.9545,6210,6210
+Bergin University of Canine Studies,Penngrove,CA,1,4,NULL,NULL,NULL
+North American University,Stafford,TX,1,4,NULL,9900,9900
+Millennia Atlantic University,Doral,FL,1,4,NULL,11992,11992
+Institute for Doctoral Studies in the Visual Arts,Portland,ME,1,4,NULL,NULL,NULL
+Los Angeles Pacific University,San Dimas,CA,1,4,NULL,10800,10800
+Relay Graduate School of Education,New York,NY,1,4,NULL,NULL,NULL
+Catholic Distance University,Charles Town,WV,1,4,NULL,8405,8405
+Rocky Mountain University of Health Professions,Provo,UT,1,4,NULL,NULL,NULL
+Criswell College,Dallas,TX,1,4,0.9767,12750,12750
+Colorado State University Global,Aurora,CO,1,4,0.9603,8400,8400
+California Miramar University,San Diego,CA,1,4,0.5652,9994,9994
+Rocky Vista University,Parker,CO,1,4,NULL,NULL,NULL
+Future Generations University,Franklin,WV,1,4,NULL,NULL,NULL
+Grace Mission University,Fullerton,CA,1,4,NULL,3120,3120
+Sotheby's Institute of Art-NY,New York,NY,1,4,NULL,NULL,NULL
+Grace School of Theology,Conroe,TX,1,4,NULL,6480,6480
+Sanford Burnham Prebys Medical Discovery Institute,La Jolla,CA,1,4,NULL,NULL,NULL
+Augusta University,Augusta,GA,1,4,0.7328,8832,24210
+Middle Georgia State University,Macon,GA,1,4,0.9939,4042,11389
+Veritas Baptist College,Lawrenceburg,IN,1,4,1,7676,7676
+DeVry University-Illinois,Naperville,IL,1,4,0.4552,17488,17488
+University of North Georgia,Dahlonega,GA,1,4,0.8116,5341,15560
+Florida Polytechnic University,Lakeland,FL,1,4,0.5457,4940,21005
+Texas A&M University-Central Texas,Killeen,TX,1,4,0.9592,6627,16770
+Ana G. Mendez University,Orlando,FL,1,4,NULL,10384,10384
+IGlobal University,Vienna,VA,1,4,NULL,14000,14000
+Alabama College of Osteopathic Medicine,Dothan,AL,1,4,NULL,NULL,NULL
+University of Phoenix-Arizona,Phoenix,AZ,1,4,NULL,9552,9552
+University of West Los Angeles,Inglewood,CA,1,4,NULL,NULL,NULL
+University of North Texas at Dallas,Dallas,TX,1,4,0.8992,9518,21758
+High Tech High Graduate School of Education,San Diego,CA,1,4,NULL,NULL,NULL
+California Intercontinental University,Irvine,CA,1,4,NULL,10805,10805
+Atlantis University,Miami,FL,1,4,NULL,10800,10800
+Elmezzi Graduate School of Molecular Medicine,Manhasset,NY,1,4,NULL,NULL,NULL
+San Ignacio University,Doral,FL,1,4,NULL,10405,10405
+Bethany Global University,Bloomington,MN,1,4,0.9487,16100,16100
+Presidio Graduate School,San Francisco,CA,1,4,NULL,NULL,NULL
+Wright Graduate University for the Realization of Human Potential,Elkhorn,WI,1,4,NULL,NULL,NULL
+Kennesaw State University,Kennesaw,GA,1,4,0.8159,6436,17690
+Milligan University,Milligan,TN,1,4,0.6035,36140,36140
+The University of Tennessee Health Science Center,Memphis,TN,1,4,NULL,NULL,NULL
+Husson University,Bangor,ME,1,4,0.8555,20430,20430
+California Institute of Advanced Management,Alhambra,CA,1,4,NULL,NULL,NULL
+Alhambra Medical University,Alhambra,CA,1,4,NULL,NULL,NULL
+Abraham Lincoln University,Glendale,CA,1,4,NULL,6440,6440
+Huntington University of Health Sciences,Knoxville,TN,1,4,NULL,6610,6610
+Claremont Lincoln University,Claremont,CA,1,4,NULL,NULL,NULL
+Seattle Film Institute,Seattle,WA,1,4,NULL,30240,30240
+Arkansas Colleges of Health Education,Fort Smith,AR,1,4,NULL,NULL,NULL
+Burrell College of Osteopathic Medicine,Las Cruces,NM,1,4,NULL,NULL,NULL
+California Health Sciences University,Clovis,CA,1,4,NULL,NULL,NULL
+John Patrick University of Health and Applied Sciences,South Bend,IN,1,4,1,16100,16100
+Teachers College of San Joaquin,Stockton,CA,1,4,NULL,NULL,NULL
+Wongu University of Oriental Medicine,Las Vegas,NV,1,4,NULL,NULL,NULL
+Purdue University Global,West Lafayette,IN,1,4,NULL,10125,14436
+Carolina University,Winston-Salem,NC,1,4,0.4627,14400,14400
+Presbyterian Theological Seminary in America,Santa Fe Springs,CA,1,4,NULL,8289,8289
+Southern States University,San Diego,CA,1,4,1,5914,5914
+America Evangelical University,Gardena,CA,1,4,NULL,6200,6200
+Virginia University of Integrative Medicine,Vienna,VA,1,4,NULL,NULL,NULL
+Westcliff University,Irvine,CA,1,4,0.6513,16593,16593
+Western Michigan University Homer Stryker M.D. School of Medicine,Kalamazoo,MI,1,4,NULL,NULL,NULL
+Maine Media College,Rockport,ME,1,4,NULL,NULL,NULL
+Purdue University Northwest,Hammond,IN,1,4,0.7636,8057,14948
+Meridian University,Petaluma,CA,1,4,NULL,NULL,NULL
+Reiss-Davis Graduate School,Los Angeles,CA,1,4,NULL,NULL,NULL
+Texas Tech University Health Sciences Center-El Paso,El Paso,TX,1,4,NULL,NULL,NULL
+San Diego Global Knowledge University,San Diego,CA,1,4,NULL,17210,17210
+Professional University Dr. Carlos J. Borrero Rios,Hato Rey,PR,1,4,NULL,NULL,NULL
+SANS Technology Institute,North Bethesda,MD,1,4,NULL,NULL,NULL
+Glasgow Caledonian New York College,New York,NY,1,4,NULL,NULL,NULL
+Alder Graduate School of Education,Redwood City,CA,1,4,NULL,NULL,NULL
+Hackensack Meridian School of Medicine,Nutley,NJ,1,4,NULL,NULL,NULL
+The Pennsylvania State University,University Park,PA,1,4,0.9226,18898,36476
+California University of Science and Medicine,Colton,CA,1,4,NULL,NULL,NULL
+California Northstate University,Elk Grove,CA,1,4,0.9548,49793,49793
