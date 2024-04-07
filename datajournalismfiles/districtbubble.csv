@@ -1,0 +1,193 @@
+college_enrollment_date,district,agency_name,college_going_count,college_going_pct,average_composite_score
+2022-10-15,0003,Kenesaw Public Schools,13,76.47,20.95
+2022-10-15,0018,Hastings Public Schools,176,70.4,17.6527
+2022-10-15,0090,Adams Central Public Schools,64,90.14,20
+2022-10-15,0123,Silver Lake Public Schools,11,68.75,18.381
+2022-10-15,0009,Neligh-Oakdale Schools,22,81.48,17.125
+2022-10-15,0115,Summerland Public Schools,21,84,20.1333
+2022-10-15,0001,Boone Central Schools,43,87.76,19.4038
+2022-10-15,0006,Alliance Public Schools,73,63.48,16.931
+2022-10-15,0010,Hemingford Public Schools,23,88.46,17.7273
+2022-10-15,0051,Boyd County Schools,18,64.29,19.8125
+2022-10-15,0010,Ainsworth Community Schools,21,53.85,18.6452
+2022-10-15,0002,Gibbon Public Schools,26,72.22,18
+2022-10-15,0007,Kearney Public Schools,263,70.89,19.2738
+2022-10-15,0009,Elm Creek Public Schools,20,68.97,16.6087
+2022-10-15,0019,Shelton Public Schools,11,64.71,19.8696
+2022-10-15,0069,Ravenna Public Schools,35,79.55,19.1154
+2022-10-15,0105,Pleasanton Public Schools,19,95,16.7692
+2022-10-15,0119,Amherst Public Schools,23,82.14,20.2759
+2022-10-15,0001,Tekamah-Herman Community Schs,21,70,16.8857
+2022-10-15,0014,Oakland Craig Public Schools,29,90.63,21.0294
+2022-10-15,0056,David City Public Schools,27,72.97,19.814
+2022-10-15,0502,East Butler Public Schools,16,57.14,18.6296
+2022-10-15,0001,Plattsmouth Community Schools,68,62.39,17.5361
+2022-10-15,0022,Weeping Water Public Schools,28,87.5,20.0714
+2022-10-15,0032,Louisville Public Schools,39,81.25,19.7143
+2022-10-15,0056,Conestoga Public Schools,31,63.27,20.3061
+2022-10-15,0097,Elmwood-Murdock Public Schools,22,88,19.6818
+2022-10-15,0008,Hartington Newcastle Public Schools,13,76.47,21.096800000000002
+2022-10-15,0045,Randolph Public Schools,15,75,20.5714
+2022-10-15,0054,Laurel-Concord-Coleridge School,22,75.86,21.5926
+2022-10-15,0101,Wynot Public Schools,12,80,17.2308
+2022-10-15,0010,Chase County Schools,30,88.24,19.7368
+2022-10-15,0536,Wauneta-Palisade Public Schs,11,68.75,15.1176
+2022-10-15,0006,Valentine Community Schools,37,92.5,18.9057
+2022-10-15,0001,Sidney Public Schools,58,63.04,17.8242
+2022-10-15,0009,Potter-Dix Public Schools,12,80,19.7368
+2022-10-15,0002,Sutton Public Schools,20,83.33,19.75
+2022-10-15,0011,Harvard Public Schools,11,45.83,18.4091
+2022-10-15,0039,Leigh Community Schools,11,91.67,21.8462
+2022-10-15,0058,Clarkson Public Schools,12,92.31,17.75
+2022-10-15,0070,Howells-Dodge Consolidated Schools,20,74.07,20.8889
+2022-10-15,0123,Schuyler Community Schools,85,64.89,16.6382
+2022-10-15,0001,West Point Public Schools,56,90.32,17.6508
+2022-10-15,0020,Bancroft-Rosalie Comm Schools,21,91.3,18.5161
+2022-10-15,0030,Wisner-Pilger Public Schools,28,82.35,19.1667
+2022-10-15,0015,Anselmo-Merna Public Schools,14,93.33,20.2857
+2022-10-15,0025,Broken Bow Public Schools,53,77.94,18.8387
+2022-10-15,0011,So Sioux City Community Schs,151,62.4,16.8285
+2022-10-15,0031,Homer Community Schools,23,76.67,17.6053
+2022-10-15,0002,Chadron Public Schools,43,69.35,19.7465
+2022-10-15,0001,Lexington Public Schools,158,68.4,16.3789
+2022-10-15,0004,Overton Public Schools,13,61.9,20.45
+2022-10-15,0011,Cozad Community Schools,36,63.16,17.6486
+2022-10-15,0020,Gothenburg Public Schools,43,66.15,19.1304
+2022-10-15,0095,South Platte Public Schools,10,66.67,18
+2022-10-15,0001,Ponca Public Schools,20,68.97,21.8077
+2022-10-15,0001,Fremont Public Schools,218,65.66,17.3646
+2022-10-15,0594,Logan View Public Schools,36,80,18.4583
+2022-10-15,0595,North Bend Central Public Schs,47,81.03,20.6042
+2022-10-15,0001,Omaha Public Schools,1719,57.7,15.4791
+2022-10-15,0010,Elkhorn Public Schools,553,85.47,23.2278
+2022-10-15,0015,Douglas Co West Community Schs,59,85.51,19.7121
+2022-10-15,0017,Millard Public Schools,1316,80.1,20.8314
+2022-10-15,0054,Ralston Public Schools,156,69.96,16.2972
+2022-10-15,0059,Bennington Public Schools,139,85.28,21.7522
+2022-10-15,0066,Westside Community Schools,350,78.3,19.286
+2022-10-15,0117,Dundy Co Stratton Public Schs,20,86.96,16.7368
+2022-10-15,0025,Fillmore Central Public Schs,33,80.49,18.1818
+2022-10-15,0506,Franklin Public Schools,19,73.08,18.5
+2022-10-15,0095,Eustis-Farnam Public Schools,11,84.62,22.4
+2022-10-15,0018,Arapahoe Public Schools,13,72.22,18.5
+2022-10-15,0021,Cambridge Public Schools,12,75,19.2609
+2022-10-15,0540,Southern Valley Schools,18,72,21
+2022-10-15,0001,Southern School District 1,17,73.91,18.2333
+2022-10-15,0015,Beatrice Public Schools,100,69.44,19
+2022-10-15,0034,Freeman Public Schools,28,77.78,20.6389
+2022-10-15,0100,Diller-Odell Public Schools,11,84.62,18.2727
+2022-10-15,0001,Garden County Schools,10,83.33,20.9524
+2022-10-15,0100,Burwell Public Schools,27,87.1,19.0769
+2022-10-15,0030,Elwood Public Schools,18,90,17.6923
+2022-10-15,0011,Hyannis Area Schools,10,90.91,21.5385
+2022-10-15,0060,Central Valley Public Schools,21,87.5,16.7143
+2022-10-15,0002,Grand Island Public Schools,377,57.91,16.1111
+2022-10-15,0082,Northwest Public Schools,145,75.13,18.7604
+2022-10-15,0083,Wood River Rural Schools,24,72.73,17.9091
+2022-10-15,0126,Doniphan-Trumbull Public Schs,21,84,19.8378
+2022-10-15,0091,Hampton Public School,14,87.5,18.1
+2022-10-15,0504,Aurora Public Schools,79,73.83,18.2277
+2022-10-15,0002,Alma Public Schools,13,56.52,18.4167
+2022-10-15,0070,Hitchcock Co Sch System,16,76.19,20.5
+2022-10-15,0007,O'neill Public Schools,41,74.55,18.3214
+2022-10-15,0239,West Holt Public Schools,27,96.43,18.6757
+2022-10-15,0001,St Paul Public Schools,41,77.36,19.125
+2022-10-15,0100,Centura Public Schools,25,75.76,18.4615
+2022-10-15,0008,Fairbury Public Schools,49,73.13,17.5313
+2022-10-15,0300,Tri County Public Schools,28,70,18.3077
+2022-10-15,0033,Sterling Public Schools,10,83.33,17.8421
+2022-10-15,0050,Johnson Co Central Public Schs,20,86.96,17.7576
+2022-10-15,0001,Wilcox-Hildreth Public Schools,17,85,19.5714
+2022-10-15,0501,Axtell Community Schools,17,80.95,20.7368
+2022-10-15,0503,Minden Public Schools,35,81.4,17.8485
+2022-10-15,0001,Ogallala Public Schools,45,67.16,18.3478
+2022-10-15,0001,Kimball Public Schools,16,57.14,17.4545
+2022-10-15,0013,Creighton Community Public Schools,20,90.91,19.5
+2022-10-15,0096,Crofton Community Schools,30,96.77,19.5862
+2022-10-15,0576,Wausa Public Schools,13,68.42,19
+2022-10-15,0586,Bloomfield Community Schools,14,93.33,20.1818
+2022-10-15,0001,Lincoln Public Schools,2010,76.37,19.2392
+2022-10-15,0145,Waverly School District 145,113,76.87,19.9045
+2022-10-15,0148,Malcolm Public Schools,44,84.62,20.6863
+2022-10-15,0160,Norris School Dist 160,139,85.8,19.253
+2022-10-15,0161,Raymond Central Public Schools,37,67.27,19.4
+2022-10-15,0001,North Platte Public Schools,203,64.65,16.9965
+2022-10-15,0006,Brady Public Schools,13,76.47,14.8571
+2022-10-15,0007,Maxwell Public Schools,16,76.19,16.25
+2022-10-15,0037,Hershey Public Schools,24,72.73,18.925
+2022-10-15,0055,Sutherland Public Schools,15,83.33,18.4516
+2022-10-15,0501,Stapleton Public Schools,14,82.35,20.1765
+2022-10-15,0001,Madison Public Schools,30,61.22,16.2432
+2022-10-15,0002,Norfolk Public Schools,239,71.99,19.1903
+2022-10-15,0005,Battle Creek Public Schools,34,91.89,20.1667
+2022-10-15,0080,Elkhorn Valley Schools,14,66.67,19.9048
+2022-10-15,0004,Central City Public Schools,39,69.64,19.434
+2022-10-15,0049,Palmer Public Schools,16,64,19.0714
+2022-10-15,0021,Bayard Public Schools,23,74.19,17.5517
+2022-10-15,0063,Bridgeport Public Schools,25,75.76,18.0882
+2022-10-15,0001,Fullerton Public Schools,24,80,20
+2022-10-15,0030,Twin River Public Schools,24,85.71,17.8333
+2022-10-15,0023,Johnson-Brock Public Schools,14,77.78,22.2778
+2022-10-15,0029,Auburn Public Schools,37,68.52,20.2424
+2022-10-15,0011,Superior Public Schools,20,83.33,17.5641
+2022-10-15,2005,South Central Nebraska Unified 5,42,93.33,17.4222
+2022-10-15,0027,Syracuse-Dunbar-Avoca Schools,41,85.42,20.537
+2022-10-15,0111,Nebraska City Public Schools,55,63.95,17.4706
+2022-10-15,0501,Palmyra District O R 1,19,57.58,20.6
+2022-10-15,0020,Perkins County Schools,17,73.91,21.15
+2022-10-15,0044,Holdrege Public Schools,41,56.94,18.8462
+2022-10-15,0055,Loomis Public Schools,13,81.25,17.6667
+2022-10-15,0002,Pierce Public Schools,43,84.31,21.35
+2022-10-15,0005,Plainview Public Schools,14,77.78,21.36
+2022-10-15,0542,Osmond Community Schools,16,80,20.9
+2022-10-15,0001,Columbus Public Schools,203,67.44,18.471
+2022-10-15,0005,Lakeview Community Schools,50,69.44,19.4054
+2022-10-15,0067,Humphrey Public Schools,13,92.86,18.4545
+2022-10-15,0015,Cross County Community Schools,24,88.89,18.56
+2022-10-15,0019,Osceola Public Schools,16,94.12,19.3077
+2022-10-15,0032,Shelby - Rising City Public Schools,21,70,18.7241
+2022-10-15,0075,High Plains Community Schools,12,66.67,18.4211
+2022-10-15,0017,Mc Cook Public Schools,96,82.05,19.839
+2022-10-15,0179,Southwest Public Schools,15,71.43,17.5769
+2022-10-15,0056,Falls City Public Schools,37,63.79,17.3276
+2022-10-15,0070,Humboldt Table Rock Steinauer,20,66.67,19.125
+2022-10-15,0100,Rock County Public Schools,16,88.89,19.75
+2022-10-15,0002,Crete Public Schools,87,64.93,17.4641
+2022-10-15,0082,Wilber-Clatonia Public Schools,36,90,17.2813
+2022-10-15,0001,Bellevue Public Schools,480,65.84,19.1728
+2022-10-15,0027,Papillion La Vista Community Schools,680,76.4,20.0381
+2022-10-15,0037,Gretna Public Schools,312,90.17,21.1304
+2022-10-15,0046,Springfield Platteview Community Schools,75,80.65,19.7253
+2022-10-15,0001,Ashland-Greenwood Public Schs,63,82.89,19.3333
+2022-10-15,0009,Yutan Public Schools,16,64,19.1842
+2022-10-15,0039,Wahoo Public Schools,61,83.56,20.3059
+2022-10-15,0072,Mead Public Schools,19,95,21
+2022-10-15,0107,Cedar Bluffs Public Schools,16,72.73,16.9412
+2022-10-15,0011,Morrill Public Schools,19,63.33,16.5217
+2022-10-15,0016,Gering Public Schools,86,71.67,16.9041
+2022-10-15,0031,Mitchell Public Schools,41,80.39,17.95
+2022-10-15,0032,Scottsbluff Public Schools,151,68.33,17.1396
+2022-10-15,0005,Milford Public Schools,49,92.45,18.8511
+2022-10-15,0009,Seward Public Schools,101,84.17,20.6378
+2022-10-15,0567,Centennial Public Schools,28,82.35,17.6563
+2022-10-15,0003,Hay Springs Public Schools,12,80,19.2667
+2022-10-15,0010,Gordon-Rushville Public Schs,22,61.11,19.8571
+2022-10-15,0001,Loup City Public Schools,17,73.91,18.2941
+2022-10-15,0003,Stanton Community Schools,25,89.29,16.1818
+2022-10-15,0060,Deshler Public Schools,19,95,17.7391
+2022-10-15,0070,Thayer Central Community Schs,25,92.59,20.2308
+2022-10-15,2001,Bruning-Davenport Unified Sys,12,85.71,18.7222
+2022-10-15,0001,Pender Public Schools,18,90,21.4865
+2022-10-15,0016,Umo N Ho N Nation Public Schs,11,40.74,13.9231
+2022-10-15,0017,Winnebago Public Schools District 17,25,56.82,14.2708
+2022-10-15,0005,Ord Public Schools,39,76.47,18.5556
+2022-10-15,0001,Blair Community Schools,113,76.35,19.5949
+2022-10-15,0003,Fort Calhoun Community Schs,47,87.04,19.8125
+2022-10-15,0024,Arlington Public Schools,36,80,20.2037
+2022-10-15,0017,Wayne Community Schools,51,78.46,20.8082
+2022-10-15,0560,Wakefield Public Schools,36,78.26,19
+2022-10-15,0002,Red Cloud Community Schools,12,75,18.4545
+2022-10-15,0074,Blue Hill Community Schools,20,80,19.55
+2022-10-15,0012,York Public Schools,92,82.88,19.2054
+2022-10-15,0083,Mc Cool Junction Public Schs,19,73.08,18.55
+2022-10-15,0096,Heartland Community Schools,18,81.82,19.5185
