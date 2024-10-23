@@ -2,12 +2,11 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/the-nineties-flyers-were-the-greatest/index.html",
+      "/posts/a-simple-example-ai-agents-doing-journalism/index.html",
       "/posts/another-year-another-attempt-another-bracket-disaster/index.html",
       "/posts/nebraska-is-the-third-best-worst-basketball-team/index.html",
       "/posts/is-nebraska-the-best-worst-basketball-team/index.html",
-      "/posts/ncaa-bracket-with-machine-learning-2021/index.html",
-      "/posts/trying-new-table-libraries/index.html"
+      "/posts/ncaa-bracket-with-machine-learning-2021/index.html"
     ]
   }
 ]
