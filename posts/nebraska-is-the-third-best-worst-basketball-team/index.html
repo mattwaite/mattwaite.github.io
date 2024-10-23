@@ -122,10 +122,18 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Matt Waite’s Collection of Miscellany - Nebraska is not the best worst team in basketball again. They’re third best worst.">
+<meta property="og:description" content="A blog about random fiddling with code and data.">
+<meta property="og:image" content="https://mattwaite.github.io/posts/nebraska-is-the-third-best-worst-basketball-team/image.png">
+<meta property="og:site_name" content="Matt Waite's Collection of Miscellany">
+<meta property="og:image:height" content="1142">
+<meta property="og:image:width" content="1144">
 <meta name="twitter:title" content="Matt Waite’s Collection of Miscellany - Nebraska is not the best worst team in basketball again. They’re third best worst.">
 <meta name="twitter:description" content="A blog about random fiddling with code and data.">
-<meta name="twitter:image" content="image.png">
+<meta name="twitter:image" content="https://mattwaite.github.io/posts/nebraska-is-the-third-best-worst-basketball-team/image.png">
 <meta name="twitter:creator" content="@mattwaite">
+<meta name="twitter:image-height" content="1142">
+<meta name="twitter:image-width" content="1144">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -1119,7 +1127,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/mattwaite\.github\.io");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

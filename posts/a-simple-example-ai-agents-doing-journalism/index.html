@@ -122,10 +122,18 @@ ga('send', {
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Matt Waite’s Collection of Miscellany - A simple example of AI agents(?) doing journalism(?) work">
+<meta property="og:description" content="A blog about random fiddling with code and data.">
+<meta property="og:image" content="https://mattwaite.github.io/posts/a-simple-example-ai-agents-doing-journalism/image.png">
+<meta property="og:site_name" content="Matt Waite's Collection of Miscellany">
+<meta property="og:image:height" content="505">
+<meta property="og:image:width" content="620">
 <meta name="twitter:title" content="Matt Waite’s Collection of Miscellany - A simple example of AI agents(?) doing journalism(?) work">
 <meta name="twitter:description" content="A blog about random fiddling with code and data.">
-<meta name="twitter:image" content="image.png">
+<meta name="twitter:image" content="https://mattwaite.github.io/posts/a-simple-example-ai-agents-doing-journalism/image.png">
 <meta name="twitter:creator" content="@mattwaite">
+<meta name="twitter:image-height" content="505">
+<meta name="twitter:image-width" content="620">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -217,9 +225,9 @@ ga('send', {
 <ul>
 <li>I’m at best an enthusiastic amateur with AI. I know more than most, and I know nothing in the grand scheme.</li>
 <li>Example: I’m not sure I have any idea of what an AI agent is. I think I do, but there’s so much marketing hype around them that I can’t know for sure. <a href="https://x.com/simonw/status/1848360857815949551">People much, much, much smarter than I am aren’t sure either.</a></li>
-<li>I teeter on the edge of seeing AI as a fascinating, remarkable alien intelligence (to borrow Ethan Mollick’s description) that we have yet to fully understand and AI is the mother of all solutions in search of a problem when it comes to journalism. All the so-called big problems AI solves in journalism – more content to sell ads against! – nobody wants.</li>
+<li>I teeter on the edge of two extremes. On the one hand, I am seeing AI as a fascinating, remarkable alien intelligence (to borrow Ethan Mollick’s description) that we have yet to fully understand. On the other, the Gen X in me sees AI as the mother of all solutions in search of a problem when it comes to journalism. All the so-called big problems AI “solves” in journalism – more content to sell ads against! – nobody wants.</li>
 </ul>
-<p>Something I’ve been coming around to, though, is maybe there isn’t a Manhattan Project level world changing use case for AI. Maybe <a href="https://x.com/chrisalbon/status/1814676689580139007">Chris Albon has the right of it</a>, that the real value is AI saving a human an hour of work … millions of times a day.</p>
+<p>Something I’ve been coming around to, though, is maybe there isn’t a Manhattan Project level world changing use case for AI in journalism. Maybe <a href="https://x.com/chrisalbon/status/1814676689580139007">Chris Albon has the right of it</a>, that the real value is AI saving a human an hour of work … millions of times a day.</p>
 <p>For months I’ve been trying to think of some moon-shot idea to use AI to do … something, anything … big. And every thing I came up with would be terrible, destructive, or flat-out-insane to deploy without massive human investment, and then what would the point be.</p>
 <p>And then, randomly, one day a confluence of ideas popped into my head and what fell out is an example of AI agents(?) doing the work of journalism(?) that actually works.</p>
 <p>The ideas that collided in my brain were:</p>
@@ -236,9 +244,7 @@ ga('send', {
 <p>An extremely common thing to do with this data is to make a map. Here’s the 2022-2023 change map in Datawrapper for Nebraska.</p>
 <iframe title="Nebraska population changes uneven in latest estimates" aria-label="Map" id="datawrapper-chart-Kpgli" src="https://datawrapper.dwcdn.net/Kpgli/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="450" data-external="1">
 </iframe>
-<script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
-</script>
-<p>If you click on a county, you’ll get a pop up box that gives you the county name and then the data. Population in 2023, population in 2022 and the perecent change. It’s been done a million times before. It does the job.</p>
+<p>If you click on a county, you’ll get a pop up box that gives you the county name and then the data. Population in 2023, population in 2022 and the percent change. It’s been done a million times before. It does the job.</p>
 <p>But what if we could make it better? What if we had small narrative summaries for each county? An a headline for each one? Can I assign a human to do this? 100 percent I can. I have an army of undergrads and a gradebook to hold over them. I assure you, if I was cruel enough, we could do this for all 3,400 counties in the US.</p>
 <p>But why do that when we can have AI do this in minutes instead of making humans miserable for hours?</p>
 </section>
@@ -257,7 +263,7 @@ ga('send', {
 </div>
 <p>What do you get back?</p>
 <blockquote class="blockquote">
-<p>Red and white, we cheer, Hope springs eternal, then fades, Another close loss.</p>
+<p>Red and white, we cheer, <br> Hope springs eternal, then fades, <br> Another close loss.</p>
 </blockquote>
 <p>Ouch.</p>
 <p>But that’s really it. Just <code>gemini("Words here")</code> and off it goes to an AI and back comes the results in plain text. So the first hard part is turning data into a text block we can send to Gemini. So I pull a dataset of Nebraska county population estimates, I’m going to thin the number of columns I’m working with first, then create the percent change column, create a GEOID column made up of the state and county FIPS number so I can join it to my map later, rank the counties by population change and then mash it all together into a single text blob called the <code>base_narrative</code>. It’s literally just Column Name: Number, Column Name: Number repeated over and over.</p>
@@ -273,9 +279,14 @@ ga('send', {
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">base_narrative =</span> <span class="fu">glue</span>(</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"County: {CTYNAME}, Population in 2023: {POPESTIMATE2023}, Population in 2022: {POPESTIMATE2022}, Population change: {NPOPCHG2023}, Percent change: {POPPERCENTCHANGE}, Percent change rank in {STNAME}: {PCTCHANGERANK}, Natural change (births vs deaths): {NATURALCHG2023}, Net migration: {NETMIG2023}"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>What does a <code>base_narrative</code> look like?</p>
+<blockquote class="blockquote">
+<p>County: Banner County, Population in 2023: 674, Population in 2022: 657, Population change: 17, Percent change: 2.58751902587519, Percent change rank in Nebraska: 1, Natural change (births vs deaths): 0, Net migration: 17</p>
+</blockquote>
+<p>A real exciting read, no?</p>
 <p>Now we need to make an agent. It helped me to think of journalism as an assembly line. We have data as raw materials, and now we need to assign a worker to a process to convert raw material into something new. In any news process, the first worker is the journalist creating the thing. A reporter going to city hall. A photographer going to a breaking news event. So it makes sense that our first agent is the author of the narratives for each county.</p>
 <p>Like any good LLM prompt, we’re going to start by giving our author agent a role – a job to do. Our agent is a demographics journalist from Nebraska. We give that agent a task with some details – keep it short but approachable. And then we give it the data.</p>
-<p>Below the role is a function that takes in a county name, finds the <code>base_narrative</code> for that county and then we merge together the <code>author_role</code> and the <code>base_narrative</code> when we send it to Gemini. We store the results in a variable called … <code>results</code> and do a little cleanup on it (Gemini likes to cram newline characters in the results). I’ve added a five second sleep between every county to keep from running afoul of Google’s free tier API limits. Theoretically I should be able to set it to 4 seconds, but I don’t need my account banned over a second. With those pauses, our author takes about 8 minutes to write small narratives about each of the 93 counties.</p>
+<p>Below the role is a function that takes in a county name, finds the <code>base_narrative</code> for that county and then we merge together the <code>author_role</code> and the <code>base_narrative</code> when we send it to Gemini. We store the results in a variable called … <code>results</code> and do a little cleanup on it (Gemini likes to cram newline characters in the results). I’ve added a five second sleep between every county to keep from running afoul of Google’s free tier API limits. Theoretically I should be able to set it to four seconds, but I don’t need my account banned over a second. With those pauses, our author takes about eight minutes to write small narratives about each of the 93 counties.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>author_role <span class="ot">&lt;-</span> <span class="st">"You are a demographics journalist from Nebraska. Your job today is to write short -- 2-3 sentence -- summaries of population estimates from the Census Bureau for each county in the state. I will provide you the name of the county and a series of population numbers for the county. Your job is to turn it into a concise but approachable summary of what happened in that county. Here is the data you have to work with: "</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -294,6 +305,14 @@ ga('send', {
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>author_agent_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_df</span>(statenarrative<span class="sc">$</span>CTYNAME, author_agent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When it’s done, we end up with a dataframe called <code>author_agent_results</code> which has the county name and the new narrative.</p>
+<p>What does it look like? Remember, we gave it this:</p>
+<blockquote class="blockquote">
+<p>County: Banner County, Population in 2023: 674, Population in 2022: 657, Population change: 17, Percent change: 2.58751902587519, Percent change rank in Nebraska: 1, Natural change (births vs deaths): 0, Net migration: 17</p>
+</blockquote>
+<p>And we got back:</p>
+<blockquote class="blockquote">
+<p>Banner County saw a significant population increase in 2023, growing by 17 people for a 2.6% jump, the highest rate of growth in the state. This growth was entirely due to an influx of new residents, as the county experienced no natural population change.</p>
+</blockquote>
 <p>We could stop here, but why do that? Good journalism is often a layered process involving multiple sets of eyes reviewing the work along the way, and other skilled people adding to the product. So who would normally get this next? How about we fact check the work?</p>
 <p>Exact same pattern, just a different role for the AI.</p>
 <div class="cell">
@@ -336,6 +355,11 @@ ga('send', {
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Use map_df to directly create the final dataframe</span></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>rewrite_agent_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_df</span>(fact_check_agent_results<span class="sc">$</span>county, rewrite_agent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>What did it give us for Banner County?</p>
+<blockquote class="blockquote">
+<p>Banner County saw a significant population increase in 2023, growing by 17 people for a 2.6% jump, the highest rate of growth in the state. This growth was entirely due to an influx of new residents, as the county experienced no natural population change, likely due to its location in the sparsely populated northwestern corner of the state.</p>
+</blockquote>
+<p>Hmmm. Is the fact that there were the same number of births and deaths caused by it’s location in the northwest corner of the state? Debatable. And, honestly, this re-write bot has been the source of the most questions I have about this whole enterprise. We’ll talk more about that below.</p>
 <p>One last thing: Why not give every county a headline instead of just simply having the county name in the map? Done and done.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>headline_writer_role <span class="ot">&lt;-</span> <span class="st">"You are a headline writer. Your job is to write a short headline based on the summary given to you. This headline should be short -- it has to fit into a small space -- so bear that in mind. Here is the capsule: "</span></span>
@@ -354,18 +378,20 @@ ga('send', {
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Use map_df to directly create the final dataframe</span></span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>headline_agent_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_df</span>(rewrite_agent_results<span class="sc">$</span>county, headline_agent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>And what does that look like in Banner County?</p>
+<blockquote class="blockquote">
+<p>Banner County Booms: 2.6% Growth Fueled by New Residents</p>
+</blockquote>
 <p>Here is the exact same map, same data, but now with headlines and narratives written for each county. Click on one and you’ll get a human-friendly narrative about that county, and the numbers below that if you want them.</p>
 <iframe title="Nebraska population changes uneven in latest estimates" aria-label="Map" id="datawrapper-chart-xmfm5" src="https://datawrapper.dwcdn.net/xmfm5/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="484" data-external="1">
 </iframe>
-<script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
-</script>
-<p>Is Christopher Nolan going to make a movie about this? Not hardly. Have I “Saved Journalism”? Nope. Not even close. Did I save a human a few minutes of drudgery 93 + 93 + 93 + 93 times? Yes. Yes I did. Is this idea extensible and repeatable? It sure is. I think that’s good enough for now.</p>
+<p>Is Christopher Nolan going to make a movie about this moment? Not hardly. Have I “Saved Journalism”? Nope. Not even close. Did I save a human a few minutes of drudgery 93 + 93 + 93 + 93 times? Yes. Yes I did. Is this idea extensible and repeatable? It sure is. I think that’s good enough for now.</p>
 </section>
 <section id="where-to-go-from-here" class="level3">
 <h3 class="anchored" data-anchor-id="where-to-go-from-here">Where to go from here</h3>
 <p>From here, what this needs is a block of code that pushes the results of the headline editor agent to Google Sheets, where a human can go through each one and make sure everything is fine. I’ve tried to do that in R Studio, which is not great, and limits the number of people who could do this. And to be sure, it needs to be done. Nebrasaka geography nerds – there are tens of us! – will able to find Arthur County, one of the smallest counties in the US by population. For those who can’t, the rewrite bot describes Arthur as “located in the northwestern corner of the state and home to the county seat of Arthur.” Half of that is objectively true. Arthur is much more arguably in the west-central part of the state, but it really depends on where you draw the lines. It’s arguable enough that a good local editor would drop that part and leave the county seat part, which is correct. Arthur County’s county seat is … <a href="https://maps.app.goo.gl/yw9uLz9xNXhuiWBw6">Arthur</a>.</p>
 <p>Then, as a last step, I would automate the process of creating the Datawrapper chart with the DatawRapper library, which accesses the service’s API. Imagine the Census Bureau publishing the data, and then in a matter of minutes you have that map done and online. To do that, you’d have to have a little budget for API calls so you aren’t waiting 32 minutes for the whole thing to run – 8 + 8 + 8 + 8 minutes for each step. But even then, is there really a competitive contest over who can publish Census maps in Nebraska fast enough? No.&nbsp;</p>
-<p>But if you, like me, are thinking about how we’re going to incorporate AI into journalism in ways that make sense, don’t risk the reputation of the organization you work for and don’t horrify your audience to a point that they turn away from you for feeding them AI dreck they don’t want or care about, this is an example of just how to do that.</p>
+<p>But if you, like me, are thinking about how we’re going to incorporate AI into journalism in ways that make sense; doesn’t risk the reputation of the organization you work for; and likely doesn’t horrify your audience to a point that they turn away from you for feeding them AI slop, this is an example of just how to do that.</p>
 <p>Aim small, miss small.</p>
 
 
@@ -597,7 +623,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/mattwaite\.github\.io");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
