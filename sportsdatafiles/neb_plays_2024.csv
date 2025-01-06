@@ -1,0 +1,1148 @@
+year,week,game_play_number,pos_team,def_pos_team,play_type,yards_gained,EPA
+2024,1,1,Nebraska,UTEP,Kickoff Return (Offense),19,0.28549072588747004
+2024,1,2,Nebraska,UTEP,Rush,6,0.33747064632302837
+2024,1,3,Nebraska,UTEP,Pass Reception,2,-0.3803933088716105
+2024,1,4,Nebraska,UTEP,Rush,2,0.970435331418305
+2024,1,5,Nebraska,UTEP,Rush,5,0.07318081551428968
+2024,1,6,Nebraska,UTEP,Pass Reception,10,1.091030520090003
+2024,1,7,Nebraska,UTEP,Pass Reception,7,0.43269940092828074
+2024,1,8,Nebraska,UTEP,Pass Incompletion,0,-0.9395879394960232
+2024,1,9,Nebraska,UTEP,Rush,5,1.2272901165641494
+2024,1,10,Nebraska,UTEP,Pass Incompletion,0,-0.6736466277456312
+2024,1,10,Nebraska,UTEP,Penalty,-5,-0.3086187481869027
+2024,1,10,Nebraska,UTEP,Penalty,-15,-0.858428840310667
+2024,1,11,Nebraska,UTEP,Pass Reception,19,1.1349116517183668
+2024,1,12,Nebraska,UTEP,Pass Reception,16,2.4168592684365686
+2024,1,12,Nebraska,UTEP,Penalty,10,-0.5218179683593416
+2024,1,13,Nebraska,UTEP,Rushing Touchdown,5,1.2804141761320462
+2024,1,19,Nebraska,UTEP,Rush,12,0.9582132693917884
+2024,1,20,Nebraska,UTEP,Rush,4,-0.1448141431014367
+2024,1,21,Nebraska,UTEP,Rush,10,1.0593569471233644
+2024,1,22,Nebraska,UTEP,Rush,6,0.16980961784885595
+2024,1,23,Nebraska,UTEP,Rush,2,-0.3594763880453522
+2024,1,24,Nebraska,UTEP,Pass Reception,-3,-2.558017775994519
+2024,1,24,Nebraska,UTEP,Timeout,0,0.0025784555381289653
+2024,1,25,Nebraska,UTEP,Pass Reception,0,-2.8258028877965033
+2024,1,29,Nebraska,UTEP,Kickoff Return (Offense),35,0.8614242190578345
+2024,1,30,Nebraska,UTEP,Pass Incompletion,0,-0.8696549043350852
+2024,1,31,Nebraska,UTEP,Rush,5,-0.13981383998525732
+2024,1,32,Nebraska,UTEP,Pass Incompletion,0,-1.787614227161485
+2024,1,33,Nebraska,UTEP,Punt,0,0.3105910277598109
+2024,1,37,Nebraska,UTEP,Rush,3,-0.32029278494060565
+2024,1,38,Nebraska,UTEP,Rush,3,-0.4190221473467375
+2024,1,39,Nebraska,UTEP,Rush,2,-1.4596653121452396
+2024,1,39,Nebraska,UTEP,Penalty,5,2.9111587290995646
+2024,1,40,Nebraska,UTEP,Rush,5,-0.035318981495054746
+2024,1,41,Nebraska,UTEP,Pass Reception,14,0.7947680093337359
+2024,1,42,Nebraska,UTEP,Rush,3,-0.31209003511526934
+2024,1,43,Nebraska,UTEP,Fumble Recovery (Opponent),12,-3.8236073225998255
+2024,1,46,Nebraska,UTEP,Kickoff Return (Offense),21,1.1848277506699816
+2024,1,47,Nebraska,UTEP,Pass Incompletion,0,-0.7499106952743808
+2024,1,48,Nebraska,UTEP,Passing Touchdown,59,5.233681317873077
+2024,1,54,Nebraska,UTEP,Pass Incompletion,0,-0.7131687736704246
+2024,1,55,Nebraska,UTEP,Rush,7,0.2900958364374926
+2024,1,56,Nebraska,UTEP,Rush,4,1.0037798425741982
+2024,1,57,Nebraska,UTEP,Rush,0,-0.707696238429496
+2024,1,58,Nebraska,UTEP,Pass Reception,5,-0.219244455528961
+2024,1,59,Nebraska,UTEP,Rush,42,3.5367201891389035
+2024,1,59,Nebraska,UTEP,Timeout,0,-0.012898394453122464
+2024,1,60,Nebraska,UTEP,Pass Reception,2,-0.1315696442255465
+2024,1,61,Nebraska,UTEP,Rushing Touchdown,3,1.4792131810535292
+2024,1,70,Nebraska,UTEP,Sack,-6,-0.6369188465918036
+2024,1,71,Nebraska,UTEP,Rush,4,-0.21453110394660613
+2024,1,71,Nebraska,UTEP,Timeout,0,-0.023161505649005765
+2024,1,72,Nebraska,UTEP,Pass Reception,15,1.0670363720272
+2024,1,73,Nebraska,UTEP,Pass Incompletion,0,-0.36230012468517137
+2024,1,74,Nebraska,UTEP,Pass Reception,8,0.19971950863152887
+2024,1,75,Nebraska,UTEP,Rush,3,0.3937343804416473
+2024,1,76,Nebraska,UTEP,Pass Reception,14,0.49321132654946087
+2024,1,77,Nebraska,UTEP,Pass Incompletion,0,-0.36507047309719987
+2024,1,78,Nebraska,UTEP,Passing Touchdown,21,4.734410580606731
+2024,1,79,Nebraska,UTEP,End of Half,0,NA
+2024,1,90,Nebraska,UTEP,Pass Incompletion,0,-0.828028427733992
+2024,1,91,Nebraska,UTEP,Rush,6,0.15651275087510452
+2024,1,92,Nebraska,UTEP,Pass Reception,14,2.0098838663941536
+2024,1,93,Nebraska,UTEP,Rush,13,0.6088630726505291
+2024,1,94,Nebraska,UTEP,Pass Reception,13,0.42728673493267255
+2024,1,95,Nebraska,UTEP,Pass Reception,14,0.3111374303255543
+2024,1,96,Nebraska,UTEP,Rush,4,-0.21230578625749175
+2024,1,97,Nebraska,UTEP,Rush,2,-0.5862085781040038
+2024,1,98,Nebraska,UTEP,Pass Reception,5,2.0980704438791564
+2024,1,99,Nebraska,UTEP,Rush,0,-0.5072854843362364
+2024,1,99,Nebraska,UTEP,Penalty,1,0.5131142259953405
+2024,1,100,Nebraska,UTEP,Rushing Touchdown,1,0.2565423255661594
+2024,1,110,Nebraska,UTEP,Pass Reception,5,0.0967755219376012
+2024,1,111,Nebraska,UTEP,Pass Reception,2,-0.4041929587556805
+2024,1,112,Nebraska,UTEP,Rush,3,1.122821550432006
+2024,1,113,Nebraska,UTEP,Rush,2,-0.472678616575553
+2024,1,114,Nebraska,UTEP,Pass Reception,12,1.410320959033725
+2024,1,115,Nebraska,UTEP,Rush,5,0.028415639400337422
+2024,1,115,Nebraska,UTEP,End Period,0,NA
+2024,1,116,Nebraska,UTEP,Rush,11,0.7638195723418479
+2024,1,117,Nebraska,UTEP,Pass Reception,4,-0.13401328814595015
+2024,1,118,Nebraska,UTEP,Rush,3,-0.27983730987395816
+2024,1,119,Nebraska,UTEP,Rush,5,0.8085928809703047
+2024,1,120,Nebraska,UTEP,Pass Reception,12,0.3221635109741472
+2024,1,121,Nebraska,UTEP,Rush,8,0.23360095149921278
+2024,1,121,Nebraska,UTEP,Penalty,11,-0.6387191547713993
+2024,1,121,Nebraska,UTEP,Timeout,0,-6.665286665539227e-4
+2024,1,121,Nebraska,UTEP,Penalty,-15,-0.6825887589905575
+2024,1,122,Nebraska,UTEP,Rush,5,0.10803474959618509
+2024,1,122,Nebraska,UTEP,Penalty,14,0.37700537371437015
+2024,1,123,Nebraska,UTEP,Rush,1,-0.14920535162815796
+2024,1,124,Nebraska,UTEP,Rush,0,-0.42308679195388166
+2024,1,124,Nebraska,UTEP,Timeout,0,-0.00202858822919616
+2024,1,125,Nebraska,UTEP,Rush,1,0.7748691596468849
+2024,1,126,Nebraska,UTEP,Field Goal Good,20,0.08862010750077776
+2024,1,135,Nebraska,UTEP,Pass Reception,11,0.3717788174971659
+2024,1,136,Nebraska,UTEP,Rush,0,-0.5068540420830208
+2024,1,137,Nebraska,UTEP,Pass Incompletion,0,-0.6936900565852779
+2024,1,138,Nebraska,UTEP,Pass Incompletion,0,-1.229441169543173
+2024,1,139,Nebraska,UTEP,Rush,2,-1.5708495284887314
+2024,1,144,Nebraska,UTEP,Rush,5,-0.09563302246168925
+2024,1,145,Nebraska,UTEP,Rush,2,-0.38681810855064747
+2024,1,146,Nebraska,UTEP,Rush,1,-0.48282669398977895
+2024,1,146,Nebraska,UTEP,Timeout,0,-0.02911055064779755
+2024,1,147,Nebraska,UTEP,Punt,29,-1.495997669338022
+2024,1,1,Nebraska,Boston College,Kickoff,23,0.2902443345649032
+2024,1,2,Nebraska,Boston College,Rush,3,-0.3677476841563452
+2024,1,3,Nebraska,Boston College,Pass Reception,29,2.8498031422971812
+2024,1,4,Nebraska,Boston College,Rush,0,-0.7029439144292815
+2024,1,5,Nebraska,Boston College,Pass Reception,14,1.4152530930371037
+2024,1,6,Nebraska,Boston College,Interception Return,0,-3.549843554086565
+2024,1,18,Nebraska,Boston College,Rush,2,-0.559856405163253
+2024,1,19,Nebraska,Boston College,Pass Reception,9,1.5435388242014456
+2024,1,20,Nebraska,Boston College,Pass Incompletion,0,-0.8678469947397047
+2024,1,21,Nebraska,Boston College,Pass Reception,12,1.799810099933895
+2024,1,22,Nebraska,Boston College,Rush,6,0.234226221076967
+2024,1,23,Nebraska,Boston College,Pass Incompletion,0,-0.9768476638013075
+2024,1,24,Nebraska,Boston College,Rush,5,1.4514418131107316
+2024,1,25,Nebraska,Boston College,Rush,0,-0.696904184463901
+2024,1,26,Nebraska,Boston College,Pass Reception,14,1.3767278324123602
+2024,1,27,Nebraska,Boston College,Rush,2,-0.3961002136242593
+2024,1,28,Nebraska,Boston College,Pass Reception,8,0.7513429319231699
+2024,1,29,Nebraska,Boston College,Pass Reception,6,0.004926079053929833
+2024,1,30,Nebraska,Boston College,Pass Reception,2,-0.4779411347462217
+2024,1,31,Nebraska,Boston College,Rush,5,1.6815847017232262
+2024,1,31,Nebraska,Boston College,End Period,5,NA
+2024,1,32,Nebraska,Boston College,Rushing Touchdown,4,1.0316379059989966
+2024,1,45,Nebraska,Boston College,Fumble Recovery (Opponent),7,-5.113782325983385
+2024,1,50,Nebraska,Boston College,Pass Reception,13,0.7209067694959499
+2024,1,51,Nebraska,Boston College,Pass Reception,7,0.3581578205213627
+2024,1,52,Nebraska,Boston College,Pass Incompletion,0,-0.7647426854447903
+2024,1,53,Nebraska,Boston College,Pass Incompletion,0,-1.3806271788452138
+2024,1,53,Nebraska,Boston College,Penalty,5,2.2747918545383032
+2024,1,54,Nebraska,Boston College,Pass Reception,18,0.8010329953750821
+2024,1,55,Nebraska,Boston College,Rush,22,2.3790130616278655
+2024,1,56,Nebraska,Boston College,Rushing Touchdown,2,0.8153451075601206
+2024,1,70,Nebraska,Boston College,Rush,-1,-0
+2024,1,70,Nebraska,Boston College,End of Half,-1,NA
+2024,1,76,Nebraska,Boston College,Rush,7,0.5094267023032963
+2024,1,76,Nebraska,Boston College,Penalty,-15,-1.9704109800473304
+2024,1,77,Nebraska,Boston College,Pass Reception,3,-0.7068820882297392
+2024,1,78,Nebraska,Boston College,Pass Reception,10,-0.20983919233958231
+2024,1,79,Nebraska,Boston College,Pass Reception,8,3.7201372073195453
+2024,1,80,Nebraska,Boston College,Rush,4,-0.1374697784888661
+2024,1,81,Nebraska,Boston College,Rush,34,1.5737374483159727
+2024,1,82,Nebraska,Boston College,Rush,4,0.09008756040756438
+2024,1,83,Nebraska,Boston College,Pass Incompletion,0,-0.737432117082113
+2024,1,84,Nebraska,Boston College,Pass Incompletion,0,-1.327005139379644
+2024,1,85,Nebraska,Boston College,Rush,-2,-1.8257409684620955
+2024,1,91,Nebraska,Boston College,Rush,1,-0.564088850980839
+2024,1,92,Nebraska,Boston College,Pass Reception,9,1.1019398300341843
+2024,1,93,Nebraska,Boston College,Pass Reception,20,0.7343970155369242
+2024,1,94,Nebraska,Boston College,Pass Incompletion,0,-0.5042164389031418
+2024,1,95,Nebraska,Boston College,Pass Reception,5,-0.3661780191272035
+2024,1,96,Nebraska,Boston College,Pass Reception,2,-1.3140610971630386
+2024,1,96,Nebraska,Boston College,Timeout,0,2.906453545929999e-4
+2024,1,97,Nebraska,Boston College,Passing Touchdown,13,4.291312956501211
+2024,1,112,Nebraska,Boston College,Rush,-1,-0.9235911145464819
+2024,1,113,Nebraska,Boston College,Pass Reception,7,0.3936808514858273
+2024,1,114,Nebraska,Boston College,Pass Reception,8,1.6415192734046338
+2024,1,115,Nebraska,Boston College,Rush,4,-0.12561483263359374
+2024,1,116,Nebraska,Boston College,Rush,0,-0.8786079173132745
+2024,1,117,Nebraska,Boston College,Sack,-3,-1.3263777512229193
+2024,1,118,Nebraska,Boston College,Punt,0,-0.2398594147295119
+2024,1,127,Nebraska,Boston College,Kickoff,0,-0.03347420518137034
+2024,1,128,Nebraska,Boston College,Rush,5,-0.038800297669421724
+2024,1,129,Nebraska,Boston College,Rush,1,-0.5336977811851198
+2024,1,130,Nebraska,Boston College,Pass Reception,0,-0.9221984953139357
+2024,1,130,Nebraska,Boston College,Timeout,0,0.002881843389821789
+2024,1,131,Nebraska,Boston College,Blocked Punt,17,-4.325935531428194
+2024,1,133,Nebraska,Boston College,Kickoff,17,-0.2557914149916706
+2024,1,134,Nebraska,Boston College,Pass Reception,15,0.7381203008141587
+2024,1,135,Nebraska,Boston College,Rush,20,0.9933689767952083
+2024,1,135,Nebraska,Boston College,Timeout,0,-0.8762846858551909
+2024,1,136,Nebraska,Boston College,Rush,7,0.3441476281564042
+2024,1,137,Nebraska,Boston College,Rush,1,-0.5601952233311511
+2024,1,137,Nebraska,Boston College,Timeout,0,-0.07211110545799215
+2024,1,138,Nebraska,Boston College,Rush,3,-0.6362976648346019
+2024,1,139,Nebraska,Boston College,Rush,9,1.3730855035367773
+2024,1,140,Nebraska,Boston College,Rush,-2,-0.5214312711493059
+2024,1,140,Nebraska,Boston College,Penalty,-5,-2.249662862966588
+2024,2,6,Nebraska,Colorado,Pass Reception,-2,-1.0719433245579437
+2024,2,7,Nebraska,Colorado,Rush,2,-0.7865157173660158
+2024,2,8,Nebraska,Colorado,Rush,12,2.633343974268657
+2024,2,9,Nebraska,Colorado,Pass Reception,8,0.5763020017465501
+2024,2,10,Nebraska,Colorado,Pass Reception,4,0.0067917432879207595
+2024,2,11,Nebraska,Colorado,Rush,13,0.4484261546707682
+2024,2,12,Nebraska,Colorado,Rushing Touchdown,12,2.163546622572743
+2024,2,18,Nebraska,Colorado,Pass Reception,-2,-1.1946424116938292
+2024,2,19,Nebraska,Colorado,Pass Reception,4,-0.4377819763887883
+2024,2,20,Nebraska,Colorado,Rush,-3,-1.9029699024954314
+2024,2,21,Nebraska,Colorado,Pass Reception,9,0.17608570030391787
+2024,2,22,Nebraska,Colorado,Punt,0,1.4943470889520032
+2024,2,29,Nebraska,Colorado,Rush,9,1.0637795166632324
+2024,2,30,Nebraska,Colorado,Rush,2,-0.4520954100710588
+2024,2,31,Nebraska,Colorado,Pass Incompletion,0,-0.6279536235803591
+2024,2,32,Nebraska,Colorado,Rush,11,1.098936823533894
+2024,2,33,Nebraska,Colorado,Rush,1,-0.46083680151738626
+2024,2,33,Nebraska,Colorado,Penalty,15,0.9419550506065004
+2024,2,34,Nebraska,Colorado,Rush,2,-0.3490915906288725
+2024,2,34,Nebraska,Colorado,Penalty,10,-0.3080602524714946
+2024,2,35,Nebraska,Colorado,Pass Reception,5,-0.49195222695262775
+2024,2,35,Nebraska,Colorado,Timeout,0,NA
+2024,2,35,Nebraska,Colorado,End Period,0,NA
+2024,2,36,Nebraska,Colorado,Pass Reception,6,-0.9873883715286436
+2024,2,37,Nebraska,Colorado,Field Goal Missed,32,-2.2881428462451883
+2024,2,45,Nebraska,Colorado,Pass Reception,13,0.9875041031670755
+2024,2,45,Nebraska,Colorado,Penalty,5,0.35105279812215073
+2024,2,46,Nebraska,Colorado,Pass Incompletion,0,-0.7696262076649338
+2024,2,47,Nebraska,Colorado,Rush,3,-0.11226762277020796
+2024,2,48,Nebraska,Colorado,Rush,3,0.7199173275676447
+2024,2,48,Nebraska,Colorado,Penalty,15,0.8600708368104191
+2024,2,49,Nebraska,Colorado,Rush,7,0.30818695702969423
+2024,2,50,Nebraska,Colorado,Rush,1,-0.5730961984874945
+2024,2,51,Nebraska,Colorado,Rush,2,0.47565428654970887
+2024,2,52,Nebraska,Colorado,Pass Reception,36,2.8119264867854166
+2024,2,53,Nebraska,Colorado,Rushing Touchdown,1,0.36171201762505945
+2024,2,64,Nebraska,Colorado,Pass Reception,5,-0.02654874835307619
+2024,2,65,Nebraska,Colorado,Rush,1,-0.4070394307097205
+2024,2,66,Nebraska,Colorado,Pass Incompletion,0,-0.5400222688101816
+2024,2,67,Nebraska,Colorado,Punt,0,-0.7697084137713233
+2024,2,72,Nebraska,Colorado,Pass Reception,6,0.08936141799299735
+2024,2,73,Nebraska,Colorado,Pass Reception,31,1.1103946480605444
+2024,2,73,Nebraska,Colorado,Penalty,15,0.5254342317087466
+2024,2,74,Nebraska,Colorado,Passing Touchdown,18,4.05162151583192
+2024,2,80,Nebraska,Colorado,End of Half,-57,NA
+2024,2,81,Nebraska,Colorado,Kickoff,19,0.7152661183883673
+2024,2,82,Nebraska,Colorado,Kickoff Return (Offense),19,-0.15306994273131025
+2024,2,83,Nebraska,Colorado,Rush,1,-0.6645127515767353
+2024,2,84,Nebraska,Colorado,Pass Incompletion,0,-1.0541318026953965
+2024,2,85,Nebraska,Colorado,Pass Reception,5,-0.5276894993318008
+2024,2,86,Nebraska,Colorado,Punt,14,-2.988580852858334
+2024,2,87,Nebraska,Colorado,Punt,14,-0.6579148682785327
+2024,2,96,Nebraska,Colorado,Kickoff Return (Offense),0,-0.6502911891779026
+2024,2,97,Nebraska,Colorado,Rush,14,1.1136295967635121
+2024,2,98,Nebraska,Colorado,Rush,2,-0.4594919059372966
+2024,2,99,Nebraska,Colorado,Pass Reception,0,-1.0048690899436294
+2024,2,100,Nebraska,Colorado,Pass Incompletion,0,-1.5547852238576956
+2024,2,101,Nebraska,Colorado,Punt,1,1.7352506592476293
+2024,2,109,Nebraska,Colorado,Rush,2,-0.5263105118365087
+2024,2,110,Nebraska,Colorado,Pass Reception,12,1.7456382181774686
+2024,2,111,Nebraska,Colorado,Rush,6,0.3077955906130203
+2024,2,112,Nebraska,Colorado,Rush,4,0.43936323813608746
+2024,2,113,Nebraska,Colorado,Rush,1,-0.6010908112273268
+2024,2,114,Nebraska,Colorado,Pass Reception,-9,-2.216434235540839
+2024,2,115,Nebraska,Colorado,Pass Reception,-4,-1.5170130343665598
+2024,2,116,Nebraska,Colorado,Pass Reception,25,3.190373605377632
+2024,2,117,Nebraska,Colorado,Rush,21,0.9068864158599417
+2024,2,118,Nebraska,Colorado,Pass Incompletion,0,-0.5091801004047127
+2024,2,119,Nebraska,Colorado,Rush,1,-0.6846519898541157
+2024,2,119,Nebraska,Colorado,Timeout,0,-0.004767747791130539
+2024,2,120,Nebraska,Colorado,Pass Reception,-5,-1.898401752264249
+2024,2,120,Nebraska,Colorado,End Period,-5,NA
+2024,2,121,Nebraska,Colorado,Punt,0,-0.8157390766394964
+2024,2,126,Nebraska,Colorado,Rush,3,-0.27168831268373594
+2024,2,127,Nebraska,Colorado,Rush,3,-0.557538628964982
+2024,2,127,Nebraska,Colorado,Penalty,10,0.26096353290032415
+2024,2,128,Nebraska,Colorado,Pass Incompletion,0,-1.3042243800824298
+2024,2,128,Nebraska,Colorado,Penalty,5,0.44512531819602796
+2024,2,129,Nebraska,Colorado,Blocked Punt,1,-2.4114553119435738
+2024,2,135,Nebraska,Colorado,Kickoff Return (Offense),16,-0.30990823071914164
+2024,2,136,Nebraska,Colorado,Rush,4,-0.14476810517827232
+2024,2,137,Nebraska,Colorado,Rush,3,-0.4203550830870203
+2024,2,138,Nebraska,Colorado,Pass Reception,-1,-0.8108313431493298
+2024,2,138,Nebraska,Colorado,Penalty,15,2.292647076341945
+2024,2,138,Nebraska,Colorado,Penalty,-5,-0.3308489898137197
+2024,2,139,Nebraska,Colorado,Rush,2,-0.4625361266541479
+2024,2,139,Nebraska,Colorado,Timeout,0,-0.018622440330028134
+2024,2,139,Nebraska,Colorado,Penalty,-12,-0.5567869856062415
+2024,2,140,Nebraska,Colorado,Rush,2,-0.48631094911968187
+2024,2,141,Nebraska,Colorado,Pass Reception,6,-0.1877615393769272
+2024,2,142,Nebraska,Colorado,Rush,7,-0.25017379136551415
+2024,2,142,Nebraska,Colorado,Timeout,0,0.005198112107786951
+2024,2,143,Nebraska,Colorado,Punt,0,0.6206504662177782
+2024,2,152,Nebraska,Colorado,Rush,5,-0.153102218562311
+2024,2,153,Nebraska,Colorado,Rush,1,-2.7127985766547034
+2024,2,153,Nebraska,Colorado,End of Game,0,NA
+2024,2,154,Nebraska,Colorado,Rush,-2,-0
+2024,3,1,Nebraska,Northern Iowa,Kickoff,0,0
+2024,3,2,Nebraska,Northern Iowa,Rush,5,0.06687774101741284
+2024,3,3,Nebraska,Northern Iowa,Rush,7,1.0081500219852155
+2024,3,4,Nebraska,Northern Iowa,Pass Reception,7,0.5778296052234133
+2024,3,5,Nebraska,Northern Iowa,Rush,4,0.29452464352959806
+2024,3,6,Nebraska,Northern Iowa,Pass Reception,14,0.9070147392351378
+2024,3,7,Nebraska,Northern Iowa,Pass Incompletion,0,-0.7075848949959171
+2024,3,8,Nebraska,Northern Iowa,Pass Reception,14,1.4378958905768418
+2024,3,9,Nebraska,Northern Iowa,Passing Touchdown,24,2.582124142017917
+2024,3,27,Nebraska,Northern Iowa,Kickoff,0,0
+2024,3,27,Nebraska,Northern Iowa,Penalty,15,1.2149914928001775
+2024,3,28,Nebraska,Northern Iowa,Pass Reception,17,1.098918522967716
+2024,3,29,Nebraska,Northern Iowa,Pass Reception,2,-0.4361776950763079
+2024,3,29,Nebraska,Northern Iowa,End Period,0,NA
+2024,3,30,Nebraska,Northern Iowa,Rush,7,0.628647836951711
+2024,3,31,Nebraska,Northern Iowa,Rush,5,-0.17027681320457444
+2024,3,32,Nebraska,Northern Iowa,Rush,7,0.9315897224841796
+2024,3,33,Nebraska,Northern Iowa,Pass Reception,7,0.5418746063559263
+2024,3,34,Nebraska,Northern Iowa,Rush,4,0.26598664676411987
+2024,3,35,Nebraska,Northern Iowa,Pass Reception,14,0.8403263819004732
+2024,3,36,Nebraska,Northern Iowa,Pass Incompletion,0,-0.6647632810807989
+2024,3,37,Nebraska,Northern Iowa,Rush,15,0.9480897737999903
+2024,3,38,Nebraska,Northern Iowa,Pass Reception,4,-0.1946730667445289
+2024,3,39,Nebraska,Northern Iowa,Rush,3,-0.46454749057495004
+2024,3,40,Nebraska,Northern Iowa,Passing Touchdown,18,3.527264003508751
+2024,3,49,Nebraska,Northern Iowa,Rush,0,-0.7160699481452129
+2024,3,50,Nebraska,Northern Iowa,Pass Reception,11,1.4987151860528285
+2024,3,51,Nebraska,Northern Iowa,Pass Reception,59,2.798583422400214
+2024,3,52,Nebraska,Northern Iowa,Rushing Touchdown,10,2.070827255479304
+2024,3,63,Nebraska,Northern Iowa,Pass Reception,17,0.6180434107001871
+2024,3,64,Nebraska,Northern Iowa,Pass Reception,17,0.5515353889865264
+2024,3,64,Nebraska,Northern Iowa,Timeout,0,0
+2024,3,65,Nebraska,Northern Iowa,Pass Reception,5,0.03160555702934209
+2024,3,66,Nebraska,Northern Iowa,Rush,2,-0.30673488031568574
+2024,3,67,Nebraska,Northern Iowa,Pass Incompletion,0,-1.0319252594250456
+2024,3,67,Nebraska,Northern Iowa,Timeout,0,0
+2024,3,68,Nebraska,Northern Iowa,Pass Incompletion,0,-2.6399877317437683
+2024,3,69,Nebraska,Northern Iowa,Pass Incompletion,0,-1.3199938658718842
+2024,3,82,Nebraska,Northern Iowa,Rush,2,-0.5493005644217921
+2024,3,82,Nebraska,Northern Iowa,Penalty,-10,-0.17569015974793167
+2024,3,83,Nebraska,Northern Iowa,Pass Reception,13,0.8824301417632769
+2024,3,84,Nebraska,Northern Iowa,Rush,4,-0.14367659916155118
+2024,3,85,Nebraska,Northern Iowa,Rush,38,1.7264135208056381
+2024,3,86,Nebraska,Northern Iowa,Rush,0,-0.468847499652739
+2024,3,87,Nebraska,Northern Iowa,Pass Incompletion,0,-0.7822386124849672
+2024,3,88,Nebraska,Northern Iowa,Pass Incompletion,0,-1.2575214374244013
+2024,3,89,Nebraska,Northern Iowa,Field Goal Good,31,0.48003757717142026
+2024,3,97,Nebraska,Northern Iowa,Penalty,15,0.43599231293852814
+2024,3,98,Nebraska,Northern Iowa,Pass Reception,8,0.22754541870941836
+2024,3,99,Nebraska,Northern Iowa,Rush,5,0.1383734448285141
+2024,3,100,Nebraska,Northern Iowa,Rush,1,-0.3436786928021558
+2024,3,100,Nebraska,Northern Iowa,Timeout,0,0
+2024,3,101,Nebraska,Northern Iowa,Pass Reception,6,0.863140229611715
+2024,3,102,Nebraska,Northern Iowa,Rush,2,0.8023796268551298
+2024,3,103,Nebraska,Northern Iowa,Field Goal Good,21,0.11168015203808013
+2024,3,115,Nebraska,Northern Iowa,Interception Return,0,-2.575741561067974
+2024,3,119,Nebraska,Northern Iowa,Rush,1,-0.553367735199007
+2024,3,120,Nebraska,Northern Iowa,Rush,6,0.275981269488746
+2024,3,121,Nebraska,Northern Iowa,Pass Reception,4,1.0103474196453746
+2024,3,122,Nebraska,Northern Iowa,Rush,1,-0.5326520882118428
+2024,3,123,Nebraska,Northern Iowa,Rush,4,-0.5592395899283487
+2024,3,123,Nebraska,Northern Iowa,Timeout,0,0
+2024,3,124,Nebraska,Northern Iowa,Pass Reception,24,2.3223614547605633
+2024,3,125,Nebraska,Northern Iowa,Pass Reception,6,-0.08140063977467538
+2024,3,126,Nebraska,Northern Iowa,Rushing Touchdown,36,3.4285327994510784
+2024,3,140,Nebraska,Northern Iowa,Rush,1,-0
+2024,3,140,Nebraska,Northern Iowa,End of Game,0,NA
+2024,4,1,Nebraska,Illinois,Kickoff,0,0
+2024,4,2,Nebraska,Illinois,Pass Reception,17,1.4951161849409234
+2024,4,3,Nebraska,Illinois,Rush,3,-0.3438542404823548
+2024,4,4,Nebraska,Illinois,Pass Incompletion,0,-1.1136739907704758
+2024,4,5,Nebraska,Illinois,Pass Incompletion,0,-1.8506974086222185
+2024,4,6,Nebraska,Illinois,Punt,15,0.3904481516181736
+2024,4,13,Nebraska,Illinois,Kickoff,0,0.003778277872675262
+2024,4,14,Nebraska,Illinois,Rush,4,-0.15499774624413337
+2024,4,15,Nebraska,Illinois,Sack,-4,-1.8523257485133955
+2024,4,16,Nebraska,Illinois,Pass Reception,12,3.164431978995818
+2024,4,17,Nebraska,Illinois,Rush,1,-0.7354144339099142
+2024,4,18,Nebraska,Illinois,Pass Reception,5,-0.062468409946239145
+2024,4,19,Nebraska,Illinois,Pass Reception,17,2.584736139623269
+2024,4,20,Nebraska,Illinois,Pass Reception,4,-0.1661985078887196
+2024,4,21,Nebraska,Illinois,Pass Reception,-1,-1.1629392584861935
+2024,4,22,Nebraska,Illinois,Pass Reception,8,1.9676610829981658
+2024,4,23,Nebraska,Illinois,Pass Reception,9,0.8227680719111046
+2024,4,24,Nebraska,Illinois,Rush,0,-0.7582312491104117
+2024,4,25,Nebraska,Illinois,Rush,1,0.3940425871285447
+2024,4,26,Nebraska,Illinois,Fumble Recovery (Own),3,-0.30202942391838494
+2024,4,27,Nebraska,Illinois,Pass Reception,11,1.477834407896708
+2024,4,27,Nebraska,Illinois,Timeout,0,7.054172624929578e-4
+2024,4,28,Nebraska,Illinois,Rush,2,-0.14600552651183474
+2024,4,29,Nebraska,Illinois,Pass Incompletion,0,-0.7220448012643441
+2024,4,30,Nebraska,Illinois,Pass Incompletion,0,-1.6128339591880918
+2024,4,31,Nebraska,Illinois,Field Goal Good,21,0.22204168194061102
+2024,4,35,Nebraska,Illinois,Rush,14,0.6558769337152373
+2024,4,36,Nebraska,Illinois,Rush,4,-0.18859823311415003
+2024,4,37,Nebraska,Illinois,Rush,13,1.2780909961594187
+2024,4,38,Nebraska,Illinois,Passing Touchdown,6,1.457600837495157
+2024,4,48,Nebraska,Illinois,Kickoff Return (Offense),26,0.2407731207921524
+2024,4,49,Nebraska,Illinois,Rush,3,-0.3360741938794758
+2024,4,50,Nebraska,Illinois,Pass Reception,21,2.002844038448199
+2024,4,51,Nebraska,Illinois,Pass Incompletion,0,-0.7063896439285471
+2024,4,52,Nebraska,Illinois,Rush,9,0.9475841159448355
+2024,4,53,Nebraska,Illinois,Rush,3,0.3473188042323767
+2024,4,54,Nebraska,Illinois,Pass Incompletion,0,-0.6389131895933193
+2024,4,55,Nebraska,Illinois,Pass Reception,0,-0.9051603427781281
+2024,4,55,Nebraska,Illinois,Penalty,9,0.46463723115849875
+2024,4,56,Nebraska,Illinois,Interception Return,0,-2.962730980672884
+2024,4,66,Nebraska,Illinois,Rush,3,-0.2531284471536943
+2024,4,67,Nebraska,Illinois,Pass Reception,6,0.4677256842763786
+2024,4,68,Nebraska,Illinois,Rush,1,0.13861408242987805
+2024,4,69,Nebraska,Illinois,Rush,9,0.6415002367434874
+2024,4,70,Nebraska,Illinois,Rush,9,-0.07521781957191909
+2024,4,71,Nebraska,Illinois,Rush,4,-0.19596003030755615
+2024,4,72,Nebraska,Illinois,Rush,0,-0.4919002959099903
+2024,4,73,Nebraska,Illinois,Pass Reception,27,1.572451602752432
+2024,4,73,Nebraska,Illinois,Timeout,0,-0.03284685938145948
+2024,4,74,Nebraska,Illinois,Passing Touchdown,11,4.142988031954369
+2024,4,88,Nebraska,Illinois,Pass Reception,29,2.5254806190882135
+2024,4,89,Nebraska,Illinois,Rush,4,-0.13810811824114344
+2024,4,90,Nebraska,Illinois,Rush,1,-0.8178707560634957
+2024,4,91,Nebraska,Illinois,Pass Incompletion,0,-1.9041537952459184
+2024,4,91,Nebraska,Illinois,Penalty,-5,-0.7015160209767926
+2024,4,92,Nebraska,Illinois,Punt,37,-1.456380824515095
+2024,4,104,Nebraska,Illinois,Kickoff,0,0.00191415100126191
+2024,4,105,Nebraska,Illinois,Pass Incompletion,0,-0.896476604909685
+2024,4,106,Nebraska,Illinois,Pass Reception,44,3.9178623091845743
+2024,4,107,Nebraska,Illinois,Pass Reception,29,2.1904274353311157
+2024,4,107,Nebraska,Illinois,End Period,0,NA
+2024,4,108,Nebraska,Illinois,Rush,1,-0.14254348955601337
+2024,4,109,Nebraska,Illinois,Passing Touchdown,1,0.7205732980353963
+2024,4,120,Nebraska,Illinois,Kickoff,0,-0.01593365306518102
+2024,4,121,Nebraska,Illinois,Fumble Recovery (Own),-9,-1.8503265359721421
+2024,4,122,Nebraska,Illinois,Pass Incompletion,0,-0.8513044715981951
+2024,4,123,Nebraska,Illinois,Fumble Recovery (Own),9,0.04469179586679828
+2024,4,124,Nebraska,Illinois,Fumble Recovery (Own),-4,-0.890707600248994
+2024,4,125,Nebraska,Illinois,Punt,8,2.091197529383336
+2024,4,126,Nebraska,Illinois,Punt,8,-0.3554917650717875
+2024,4,129,Nebraska,Illinois,Rush,4,-0.16249936192001568
+2024,4,130,Nebraska,Illinois,Rush,2,-0.5349766759698158
+2024,4,131,Nebraska,Illinois,Pass Reception,5,1.191913404183971
+2024,4,132,Nebraska,Illinois,Pass Reception,11,0.5691440072993963
+2024,4,133,Nebraska,Illinois,Rush,5,-0.09044170582161692
+2024,4,134,Nebraska,Illinois,Rush,7,0.4194444236400803
+2024,4,135,Nebraska,Illinois,Rush,2,-0.4427823402398783
+2024,4,136,Nebraska,Illinois,Pass Reception,9,0.12160639710109411
+2024,4,137,Nebraska,Illinois,Pass Incompletion,0,-1.4270386750260051
+2024,4,138,Nebraska,Illinois,Field Goal Missed,39,-2.3441096505192522
+2024,4,148,Nebraska,Illinois,End of Regulation,-2,NA
+2024,4,149,Nebraska,Illinois,Rush,-2,-0
+2024,5,1,Nebraska,Purdue,Rush,4,-0.16885555088286575
+2024,5,2,Nebraska,Purdue,Kickoff,0,0.3690526662452922
+2024,5,3,Nebraska,Purdue,Pass Reception,6,1.0722186544498031
+2024,5,4,Nebraska,Purdue,Rush,31,2.1889958738567
+2024,5,5,Nebraska,Purdue,Pass Incompletion,0,-0.6685594243414745
+2024,5,6,Nebraska,Purdue,Pass Incompletion,0,-0.9654006626604561
+2024,5,7,Nebraska,Purdue,Pass Incompletion,0,-1.7225017968781509
+2024,5,7,Nebraska,Purdue,Penalty,-5,-0.40309583837261687
+2024,5,8,Nebraska,Purdue,Punt,0,-0.4588680542003182
+2024,5,13,Nebraska,Purdue,Rush,6,0.3009464620031881
+2024,5,13,Nebraska,Purdue,Penalty,15,1.2898687343348065
+2024,5,14,Nebraska,Purdue,Pass Reception,16,0.8469051095216931
+2024,5,15,Nebraska,Purdue,Rush,4,-0.18428867405422
+2024,5,16,Nebraska,Purdue,Rush,1,-0.7072445985377795
+2024,5,17,Nebraska,Purdue,Rush,4,-1.0072906065444514
+2024,5,17,Nebraska,Purdue,Penalty,-5,-0.9354055649671456
+2024,5,18,Nebraska,Purdue,Field Goal Missed,42,-2.2132659980267544
+2024,5,28,Nebraska,Purdue,Pass Reception,25,2.0828222104445566
+2024,5,29,Nebraska,Purdue,Rush,-2,-1.0964200561377104
+2024,5,30,Nebraska,Purdue,Pass Reception,27,2.521272566707128
+2024,5,31,Nebraska,Purdue,Rush,0,-0.6118608307280993
+2024,5,32,Nebraska,Purdue,Rush,7,0.04561630936454941
+2024,5,33,Nebraska,Purdue,Rush,0,-1.7926745884226405
+2024,5,33,Nebraska,Purdue,End Period,0,NA
+2024,5,33,Nebraska,Purdue,Penalty,-15,-1.333425217930671
+2024,5,34,Nebraska,Purdue,Punt,0,-0.36097340395261324
+2024,5,38,Nebraska,Purdue,Penalty,-9,-0.6759408346646567
+2024,5,38,Nebraska,Purdue,Penalty,15,0.5139547198132157
+2024,5,38,Nebraska,Purdue,Penalty,0,0
+2024,5,38,Nebraska,Purdue,Timeout,0,0
+2024,5,39,Nebraska,Purdue,Sack,-8,-1.2426665350245845
+2024,5,40,Nebraska,Purdue,Pass Reception,5,-0.4519497669278474
+2024,5,41,Nebraska,Purdue,Pass Incompletion,0,-1.5109859531551646
+2024,5,42,Nebraska,Purdue,Blocked Field Goal,44,-3.8217914200210443
+2024,5,46,Nebraska,Purdue,Penalty,14,0.9667508578538639
+2024,5,47,Nebraska,Purdue,Pass Reception,12,0.7611544582273657
+2024,5,48,Nebraska,Purdue,Pass Reception,7,0.40048444904697034
+2024,5,49,Nebraska,Purdue,Rush,2,-0.14539619368940082
+2024,5,49,Nebraska,Purdue,Penalty,-5,-1.5255877783143539
+2024,5,50,Nebraska,Purdue,Pass Incompletion,0,-1.5853101937499035
+2024,5,51,Nebraska,Purdue,Punt,0,-0.31743713871180096
+2024,5,59,Nebraska,Purdue,Pass Reception,12,0.5793325594461654
+2024,5,59,Nebraska,Purdue,Timeout,0,0
+2024,5,60,Nebraska,Purdue,Pass Reception,20,0.7500541560117144
+2024,5,61,Nebraska,Purdue,Pass Reception,18,0.7043689577756926
+2024,5,62,Nebraska,Purdue,Pass Incompletion,0,-0.36900564566036564
+2024,5,62,Nebraska,Purdue,Penalty,11,0.7781017508551376
+2024,5,63,Nebraska,Purdue,Rush,0,-0.38119698052604756
+2024,5,64,Nebraska,Purdue,Pass Incompletion,0,-0.4968329841367014
+2024,5,65,Nebraska,Purdue,Pass Incompletion,0,-1.0134895345184456
+2024,5,66,Nebraska,Purdue,Blocked Field Goal,32,-3.125408634743382
+2024,5,82,Nebraska,Purdue,Rush,3,-0.3765495659658351
+2024,5,83,Nebraska,Purdue,Kickoff,60,0
+2024,5,83,Nebraska,Purdue,Penalty,16,1.9270769769188112
+2024,5,84,Nebraska,Purdue,Rush,8,0.7318446021282266
+2024,5,85,Nebraska,Purdue,Rush,6,0.10429255308962837
+2024,5,85,Nebraska,Purdue,Penalty,14,0.6110693672663912
+2024,5,86,Nebraska,Purdue,Rush,9,0.613844197969434
+2024,5,86,Nebraska,Purdue,Timeout,0,0.017216077999929524
+2024,5,87,Nebraska,Purdue,Rush,4,0.16830771243792775
+2024,5,88,Nebraska,Purdue,Rush,1,-0.39231374129514673
+2024,5,89,Nebraska,Purdue,Pass Incompletion,0,-0.7585710685623397
+2024,5,90,Nebraska,Purdue,Passing Touchdown,6,2.791640204142558
+2024,5,95,Nebraska,Purdue,Penalty,-10,-0.8033998138697078
+2024,5,96,Nebraska,Purdue,Pass Reception,8,0.2034350184517364
+2024,5,96,Nebraska,Purdue,End Period,8,NA
+2024,5,97,Nebraska,Purdue,Pass Reception,26,2.5453149177350323
+2024,5,98,Nebraska,Purdue,Rush,16,0.6568639251357942
+2024,5,99,Nebraska,Purdue,Rush,3,-0.2827257821903677
+2024,5,100,Nebraska,Purdue,Pass Reception,14,1.402344999073934
+2024,5,101,Nebraska,Purdue,Rush,4,0.4981827089126529
+2024,5,102,Nebraska,Purdue,Pass Incompletion,0,-0.4645262639358734
+2024,5,103,Nebraska,Purdue,Rush,0,-1.5577459027369596
+2024,5,104,Nebraska,Purdue,Rushing Touchdown,1,2.724221126507362
+2024,5,110,Nebraska,Purdue,Pass Reception,15,0.9560582939665911
+2024,5,111,Nebraska,Purdue,Rush,3,-0.267915647767913
+2024,5,111,Nebraska,Purdue,Penalty,-10,-0.8397674433470113
+2024,5,111,Nebraska,Purdue,Penalty,-10,-0.49184591776282205
+2024,5,111,Nebraska,Purdue,Penalty,-15,-0.8506344409752036
+2024,5,111,Nebraska,Purdue,Penalty,15,2.355348748286593
+2024,5,112,Nebraska,Purdue,Rush,4,-0.47609495288208903
+2024,5,113,Nebraska,Purdue,Rushing Touchdown,25,3.118708670358697
+2024,5,130,Nebraska,Purdue,Rush,9,0.6379815507273383
+2024,5,131,Nebraska,Purdue,Kickoff Return (Offense),8,-1.0863474741262389
+2024,5,132,Nebraska,Purdue,Rush,9,-0
+2024,5,132,Nebraska,Purdue,End of Game,0,NA
+2024,6,19,Nebraska,Rutgers,Punt,43,3.2795935724044223
+2024,6,18,Nebraska,Rutgers,Pass Incompletion,0,-0.6573366563374172
+2024,6,17,Nebraska,Rutgers,Rush,3,-0.27569741169566675
+2024,6,16,Nebraska,Rutgers,Rush,1,-0.5274978495466491
+2024,6,7,Nebraska,Rutgers,Punt,41,0.6385849099334784
+2024,6,6,Nebraska,Rutgers,Sack,-5,-1.9317336719016487
+2024,6,5,Nebraska,Rutgers,Pass Reception,0,-0.8939994019621769
+2024,6,4,Nebraska,Rutgers,Sack,-4,-0.9624319349425767
+2024,6,3,Nebraska,Rutgers,Pass Reception,30,4.839284349111559
+2024,6,2,Nebraska,Rutgers,Pass Incompletion,0,-1.490622305389051
+2024,6,1,Nebraska,Rutgers,Pass Incompletion,0,-0.21307793829615607
+2024,6,140,Nebraska,Rutgers,End Period,0,NA
+2024,6,140,Nebraska,Rutgers,Rush,2,-0.49095846911604424
+2024,6,139,Nebraska,Rutgers,Rush,2,0.2739955162215786
+2024,6,138,Nebraska,Rutgers,Rush,9,1.4914134520700841
+2024,6,137,Nebraska,Rutgers,Pass Incompletion,0,-0.8724359040784403
+2024,6,136,Nebraska,Rutgers,Punt,37,0.7669242970297978
+2024,6,135,Nebraska,Rutgers,Pass Incompletion,0,-0.6425506297020782
+2024,6,134,Nebraska,Rutgers,Pass Incompletion,0,-0.9594187694030409
+2024,6,133,Nebraska,Rutgers,Rush,1,-0.6999339640472881
+2024,6,126,Nebraska,Rutgers,Blocked Punt,0,-3.6402431119835947
+2024,6,125,Nebraska,Rutgers,Penalty,5,-0.048578908133646515
+2024,6,125,Nebraska,Rutgers,Pass Incompletion,0,-1.6837562107740713
+2024,6,124,Nebraska,Rutgers,Rush,2,-0.6323322932377222
+2024,6,123,Nebraska,Rutgers,Rush,3,-0.3295073772661792
+2024,6,122,Nebraska,Rutgers,Pass Reception,14,3.2549702532442932
+2024,6,121,Nebraska,Rutgers,Rush,-1,-1.229345547015341
+2024,6,120,Nebraska,Rutgers,Rush,1,-0.7369504070715598
+2024,6,119,Nebraska,Rutgers,Rush,12,1.15066781288898
+2024,6,110,Nebraska,Rutgers,Kickoff,65,-1.8283124017112664
+2024,6,103,Nebraska,Rutgers,Uncategorized,1,NA
+2024,6,102,Nebraska,Rutgers,Rushing Touchdown,11,3.9778728527863447
+2024,6,101,Nebraska,Rutgers,Timeout,0,0
+2024,6,101,Nebraska,Rutgers,Rush,1,-0.34687223950537893
+2024,6,100,Nebraska,Rutgers,End of Game,0,NA
+2024,6,100,Nebraska,Rutgers,Rush,18,0.22078253010360704
+2024,6,99,Nebraska,Rutgers,Pass Reception,31,1.422037205634158
+2024,6,98,Nebraska,Rutgers,Rush,3,0.5017576376016628
+2024,6,97,Nebraska,Rutgers,Rush,3,-0.10122966607915962
+2024,6,96,Nebraska,Rutgers,Rush,5,0.011363356351173026
+2024,6,91,Nebraska,Rutgers,Interception Return,0,-5.762893990400021
+2024,6,90,Nebraska,Rutgers,Rush,1,-0.5706545672156405
+2024,6,89,Nebraska,Rutgers,Rush,3,0.2877951117050932
+2024,6,88,Nebraska,Rutgers,Timeout,0,0
+2024,6,88,Nebraska,Rutgers,Rush,2,-0.16760839272153216
+2024,6,87,Nebraska,Rutgers,Rush,7,0.3606543058022518
+2024,6,86,Nebraska,Rutgers,Rush,5,0.41309360563532005
+2024,6,85,Nebraska,Rutgers,Rush,4,0.3430674772428648
+2024,6,84,Nebraska,Rutgers,Rush,5,0.025664796460747485
+2024,6,66,Nebraska,Rutgers,Kickoff,65,-0.8770038236889527
+2024,6,65,Nebraska,Rutgers,Uncategorized,1,NA
+2024,6,64,Nebraska,Rutgers,Rushing Touchdown,1,2.7769891757319236
+2024,6,63,Nebraska,Rutgers,Pass Reception,4,-0.1948588210462674
+2024,6,62,Nebraska,Rutgers,Pass Incompletion,0,-0.7581048405496809
+2024,6,61,Nebraska,Rutgers,Rush,4,0.09761277764556908
+2024,6,60,Nebraska,Rutgers,Pass Reception,36,1.6121620281015563
+2024,6,59,Nebraska,Rutgers,Pass Reception,28,2.9302674844054115
+2024,6,58,Nebraska,Rutgers,Rush,2,-0.5563676230477517
+2024,6,49,Nebraska,Rutgers,Punt,10,-1.59362942495633
+2024,6,48,Nebraska,Rutgers,Rush,0,-1.7654563600877813
+2024,6,47,Nebraska,Rutgers,Timeout,0,0
+2024,6,47,Nebraska,Rutgers,Pass Incompletion,0,-1.0483255869098658
+2024,6,46,Nebraska,Rutgers,Pass Incompletion,-1,-0.8601308205146254
+2024,6,45,Nebraska,Rutgers,Rush,11,1.8097179873471225
+2024,6,44,Nebraska,Rutgers,Timeout,0,0
+2024,6,44,Nebraska,Rutgers,Pass Reception,4,-0.12239145460196088
+2024,6,43,Nebraska,Rutgers,Rush,3,-0.3441619543360861
+2024,6,42,Nebraska,Rutgers,Rush,3,2.594086184201892
+2024,6,41,Nebraska,Rutgers,Pass Reception,7,0.21671222021030895
+2024,6,40,Nebraska,Rutgers,Rush,2,-0.7648883723545946
+2024,6,39,Nebraska,Rutgers,Pass Incompletion,0,-0.936760382570233
+2024,8,10,Nebraska,Indiana,Kickoff Return (Offense),0,-2.6844086511243987
+2024,8,10,Nebraska,Indiana,Timeout,0,0.0021622857190719547
+2024,8,11,Nebraska,Indiana,Rush,2,-0.49225673071661125
+2024,8,12,Nebraska,Indiana,Pass Incompletion,0,-0.8496353954551803
+2024,8,13,Nebraska,Indiana,Pass Reception,9,2.3700763265560543
+2024,8,14,Nebraska,Indiana,Pass Reception,1,-0.7236908916392489
+2024,8,15,Nebraska,Indiana,Pass Incompletion,0,-0.9831244234529164
+2024,8,16,Nebraska,Indiana,Pass Incompletion,0,-0.8348324802367046
+2024,8,17,Nebraska,Indiana,Punt,20,-0.5262955786395436
+2024,8,22,Nebraska,Indiana,Penalty,15,1.2195314736229503
+2024,8,23,Nebraska,Indiana,Pass Reception,5,0.03395438865750533
+2024,8,24,Nebraska,Indiana,Pass Reception,4,0.3295661179020457
+2024,8,25,Nebraska,Indiana,Rush,9,0.7832530206635742
+2024,8,26,Nebraska,Indiana,Rush,1,-0.5558699522021917
+2024,8,27,Nebraska,Indiana,Pass Incompletion,0,-0.9694428604742247
+2024,8,28,Nebraska,Indiana,Pass Reception,10,2.0329830255010166
+2024,8,29,Nebraska,Indiana,Rush,1,-0.5017743505442098
+2024,8,30,Nebraska,Indiana,Rush,8,0.4211693881047953
+2024,8,31,Nebraska,Indiana,Rush,0,-1.8917373968368847
+2024,8,31,Nebraska,Indiana,Timeout,0,0
+2024,8,32,Nebraska,Indiana,Fumble Recovery (Opponent),0,-2.975417853647814
+2024,8,39,Nebraska,Indiana,Kickoff,0,0
+2024,8,40,Nebraska,Indiana,Pass Reception,6,0.329122561966431
+2024,8,41,Nebraska,Indiana,Rush,4,0.5525688309546614
+2024,8,42,Nebraska,Indiana,Pass Reception,9,1.4947961479957665
+2024,8,43,Nebraska,Indiana,Rush,2,-0.6108846979962879
+2024,8,43,Nebraska,Indiana,Penalty,-9,-0.7257084320158267
+2024,8,44,Nebraska,Indiana,Rush,-2,-1.0654199242381863
+2024,8,45,Nebraska,Indiana,Pass Reception,25,3.1629293632020854
+2024,8,46,Nebraska,Indiana,Pass Reception,19,1.0209625922533774
+2024,8,47,Nebraska,Indiana,Rush,-7,-1.3244827948860411
+2024,8,47,Nebraska,Indiana,Penalty,11,1.4543009473991226
+2024,8,48,Nebraska,Indiana,Pass Reception,6,0.02643972744298484
+2024,8,49,Nebraska,Indiana,Rush,5,1.0640648051790809
+2024,8,50,Nebraska,Indiana,Rush,-1,-0.7576167911192773
+2024,8,51,Nebraska,Indiana,Rushing Touchdown,7,2.412650498778185
+2024,8,51,Nebraska,Indiana,Timeout,0,NA
+2024,8,63,Nebraska,Indiana,Kickoff,0,-9.033896670249675e-4
+2024,8,64,Nebraska,Indiana,Pass Reception,0,-0.4917623853398344
+2024,8,65,Nebraska,Indiana,Pass Reception,3,-0.2478732477047125
+2024,8,66,Nebraska,Indiana,Pass Incompletion,0,-0.6595316867090739
+2024,8,67,Nebraska,Indiana,Punt,0,-0.16194627665215056
+2024,8,72,Nebraska,Indiana,Kickoff,0,0.28364557130837864
+2024,8,73,Nebraska,Indiana,Pass Incompletion,0,-0.2725692662713217
+2024,8,74,Nebraska,Indiana,Pass Reception,6,-0.001981211883364309
+2024,8,75,Nebraska,Indiana,Pass Incompletion,0,-0.43844156205063634
+2024,8,76,Nebraska,Indiana,Punt,0,-1.3454681514685605
+2024,8,81,Nebraska,Indiana,Kickoff Return (Offense),17,0.1942239319725258
+2024,8,82,Nebraska,Indiana,Pass Reception,1,-0.7494384751174823
+2024,8,83,Nebraska,Indiana,Rush,7,0.6960355218694767
+2024,8,84,Nebraska,Indiana,Pass Reception,2,1.0573330993804726
+2024,8,85,Nebraska,Indiana,Pass Reception,5,0.07340920234550297
+2024,8,86,Nebraska,Indiana,Rush,3,-0.16290515741269584
+2024,8,87,Nebraska,Indiana,Rush,2,1.0639254882901632
+2024,8,88,Nebraska,Indiana,Pass Incompletion,0,-0.932009344614803
+2024,8,89,Nebraska,Indiana,Pass Reception,23,2.717018676910114
+2024,8,90,Nebraska,Indiana,Rush,-2,-1.0246661431208084
+2024,8,91,Nebraska,Indiana,Pass Reception,6,-0.1706428028297413
+2024,8,92,Nebraska,Indiana,Rush,11,2.0333253018718342
+2024,8,93,Nebraska,Indiana,Pass Reception,1,-0.544913896492818
+2024,8,94,Nebraska,Indiana,Rush,1,-0.8303878740917048
+2024,8,95,Nebraska,Indiana,Pass Incompletion,0,-1.5567221072405346
+2024,8,96,Nebraska,Indiana,Interception Return,78,-6.347006477354405
+2024,8,100,Nebraska,Indiana,Kickoff Return (Offense),56,-1.291781379131094
+2024,8,100,Nebraska,Indiana,Timeout,0,0.45523437846984227
+2024,8,100,Nebraska,Indiana,Timeout,0,0.5329687389568014
+2024,8,101,Nebraska,Indiana,Sack,-2,-1.0766525307789983
+2024,8,102,Nebraska,Indiana,Pass Reception,9,0.712893149476219
+2024,8,103,Nebraska,Indiana,Pass Reception,14,2.390892095621811
+2024,8,104,Nebraska,Indiana,Pass Reception,4,-0.1672107806951999
+2024,8,105,Nebraska,Indiana,Pass Reception,2,-0.6557581932820977
+2024,8,106,Nebraska,Indiana,Interception Return,0,-3.807699828727904
+2024,8,111,Nebraska,Indiana,Kickoff Return (Offense),20,-0.8117689278831498
+2024,8,112,Nebraska,Indiana,Rush,2,-0.5037118327109442
+2024,8,113,Nebraska,Indiana,Pass Reception,17,2.2739935280711574
+2024,8,114,Nebraska,Indiana,Pass Incompletion,0,-0.9366919938649361
+2024,8,115,Nebraska,Indiana,Pass Reception,6,0.10175611178355515
+2024,8,116,Nebraska,Indiana,Rush,2,-1.415169300862689
+2024,8,116,Nebraska,Indiana,End Period,2,NA
+2024,8,116,Nebraska,Indiana,Penalty,-5,-0.9756630454837614
+2024,8,116,Nebraska,Indiana,Timeout,0,0
+2024,8,117,Nebraska,Indiana,Pass Incompletion,0,-1.919500016180308
+2024,8,122,Nebraska,Indiana,Kickoff Return (Offense),40,1.3350511129074933
+2024,8,123,Nebraska,Indiana,Rush,10,0.8937559118145707
+2024,8,124,Nebraska,Indiana,Pass Reception,12,0.9848563617986645
+2024,8,125,Nebraska,Indiana,Pass Reception,28,2.872077755523173
+2024,8,125,Nebraska,Indiana,Timeout,0,0.8087330677815707
+2024,8,126,Nebraska,Indiana,Pass Incompletion,0,-0.6758720934241591
+2024,8,127,Nebraska,Indiana,Pass Incompletion,0,-0.9002433411086619
+2024,8,128,Nebraska,Indiana,Rush,-1,-1.7129075752573248
+2024,8,129,Nebraska,Indiana,Sack,-9,-4.358958262329734
+2024,8,137,Nebraska,Indiana,Timeout,0,0
+2024,8,138,Nebraska,Indiana,Interception Return,6,-3.658287676100451
+2024,8,143,Nebraska,Indiana,Kickoff Return (Offense),8,0.42153082850508705
+2024,8,144,Nebraska,Indiana,Rush,13,0.742883316369018
+2024,8,145,Nebraska,Indiana,Rush,2,-0.3447839885276959
+2024,8,146,Nebraska,Indiana,Rush,2,0.539920013945699
+2024,8,146,Nebraska,Indiana,Timeout,0,0
+2024,8,146,Nebraska,Indiana,Penalty,-10,-0.4151025191819214
+2024,8,147,Nebraska,Indiana,Pass Incompletion,0,-0.38466129373842656
+2024,8,148,Nebraska,Indiana,Pass Incompletion,0,-2.224272548648114
+2024,9,1,Nebraska,Ohio State,Kickoff Return (Offense),0,-1.5117707059646697
+2024,9,2,Nebraska,Ohio State,Fumble Recovery (Own),2,-0.9136931072575469
+2024,9,3,Nebraska,Ohio State,Pass Reception,6,0.0032890861862411302
+2024,9,4,Nebraska,Ohio State,Sack,-8,-1.6336337319656618
+2024,9,5,Nebraska,Ohio State,Punt,0,-0.33698377365746657
+2024,9,10,Nebraska,Ohio State,Pass Incompletion,0,-0.9345464501826285
+2024,9,11,Nebraska,Ohio State,Rush,1,-0.9650263432759191
+2024,9,12,Nebraska,Ohio State,Pass Reception,30,4.504621181445506
+2024,9,13,Nebraska,Ohio State,Punt,0,0.9801987652660487
+2024,9,18,Nebraska,Ohio State,Rush,5,0.07340040206673104
+2024,9,19,Nebraska,Ohio State,Rush,2,-0.5262043202872962
+2024,9,20,Nebraska,Ohio State,Rush,5,1.5518009792770033
+2024,9,21,Nebraska,Ohio State,Pass Reception,-1,-1.0834613377127134
+2024,9,22,Nebraska,Ohio State,Rush,4,-0.42659186276379596
+2024,9,23,Nebraska,Ohio State,Rush,5,-0.45336481800419676
+2024,9,23,Nebraska,Ohio State,Timeout,0,0.004110549895682436
+2024,9,24,Nebraska,Ohio State,Punt,0,0.6578790773383457
+2024,9,31,Nebraska,Ohio State,Kickoff,0,0.009604619273888226
+2024,9,32,Nebraska,Ohio State,Rush,2,-0.5544400248309074
+2024,9,32,Nebraska,Ohio State,End Period,2,NA
+2024,9,33,Nebraska,Ohio State,Pass Reception,8,1.426071517759563
+2024,9,34,Nebraska,Ohio State,Fumble Recovery (Own),12,0.9545666344577108
+2024,9,35,Nebraska,Ohio State,Pass Incompletion,0,-0.8203391152459285
+2024,9,36,Nebraska,Ohio State,Pass Incompletion,0,-1.0877367136746359
+2024,9,37,Nebraska,Ohio State,Rush,38,3.9379501613558876
+2024,9,38,Nebraska,Ohio State,Rush,3,-0.30230660472585136
+2024,9,39,Nebraska,Ohio State,Pass Reception,-1,-1.0351198221641456
+2024,9,39,Nebraska,Ohio State,Timeout,0,0
+2024,9,40,Nebraska,Ohio State,Pass Reception,2,-1.251029121783092
+2024,9,41,Nebraska,Ohio State,Field Goal Good,39,1.5409863630557556
+2024,9,47,Nebraska,Ohio State,Kickoff,0,0
+2024,9,48,Nebraska,Ohio State,Rush,2,-0.45477579598415346
+2024,9,49,Nebraska,Ohio State,Rush,5,0.0861340190625447
+2024,9,49,Nebraska,Ohio State,Penalty,-5,-1.0866033918935294
+2024,9,50,Nebraska,Ohio State,Pass Reception,-1,-0.7886921473731965
+2024,9,51,Nebraska,Ohio State,Punt,8,-1.0872018957748575
+2024,9,58,Nebraska,Ohio State,Penalty,15,0.8689998381226367
+2024,9,58,Nebraska,Ohio State,Timeout,0,0
+2024,9,59,Nebraska,Ohio State,Rush,14,0.519584976682157
+2024,9,60,Nebraska,Ohio State,Pass Reception,8,0.4407842604026364
+2024,9,61,Nebraska,Ohio State,Rush,1,-0.2846658079463078
+2024,9,62,Nebraska,Ohio State,Rush,3,-0.06721324101442816
+2024,9,62,Nebraska,Ohio State,Timeout,0,0
+2024,9,63,Nebraska,Ohio State,Pass Reception,5,0.04290151675095033
+2024,9,64,Nebraska,Ohio State,Pass Incompletion,0,-0.4675423274149255
+2024,9,64,Nebraska,Ohio State,Timeout,0,0
+2024,9,64,Nebraska,Ohio State,Penalty,-15,-0.5829565641134278
+2024,9,64,Nebraska,Ohio State,Timeout,0,0
+2024,9,65,Nebraska,Ohio State,Pass Reception,9,-0.7502789415430472
+2024,9,66,Nebraska,Ohio State,Field Goal Good,54,1.8023103766521706
+2024,9,66,Nebraska,Ohio State,End of Half,-29,NA
+2024,9,72,Nebraska,Ohio State,Rush,2,-0.5615981686974778
+2024,9,73,Nebraska,Ohio State,Pass Reception,14,2.0780175355297192
+2024,9,74,Nebraska,Ohio State,Pass Incompletion,0,-0.9498655751632483
+2024,9,75,Nebraska,Ohio State,Rush,14,2.2057627122874
+2024,9,76,Nebraska,Ohio State,Rush,12,0.9340842510375456
+2024,9,77,Nebraska,Ohio State,Pass Reception,12,0.7647950429406887
+2024,9,78,Nebraska,Ohio State,Pass Incompletion,0,-0.7174993889013872
+2024,9,79,Nebraska,Ohio State,Pass Reception,3,-0.5891777113917125
+2024,9,79,Nebraska,Ohio State,Penalty,6,1.7664513237608812
+2024,9,80,Nebraska,Ohio State,Rush,4,-0.19445311950430888
+2024,9,81,Nebraska,Ohio State,Rush,2,-0.606623128632525
+2024,9,81,Nebraska,Ohio State,Penalty,-5,-0.7391176997446669
+2024,9,82,Nebraska,Ohio State,Sack,-6,-2.107292709894124
+2024,9,83,Nebraska,Ohio State,Field Goal Good,47,2.5646574900276624
+2024,9,86,Nebraska,Ohio State,Rush,1,-0.39811110225861235
+2024,9,87,Nebraska,Ohio State,Rush,0,-0.7779885898963403
+2024,9,88,Nebraska,Ohio State,Rush,4,-0.6158752858305774
+2024,9,89,Nebraska,Ohio State,Rush,1,-2.7644406173433387
+2024,9,94,Nebraska,Ohio State,Pass Reception,10,0.5568466672962171
+2024,9,95,Nebraska,Ohio State,Pass Incompletion,0,-0.6643683334958972
+2024,9,96,Nebraska,Ohio State,Pass Incompletion,0,-0.9670687397771696
+2024,9,97,Nebraska,Ohio State,Sack,-7,-2.4088513215264196
+2024,9,98,Nebraska,Ohio State,Punt,0,-1.0524510220418166
+2024,9,103,Nebraska,Ohio State,Rush,19,1.5647766276460193
+2024,9,104,Nebraska,Ohio State,Pass Reception,33,1.870476579150465
+2024,9,105,Nebraska,Ohio State,Rush,4,-0.19001187805008968
+2024,9,106,Nebraska,Ohio State,Pass Reception,7,-0.21530693237174603
+2024,9,107,Nebraska,Ohio State,Pass Reception,8,1.540109824320898
+2024,9,108,Nebraska,Ohio State,Pass Incompletion,0,-0.5379792332520648
+2024,9,109,Nebraska,Ohio State,Rush,3,-0.685436189831945
+2024,9,110,Nebraska,Ohio State,Passing Touchdown,7,3.390747918720634
+2024,9,111,Nebraska,Ohio State,Rushing Touchdown,1,0.3606651250787918
+2024,9,121,Nebraska,Ohio State,Kickoff,0,0
+2024,9,122,Nebraska,Ohio State,Rush,4,-0.10644280837880526
+2024,9,123,Nebraska,Ohio State,Rush,1,-0.5922032723746273
+2024,9,124,Nebraska,Ohio State,Pass Incompletion,0,-0.9540563105792026
+2024,9,124,Nebraska,Ohio State,Penalty,-5,-0.10041108049030245
+2024,9,125,Nebraska,Ohio State,Punt,0,-0.541240498140382
+2024,9,129,Nebraska,Ohio State,Penalty,-12,-0.5858190412253568
+2024,9,129,Nebraska,Ohio State,Penalty,15,1.0242639105410594
+2024,9,129,Nebraska,Ohio State,Penalty,-5,-0.27783594299772885
+2024,9,130,Nebraska,Ohio State,Pass Reception,3,-0.22035476608728444
+2024,9,130,Nebraska,Ohio State,Timeout,0,0
+2024,9,131,Nebraska,Ohio State,Pass Reception,-1,-0.405235068602106
+2024,9,132,Nebraska,Ohio State,Interception Return,0,-2.0344841159825418
+2024,10,16,Nebraska,UCLA,Kickoff Return (Offense),18,-0.5567025041154897
+2024,10,17,Nebraska,UCLA,Rush,4,-0.1518768783580525
+2024,10,18,Nebraska,UCLA,Pass Incompletion,0,-1.0985652303015814
+2024,10,19,Nebraska,UCLA,Sack,-2,-1.5425939583339803
+2024,10,20,Nebraska,UCLA,Punt,0,2.05586491432946
+2024,10,32,Nebraska,UCLA,Kickoff,0,0.0021097650355051956
+2024,10,33,Nebraska,UCLA,Pass Incompletion,0,-0.8781158026775415
+2024,10,34,Nebraska,UCLA,Pass Incompletion,0,-1.0213835763805836
+2024,10,35,Nebraska,UCLA,Pass Incompletion,0,-1.1408775035811378
+2024,10,35,Nebraska,UCLA,Penalty,15,4.319118998814686
+2024,10,36,Nebraska,UCLA,Rush,1,-0.6912270444791095
+2024,10,37,Nebraska,UCLA,Pass Reception,40,3.144519211536553
+2024,10,38,Nebraska,UCLA,Pass Reception,7,0.18958117308654554
+2024,10,39,Nebraska,UCLA,Rush,2,-0.32449920388631703
+2024,10,40,Nebraska,UCLA,Rush,6,1.5995577420413047
+2024,10,41,Nebraska,UCLA,Rushing Touchdown,4,1.156295165470688
+2024,10,50,Nebraska,UCLA,Kickoff,0,-0.008901831359441559
+2024,10,51,Nebraska,UCLA,Pass Reception,0,-0.6500171510486241
+2024,10,52,Nebraska,UCLA,Pass Incompletion,0,-0.7275755233119423
+2024,10,53,Nebraska,UCLA,Pass Incompletion,0,-0.8236573289038102
+2024,10,54,Nebraska,UCLA,Punt,0,0.1863440910936236
+2024,10,59,Nebraska,UCLA,Rush,4,-0.16365792146988356
+2024,10,60,Nebraska,UCLA,Rush,1,-0.5261255680283561
+2024,10,61,Nebraska,UCLA,Pass Incompletion,0,-0.8448119214855709
+2024,10,62,Nebraska,UCLA,Punt,16,-0.5863354830407794
+2024,10,69,Nebraska,UCLA,Sack,-8,-0.5026264100571491
+2024,10,70,Nebraska,UCLA,Rush,12,-0
+2024,10,70,Nebraska,UCLA,End of Half,12,NA
+2024,10,71,Nebraska,UCLA,Kickoff,0,0.005436025445005377
+2024,10,72,Nebraska,UCLA,Interception Return Touchdown,38,-7.439607189246523
+2024,10,73,Nebraska,UCLA,Kickoff,0,0.003828190759375183
+2024,10,74,Nebraska,UCLA,Rush,4,-0.15486459983258183
+2024,10,75,Nebraska,UCLA,Rush,11,1.6011283850642564
+2024,10,76,Nebraska,UCLA,Rush,7,0.6246781869639886
+2024,10,77,Nebraska,UCLA,Rush,4,0.34481290769329265
+2024,10,78,Nebraska,UCLA,Rush,3,-0.34621778984371243
+2024,10,79,Nebraska,UCLA,Rush,2,-0.6924589298984019
+2024,10,80,Nebraska,UCLA,Pass Reception,2,-1.680317478239062
+2024,10,81,Nebraska,UCLA,Pass Incompletion,0,-2.793622707080612
+2024,10,85,Nebraska,UCLA,Kickoff,0,0.008867746626133266
+2024,10,86,Nebraska,UCLA,Pass Reception,5,0.07326686893741322
+2024,10,87,Nebraska,UCLA,Pass Reception,4,0.5549217271624484
+2024,10,88,Nebraska,UCLA,Rush,14,1.5391678702491771
+2024,10,89,Nebraska,UCLA,Rush,1,-0.7412791892526089
+2024,10,89,Nebraska,UCLA,Penalty,15,2.183923008209885
+2024,10,90,Nebraska,UCLA,Pass Reception,27,1.4674683732392917
+2024,10,91,Nebraska,UCLA,Pass Reception,3,-0.32411124850338524
+2024,10,92,Nebraska,UCLA,Passing Touchdown,8,2.868237561889104
+2024,10,102,Nebraska,UCLA,Rush,4,-0.1469430110327895
+2024,10,103,Nebraska,UCLA,Rush,5,0.8000530651636678
+2024,10,104,Nebraska,UCLA,Rush,3,0.4868026754439162
+2024,10,105,Nebraska,UCLA,Pass Reception,37,2.7287581446699685
+2024,10,105,Nebraska,UCLA,End Period,37,NA
+2024,10,106,Nebraska,UCLA,Pass Reception,11,0.5259162181725427
+2024,10,107,Nebraska,UCLA,Pass Reception,6,0.05409049754284645
+2024,10,108,Nebraska,UCLA,Rush,2,-0.48023228263777273
+2024,10,109,Nebraska,UCLA,Rush,2,0.9010849813150816
+2024,10,110,Nebraska,UCLA,Rush,5,0.2502525503463007
+2024,10,111,Nebraska,UCLA,Pass Incompletion,0,-0.7902104574015558
+2024,10,112,Nebraska,UCLA,Pass Incompletion,0,-1.4524999898259803
+2024,10,112,Nebraska,UCLA,Timeout,0,-8.906592736610541e-4
+2024,10,113,Nebraska,UCLA,Sack,-10,-3.936790381326911
+2024,10,118,Nebraska,UCLA,Rush,8,0.7748274262727324
+2024,10,119,Nebraska,UCLA,Pass Incompletion,0,-0.9414226708863764
+2024,10,120,Nebraska,UCLA,Rush,4,0.9096368363425591
+2024,10,121,Nebraska,UCLA,Pass Incompletion,0,-0.7249930170159931
+2024,10,122,Nebraska,UCLA,Pass Reception,7,0.18543628400473455
+2024,10,123,Nebraska,UCLA,Rush,5,1.1192120984051503
+2024,10,124,Nebraska,UCLA,Pass Reception,20,1.2442590264047602
+2024,10,124,Nebraska,UCLA,Penalty,5,0.09927999377372476
+2024,10,125,Nebraska,UCLA,Rush,4,0.7359127650164972
+2024,10,126,Nebraska,UCLA,Rush,6,0.5895928327489477
+2024,10,127,Nebraska,UCLA,Rush,1,-1.1769923312708785
+2024,10,127,Nebraska,UCLA,Penalty,2,2.9881991833549915
+2024,10,128,Nebraska,UCLA,Rush,0,-0.45027908016404883
+2024,10,129,Nebraska,UCLA,Rush,0,-0.5844932839391763
+2024,10,130,Nebraska,UCLA,Rushing Touchdown,1,1.5665984353031348
+2024,10,136,Nebraska,UCLA,Rush,2,0.23534973028930395
+2024,10,137,Nebraska,UCLA,Pass Incompletion,0,-0.27146245216041415
+2024,10,138,Nebraska,UCLA,Sack,-3,-0.39488731063767624
+2024,10,138,Nebraska,UCLA,Timeout,0,0.0046725936180601335
+2024,10,139,Nebraska,UCLA,Pass Reception,24,1.4840902694608908
+2024,10,140,Nebraska,UCLA,Pass Incompletion,0,-0.3109152600091871
+2024,10,141,Nebraska,UCLA,Pass Incompletion,0,-0.3331875029510535
+2024,10,142,Nebraska,UCLA,Rush,10,0.93417918658794
+2024,10,143,Nebraska,UCLA,Pass Incompletion,0,-0.36677398180857756
+2024,10,144,Nebraska,UCLA,Pass Reception,8,0.21264452160582792
+2024,10,145,Nebraska,UCLA,Rush,6,0.510013312187704
+2024,10,145,Nebraska,UCLA,Penalty,-5,-0.5192382875385189
+2024,10,146,Nebraska,UCLA,Interception Return,0,-1.3844697529250563
+2024,12,9,Nebraska,USC,Pass Incompletion,0,-0.9156829434632292
+2024,12,10,Nebraska,USC,Pass Reception,8,0.9314915096059708
+2024,12,11,Nebraska,USC,Rush,3,1.0624085646669044
+2024,12,12,Nebraska,USC,Rush,0,-0.9231833869054773
+2024,12,13,Nebraska,USC,Pass Reception,3,-0.5525342952825204
+2024,12,14,Nebraska,USC,Pass Incompletion,0,-1.3851234419002945
+2024,12,15,Nebraska,USC,Punt,9,1.0335216671712197
+2024,12,28,Nebraska,USC,Kickoff,0,0.0021966689635590786
+2024,12,29,Nebraska,USC,Pass Reception,4,-0.1485895086671758
+2024,12,30,Nebraska,USC,Rush,9,1.288702123233679
+2024,12,31,Nebraska,USC,Pass Reception,4,-0.15347736874837592
+2024,12,32,Nebraska,USC,Rush,2,-0.602969676345773
+2024,12,33,Nebraska,USC,Rush,2,-1.383994991193622
+2024,12,34,Nebraska,USC,Punt,0,-3.042789773397138
+2024,12,35,Nebraska,USC,Punt,0,-0.3461854997813627
+2024,12,43,Nebraska,USC,Kickoff,0,9.233760370692679e-4
+2024,12,44,Nebraska,USC,Pass Reception,5,0.07067541967448454
+2024,12,45,Nebraska,USC,Pass Reception,8,1.0025053760734963
+2024,12,46,Nebraska,USC,Rush,5,0.041523778279000334
+2024,12,47,Nebraska,USC,Rush,1,-0.7892091336443645
+2024,12,48,Nebraska,USC,Pass Reception,16,2.2016948689237417
+2024,12,49,Nebraska,USC,Pass Incompletion,0,-0.6940527196106232
+2024,12,50,Nebraska,USC,Pass Incompletion,0,-0.9524177355951571
+2024,12,51,Nebraska,USC,Pass Reception,11,2.180959778922934
+2024,12,52,Nebraska,USC,Passing Touchdown,29,3.099036546376412
+2024,12,61,Nebraska,USC,Penalty,15,0.895871573862194
+2024,12,62,Nebraska,USC,Pass Reception,4,-0.11393724684911288
+2024,12,63,Nebraska,USC,Pass Reception,11,0.938999394179598
+2024,12,64,Nebraska,USC,Pass Incompletion,0,-0.5872009553968409
+2024,12,65,Nebraska,USC,Rush,10,1.038608866028013
+2024,12,70,Nebraska,USC,Rush,4,0.3334745140328652
+2024,12,70,Nebraska,USC,Timeout,0,-0.012294478027049305
+2024,12,71,Nebraska,USC,Pass Reception,2,-0.13464726940258603
+2024,12,71,Nebraska,USC,Timeout,0,-0.006855179992404092
+2024,12,72,Nebraska,USC,Sack,-5,-0.48723995502781897
+2024,12,72,Nebraska,USC,Timeout,0,0.002172335579028975
+2024,12,73,Nebraska,USC,Punt,0,-1.00197445235838
+2024,12,77,Nebraska,USC,Rush,2,-0
+2024,12,77,Nebraska,USC,End of Half,2,NA
+2024,12,78,Nebraska,USC,Kickoff,0,0.0032158682584201292
+2024,12,79,Nebraska,USC,Rush,6,0.34350310716855537
+2024,12,80,Nebraska,USC,Pass Reception,7,0.8412870803633659
+2024,12,81,Nebraska,USC,Rush,20,1.4653701690079273
+2024,12,82,Nebraska,USC,Rush,3,-0.31071362256406454
+2024,12,83,Nebraska,USC,Pass Reception,13,1.1488971265263719
+2024,12,84,Nebraska,USC,Rush,1,-0.5014398976917236
+2024,12,85,Nebraska,USC,Rush,13,1.0053046636956764
+2024,12,86,Nebraska,USC,Rush,2,-0.3777173854485403
+2024,12,87,Nebraska,USC,Sack,-1,-0.9129112362314018
+2024,12,88,Nebraska,USC,Pass Incompletion,0,-1.3647562142100225
+2024,12,89,Nebraska,USC,Field Goal Good,29,0.5439043434532
+2024,12,96,Nebraska,USC,Kickoff Return (Offense),23,-0.18430876407631458
+2024,12,97,Nebraska,USC,Rush,15,1.3602553750243256
+2024,12,98,Nebraska,USC,Pass Reception,-1,-1.0439991512996287
+2024,12,99,Nebraska,USC,Pass Reception,-1,-1.2857169809960767
+2024,12,100,Nebraska,USC,Pass Reception,10,0.1212068250637949
+2024,12,101,Nebraska,USC,Punt,0,-0.2651954553615039
+2024,12,104,Nebraska,USC,Rush,0,-0.5577156111376871
+2024,12,105,Nebraska,USC,Pass Reception,7,-0.10547663545653485
+2024,12,106,Nebraska,USC,Pass Reception,3,1.5024221872036234
+2024,12,107,Nebraska,USC,Field Goal Good,30,0.6885818967779791
+2024,12,119,Nebraska,USC,Rush,13,1.0766083174456744
+2024,12,120,Nebraska,USC,Rush,2,-0.5098644413556044
+2024,12,121,Nebraska,USC,Rush,3,-0.4456967362585904
+2024,12,122,Nebraska,USC,Pass Reception,2,-1.185546000010132
+2024,12,122,Nebraska,USC,Timeout,0,0
+2024,12,122,Nebraska,USC,Penalty,-5,-0.8360268770925492
+2024,12,123,Nebraska,USC,Punt,0,0.46579080143312723
+2024,12,136,Nebraska,USC,Kickoff,0,-0.004549743564380648
+2024,12,137,Nebraska,USC,Rush,6,0.14356985839345826
+2024,12,138,Nebraska,USC,Pass Reception,0,-0.0523041146565294
+2024,12,138,Nebraska,USC,Timeout,0,-0.0065907516286514145
+2024,12,139,Nebraska,USC,Pass Reception,1,-0.39539175507320556
+2024,12,140,Nebraska,USC,Pass Reception,9,0.9772078745195208
+2024,12,141,Nebraska,USC,Pass Reception,8,0.3024917704794259
+2024,12,142,Nebraska,USC,Pass Incompletion,0,-0.40800674621982735
+2024,12,143,Nebraska,USC,Rush,3,0.3526488691270675
+2024,12,144,Nebraska,USC,Pass Reception,1,-0.2537106444200141
+2024,12,145,Nebraska,USC,Pass Reception,9,0.5498748708312546
+2024,12,146,Nebraska,USC,Pass Incompletion,0,-0.32274569297063027
+2024,12,147,Nebraska,USC,Pass Incompletion,0,-0.3576054810674991
+2024,12,148,Nebraska,USC,Pass Reception,24,1.5215588700905787
+2024,12,148,Nebraska,USC,Timeout,0,0
+2024,12,148,Nebraska,USC,Penalty,-5,-2.5998658433645856
+2024,12,149,Nebraska,USC,Interception Return,0,-0
+2024,13,1,Nebraska,Wisconsin,Kickoff Return (Offense),45,1.7254869140746216
+2024,13,2,Nebraska,Wisconsin,Rush,3,-0.33227094135623547
+2024,13,3,Nebraska,Wisconsin,Pass Reception,7,1.0639543026039133
+2024,13,4,Nebraska,Wisconsin,Rush,15,0.8416817300564898
+2024,13,5,Nebraska,Wisconsin,Pass Reception,21,0.8579658308527103
+2024,13,6,Nebraska,Wisconsin,Rush,4,0.10073514732843591
+2024,13,7,Nebraska,Wisconsin,Rushing Touchdown,5,1.9044555785927564
+2024,13,15,Nebraska,Wisconsin,Kickoff,0,0.007546101007599004
+2024,13,16,Nebraska,Wisconsin,Pass Reception,4,-0.15792218593506224
+2024,13,16,Nebraska,Wisconsin,Penalty,-5,-0.8474729724281589
+2024,13,17,Nebraska,Wisconsin,Pass Reception,4,-0.39999985322220133
+2024,13,18,Nebraska,Wisconsin,Pass Incompletion,0,-1.4522676225566744
+2024,13,19,Nebraska,Wisconsin,Punt,9,0.45848789482265784
+2024,13,26,Nebraska,Wisconsin,Rush,4,-0.14680694385245305
+2024,13,27,Nebraska,Wisconsin,Fumble Recovery (Opponent),2,-4.433087516556138
+2024,13,32,Nebraska,Wisconsin,Pass Reception,27,2.238569312767583
+2024,13,33,Nebraska,Wisconsin,Pass Reception,21,1.2122824146303879
+2024,13,34,Nebraska,Wisconsin,Rush,1,-0.5195429413255512
+2024,13,34,Nebraska,Wisconsin,Timeout,0,-7.74933620517615e-5
+2024,13,35,Nebraska,Wisconsin,Pass Incompletion,0,-0.911114380483796
+2024,13,36,Nebraska,Wisconsin,Pass Reception,11,1.8987625249186744
+2024,13,37,Nebraska,Wisconsin,Pass Reception,3,-0.289566178950027
+2024,13,37,Nebraska,Wisconsin,End Period,3,NA
+2024,13,38,Nebraska,Wisconsin,Rush,5,-0.14706795427625163
+2024,13,39,Nebraska,Wisconsin,Rushing Touchdown,12,2.781895094239607
+2024,13,39,Nebraska,Wisconsin,Penalty,-15,-1.635601787320362
+2024,13,48,Nebraska,Wisconsin,Kickoff,0,0.7297096687497404
+2024,13,49,Nebraska,Wisconsin,Rush,3,-0.3152489813153663
+2024,13,50,Nebraska,Wisconsin,Pass Reception,8,0.9950133500814733
+2024,13,51,Nebraska,Wisconsin,Rush,1,-0.6046225081824788
+2024,13,52,Nebraska,Wisconsin,Pass Incompletion,0,-0.8837253701711918
+2024,13,53,Nebraska,Wisconsin,Pass Reception,1,-1.2825046511377292
+2024,13,54,Nebraska,Wisconsin,Punt,0,0.46032716982703964
+2024,13,65,Nebraska,Wisconsin,Pass Reception,4,-0.09813931691184663
+2024,13,66,Nebraska,Wisconsin,Rush,14,0.842783992277244
+2024,13,67,Nebraska,Wisconsin,Pass Reception,6,0.0988600257122847
+2024,13,68,Nebraska,Wisconsin,Rush,7,0.24099659935064421
+2024,13,69,Nebraska,Wisconsin,Pass Reception,15,0.4292750625367652
+2024,13,70,Nebraska,Wisconsin,Pass Reception,8,0.39296177696344925
+2024,13,71,Nebraska,Wisconsin,Rush,4,-0.08446464069546966
+2024,13,72,Nebraska,Wisconsin,Pass Incompletion,0,-0.4524483837331146
+2024,13,72,Nebraska,Wisconsin,Penalty,13,1.3913334549711478
+2024,13,73,Nebraska,Wisconsin,Passing Touchdown,5,2.575488004015244
+2024,13,76,Nebraska,Wisconsin,Pass Reception,12,0.42547919210936813
+2024,13,77,Nebraska,Wisconsin,Field Goal Good,37,0.8311037829043282
+2024,13,85,Nebraska,Wisconsin,Pass Incompletion,0,-0.8846821094816353
+2024,13,86,Nebraska,Wisconsin,Rush,19,2.319662903104849
+2024,13,87,Nebraska,Wisconsin,Pass Reception,12,0.679251088108074
+2024,13,88,Nebraska,Wisconsin,Pass Reception,5,-0.010289874682427147
+2024,13,89,Nebraska,Wisconsin,Rush,5,0.4613796924391167
+2024,13,90,Nebraska,Wisconsin,Rush,5,-0.05257632802148393
+2024,13,91,Nebraska,Wisconsin,Pass Incompletion,0,-0.7867812979290383
+2024,13,92,Nebraska,Wisconsin,Pass Incompletion,0,-1.6410363880621501
+2024,13,93,Nebraska,Wisconsin,Field Goal Good,45,1.6891078140522973
+2024,13,104,Nebraska,Wisconsin,Rush,9,1.4251241859624146
+2024,13,105,Nebraska,Wisconsin,Pass Reception,19,0.42239415773684064
+2024,13,106,Nebraska,Wisconsin,Rush,11,0.4759220143701759
+2024,13,107,Nebraska,Wisconsin,Rush,0,-0.5473431575623167
+2024,13,108,Nebraska,Wisconsin,Rush,6,-0.11602566922071311
+2024,13,109,Nebraska,Wisconsin,Pass Reception,26,2.399727151258146
+2024,13,110,Nebraska,Wisconsin,Rushing Touchdown,3,0.7228281738624727
+2024,13,115,Nebraska,Wisconsin,Kickoff,0,6.507512477575972e-4
+2024,13,116,Nebraska,Wisconsin,Pass Reception,16,1.140576490974134
+2024,13,117,Nebraska,Wisconsin,Rush,14,0.7600258886457878
+2024,13,117,Nebraska,Wisconsin,End Period,0,NA
+2024,13,118,Nebraska,Wisconsin,Rush,2,-0.38767972456348687
+2024,13,119,Nebraska,Wisconsin,Rush,6,0.17930187967248923
+2024,13,120,Nebraska,Wisconsin,Rush,3,0.6357102303354365
+2024,13,121,Nebraska,Wisconsin,Rush,2,-0.3798851070799456
+2024,13,122,Nebraska,Wisconsin,Pass Reception,20,0.9551546243712812
+2024,13,123,Nebraska,Wisconsin,Rush,0,-0.47379620287058977
+2024,13,123,Nebraska,Wisconsin,Timeout,0,-0.009274940333095394
+2024,13,124,Nebraska,Wisconsin,Pass Reception,4,-0.5223685441475343
+2024,13,125,Nebraska,Wisconsin,Pass Incompletion,0,-1.3678957744458988
+2024,13,126,Nebraska,Wisconsin,Field Goal Good,26,0.29856152152050086
+2024,13,133,Nebraska,Wisconsin,Kickoff,0,-0.018633399426822184
+2024,13,134,Nebraska,Wisconsin,Pass Reception,10,0.5921899418172385
+2024,13,135,Nebraska,Wisconsin,Pass Reception,9,1.059826931125226
+2024,13,136,Nebraska,Wisconsin,Pass Reception,10,-0.10530515945157015
+2024,13,137,Nebraska,Wisconsin,Rush,8,0.5870365937148385
+2024,13,137,Nebraska,Wisconsin,Penalty,15,0.45544146724462964
+2024,13,138,Nebraska,Wisconsin,Rush,4,-0.3308249424145613
+2024,13,139,Nebraska,Wisconsin,Pass Incompletion,0,-0.7674841025311752
+2024,13,139,Nebraska,Wisconsin,Penalty,10,0.9217575059170802
+2024,13,140,Nebraska,Wisconsin,Rush,1,-0.3784634506029203
+2024,13,140,Nebraska,Wisconsin,Timeout,0,-0.012073766882734205
+2024,13,140,Nebraska,Wisconsin,Penalty,3,0.4997665072687383
+2024,13,141,Nebraska,Wisconsin,Rush,1,-0.11464945997447185
+2024,13,142,Nebraska,Wisconsin,Rushing Touchdown,1,0.8967804910406523
+2024,13,147,Nebraska,Wisconsin,Rush,6,-0.25879732446262516
+2024,13,148,Nebraska,Wisconsin,Rush,1,-0.5415002532948896
+2024,13,149,Nebraska,Wisconsin,Rush,-2,-0.8729067371362996
+2024,13,150,Nebraska,Wisconsin,Rush,-3,-0.8593865263179036
+2024,14,6,Nebraska,Iowa,Pass Reception,2,-0.5623943309474119
+2024,14,7,Nebraska,Iowa,Rush,2,-0.7037454107382575
+2024,14,8,Nebraska,Iowa,Pass Reception,13,2.82372126674162
+2024,14,9,Nebraska,Iowa,Pass Incompletion,0,-0.8732981070142649
+2024,14,10,Nebraska,Iowa,Rush,19,2.216166720992515
+2024,14,11,Nebraska,Iowa,Pass Reception,20,0.9447884614397113
+2024,14,12,Nebraska,Iowa,Rush,1,-0.47607376003332913
+2024,14,13,Nebraska,Iowa,Rush,5,-0.29081905041908973
+2024,14,14,Nebraska,Iowa,Pass Reception,2,-1.3687438144084187
+2024,14,15,Nebraska,Iowa,Field Goal Good,31,0.6933465771954763
+2024,14,21,Nebraska,Iowa,Rush,5,0.0614571566144253
+2024,14,22,Nebraska,Iowa,Pass Incompletion,0,-1.0739337123544233
+2024,14,23,Nebraska,Iowa,Fumble Recovery (Own),-6,-2.629238761098468
+2024,14,24,Nebraska,Iowa,Punt,25,-1.029311459152637
+2024,14,29,Nebraska,Iowa,Pass Reception,9,1.6677636390697645
+2024,14,30,Nebraska,Iowa,Rush,6,-0.33185597104126985
+2024,14,31,Nebraska,Iowa,Rush,5,0.06387652284658718
+2024,14,32,Nebraska,Iowa,Sack,-8,-2.4392253900685024
+2024,14,33,Nebraska,Iowa,Pass Reception,2,-1.0760329693413384
+2024,14,33,Nebraska,Iowa,End Period,2,NA
+2024,14,34,Nebraska,Iowa,Punt,0,-0.9305759790750177
+2024,14,39,Nebraska,Iowa,Rush,-1,-1.0058219790699376
+2024,14,40,Nebraska,Iowa,Pass Incompletion,0,-1.0122735987490534
+2024,14,41,Nebraska,Iowa,Rush,10,0.7981288530872452
+2024,14,41,Nebraska,Iowa,Penalty,-5,-1.5506935726453857
+2024,14,42,Nebraska,Iowa,Punt,0,-1.8166827518709543
+2024,14,48,Nebraska,Iowa,Rush,3,-0.2538309085570223
+2024,14,49,Nebraska,Iowa,Pass Reception,10,1.234116560074909
+2024,14,50,Nebraska,Iowa,Rush,5,0.051078047341492794
+2024,14,51,Nebraska,Iowa,Rush,1,-0.618026249507806
+2024,14,52,Nebraska,Iowa,Pass Reception,3,-0.2645083212592867
+2024,14,52,Nebraska,Iowa,Penalty,-5,-1.1582456885103842
+2024,14,53,Nebraska,Iowa,Punt,0,-0.9988734415283399
+2024,14,58,Nebraska,Iowa,Rush,0,-0.5646601986039961
+2024,14,59,Nebraska,Iowa,Pass Reception,23,1.674848804408902
+2024,14,60,Nebraska,Iowa,Rush,9,0.8323517966134522
+2024,14,61,Nebraska,Iowa,Rush,2,-0.5332217361194056
+2024,14,62,Nebraska,Iowa,Rush,2,-0.4507041940050338
+2024,14,62,Nebraska,Iowa,Timeout,0,-0.008176777050938888
+2024,14,63,Nebraska,Iowa,Pass Reception,12,0.6453577532848822
+2024,14,64,Nebraska,Iowa,Rush,8,0.2501396363138739
+2024,14,65,Nebraska,Iowa,Rush,6,0.09293202362199304
+2024,14,65,Nebraska,Iowa,Timeout,0,-0.013784938174951744
+2024,14,66,Nebraska,Iowa,Rush,9,0.6056142860456841
+2024,14,66,Nebraska,Iowa,Timeout,0,-0.021531929302594843
+2024,14,67,Nebraska,Iowa,Pass Incompletion,0,-0.6954090392356966
+2024,14,68,Nebraska,Iowa,Rush,2,3.041369076335645
+2024,14,69,Nebraska,Iowa,Rushing Touchdown,1,1.0478136174543593
+2024,14,72,Nebraska,Iowa,Kickoff Return (Offense),16,-0.5419734310749832
+2024,14,73,Nebraska,Iowa,Rush,3,-0.356706294433887
+2024,14,74,Nebraska,Iowa,Pass Reception,25,2.6554296487010505
+2024,14,75,Nebraska,Iowa,Rush,7,0.4447890145214064
+2024,14,75,Nebraska,Iowa,Penalty,-5,-1.0485612128755872
+2024,14,76,Nebraska,Iowa,Pass Reception,6,0.3386974860443668
+2024,14,77,Nebraska,Iowa,Rush,5,0.9070181835889009
+2024,14,78,Nebraska,Iowa,Pass Incompletion,0,-0.643848268746658
+2024,14,79,Nebraska,Iowa,Pass Reception,5,-0.22079151729340873
+2024,14,79,Nebraska,Iowa,Penalty,15,1.6542388523006388
+2024,14,79,Nebraska,Iowa,Timeout,0,2.18189672694713e-4
+2024,14,80,Nebraska,Iowa,Rush,1,-0.43917685981585475
+2024,14,81,Nebraska,Iowa,Pass Incompletion,0,-0.8152874017818221
+2024,14,82,Nebraska,Iowa,Pass Reception,3,-1.1998217081464944
+2024,14,83,Nebraska,Iowa,Field Goal Missed,34,-2.1055340197185792
+2024,14,94,Nebraska,Iowa,Kickoff Return (Offense),20,-0.4415435532384242
+2024,14,95,Nebraska,Iowa,Pass Reception,3,-0.35072350194528
+2024,14,96,Nebraska,Iowa,Pass Incompletion,0,-1.0880491510527852
+2024,14,97,Nebraska,Iowa,Pass Reception,19,3.252839339320561
+2024,14,98,Nebraska,Iowa,Rush,0,-0.7803139382391149
+2024,14,99,Nebraska,Iowa,Rush,3,-0.5483949350523649
+2024,14,100,Nebraska,Iowa,Pass Reception,5,-0.7609847656187558
+2024,14,101,Nebraska,Iowa,Punt,0,-0.6655336298085179
+2024,14,105,Nebraska,Iowa,Kickoff,0,1.7570011922574125e-4
+2024,14,106,Nebraska,Iowa,Fumble Recovery (Own),0,-0.8663067411681609
+2024,14,107,Nebraska,Iowa,Rush,7,0.45351260059356346
+2024,14,108,Nebraska,Iowa,Rush,8,1.615872250793305
+2024,14,109,Nebraska,Iowa,Rush,-1,-0.9493342368584317
+2024,14,110,Nebraska,Iowa,Rush,-1,-1.1512625301055517
+2024,14,111,Nebraska,Iowa,Pass Incompletion,0,-1.389516091413019
+2024,14,112,Nebraska,Iowa,Punt,0,0.21084830265524734
+2024,14,117,Nebraska,Iowa,Rush,7,0.5126450063902216
+2024,14,118,Nebraska,Iowa,Pass Incompletion,0,-0.8693905859291307
+2024,14,119,Nebraska,Iowa,Pass Reception,6,1.2304621152255217
+2024,14,120,Nebraska,Iowa,Rush,9,1.1682750702033138
+2024,14,121,Nebraska,Iowa,Pass Incompletion,0,-0.8161940687656228
+2024,14,122,Nebraska,Iowa,Rush,4,0.3480949744588595
+2024,14,123,Nebraska,Iowa,Rush,8,0.576807617361307
+2024,14,124,Nebraska,Iowa,Rush,2,-0.21061171340471807
+2024,14,125,Nebraska,Iowa,Pass Reception,3,-0.35688663276236365
+2024,14,126,Nebraska,Iowa,Rush,-1,-0.9576941323427486
+2024,14,127,Nebraska,Iowa,Pass Incompletion,0,-1.1700416343498121
+2024,14,128,Nebraska,Iowa,Punt,0,-0.5047806371996061
+2024,14,135,Nebraska,Iowa,Pass Reception,5,-0.023346478411373384
+2024,14,136,Nebraska,Iowa,Fumble Recovery (Own),6,0.205610698315156
+2024,14,137,Nebraska,Iowa,Pass Reception,8,0.3264855167471452
+2024,14,138,Nebraska,Iowa,Rush,1,-0.186027743302289
+2024,14,138,Nebraska,Iowa,Timeout,0,-0.01174098725900885
+2024,14,139,Nebraska,Iowa,Rush,3,0.16075263667030826
+2024,14,140,Nebraska,Iowa,Fumble Recovery (Opponent),-7,-3.160272166878869
