@@ -1,4 +1,4 @@
-Season,Team,Conference,Goals,Assists,Points,ShAtt,SoG,Fouls,Red Cards,Yellow Cards,Corners,PK,PK Att,GWG,Opponent_Goals,Opponent_Assists,Opponent_Points,Opponent_ShAtt,Opponent_SoG,Opponent_Fouls,Opponent_Red Cards,Opponent_Yellow Cards,Opponent_Corners,Opponent_PK,Opponent_PK Att,Opponent_GWG
+season,team,conference,goals,assists,points,sh_att,so_g,fouls,red_cards,yellow_cards,corners,pk,pk_att,gwg,opponent_goals,opponent_assists,opponent_points,opponent_sh_att,opponent_so_g,opponent_fouls,opponent_red_cards,opponent_yellow_cards,opponent_corners,opponent_pk,opponent_pk_att,opponent_gwg
 2024,St. Thomas (MN),Summit League,19,15,53,221,100,144,1,12,71,1,2,5,26,23,75,188,102,158,NA,12,91,3,4,9
 2024,Utah Tech,WAC,23,19,65,175,84,136,NA,10,57,2,2,5,24,25,73,272,120,157,NA,8,89,1,2,7
 2024,Abilene Christian,WAC,12,9,33,214,96,141,NA,6,89,NA,1,2,27,31,85,242,119,136,NA,18,82,NA,NA,7
