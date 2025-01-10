@@ -1,0 +1,198 @@
+team,conference,athlete_id,player,category,passing_completions,passing_att,passing_pct,passing_yds,passing_td,passing_int,passing_ypa
+Toledo,Mid-American,4429801,Tucker Gleason,passing,207,335,0.618,2457,22,7,7.3
+Northern Illinois,Mid-American,4618083,Ethan Hampton,passing,143,245,0.584,1608,12,6,6.6
+Texas,SEC,4870906,Arch Manning,passing,61,90,0.678,938,9,2,10.4
+South Carolina,SEC,4875127,Lanorris Sellers,passing,173,266,0.65,2267,17,7,8.5
+UCLA,Big Ten,4429068,Ethan Garbers,passing,235,363,0.647,2727,16,11,7.5
+USC,Big Ten,4431580,Miller Moss,passing,233,362,0.644,2555,18,9,7.1
+Stanford,ACC,4838679,Ashton Daniels,passing,170,271,0.627,1700,10,12,6.3
+Buffalo,Mid-American,4877296,CJ Ogbonna,passing,181,317,0.571,2244,19,5,7.1
+Bowling Green,Mid-American,4426444,Connor Bazelak,passing,237,353,0.671,2654,15,5,7.5
+Utah State,Mountain West,4360480,Spencer Petras,passing,214,327,0.654,2315,17,11,7.1
+Washington,Big Ten,102597,Will Rogers,passing,220,311,0.707,2458,14,7,7.9
+Clemson,ACC,4685413,Cade Klubnik,passing,282,443,0.637,3303,33,5,7.5
+New Mexico State,Conference USA,5220783,Parker Awad,passing,74,159,0.465,1079,7,4,6.8
+New Mexico State,Conference USA,4570743,Santino Marucci,passing,49,112,0.438,519,3,5,4.6
+Florida Atlantic,American Athletic,5082005,Tyriq Starks,passing,39,63,0.619,550,6,2,8.7
+Duke,ACC,4685497,Maalik Murphy,passing,254,421,0.603,2932,26,12,7
+Boston College,ACC,4567707,Grayson James,passing,80,125,0.64,901,6,2,7.2
+UNLV,Mountain West,4571364,Hajj-Malik Williams,passing,145,234,0.62,1845,17,5,7.9
+Tulsa,American Athletic,4430033,Cooper Legas,passing,87,162,0.537,1144,12,6,7.1
+Southern Miss,Sun Belt,4920193,Ethan Crawford,passing,50,120,0.417,849,0,7,7.1
+Western Kentucky,Conference USA,4431948,TJ Finley,passing,48,75,0.64,490,1,2,6.5
+Middle Tennessee,Conference USA,4682518,Nick Vattiato,passing,269,418,0.644,3092,16,10,7.4
+San José State,Mountain West,5085112,Emmett Brown,passing,125,217,0.576,1621,16,5,7.5
+Washington State,Pac-12,4915980,John Mateer,passing,224,347,0.646,3139,29,7,9
+West Virginia,Big 12,4429847,Garrett Greene,passing,160,276,0.58,1972,13,11,7.1
+Michigan State,Big Ten,5075805,Aidan Chiles,passing,192,324,0.593,2415,13,12,7.5
+Washington,Big Ten,5079653,Demond Williams Jr.,passing,56,73,0.767,570,4,0,7.8
+Louisiana Tech,Conference USA,5092781,Jack Turner,passing,40,76,0.526,471,2,2,6.2
+Boise State,Mountain West,4870513,Maddux Madsen,passing,224,361,0.62,2714,22,3,7.5
+Cincinnati,Big 12,4899046,Brendan Sorsby,passing,249,389,0.64,2813,18,7,7.2
+Florida State,ACC,5079542,Luke Kromenhoek,passing,44,84,0.524,502,3,2,6
+Liberty,Conference USA,4432803,Kaidon Salter,passing,147,261,0.563,1886,15,6,7.2
+Florida,SEC,5079555,D.J. Lagway,passing,93,157,0.592,1610,11,7,10.3
+Mississippi State,SEC,4565315,Blake Shapen,passing,74,108,0.685,974,8,1,9
+Oregon State,Pac-12,4431114,Ben Gulbranson,passing,78,128,0.609,943,4,4,7.4
+Fresno State,Mountain West,4597499,Mikey Keene,passing,276,392,0.704,2887,18,11,7.4
+Northern Illinois,Mid-American,5151506,Josh Holst,passing,47,81,0.58,411,0,1,5.1
+Toledo,Mid-American,5082330,John Alan Richter,passing,43,67,0.642,497,4,0,7.4
+Georgia State,Sun Belt,4432612,Christian Veilleux,passing,166,291,0.57,2047,13,11,7
+UCF,Big 12,4685291,Jacurri Brown,passing,34,66,0.515,387,1,4,5.9
+Florida,SEC,4426335,Graham Mertz,passing,72,94,0.766,791,6,2,8.4
+Charlotte,American Athletic,5138131,Deshawn Purdie,passing,100,200,0.5,1802,10,6,9
+Western Kentucky,Conference USA,4869991,Caden Veltkamp,passing,233,350,0.666,2806,23,10,8
+UCF,Big 12,4567149,KJ Jefferson,passing,64,108,0.593,1012,7,4,9.4
+Central Michigan,Mid-American,5149056,Jadyn Glasser,passing,41,76,0.539,439,2,4,5.8
+Tennessee,SEC,4870799,Nico Iamaleava,passing,199,303,0.657,2512,19,5,8.3
+Florida Atlantic,American Athletic,4954456,Kasen Weisman,passing,39,73,0.534,416,2,3,5.7
+Utah,Big 12,5079771,Isaac Wilson,passing,127,225,0.564,1510,10,11,6.7
+Kansas State,Big 12,4870857,Avery Johnson,passing,202,342,0.591,2517,22,9,7.4
+Wake Forest,ACC,4426499,Hank Bachmeier,passing,224,357,0.627,2593,16,10,7.3
+Old Dominion,Sun Belt,4695867,Grant Wilson,passing,48,86,0.558,507,4,3,5.9
+Boston College,ACC,4773919,Thomas Castellanos,passing,99,161,0.615,1366,18,5,8.5
+Purdue,Big Ten,4429032,Hudson Card,passing,144,248,0.581,1641,9,7,6.6
+UConn,FBS Independents,4755664,Nick Evers,passing,97,179,0.542,918,5,5,5.1
+Kent State,Mid-American,5082965,Tommy Ulatowski,passing,81,175,0.463,1342,15,8,7.7
+Texas A&M,SEC,4685574,Conner Weigman,passing,64,114,0.561,819,3,5,7.2
+Oregon State,Pac-12,4887446,Gevani McCoy,passing,123,202,0.609,1300,3,6,6.4
+California,ACC,4837248,Fernando Mendoza,passing,265,386,0.687,3004,16,6,7.8
+SMU,ACC,4432767,Preston Stone,passing,30,51,0.588,421,5,1,8.3
+Illinois,Big Ten,4597679,Luke Altmyer,passing,198,325,0.609,2543,21,5,7.8
+James Madison,Sun Belt,4911929,Alonza Barnett,passing,212,354,0.599,2596,26,4,7.3
+UTEP,Conference USA,5088893,Cade McConnell,passing,40,71,0.563,540,4,3,7.6
+South Florida,American Athletic,4806463,Bryce Archie,passing,148,255,0.58,1679,9,9,6.6
+BYU,Big 12,5150611,Jake Retzlaff,passing,199,346,0.575,2745,19,10,7.9
+UAB,American Athletic,4426417,Jacob Zeno,passing,82,118,0.695,819,6,5,6.9
+South Alabama,Sun Belt,4920227,Giovanni Lopez,passing,205,311,0.659,2557,18,5,8.2
+Oklahoma State,Big 12,4362159,Alan Bowman,passing,204,340,0.6,2442,17,12,7.2
+App State,Sun Belt,5151948,Joey Aguilar,passing,218,390,0.559,3002,23,14,7.7
+Southern Miss,Sun Belt,4433886,Tate Rodemaker,passing,98,165,0.594,985,7,7,6
+UTEP,Conference USA,5083042,Skyler Locklear,passing,149,236,0.631,1591,10,6,6.7
+NC State,ACC,5079301,CJ Bailey,passing,177,276,0.641,2182,14,9,7.9
+Kennesaw State,Conference USA,5083103,Davis Bryson,passing,143,261,0.548,1494,6,10,5.7
+Troy,Sun Belt,4431633,Will Crowder,passing,44,63,0.698,547,5,0,8.7
+Pittsburgh,ACC,4870819,Eli Holstein,passing,179,290,0.617,2225,17,7,7.7
+Colorado,Big 12,4432762,Shedeur Sanders,passing,337,454,0.742,3926,35,8,8.6
+Central Michigan,Mid-American,4870848,Tyler Jefferson,passing,27,58,0.466,286,0,1,4.9
+Jacksonville State,Conference USA,4574356,Tyler Huff,passing,157,259,0.606,2179,13,6,8.4
+Maryland,Big Ten,4685488,MJ Morris,passing,36,61,0.59,350,5,5,5.7
+Kent State,Mid-American,4685693,Devin Kargman,passing,45,82,0.549,432,3,2,5.3
+Iowa State,Big 12,4801299,Rocco Becht,passing,250,421,0.594,3235,22,9,7.7
+Kentucky,SEC,5141378,Cutter Boley,passing,26,53,0.491,338,2,4,6.4
+Pittsburgh,ACC,4683182,Nate Yarnell,passing,98,167,0.587,1056,10,5,6.3
+Tulane,American Athletic,5121169,Darian Mensah,passing,189,287,0.659,2723,22,6,9.5
+South Alabama,Sun Belt,4869553,Bishop Davenport,passing,33,55,0.6,333,1,0,6.1
+Indiana,Big Ten,4430431,Kurtis Rourke,passing,202,287,0.704,2827,27,4,9.9
+Oklahoma,SEC,5079465,Michael Hawkins Jr.,passing,48,77,0.623,536,1,2,7
+West Virginia,Big 12,4685459,Nicco Marchiol,passing,37,56,0.661,434,5,2,7.8
+North Carolina,ACC,4429463,Jacolby Criswell,passing,185,319,0.58,2452,15,6,7.7
+Akron,Mid-American,4431091,Ben Finley,passing,211,387,0.545,2581,16,9,6.7
+Charlotte,American Athletic,4689585,Trexler Ivey,passing,34,59,0.576,326,3,2,5.5
+Georgia Tech,ACC,4428993,Haynes King,passing,171,236,0.725,1910,11,1,8.1
+Navy,American Athletic,5081504,Blake Horvath,passing,73,127,0.575,1261,13,4,9.9
+Texas State,Sun Belt,4360890,Jordan McCloud,passing,246,354,0.695,2915,29,12,8.2
+Wyoming,Mountain West,4899468,Kaden Anderson,passing,70,120,0.583,955,6,3,8
+Baylor,Big 12,4432759,Sawyer Robertson,passing,199,317,0.628,2626,26,7,8.3
+Utah State,Mountain West,4695600,Bryson Barnes,passing,77,126,0.611,856,12,6,6.8
+Ole Miss,SEC,4689114,Jaxson Dart,passing,249,363,0.686,3875,25,6,10.7
+Michigan,Big Ten,4878681,Davis Warren,passing,124,195,0.636,1125,6,9,5.8
+Georgia Tech,ACC,4746127,Zach Pyron,passing,35,65,0.538,409,2,3,6.3
+Hawai'i,Mountain West,4709977,Brayden Schager,passing,233,404,0.577,2591,19,13,6.4
+Georgia State,Sun Belt,4568336,Zach Gibson,passing,102,151,0.675,1004,7,2,6.6
+Arkansas State,Sun Belt,5080403,Jaylen Raynor,passing,241,390,0.618,2562,14,9,6.6
+Florida Atlantic,American Athletic,4700135,Cam Fancher,passing,126,212,0.594,1528,6,6,7.2
+UAB,American Athletic,4565187,Jalen Kitna,passing,196,316,0.62,2209,17,11,7
+Kansas,Big 12,4596472,Jalon Daniels,passing,171,300,0.57,2454,14,12,8.2
+Sam Houston,Conference USA,5220424,Hunter Watson,passing,152,253,0.601,1598,11,8,6.3
+Virginia,ACC,4775264,Tony Muskett,passing,45,76,0.592,545,3,3,7.2
+Sam Houston,Conference USA,4709012,Jase Bauer,passing,40,65,0.615,310,2,1,4.8
+Louisiana,Sun Belt,4373895,Ben Wooldridge,passing,185,271,0.683,2392,17,5,8.8
+Arizona State,Big 12,5078810,Sam Leavitt,passing,192,304,0.632,2663,24,5,8.8
+Texas,SEC,4889929,Quinn Ewers,passing,233,352,0.662,2665,25,9,7.6
+Utah,Big 12,4362075,Cameron Rising,passing,34,66,0.515,555,7,3,8.4
+Louisiana,Sun Belt,4429595,Chandler Fields,passing,63,87,0.724,897,5,1,10.3
+Georgia Tech,ACC,5132812,Aaron Philo,passing,38,74,0.514,565,1,2,7.6
+North Texas,American Athletic,4692530,Chandler Morris,passing,322,509,0.633,3774,31,12,7.4
+Oklahoma,SEC,4870607,Jackson Arnold,passing,154,246,0.626,1421,12,3,5.8
+UL Monroe,Sun Belt,5122054,Aidan Armenta,passing,102,188,0.543,1294,9,10,6.9
+Miami,ACC,4688380,Cameron Ward,passing,293,435,0.674,4123,36,7,9.5
+Texas Tech,Big 12,4431465,Behren Morton,passing,293,463,0.633,3300,27,8,7.1
+LSU,SEC,4567747,Garrett Nussmeier,passing,312,490,0.637,3735,26,11,7.6
+Mississippi State,SEC,5079620,Michael Van Buren Jr.,passing,140,256,0.547,1886,11,7,7.4
+South Florida,American Athletic,4880272,Byrum Brown,passing,78,132,0.591,836,2,0,6.3
+Troy,Sun Belt,4877717,Matthew Caldwell,passing,141,224,0.629,1608,13,8,7.2
+Houston,Big 12,4690977,Donovan Smith,passing,87,133,0.654,867,4,8,6.5
+Colorado State,Mountain West,4833597,Brayden Fowler-Nicolosi,passing,204,329,0.62,2434,13,6,7.4
+Wisconsin,Big Ten,4702829,Braedyn Locke,passing,164,296,0.554,1936,13,10,6.5
+Ball State,Mid-American,5091890,Kadin Semonza,passing,275,427,0.644,2900,25,10,6.8
+Virginia,ACC,5044387,Anthony Colandrea,passing,198,320,0.619,2125,13,11,6.6
+Kentucky,SEC,4432782,Brock Vandagriff,passing,125,218,0.573,1593,10,8,7.3
+Eastern Michigan,Mid-American,4570057,Cole Snyder,passing,239,402,0.595,2676,15,9,6.7
+Tulsa,American Athletic,5151618,Kirk Francis,passing,149,253,0.589,1585,9,6,6.3
+Rutgers,Big Ten,4432722,Athan Kaliakmanis,passing,199,363,0.548,2459,17,6,6.8
+Wisconsin,Big Ten,4685186,Tyler Van Dyke,passing,43,68,0.632,422,1,0,6.2
+Miami (OH),Mid-American,4427243,Brett Gabbert,passing,204,354,0.576,2737,21,11,7.7
+Coastal Carolina,Sun Belt,4690158,Noah Kim,passing,30,56,0.536,333,4,1,5.9
+San José State,Mountain West,4694149,Walker Eget,passing,155,270,0.574,2224,11,9,8.2
+Temple,American Athletic,5151231,Forrest Brock,passing,60,103,0.583,541,1,5,5.3
+Massachusetts,FBS Independents,5146355,AJ Hairston,passing,40,73,0.548,480,5,0,6.6
+Purdue,Big Ten,5104738,Ryan Browne,passing,43,76,0.566,532,4,2,7
+Central Michigan,Mid-American,4683291,Joey Labas,passing,94,160,0.588,1114,7,7,7
+Old Dominion,Sun Belt,5125715,Colton Joseph,passing,133,222,0.599,1623,11,5,7.3
+TCU,Big 12,4685401,Josh Hoover,passing,293,439,0.667,3697,23,10,8.4
+Nevada,Mountain West,4429149,Brendon Lewis,passing,211,312,0.676,2290,16,7,7.3
+Rice,American Athletic,4916436,E.J. Warner,passing,271,438,0.619,2710,17,13,6.2
+Maryland,Big Ten,4592532,Billy Edwards,passing,273,420,0.65,2881,15,9,6.9
+Florida International,Conference USA,5085337,Keyone Jenkins,passing,188,304,0.618,2557,22,8,8.4
+San Diego State,Mountain West,5126474,Danny O'Neil,passing,209,330,0.633,2181,12,6,6.6
+East Carolina,American Athletic,4432703,Jake Garcia,passing,109,181,0.602,1426,8,12,7.9
+Ohio State,Big Ten,4429955,Will Howard,passing,227,314,0.723,2860,27,8,9.1
+Virginia Tech,ACC,4678010,Kyron Drones,passing,136,224,0.607,1562,10,6,7
+UConn,FBS Independents,4429582,Joe Fagnano,passing,104,184,0.565,1480,18,4,8
+Florida State,ACC,4429020,D.J. Uiagalelei,passing,84,156,0.538,1065,4,6,6.8
+Wyoming,Mountain West,5082633,Evan Svoboda,passing,111,226,0.491,1308,5,8,5.8
+Marshall,Sun Belt,4600403,Braylon Braxton,passing,124,206,0.602,1624,19,2,7.9
+Western Michigan,Mid-American,4430775,Hayden Wolff,passing,191,285,0.67,2214,17,7,7.8
+Notre Dame,FBS Independents,4683423,Riley Leonard,passing,194,293,0.662,2092,16,5,7.1
+Missouri,SEC,4429435,Brady Cook,passing,182,288,0.632,2238,9,2,7.8
+Louisiana Tech,Conference USA,5076949,Evan Bullock,passing,185,274,0.675,1938,14,2,7.1
+Oklahoma State,Big 12,5093922,Maealiuaki Smith,passing,44,75,0.587,499,2,4,6.7
+Air Force,Mountain West,5151904,John Busha,passing,29,79,0.367,415,1,5,5.3
+UTSA,American Athletic,4775136,Owen McCown,passing,271,437,0.62,3170,24,9,7.3
+Hawai'i,Mountain West,5101124,Micah Alejado,passing,49,70,0.7,585,6,0,8.4
+Missouri,SEC,4429088,Drew Pyne,passing,49,82,0.598,391,3,3,4.8
+Arkansas,SEC,4431325,Taylen Green,passing,219,360,0.608,2812,13,9,7.8
+Houston,Big 12,4870518,Zeon Chriss,passing,83,130,0.638,824,4,8,6.3
+Ohio,Mid-American,4610131,Parker Navarro,passing,176,267,0.659,2169,12,10,8.1
+Northwestern,Big Ten,4433932,Mike Wright,passing,39,67,0.582,356,0,1,5.3
+NC State,ACC,4427936,Grayson McCall,passing,53,80,0.663,518,3,2,6.5
+UCF,Big 12,4920156,Dylan Rizk,passing,73,118,0.619,915,5,2,7.8
+Penn State,Big Ten,4714771,Drew Allar,passing,224,324,0.691,2894,21,7,8.9
+Georgia Southern,Sun Belt,4685345,JC French,passing,249,377,0.66,2619,16,7,6.9
+Nebraska,Big Ten,5079572,Dylan Raiola,passing,252,379,0.665,2582,12,10,6.8
+Marshall,Sun Belt,4691272,Stone Earle,passing,65,120,0.542,673,7,2,5.6
+Georgia,SEC,4430841,Carson Beck,passing,290,448,0.647,3485,28,12,7.8
+New Mexico,Mountain West,5105849,Devon Dampier,passing,226,390,0.579,2768,12,12,7.1
+Coastal Carolina,Sun Belt,4832918,Ethan Vasko,passing,148,271,0.546,2120,14,8,7.8
+Texas A&M,SEC,4870971,Marcel Reed,passing,121,198,0.611,1572,12,4,7.9
+Florida State,ACC,4920158,Brock Glenn,passing,51,114,0.447,597,4,5,5.2
+Oregon,Big Ten,4427238,Dillon Gabriel,passing,297,406,0.732,3558,28,6,8.8
+Northwestern,Big Ten,4911961,Jack Lausch,passing,159,296,0.537,1714,7,8,5.8
+UL Monroe,Sun Belt,5081925,General Booty,passing,29,54,0.537,306,2,2,5.7
+Alabama,SEC,4432734,Jalen Milroe,passing,189,287,0.659,2652,15,10,9.2
+SMU,ACC,5084084,Kevin Jennings,passing,228,345,0.661,2994,22,8,8.7
+Temple,American Athletic,4431387,Evan Simon,passing,181,308,0.588,2032,15,9,6.6
+USC,Big Ten,4685454,Jayden Maiava,passing,79,130,0.608,906,7,3,7
+Iowa,Big Ten,4427455,Cade McNamara,passing,104,172,0.605,1017,6,5,5.9
+Massachusetts,FBS Independents,4426430,Taisun Phommachanh,passing,132,234,0.564,1590,8,6,6.8
+Louisville,ACC,4360689,Tyler Shough,passing,244,389,0.627,3195,23,6,8.2
+Minnesota,Big Ten,4573398,Max Brosmer,passing,250,374,0.668,2618,17,5,7
+Memphis,American Athletic,4606194,Seth Henigan,passing,291,451,0.645,3208,23,6,7.1
+Army,American Athletic,4879928,Bryson Daily,passing,52,94,0.553,942,9,4,10
+Syracuse,ACC,4433971,Kyle McCord,passing,367,558,0.658,4326,29,12,7.8
+Arizona,Big 12,4801717,Noah Fifita,passing,260,430,0.605,2958,18,12,6.9
+Auburn,SEC,4430590,Payton Thorne,passing,199,317,0.628,2713,21,9,8.6
+Vanderbilt,SEC,5084180,Diego Pavia,passing,164,277,0.592,2133,17,4,7.7
+East Carolina,American Athletic,4795295,Katin Houser,passing,131,216,0.606,1859,18,9,8.6
+Charlotte,American Athletic,4875125,Max Brown,passing,43,93,0.462,561,3,6,6
