@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Matt Waite">
+<meta name="dcterms.date" content="2025-02-17">
 
-<title>Latest posts – Matt Waite’s Collection of Miscellany</title>
+<title>An R + LLM starter kit – Matt Waite’s Collection of Miscellany</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +25,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-43df0d6f53b733b42d37fa7808e17715.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-43ec30955c1f8b7a54f0425792442124.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-8a7c634d51bfda77d17cf98aa3e06e6e.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-43df0d6f53b733b42d37fa7808e17715.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-43ec30955c1f8b7a54f0425792442124.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-8a7c634d51bfda77d17cf98aa3e06e6e.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TQ9B01DPX0"></script>
 
 <script type="text/javascript">
@@ -110,43 +81,16 @@ gtag('js', new Date());
 gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Latest posts – Matt Waite’s Collection of Miscellany">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="An R + LLM starter kit – Matt Waite’s Collection of Miscellany">
+<meta property="og:description" content="A blog about random fiddling with code and data.">
 <meta property="og:image" content="https://mattwaite.github.io/posts/r-llm-starter-pack/image.png">
 <meta property="og:site_name" content="Matt Waite's Collection of Miscellany">
 <meta property="og:image:height" content="1060">
 <meta property="og:image:width" content="1972">
-<meta name="twitter:title" content="Latest posts – Matt Waite’s Collection of Miscellany">
+<meta name="twitter:title" content="An R + LLM starter kit – Matt Waite’s Collection of Miscellany">
+<meta name="twitter:description" content="A blog about random fiddling with code and data.">
 <meta name="twitter:image" content="https://mattwaite.github.io/posts/r-llm-starter-pack/image.png">
 <meta name="twitter:creator" content="@mattwaite">
 <meta name="twitter:image-height" content="1060">
@@ -154,14 +98,14 @@ window.Quarto = {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Matt Waite’s Collection of Miscellany</span>
     </a>
   </div>
@@ -172,7 +116,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -196,353 +140,62 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Latest posts</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">An R + LLM starter kit</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">analysis</div>
+                <div class="quarto-category">AI</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Matt Waite </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 17, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="QUk=">AI <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(8)</span></div><div class="category" data-category="ZWR1Y2F0aW9u">education <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9vdGJhbGw=">football <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHVza2Vycw==">huskers <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cg==">r <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<p>I’ve written before, I am at best an enthusiastic amateur when it comes to AI, LLMs and R. But I’m braver/dumber than most, so for a talk I’m giving to NE-RUG – the Nebraska R Users Group – I’ve got some resources to share.</p>
+<section id="r-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="r-libraries">R libraries</h3>
+<p><a href="https://ellmer.tidyverse.org/index.html"><code>ellmer</code></a>: From the folks who brought you the <code>tidyverse</code> comes <code>ellmer</code>, a library that supports talking to a large number of LLMs. To talk to the big commercial LLMs, you’ll need API keys, and that usually means having an API budget. But what I like about ellmer is that it also talks to locally hosted models as well. More about that later.</p>
+<p><a href="https://simonpcouch.github.io/chores/index.html"><code>chores</code></a>: Built on top of <code>ellmer</code>, <code>chores</code> is a neat way to make tools inside of R Studio that leverage LLMs to accomplish tasks. Examples are to help with certain kinds of code tasks, or help with explanations of what an error message means.</p>
+</section>
+<section id="external-resources" class="level3">
+<h3 class="anchored" data-anchor-id="external-resources">External resources</h3>
+<p><a href="https://ollama.com/">Ollama</a>: A cross-platform system of downloading, managing and running open-source LLMs on your local machine. With Ollama, you can run Meta’s Llama3 or DeepSeek’s R1 locally, using them to accomplish tasks without incurring costs. A rough rule of thumb is that you can run models slightly smaller than the amount of RAM you have. For example, my computer has 16GB of RAM, so I can run 14 billion parameter models (albeit somewhat slowly).</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1739772000000" data-listing-file-modified-sort="1739843964785" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="225">
-<div class="thumbnail">
-<p><a href="./posts/r-llm-starter-pack/index.html" class="no-external"></a></p><a href="./posts/r-llm-starter-pack/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/r-llm-starter-pack/image.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/r-llm-starter-pack/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/r-llm-starter-pack/index.html" class="no-external">An R + LLM starter kit</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/r-llm-starter-pack/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">
-analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">
-AI
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/r-llm-starter-pack/index.html" class="no-external">I’ve written before, I am at best an enthusiastic amateur when it comes to AI, LLMs and R. But I’m braver/dumber than most, so for a talk I’m giving to NE-RUG – the Nebraska…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/r-llm-starter-pack/index.html" class="no-external">
-<div class="listing-date">
-Feb 17, 2025
-</div>
-<div class="listing-author">
-Matt Waite
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="QUklMkNjb2RlJTJDciUyQ2VkdWNhdGlvbg==" data-listing-date-sort="1732600800000" data-listing-file-modified-sort="1732737862872" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1343">
-<div class="thumbnail">
-<p><a href="./posts/an-academic-integrity-friendly-pal/index.html" class="no-external"></a></p><a href="./posts/an-academic-integrity-friendly-pal/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/an-academic-integrity-friendly-pal/image.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/an-academic-integrity-friendly-pal/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/an-academic-integrity-friendly-pal/index.html" class="no-external">An academic integrity-friendly code pal for R Studio</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/an-academic-integrity-friendly-pal/index.html" class="no-external">How to plug in an LLM to help – but not too much – in a world that wants to cheat</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">
-AI
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cg=='); return false;">
-r
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZWR1Y2F0aW9u'); return false;">
-education
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/an-academic-integrity-friendly-pal/index.html" class="no-external">One of the struggles on campus these days is all about where to draw the lines when it comes to AI in the classroom. There’s no end of discussion about students using…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/an-academic-integrity-friendly-pal/index.html" class="no-external">
-<div class="listing-date">
-Nov 26, 2024
-</div>
-<div class="listing-author">
-Matt Waite
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2Zvb3RiYWxsJTJDaHVza2Vycw==" data-listing-date-sort="1731045600000" data-listing-file-modified-sort="1731098376050" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1482">
-<div class="thumbnail">
-<p><a href="./posts/scrollytelling-nebraskas-season/index.html" class="no-external"></a></p><a href="./posts/scrollytelling-nebraskas-season/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/scrollytelling-nebraskas-season/image.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/scrollytelling-nebraskas-season/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/scrollytelling-nebraskas-season/index.html" class="no-external">Nebraska’s season long slide on offense</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/scrollytelling-nebraskas-season/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Zm9vdGJhbGw='); return false;">
-football
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('aHVza2Vycw=='); return false;">
-huskers
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/scrollytelling-nebraskas-season/index.html" class="no-external">If you’ve been following Nebraska’s football season, you’d be forgiven if you thought it started out great and has slowly driven into a ditch as time went on. Even after a…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/scrollytelling-nebraskas-season/index.html" class="no-external">
-<div class="listing-date">
-Nov 8, 2024
-</div>
-<div class="listing-author">
-Matt Waite
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1729659600000" data-listing-file-modified-sort="1729882889329" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2851">
-<div class="thumbnail">
-<p><a href="./posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external"></a></p><a href="./posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/a-simple-example-ai-agents-doing-journalism/image.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external">A simple example of AI agents(?) doing journalism(?) work</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">
-analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">
-AI
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external">Let’s start this with some confessions:</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external">
-<div class="listing-date">
-Oct 23, 2024
-</div>
-<div class="listing-author">
-Matt Waite
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1648443600000" data-listing-file-modified-sort="1659226675864" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4373">
-<div class="thumbnail">
-<p><a href="./posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external"></a></p><a href="./posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/another-year-another-attempt-another-bracket-disaster/image.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external">Another year, another attempt, another bracket disaster</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">
-analysis
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external">Once again, I attempted to predict the outcome of the NCAA tournament using machine learning, and I had a class-load of students try the same.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external">
-<div class="listing-date">
-Mar 28, 2022
-</div>
-<div class="listing-author">
-Matt Waite
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1647752400000" data-listing-file-modified-sort="1659226081434" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1096">
-<div class="thumbnail">
-<p><a href="./posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external"></a></p><a href="./posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/nebraska-is-the-third-best-worst-basketball-team/image.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external">Nebraska is not the best worst team in basketball again. They’re third best worst.</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('aHVza2Vycw=='); return false;">
-huskers
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">
-analysis
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external">Last year, this post <em>may</em> have suggested that Nebraska would be better this year than last year. That Nebraska was the best worst team in college basketball, and with major…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external">
-<div class="listing-date">
-Mar 20, 2022
-</div>
-<div class="listing-author">
-Matt Waite
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1616907600000" data-listing-file-modified-sort="1712960572625" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1209">
-<div class="thumbnail">
-<p><a href="./posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external"></a></p><a href="./posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/is-nebraska-the-best-worst-basketball-team/image.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external">Is Nebraska the best worst team in college basketball?</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('aHVza2Vycw=='); return false;">
-huskers
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">
-analysis
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external">Nebraska fans haven’t had the best time watching basketball lately. The last two seasons have featured only seven wins in each season. This season they only won three games…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external">
-<div class="listing-date">
-Mar 28, 2021
-</div>
-<div class="listing-author">
-Matt Waite
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1616389200000" data-listing-file-modified-sort="1659219289096" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1699">
-<div class="thumbnail">
-<p><a href="./posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external"></a></p><a href="./posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/ncaa-bracket-with-machine-learning-2021/Screen Shot 2021-03-22 at 10.39.09 PM.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external">How I (poorly) filled out my NCAA bracket with machine learning</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">
-analysis
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external">I do not know a lot about college basketball. I follow the travails of my employer and a little about the Big Ten Conference as a whole, but at best it’s surface knowledge.…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external">
-<div class="listing-date">
-Mar 22, 2021
-</div>
-<div class="listing-author">
-Matt Waite
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
