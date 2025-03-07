@@ -216,7 +216,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 
 
 
-<p>I’ve written before, I am at best an enthusiastic amateur when it comes to AI, LLMs and R. But I’m braver/dumber than most, so for a talk I’m giving to NE-RUG – the Nebraska R Users Group – I’ve got some resources to share.</p>
+<p>I’ve written before, I am at best an enthusiastic amateur when it comes to AI, LLMs and R. But I’m braver/dumber than most, so for a talk I’m giving to NE-RUG – the Nebraska R Users Group – and to the NICAR data journalism conference, I’ve got some resources and some code to share.</p>
 <section id="r-libraries" class="level3">
 <h3 class="anchored" data-anchor-id="r-libraries">R libraries</h3>
 <p><a href="https://ellmer.tidyverse.org/index.html"><code>ellmer</code></a>: From the folks who brought you the <code>tidyverse</code> comes <code>ellmer</code>, a library that supports talking to a large number of LLMs. To talk to the big commercial LLMs, you’ll need API keys, and that usually means having an API budget. But what I like about ellmer is that it also talks to locally hosted models as well. More about that later.</p>
@@ -239,13 +239,12 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Tell me three jokes about journalists"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1. Why did the journalist get fired from the newspaper?  Because he kept 
-submitting articles with "unconfirmed sources" – his imagination.
+writing his own obituaries.
 
 
 2. A journalist walks into a bar and orders a drink.  The bartender says, "Hey,
-aren't you the guy who wrote that article about me?" The journalist replies, 
-"Uh, maybe... Did you like it?" The bartender says, "It was great!  It got me 
-three new customers. Two came to see if it was true, and one was my lawyer."
+aren't you the guy who wrote that article about me?"  The journalist replies, 
+"I don't remember.  What was it about?"
 
 
 3. What's the difference between a journalist and a pizza? A pizza can feed a 
@@ -309,7 +308,7 @@ $drug_distribution_related
 [1] TRUE
 
 $fully_spelled_out_no_abbreviations
-[1] "Possession With Intent to Distribute Methamphetamine"</code></pre>
+[1] "Possession with Intent to Distribute Methamphetamine"</code></pre>
 </div>
 </div>
 <p>* you have to ruthlessly check this. It’s good, but it is not perfect.</p>
@@ -349,8 +348,8 @@ $fully_spelled_out_no_abbreviations
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(statenarrative<span class="sc">$</span>base_narrative[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Banner County experienced a healthy growth spurt in 2023, adding 17 residents 
-for a total population of 674. This 2.6% increase was the highest in Nebraska, 
-driven entirely by net migration as births and deaths balanced each other out.</code></pre>
+for a total population of 674. This 2.6% increase, the highest in Nebraska, was
+driven entirely by net migration, as births and deaths balanced each other out.</code></pre>
 </div>
 </div>
 <p>Earth-shattering? Hardly. But what if instead of world changing uses of technology, the right aim for AI is to offload tasks we would do because it would be better, but aren’t worth spending the time doing because we all have a limited time on this earth?</p>
