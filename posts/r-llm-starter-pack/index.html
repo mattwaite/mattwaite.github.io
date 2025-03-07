@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Matt Waite">
-<meta name="dcterms.date" content="2025-02-17">
+<meta name="dcterms.date" content="2025-03-07">
 
 <title>An R + LLM starter kit – Matt Waite’s Collection of Miscellany</title>
 <style>
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -163,7 +197,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 17, 2025</p>
+        <p class="date">March 7, 2025</p>
       </div>
     </div>
     
@@ -191,6 +225,138 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <section id="external-resources" class="level3">
 <h3 class="anchored" data-anchor-id="external-resources">External resources</h3>
 <p><a href="https://ollama.com/">Ollama</a>: A cross-platform system of downloading, managing and running open-source LLMs on your local machine. With Ollama, you can run Meta’s Llama3 or DeepSeek’s R1 locally, using them to accomplish tasks without incurring costs. A rough rule of thumb is that you can run models slightly smaller than the amount of RAM you have. For example, my computer has 16GB of RAM, so I can run 14 billion parameter models (albeit somewhat slowly).</p>
+</section>
+<section id="basics-of-ellmer" class="level3">
+<h3 class="anchored" data-anchor-id="basics-of-ellmer">Basics of ellmer</h3>
+<p><code>ellmer</code> at first is very simple. You can just start a chat and … chat.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_gemini</span>()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(<span class="st">"Tell me three jokes about journalists"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1. Why did the journalist get fired from the newspaper?  Because he kept 
+submitting articles with "unconfirmed sources" – his imagination.
+
+
+2. A journalist walks into a bar and orders a drink.  The bartender says, "Hey,
+aren't you the guy who wrote that article about me?" The journalist replies, 
+"Uh, maybe... Did you like it?" The bartender says, "It was great!  It got me 
+three new customers. Two came to see if it was true, and one was my lawyer."
+
+
+3. What's the difference between a journalist and a pizza? A pizza can feed a 
+family.</code></pre>
+</div>
+</div>
+</section>
+<section id="structured-data-output" class="level3">
+<h3 class="anchored" data-anchor-id="structured-data-output">Structured data output</h3>
+<p>Most models can be used to extract structure from sentences.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_gemini</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> chat<span class="sc">$</span><span class="fu">extract_data</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"My name is Matt and I'm a 49 year old Journalism major"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="fu">type_object</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">type_number</span>(),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="fu">type_string</span>(),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">major =</span> <span class="fu">type_string</span>()</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  age name      major
+1  49 Matt Journalism</code></pre>
+</div>
+</div>
+</section>
+<section id="something-more-like-data-journalism" class="level3">
+<h3 class="anchored" data-anchor-id="something-more-like-data-journalism">Something more like data journalism</h3>
+<p>What if we wanted to normalize some messy, messy data. In Nebraska, the Department of Corrections publishes a live dataset of incarcerated people that you can download. You can ask and answer all kinds of questions from it – demographics, etc. But what you can’t do is figure out what is holding the most people, or how many people are there at least in part because of drug charges. Why? Because the charges they are serving time for are not normalized. Here’s an example of what they look like:</p>
+<p>POS CNTRL SUB-METHAMPHETAMINE<br>
+MURDER 1ST DEGREE<br>
+POSSESSION OF METHAMPHETAMINE<br>
+POS CNTRL SUB (METH)<br>
+POSSESS CONTR SUBSTANCE-METH<br>
+DELIVERY OF METHAMPHETAMINE<br>
+POSS W/ INTENT DIST METH</p>
+<p>Can an LLM help us with this? Yes!*</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_gemini</span>()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">extract_data</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"POSS W/ INTENT DIST METH"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="fu">type_object</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">methamphetamine_related =</span> <span class="fu">type_boolean</span>(),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">drug_possession_related =</span> <span class="fu">type_boolean</span>(),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">drug_distribution_related =</span> <span class="fu">type_boolean</span>(),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">fully_spelled_out_no_abbreviations =</span> <span class="fu">type_string</span>()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$methamphetamine_related
+[1] TRUE
+
+$drug_possession_related
+[1] TRUE
+
+$drug_distribution_related
+[1] TRUE
+
+$fully_spelled_out_no_abbreviations
+[1] "Possession With Intent to Distribute Methamphetamine"</code></pre>
+</div>
+</div>
+<p>* you have to ruthlessly check this. It’s good, but it is not perfect.</p>
+<p>Why am I only doing one here? Because the free tier of Gemini limits you to about 5 queries a minute. But it wouldn’t be that hard to write a function that runs through your list of charges and inserts a pause after each one to ensure you stay in the free tier.</p>
+<p>What else can be done?</p>
+</section>
+<section id="nuclear-powered-population-maps" class="level3">
+<h3 class="anchored" data-anchor-id="nuclear-powered-population-maps">Nuclear powered population maps</h3>
+<p>Here is a basic population map of Nebraska with one-year change values in it. We’ve all made this chart before. It’s simple, but it gets the job done.</p>
+<iframe title="Nebraska population changes uneven in latest estimates" aria-label="Map" id="datawrapper-chart-Kpgli" src="https://datawrapper.dwcdn.net/Kpgli/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="450" data-external="1">
+</iframe>
+<p>I’ve written a lot more about this process <a href="https://mattwaite.github.io/posts/a-simple-example-ai-agents-doing-journalism/">here</a> but what if we could take the basic data from our population data and create narratives out of it. Instead of the boring tabular way of giving them the information, they get a human narrative of a few sentences.</p>
+<p>First, let’s create the base narrative. That is the words we will feed to Gemini.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>countypopchange <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://the-art-of-data-journalism.github.io/tutorial-data/census-estimates/nebraska.csv"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>statenarrative <span class="ot">&lt;-</span> countypopchange <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(COUNTY, STATE, CTYNAME, STNAME, POPESTIMATE2023, POPESTIMATE2022, NPOPCHG2023, NATURALCHG2023, NETMIG2023) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">POPPERCENTCHANGE =</span> ((POPESTIMATE2023<span class="sc">-</span>POPESTIMATE2022)<span class="sc">/</span>POPESTIMATE2022)<span class="sc">*</span><span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">GEOID =</span> <span class="fu">paste0</span>(COUNTY, STATE)) <span class="sc">|&gt;</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(POPPERCENTCHANGE)) <span class="sc">|&gt;</span> </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">PCTCHANGERANK =</span> <span class="fu">row_number</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">base_narrative =</span> <span class="fu">glue</span>(</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"County: {CTYNAME}, Population in 2023: {POPESTIMATE2023}, Population in 2022: {POPESTIMATE2022}, Population change: {NPOPCHG2023}, Percent change: {POPPERCENTCHANGE}, Percent change rank in {STNAME}: {PCTCHANGERANK}, Natural change (births vs deaths): {NATURALCHG2023}, Net migration: {NETMIG2023}"</span>)) </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>statenarrative<span class="sc">$</span>base_narrative[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>County: Banner County, Population in 2023: 674, Population in 2022: 657, Population change: 17, Percent change: 2.58751902587519, Percent change rank in Nebraska: 1, Natural change (births vs deaths): 0, Net migration: 17</code></pre>
+</div>
+</div>
+<p>Now, we’re going to add a system prompt to our chat to give Gemini some guidance. It’s not hard to do and you should do it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>chat <span class="ot">&lt;-</span> <span class="fu">chat_gemini</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> <span class="st">"You are a demographics journalist from Nebraska. Your job today is to write short -- 2-3 sentence -- summaries of population estimates from the Census Bureau for each county in the state. I will provide you the name of the county and a series of population numbers for the county. Your job is to turn it into a concise but approachable summary of what happened in that county. Here is the data you have to work with: "</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(statenarrative<span class="sc">$</span>base_narrative[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Banner County experienced a healthy growth spurt in 2023, adding 17 residents 
+for a total population of 674. This 2.6% increase was the highest in Nebraska, 
+driven entirely by net migration as births and deaths balanced each other out.</code></pre>
+</div>
+</div>
+<p>Earth-shattering? Hardly. But what if instead of world changing uses of technology, the right aim for AI is to offload tasks we would do because it would be better, but aren’t worth spending the time doing because we all have a limited time on this earth?</p>
+<p>If you were to run this 93 times – or, you know, make a function to do that – and added a headline writing bot to this, here’s what your map now looks like.</p>
+<iframe title="Nebraska population changes uneven in latest estimates" aria-label="Map" id="datawrapper-chart-xmfm5" src="https://datawrapper.dwcdn.net/xmfm5/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="484" data-external="1">
+</iframe>
 
 
 </section>
