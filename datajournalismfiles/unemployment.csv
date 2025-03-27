@@ -1,0 +1,512 @@
+year,period,periodName,Unemployment_Rate,Location
+2025,M01,January,3.2,Nebraska
+2024,M12,December,2.6,Nebraska
+2024,M11,November,2.7,Nebraska
+2024,M10,October,2.7,Nebraska
+2024,M09,September,2.6,Nebraska
+2024,M08,August,2.8,Nebraska
+2024,M07,July,3.1,Nebraska
+2024,M06,June,3.1,Nebraska
+2024,M05,May,2.6,Nebraska
+2024,M04,April,2.4,Nebraska
+2024,M03,March,2.7,Nebraska
+2024,M02,February,2.9,Nebraska
+2024,M01,January,2.8,Nebraska
+2023,M12,December,2.3,Nebraska
+2023,M11,November,2.2,Nebraska
+2023,M10,October,2.5,Nebraska
+2023,M09,September,2.3,Nebraska
+2023,M08,August,2.3,Nebraska
+2023,M07,July,2.4,Nebraska
+2023,M06,June,2.6,Nebraska
+2023,M05,May,2.2,Nebraska
+2023,M04,April,2,Nebraska
+2023,M03,March,2.2,Nebraska
+2023,M02,February,2.4,Nebraska
+2023,M01,January,2.3,Nebraska
+2022,M12,December,2.1,Nebraska
+2022,M11,November,2,Nebraska
+2022,M10,October,2.1,Nebraska
+2022,M09,September,2,Nebraska
+2022,M08,August,2.3,Nebraska
+2022,M07,July,2.4,Nebraska
+2022,M06,June,2.5,Nebraska
+2022,M05,May,2,Nebraska
+2022,M04,April,1.9,Nebraska
+2022,M03,March,2.2,Nebraska
+2022,M02,February,2.3,Nebraska
+2022,M01,January,2.4,Nebraska
+2021,M12,December,1.8,Nebraska
+2021,M11,November,1.8,Nebraska
+2021,M10,October,2.1,Nebraska
+2021,M09,September,2.1,Nebraska
+2021,M08,August,2.5,Nebraska
+2021,M07,July,2.8,Nebraska
+2021,M06,June,3.2,Nebraska
+2021,M05,May,2.7,Nebraska
+2021,M04,April,2.7,Nebraska
+2021,M03,March,3.1,Nebraska
+2021,M02,February,3.5,Nebraska
+2021,M01,January,3.4,Nebraska
+2020,M12,December,2.8,Nebraska
+2020,M11,November,2.5,Nebraska
+2020,M10,October,2.5,Nebraska
+2020,M09,September,3.2,Nebraska
+2020,M08,August,3.5,Nebraska
+2020,M07,July,4.8,Nebraska
+2020,M06,June,5.6,Nebraska
+2020,M05,May,6.6,Nebraska
+2020,M04,April,8,Nebraska
+2020,M03,March,5.1,Nebraska
+2020,M02,February,3.1,Nebraska
+2020,M01,January,3.3,Nebraska
+2019,M12,December,2.8,Nebraska
+2019,M11,November,2.8,Nebraska
+2019,M10,October,3,Nebraska
+2019,M09,September,2.7,Nebraska
+2019,M08,August,3,Nebraska
+2019,M07,July,3.3,Nebraska
+2019,M06,June,3.4,Nebraska
+2019,M05,May,3,Nebraska
+2019,M04,April,2.9,Nebraska
+2019,M03,March,3.4,Nebraska
+2019,M02,February,3.4,Nebraska
+2019,M01,January,3.5,Nebraska
+2025,M01,January,4,Iowa
+2024,M12,December,3,Iowa
+2024,M11,November,3.1,Iowa
+2024,M10,October,3.1,Iowa
+2024,M09,September,2.9,Iowa
+2024,M08,August,3.4,Iowa
+2024,M07,July,3.5,Iowa
+2024,M06,June,3.1,Iowa
+2024,M05,May,2.7,Iowa
+2024,M04,April,2.2,Iowa
+2024,M03,March,2.8,Iowa
+2024,M02,February,3.1,Iowa
+2024,M01,January,3.5,Iowa
+2023,M12,December,2.6,Iowa
+2023,M11,November,2.5,Iowa
+2023,M10,October,2.8,Iowa
+2023,M09,September,2.7,Iowa
+2023,M08,August,3.2,Iowa
+2023,M07,July,3.1,Iowa
+2023,M06,June,3,Iowa
+2023,M05,May,2.8,Iowa
+2023,M04,April,2.3,Iowa
+2023,M03,March,3.1,Iowa
+2023,M02,February,3.3,Iowa
+2023,M01,January,3.7,Iowa
+2022,M12,December,2.9,Iowa
+2022,M11,November,2.8,Iowa
+2022,M10,October,2.8,Iowa
+2022,M09,September,2.6,Iowa
+2022,M08,August,3.2,Iowa
+2022,M07,July,3.1,Iowa
+2022,M06,June,2.8,Iowa
+2022,M05,May,2.4,Iowa
+2022,M04,April,2.1,Iowa
+2022,M03,March,2.8,Iowa
+2022,M02,February,3,Iowa
+2022,M01,January,3.7,Iowa
+2021,M12,December,2.7,Iowa
+2021,M11,November,2.7,Iowa
+2021,M10,October,2.9,Iowa
+2021,M09,September,3,Iowa
+2021,M08,August,3.8,Iowa
+2021,M07,July,4.1,Iowa
+2021,M06,June,4.6,Iowa
+2021,M05,May,4.2,Iowa
+2021,M04,April,4,Iowa
+2021,M03,March,4.5,Iowa
+2021,M02,February,4.8,Iowa
+2021,M01,January,5.2,Iowa
+2020,M12,December,4.2,Iowa
+2020,M11,November,3.8,Iowa
+2020,M10,October,3.5,Iowa
+2020,M09,September,4.2,Iowa
+2020,M08,August,4.8,Iowa
+2020,M07,July,6,Iowa
+2020,M06,June,7,Iowa
+2020,M05,May,8.5,Iowa
+2020,M04,April,10.7,Iowa
+2020,M03,March,3.4,Iowa
+2020,M02,February,2.9,Iowa
+2020,M01,January,3.4,Iowa
+2019,M12,December,2.6,Iowa
+2019,M11,November,2.3,Iowa
+2019,M10,October,2.3,Iowa
+2019,M09,September,2.2,Iowa
+2019,M08,August,2.7,Iowa
+2019,M07,July,2.9,Iowa
+2019,M06,June,2.8,Iowa
+2019,M05,May,2.4,Iowa
+2019,M04,April,2.2,Iowa
+2019,M03,March,3.1,Iowa
+2019,M02,February,3,Iowa
+2019,M01,January,3.5,Iowa
+2025,M01,January,3.9,Kansas
+2024,M12,December,3.3,Kansas
+2024,M11,November,3.5,Kansas
+2024,M10,October,3.7,Kansas
+2024,M09,September,3.4,Kansas
+2024,M08,August,4.1,Kansas
+2024,M07,July,4.4,Kansas
+2024,M06,June,3.9,Kansas
+2024,M05,May,3.4,Kansas
+2024,M04,April,3.1,Kansas
+2024,M03,March,3.4,Kansas
+2024,M02,February,3.6,Kansas
+2024,M01,January,3.1,Kansas
+2023,M12,December,2.4,Kansas
+2023,M11,November,2.3,Kansas
+2023,M10,October,3,Kansas
+2023,M09,September,2.8,Kansas
+2023,M08,August,3.2,Kansas
+2023,M07,July,3.2,Kansas
+2023,M06,June,3,Kansas
+2023,M05,May,2.8,Kansas
+2023,M04,April,2.6,Kansas
+2023,M03,March,3,Kansas
+2023,M02,February,3.2,Kansas
+2023,M01,January,3,Kansas
+2022,M12,December,2.4,Kansas
+2022,M11,November,2.5,Kansas
+2022,M10,October,2.8,Kansas
+2022,M09,September,2.6,Kansas
+2022,M08,August,3.2,Kansas
+2022,M07,July,3.3,Kansas
+2022,M06,June,2.9,Kansas
+2022,M05,May,2.5,Kansas
+2022,M04,April,2.3,Kansas
+2022,M03,March,2.7,Kansas
+2022,M02,February,2.8,Kansas
+2022,M01,January,2.8,Kansas
+2021,M12,December,2,Kansas
+2021,M11,November,2.2,Kansas
+2021,M10,October,2.8,Kansas
+2021,M09,September,2.9,Kansas
+2021,M08,August,3.6,Kansas
+2021,M07,July,4.1,Kansas
+2021,M06,June,4.1,Kansas
+2021,M05,May,3.4,Kansas
+2021,M04,April,3.4,Kansas
+2021,M03,March,3.7,Kansas
+2021,M02,February,4,Kansas
+2021,M01,January,4.3,Kansas
+2020,M12,December,4.1,Kansas
+2020,M11,November,4.2,Kansas
+2020,M10,October,4.6,Kansas
+2020,M09,September,5.3,Kansas
+2020,M08,August,5.9,Kansas
+2020,M07,July,7.3,Kansas
+2020,M06,June,7.5,Kansas
+2020,M05,May,9.3,Kansas
+2020,M04,April,11.8,Kansas
+2020,M03,March,3.6,Kansas
+2020,M02,February,3.2,Kansas
+2020,M01,January,3.2,Kansas
+2019,M12,December,2.7,Kansas
+2019,M11,November,2.7,Kansas
+2019,M10,October,2.9,Kansas
+2019,M09,September,2.8,Kansas
+2019,M08,August,3.4,Kansas
+2019,M07,July,3.8,Kansas
+2019,M06,June,3.3,Kansas
+2019,M05,May,3,Kansas
+2019,M04,April,2.8,Kansas
+2019,M03,March,3.4,Kansas
+2019,M02,February,3.5,Kansas
+2019,M01,January,3.7,Kansas
+2025,M01,January,4.4,Missouri
+2024,M12,December,3.2,Missouri
+2024,M11,November,3.3,Missouri
+2024,M10,October,3.3,Missouri
+2024,M09,September,3,Missouri
+2024,M08,August,3.9,Missouri
+2024,M07,July,4.3,Missouri
+2024,M06,June,3.9,Missouri
+2024,M05,May,3.7,Missouri
+2024,M04,April,3.3,Missouri
+2024,M03,March,3.9,Missouri
+2024,M02,February,4.1,Missouri
+2024,M01,January,3.9,Missouri
+2023,M12,December,3.1,Missouri
+2023,M11,November,2.9,Missouri
+2023,M10,October,3.2,Missouri
+2023,M09,September,2.8,Missouri
+2023,M08,August,3.4,Missouri
+2023,M07,July,3.4,Missouri
+2023,M06,June,3.3,Missouri
+2023,M05,May,3.1,Missouri
+2023,M04,April,2.6,Missouri
+2023,M03,March,3.1,Missouri
+2023,M02,February,3.2,Missouri
+2023,M01,January,3.2,Missouri
+2022,M12,December,2.4,Missouri
+2022,M11,November,2.4,Missouri
+2022,M10,October,2.5,Missouri
+2022,M09,September,2,Missouri
+2022,M08,August,2.8,Missouri
+2022,M07,July,2.9,Missouri
+2022,M06,June,2.4,Missouri
+2022,M05,May,2.3,Missouri
+2022,M04,April,2.1,Missouri
+2022,M03,March,2.9,Missouri
+2022,M02,February,3.2,Missouri
+2022,M01,January,3.5,Missouri
+2021,M12,December,2.8,Missouri
+2021,M11,November,2.8,Missouri
+2021,M10,October,3.1,Missouri
+2021,M09,September,3.1,Missouri
+2021,M08,August,4,Missouri
+2021,M07,July,4.4,Missouri
+2021,M06,June,4.8,Missouri
+2021,M05,May,4.7,Missouri
+2021,M04,April,4.5,Missouri
+2021,M03,March,5,Missouri
+2021,M02,February,5.3,Missouri
+2021,M01,January,5.5,Missouri
+2020,M12,December,4.9,Missouri
+2020,M11,November,4.5,Missouri
+2020,M10,October,4.5,Missouri
+2020,M09,September,5.2,Missouri
+2020,M08,August,6.3,Missouri
+2020,M07,July,8,Missouri
+2020,M06,June,8.5,Missouri
+2020,M05,May,9.9,Missouri
+2020,M04,April,10.9,Missouri
+2020,M03,March,4.2,Missouri
+2020,M02,February,3.5,Missouri
+2020,M01,January,3.8,Missouri
+2019,M12,December,3.2,Missouri
+2019,M11,November,3,Missouri
+2019,M10,October,2.8,Missouri
+2019,M09,September,2.6,Missouri
+2019,M08,August,3.3,Missouri
+2019,M07,July,3.6,Missouri
+2019,M06,June,3.2,Missouri
+2019,M05,May,3,Missouri
+2019,M04,April,2.8,Missouri
+2019,M03,March,3.7,Missouri
+2019,M02,February,3.7,Missouri
+2019,M01,January,3.9,Missouri
+2025,M01,January,5,Colorado
+2024,M12,December,4.5,Colorado
+2024,M11,November,4.7,Colorado
+2024,M10,October,4.4,Colorado
+2024,M09,September,4.3,Colorado
+2024,M08,August,4.6,Colorado
+2024,M07,July,4.6,Colorado
+2024,M06,June,4.4,Colorado
+2024,M05,May,3.9,Colorado
+2024,M04,April,3.7,Colorado
+2024,M03,March,3.8,Colorado
+2024,M02,February,4.2,Colorado
+2024,M01,January,4.1,Colorado
+2023,M12,December,3.7,Colorado
+2023,M11,November,3.5,Colorado
+2023,M10,October,3.4,Colorado
+2023,M09,September,3.3,Colorado
+2023,M08,August,3.5,Colorado
+2023,M07,July,3.4,Colorado
+2023,M06,June,3.6,Colorado
+2023,M05,May,3.1,Colorado
+2023,M04,April,2.7,Colorado
+2023,M03,March,3,Colorado
+2023,M02,February,3.4,Colorado
+2023,M01,January,3.2,Colorado
+2022,M12,December,2.7,Colorado
+2022,M11,November,2.9,Colorado
+2022,M10,October,2.8,Colorado
+2022,M09,September,2.6,Colorado
+2022,M08,August,2.9,Colorado
+2022,M07,July,3,Colorado
+2022,M06,June,3,Colorado
+2022,M05,May,2.8,Colorado
+2022,M04,April,2.9,Colorado
+2022,M03,March,3.4,Colorado
+2022,M02,February,4,Colorado
+2022,M01,January,4.2,Colorado
+2021,M12,December,3.9,Colorado
+2021,M11,November,4.1,Colorado
+2021,M10,October,4.7,Colorado
+2021,M09,September,4.8,Colorado
+2021,M08,August,5.4,Colorado
+2021,M07,July,5.8,Colorado
+2021,M06,June,6.3,Colorado
+2021,M05,May,5.8,Colorado
+2021,M04,April,6.1,Colorado
+2021,M03,March,6.2,Colorado
+2021,M02,February,6.3,Colorado
+2021,M01,January,6.6,Colorado
+2020,M12,December,6.4,Colorado
+2020,M11,November,6.1,Colorado
+2020,M10,October,5.9,Colorado
+2020,M09,September,6.2,Colorado
+2020,M08,August,6,Colorado
+2020,M07,July,6.8,Colorado
+2020,M06,June,11.3,Colorado
+2020,M05,May,11.8,Colorado
+2020,M04,April,10.9,Colorado
+2020,M03,March,3.9,Colorado
+2020,M02,February,3.3,Colorado
+2020,M01,January,3.1,Colorado
+2019,M12,December,2.6,Colorado
+2019,M11,November,2.5,Colorado
+2019,M10,October,2.5,Colorado
+2019,M09,September,2.4,Colorado
+2019,M08,August,2.6,Colorado
+2019,M07,July,2.7,Colorado
+2019,M06,June,2.7,Colorado
+2019,M05,May,2.4,Colorado
+2019,M04,April,2.4,Colorado
+2019,M03,March,2.8,Colorado
+2019,M02,February,3.1,Colorado
+2019,M01,January,3.3,Colorado
+2025,M01,January,2.1,South Dakota
+2024,M12,December,2,South Dakota
+2024,M11,November,1.7,South Dakota
+2024,M10,October,1.6,South Dakota
+2024,M09,September,1.5,South Dakota
+2024,M08,August,2,South Dakota
+2024,M07,July,1.8,South Dakota
+2024,M06,June,1.9,South Dakota
+2024,M05,May,1.7,South Dakota
+2024,M04,April,1.8,South Dakota
+2024,M03,March,1.7,South Dakota
+2024,M02,February,2.3,South Dakota
+2024,M01,January,1.9,South Dakota
+2023,M12,December,1.8,South Dakota
+2023,M11,November,1.5,South Dakota
+2023,M10,October,1.7,South Dakota
+2023,M09,September,1.5,South Dakota
+2023,M08,August,2,South Dakota
+2023,M07,July,1.6,South Dakota
+2023,M06,June,1.9,South Dakota
+2023,M05,May,1.8,South Dakota
+2023,M04,April,1.9,South Dakota
+2023,M03,March,1.8,South Dakota
+2023,M02,February,2.3,South Dakota
+2023,M01,January,1.9,South Dakota
+2022,M12,December,2,South Dakota
+2022,M11,November,1.7,South Dakota
+2022,M10,October,1.7,South Dakota
+2022,M09,September,1.5,South Dakota
+2022,M08,August,2.1,South Dakota
+2022,M07,July,1.7,South Dakota
+2022,M06,June,2,South Dakota
+2022,M05,May,1.8,South Dakota
+2022,M04,April,1.9,South Dakota
+2022,M03,March,2,South Dakota
+2022,M02,February,2.4,South Dakota
+2022,M01,January,2.2,South Dakota
+2021,M12,December,2,South Dakota
+2021,M11,November,1.9,South Dakota
+2021,M10,October,2,South Dakota
+2021,M09,September,2,South Dakota
+2021,M08,August,2.6,South Dakota
+2021,M07,July,2.4,South Dakota
+2021,M06,June,2.9,South Dakota
+2021,M05,May,2.6,South Dakota
+2021,M04,April,2.8,South Dakota
+2021,M03,March,2.9,South Dakota
+2021,M02,February,3.4,South Dakota
+2021,M01,January,3.1,South Dakota
+2020,M12,December,3.2,South Dakota
+2020,M11,November,2.9,South Dakota
+2020,M10,October,2.8,South Dakota
+2020,M09,September,3.2,South Dakota
+2020,M08,August,3.9,South Dakota
+2020,M07,July,4.5,South Dakota
+2020,M06,June,5.1,South Dakota
+2020,M05,May,6.7,South Dakota
+2020,M04,April,8.8,South Dakota
+2020,M03,March,3,South Dakota
+2020,M02,February,2.8,South Dakota
+2020,M01,January,2.7,South Dakota
+2019,M12,December,2.8,South Dakota
+2019,M11,November,2.4,South Dakota
+2019,M10,October,2.3,South Dakota
+2019,M09,September,2.2,South Dakota
+2019,M08,August,2.8,South Dakota
+2019,M07,July,2.6,South Dakota
+2019,M06,June,2.8,South Dakota
+2019,M05,May,2.6,South Dakota
+2019,M04,April,2.8,South Dakota
+2019,M03,March,3.1,South Dakota
+2019,M02,February,3.3,South Dakota
+2019,M01,January,3.2,South Dakota
+2025,M01,January,4.3,Wyoming
+2024,M12,December,3.7,Wyoming
+2024,M11,November,3.6,Wyoming
+2024,M10,October,3.1,Wyoming
+2024,M09,September,2.7,Wyoming
+2024,M08,August,3.1,Wyoming
+2024,M07,July,3.1,Wyoming
+2024,M06,June,3.1,Wyoming
+2024,M05,May,2.9,Wyoming
+2024,M04,April,3,Wyoming
+2024,M03,March,3.4,Wyoming
+2024,M02,February,3.6,Wyoming
+2024,M01,January,3.6,Wyoming
+2023,M12,December,2.7,Wyoming
+2023,M11,November,2.7,Wyoming
+2023,M10,October,2.4,Wyoming
+2023,M09,September,2.3,Wyoming
+2023,M08,August,2.5,Wyoming
+2023,M07,July,2.5,Wyoming
+2023,M06,June,2.8,Wyoming
+2023,M05,May,2.7,Wyoming
+2023,M04,April,2.9,Wyoming
+2023,M03,March,3.6,Wyoming
+2023,M02,February,3.8,Wyoming
+2023,M01,January,4.1,Wyoming
+2022,M12,December,3.3,Wyoming
+2022,M11,November,3.3,Wyoming
+2022,M10,October,3,Wyoming
+2022,M09,September,2.9,Wyoming
+2022,M08,August,3.2,Wyoming
+2022,M07,July,3.1,Wyoming
+2022,M06,June,3.5,Wyoming
+2022,M05,May,3.2,Wyoming
+2022,M04,April,3.5,Wyoming
+2022,M03,March,3.8,Wyoming
+2022,M02,February,4.1,Wyoming
+2022,M01,January,4.4,Wyoming
+2021,M12,December,3.5,Wyoming
+2021,M11,November,3.5,Wyoming
+2021,M10,October,3.3,Wyoming
+2021,M09,September,3.3,Wyoming
+2021,M08,August,3.9,Wyoming
+2021,M07,July,4.3,Wyoming
+2021,M06,June,4.9,Wyoming
+2021,M05,May,4.7,Wyoming
+2021,M04,April,5.3,Wyoming
+2021,M03,March,5.7,Wyoming
+2021,M02,February,6.1,Wyoming
+2021,M01,January,6.3,Wyoming
+2020,M12,December,5.5,Wyoming
+2020,M11,November,5.1,Wyoming
+2020,M10,October,4.9,Wyoming
+2020,M09,September,5.4,Wyoming
+2020,M08,August,5.6,Wyoming
+2020,M07,July,6.8,Wyoming
+2020,M06,June,7.2,Wyoming
+2020,M05,May,8.9,Wyoming
+2020,M04,April,4.9,Wyoming
+2020,M03,March,6,Wyoming
+2020,M02,February,5,Wyoming
+2020,M01,January,5.1,Wyoming
+2019,M12,December,4.2,Wyoming
+2019,M11,November,3.9,Wyoming
+2019,M10,October,3.4,Wyoming
+2019,M09,September,3.1,Wyoming
+2019,M08,August,3.3,Wyoming
+2019,M07,July,3.6,Wyoming
+2019,M06,June,3.7,Wyoming
+2019,M05,May,3.4,Wyoming
+2019,M04,April,3.5,Wyoming
+2019,M03,March,4,Wyoming
+2019,M02,February,4.1,Wyoming
+2019,M01,January,4.7,Wyoming
