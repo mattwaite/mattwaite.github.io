@@ -1,5 +1,5 @@
 season,team,conference,kills,errors,total_attacks,hit_pct,assists,aces,s_err,digs,ret_att,r_err,block_solos,block_assists,b_err,pts,bhe,trpl_dbl,opponent_kills,opponent_errors,opponent_total_attacks,opponent_hit_pct,opponent_assists,opponent_aces,opponent_s_err,opponent_digs,opponent_ret_att,opponent_r_err,opponent_block_solos,opponent_block_assists,opponent_b_err,opponent_pts,opponent_bhe,opponent_trpl_dbl
-2024,Le Moyne,NEC,943,568,2942,0.127,877,183,250,1057,1928,214,43,176,30,1257,8,26,1110,389,2736,0.264,1009,216,244,1228,1584,182,46,332,48,1538,13,26
+2024,Le Moyne,NEC,895,547,2818,0.123,833,174,240,997,1869,212,42,166,28,1194,5,26,1077,375,2616,0.268,983,212,234,1174,1506,174,45,326,46,1497,4,26
 2024,Utah Valley,WAC,1586,680,4164,0.218,1457,217,272,1635,2437,204,54,563,47,2138.5,2,32,1454,650,4086,0.197,1364,204,213,1633,2438,217,66,418,44,1933,5,32
 2024,North Ala.,ASUN,1455,570,4251,0.208,1327,154,244,1842,2255,142,50,334,24,1826,4,30,1489,639,4250,0.2,1393,142,242,1950,2307,154,50,311,28,1836.5,7,30
 2024,California Baptist,WAC,1273,546,3785,0.192,1193,187,245,1536,2263,189,48,321,28,1668.5,4,30,1448,515,3773,0.247,1349,189,225,1662,2007,187,41,341,35,1848.5,2,30
