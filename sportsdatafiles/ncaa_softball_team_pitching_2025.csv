@@ -1,0 +1,310 @@
+team,short_name,conference,season,app,era,ip,ha,r,er,bb,so,sho,bf,p_oab,x2b_a,x3b_a,hr_a,cso,wp,il_pit,hb,kl,ibb,cg,inh_run,inh_run_score,sha,sfa,cia,go,fo,w,l,sv,url
+Texas Longhorns,Texas,SEC,2025,NA,2.55,431.2,373,197,157,135,414,15,1830,1639,55,4,35,NA,27,NA,29,111,NA,NA,NA,NA,11,14,2,488,352,NA,NA,9,https://stats.ncaa.org/teams/595105
+Texas A&M Aggies,Texas A&M,SEC,2025,NA,3.01,376.1,321,193,162,162,346,13,1645,1420,50,7,45,NA,20,NA,34,77,NA,NA,NA,NA,14,14,1,356,390,NA,NA,6,https://stats.ncaa.org/teams/595101
+Florida Gators,Florida,SEC,2025,NA,3.04,405,370,210,176,174,268,15,1803,1541,44,6,45,NA,18,NA,59,80,5,NA,NA,NA,17,12,NA,420,474,NA,NA,8,https://stats.ncaa.org/teams/595332
+Oklahoma Sooners,Oklahoma(AQ),SEC,2025,NA,2.66,389.2,317,176,148,128,340,15,1634,1450,50,2,52,NA,22,NA,30,59,2,NA,NA,NA,14,10,2,430,359,NA,NA,5,https://stats.ncaa.org/teams/595311
+Tennessee Volunteers,Tennessee,SEC,2025,NA,1.82,412.2,267,139,107,142,508,20,1695,1491,36,3,30,NA,30,NA,40,103,3,NA,NA,NA,12,10,NA,413,287,NA,NA,3,https://stats.ncaa.org/teams/595099
+UCLA Bruins,UCLA,Big Ten,2025,NA,2.47,428.1,347,173,151,111,470,18,1773,1588,35,9,39,NA,17,NA,43,105,5,NA,NA,NA,21,10,NA,409,366,NA,NA,7,https://stats.ncaa.org/teams/595324
+Florida St. Seminoles,Florida St.,ACC,2025,NA,2.2,389,331,155,122,92,316,15,1616,1479,42,10,38,NA,18,NA,20,75,2,NA,NA,NA,22,3,NA,417,391,NA,NA,14,https://stats.ncaa.org/teams/595159
+South Carolina Gamecocks,South Carolina,SEC,2025,NA,3.07,389.2,370,192,171,144,306,16,1697,1503,68,10,34,NA,32,NA,26,73,4,NA,NA,NA,20,4,NA,408,413,NA,NA,8,https://stats.ncaa.org/teams/595082
+Texas Tech Red Raiders,Texas Tech(AQ),Big 12,2025,NA,1.9,434,321,148,118,95,432,26,1730,1574,48,6,33,NA,21,NA,33,103,1,NA,NA,NA,19,9,NA,405,405,NA,NA,7,https://stats.ncaa.org/teams/595103
+Arkansas Razorbacks,Arkansas,SEC,2025,NA,3.04,364.1,288,183,158,178,347,15,1576,1343,45,4,40,NA,25,NA,29,90,3,NA,NA,NA,14,12,NA,326,387,NA,NA,9,https://stats.ncaa.org/teams/595193
+LSU Tigers,LSU,SEC,2025,NA,2.74,363.1,287,183,142,185,322,14,1625,1361,39,2,29,NA,31,NA,44,110,NA,NA,NA,NA,26,9,NA,378,360,NA,NA,3,https://stats.ncaa.org/teams/595259
+Clemson Tigers,Clemson(AQ),ACC,2025,NA,2.62,409,406,200,153,114,266,11,1806,1615,69,9,47,NA,23,NA,36,93,4,NA,NA,NA,30,11,NA,456,473,NA,NA,9,https://stats.ncaa.org/teams/595218
+Arizona Wildcats,Arizona,Big 12,2025,NA,2.6,388,340,184,144,108,265,15,1629,1460,43,5,56,NA,21,NA,31,66,NA,NA,NA,NA,22,8,NA,465,377,NA,NA,5,https://stats.ncaa.org/teams/595192
+Oregon Ducks,Oregon,Big Ten,2025,NA,2.47,410.2,317,168,145,155,451,14,1722,1521,50,5,45,NA,36,NA,26,118,4,NA,NA,NA,10,10,NA,355,395,NA,NA,9,https://stats.ncaa.org/teams/595053
+Duke Blue Devils,Duke,ACC,2025,NA,3.6,383,389,219,197,115,291,14,1671,1500,75,7,51,NA,28,NA,25,70,5,NA,NA,NA,18,13,NA,409,408,NA,NA,4,https://stats.ncaa.org/teams/595325
+Auburn Tigers,Auburn,SEC,2025,NA,4.05,394,425,275,228,175,222,6,1815,1551,58,11,50,NA,41,NA,36,57,13,NA,NA,NA,34,18,1,410,501,NA,NA,6,https://stats.ncaa.org/teams/595194
+Ole Miss Rebels,Ole Miss,SEC,2025,NA,3.18,422.1,394,234,192,226,385,14,1936,1621,59,7,42,NA,35,NA,42,95,NA,NA,NA,NA,34,13,NA,400,448,NA,NA,10,https://stats.ncaa.org/teams/595281
+Alabama Crimson Tide,Alabama,SEC,2025,NA,3.13,400,392,228,179,167,295,6,1772,1557,67,3,37,NA,34,NA,17,62,7,NA,NA,NA,22,9,NA,501,346,NA,NA,11,https://stats.ncaa.org/teams/595187
+Stanford Cardinal,Stanford,ACC,2025,NA,3.98,348.2,274,226,198,230,323,8,1612,1280,55,5,44,NA,34,NA,72,77,2,NA,NA,NA,18,12,NA,296,389,NA,NA,7,https://stats.ncaa.org/teams/595092
+Virginia Tech Hokies,Virginia Tech,ACC,2025,NA,2.76,352,278,156,139,188,382,22,1534,1292,32,4,29,NA,38,NA,31,62,NA,NA,NA,NA,12,10,1,334,301,NA,NA,5,https://stats.ncaa.org/teams/595116
+Oklahoma St. Cowgirls,Oklahoma St.,Big 12,2025,NA,3.02,356.2,319,197,154,185,343,9,1579,1347,60,3,34,NA,19,NA,18,69,NA,NA,NA,NA,22,7,NA,427,256,NA,NA,4,https://stats.ncaa.org/teams/595051
+Mississippi St. Bulldogs,Mississippi St.,SEC,2025,NA,3.74,365.1,388,226,195,121,323,6,1633,1442,66,7,50,NA,33,NA,34,88,NA,NA,NA,NA,27,9,NA,335,398,NA,NA,7,https://stats.ncaa.org/teams/595279
+Georgia Bulldogs,Georgia,SEC,2025,NA,3.65,379.1,351,234,198,237,306,9,1761,1450,43,4,50,NA,31,NA,36,63,3,NA,NA,NA,25,13,NA,407,385,NA,NA,5,https://stats.ncaa.org/teams/595229
+Nebraska Huskers,Nebraska,Big Ten,2025,NA,2.5,355.1,281,171,127,145,395,11,1555,1335,59,3,36,NA,27,NA,41,82,NA,NA,NA,NA,25,7,2,381,265,NA,NA,2,https://stats.ncaa.org/teams/595290
+Liberty Lady Flames,Liberty(AQ),CUSA,2025,NA,2.6,428.1,371,203,159,184,402,13,1870,1621,47,4,45,NA,26,NA,29,97,NA,NA,NA,NA,27,9,NA,376,456,NA,NA,7,https://stats.ncaa.org/teams/595335
+Ohio St. Buckeyes,Ohio St.,Big Ten,2025,NA,4.02,362.1,411,255,208,158,250,9,1689,1456,75,6,63,NA,20,1,37,73,NA,NA,NA,NA,19,19,NA,353,439,NA,NA,3,https://stats.ncaa.org/teams/595049
+California Golden Bears,California,ACC,2025,NA,4.32,366,425,257,226,161,232,10,1716,1496,54,6,60,NA,21,NA,35,59,NA,NA,NA,NA,13,11,NA,331,482,NA,NA,3,https://stats.ncaa.org/teams/595126
+Virginia Cavaliers,Virginia,ACC,2025,NA,2.76,375.2,308,190,148,195,314,15,1681,1401,50,2,27,NA,37,NA,42,80,2,NA,NA,NA,31,11,1,423,349,NA,NA,8,https://stats.ncaa.org/teams/595117
+UCF Knights,UCF,Big 12,2025,NA,3.07,398.2,384,214,175,149,288,11,1773,1530,48,8,40,NA,15,NA,53,62,NA,NA,NA,NA,25,16,NA,393,456,NA,NA,5,https://stats.ncaa.org/teams/595131
+San Diego St. Aztecs,San Diego St.(AQ),Mountain West,2025,NA,2.91,379.2,371,192,158,106,213,9,1643,1475,73,9,36,NA,12,NA,31,75,1,NA,NA,NA,24,7,NA,484,395,NA,NA,9,https://stats.ncaa.org/teams/595315
+Fla. Atlantic Owls,Fla. Atlantic,The American,2025,NA,2.7,367.2,271,159,142,128,322,10,1544,1329,46,8,25,NA,17,NA,56,95,NA,NA,NA,NA,22,9,NA,247,498,NA,NA,12,https://stats.ncaa.org/teams/595157
+South Fla. Bulls,South Fla.(AQ),The American,2025,NA,3.05,400,400,229,174,141,234,7,1775,1565,64,4,38,NA,9,NA,34,88,3,NA,NA,NA,20,15,NA,468,438,NA,NA,13,https://stats.ncaa.org/teams/595085
+Grand Canyon Lopes,Grand Canyon(AQ),WAC,2025,NA,1.94,361,311,127,100,94,252,15,1514,1364,33,3,23,NA,30,NA,30,63,NA,NA,NA,NA,18,8,NA,399,396,NA,NA,9,https://stats.ncaa.org/teams/595326
+Missouri Tigers,Missouri,SEC,2025,NA,3.66,363.1,388,224,190,121,285,4,1629,1441,63,6,64,NA,17,NA,32,79,NA,NA,NA,NA,25,9,1,293,482,NA,NA,5,https://stats.ncaa.org/teams/595282
+Kentucky Wildcats,Kentucky,SEC,2025,NA,3.87,374.2,401,259,207,197,253,7,1781,1513,70,9,47,NA,28,NA,35,76,NA,NA,NA,NA,17,19,NA,370,461,NA,NA,5,https://stats.ncaa.org/teams/595253
+North Florida Ospreys,North Florida(AQ),ASUN,2025,NA,2.46,406.2,348,182,143,157,343,14,1760,1545,49,8,24,NA,29,NA,28,81,NA,NA,NA,NA,21,9,NA,400,440,NA,NA,9,https://stats.ncaa.org/teams/595177
+Arizona St. Sun Devils,Arizona St.,Big 12,2025,NA,3.36,375.1,380,223,180,134,420,5,1684,1473,54,5,28,NA,47,NA,38,84,NA,NA,NA,NA,27,10,2,420,254,NA,NA,7,https://stats.ncaa.org/teams/595191
+Michigan Wolverines,Michigan(AQ),Big Ten,2025,NA,3.23,383.1,343,202,177,148,309,15,1680,1457,41,4,59,NA,10,NA,38,76,4,NA,NA,NA,25,12,NA,327,481,NA,NA,8,https://stats.ncaa.org/teams/595337
+Georgia Tech Yellow Jackets,Georgia Tech,ACC,2025,NA,4.29,329.2,342,259,202,189,290,7,1550,1312,79,7,51,NA,42,NA,23,73,NA,NA,NA,NA,20,5,1,334,327,NA,NA,6,https://stats.ncaa.org/teams/595228
+Nevada Wolf Pack,Nevada,Mountain West,2025,NA,2.94,361.2,326,181,152,179,296,9,1648,1374,66,8,35,NA,22,NA,50,73,NA,NA,NA,NA,34,9,1,344,419,NA,NA,9,https://stats.ncaa.org/teams/595292
+Washington Huskies,Washington,Big Ten,2025,NA,3.1,346,315,181,153,100,370,13,1487,1331,48,3,47,NA,18,NA,34,117,1,NA,NA,NA,16,6,NA,302,333,NA,NA,6,https://stats.ncaa.org/teams/595119
+North Carolina Tar Heels,North Carolina,ACC,2025,NA,3.74,362.2,386,223,194,134,260,11,1630,1444,55,6,43,NA,15,NA,18,77,1,NA,NA,NA,22,11,1,376,420,NA,NA,5,https://stats.ncaa.org/teams/595288
+Coastal Carolina Chanticleers,Coastal Carolina(AQ),Sun Belt,2025,NA,3.29,406.1,401,236,191,142,267,10,1796,1588,74,11,42,NA,19,NA,31,73,1,NA,NA,NA,29,6,NA,543,362,NA,NA,8,https://stats.ncaa.org/teams/595134
+Indiana Hoosiers,Indiana,Big Ten,2025,NA,4.6,327,369,257,215,199,238,9,1596,1320,72,5,45,NA,40,1,41,69,NA,NA,NA,NA,22,14,NA,332,371,NA,NA,NA,https://stats.ncaa.org/teams/595243
+Omaha Mavericks,Omaha(AQ),Summit League,2025,NA,2.68,358,303,145,137,95,354,10,1479,1342,60,4,27,NA,11,NA,16,74,NA,NA,NA,NA,19,7,NA,275,416,NA,NA,2,https://stats.ncaa.org/teams/595341
+BYU Cougars,BYU,Big 12,2025,NA,3.26,319.2,318,179,149,135,261,9,1411,1227,56,10,25,NA,33,NA,21,54,NA,NA,NA,NA,18,10,NA,385,257,NA,NA,8,https://stats.ncaa.org/teams/595205
+Purdue Boilermakers,Purdue,Big Ten,2025,NA,3.63,349.1,327,218,181,161,240,11,1568,1357,59,6,45,NA,12,NA,19,73,NA,NA,NA,NA,17,13,1,289,487,NA,NA,3,https://stats.ncaa.org/teams/595061
+Northwestern Wildcats,Northwestern,Big Ten,2025,NA,3.66,323,331,216,169,164,239,7,1504,1272,63,9,32,NA,19,NA,37,81,2,NA,NA,NA,23,8,NA,412,275,NA,NA,3,https://stats.ncaa.org/teams/595046
+North Texas Mean Green,North Texas,The American,2025,NA,3.79,373.1,357,259,202,225,202,6,1716,1415,73,7,32,NA,43,NA,27,51,NA,NA,NA,NA,26,21,2,492,357,NA,NA,4,https://stats.ncaa.org/teams/595040
+Chattanooga Mocs,Chattanooga,SoCon,2025,NA,2.57,386.1,304,169,142,191,429,14,1674,1432,56,7,28,NA,23,NA,18,105,1,NA,NA,NA,24,9,NA,361,342,NA,NA,5,https://stats.ncaa.org/teams/595321
+Texas St. Bobcats,Texas St.,Sun Belt,2025,NA,2.8,350.1,326,165,140,79,328,11,1488,1344,37,6,37,NA,18,NA,32,105,NA,NA,NA,NA,28,5,NA,300,390,NA,NA,4,https://stats.ncaa.org/teams/595320
+Mercer Bears,Mercer(AQ),SoCon,2025,NA,3.52,429,477,270,216,170,249,7,2002,1736,81,7,28,NA,23,NA,54,55,NA,NA,NA,NA,24,18,NA,498,498,NA,NA,11,https://stats.ncaa.org/teams/595275
+Southeastern La. Lady Lions,Southeastern La.(AQ),Southland,2025,NA,2.41,427.1,374,184,147,181,313,17,1883,1616,63,18,18,NA,24,NA,36,65,2,NA,NA,NA,33,14,3,367,560,NA,NA,5,https://stats.ncaa.org/teams/595318
+Baylor Bears,Baylor,Big 12,2025,NA,3.53,353,372,217,178,144,174,8,1572,1369,74,7,41,NA,33,NA,22,51,4,NA,NA,NA,21,15,1,479,344,NA,NA,3,https://stats.ncaa.org/teams/595198
+Louisiana Ragin' Cajuns,Louisiana,Sun Belt,2025,NA,3.79,356.1,391,223,193,181,191,7,1639,1387,58,8,32,NA,13,NA,22,73,13,NA,NA,NA,33,14,2,436,383,NA,NA,2,https://stats.ncaa.org/teams/595091
+Iowa Hawkeyes,Iowa,Big Ten,2025,NA,3.43,340.1,317,197,167,155,238,11,1529,1296,66,10,34,NA,15,NA,33,84,NA,NA,NA,NA,35,8,2,391,361,NA,NA,4,https://stats.ncaa.org/teams/595247
+UConn Huskies,UConn(AQ),Big East,2025,NA,4.37,354,366,264,221,208,217,9,1707,1400,46,5,49,NA,44,NA,53,62,6,NA,NA,NA,25,21,NA,317,492,NA,NA,4,https://stats.ncaa.org/teams/595138
+Cal St. Fullerton Titans,Cal St. Fullerton,Big West,2025,NA,3.58,352,341,213,180,195,291,14,1645,1377,41,4,29,NA,26,NA,41,74,NA,NA,NA,NA,23,8,NA,403,322,NA,NA,5,https://stats.ncaa.org/teams/595331
+Wisconsin Badgers,Wisconsin,Big Ten,2025,NA,3.79,350.2,417,228,190,113,218,4,1620,1431,67,10,43,NA,26,NA,31,61,1,NA,NA,NA,27,15,3,386,397,NA,NA,3,https://stats.ncaa.org/teams/595164
+Charlotte 49ers,Charlotte,The American,2025,NA,5.18,362,458,338,268,192,172,5,1780,1510,70,8,67,NA,46,NA,25,55,NA,NA,NA,NA,25,28,NA,401,471,NA,NA,4,https://stats.ncaa.org/teams/595339
+Louisville Cardinals,Louisville,ACC,2025,NA,4.47,341.2,441,255,218,147,243,4,1631,1430,52,8,51,NA,19,NA,19,41,NA,NA,NA,NA,23,12,NA,299,449,NA,NA,2,https://stats.ncaa.org/teams/595261
+UNC Greensboro Spartans,UNC Greensboro,SoCon,2025,NA,3.32,379.2,403,232,180,174,242,6,1762,1503,55,5,36,NA,23,NA,43,79,1,NA,NA,NA,33,9,NA,399,444,NA,NA,7,https://stats.ncaa.org/teams/595289
+Belmont Bruins,Belmont(AQ),MVC,2025,NA,2.74,381.1,314,164,149,96,470,15,1564,1430,45,5,41,NA,9,NA,10,84,NA,NA,NA,NA,18,10,NA,239,404,NA,NA,3,https://stats.ncaa.org/teams/595179
+Fresno St. Bulldogs,Fresno St.,Mountain West,2025,NA,2.78,389.2,392,194,155,115,218,5,1709,1510,72,8,31,NA,21,NA,27,56,2,NA,NA,NA,40,17,NA,375,537,NA,NA,8,https://stats.ncaa.org/teams/595213
+Stetson Hatters,Stetson,ASUN,2025,NA,4.28,383,413,272,234,188,185,11,1762,1505,65,17,48,NA,41,NA,23,54,NA,NA,NA,NA,30,16,NA,441,469,NA,NA,6,https://stats.ncaa.org/teams/595094
+Central Ark. Bears,Central Ark.,ASUN,2025,NA,4.3,352,405,257,216,174,188,4,1631,1395,70,8,40,NA,37,NA,28,66,NA,NA,NA,NA,17,17,NA,393,415,NA,NA,3,https://stats.ncaa.org/teams/595167
+Eastern Ky. Colonels,Eastern Ky.,ASUN,2025,NA,2.91,349,315,165,145,153,345,9,1537,1348,45,3,28,NA,28,NA,15,87,NA,NA,1,NA,9,10,1,307,363,NA,NA,5,https://stats.ncaa.org/teams/595152
+Marist Red Foxes,Marist(AQ),MAAC,2025,NA,2.34,371.2,321,153,124,119,356,22,1580,1421,60,8,16,NA,30,NA,20,91,4,NA,NA,NA,14,6,NA,417,313,NA,NA,5,https://stats.ncaa.org/teams/595267
+Iowa St. Cyclones,Iowa St.,Big 12,2025,NA,4.58,345.2,440,294,226,148,159,5,1660,1430,74,12,48,NA,20,NA,32,65,NA,NA,NA,NA,36,14,NA,439,390,NA,NA,7,https://stats.ncaa.org/teams/595246
+Southern Ill. Salukis,Southern Ill.,MVC,2025,NA,3.18,346,383,206,157,103,250,7,1565,1406,61,3,43,NA,14,NA,15,68,NA,NA,NA,NA,30,11,NA,332,427,NA,NA,3,https://stats.ncaa.org/teams/595319
+Jacksonville St. Gamecocks,Jacksonville St.,CUSA,2025,NA,2.9,371.2,372,186,154,149,271,10,1658,1462,72,7,26,NA,29,NA,12,66,NA,NA,NA,NA,25,10,NA,322,491,NA,NA,5,https://stats.ncaa.org/teams/595248
+Louisiana Tech Lady Techsters,Louisiana Tech,CUSA,2025,NA,3.71,379.1,414,245,201,134,250,6,1704,1499,74,5,46,NA,51,NA,26,51,NA,NA,NA,NA,30,15,NA,393,454,NA,NA,2,https://stats.ncaa.org/teams/595260
+McNeese Cowgirls,McNeese,Southland,2025,NA,3.45,393.1,419,238,194,161,157,3,1762,1522,82,10,37,NA,30,NA,25,46,NA,NA,NA,NA,32,21,1,420,535,NA,NA,10,https://stats.ncaa.org/teams/595273
+Saint Mary's (CA) Gaels,Saint Mary's (CA),WCC,2025,NA,3.76,344.2,357,222,185,152,230,6,1578,1351,67,8,40,NA,13,NA,37,61,NA,NA,NA,NA,24,12,2,332,430,NA,NA,2,https://stats.ncaa.org/teams/595314
+St. John's (NY) Red Storm,St. John's (NY),Big East,2025,NA,2.48,378.1,303,161,134,157,501,9,1625,1413,47,5,30,NA,26,NA,24,104,NA,NA,NA,NA,26,5,NA,287,321,NA,NA,8,https://stats.ncaa.org/teams/595070
+NC State Wolfpack,NC State,ACC,2025,NA,3.88,344.2,368,241,191,147,249,8,1608,1403,53,5,43,NA,22,NA,34,53,NA,NA,NA,NA,16,7,1,386,368,NA,NA,2,https://stats.ncaa.org/teams/595037
+Binghamton Bearcats,Binghamton(AQ),America East,2025,NA,2.8,330.1,319,161,132,128,312,8,1466,1284,42,5,24,NA,22,NA,32,67,NA,NA,NA,NA,17,4,1,322,319,NA,NA,6,https://stats.ncaa.org/teams/595200
+Wichita St. Shockers,Wichita St.,The American,2025,NA,4.53,355.1,436,286,230,162,201,2,1699,1456,71,11,50,NA,44,NA,34,75,2,NA,NA,NA,33,13,1,381,445,NA,NA,5,https://stats.ncaa.org/teams/595125
+Syracuse Orange,Syracuse,ACC,2025,NA,3.64,323,321,196,168,154,257,8,1459,1259,65,5,33,NA,34,NA,23,68,NA,NA,NA,NA,17,6,NA,358,313,NA,NA,2,https://stats.ncaa.org/teams/595096
+Kansas Jayhawks,Kansas,Big 12,2025,NA,4.04,329.1,352,219,190,163,183,6,1513,1302,61,4,46,NA,9,NA,19,59,4,NA,NA,NA,22,5,2,408,347,NA,NA,3,https://stats.ncaa.org/teams/595251
+Boise St. Broncos,Boise St.,Mountain West,2025,NA,4.9,353,432,299,247,193,180,4,1705,1426,60,2,58,NA,35,NA,34,49,NA,NA,NA,NA,43,9,NA,435,386,NA,NA,11,https://stats.ncaa.org/teams/595201
+Marshall Thundering Herd,Marshall,Sun Belt,2025,NA,4.66,338,375,268,225,235,231,5,1651,1360,55,10,40,NA,26,NA,33,65,NA,NA,NA,NA,17,6,NA,424,304,NA,NA,5,https://stats.ncaa.org/teams/595268
+Western Ky. Lady Toppers,Western Ky.,CUSA,2025,NA,3.12,352.2,329,185,157,177,234,5,1572,1347,46,8,51,NA,18,NA,15,66,1,NA,NA,NA,32,1,NA,384,392,NA,NA,8,https://stats.ncaa.org/teams/595123
+Samford Bulldogs,Samford,SoCon,2025,NA,4.11,357.2,393,257,210,182,159,9,1680,1401,66,7,50,NA,31,NA,44,63,NA,NA,NA,NA,40,13,NA,429,432,NA,NA,2,https://stats.ncaa.org/teams/595075
+Houston Cougars,Houston,Big 12,2025,NA,5.37,313,382,284,240,204,122,1,1537,1272,55,6,66,NA,35,NA,20,34,2,NA,NA,NA,33,8,NA,384,383,NA,NA,4,https://stats.ncaa.org/teams/595236
+Princeton Tigers,Princeton,Ivy League,2025,NA,3.41,301.1,293,171,147,143,256,10,1369,1177,64,3,23,NA,24,NA,17,56,NA,NA,NA,NA,20,12,NA,304,322,NA,NA,2,https://stats.ncaa.org/teams/595059
+Penn St. Nittany Lions,Penn St.,Big Ten,2025,NA,5.76,316,380,312,260,234,204,5,1613,1300,79,14,58,NA,51,NA,34,59,1,NA,NA,NA,29,16,NA,288,418,NA,NA,7,https://stats.ncaa.org/teams/595055
+FIU Panthers,FIU,CUSA,2025,NA,4.39,349.1,418,235,219,156,126,6,1630,1412,91,11,53,NA,25,NA,25,42,1,NA,NA,NA,28,9,NA,308,563,NA,NA,3,https://stats.ncaa.org/teams/595158
+Austin Peay Governors,Austin Peay,ASUN,2025,NA,3.7,357.1,403,213,189,138,166,9,1653,1415,59,13,23,NA,18,NA,66,52,NA,NA,NA,NA,22,11,1,381,467,NA,NA,10,https://stats.ncaa.org/teams/595195
+East Carolina Pirates,East Carolina,The American,2025,NA,3.63,380.1,403,256,197,169,284,6,1764,1486,56,7,39,NA,36,NA,51,99,NA,NA,NA,NA,42,15,1,370,439,NA,NA,8,https://stats.ncaa.org/teams/595149
+Radford Highlanders,Radford,Big South,2025,NA,3.16,372,360,201,168,134,244,8,1650,1438,52,4,37,NA,24,NA,42,75,NA,NA,NA,NA,29,7,NA,395,434,NA,NA,2,https://stats.ncaa.org/teams/595063
+St. Thomas (MN) Tommies,St. Thomas (MN),Summit League,2025,NA,3.13,321.2,355,177,144,125,218,10,1462,1288,47,10,23,NA,15,NA,25,57,NA,NA,NA,NA,16,7,NA,453,251,NA,NA,3,https://stats.ncaa.org/teams/595035
+USC Upstate Spartans,USC Upstate(AQ),Big South,2025,NA,2.98,352.2,337,189,150,150,257,5,1570,1363,44,6,29,NA,31,NA,21,79,1,NA,NA,NA,21,15,NA,458,303,NA,NA,4,https://stats.ncaa.org/teams/595327
+Elon Phoenix,Elon(AQ),CAA,2025,NA,3.82,354,379,243,193,179,235,3,1659,1410,63,7,30,NA,26,NA,26,57,2,NA,NA,NA,22,22,NA,341,446,NA,NA,7,https://stats.ncaa.org/teams/595169
+ULM Warhawks,ULM,Sun Belt,2025,NA,4.61,365.2,405,270,241,208,208,6,1706,1422,61,13,33,NA,51,NA,32,57,2,NA,NA,NA,30,13,1,433,386,NA,NA,7,https://stats.ncaa.org/teams/595041
+Tarleton St. Texans,Tarleton St.,WAC,2025,NA,2.66,394.1,394,184,150,166,384,9,1761,1536,70,4,23,NA,13,NA,21,69,NA,NA,NA,NA,24,14,NA,340,414,NA,NA,10,https://stats.ncaa.org/teams/595299
+Notre Dame Fighting Irish,Notre Dame,ACC,2025,NA,4.79,358.1,411,271,245,195,323,7,1733,1454,56,6,49,NA,31,NA,42,74,7,NA,NA,NA,28,13,1,360,360,NA,NA,4,https://stats.ncaa.org/teams/595047
+Miami (OH) RedHawks,Miami (OH)(AQ),MAC,2025,NA,4.18,403.2,433,290,241,237,331,9,1924,1602,79,8,53,NA,37,NA,47,94,NA,NA,NA,NA,24,14,NA,392,447,NA,NA,3,https://stats.ncaa.org/teams/595336
+Ga. Southern Eagles,Ga. Southern,Sun Belt,2025,NA,2.5,363.2,325,158,130,120,222,8,1541,1371,53,8,26,NA,24,NA,17,50,NA,NA,NA,NA,28,5,NA,463,373,NA,NA,5,https://stats.ncaa.org/teams/595226
+Ohio Bobcats,Ohio,MAC,2025,NA,3.04,368,354,205,160,130,232,12,1628,1430,51,3,33,NA,18,NA,35,67,NA,NA,NA,NA,21,12,NA,457,371,NA,NA,3,https://stats.ncaa.org/teams/595050
+Harvard Crimson,Harvard,Ivy League,2025,NA,3.04,265,245,144,115,131,190,5,1213,1019,41,6,22,NA,16,NA,27,66,NA,NA,NA,NA,21,14,1,281,300,NA,NA,3,https://stats.ncaa.org/teams/595333
+North Ala. Lions,North Ala.,ASUN,2025,NA,2.85,339,301,168,138,162,239,9,1513,1293,50,4,23,NA,17,NA,26,68,NA,NA,NA,NA,17,14,1,344,401,NA,NA,1,https://stats.ncaa.org/teams/595220
+James Madison Dukes,James Madison,Sun Belt,2025,NA,3.66,340,352,223,178,167,246,8,1549,1326,49,4,44,NA,35,NA,17,53,1,NA,NA,NA,28,11,NA,358,372,NA,NA,5,https://stats.ncaa.org/teams/595250
+Middle Tenn. Blue Raiders,Middle Tenn.,CUSA,2025,NA,3.62,344.1,423,233,178,128,172,4,1620,1434,65,3,36,NA,24,NA,17,39,3,NA,NA,NA,28,12,1,353,467,NA,NA,5,https://stats.ncaa.org/teams/595277
+Wofford Terriers,Wofford,SoCon,2025,NA,2.19,373.2,339,158,117,96,264,7,1575,1412,40,10,24,NA,22,NA,26,56,NA,NA,NA,NA,29,12,NA,476,330,NA,NA,2,https://stats.ncaa.org/teams/595309
+Minnesota Golden Gophers,Minnesota,Big Ten,2025,NA,4.47,317.2,389,261,203,139,209,7,1520,1320,62,10,29,NA,25,NA,34,40,NA,NA,NA,NA,19,8,NA,428,269,NA,NA,5,https://stats.ncaa.org/teams/595278
+Troy Trojans,Troy,Sun Belt,2025,NA,3.82,365,406,259,199,166,221,10,1697,1443,59,8,24,NA,39,NA,43,65,1,NA,NA,NA,37,8,NA,430,388,NA,NA,5,https://stats.ncaa.org/teams/595110
+Boston U. Terriers,Boston U.(AQ),Patriot,2025,NA,2.63,378.2,350,174,142,105,339,16,1624,1458,58,5,27,NA,14,NA,12,92,NA,NA,NA,NA,38,11,NA,311,463,NA,NA,NA,https://stats.ncaa.org/teams/595330
+UC Santa Barbara Gauchos,UC Santa Barbara(AQ),Big West,2025,NA,3.92,419.1,485,281,235,158,223,6,1939,1674,65,9,35,NA,39,NA,53,42,NA,NA,NA,NA,42,11,NA,505,472,NA,NA,4,https://stats.ncaa.org/teams/595217
+Utah St. Aggies,Utah St.,Mountain West,2025,NA,6.48,334.2,521,342,310,184,139,4,1728,1473,89,14,52,NA,11,NA,27,41,1,NA,NA,NA,23,21,NA,515,297,NA,NA,5,https://stats.ncaa.org/teams/595113
+Idaho St. Bengals,Idaho St.,Big Sky,2025,NA,3.66,348,386,221,182,109,206,4,1557,1374,60,11,48,NA,32,NA,43,51,NA,NA,NA,NA,18,13,NA,374,407,NA,NA,4,https://stats.ncaa.org/teams/595238
+Hawaii Rainbow Wahine,Hawaii,Big West,2025,NA,3.66,359.1,399,211,188,101,152,8,1590,1418,68,9,50,NA,18,NA,26,37,NA,NA,NA,NA,33,12,NA,336,546,NA,NA,2,https://stats.ncaa.org/teams/595232
+Boston College Eagles,Boston College,ACC,2025,NA,4.87,332.1,421,281,231,130,189,6,1586,1393,68,8,56,NA,22,NA,20,59,1,NA,NA,NA,27,16,NA,370,402,NA,NA,3,https://stats.ncaa.org/teams/595202
+FGCU Eagles,FGCU,ASUN,2025,NA,3.6,377.1,400,239,194,193,182,6,1750,1491,47,8,29,NA,25,NA,25,54,5,NA,NA,NA,27,12,2,523,367,NA,NA,6,https://stats.ncaa.org/teams/595328
+South Dakota St. Jackrabbits,South Dakota St.,Summit League,2025,NA,4.04,365.1,408,257,211,204,212,4,1744,1448,67,8,29,NA,40,NA,44,48,1,NA,4,3,26,21,1,480,356,NA,NA,7,https://stats.ncaa.org/teams/595083
+Southern Miss. Golden Eagles,Southern Miss.,Sun Belt,2025,NA,4.33,341.1,414,264,211,109,203,4,1597,1409,70,14,33,NA,20,NA,32,69,5,NA,NA,NA,30,17,NA,359,419,NA,NA,3,https://stats.ncaa.org/teams/595087
+Santa Clara Broncos,Santa Clara(AQ),WCC,2025,NA,3.41,363,405,235,177,161,202,8,1668,1430,68,16,31,NA,26,NA,34,56,NA,NA,NA,NA,29,14,NA,435,382,NA,NA,4,https://stats.ncaa.org/teams/595078
+Villanova Wildcats,Villanova,Big East,2025,NA,4.55,341.1,443,264,222,105,205,9,1599,1427,81,10,41,NA,21,NA,17,47,NA,NA,NA,NA,36,14,NA,318,474,NA,NA,2,https://stats.ncaa.org/teams/595322
+UNI Panthers,UNI,MVC,2025,NA,4.15,337,447,265,200,118,172,4,1608,1440,67,7,48,NA,28,NA,14,54,NA,NA,NA,NA,18,18,NA,464,340,NA,NA,1,https://stats.ncaa.org/teams/595044
+LMU (CA) Lions,LMU (CA),WCC,2025,NA,4.97,335,436,282,238,173,185,1,1655,1385,60,14,46,NA,18,NA,53,58,NA,NA,NA,NA,25,18,1,367,406,NA,NA,5,https://stats.ncaa.org/teams/595263
+Sam Houston Bearkats,Sam Houston,CUSA,2025,NA,3.37,380,396,212,183,163,243,10,1721,1469,67,5,40,NA,15,NA,30,58,1,NA,NA,NA,42,17,NA,393,459,NA,NA,3,https://stats.ncaa.org/teams/595074
+Brown Bears,Brown(AQ),Ivy League,2025,NA,2.91,332.1,317,169,138,126,249,9,1466,1302,63,10,22,NA,10,NA,13,65,NA,NA,NA,NA,13,12,NA,331,390,NA,NA,3,https://stats.ncaa.org/teams/595206
+Dayton Flyers,Dayton,Atlantic 10,2025,NA,3.15,317.1,313,175,143,140,276,6,1422,1234,62,11,27,NA,8,NA,22,71,5,NA,NA,NA,17,7,2,285,362,NA,NA,8,https://stats.ncaa.org/teams/595323
+Delaware Blue Hens,Delaware,CAA,2025,NA,2.07,348,272,142,103,119,347,18,1480,1300,47,12,13,NA,28,NA,31,80,1,NA,NA,NA,22,8,NA,341,322,NA,NA,2,https://stats.ncaa.org/teams/595145
+"Maryland Terrapins, Terps",Maryland,Big Ten,2025,NA,5.59,295.2,332,270,236,181,196,7,1436,1191,72,12,42,NA,40,NA,30,49,NA,NA,NA,NA,23,11,NA,321,335,NA,NA,NA,https://stats.ncaa.org/teams/595270
+Creighton Bluejays,Creighton,Big East,2025,NA,4.34,373,381,280,231,239,254,5,1795,1464,70,7,43,NA,49,NA,40,69,3,NA,NA,NA,38,14,NA,387,449,NA,NA,3,https://stats.ncaa.org/teams/595141
+Long Beach St. Beach,Long Beach St.,Big West,2025,NA,3.47,335.1,342,195,166,149,218,6,1523,1304,53,8,26,NA,29,NA,32,62,NA,NA,NA,NA,26,12,NA,410,333,NA,NA,2,https://stats.ncaa.org/teams/595214
+Pittsburgh Panthers,Pittsburgh,ACC,2025,NA,5.69,333.1,413,312,271,202,158,5,1648,1362,72,13,76,NA,23,NA,36,55,NA,NA,NA,NA,33,14,NA,343,460,NA,NA,3,https://stats.ncaa.org/teams/595057
+Fordham Rams,Fordham,Atlantic 10,2025,NA,3.82,368,416,239,201,131,227,6,1699,1490,61,5,38,NA,23,NA,35,74,2,NA,NA,NA,27,16,NA,430,413,NA,NA,1,https://stats.ncaa.org/teams/595221
+UNLV Rebels,UNLV,Mountain West,2025,NA,4.49,315,386,234,202,152,168,5,1501,1285,48,9,37,NA,26,NA,27,64,2,NA,NA,NA,29,8,NA,403,334,NA,NA,1,https://stats.ncaa.org/teams/595291
+UT Arlington Mavericks,UT Arlington,WAC,2025,NA,4.72,324.2,434,252,219,105,146,4,1526,1351,78,10,34,NA,17,NA,24,47,NA,NA,NA,NA,32,14,NA,381,393,NA,NA,6,https://stats.ncaa.org/teams/595104
+Ball St. Cardinals,Ball St.,MAC,2025,NA,3.96,330.2,352,221,187,174,159,6,1555,1325,74,13,25,NA,30,NA,32,46,NA,NA,NA,NA,15,8,NA,438,356,NA,NA,3,https://stats.ncaa.org/teams/595196
+App State Mountaineers,App State,Sun Belt,2025,NA,4.3,324,358,246,199,140,217,3,1516,1322,72,6,41,NA,24,NA,23,42,NA,NA,NA,NA,18,13,NA,353,376,NA,NA,2,https://stats.ncaa.org/teams/595190
+Eastern Ill. Panthers,Eastern Ill.(AQ),OVC,2025,NA,2.89,366,397,206,151,139,248,7,1661,1461,61,6,17,NA,23,NA,15,56,NA,NA,NA,NA,28,18,NA,414,401,NA,NA,10,https://stats.ncaa.org/teams/595151
+Illinois Fighting Illini,Illinois,Big Ten,2025,NA,4.38,328,365,252,205,153,166,2,1530,1323,69,7,49,NA,18,NA,25,46,6,NA,NA,NA,18,11,NA,359,413,NA,NA,2,https://stats.ncaa.org/teams/595240
+Utah Utes,Utah,Big 12,2025,NA,5.05,349.1,454,336,252,182,203,3,1725,1449,91,7,54,NA,51,NA,48,49,1,NA,NA,NA,34,12,NA,404,376,NA,NA,1,https://stats.ncaa.org/teams/595114
+Seton Hall Pirates,Seton Hall,Big East,2025,NA,4.47,346,420,261,221,185,186,2,1650,1394,78,13,28,NA,21,NA,17,54,NA,NA,NA,NA,31,23,NA,349,457,NA,NA,4,https://stats.ncaa.org/teams/595079
+Winthrop Eagles,Winthrop,Big South,2025,NA,3.03,358.1,351,205,155,143,230,7,1614,1412,64,2,30,NA,18,NA,20,81,NA,NA,NA,NA,32,7,NA,363,454,NA,NA,4,https://stats.ncaa.org/teams/595162
+Seattle U Redhawks,Seattle U,WAC,2025,NA,3.43,356.2,371,236,175,193,263,4,1703,1424,69,6,23,NA,19,NA,42,67,NA,NA,NA,NA,28,16,NA,376,401,NA,NA,1,https://stats.ncaa.org/teams/595173
+California Baptist Lancers,California Baptist,WAC,2025,NA,4.03,388.2,460,259,224,184,187,3,1811,1557,78,7,42,NA,21,NA,26,63,5,NA,NA,NA,32,12,NA,427,494,NA,NA,4,https://stats.ncaa.org/teams/595219
+Akron Zips,Akron,MAC,2025,NA,4.28,353,434,246,216,123,170,2,1626,1448,81,12,50,NA,17,NA,17,41,NA,NA,NA,NA,26,11,1,308,541,NA,NA,3,https://stats.ncaa.org/teams/595184
+Siena Saints,Siena,MAAC,2025,NA,2.95,391.1,361,195,165,173,304,10,1740,1484,49,4,36,NA,7,NA,35,91,NA,NA,NA,NA,35,12,1,338,495,NA,NA,2,https://stats.ncaa.org/teams/595316
+New Mexico St. Aggies,New Mexico St.,CUSA,2025,NA,4.45,352.2,428,276,224,149,254,6,1681,1442,85,13,56,NA,29,NA,38,76,NA,NA,NA,NA,35,17,NA,355,404,NA,NA,1,https://stats.ncaa.org/teams/595293
+Illinois St. Redbirds,Illinois St.,MVC,2025,NA,3.58,364,431,229,186,135,180,3,1681,1500,67,6,33,NA,15,NA,15,44,NA,NA,NA,NA,21,10,NA,460,414,NA,NA,5,https://stats.ncaa.org/teams/595239
+UIW Cardinals,UIW,Southland,2025,NA,2.75,343.2,318,162,135,139,297,9,1481,1297,61,7,21,NA,10,NA,14,62,NA,NA,NA,NA,22,9,NA,299,391,NA,NA,2,https://stats.ncaa.org/teams/595178
+Columbia Lions,Columbia,Ivy League,2025,NA,5.07,262.1,350,223,190,118,109,3,1259,1097,66,7,18,NA,17,NA,13,33,NA,NA,NA,NA,18,13,NA,296,343,NA,NA,6,https://stats.ncaa.org/teams/595137
+Lamar University Cardinals,Lamar University,Southland,2025,NA,4.02,376.1,428,251,216,188,205,6,1760,1501,76,13,28,NA,22,NA,23,60,NA,NA,NA,NA,33,15,NA,462,416,NA,NA,5,https://stats.ncaa.org/teams/595255
+Michigan St. Spartans,Michigan St.,Big Ten,2025,NA,5.74,284,379,289,233,172,183,3,1448,1205,53,7,59,NA,28,NA,39,52,NA,NA,NA,NA,19,13,NA,283,353,NA,NA,7,https://stats.ncaa.org/teams/595276
+Saint Louis Billikens,Saint Louis(AQ),Atlantic 10,2025,NA,3.23,387.1,407,212,179,189,235,11,1763,1509,73,6,25,NA,24,NA,24,62,NA,NA,NA,NA,30,11,NA,459,414,NA,NA,1,https://stats.ncaa.org/teams/595072
+Saint Joseph's Hawks,Saint Joseph's,Atlantic 10,2025,NA,3.52,364.1,413,239,183,157,204,6,1690,1467,70,10,28,NA,24,NA,20,60,NA,NA,NA,NA,26,20,NA,434,408,NA,NA,9,https://stats.ncaa.org/teams/595071
+Oregon St. Beavers,Oregon St.,WCC,2025,NA,3.17,311.1,326,192,141,94,261,7,1426,1257,60,5,31,NA,12,NA,41,63,NA,NA,NA,NA,19,15,NA,242,399,NA,NA,NA,https://stats.ncaa.org/teams/595052
+Nicholls Colonels,Nicholls,Southland,2025,NA,4.65,348,439,285,231,122,173,5,1631,1407,74,24,41,NA,19,NA,40,33,NA,NA,NA,NA,40,22,NA,411,401,NA,NA,4,https://stats.ncaa.org/teams/595296
+Jacksonville Dolphins,Jacksonville,ASUN,2025,NA,3.58,334.1,339,215,171,165,173,6,1550,1318,46,11,30,NA,31,NA,29,40,NA,NA,NA,NA,25,13,NA,334,454,NA,NA,NA,https://stats.ncaa.org/teams/595249
+Army West Point Black Knights,Army West Point,Patriot,2025,NA,2.88,384.2,366,222,158,152,304,11,1757,1527,73,8,17,NA,30,NA,40,97,NA,NA,NA,NA,26,11,1,471,351,NA,NA,5,https://stats.ncaa.org/teams/595112
+Col. of Charleston Cougars,Col. of Charleston,CAA,2025,NA,3.54,370,405,241,187,132,238,7,1703,1475,66,8,21,NA,28,NA,42,62,NA,NA,NA,NA,35,19,NA,384,449,NA,NA,5,https://stats.ncaa.org/teams/595168
+UAB Blazers,UAB,The American,2025,NA,4.94,361,419,294,255,139,170,4,1688,1445,92,12,50,NA,20,NA,49,35,NA,NA,NA,NA,39,15,1,347,525,NA,NA,2,https://stats.ncaa.org/teams/595188
+Providence Friars,Providence,Big East,2025,NA,4.73,361,437,282,244,152,221,3,1702,1481,92,10,60,NA,38,NA,34,61,NA,NA,NA,NA,19,16,NA,281,534,NA,NA,1,https://stats.ncaa.org/teams/595060
+San Jose St. Spartans,San Jose St.,Mountain West,2025,NA,3.35,330.1,343,197,158,130,211,7,1508,1295,58,12,19,NA,27,NA,38,62,NA,NA,NA,NA,35,10,NA,329,423,NA,NA,4,https://stats.ncaa.org/teams/595077
+Lipscomb Bisons,Lipscomb,ASUN,2025,NA,4.7,352.2,434,290,237,185,156,5,1721,1462,72,12,38,NA,17,NA,30,49,NA,NA,NA,NA,23,21,NA,454,405,NA,NA,NA,https://stats.ncaa.org/teams/595181
+Butler Bulldogs,Butler,Big East,2025,NA,4.57,309.2,386,243,202,161,184,3,1492,1261,67,6,27,NA,20,NA,23,53,2,NA,NA,NA,33,14,NA,314,380,NA,NA,9,https://stats.ncaa.org/teams/595210
+UNCW Seahawks,UNCW,CAA,2025,NA,3.37,320.1,307,199,154,133,225,6,1454,1230,39,4,27,NA,42,NA,47,61,2,NA,NA,NA,29,15,NA,350,351,NA,NA,3,https://stats.ncaa.org/teams/595340
+Central Mich. Chippewas,Central Mich.,MAC,2025,NA,3.93,333,397,214,187,128,205,9,1532,1324,65,11,38,NA,15,NA,28,43,NA,NA,NA,NA,38,14,NA,303,441,NA,NA,NA,https://stats.ncaa.org/teams/595132
+Campbell Camels,Campbell,CAA,2025,NA,3.06,372.1,354,192,163,204,222,7,1677,1389,60,6,18,NA,27,NA,32,61,NA,NA,NA,NA,32,20,NA,405,433,NA,NA,2,https://stats.ncaa.org/teams/595128
+Hofstra Pride,Hofstra,CAA,2025,NA,4.37,317,360,240,198,128,226,7,1483,1291,71,13,23,NA,25,NA,24,78,2,NA,NA,NA,28,11,1,319,371,NA,NA,7,https://stats.ncaa.org/teams/595233
+Longwood Lancers,Longwood,Big South,2025,NA,4.23,334,364,259,202,194,255,5,1593,1329,63,11,41,NA,42,NA,21,58,NA,NA,NA,NA,25,22,2,294,412,NA,NA,3,https://stats.ncaa.org/teams/595258
+Florida A&M Lady Rattlers ,Florida A&M,SWAC,2025,NA,3.68,291.1,268,193,153,173,128,6,1330,1091,30,10,12,NA,22,NA,25,35,NA,NA,NA,NA,29,12,NA,454,245,NA,NA,1,https://stats.ncaa.org/teams/595156
+South Dakota Coyotes,South Dakota,Summit League,2025,NA,2.75,368.2,362,183,145,137,296,12,1617,1415,64,10,19,NA,21,NA,17,81,NA,NA,NA,NA,42,5,1,398,366,NA,NA,2,https://stats.ncaa.org/teams/595084
+South Alabama Jaguars,South Alabama,Sun Belt,2025,NA,4.93,325,373,279,229,198,219,2,1606,1304,60,10,38,NA,38,NA,46,74,1,NA,NA,NA,38,20,NA,278,451,NA,NA,3,https://stats.ncaa.org/teams/595080
+Weber St. Wildcats,Weber St.(AQ),Big Sky,2025,NA,5.47,386.2,529,347,302,181,172,4,1901,1619,101,19,57,NA,16,NA,42,47,NA,NA,NA,NA,25,33,1,393,534,NA,NA,6,https://stats.ncaa.org/teams/595120
+Southern Utah Thunderbirds,Southern Utah,WAC,2025,NA,5.85,291,404,284,243,150,145,3,1458,1234,66,4,41,NA,13,NA,31,58,1,NA,NA,NA,25,18,NA,353,331,NA,NA,4,https://stats.ncaa.org/teams/595089
+Southeast Mo. St. Redhawks,Southeast Mo. St.,OVC,2025,NA,2.94,309,293,168,130,119,204,7,1363,1183,49,4,23,NA,22,NA,12,50,NA,NA,NA,NA,38,11,NA,328,358,NA,NA,3,https://stats.ncaa.org/teams/595317
+Robert Morris Colonials,Robert Morris(AQ),Horizon,2025,NA,4.09,296.1,302,212,173,140,256,5,1386,1165,54,11,29,NA,32,NA,34,67,NA,NA,NA,NA,35,12,NA,299,307,NA,NA,3,https://stats.ncaa.org/teams/595066
+UTEP Miners,UTEP,CUSA,2025,NA,4.8,315,362,248,216,172,133,6,1502,1239,53,7,46,NA,22,NA,37,42,NA,NA,NA,NA,34,20,NA,404,351,NA,NA,3,https://stats.ncaa.org/teams/595106
+SFA Ladyjacks,SFA,Southland,2025,NA,3.97,354,423,254,201,153,189,7,1672,1435,74,19,21,NA,28,NA,22,50,NA,NA,NA,NA,40,21,NA,455,369,NA,NA,5,https://stats.ncaa.org/teams/595093
+SIUE Cougars,SIUE,OVC,2025,NA,3.73,362.2,435,240,193,167,179,7,1704,1473,68,17,28,NA,18,NA,14,60,1,NA,NA,NA,34,15,1,414,441,NA,NA,2,https://stats.ncaa.org/teams/595086
+Bradley Braves,Bradley,MVC,2025,NA,3.88,362.1,351,248,201,271,220,6,1766,1415,50,9,22,NA,35,NA,39,63,NA,NA,NA,NA,25,14,2,392,435,NA,NA,2,https://stats.ncaa.org/teams/595204
+Cornell Big Red,Cornell,Ivy League,2025,NA,5.5,234,343,234,184,102,124,3,1183,1025,63,7,36,NA,31,NA,27,41,NA,NA,NA,NA,12,17,NA,271,271,NA,NA,NA,https://stats.ncaa.org/teams/595140
+Iona Gaels,Iona,MAAC,2025,NA,3.24,341.1,351,181,158,97,225,10,1503,1331,65,7,40,NA,10,NA,38,64,1,NA,NA,NA,27,10,NA,345,415,NA,NA,2,https://stats.ncaa.org/teams/595245
+Tulsa Golden Hurricane,Tulsa,The American,2025,NA,5.2,351.2,461,297,261,175,206,4,1713,1458,81,11,46,NA,35,NA,35,49,NA,NA,NA,NA,33,11,1,432,361,NA,NA,2,https://stats.ncaa.org/teams/595111
+New Mexico Lobos,New Mexico,Mountain West,2025,NA,3.97,337,384,235,191,158,271,8,1584,1370,68,11,40,NA,19,NA,23,92,NA,NA,NA,NA,21,11,1,330,381,NA,NA,4,https://stats.ncaa.org/teams/595294
+CSUN Matadors,CSUN,Big West,2025,NA,3.61,351,392,221,181,85,180,3,1570,1409,74,7,34,NA,14,NA,31,71,NA,NA,NA,NA,33,10,2,331,499,NA,NA,3,https://stats.ncaa.org/teams/595215
+Sacramento St. Hornets,Sacramento St.,Big Sky,2025,NA,4.06,314,365,243,182,135,251,3,1487,1292,55,10,23,NA,22,NA,20,71,NA,NA,NA,NA,23,15,2,378,282,NA,NA,4,https://stats.ncaa.org/teams/595216
+Tennessee St. Lady Tigers,Tennessee St.,OVC,2025,NA,4.77,292.1,381,255,199,126,102,4,1417,1212,61,9,26,NA,31,NA,28,40,NA,NA,NA,NA,32,19,NA,344,386,NA,NA,1,https://stats.ncaa.org/teams/595097
+LIU Sharks,LIU,NEC,2025,NA,4.9,297.1,372,233,208,118,147,3,1418,1230,62,7,46,NA,14,NA,33,41,3,NA,NA,NA,20,17,NA,297,422,NA,NA,1,https://stats.ncaa.org/teams/595257
+Rutgers Scarlet Knights,Rutgers,Big Ten,2025,NA,4.32,353,424,311,218,189,288,5,1716,1457,70,10,54,NA,42,NA,37,77,NA,NA,NA,NA,16,15,2,376,348,NA,NA,3,https://stats.ncaa.org/teams/595067
+UTSA Roadrunners,UTSA,The American,2025,NA,5.53,351.2,425,348,278,269,196,4,1785,1420,59,4,48,NA,42,NA,43,72,5,NA,NA,NA,35,16,2,388,409,NA,NA,7,https://stats.ncaa.org/teams/595107
+San Diego Toreros,San Diego,WCC,2025,NA,4.27,314.2,363,234,192,163,206,4,1494,1268,65,10,31,NA,22,NA,22,40,NA,NA,NA,NA,23,18,NA,308,397,NA,NA,6,https://stats.ncaa.org/teams/595076
+NIU Huskies,NIU,MAC,2025,NA,4.46,331,411,238,211,150,197,5,1579,1359,85,4,38,NA,20,NA,27,47,NA,NA,NA,NA,24,19,NA,320,429,NA,NA,3,https://stats.ncaa.org/teams/595043
+George Washington Revolutionaries,George Washington,Atlantic 10,2025,NA,2.72,360,344,163,140,120,322,14,1566,1395,46,7,22,NA,16,NA,23,59,NA,NA,NA,NA,18,10,NA,399,325,NA,NA,7,https://stats.ncaa.org/teams/595224
+Dartmouth Big Green,Dartmouth,Ivy League,2025,NA,4.69,252,283,197,169,154,166,3,1206,998,49,16,24,NA,24,NA,26,44,NA,NA,NA,NA,18,10,NA,206,342,NA,NA,1,https://stats.ncaa.org/teams/595142
+Stony Brook Seawolves,Stony Brook,CAA,2025,NA,4.26,310.2,384,230,189,137,136,8,1472,1292,57,6,23,NA,10,NA,11,31,NA,NA,NA,NA,16,15,1,385,372,NA,NA,5,https://stats.ncaa.org/teams/595095
+Howard Bison,Howard(AQ),MEAC,2025,NA,4.37,315.2,350,242,197,140,241,4,1481,1272,69,19,35,NA,31,NA,33,58,1,NA,NA,NA,20,16,NA,311,360,NA,NA,5,https://stats.ncaa.org/teams/595237
+Lehigh Mountain Hawks,Lehigh,Patriot,2025,NA,4.68,336.2,413,269,225,150,196,4,1599,1383,70,13,34,NA,28,NA,23,50,NA,NA,NA,NA,19,23,1,317,464,NA,NA,5,https://stats.ncaa.org/teams/595256
+Abilene Christian Wildcats,Abilene Christian,WAC,2025,NA,5.61,334.2,427,320,268,174,176,4,1671,1408,86,14,39,NA,29,NA,46,46,NA,NA,NA,NA,27,16,NA,422,359,NA,NA,3,https://stats.ncaa.org/teams/595183
+Western Caro. Catamounts,Western Caro.,SoCon,2025,NA,5.33,335,433,287,255,176,270,4,1660,1403,53,7,47,NA,25,NA,34,71,NA,NA,NA,NA,30,17,NA,313,395,NA,NA,2,https://stats.ncaa.org/teams/595121
+Missouri St. Bears,Missouri St.,MVC,2025,NA,4.59,337,487,271,221,126,155,5,1633,1464,72,13,32,NA,20,NA,15,53,NA,NA,NA,NA,18,10,NA,372,427,NA,NA,3,https://stats.ncaa.org/teams/595090
+Charleston So. Buccaneers,Charleston So.,Big South,2025,NA,5.35,312.2,411,296,239,212,217,3,1609,1332,68,5,43,NA,45,NA,35,82,NA,NA,NA,NA,20,10,NA,272,417,NA,NA,6,https://stats.ncaa.org/teams/595197
+North Dakota Fighting Hawks,North Dakota,Summit League,2025,NA,4.23,359.1,383,259,217,245,301,3,1706,1389,68,12,35,NA,55,NA,27,60,2,NA,12,7,29,9,NA,386,320,NA,NA,12,https://stats.ncaa.org/teams/595039
+Saint Francis The Red Flash,Saint Francis(AQ),NEC,2025,NA,4.92,324.2,394,305,228,174,140,3,1588,1361,76,7,37,NA,53,NA,22,40,1,NA,NA,NA,19,11,NA,433,356,NA,NA,2,https://stats.ncaa.org/teams/595313
+Utah Valley Wolverines,Utah Valley,WAC,2025,NA,5.38,322.2,428,304,248,192,211,3,1605,1354,86,12,49,NA,38,NA,20,58,NA,NA,NA,NA,25,14,NA,355,362,NA,NA,1,https://stats.ncaa.org/teams/595182
+UC Riverside Highlanders,UC Riverside,Big West,2025,NA,3.61,337.1,381,225,174,126,187,4,1562,1346,46,9,28,NA,20,NA,30,55,NA,NA,NA,NA,35,25,NA,383,404,NA,NA,2,https://stats.ncaa.org/teams/595127
+Toledo Rockets,Toledo,MAC,2025,NA,4.82,312,365,281,215,204,198,4,1546,1270,69,7,35,NA,47,NA,37,58,3,NA,NA,NA,22,13,NA,343,350,NA,NA,1,https://stats.ncaa.org/teams/595108
+Purdue Fort Wayne Mastodons,Purdue Fort Wayne,Horizon,2025,NA,4.81,305.2,395,249,210,102,181,3,1461,1265,67,11,55,NA,12,NA,37,55,1,NA,NA,NA,41,16,NA,232,481,NA,NA,3,https://stats.ncaa.org/teams/595244
+North Dakota St. Bison,North Dakota St.,Summit League,2025,NA,5.62,300.1,444,271,241,145,140,5,1486,1287,72,15,34,NA,20,NA,17,36,NA,NA,NA,NA,21,15,1,384,323,NA,NA,5,https://stats.ncaa.org/teams/595038
+Colorado St. Rams,Colorado St.,Mountain West,2025,NA,6.61,291.1,430,324,275,181,170,5,1508,1271,60,20,42,NA,33,NA,13,52,3,NA,NA,NA,31,12,NA,344,328,NA,NA,1,https://stats.ncaa.org/teams/595136
+Cleveland St. Vikings,Cleveland St.,Horizon,2025,NA,3.68,285.1,342,193,150,100,291,6,1330,1192,50,14,14,NA,10,NA,11,71,NA,NA,NA,NA,19,7,1,242,294,NA,NA,1,https://stats.ncaa.org/teams/595133
+Yale Bulldogs,Yale,Ivy League,2025,NA,5.67,281.2,357,259,228,163,128,1,1401,1165,69,10,33,NA,21,NA,32,37,NA,NA,NA,NA,29,12,NA,305,384,NA,NA,2,https://stats.ncaa.org/teams/595165
+Fairfield Stags,Fairfield,MAAC,2025,NA,3.9,344.1,393,219,192,148,247,5,1605,1381,73,4,32,NA,22,NA,35,51,1,NA,NA,NA,26,15,NA,323,426,NA,NA,1,https://stats.ncaa.org/teams/595154
+IU Indy Jaguars,IU Indy,Horizon,2025,NA,5.68,315.2,419,284,256,138,154,5,1541,1315,77,16,47,NA,25,NA,43,38,2,NA,NA,NA,29,17,NA,284,469,NA,NA,NA,https://stats.ncaa.org/teams/595175
+Lindenwood Lions,Lindenwood,OVC,2025,NA,3.26,324,325,206,151,164,260,3,1504,1271,56,6,17,NA,22,NA,25,72,3,NA,NA,NA,33,11,NA,354,329,NA,NA,8,https://stats.ncaa.org/teams/595304
+UAlbany Great Danes,UAlbany,America East,2025,NA,3.55,293.2,316,213,149,138,265,7,1373,1165,57,10,30,NA,23,NA,37,75,NA,NA,NA,NA,25,7,1,298,276,NA,NA,2,https://stats.ncaa.org/teams/595329
+Bethune-Cookman Wildcats,Bethune-Cookman,SWAC,2025,NA,3.37,330.1,353,204,159,148,227,8,1520,1294,50,11,19,NA,20,NA,24,58,NA,NA,NA,NA,45,9,NA,319,402,NA,NA,3,https://stats.ncaa.org/teams/595199
+Sacred Heart Pioneers,Sacred Heart,MAAC,2025,NA,3.73,313,305,202,167,189,240,6,1464,1221,65,8,19,NA,22,NA,25,87,NA,NA,NA,NA,21,8,NA,287,379,NA,NA,4,https://stats.ncaa.org/teams/595068
+Southern Ind. Screaming Eagles,Southern Ind.,OVC,2025,NA,3.8,267,291,183,145,141,254,4,1251,1068,33,5,23,NA,25,NA,13,73,NA,NA,NA,NA,22,7,NA,192,326,NA,NA,NA,https://stats.ncaa.org/teams/595305
+Drake Bulldogs,Drake,MVC,2025,NA,3.69,349,407,247,184,136,185,3,1631,1439,51,8,39,NA,17,NA,18,45,NA,NA,NA,NA,26,10,1,434,388,NA,NA,NA,https://stats.ncaa.org/teams/595147
+Prairie View Lady Panthers,Prairie View,SWAC,2025,NA,3.7,316,326,210,167,154,128,7,1482,1235,58,6,22,NA,24,NA,43,31,NA,NA,NA,NA,28,22,NA,334,443,NA,NA,2,https://stats.ncaa.org/teams/595058
+Loyola Chicago Ramblers,Loyola Chicago,Atlantic 10,2025,NA,4.69,334,391,289,224,167,243,7,1624,1380,78,15,28,NA,19,NA,32,96,NA,NA,NA,NA,29,16,NA,328,405,NA,NA,4,https://stats.ncaa.org/teams/595264
+Northern Colo. Bears,Northern Colo.,Big Sky,2025,NA,6.36,297,442,325,270,152,127,4,1501,1278,85,6,56,NA,32,NA,26,42,NA,NA,NA,NA,22,23,NA,313,404,NA,NA,1,https://stats.ncaa.org/teams/595042
+Gardner-Webb Runnin' Bulldogs,Gardner-Webb,Big South,2025,NA,4.26,320.1,394,241,195,159,132,2,1538,1323,68,12,29,NA,24,NA,19,34,2,NA,NA,NA,25,12,NA,438,345,NA,NA,NA,https://stats.ncaa.org/teams/595170
+UC Davis Aggies,UC Davis,Big West,2025,NA,3.92,325.1,419,256,182,83,194,5,1540,1373,67,15,39,NA,18,NA,31,55,NA,NA,NA,NA,42,11,NA,343,398,NA,NA,3,https://stats.ncaa.org/teams/595160
+Indiana St. Sycamores,Indiana St.,MVC,2025,NA,3.53,341,337,221,172,135,264,6,1545,1332,48,9,27,NA,29,NA,25,88,NA,NA,NA,NA,29,24,NA,278,451,NA,NA,6,https://stats.ncaa.org/teams/595242
+Canisius Golden Griffins,Canisius,MAAC,2025,NA,4.23,319.2,385,244,193,109,212,6,1483,1318,70,15,40,NA,16,NA,15,48,NA,NA,NA,NA,29,12,NA,324,397,NA,NA,NA,https://stats.ncaa.org/teams/595129
+Quinnipiac Bobcats,Quinnipiac,MAAC,2025,NA,3.27,303.2,320,193,142,110,185,3,1379,1205,66,15,22,NA,5,NA,30,47,1,NA,NA,NA,24,10,NA,287,402,NA,NA,NA,https://stats.ncaa.org/teams/595062
+Memphis Tigers,Memphis,The American,2025,NA,5.28,343.1,457,346,259,215,174,2,1778,1451,57,11,40,NA,73,NA,52,40,1,NA,NA,NA,38,20,2,422,388,NA,NA,2,https://stats.ncaa.org/teams/595274
+Murray St. Racers,Murray St.,MVC,2025,NA,4.39,322.1,372,259,202,179,162,2,1538,1296,88,19,33,NA,41,NA,28,54,NA,NA,NA,NA,20,14,1,320,434,NA,NA,2,https://stats.ncaa.org/teams/595287
+Houston Christian Huskies,Houston Christian,Southland,2025,NA,5.58,318.2,410,303,254,161,126,2,1568,1318,84,14,26,NA,40,NA,36,35,1,NA,NA,NA,35,18,NA,414,368,NA,NA,1,https://stats.ncaa.org/teams/595235
+Bucknell Bison,Bucknell,Patriot,2025,NA,4.64,309.1,409,251,205,105,189,7,1452,1284,79,17,31,NA,31,NA,18,58,NA,NA,NA,NA,32,13,NA,310,389,NA,NA,1,https://stats.ncaa.org/teams/595208
+Utah Tech Trailblazers ,Utah Tech,WAC,2025,NA,6.9,322.2,488,360,318,195,161,3,1683,1397,78,13,51,NA,62,NA,36,38,1,NA,NA,NA,36,19,NA,273,484,NA,NA,2,https://stats.ncaa.org/teams/595300
+Pacific Tigers,Pacific,WCC,2025,NA,5.57,331.2,467,324,264,150,151,1,1650,1415,105,14,51,NA,21,NA,42,42,NA,NA,NA,NA,33,10,NA,407,383,NA,NA,3,https://stats.ncaa.org/teams/595054
+Georgia St. Panthers,Georgia St.,Sun Belt,2025,NA,5.83,330.1,412,333,275,206,248,1,1644,1353,104,13,56,NA,31,NA,29,74,NA,NA,NA,NA,32,24,NA,262,448,NA,NA,4,https://stats.ncaa.org/teams/595227
+Furman Paladins,Furman,SoCon,2025,NA,4.76,340,424,315,231,168,202,2,1675,1441,63,15,33,NA,62,NA,22,59,NA,NA,NA,NA,29,15,NA,471,314,NA,NA,5,https://stats.ncaa.org/teams/595222
+Northern Ky. Norse,Northern Ky.,Horizon,2025,NA,4.94,307.2,402,255,217,138,168,6,1495,1290,74,11,38,NA,27,NA,29,52,NA,NA,NA,NA,26,12,NA,326,390,NA,NA,5,https://stats.ncaa.org/teams/595310
+Jackson St. Lady Tigers,Jackson St.(AQ),SWAC,2025,NA,4.21,324,408,261,195,90,112,2,1530,1374,70,14,24,NA,11,NA,24,30,NA,NA,NA,NA,30,12,NA,420,405,NA,NA,NA,https://stats.ncaa.org/teams/595334
+Buffalo Bulls,Buffalo,MAC,2025,NA,5.84,309,437,309,258,141,195,3,1539,1340,77,19,50,NA,16,NA,25,56,NA,NA,NA,NA,19,14,NA,242,456,NA,NA,4,https://stats.ncaa.org/teams/595209
+ETSU Buccaneers (Bucs),ETSU,SoCon,2025,NA,5.63,348,459,324,280,149,188,2,1701,1445,84,10,46,NA,35,NA,53,49,NA,NA,NA,NA,38,15,1,348,460,NA,NA,6,https://stats.ncaa.org/teams/595150
+Alabama St. Lady Hornets,Alabama St.,SWAC,2025,NA,6.25,322.1,463,352,288,224,121,NA,1683,1366,98,14,31,NA,50,NA,39,32,NA,NA,NA,NA,33,20,NA,328,450,NA,NA,1,https://stats.ncaa.org/teams/595186
+UMBC Retrievers,UMBC,America East,2025,NA,4.6,316.1,351,268,208,175,255,4,1522,1278,66,16,37,NA,45,NA,30,84,1,NA,NA,NA,25,13,1,301,366,NA,NA,NA,https://stats.ncaa.org/teams/595269
+Tennessee Tech Golden Eagles,Tennessee Tech,OVC,2025,NA,3.65,374.1,438,249,195,174,230,4,1777,1521,65,9,20,NA,25,NA,35,60,NA,NA,NA,NA,26,21,NA,379,474,NA,NA,4,https://stats.ncaa.org/teams/595098
+Central Conn. St. Blue Devils,Central Conn. St.,NEC,2025,NA,4.29,324.2,351,231,199,213,229,7,1567,1278,71,3,31,NA,17,NA,44,64,NA,NA,NA,NA,20,12,NA,262,440,NA,NA,3,https://stats.ncaa.org/teams/595130
+Evansville Purple Aces,Evansville,MVC,2025,NA,4.37,355.1,418,319,222,185,192,4,1757,1475,78,14,33,NA,64,NA,50,42,1,NA,NA,NA,30,16,1,466,362,NA,NA,3,https://stats.ncaa.org/teams/595153
+Kennesaw St. Owls,Kennesaw St.,CUSA,2025,NA,4.74,349.2,392,283,237,238,259,4,1720,1392,84,14,44,NA,58,NA,41,77,NA,NA,NA,NA,29,20,NA,374,367,NA,NA,3,https://stats.ncaa.org/teams/595171
+Kent St. Golden Flashes,Kent St.,MAC,2025,NA,7.56,318.1,520,423,344,220,150,NA,1759,1447,93,16,60,NA,58,NA,38,45,1,NA,NA,NA,34,19,1,378,392,NA,NA,NA,https://stats.ncaa.org/teams/595252
+UC San Diego Tritons,UC San Diego,Big West,2025,NA,4.43,311,364,249,197,198,202,2,1538,1249,54,12,29,NA,14,NA,33,60,4,NA,NA,NA,47,11,NA,337,355,NA,NA,1,https://stats.ncaa.org/teams/595302
+Western Mich. Broncos,Western Mich.,MAC,2025,NA,6.22,327.1,459,349,291,195,109,1,1652,1397,88,7,51,NA,31,NA,8,19,4,NA,NA,NA,27,24,NA,384,442,NA,NA,3,https://stats.ncaa.org/teams/595124
+Bowling Green Falcons,Bowling Green,MAC,2025,NA,5.52,328.1,440,324,259,168,140,4,1647,1393,86,3,35,NA,33,NA,45,37,NA,NA,NA,NA,25,16,NA,361,430,NA,NA,2,https://stats.ncaa.org/teams/595203
+Bryant Bulldogs,Bryant,America East,2025,NA,5.15,339.2,429,300,250,179,200,5,1644,1415,81,12,41,NA,23,NA,16,58,NA,NA,NA,NA,14,20,NA,315,460,NA,NA,1,https://stats.ncaa.org/teams/595207
+Rider Broncs,Rider,MAAC,2025,NA,3.46,380.1,403,234,188,127,230,11,1731,1514,77,11,41,NA,8,NA,50,60,NA,NA,NA,NA,31,9,NA,336,542,NA,NA,1,https://stats.ncaa.org/teams/595065
+Queens (NC) Royals,Queens (NC),ASUN,2025,NA,4.81,348,438,298,239,162,186,2,1671,1441,57,9,46,NA,33,NA,24,46,NA,NA,NA,NA,26,17,1,464,347,NA,NA,7,https://stats.ncaa.org/teams/595303
+Green Bay Phoenix,Green Bay,Horizon,2025,NA,4.64,325.2,415,276,216,146,245,3,1597,1355,71,18,26,NA,38,NA,41,50,NA,NA,NA,NA,40,15,NA,299,393,NA,NA,NA,https://stats.ncaa.org/teams/595163
+Oakland Golden Grizzlies,Oakland,Horizon,2025,NA,5.12,289.2,383,256,212,117,213,2,1409,1234,71,13,40,NA,16,NA,21,44,NA,NA,NA,NA,24,13,NA,281,344,NA,NA,4,https://stats.ncaa.org/teams/595048
+CSU Bakersfield Roadrunners,CSU Bakersfield,Big West,2025,NA,5.64,306.2,418,307,247,188,66,6,1577,1286,78,11,34,NA,11,NA,52,22,NA,NA,NA,NA,32,19,NA,281,532,NA,NA,NA,https://stats.ncaa.org/teams/595212
+George Mason Patriots,George Mason,Atlantic 10,2025,NA,3.58,352,394,247,180,167,196,3,1685,1424,70,12,27,NA,32,NA,50,73,1,NA,NA,NA,30,14,NA,357,459,NA,NA,8,https://stats.ncaa.org/teams/595223
+Valparaiso Beacons,Valparaiso,MVC,2025,NA,3.76,333.2,370,221,179,155,261,3,1542,1346,75,13,37,NA,17,NA,15,44,NA,NA,NA,NA,18,8,NA,329,373,NA,NA,8,https://stats.ncaa.org/teams/595115
+Massachusetts Minutewomen,Massachusetts,Atlantic 10,2025,NA,3.97,314,374,229,178,137,205,2,1483,1293,55,7,21,NA,19,NA,18,66,NA,NA,NA,NA,16,18,1,297,400,NA,NA,1,https://stats.ncaa.org/teams/595272
+DePaul Blue Demons,DePaul,Big East,2025,NA,5.29,308.1,400,302,233,185,184,3,1563,1296,63,9,36,NA,21,NA,40,48,9,NA,NA,NA,30,12,NA,357,340,NA,NA,3,https://stats.ncaa.org/teams/595143
+Georgetown Hoyas,Georgetown,Big East,2025,NA,5.99,266.2,357,264,228,143,154,2,1341,1141,72,10,43,NA,36,NA,33,53,NA,NA,NA,NA,13,11,NA,242,376,NA,NA,2,https://stats.ncaa.org/teams/595225
+Towson Tigers,Towson,CAA,2025,NA,5.34,335.1,452,309,256,149,175,4,1644,1429,59,11,35,NA,26,NA,19,59,1,NA,NA,NA,34,13,NA,432,356,NA,NA,7,https://stats.ncaa.org/teams/595109
+Presbyterian Blue Hose,Presbyterian,Big South,2025,NA,4.14,302.2,352,230,179,147,206,1,1454,1252,70,11,21,NA,16,NA,19,70,NA,NA,NA,NA,26,8,2,293,378,NA,NA,4,https://stats.ncaa.org/teams/595172
+Bellarmine Knights,Bellarmine,ASUN,2025,NA,5.67,256.2,345,254,208,132,90,1,1278,1083,54,9,28,NA,25,NA,14,24,NA,NA,NA,NA,22,25,2,286,360,NA,NA,2,https://stats.ncaa.org/teams/595301
+FDU Knights,FDU,NEC,2025,NA,3.6,324.2,341,215,167,149,313,6,1521,1298,60,7,14,NA,29,NA,45,95,2,NA,NA,NA,20,8,1,356,267,NA,NA,1,https://stats.ncaa.org/teams/595155
+Le Moyne Dolphins,Le Moyne,NEC,2025,NA,4.97,250.2,329,233,178,126,127,3,1258,1058,52,7,30,NA,27,NA,45,37,NA,NA,NA,NA,17,11,NA,275,305,NA,NA,1,https://stats.ncaa.org/teams/595308
+Portland St. Vikings,Portland St.,Big Sky,2025,NA,6.07,315,432,362,273,176,166,1,1643,1373,67,13,46,NA,59,NA,52,46,NA,NA,NA,NA,22,18,2,377,372,NA,NA,3,https://stats.ncaa.org/teams/595312
+South Carolina St. Lady Bulldogs,South Carolina St.,MEAC,2025,NA,3.67,257.1,295,197,135,100,101,NA,1210,1051,36,15,6,NA,28,NA,27,40,NA,NA,NA,NA,28,4,NA,379,241,NA,NA,1,https://stats.ncaa.org/teams/595081
+Lafayette Leopards,Lafayette,Patriot,2025,NA,7.09,234,395,280,237,114,78,NA,1234,1069,72,8,31,NA,33,NA,18,17,NA,NA,NA,NA,16,16,1,285,300,NA,NA,1,https://stats.ncaa.org/teams/595254
+West Ga. Wolves,West Ga.,ASUN,2025,NA,5.73,327.1,448,355,268,249,135,NA,1725,1377,64,14,41,NA,39,1,45,50,NA,NA,NA,NA,31,23,NA,373,417,NA,NA,2,https://stats.ncaa.org/teams/595458
+Colgate Raiders,Colgate,Patriot,2025,NA,5.05,321.2,443,285,232,130,216,1,1579,1369,73,10,36,NA,37,2,33,43,NA,NA,NA,NA,35,12,NA,361,346,NA,NA,3,https://stats.ncaa.org/teams/595135
+Cal Poly Mustangs,Cal Poly,Big West,2025,NA,4.81,299.2,394,274,206,176,132,1,1511,1248,87,19,14,NA,24,NA,32,41,13,NA,NA,NA,44,11,NA,352,365,NA,NA,1,https://stats.ncaa.org/teams/595211
+UT Martin Skyhawks,UT Martin,OVC,2025,NA,4.31,306.2,380,214,189,137,195,7,1453,1253,67,5,31,NA,29,NA,20,56,NA,NA,NA,NA,31,12,NA,344,344,NA,NA,4,https://stats.ncaa.org/teams/595100
+Wagner Seahawks,Wagner,NEC,2025,NA,5.58,256,289,238,204,184,213,3,1283,1037,64,7,24,NA,31,NA,46,31,NA,NA,NA,NA,11,5,NA,300,219,NA,NA,2,https://stats.ncaa.org/teams/595118
+Penn Quakers,Penn,Ivy League,2025,NA,8.31,224,391,311,266,118,86,NA,1230,1034,64,15,44,NA,30,NA,34,20,NA,NA,NA,NA,29,15,NA,225,324,NA,NA,NA,https://stats.ncaa.org/teams/595056
+Delaware St. Hornets,Delaware St.,MEAC,2025,NA,3.77,325.1,375,221,175,125,237,8,1512,1322,59,13,11,NA,16,NA,32,73,NA,NA,NA,NA,26,7,NA,382,304,NA,NA,6,https://stats.ncaa.org/teams/595144
+N.C. Central Eagles,N.C. Central,MEAC,2025,NA,6.34,270.1,375,352,245,180,166,3,1429,1186,65,12,34,NA,64,NA,13,33,NA,NA,NA,NA,23,25,2,360,247,NA,NA,1,https://stats.ncaa.org/teams/595036
+East Texas A&M Lions,East Texas A&M,Southland,2025,NA,6.9,316.2,451,360,312,242,172,1,1676,1338,81,21,36,NA,49,NA,36,40,NA,NA,NA,NA,35,24,1,269,453,NA,NA,NA,https://stats.ncaa.org/teams/595307
+Texas Southern Lady Tigers,Texas Southern,SWAC,2025,NA,4.72,237.1,292,205,160,131,98,4,1158,966,54,10,11,NA,11,NA,21,27,NA,NA,NA,NA,31,9,NA,304,258,NA,NA,1,https://stats.ncaa.org/teams/595102
+A&M-Corpus Christi Islanders,A&M-Corpus Christi,Southland,2025,NA,5.9,295.2,427,309,249,174,128,2,1500,1262,75,12,29,NA,36,NA,20,38,NA,NA,NA,NA,34,10,NA,370,328,NA,NA,2,https://stats.ncaa.org/teams/595180
+Kansas City Roos,Kansas City,Summit League,2025,NA,8.43,272.1,477,394,328,196,71,NA,1532,1268,101,15,51,NA,70,NA,25,25,1,NA,9,2,21,19,NA,361,346,NA,NA,2,https://stats.ncaa.org/teams/595176
+Alabama A&M Bulldogs,Alabama A&M,SWAC,2025,NA,5.41,243.1,330,252,188,131,139,1,1249,1045,57,12,15,NA,17,NA,35,39,1,NA,NA,NA,22,16,NA,266,280,NA,NA,1,https://stats.ncaa.org/teams/595185
+Rhode Island Rams,Rhode Island,Atlantic 10,2025,NA,5.66,305.1,403,296,247,184,262,1,1562,1284,73,16,26,NA,29,NA,48,59,NA,NA,NA,NA,32,14,NA,286,334,NA,NA,4,https://stats.ncaa.org/teams/595064
+UMass Lowell River Hawks,UMass Lowell,America East,2025,NA,3.95,287.1,314,214,162,130,231,7,1362,1156,64,9,19,NA,31,NA,35,72,2,NA,NA,NA,33,8,NA,262,336,NA,NA,2,https://stats.ncaa.org/teams/595262
+Niagara Purple Eagles,Niagara,MAAC,2025,NA,7.97,248.2,380,332,283,209,106,NA,1384,1102,69,12,35,NA,47,NA,43,40,NA,NA,NA,NA,17,13,NA,295,305,NA,NA,3,https://stats.ncaa.org/teams/595295
+Southern U. Lady Jaguars,Southern U.,SWAC,2025,NA,4.09,294.2,360,223,172,107,195,4,1382,1202,65,9,28,NA,15,NA,35,59,NA,NA,NA,NA,30,9,NA,287,349,NA,NA,6,https://stats.ncaa.org/teams/595088
+Northwestern St. Lady Demons,Northwestern St.,Southland,2025,NA,6.29,321.2,463,335,289,163,121,1,1654,1377,79,15,45,NA,35,NA,55,33,NA,NA,NA,NA,45,14,NA,311,502,NA,NA,1,https://stats.ncaa.org/teams/595045
+Detroit Mercy Titans,Detroit Mercy,Horizon,2025,NA,5.99,271.1,381,279,232,146,149,1,1372,1159,82,12,38,NA,36,NA,29,48,NA,NA,NA,NA,29,7,2,273,351,NA,NA,2,https://stats.ncaa.org/teams/595146
+Morgan St. Lady Bears,Morgan St.,MEAC,2025,NA,4.02,294,354,227,169,101,177,5,1356,1201,71,17,20,NA,18,NA,13,37,1,NA,NA,NA,26,15,NA,329,331,NA,NA,2,https://stats.ncaa.org/teams/595338
+Youngstown St. Penguins,Youngstown St.,Horizon,2025,NA,6.28,327.2,479,364,294,167,219,2,1672,1422,85,14,35,NA,48,NA,22,63,NA,NA,NA,NA,39,21,1,339,386,NA,NA,1,https://stats.ncaa.org/teams/595166
+Stonehill Skyhawks,Stonehill,NEC,2025,NA,6.03,316,477,342,272,175,128,2,1625,1391,73,15,55,NA,31,NA,16,35,NA,NA,NA,NA,13,30,NA,293,467,NA,NA,4,https://stats.ncaa.org/teams/595306
+Monmouth Hawks,Monmouth,CAA,2025,NA,6.79,320.2,527,381,311,144,127,2,1666,1457,94,32,44,NA,19,NA,19,45,NA,NA,NA,NA,20,26,NA,318,471,NA,NA,2,https://stats.ncaa.org/teams/595283
+Manhattan Jaspers,Manhattan,MAAC,2025,NA,5.85,275,362,281,230,174,138,4,1395,1143,73,8,42,NA,36,NA,25,39,NA,NA,NA,NA,34,19,NA,289,361,NA,NA,2,https://stats.ncaa.org/teams/595266
+Norfolk St. Spartans,Norfolk St.,MEAC,2025,NA,3.63,291,367,213,151,94,152,4,1357,1193,77,8,17,NA,22,NA,11,55,NA,NA,NA,NA,51,8,NA,345,324,NA,NA,NA,https://stats.ncaa.org/teams/595297
+Morehead St. Eagles,Morehead St.,OVC,2025,NA,7.93,290.1,472,401,329,223,107,1,1616,1304,104,9,47,NA,47,NA,37,47,NA,NA,NA,NA,28,23,NA,340,381,NA,NA,NA,https://stats.ncaa.org/teams/595285
+N.C. A&T Aggies,N.C. A&T,CAA,2025,NA,6.21,303.1,442,366,269,212,210,2,1633,1335,73,10,33,NA,59,NA,30,70,NA,NA,NA,NA,33,22,1,298,360,NA,NA,1,https://stats.ncaa.org/teams/595298
+Ark.-Pine Bluff Lady Lions,Ark.-Pine Bluff,SWAC,2025,NA,5.14,265.1,329,263,195,176,211,2,1336,1097,54,12,12,NA,37,NA,8,57,NA,NA,NA,NA,27,28,NA,281,272,NA,NA,NA,https://stats.ncaa.org/teams/595174
+UIC Flames,UIC,MVC,2025,NA,6.3,341.1,480,380,307,218,122,4,1767,1464,77,15,41,NA,36,NA,27,30,2,NA,NA,NA,40,18,NA,369,483,NA,NA,1,https://stats.ncaa.org/teams/595241
+Merrimack Warriors,Merrimack,MAAC,2025,NA,4,290.1,302,231,166,170,188,1,1392,1163,58,9,22,NA,27,NA,19,37,NA,NA,NA,NA,25,15,NA,370,292,NA,NA,2,https://stats.ncaa.org/teams/595161
+Montana Grizzlies,Montana,Big Sky,2025,NA,7.88,293,477,366,330,178,126,2,1577,1316,85,8,80,NA,29,1,45,45,2,NA,NA,NA,20,17,1,309,402,NA,NA,2,https://stats.ncaa.org/teams/595284
+St. Bonaventure Bonnies,St. Bonaventure,Atlantic 10,2025,NA,7.36,275.2,427,357,290,210,145,1,1504,1217,71,22,31,NA,53,NA,36,41,NA,NA,NA,NA,18,23,NA,313,322,NA,NA,6,https://stats.ncaa.org/teams/595069
+Drexel Dragons,Drexel,CAA,2025,NA,8.18,271.1,526,435,317,125,108,NA,1527,1323,108,12,57,NA,26,NA,24,39,NA,NA,NA,NA,32,23,NA,272,398,NA,NA,2,https://stats.ncaa.org/teams/595148
+Western Ill. Leathernecks,Western Ill.,OVC,2025,NA,7.35,302.2,472,373,318,217,145,2,1638,1344,97,18,36,NA,67,NA,21,44,NA,NA,NA,NA,27,29,NA,328,402,NA,NA,3,https://stats.ncaa.org/teams/595122
+Hampton Lady Pirates,Hampton,CAA,2025,NA,5.58,307.1,447,350,245,163,192,1,1597,1350,78,20,26,NA,45,NA,38,55,NA,NA,NA,NA,27,19,NA,348,334,NA,NA,NA,https://stats.ncaa.org/teams/595231
+Holy Cross Crusaders,Holy Cross,Patriot,2025,NA,4.3,285,354,255,175,159,162,2,1411,1183,77,5,23,NA,27,NA,27,52,NA,NA,NA,NA,29,13,NA,272,386,NA,NA,NA,https://stats.ncaa.org/teams/595234
+Maine Black Bears,Maine,America East,2025,NA,4.7,308,407,288,207,196,192,5,1557,1309,62,5,24,NA,30,NA,18,58,NA,NA,NA,NA,18,16,NA,440,234,NA,NA,1,https://stats.ncaa.org/teams/595265
+Mount St. Mary's Mountaineers,Mount St. Mary's,MAAC,2025,NA,4.97,327,442,306,232,160,177,NA,1625,1397,86,15,17,NA,31,NA,20,49,NA,NA,NA,NA,36,12,NA,416,338,NA,NA,2,https://stats.ncaa.org/teams/595286
+Grambling Lady Tigers,Grambling,SWAC,2025,NA,4.3,291.1,391,247,179,128,117,4,1418,1231,61,9,20,NA,11,NA,16,27,NA,NA,NA,NA,26,18,NA,341,363,NA,NA,20,https://stats.ncaa.org/teams/595230
+Saint Peter's Peacocks,Saint Peter's,MAAC,2025,NA,5.27,309.1,445,298,233,147,154,2,1533,1312,82,19,33,NA,46,NA,17,40,NA,NA,NA,NA,30,10,NA,405,308,NA,NA,1,https://stats.ncaa.org/teams/595073
+Alcorn Lady Braves,Alcorn,SWAC,2025,NA,6.59,240,302,319,226,207,164,3,1310,1022,57,16,13,NA,60,NA,52,40,NA,NA,NA,NA,9,20,NA,264,242,NA,NA,1,https://stats.ncaa.org/teams/595189
+Mercyhurst Lakers,Mercyhurst,NEC,2025,NA,7.58,231.2,373,285,251,150,78,NA,1252,1038,84,12,26,NA,39,NA,23,25,NA,NA,NA,NA,16,24,NA,286,287,NA,NA,NA,https://stats.ncaa.org/teams/595550
+Mississippi Val. Devilettes,Mississippi Val.,SWAC,2025,NA,11.91,181,425,419,308,140,64,NA,1156,947,65,26,18,NA,29,NA,27,12,NA,NA,NA,NA,18,24,NA,229,214,NA,NA,NA,https://stats.ncaa.org/teams/595280
+Coppin St. Eagles,Coppin St.,MEAC,2025,NA,6.45,187.2,273,227,173,121,54,1,982,820,53,4,12,NA,25,NA,11,12,NA,NA,NA,NA,19,11,NA,236,244,NA,NA,NA,https://stats.ncaa.org/teams/595139
+UMES Hawks,UMES,MEAC,2025,NA,7.8,255.2,460,389,285,181,111,NA,1416,1180,81,31,23,NA,28,NA,15,36,NA,NA,NA,NA,21,23,NA,265,339,NA,NA,2,https://stats.ncaa.org/teams/595271
