@@ -3,20 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lead Soil Data Search</title>
+    <title>Lead Soil Data Search - Flatwater Free Press</title>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+        .ffp-header {
+            background-color: #005a8d;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .ffp-logo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .ffp-logo {
+            height: 60px;
+            width: auto;
+        }
+    </style>
 </head>
 <body>
+    <div class="ffp-header">
+        <div class="ffp-logo-container">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4MCIgaGVpZ2h0PSIzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxMjgwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iIzAwNWE4ZCIvPgogIAogIDwhLS0gRiBMb2dvIC0tPgogIDxyZWN0IHg9IjUwIiB5PSI2MCIgd2lkdGg9IjI1MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNmZmZmZmYiIHJ4PSIxMCIvPgogIDxyZWN0IHg9IjcwIiB5PSI4MCIgd2lkdGg9IjIxMCIgaGVpZ2h0PSIxNDAiIGZpbGw9IiMwMDVhOGQiIHJ4PSI1Ii8+CiAgPHBhdGggZD0iTSAxNTAgMTMwIFEgMTUwIDk1IDE3NSA5NSBRIDIwMCA5NSAyMDAgMTMwIFEgMjAwIDE2NSAxNzUgMTY1IFEgMTUwIDE2NSAxNTAgMTMwIFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzdkYjZkNCIgc3Ryb2tlLXdpZHRoPSI4IiBvcGFjaXR5PSIwLjYiLz4KICAKICA8IS0tIFRleHQgLS0+CiAgPHRleHQgeD0iMzUwIiB5PSIxNjAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI5MCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmZmZmYiPkZMQVRXQVRFUiBGUkVFIFBSRVNTPC90ZXh0Pgo8L3N2Zz4=" alt="Flatwater Free Press" class="ffp-logo" />
+        </div>
+    </div>
+    
     <div id="root"></div>
 
     <script type="text/babel">
         const { useState, useEffect } = React;
 
-        // Lucide icons as SVG components
         const Search = () => (
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -52,7 +76,6 @@
                             delimitersToGuess: [',', '\t', '|', ';']
                         });
                         
-                        // Clean up headers by trimming whitespace
                         const cleanData = parsed.data.map(row => {
                             const cleanRow = {};
                             Object.keys(row).forEach(key => {
@@ -97,15 +120,15 @@
             }, [searchTerm, data]);
 
             const getLeadLevel = (value) => {
-                if (value === 0) return { label: 'None Detected', color: 'text-green-600', bg: 'bg-green-50' };
-                if (value < 100) return { label: 'Low', color: 'text-yellow-600', bg: 'bg-yellow-50' };
-                if (value < 400) return { label: 'Moderate', color: 'text-orange-600', bg: 'bg-orange-50' };
-                return { label: 'High', color: 'text-red-600', bg: 'bg-red-50' };
+                if (value === 0) return { label: 'None Detected', color: 'text-green-700', bg: 'bg-green-100' };
+                if (value < 100) return { label: 'Low', color: 'text-yellow-700', bg: 'bg-yellow-100' };
+                if (value < 400) return { label: 'Moderate', color: 'text-orange-700', bg: 'bg-orange-100' };
+                return { label: 'High', color: 'text-red-700', bg: 'bg-red-100' };
             };
 
             if (loading) {
                 return (
-                    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+                    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                         <div className="text-xl text-gray-600">Loading data...</div>
                     </div>
                 );
@@ -113,7 +136,7 @@
 
             if (error) {
                 return (
-                    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+                    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                         <div className="bg-white rounded-lg shadow-lg p-8 max-w-md">
                             <h2 className="text-xl font-bold text-red-600 mb-2">Error Loading Data</h2>
                             <p className="text-gray-600">{error}</p>
@@ -124,22 +147,22 @@
             }
 
             return (
-                <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
-                    <div className="max-w-4xl mx-auto">
-                        {/* Header */}
-                        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-                            <h1 className="text-3xl font-bold text-gray-800 mb-2">
+                <div className="min-h-screen bg-gray-50 py-8 px-4">
+                    <div className="max-w-5xl mx-auto">
+                        {/* Page Title */}
+                        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                            <h1 className="text-3xl font-bold text-gray-900 mb-2">
                                 Lead Soil Data Search
                             </h1>
                             <p className="text-gray-600">
-                                Search by address to view soil lead test results (ppm)
+                                Search by address to view soil lead test results
                             </p>
                         </div>
 
                         {/* Search Box */}
-                        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
+                        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
                             <div className="relative">
-                                <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                                <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
                                     <Search />
                                 </div>
                                 <input
@@ -147,18 +170,18 @@
                                     placeholder="Enter address (e.g., 3101 S 2 ST)"
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
-                                    className="w-full pl-10 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:border-indigo-500 focus:outline-none text-lg"
+                                    className="w-full pl-12 pr-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none text-lg"
                                 />
                             </div>
-                            <p className="text-sm text-gray-500 mt-2">
+                            <p className="text-sm text-gray-600 mt-3">
                                 {data.length.toLocaleString()} addresses in database
                             </p>
                         </div>
 
                         {/* Results */}
                         {searchTerm && (
-                            <div className="bg-white rounded-lg shadow-lg p-6">
-                                <h2 className="text-xl font-semibold text-gray-800 mb-4">
+                            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                                <h2 className="text-xl font-bold text-gray-900 mb-4">
                                     {filteredResults.length > 0 
                                         ? `Found ${filteredResults.length} result${filteredResults.length === 1 ? '' : 's'}${filteredResults.length === 100 ? ' (showing first 100)' : ''}`
                                         : 'No results found'}
@@ -171,19 +194,19 @@
                                             return (
                                                 <div 
                                                     key={index}
-                                                    className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                                                    className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow bg-white"
                                                 >
-                                                    <div className="flex justify-between items-start gap-4">
-                                                        <div className="flex-1">
-                                                            <p className="font-semibold text-gray-800 text-lg">
+                                                    <div className="flex justify-between items-start gap-4 flex-wrap">
+                                                        <div className="flex-1 min-w-0">
+                                                            <p className="font-semibold text-gray-900 text-lg">
                                                                 {row.address}
                                                             </p>
                                                         </div>
-                                                        <div className="text-right">
-                                                            <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${level.bg} ${level.color} mb-1`}>
+                                                        <div className="text-right flex-shrink-0">
+                                                            <div className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${level.bg} ${level.color} mb-2`}>
                                                                 {level.label}
                                                             </div>
-                                                            <p className="text-2xl font-bold text-gray-800">
+                                                            <p className="text-2xl font-bold text-gray-900">
                                                                 {row.soil_high_lead_result?.toLocaleString() || '0'}
                                                                 <span className="text-sm font-normal text-gray-600 ml-1">ppm</span>
                                                             </p>
@@ -207,15 +230,32 @@
                         {/* Info Box */}
                         {!searchTerm && (
                             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                                <h3 className="font-semibold text-blue-900 mb-2">About Lead Levels</h3>
-                                <ul className="space-y-1 text-sm text-blue-800">
-                                    <li><span className="font-semibold">None Detected:</span> 0 ppm</li>
-                                    <li><span className="font-semibold">Low:</span> 1-99 ppm</li>
-                                    <li><span className="font-semibold">Moderate:</span> 100-399 ppm</li>
-                                    <li><span className="font-semibold">High:</span> 400+ ppm</li>
-                                </ul>
+                                <h3 className="font-bold text-blue-900 mb-3 text-lg">About Lead Levels (ppm)</h3>
+                                <div className="space-y-2 text-blue-900">
+                                    <div className="flex items-center gap-2">
+                                        <span className="inline-block w-20 px-2 py-1 rounded text-xs font-semibold bg-green-100 text-green-700">None</span>
+                                        <span>0 ppm - No lead detected</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <span className="inline-block w-20 px-2 py-1 rounded text-xs font-semibold bg-yellow-100 text-yellow-700">Low</span>
+                                        <span>1-99 ppm</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <span className="inline-block w-20 px-2 py-1 rounded text-xs font-semibold bg-orange-100 text-orange-700">Moderate</span>
+                                        <span>100-399 ppm</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <span className="inline-block w-20 px-2 py-1 rounded text-xs font-semibold bg-red-100 text-red-700">High</span>
+                                        <span>400+ ppm</span>
+                                    </div>
+                                </div>
                             </div>
                         )}
+
+                        {/* Footer */}
+                        <div className="mt-8 text-center text-sm text-gray-600">
+                            <p>Data provided by Flatwater Free Press</p>
+                        </div>
                     </div>
                 </div>
             );
