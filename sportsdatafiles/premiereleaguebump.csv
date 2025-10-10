@@ -1,141 +1,121 @@
-matchday,rk,squad
-22,1,Liverpool
-22,2,Arsenal
-22,3,Nottm Forest
-22,4,Chelsea
-22,5,Man City
-22,6,Newcastle
-22,7,Bournemouth
-22,8,Aston Villa
-22,9,Brighton
-22,10,Fulham
-22,11,Brentford
-22,12,Crystal Palace
-22,13,Man Utd
-22,14,West Ham
-22,15,Tottenham
-22,16,Everton
-22,17,Wolves
-22,18,Ipswich
-22,19,Leicester
-22,20,Southampton
-23,1,Liverpool
-23,2,Arsenal
-23,3,Nottm Forest
-23,4,Man City
-23,5,Newcastle
-23,6,Chelsea
-23,7,Bournemouth
-23,8,Aston Villa
-23,9,Brighton
-23,10,Fulham
-23,11,Brentford
-23,12,Man Utd
-23,13,Crystal Palace
-23,14,West Ham
-23,15,Tottenham
-23,16,Everton
-23,17,Leicester
-23,18,Wolves
-23,19,Ipswich
-23,20,Southampton
-24,1,Liverpool
-24,2,Arsenal
-24,3,Nottm Forest
-24,4,Chelsea
-24,5,Man City
-24,6,Newcastle
-24,7,Bournemouth
-24,8,Aston Villa
-24,9,Fulham
-24,10,Brighton
-24,11,Brentford
-24,12,Crystal Palace
-24,13,Man Utd
-24,14,Tottenham
-24,15,Everton
-24,16,West Ham
-24,17,Wolves
-24,18,Leicester
-24,19,Ipswich
-24,20,Southampton
-25,1,Liverpool
-25,2,Arsenal
-25,3,Nottm Forest
-25,4,Man City
-25,5,Bournemouth
-25,6,Chelsea
-25,7,Newcastle
-25,8,Fulham
-25,9,Aston Villa
-25,10,Brighton
-25,11,Brentford
-25,12,Tottenham
-25,13,Crystal Palace
-25,14,Everton
-25,15,Man Utd
-25,16,West Ham
-25,17,Wolves
-25,18,Ipswich
-25,19,Leicester
-25,20,Southampton
-26,1,Liverpool
-26,2,Arsenal
-26,3,Nottm Forest
-26,4,Man City
-26,5,Newcastle
-26,6,Bournemouth
-26,7,Chelsea
-26,8,Aston Villa
-26,9,Brighton
-26,10,Fulham
-26,11,Brentford
-26,12,Tottenham
-26,13,Crystal Palace
-26,14,Everton
-26,15,Man Utd
-26,16,West Ham
-26,17,Wolves
-26,18,Ipswich
-26,19,Leicester
-26,20,Southampton
-27,1,Liverpool
-27,2,Arsenal
-27,3,Nottm Forest
-27,4,Man City
-27,5,Chelsea
-27,6,Newcastle
-27,7,Bournemouth
-27,8,Brighton
-27,9,Fulham
-27,10,Aston Villa
-27,11,Brentford
-27,12,Crystal Palace
-27,13,Tottenham
-27,14,Man Utd
-27,15,West Ham
-27,16,Everton
-27,17,Wolves
-27,18,Ipswich
-27,19,Leicester
-27,20,Southampton
-28,1,Liverpool
-28,2,Arsenal
-28,3,Nottm Forest
-28,4,Chelsea
-28,5,Man City
-28,6,Brighton
-28,7,Bournemouth
-28,8,Newcastle
-28,9,Aston Villa
-28,10,Fulham
-28,11,Crystal Palace
-28,12,Brentford
-28,13,Tottenham
-28,14,Man Utd
-28,15,Everton
-28,16,West Ham
-28,17,Wolves
-28,18,Ipswich
-28,19,Leicester
-28,20,Southampton
+rank,club,matchweek
+1,Arsenal,2
+2,Tottenham,2
+3,Liverpool,2
+4,Chelsea,2
+5,Nott'm Forest,2
+6,Man City,2
+7,Sunderland,2
+8,Everton,2
+9,Bournemouth,2
+10,Brentford,2
+10,Burnley,2
+12,Leeds,2
+13,Fulham,2
+14,Crystal Palace,2
+15,Newcastle,2
+16,Man Utd,2
+17,Aston Villa,2
+18,Brighton,2
+19,Wolves,2
+20,West Ham,2
+1,Liverpool,3
+2,Chelsea,3
+3,Arsenal,3
+4,Tottenham,3
+5,Everton,3
+5,Sunderland,3
+7,Bournemouth,3
+8,Crystal Palace,3
+9,Man Utd,3
+10,Nott'm Forest,3
+11,Brighton,3
+12,Leeds,3
+13,Man City,3
+14,Burnley,3
+15,Brentford,3
+16,West Ham,3
+17,Newcastle,3
+18,Fulham,3
+19,Aston Villa,3
+20,Wolves,3
+1,Liverpool,4
+2,Arsenal,4
+3,Tottenham,4
+4,Bournemouth,4
+5,Chelsea,4
+6,Everton,4
+6,Sunderland,4
+8,Man City,4
+9,Crystal Palace,4
+10,Newcastle,4
+11,Fulham,4
+12,Brentford,4
+13,Brighton,4
+14,Man Utd,4
+15,Nott'm Forest,4
+16,Leeds,4
+17,Burnley,4
+18,West Ham,4
+19,Aston Villa,4
+20,Wolves,4
+1,Liverpool,5
+2,Arsenal,5
+3,Tottenham,5
+4,Bournemouth,5
+5,Crystal Palace,5
+6,Chelsea,5
+7,Sunderland,5
+8,Fulham,5
+9,Man City,5
+10,Everton,5
+11,Man Utd,5
+12,Leeds,5
+13,Newcastle,5
+14,Brighton,5
+15,Nott'm Forest,5
+16,Burnley,5
+17,Brentford,5
+18,Aston Villa,5
+19,West Ham,5
+20,Wolves,5
+1,Liverpool,6
+2,Arsenal,6
+3,Crystal Palace,6
+4,Tottenham,6
+5,Sunderland,6
+6,Bournemouth,6
+7,Man City,6
+8,Chelsea,6
+9,Everton,6
+10,Brighton,6
+11,Fulham,6
+12,Leeds,6
+13,Brentford,6
+14,Man Utd,6
+15,Newcastle,6
+16,Aston Villa,6
+17,Nott'm Forest,6
+18,Burnley,6
+19,West Ham,6
+20,Wolves,6
+1,Arsenal,7
+2,Liverpool,7
+3,Tottenham,7
+4,Bournemouth,7
+5,Man City,7
+6,Crystal Palace,7
+7,Chelsea,7
+8,Everton,7
+9,Sunderland,7
+10,Man Utd,7
+11,Newcastle,7
+12,Brighton,7
+13,Aston Villa,7
+14,Fulham,7
+15,Leeds,7
+16,Brentford,7
+17,Nott'm Forest,7
+18,Burnley,7
+19,West Ham,7
+20,Wolves,7
