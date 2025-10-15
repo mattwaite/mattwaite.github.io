@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Bracket Generator</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        // Lucide React icons as inline SVG components
+        const Trash2 = ({ size = 24 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2M10 11v6M14 11v6"/>
+            </svg>
+        );
+
+        const Plus = ({ size = 24 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M5 12h14"/>
+            </svg>
+        );
+
+        const RotateCcw = ({ size = 24 }) => (
+            <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                <path d="M3 3v5h5"/>
+            </svg>
+        );
+
+        function TournamentBracket() {
+            const [competitors, setCompetitors] = useState([
+                'Instagram', 'TikTok', 'Twitter/X', 'Facebook',
+                'YouTube', 'LinkedIn', 'Snapchat', 'Reddit'
+            ]);
+            const [inputValue, setInputValue] = useState('');
+            const [bracket, setBracket] = useState(null);
+            const [winners, setWinners] = useState({});
+
+            const startTournament = () => {
+                if (competitors.length < 2 || !isPowerOfTwo(competitors.length)) {
+                    alert('Please enter a power of 2 number of competitors (2, 4, 8, 16, etc.)');
+                    return;
+                }
+                
+                const shuffled = [...competitors].sort(() => Math.random() - 0.5);
+                setBracket(shuffled);
+                setWinners({});
+            };
+
+            const isPowerOfTwo = (n) => n > 0 && (n & (n - 1)) === 0;
+
+            const addCompetitor = () => {
+                if (inputValue.trim()) {
+                    setCompetitors([...competitors, inputValue.trim()]);
+                    setInputValue('');
+                }
+            };
+
+            const removeCompetitor = (index) => {
+                setCompetitors(competitors.filter((_, i) => i !== index));
+            };
+
+            const selectWinner = (round, matchIndex, competitor) => {
+                const newWinners = { ...winners };
+                const key = `${round}-${matchIndex}`;
+                newWinners[key] = competitor;
+                setWinners(newWinners);
+            };
+
+            const getRounds = () => {
+                if (!bracket) return [];
+                
+                const rounds = [];
+                const totalRounds = Math.log2(bracket.length);
+                
+                for (let round = 0; round < totalRounds; round++) {
+                    const matchesInRound = bracket.length / Math.pow(2, round + 1);
+                    const matches = [];
+                    
+                    for (let match = 0; match < matchesInRound; match++) {
+                        if (round === 0) {
+                            matches.push({
+                                competitor1: bracket[match * 2],
+                                competitor2: bracket[match * 2 + 1]
+                            });
+                        } else {
+                            const prevMatch1 = match * 2;
+                            const prevMatch2 = match * 2 + 1;
+                            matches.push({
+                                competitor1: winners[`${round - 1}-${prevMatch1}`] || '?',
+                                competitor2: winners[`${round - 1}-${prevMatch2}`] || '?'
+                            });
+                        }
+                    }
+                    
+                    rounds.push(matches);
+                }
+                
+                return rounds;
+            };
+
+            const getRoundName = (roundIndex, totalRounds) => {
+                const remaining = totalRounds - roundIndex;
+                if (remaining === 1) return 'Final';
+                if (remaining === 2) return 'Semi-Finals';
+                if (remaining === 3) return 'Quarter-Finals';
+                return `Round ${roundIndex + 1}`;
+            };
+
+            const reset = () => {
+                setBracket(null);
+                setWinners({});
+            };
+
+            const rounds = getRounds();
+            const champion = rounds.length > 0 ? winners[`${rounds.length - 1}-0`] : null;
+
+            return (
+                <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-8">
+                    <div className="max-w-7xl mx-auto">
+                        <h1 className="text-4xl font-bold text-gray-800 mb-2 text-center">
+                            Tournament Bracket Generator
+                        </h1>
+                        <p className="text-gray-600 text-center mb-8">
+                            Create a single-elimination tournament to find the indispensable platform
+                        </p>
+
+                        {!bracket ? (
+                            <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
+                                <h2 className="text-2xl font-bold text-gray-800 mb-4">Setup Competitors</h2>
+                                
+                                <div className="flex gap-2 mb-6">
+                                    <input
+                                        type="text"
+                                        value={inputValue}
+                                        onChange={(e) => setInputValue(e.target.value)}
+                                        onKeyPress={(e) => e.key === 'Enter' && addCompetitor()}
+                                        placeholder="Add a competitor..."
+                                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
+                                    <button
+                                        onClick={addCompetitor}
+                                        className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg flex items-center gap-2 transition-colors"
+                                    >
+                                        <Plus size={20} /> Add
+                                    </button>
+                                </div>
+
+                                <div className="space-y-2 mb-6">
+                                    {competitors.map((comp, index) => (
+                                        <div key={index} className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                                            <span className="font-medium text-gray-700">{comp}</span>
+                                            <button
+                                                onClick={() => removeCompetitor(index)}
+                                                className="text-red-500 hover:text-red-700 transition-colors"
+                                            >
+                                                <Trash2 size={18} />
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                <button
+                                    onClick={startTournament}
+                                    disabled={competitors.length < 2 || !isPowerOfTwo(competitors.length)}
+                                    className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 text-white font-bold py-3 rounded-lg transition-colors"
+                                >
+                                    Start Tournament ({competitors.length} competitors)
+                                </button>
+                                
+                                {competitors.length > 0 && !isPowerOfTwo(competitors.length) && (
+                                    <p className="text-red-500 text-sm mt-2 text-center">
+                                        Need a power of 2 competitors (2, 4, 8, 16, etc.)
+                                    </p>
+                                )}
+                            </div>
+                        ) : (
+                            <div>
+                                <div className="flex justify-center mb-6">
+                                    <button
+                                        onClick={reset}
+                                        className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg flex items-center gap-2 transition-colors"
+                                    >
+                                        <RotateCcw size={20} /> Reset Tournament
+                                    </button>
+                                </div>
+
+                                {champion && (
+                                    <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-center py-6 rounded-lg mb-8 shadow-lg">
+                                        <h2 className="text-3xl font-bold text-gray-800 mb-2">🏆 Champion 🏆</h2>
+                                        <p className="text-4xl font-bold text-gray-900">{champion}</p>
+                                    </div>
+                                )}
+
+                                <div className="flex gap-8 overflow-x-auto pb-8">
+                                    {rounds.map((round, roundIndex) => (
+                                        <div key={roundIndex} className="flex-shrink-0" style={{ minWidth: '280px' }}>
+                                            <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">
+                                                {getRoundName(roundIndex, rounds.length)}
+                                            </h3>
+                                            
+                                            <div className="space-y-6">
+                                                {round.map((match, matchIndex) => (
+                                                    <div key={matchIndex} className="bg-white rounded-lg shadow-md p-4">
+                                                        <div className="space-y-2">
+                                                            <button
+                                                                onClick={() => selectWinner(roundIndex, matchIndex, match.competitor1)}
+                                                                disabled={match.competitor1 === '?'}
+                                                                className={`w-full p-3 rounded-lg text-left font-medium transition-all ${
+                                                                    winners[`${roundIndex}-${matchIndex}`] === match.competitor1
+                                                                        ? 'bg-green-500 text-white shadow-lg'
+                                                                        : match.competitor1 === '?'
+                                                                        ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                                                                        : 'bg-gray-50 text-gray-700 hover:bg-blue-100'
+                                                                }`}
+                                                            >
+                                                                {match.competitor1}
+                                                            </button>
+                                                            
+                                                            <div className="text-center text-gray-400 text-sm font-bold">VS</div>
+                                                            
+                                                            <button
+                                                                onClick={() => selectWinner(roundIndex, matchIndex, match.competitor2)}
+                                                                disabled={match.competitor2 === '?'}
+                                                                className={`w-full p-3 rounded-lg text-left font-medium transition-all ${
+                                                                    winners[`${roundIndex}-${matchIndex}`] === match.competitor2
+                                                                        ? 'bg-green-500 text-white shadow-lg'
+                                                                        : match.competitor2 === '?'
+                                                                        ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                                                                        : 'bg-gray-50 text-gray-700 hover:bg-blue-100'
+                                                                }`}
+                                                            >
+                                                                {match.competitor2}
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<TournamentBracket />);
+    </script>
+</body>
+</html>
