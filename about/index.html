@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt Waite | Home</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Apply the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 antialiased">
+
+    <!-- Header / Hero Section -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Left Side: Name -->
+            <div class="text-2xl font-bold text-slate-800">
+                Matt Waite
+            </div>
+            <!-- Right Side: Links (Later for apps) -->
+            <div class="flex space-x-4">
+                <a href="#about" class="text-slate-600 hover:text-sky-600 transition-colors">About</a>
+                <a href="#projects" class="text-slate-600 hover:text-sky-600 transition-colors">Projects</a>
+                <a href="https://github.com/mattwaite" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-sky-600 transition-colors">GitHub</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Welcome Section -->
+        <section id="about" class="bg-white py-24 sm:py-32">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-900 leading-tight">
+                    Professor, Journalist, Developer.
+                </h1>
+                <p class="mt-6 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto">
+                    I'm a Professor of Practice at the University of Nebraska-Lincoln, where I bridge the gap between journalism and technology. From investigative reporting to developing the Pulitzer Prize-winning PolitiFact, my focus is on building new tools for an evolving field.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#projects" class="w-full sm:w-auto px-6 py-3 bg-sky-600 text-white font-semibold rounded-lg shadow-md hover:bg-sky-700 transition-all">
+                        View My Projects
+                    </a>
+                    <a href="https://journalism.unl.edu/person/matt-waite/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3 bg-slate-100 text-slate-700 font-semibold rounded-lg hover:bg-slate-200 transition-all">
+                        See My UNL Bio
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Highlights Section -->
+        <section id="highlights" class="py-24 bg-slate-50">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-900">Key Highlights</h2>
+                <p class="mt-3 text-lg text-center text-slate-500 max-w-2xl mx-auto">
+                    A couple of milestones from my career at the intersection of news and technology.
+                </p>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    
+                    <!-- Highlight Card: PolitiFact -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col sm:flex-row">
+                        <div class="sm:w-1/3 flex-shrink-0 flex items-center justify-center p-6 sm:p-8 bg-slate-800">
+                            <!-- Pulitzer Icon (Simplified) -->
+                            <svg class="w-20 h-20 text-yellow-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.504-1.125-1.125-1.125h-6.75c-.621 0-1.125.504-1.125 1.125V18.75m9 0m-9 0h.008v.008H7.5V18.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15.75.75 12.75l1.114-6.393a.75.75 0 01.725-.561h18.822a.75.75 0 01.725.561l1.114 6.393L12 15.75z" />
+                            </svg>
+                        </div>
+                        <div class="p-6 sm:p-8">
+                            <h3 class="text-xl font-bold text-slate-900">Principal Developer, PolitiFact</h3>
+                            <p class="mt-2 text-slate-600">
+                                In 2007, I was the principal developer for PolitiFact.com, a pioneering site for fact-checking political statements. In 2009, PolitiFact became the first website to be awarded the Pulitzer Prize for National Reporting.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Card: Drone Lab -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col sm:flex-row">
+                        <div class="sm:w-1/3 flex-shrink-0 flex items-center justify-center p-6 sm:p-8 bg-sky-600">
+                            <!-- Drone Icon (Simplified) -->
+                            <svg class="w-20 h-20 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.412 15.655L9.75 21.75l3.745-4.012M9.257 13.5H3.75l2.659-2.849m2.048-2.194L14.25 3.75l-2.659 2.849m-2.048 2.194v3.302m3.302 0h2.188L12 15.655m-2.743 0l-1.18 1.902m1.18-1.902l1.18-1.902m-1.18 1.902l-1.18 1.902M12 8.25l-1.18 1.902m1.18-1.902l1.18 1.902M12 8.25l-1.18 1.902m1.18-1.902l1.18 1.902m0 0l2.188-2.188m-2.188 2.188L14.743 13.5m-2.743 0l1.18-1.902m-1.18 1.902l1.18 1.902m-1.18-1.902l-1.18 1.902m2.36 3.804l1.18-1.902m-1.18 1.902l-1.18 1.902m1.18-1.902l1.18-1.902m-1.18 1.902l-1.18 1.902m-2.36-3.804l-1.18 1.902m1.18-1.902l1.18-1.902m0 0H9.257m0 0L6.9 9.603M9.257 13.5l-1.18 1.902M14.743 13.5l1.18 1.902m-1.18-1.902l-1.18 1.902m1.18-1.902l1.18 1.902m-1.18-1.902l-1.18 1.902m2.36 3.804l1.18-1.902m-1.18 1.902l-1.18 1.902m1.18-1.902l1.18-1.902m-1.18-1.902l-1.18 1.902m-2.36-3.804l-1.18 1.902m1.18-1.902l1.18-1.902m0 0l2.36-3.804m0 0l-1.18-1.902m1.18 1.902L12 8.25m0 0l1.18-1.902m-1.18 1.902L12 8.25m0 0l-1.18-1.902m1.18 1.902L12 8.25m0 0l2.36 3.804M12 8.25l-2.36 3.804m0 0l-1.18 1.902m1.18-1.902L9.257 13.5M14.743 13.5l1.18-1.902m-1.18 1.902l1.18 1.902m0 0h2.188l-2.659 2.849m-2.048 2.194l-3.745 4.012 1.663-6.095m2.082 2.083L12 15.655" />
+                            </svg>
+                        </div>
+                        <div class="p-6 sm:p-8">
+                            <h3 class="text-xl font-bold text-slate-900">Founder, Drone Journalism Lab</h3>
+                            <p class="mt-2 text-slate-600">
+                                I founded the Drone Journalism Lab at UNL to explore the legal, ethical, and journalistic uses of drones. We train students to use emerging technologies safely and responsibly for newsgathering.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- My Focus Section -->
+        <section class="bg-white py-24">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-900">My Focus</h2>
+                <p class="mt-3 text-lg text-center text-slate-500 max-w-2xl mx-auto">
+                    My teaching and research center on equipping journalists with the skills they need for a digital-first world.
+                </p>
+
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Focus Card: Data Journalism -->
+                    <div class="text-center p-8 bg-slate-50 rounded-xl shadow-sm">
+                        <div class="flex items-center justify-center w-16 h-16 bg-sky-100 text-sky-600 rounded-full mx-auto">
+                            <!-- Data/Chart Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold text-slate-900">Data Journalism & Viz</h3>
+                        <p class="mt-2 text-slate-600">
+                            Teaching students how to find, analyze, and visualize data to create compelling and accurate stories.
+                        </p>
+                    </div>
+
+                    <!-- Focus Card: Emerging Tech -->
+                    <div class="text-center p-8 bg-slate-50 rounded-xl shadow-sm">
+                        <div class="flex items-center justify-center w-16 h-16 bg-sky-100 text-sky-600 rounded-full mx-auto">
+                            <!-- AI/Chip Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 21v-1.5M15.75 3v1.5M12 4.5v-1.5m0 18v-1.5M15.75 21v-1.5m-6-15v-1.5m0 18v-1.5" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 12.75a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a.375.375 0 100-.75.375.375 0 000 .75zM12 5.25a.375.375 0 100-.75.375.375 0 000 .75zM16.125 12a.375.375 0 10-.75 0 .375.375 0 00.75 0zM7.875 12a.375.375 0 10-.75 0 .375.375 0 00.75 0zM18.75 16.125a.375.375 0 100-.75.375.375 0 000 .75zM5.25 16.125a.375.375 0 100-.75.375.375 0 000 .75zM18.75 7.875a.375.375 0 100-.75.375.375 0 000 .75zM5.25 7.875a.375.375 0 100-.75.375.375 0 000 .75z" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold text-slate-900">AI & Emerging Tech</h3>
+                        <p class="mt-2 text-slate-600">
+                            Exploring the impact of artificial intelligence and other new technologies on the news industry and journalistic practice.
+                        </p>
+                    </div>
+
+                    <!-- Focus Card: Sports Data -->
+                    <div class="text-center p-8 bg-slate-50 rounded-xl shadow-sm">
+                        <div class="flex items-center justify-center w-16 h-16 bg-sky-100 text-sky-600 rounded-full mx-auto">
+                            <!-- Sports/Trophy Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold text-slate-900">Sports Data Analysis</h3>
+                        <p class="mt-2 text-slate-600">
+                            Applying data analysis and visualization techniques to the world of sports, uncovering insights and new forms of storytelling.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Placeholder Section -->
+        <section id="projects" class="py-24 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-900">Web Apps & Experiments</h2>
+                <p class="mt-3 text-lg text-center text-slate-500 max-w-2xl mx-auto">
+                    This is where my collection of miscellaneous web apps will live. Check back soon for new projects, tools, and experiments.
+                </p>
+                <!-- This is where you can grid/list your apps later -->
+                <div class="mt-16 text-center">
+                    <p class="text-slate-400 text-lg">... content coming soon ...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub / Open Source Callout -->
+        <section class="bg-slate-800 text-white py-20">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <svg class="w-12 h-12 mx-auto text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                <h2 class="mt-6 text-3xl font-bold">I Believe in Open Source</h2>
+                <p class="mt-4 text-lg text-slate-300 max-w-2xl mx-auto">
+                    I actively create and share open educational resources. Many of my course books, tutorials, and materials on data journalism are freely available on GitHub.
+                </p>
+                <a href="https://github.com/mattwaite" target="_blank" rel="noopener noreferrer" class="mt-8 inline-block px-6 py-3 bg-white text-slate-800 font-semibold rounded-lg shadow-md hover:bg-slate-200 transition-all">
+                    Visit My GitHub
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p>&copy; 2025 Matt Waite. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://github.com/mattwaite" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
+                <a href="https://journalism.unl.edu/person/matt-waite/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">University Bio</a>
+                <a href="https://bsky.app/profile/mattwaite.bsky.social" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Bluesky</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
