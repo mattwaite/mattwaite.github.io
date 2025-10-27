@@ -110,7 +110,7 @@
 
                 score = 0;
                 lives = 3;
-                gameRunning = true;
+                gameRunning = false;
                 gameOverMessage = "";
                 lastShotTime = 0;
 
@@ -354,20 +354,29 @@
                 ctx.fillText(`LIVES: ${'❤️'.repeat(lives)}`, canvas.width - 20, 30);
 
 
-                // 6. Draw Game Over Screen
+                // 6. Draw Game Over / Ready Screen
                 if (!gameRunning) {
                     ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
                     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
                     ctx.fillStyle = 'white';
-                    ctx.font = '60px "Courier New", Courier, monospace';
                     ctx.textAlign = 'center';
-                    ctx.fillText(gameOverMessage, canvas.width / 2, canvas.height / 2 - 20);
 
-                    ctx.font = '24px "Courier New", Courier, monospace';
-                    ctx.fillText("Press 'Enter' to Restart", canvas.width / 2, canvas.height / 2 + 40);
+                    if (gameOverMessage !== "") {
+                        // This is the "Game Over" state
+                        ctx.font = '60px "Courier New", Courier, monospace';
+                        ctx.fillText(gameOverMessage, canvas.width / 2, canvas.height / 2 - 20);
+
+                        ctx.font = '24px "Courier New", Courier, monospace';
+                        ctx.fillText("Press 'Enter' to Restart", canvas.width / 2, canvas.height / 2 + 40);
+                    } else {
+                        // This is the "Ready" (pre-game) state
+                        ctx.font = '50px "Courier New", Courier, monospace';
+                        ctx.fillText("STEAK INVADERS", canvas.width / 2, canvas.height / 2 - 40);
+
+                        ctx.font = '28px "Courier New", Courier, monospace';
+                        ctx.fillText("Press 'Spacebar' to Start", canvas.width / 2, canvas.height / 2 + 30);
+                    }
                 }
-            }
 
             // --- Game Loop ---
             function gameLoop() {
@@ -384,8 +393,11 @@
                 if (e.key === ' ' || e.key === 'Spacebar') {
                     if (gameRunning) {
                         fireBullet();
-                        e.preventDefault(); //
+                    } else if (!gameRunning && gameOverMessage === "") {
+                        // This is the "Ready" state, so start the game
+                        gameRunning = true;
                     }
+                    e.preventDefault(); // Always prevent spacebar from scrolling
                 }
                 
                 if (e.key === 'Enter' && !gameRunning) {
