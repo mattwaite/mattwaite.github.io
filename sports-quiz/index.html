@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Nebraskan News Quiz</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        #app-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            width: 90%;
+            max-width: 600px;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #D00000; /* Nebraska Red */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        #quiz-container, #results-container {
+            padding: 30px;
+        }
+
+        #question-container h2 {
+            font-size: 1.25em;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        #options {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            font-size: 1em;
+            text-align: left;
+            background-color: #f8f8f8;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .option-btn:hover {
+            background-color: #e9e9e9;
+            border-color: #ccc;
+        }
+
+        .option-btn.selected {
+            background-color: #cce5ff;
+            border-color: #007bff;
+            font-weight: bold;
+        }
+
+        .option-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        #controls {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        #next-btn, #restart-btn {
+            background-color: #D00000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #next-btn:hover, #restart-btn:hover {
+            background-color: #a00000;
+        }
+
+        #next-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        #results-container {
+            text-align: center;
+        }
+
+        #score-text {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app-container">
+        <header>
+            <h1>Daily Nebraskan News Quiz</h1>
+        </header>
+
+        <div id="quiz-container">
+            <div id="question-container">
+                <h2 id="question-text"></h2>
+                <ul id="options"></ul>
+            </div>
+            <div id="controls">
+                <button id="next-btn">Next</button>
+            </div>
+        </div>
+
+        <div id="results-container" class="hidden">
+            <div id="score-text"></div>
+            <button id="restart-btn">Try Again</button>
+        </div>
+    </div>
+
+    <script>
+        // 1. --- QUIZ DATA ---
+        // This is the JSON data you requested earlier.
+        const quizData = {
+          "quiz_questions": [
+            {"question_id": 1, "question_type": "True/False", "question_text": "Nebraska’s 28-21 victory over Northwestern moved the Huskers' season record to 6-2.", "options": ["True", "False"], "correct_answer": "True"},
+            {"question_id": 2, "question_type": "True/False", "question_text": "The victory clinched bowl eligibility for the Huskers for the second consecutive season.", "options": ["True", "False"], "correct_answer": "True"},
+            {"question_id": 3, "question_type": "Multiple Choice", "question_text": "According to the analysis, which unit was described as the 'crux of almost all of Nebraska’s defensive issues' in the game?", "options": ["The secondary", "The linebackers", "The defensive line", "The special teams"], "correct_answer": "The defensive line"},
+            {"question_id": 4, "question_type": "True/False", "question_text": "The Husker defense recorded two sacks against Northwestern quarterback Preston Stone.", "options": ["True", "False"], "correct_answer": "False"},
+            {"question_id": 5, "question_type": "Multiple Choice", "question_text": "Running back Emmett Johnson finished the game with how many rushing yards and touchdowns?", "options": ["63 yards and 1 TD", "124 yards and 2 TDs", "65 yards and 1 TD", "124 yards and 1 TD"], "correct_answer": "124 yards and 2 TDs"},
+            {"question_id": 6, "question_type": "True/False", "question_text": "The article states that Emmett Johnson is the leading rusher in the Big Ten.", "options": ["True", "False"], "correct_answer": "True"},
+            {"question_id": 7, "question_type": "Multiple Choice", "question_text": "Kenneth Williams returned the opening kickoff of the second half for a touchdown. How long was the return?", "options": ["85 yards", "95 yards", "56 yards", "100 yards"], "correct_answer": "95 yards"},
+            {"question_id": 8, "question_type": "True/False", "question_text": "Williams' kickoff return for a touchdown was the first one for Nebraska since the 2017 season.", "options": ["True", "False"], "correct_answer": "True"},
+            {"question_id": 9, "question_type": "True/False", "question_text": "Punter Archie Wilson had two punts, both of which traveled *over* 50 yards.", "options": ["True", "False"], "correct_answer": "True"},
+            {"question_id": 10, "question_type": "Multiple Choice", "question_text": "Quarterback Raiola finished the game with how many turnovers?", "options": ["Zero", "One", "Two (a fumble and an interception)", "Three"], "correct_answer": "Two (a fumble and an interception)"},
+            {"question_id": 11, "question_type": "True/False", "question_text": "Raiola completed 16 of 22 passes for 141 yards and one touchdown.", "options": ["True", "False"], "correct_answer": "True"},
+            {"question_id": 12, "question_type": "Multiple Choice", "question_text": "Raiola was a perfect 7-of-7 on throws of what distance?", "options": ["0-4 yards", "5-14 yards", "15+ yards", "In the red zone"], "correct_answer": "5-14 yards"},
+            {"question_id": 13, "question_type": "True/False", "question_text": "On throws of 15 yards or more, Raiola was 1-of-6.", "options": ["True", "False"], "correct_answer": "True"},
+            {"question_id": 14, "question_type": "Multiple Choice", "question_text": "Why did the offensive coordinator likely limit long, developing pass plays?", "options": ["Raiola's arm was tired.", "To limit the impact of the offensive line (which struggled last week).", "Northwestern’s defensive line was getting too much pressure.", "The receivers were struggling to get open."], "correct_answer": "To limit the impact of the offensive line (which struggled last week)."},
+            {"question_id": 15, "question_type": "True/False", "question_text": "Emmett Johnson scored the game-winning touchdown with under three minutes left in the game.", "options": ["True", "False"], "correct_answer": "True"},
+            {"question_id": 16, "question_type": "Multiple Choice", "question_text": "Which player secured a crucial interception when the game was tied 21-21 in the fourth quarter?", "options": ["Javin Wright", "Ceyair Wright", "Donovan Jones", "Nyziah Hunter"], "correct_answer": "Javin Wright"},
+            {"question_id": 17, "question_type": "True/False", "question_text": "Javin Wright led the team in tackles for the third straight week.", "options": ["True", "False"], "correct_answer": "False"},
+            {"question_id": 18, "question_type": "Multiple Choice", "question_text": "Which receiver made an 'over-the-shoulder catch in the front corner of the end zone' for a touchdown in the third quarter?", "options": ["Griffin Wilde", "Ricky Ahumaraeze", "Nyziah Hunter", "Kenneth Williams"], "correct_answer": "Nyziah Hunter"},
+            {"question_id": 19, "question_type": "Multiple Choice", "question_text": "Redshirt freshman Donovan Jones had an interception and finished second on the team with how many tackles?", "options": ["10", "5", "7", "4"], "correct_answer": "7"},
+            {"question_id": 20, "question_type": "True/False", "question_text": "Ceyair Wright had a key pass breakup in the first quarter that forced Northwestern to attempt a field goal.", "options": ["True", "False"], "correct_answer": "True"}
+          ]
+        };
+
+        // 2. --- DOM ELEMENTS ---
+        const quizContainer = document.getElementById('quiz-container');
+        const resultsContainer = document.getElementById('results-container');
+        const questionTextElement = document.getElementById('question-text');
+        const optionsElement = document.getElementById('options');
+        const nextButton = document.getElementById('next-btn');
+        const restartButton = document.getElementById('restart-btn');
+        const scoreTextElement = document.getElementById('score-text');
+
+        // 3. --- QUIZ STATE VARIABLES ---
+        let allQuestions = [];
+        let selectedQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let currentSelectedAnswer = null;
+
+        // 4. --- HELPER FUNCTION (Fisher-Yates Shuffle) ---
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // 5. --- CORE FUNCTIONS ---
+
+        /**
+         * Starts the game: resets state, shuffles questions, and shows the first question.
+         */
+        function startGame() {
+            // Reset state
+            currentQuestionIndex = 0;
+            score = 0;
+            currentSelectedAnswer = null;
+            allQuestions = [...quizData.quiz_questions]; // Get a fresh copy
+
+            // Select 5 random questions
+            selectedQuestions = shuffle(allQuestions).slice(0, 5);
+
+            // Show the quiz and hide the results
+            quizContainer.classList.remove('hidden');
+            resultsContainer.classList.add('hidden');
+
+            // Show the first question
+            showQuestion();
+        }
+
+        /**
+         * Displays the current question and its options.
+         */
+        function showQuestion() {
+            // Reset UI
+            currentSelectedAnswer = null;
+            nextButton.disabled = true;
+            optionsElement.innerHTML = '';
+
+            // Get the current question object
+            const question = selectedQuestions[currentQuestionIndex];
+            
+            // Set the question text
+            questionTextElement.innerText = question.question_text;
+
+            // Create and append a button for each option
+            question.options.forEach(option => {
+                const button = document.createElement('button');
+                button.innerText = option;
+                button.classList.add('option-btn');
+                
+                // Add click listener to select the answer
+                button.addEventListener('click', () => selectAnswer(button, option));
+                
+                const li = document.createElement('li');
+                li.appendChild(button);
+                optionsElement.appendChild(li);
+            });
+
+            // Update the "Next" button text on the last question
+            if (currentQuestionIndex === selectedQuestions.length - 1) {
+                nextButton.innerText = 'Submit';
+            } else {
+                nextButton.innerText = 'Next';
+            }
+        }
+
+        /**
+         * Handles the user clicking an answer option.
+         */
+        function selectAnswer(selectedButton, option) {
+            currentSelectedAnswer = option;
+
+            // Remove 'selected' class from all buttons
+            Array.from(optionsElement.getElementsByClassName('option-btn')).forEach(btn => {
+                btn.classList.remove('selected');
+            });
+
+            // Add 'selected' class to the clicked button
+            selectedButton.classList.add('selected');
+
+            // Enable the "Next" button
+            nextButton.disabled = false;
+        }
+
+        /**
+         * Handles the "Next" or "Submit" button click.
+         */
+        function handleNextClick() {
+            // Check if the selected answer is correct and update the score
+            const correctAnswer = selectedQuestions[currentQuestionIndex].correct_answer;
+            if (currentSelectedAnswer === correctAnswer) {
+                score++;
+            }
+
+            // Move to the next question
+            currentQuestionIndex++;
+
+            // Check if the quiz is over
+            if (currentQuestionIndex < selectedQuestions.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        /**
+         * Displays the final score and the "Restart" button.
+         */
+        function showResults() {
+            // Hide the quiz and show the results
+            quizContainer.classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+
+            // Display the final score
+            scoreTextElement.innerText = `You scored ${score} out of 5!`;
+        }
+
+        // 6. --- EVENT LISTENERS ---
+        nextButton.addEventListener('click', handleNextClick);
+        restartButton.addEventListener('click', startGame);
+
+        // 7. --- INITIALIZE THE QUIZ ---
+        startGame();
+
+    </script>
+</body>
+</html>
