@@ -32,7 +32,16 @@
             text-align: center;
             color: #d00000; /* A color inspired by the Nebraskan 'N' */
             margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        /* --- NEW --- Style for the instructions */
+        .quiz-instructions {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #666;
             margin-bottom: 24px;
+            line-height: 1.5;
         }
 
         .question-block {
@@ -69,7 +78,6 @@
 
         .option-label input[type="radio"] {
             margin-right: 10px;
-            /* Modern browsers will style this, but this helps alignment */
             transform: translateY(1px);
         }
 
@@ -99,7 +107,12 @@
         }
 
         #results-container h2 {
-            color: #d00000;
+            color: #d00000; /* Default red color */
+        }
+        
+        /* --- NEW --- Style for celebratory results */
+        #results-container.celebratory h2 {
+            color: #28a745; /* A celebratory green */
         }
 
     </style>
@@ -109,6 +122,10 @@
     <div class="quiz-container">
         <h1>The Daily Nebraskan News Quiz</h1>
         
+        <p class="quiz-instructions">
+            You'll be presented with 5 questions chosen at random from recent Daily Nebraskan articles. Select the best answer for each and click 'Submit Quiz' at the bottom to see your score.
+        </p>
+
         <div id="quiz-body"></div>
         
         <button id="submit-btn">Submit Quiz</button>
@@ -118,7 +135,6 @@
 
     <script>
         // --- 1. THE QUIZ DATA ---
-        // Here is the JSON data you created, stored in a JavaScript variable.
         const allQuizData = [
             {
               "id": 1,
@@ -313,43 +329,35 @@
         ];
 
         // --- 2. GETTING HTML ELEMENTS ---
-        // These are the parts of the page our script needs to interact with.
         const quizBody = document.getElementById('quiz-body');
         const submitBtn = document.getElementById('submit-btn');
         const resultsContainer = document.getElementById('results-container');
         
-        let selectedQuestions = []; // This will hold our 5 random questions
+        let selectedQuestions = []; 
 
         // --- 3. HELPER FUNCTION TO SHUFFLE THE QUESTIONS ---
-        // This function takes an array and shuffles it randomly (Fisher-Yates shuffle).
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+                [array[i], array[j]] = [array[j], array[i]];
             }
             return array;
         }
 
         // --- 4. FUNCTION TO LOAD THE QUIZ ---
-        // This selects 5 random questions and builds the HTML for them.
         function loadQuiz() {
-            // Shuffle the main data and pick the first 5
             selectedQuestions = shuffleArray([...allQuizData]).slice(0, 5);
             
-            let quizHTML = ''; // We'll build the HTML string here
+            let quizHTML = ''; 
 
             selectedQuestions.forEach((question, index) => {
-                // `index` will be 0, 1, 2, 3, 4
-                
-                // Create the HTML for the options
                 const optionsHTML = question.options.map(option => `
                     <label class="option-label">
                         <input type="radio" name="question${index}" value="${option}">
                         ${option}
                     </label>
-                `).join(''); // .join('') removes the commas between options
+                `).join(''); 
 
-                // Create the HTML for the entire question block
                 quizHTML += `
                     <div class="question-block">
                         <p class="question-text">${index + 1}. ${question.questionText}</p>
@@ -360,44 +368,55 @@
                 `;
             });
 
-            quizBody.innerHTML = quizHTML; // Put the generated HTML into the page
+            quizBody.innerHTML = quizHTML; 
         }
 
         // --- 5. FUNCTION TO CALCULATE AND SHOW RESULTS ---
+        // --- THIS FUNCTION IS UPDATED ---
         function showResults() {
             let score = 0;
 
-            // Loop through our 5 chosen questions
             selectedQuestions.forEach((question, index) => {
-                // Find out which radio button the user checked for this question
                 const selector = `input[name="question${index}"]:checked`;
                 const selectedOption = document.querySelector(selector);
 
                 if (selectedOption) {
-                    // If they checked one, see if its value matches the correct answer
                     if (selectedOption.value === question.correctAnswer) {
                         score++;
                     }
                 }
             });
 
-            // Hide the quiz questions and submit button
             quizBody.style.display = 'none';
             submitBtn.style.display = 'none';
 
+            let resultsHTML = ''; // This will hold the new HTML
+
+            if (score >= 4) {
+                // Celebratory message for 4 or 5
+                resultsContainer.classList.add('celebratory'); // Add the green style
+                resultsHTML = `
+                    <h2>Congratulations! 🎉</h2>
+                    <p>You scored ${score} out of 5!</p>
+                    <p>You really know your news!</p>
+                `;
+            } else {
+                // Standard message for 0-3
+                resultsHTML = `
+                    <h2>Your Results</h2>
+                    <p>You scored ${score} out of 5.</p>
+                    <p>Keep reading the Daily Nebraskan to stay up to date!</p>
+                `;
+            }
+
             // Show the final score
-            resultsContainer.innerHTML = `
-                <h2>Your Results</h2>
-                <p>You scored ${score} out of 5!</p>
-            `;
+            resultsContainer.innerHTML = resultsHTML;
         }
 
         // --- 6. SET UP EVENT LISTENERS ---
-        // When the user clicks the submit button, run the showResults function
         submitBtn.addEventListener('click', showResults);
         
         // --- 7. START THE QUIZ ---
-        // Load the quiz as soon as the page opens
         loadQuiz();
 
     </script>
