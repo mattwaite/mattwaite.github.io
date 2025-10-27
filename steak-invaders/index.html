@@ -239,19 +239,30 @@
                 // 6. Collision Detection
                 let allInvadersDead = true;
 
-                // Player Bullet <-> Invader
+// Player Bullet <-> Invader
                 for (let i = bullets.length - 1; i >= 0; i--) {
+                    // Add a flag to see if the bullet hit something
+                    let bulletDestroyed = false; 
+
                     for (let r = 0; r < invaders.length; r++) {
                         for (let c = 0; c < invaders[r].length; c++) {
                             const invader = invaders[r][c];
+                            
+                            // Check collision
                             if (invader.alive && collision(bullets[i], invader)) {
                                 invader.alive = false;
-                                bullets.splice(i, 1);
+                                bullets.splice(i, 1); // Bullet is removed
                                 score += 100;
-                                break; // Bullet is gone, stop checking
+                                bulletDestroyed = true; // Mark bullet as destroyed
+                                break; // Exit the 'c' (column) loop
                             }
                         }
+                        
+                        if (bulletDestroyed) {
+                            break; // Exit the 'r' (row) loop because the bullet is gone
+                        }
                     }
+                    // The 'i' loop will now correctly continue to the next bullet (i-1)
                 }
 
                 // Invader Bullet <-> Player
