@@ -1,0 +1,212 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.browser-frame {
+    width: 900px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.browser-header {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: #e0e0e0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.traffic-lights span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.red { background-color: #ff605c; }
+.yellow { background-color: #ffbd44; }
+.green { background-color: #00ca4e; }
+
+.browser-tabs {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.tab {
+    background-color: #f0f0f0;
+    padding: 5px 15px;
+    border-radius: 5px 5px 0 0;
+    margin: 0 2px;
+    display: flex;
+    align-items: center;
+}
+
+.tab.active {
+    background-color: #fff;
+    border-bottom: none;
+}
+
+.close-tab {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.browser-address-bar {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 5px;
+    color: #555;
+}
+
+.address-box {
+    flex-grow: 1;
+    background-color: #eee;
+    border-radius: 15px;
+    padding: 5px 15px;
+    margin: 0 10px;
+    text-align: center;
+    color: #333;
+}
+
+.profile-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #aaa;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.mattgpt-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #f0f2f5;
+}
+
+.mattgpt-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+}
+
+.mattgpt-logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.mattgpt-logo img {
+    margin-right: 10px;
+}
+
+.search-bar {
+    display: flex;
+}
+
+.search-bar input {
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin-right: 10px;
+    width: 200px;
+}
+
+.search-bar button {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #007bff;
+    font-size: 18px;
+}
+
+.chat-area {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-message {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.user-message {
+    background-color: #e0e0e0;
+    align-self: flex-start;
+}
+
+.mattgpt-message {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-start; /* Still aligned left, but with distinct styling */
+}
+
+.input-area {
+    display: flex;
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.input-area input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.input-area button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.input-area button:hover {
+    background-color: #0056b3;
+}
