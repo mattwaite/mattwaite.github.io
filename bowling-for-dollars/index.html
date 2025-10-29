@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atari Bowling - Sideways</title>
+    <title>Rodney's Bowling For Dollars</title>
     <style>
         /* General page setup */
         body {
@@ -17,6 +17,22 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
+        }
+
+        /* NEW: Branding section */
+        #branding {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #branding h1 {
+            color: #00F000; /* Green */
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        #branding p {
+            max-width: 480px; /* Match game width */
+            font-size: 14px;
+            margin: 5px 0 0 0;
         }
 
         /* The main game window */
@@ -33,28 +49,28 @@
             image-rendering: crisp-edges;
         }
 
-        /* The blue lines defining the lane - FIXED */
+        /* The blue lines defining the lane */
         .lane-line {
             position: absolute;
-            width: 100%; /* Should be 100% wide */
-            height: 4px;  /* And 4px tall */
+            width: 100%; 
+            height: 4px;  
             left: 0;
-            background-color: #0000AA; /* Atari blue */
+            background-color: #0000AA; 
         }
         #line-top {
-            top: 40px; /* Match GUTTER_TOP */
+            top: 40px; 
         }
         #line-bottom {
-            bottom: 40px; /* Match GUTTER_BOTTOM */
+            bottom: 40px; 
         }
 
-        /* The player's bowler - FIXED (image removed) */
+        /* The player's bowler */
         #bowler {
             position: absolute;
             width: 24px; 
             height: 32px;
-            left: 20px; /* Start on the left */
-            top: 144px; /* Start in the middle vertically */
+            left: 20px; 
+            top: 144px; 
               background-image: url('bowler.png');
               background-size: cover;
             background-color: #00C000; /* Placeholder green */
@@ -65,17 +81,17 @@
             position: absolute;
             width: 10px;
             height: 10px;
-            background-color: #0000AA; /* Blue ball */
+            background-color: #0000AA;
             border-radius: 50%;
-            left: 70px; /* Start in front of bowler */
+            left: 70px; 
             top: 155px;
-            display: none; /* Hidden until thrown */
+            display: none; 
         }
 
         /* A single bowling pin */
         .pin {
             position: absolute;
-            width: 8px; /* Rotated dollar bill */
+            width: 8px; 
             height: 16px; 
             background-color: #008000; /* Green for dollar bill */
             border: 1px solid #004000; /* Darker green border */
@@ -92,6 +108,43 @@
             letter-spacing: 4px;
         }
 
+        /* NEW: Frame Display */
+        #frame-display {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            color: #00F000;
+        }
+
+        /* NEW: Game Over Screen */
+        #game-over-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            /* Use flex to center content */
+            display: none; 
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 10;
+        }
+        #game-over-screen h2 {
+            color: #00F000;
+            font-size: 32px;
+            margin: 0;
+        }
+        #game-over-screen p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+
         /* Instructions text */
         #controls {
             margin-top: 60px; /* Account for game scaling */
@@ -101,14 +154,21 @@
 </head>
 <body>
 
+    <div id="branding">
+        <h1>Rodney's Bowling For Dollars</h1>
+        <p>Chancellor Rodney Bennett has to cut the budget $27.5 million dollars. See how much he can cut with his budget bowling ball.</p>
+    </div>
+
     <div id="game-container">
         <div class="lane-line" id="line-top"></div>
         <div class="lane-line" id="line-bottom"></div>
         
         <div id="scoreboard">00</div>
-
-        <div id="ball"></div>
+        <div id="frame-display">Frame: 1</div> <div id="ball"></div>
         <div id="bowler"></div>
+
+        <div id="game-over-screen">
+            </div>
     </div>
 
     <div id="controls">
@@ -124,6 +184,8 @@
             const bowler = document.getElementById('bowler');
             const ball = document.getElementById('ball');
             const scoreboard = document.getElementById('scoreboard');
+            const frameDisplay = document.getElementById('frame-display'); // NEW
+            const gameOverScreen = document.getElementById('game-over-screen'); // NEW
 
             // Game constants
             const LANE_WIDTH = 480;
@@ -135,37 +197,35 @@
             const PIN_WIDTH = 8;
             const PIN_HEIGHT = 16;
             
-            const GUTTER_TOP = 40;  // Top boundary
-            const GUTTER_BOTTOM = 280; // Bottom boundary (320 - 40)
-            const PIN_AREA_LEFT = 350; // X-coordinate for pins
-            const PIN_CENTER_Y = 160; // Center of the lane
+            const GUTTER_TOP = 40;  
+            const GUTTER_BOTTOM = 280; 
+            const PIN_AREA_LEFT = 350; 
+            const PIN_CENTER_Y = 160;
+            const MAX_FRAMES = 10; // NEW
 
             // Game state variables
             let bowlerX = 20; 
             let bowlerY = 144; 
             let ballX = 0;
             let ballY = 0;
-            let ballDx = 5; // Ball's horizontal velocity
-            let ballDy = 0; // Ball's vertical "hook" velocity
+            let ballDx = 5; 
+            let ballDy = 0; 
             
             let rolling = false;
             let score = 0;
             let pins = [];
             let ballCount = 0;
             let frame = 1;
+            let gameOver = false; // NEW
 
-            // Pin layout - FIXED (pins point towards bowler)
+            // Pin layout
             const pinPositions = [
-                // Row 1 (Front)
                 { x: PIN_AREA_LEFT + 10, y: PIN_CENTER_Y - (PIN_HEIGHT/2) }, // Pin 1 
-                // Row 2
                 { x: PIN_AREA_LEFT + 20, y: PIN_CENTER_Y - 10 - (PIN_HEIGHT/2) }, // Pin 2
                 { x: PIN_AREA_LEFT + 20, y: PIN_CENTER_Y + 10 - (PIN_HEIGHT/2) }, // Pin 3
-                // Row 3
                 { x: PIN_AREA_LEFT + 30, y: PIN_CENTER_Y - 20 - (PIN_HEIGHT/2) }, // Pin 4
                 { x: PIN_AREA_LEFT + 30, y: PIN_CENTER_Y - (PIN_HEIGHT/2) },       // Pin 5
                 { x: PIN_AREA_LEFT + 30, y: PIN_CENTER_Y + 20 - (PIN_HEIGHT/2) }, // Pin 6
-                // Row 4 (Back)
                 { x: PIN_AREA_LEFT + 40, y: PIN_CENTER_Y - 30 - (PIN_HEIGHT/2) }, // Pin 7
                 { x: PIN_AREA_LEFT + 40, y: PIN_CENTER_Y - 10 - (PIN_HEIGHT/2) }, // Pin 8
                 { x: PIN_AREA_LEFT + 40, y: PIN_CENTER_Y + 10 - (PIN_HEIGHT/2) }, // Pin 9
@@ -198,42 +258,83 @@
             }
 
             function resetBowler() {
+                bowler.style.display = 'block'; // Ensure bowler is visible
                 bowlerX = 20;
                 bowlerY = 144;
                 bowler.style.left = `${bowlerX}px`;
                 bowler.style.top = `${bowlerY}px`;
                 
-                // Reset ball state
                 ball.style.display = 'none';
                 rolling = false;
-                ballDy = 0; // Reset hook
-                ballX = 70; // Reset ball's logical X position
-                ballY = 155; // Reset ball's logical Y position
+                ballDy = 0; 
+                ballX = 70; 
+                ballY = 155; 
             }
 
+            // UPDATED: resetFrame now updates the frame display
             function resetFrame() {
                 createPins();
                 resetBowler();
-                ballCount = 0; // Frame is reset, so ball count is 0
+                ballCount = 0; 
+                frameDisplay.textContent = `Frame: ${frame}`; // Update display
             }
 
-            // --- nextBall function - FIXED ---
-            function nextBall() {
-                // Ball count increments AFTER the roll.
-                // ballCount = 0 -> roll -> ballCount = 1 (after 1st ball)
-                // ballCount = 1 -> roll -> ballCount = 2 (after 2nd ball)
-                ballCount++; 
+            // NEW: Generates the end-of-game message
+            function getEncouragingMessage(finalScore) {
+                const target = 27.5;
+                if (finalScore > target) {
+                    const surplus = (finalScore - target).toFixed(1);
+                    return `Incredible! You cut the $${target} million AND found an extra $${surplus} million!`;
+                } else if (finalScore === target) {
+                    return `Perfect! You cut exactly $${target} million!`;
+                } else {
+                    const needed = (target - finalScore).toFixed(1);
+                    return `Good effort! You still need to find $${needed} million!`;
+                }
+            }
 
-                // Check how many pins are down in total
+            // NEW: Function to end the game
+            function endGame() {
+                gameOver = true;
+                
+                // Hide game elements
+                bowler.style.display = 'none';
+                ball.style.display = 'none';
+                pins.forEach(p => p.element.style.display = 'none');
+
+                // Get final message
+                const message = getEncouragingMessage(score);
+                
+                // Show game over screen
+                gameOverScreen.innerHTML = `
+                    <h2>Game Over!</h2>
+                    <p>Your Final Cut: $${score} Million</p>
+                    <p>${message}</p>
+                `;
+                gameOverScreen.style.display = 'flex'; // Show the screen
+            }
+
+
+            // UPDATED: nextBall now checks for frame limit
+            function nextBall() {
+                ballCount++; 
                 const pinsDown = pins.filter(p => !p.isUp).length;
 
                 // Frame ends if:
                 // 1. It was a strike (10 pins down on the first ball)
                 // 2. It was the second ball (ballCount is now 2)
-                if ((pinsDown === 10 && ballCount === 1) || ballCount === 2) {
-                    alert(`Frame ${frame} over! Total Pins: ${score}\nResetting for next frame.`);
-                    frame++;
-                    resetFrame(); // This will reset pins, bowler, and ballCount to 0
+                const isFrameOver = (pinsDown === 10 && ballCount === 1) || ballCount === 2;
+
+                if (isFrameOver) {
+                    if (frame === MAX_FRAMES) {
+                        // Game is over!
+                        endGame();
+                    } else {
+                        // Regular end of frame
+                        alert(`Frame ${frame} over! Total Pins: ${score}\nResetting for next frame.`);
+                        frame++;
+                        resetFrame(); // This will reset pins, bowler, and update frame display
+                    }
                 } else {
                     // It was the first ball, and not a strike.
                     // Just reset the bowler for the second roll.
@@ -244,6 +345,8 @@
             // --- Input Handling ---
 
             document.addEventListener('keydown', (e) => {
+                if (gameOver) return; // NEW: Stop all input if game is over
+
                 if (rolling) {
                     // --- Ball Hooking Controls ---
                     if (e.key === 'ArrowUp') {
@@ -266,6 +369,7 @@
             });
 
             document.addEventListener('keyup', (e) => {
+                if (gameOver) return; // NEW
                 if (rolling) {
                     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
                         ballDy = 0;
@@ -279,8 +383,7 @@
                 if (rolling) return;
                 rolling = true;
                 
-                // Set ball's starting position based on bowler
-                ballX = 70; // Set logical X to start
+                ballX = 70; 
                 ballY = bowlerY + (BOWLER_HEIGHT / 2) - (BALL_HEIGHT / 2);
                 
                 ball.style.left = `${ballX}px`;
@@ -301,16 +404,17 @@
 
             function updateScore(pinsHit) {
                 score += pinsHit;
+                // We're treating 1 pin = $1 million for the scoreboard
                 scoreboard.textContent = String(score).padStart(2, '0');
             }
 
             // --- Main Game Loop ---
             function gameLoop() {
-                if (!rolling) return; // Stop loop if not rolling
+                if (!rolling) return; 
 
                 // 1. Move ball
-                ballX += Math.abs(ballDx); // Move right
-                ballY += ballDy; // Apply hook (up/down)
+                ballX += Math.abs(ballDx); 
+                ballY += ballDy; 
 
                 // 2. Update ball's DOM position
                 ball.style.left = `${ballX}px`;
@@ -338,10 +442,9 @@
 
                 // 5. Check for end of roll
                 if (ballX > LANE_WIDTH) {
-                    rolling = false; // Stop rolling
-                    nextBall(); // Go to the next ball/frame logic
+                    rolling = false; 
+                    nextBall(); 
                 } else {
-                    // Keep the loop going
                     requestAnimationFrame(gameLoop);
                 }
             }
