@@ -19,7 +19,7 @@
             overflow: hidden;
         }
 
-        /* The main game window - UPDATED to horizontal */
+        /* The main game window */
         #game-container {
             width: 480px;
             height: 320px;
@@ -33,37 +33,34 @@
             image-rendering: crisp-edges;
         }
 
-        /* The blue lines defining the lane - UPDATED to vertical */
+        /* The blue lines defining the lane - FIXED */
         .lane-line {
             position: absolute;
-            width: 4px; /* Now vertical */
-            height: 100%;
-            top: 0;
+            width: 100%; /* Should be 100% wide */
+            height: 4px;  /* And 4px tall */
+            left: 0;
             background-color: #0000AA; /* Atari blue */
         }
         #line-top {
-            /* Was top: 150px. New 480 - 150 = 330 */
-            left: 330px; 
+            top: 40px; /* Match GUTTER_TOP */
         }
         #line-bottom {
-            /* Was bottom: 60px. New left: 60px */
-            left: 60px; 
+            bottom: 40px; /* Match GUTTER_BOTTOM */
         }
 
-        /* The player's bowler - UPDATED position */
+        /* The player's bowler - FIXED (image removed) */
         #bowler {
             position: absolute;
             width: 24px; 
             height: 32px;
             left: 20px; /* Start on the left */
             top: 144px; /* Start in the middle vertically */
-            background-image: url('bowler.png'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+              background-image: url('bowler.png');
+              background-size: cover;
+            background-color: #00C000; /* Placeholder green */
         }
 
-        /* The bowling ball - UPDATED position */
+        /* The bowling ball */
         #ball {
             position: absolute;
             width: 10px;
@@ -75,7 +72,7 @@
             display: none; /* Hidden until thrown */
         }
 
-        /* A single bowling pin - UPDATED dimensions */
+        /* A single bowling pin */
         .pin {
             position: absolute;
             width: 8px; /* Rotated dollar bill */
@@ -85,7 +82,7 @@
             box-sizing: border-box; 
         }
 
-        /* The scoreboard display - No change */
+        /* The scoreboard display */
         #scoreboard {
             position: absolute;
             top: 10px;
@@ -95,7 +92,7 @@
             letter-spacing: 4px;
         }
 
-        /* Instructions text outside the game - UPDATED */
+        /* Instructions text */
         #controls {
             margin-top: 60px; /* Account for game scaling */
             text-align: center;
@@ -128,7 +125,7 @@
             const ball = document.getElementById('ball');
             const scoreboard = document.getElementById('scoreboard');
 
-            // Game constants - UPDATED for horizontal layout
+            // Game constants
             const LANE_WIDTH = 480;
             const LANE_HEIGHT = 320;
             const BOWLER_WIDTH = 24;
@@ -140,12 +137,12 @@
             
             const GUTTER_TOP = 40;  // Top boundary
             const GUTTER_BOTTOM = 280; // Bottom boundary (320 - 40)
-            const PIN_AREA_LEFT = 350; // X-coordinate for pins (was PIN_AREA_TOP)
+            const PIN_AREA_LEFT = 350; // X-coordinate for pins
             const PIN_CENTER_Y = 160; // Center of the lane
 
-            // Game state variables - UPDATED
-            let bowlerX = 20; // Bowler's left position
-            let bowlerY = 144; // Bowler's top position
+            // Game state variables
+            let bowlerX = 20; 
+            let bowlerY = 144; 
             let ballX = 0;
             let ballY = 0;
             let ballDx = 5; // Ball's horizontal velocity
@@ -157,18 +154,22 @@
             let ballCount = 0;
             let frame = 1;
 
-            // Pin layout - UPDATED for horizontal layout
+            // Pin layout - FIXED (pins point towards bowler)
             const pinPositions = [
-                { x: PIN_AREA_LEFT + 40, y: PIN_CENTER_Y - (PIN_HEIGHT/2) }, // Pin 1 (front)
-                { x: PIN_AREA_LEFT + 30, y: PIN_CENTER_Y - 10 - (PIN_HEIGHT/2) }, // Pin 2
-                { x: PIN_AREA_LEFT + 30, y: PIN_CENTER_Y + 10 - (PIN_HEIGHT/2) }, // Pin 3
-                { x: PIN_AREA_LEFT + 20, y: PIN_CENTER_Y - 20 - (PIN_HEIGHT/2) }, // Pin 4
-                { x: PIN_AREA_LEFT + 20, y: PIN_CENTER_Y - (PIN_HEIGHT/2) },       // Pin 5
-                { x: PIN_AREA_LEFT + 20, y: PIN_CENTER_Y + 20 - (PIN_HEIGHT/2) }, // Pin 6
-                { x: PIN_AREA_LEFT + 10, y: PIN_CENTER_Y - 30 - (PIN_HEIGHT/2) }, // Pin 7 (back left)
-                { x: PIN_AREA_LEFT + 10, y: PIN_CENTER_Y - 10 - (PIN_HEIGHT/2) }, // Pin 8
-                { x: PIN_AREA_LEFT + 10, y: PIN_CENTER_Y + 10 - (PIN_HEIGHT/2) }, // Pin 9
-                { x: PIN_AREA_LEFT + 10, y: PIN_CENTER_Y + 30 - (PIN_HEIGHT/2) }  // Pin 10 (back right)
+                // Row 1 (Front)
+                { x: PIN_AREA_LEFT + 10, y: PIN_CENTER_Y - (PIN_HEIGHT/2) }, // Pin 1 
+                // Row 2
+                { x: PIN_AREA_LEFT + 20, y: PIN_CENTER_Y - 10 - (PIN_HEIGHT/2) }, // Pin 2
+                { x: PIN_AREA_LEFT + 20, y: PIN_CENTER_Y + 10 - (PIN_HEIGHT/2) }, // Pin 3
+                // Row 3
+                { x: PIN_AREA_LEFT + 30, y: PIN_CENTER_Y - 20 - (PIN_HEIGHT/2) }, // Pin 4
+                { x: PIN_AREA_LEFT + 30, y: PIN_CENTER_Y - (PIN_HEIGHT/2) },       // Pin 5
+                { x: PIN_AREA_LEFT + 30, y: PIN_CENTER_Y + 20 - (PIN_HEIGHT/2) }, // Pin 6
+                // Row 4 (Back)
+                { x: PIN_AREA_LEFT + 40, y: PIN_CENTER_Y - 30 - (PIN_HEIGHT/2) }, // Pin 7
+                { x: PIN_AREA_LEFT + 40, y: PIN_CENTER_Y - 10 - (PIN_HEIGHT/2) }, // Pin 8
+                { x: PIN_AREA_LEFT + 40, y: PIN_CENTER_Y + 10 - (PIN_HEIGHT/2) }, // Pin 9
+                { x: PIN_AREA_LEFT + 40, y: PIN_CENTER_Y + 30 - (PIN_HEIGHT/2) }  // Pin 10
             ];
 
             // --- Game Setup Functions ---
@@ -196,34 +197,51 @@
                 });
             }
 
-            // Reset the bowler - UPDATED
             function resetBowler() {
                 bowlerX = 20;
                 bowlerY = 144;
                 bowler.style.left = `${bowlerX}px`;
                 bowler.style.top = `${bowlerY}px`;
+                
+                // Reset ball state
                 ball.style.display = 'none';
                 rolling = false;
                 ballDy = 0; // Reset hook
+                ballX = 70; // Reset ball's logical X position
+                ballY = 155; // Reset ball's logical Y position
             }
 
             function resetFrame() {
                 createPins();
                 resetBowler();
-                ballCount = 0;
+                ballCount = 0; // Frame is reset, so ball count is 0
             }
 
+            // --- nextBall function - FIXED ---
             function nextBall() {
-                resetBowler();
-                ballCount++;
-                if (ballCount >= 2) {
+                // Ball count increments AFTER the roll.
+                // ballCount = 0 -> roll -> ballCount = 1 (after 1st ball)
+                // ballCount = 1 -> roll -> ballCount = 2 (after 2nd ball)
+                ballCount++; 
+
+                // Check how many pins are down in total
+                const pinsDown = pins.filter(p => !p.isUp).length;
+
+                // Frame ends if:
+                // 1. It was a strike (10 pins down on the first ball)
+                // 2. It was the second ball (ballCount is now 2)
+                if ((pinsDown === 10 && ballCount === 1) || ballCount === 2) {
                     alert(`Frame ${frame} over! Total Pins: ${score}\nResetting for next frame.`);
                     frame++;
-                    resetFrame();
+                    resetFrame(); // This will reset pins, bowler, and ballCount to 0
+                } else {
+                    // It was the first ball, and not a strike.
+                    // Just reset the bowler for the second roll.
+                    resetBowler();
                 }
             }
             
-            // --- Input Handling - UPDATED ---
+            // --- Input Handling ---
 
             document.addEventListener('keydown', (e) => {
                 if (rolling) {
@@ -247,7 +265,6 @@
                 }
             });
 
-            // Stop hooking when the key is released - UPDATED
             document.addEventListener('keyup', (e) => {
                 if (rolling) {
                     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
@@ -258,12 +275,12 @@
 
             // --- Game Logic ---
 
-            // Roll ball - UPDATED
             function rollBall() {
                 if (rolling) return;
                 rolling = true;
                 
-                ballX = parseInt(window.getComputedStyle(ball).left);
+                // Set ball's starting position based on bowler
+                ballX = 70; // Set logical X to start
                 ballY = bowlerY + (BOWLER_HEIGHT / 2) - (BALL_HEIGHT / 2);
                 
                 ball.style.left = `${ballX}px`;
@@ -273,7 +290,6 @@
                 gameLoop();
             }
 
-            // Collision check (AABB) - No change needed
             function checkCollision(a, b) {
                 return (
                     a.x < b.x + b.width &&
@@ -288,15 +304,15 @@
                 scoreboard.textContent = String(score).padStart(2, '0');
             }
 
-            // --- Main Game Loop - UPDATED ---
+            // --- Main Game Loop ---
             function gameLoop() {
-                if (!rolling) return;
+                if (!rolling) return; // Stop loop if not rolling
 
-                // 1. Move ball (X is now the primary direction)
+                // 1. Move ball
                 ballX += Math.abs(ballDx); // Move right
                 ballY += ballDy; // Apply hook (up/down)
 
-                // 2. Update ball's position in the DOM
+                // 2. Update ball's DOM position
                 ball.style.left = `${ballX}px`;
                 ball.style.top = `${ballY}px`;
 
@@ -320,12 +336,12 @@
                     updateScore(pinsHitThisFrame);
                 }
 
-                // 5. Check for end of roll (ball goes off-screen to the right)
+                // 5. Check for end of roll
                 if (ballX > LANE_WIDTH) {
-                    rolling = false;
-                    ball.style.display = 'none';
-                    nextBall();
+                    rolling = false; // Stop rolling
+                    nextBall(); // Go to the next ball/frame logic
                 } else {
+                    // Keep the loop going
                     requestAnimationFrame(gameLoop);
                 }
             }
