@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atari Bowling</title>
+    <style>
+        /* General page setup */
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* The main game window */
+        #game-container {
+            width: 320px;
+            height: 480px;
+            background-color: #A0522D; /* Atari brown background */
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #000;
+            /* Scale up the game for better visibility on modern screens */
+            transform: scale(1.5); 
+        }
+
+        /* The blue lines defining the lane */
+        .lane-line {
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background-color: #0000AA; /* Atari blue */
+        }
+        #line-top {
+            top: 150px; /* Top of the pin deck */
+        }
+        #line-bottom {
+            bottom: 60px; /* Start of the lane */
+        }
+
+        /* The player's bowler */
+        #bowler {
+            position: absolute;
+            width: 16px;
+            height: 24px;
+            bottom: 20px;
+            left: 152px; /* Start in the middle */
+            /* Using gradients to create the pixelated multicolor look */
+            background-image: linear-gradient(to bottom, 
+                #FF69B4 6px,  /* Pink head */
+                #00C000 6px,  /* Green shirt */
+                #00C000 18px,
+                #FF69B4 18px, /* Pink pants */
+                #FF69B4 22px,
+                #000 22px     /* Black feet */
+            );
+        }
+
+        /* The bowling ball */
+        #ball {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #0000AA; /* Blue ball */
+            border-radius: 50%; /* Make it round */
+            bottom: 70px; /* Start in front of bowler */
+            left: 155px;
+            display: none; /* Hidden until thrown */
+        }
+
+        /* A single bowling pin */
+        .pin {
+            position: absolute;
+            width: 6px;
+            height: 12px;
+            background-color: #0000AA; /* Blue pins */
+        }
+
+        /* The scoreboard display */
+        #scoreboard {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: #00F000; /* Green score */
+            letter-spacing: 4px;
+        }
+
+        /* Instructions text outside the game */
+        #controls {
+            margin-top: 60px; /* Account for game scaling */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="game-container">
+        <div class="lane-line" id="line-top"></div>
+        <div class="lane-line" id="line-bottom"></div>
+        
+        <div id="scoreboard">00</div>
+
+        <div id="ball"></div>
+        <div id="bowler"></div>
+    </div>
+
+    <div id="controls">
+        <p>Use <strong>ArrowLeft / ArrowRight</strong> to move bowler.</p>
+        <p>Press <strong>Space</strong> to roll.</p>
+        <p>Use <strong>ArrowLeft / ArrowRight</strong> while ball is rolling to "hook".</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get all game elements
+            const gameContainer = document.getElementById('game-container');
+            const bowler = document.getElementById('bowler');
+            const ball = document.getElementById('ball');
+            const scoreboard = document.getElementById('scoreboard');
+
+            // Game constants
+            const LANE_WIDTH = 320;
+            const BOWLER_WIDTH = 16;
+            const BALL_WIDTH = 10;
+            const PIN_AREA_TOP = 180; // Y-coordinate for pins
+            const GUTTER_LEFT = 40;  // Left boundary
+            const GUTTER_RIGHT = 280; // Right boundary
+
+            // Game state variables
+            let bowlerX = 152; // Initial bowler position
+            let ballX = 0;
+            let ballY = 0;
+            let ballDx = 0; // Ball's horizontal "hook" velocity
+            let ballDy = -5; // Ball's vertical velocity
+            
+            let rolling = false; // Is the ball currently rolling?
+            let score = 0;
+            let pins = []; // Array to hold pin objects
+            let ballCount = 0; // 0 or 1 (for ball 1, ball 2)
+            let frame = 1; // Current frame
+
+            // Pin layout (x, y coordinates for top-left corner of each pin)
+            const pinPositions = [
+                { x: 157, y: PIN_AREA_TOP + 40 }, // Pin 1 (front)
+                { x: 147, y: PIN_AREA_TOP + 30 }, // Pin 2
+                { x: 167, y: PIN_AREA_TOP + 30 }, // Pin 3
+                { x: 137, y: PIN_AREA_TOP + 20 }, // Pin 4
+                { x: 157, y: PIN_AREA_TOP + 20 }, // Pin 5
+                { x: 177, y: PIN_AREA_TOP + 20 }, // Pin 6
+                { x: 127, y: PIN_AREA_TOP + 10 }, // Pin 7 (back left)
+                { x: 147, y: PIN_AREA_TOP + 10 }, // Pin 8
+                { x: 167, y: PIN_AREA_TOP + 10 }, // Pin 9
+                { x: 187, y: PIN_AREA_TOP + 10 }  // Pin 10 (back right)
+            ];
+
+            // --- Game Setup Functions ---
+
+            function createPins() {
+                // Remove any old pins from the DOM
+                pins.forEach(p => p.element.remove());
+                pins = []; // Clear the pins array
+
+                // Create new pins
+                pinPositions.forEach((pos, index) => {
+                    const pinElement = document.createElement('div');
+                    pinElement.className = 'pin';
+                    pinElement.id = `pin-${index}`;
+                    pinElement.style.left = `${pos.x}px`;
+                    pinElement.style.top = `${pos.y}px`;
+                    gameContainer.appendChild(pinElement);
+                    
+                    // Store pin data (element, position, state)
+                    pins.push({
+                        element: pinElement,
+                        x: pos.x,
+                        y: pos.y,
+                        width: 6,
+                        height: 12,
+                        isUp: true // All pins start "up"
+                    });
+                });
+            }
+
+            // Reset the bowler to the starting position
+            function resetBowler() {
+                bowlerX = 152;
+                bowler.style.left = `${bowlerX}px`;
+                ball.style.display = 'none';
+                rolling = false;
+                ballDx = 0; // Reset hook
+            }
+
+            // Reset the lane for a new frame
+            function resetFrame() {
+                createPins();
+                resetBowler();
+                ballCount = 0;
+            }
+
+            // Prepare for the next ball or frame
+            function nextBall() {
+                resetBowler();
+                ballCount++;
+
+                // This is a simplified system. Real scoring is more complex.
+                if (ballCount >= 2) {
+                    // After 2 balls, reset the frame.
+                    alert(`Frame ${frame} over! Total Pins: ${score}\nResetting for next frame.`);
+                    frame++;
+                    resetFrame();
+                }
+            }
+            
+            // --- Input Handling ---
+
+            document.addEventListener('keydown', (e) => {
+                if (rolling) {
+                    // --- Ball Hooking Controls ---
+                    if (e.key === 'ArrowLeft') {
+                        ballDx = -1; // Hook left
+                    } else if (e.key === 'ArrowRight') {
+                        ballDx = 1; // Hook right
+                    }
+                } else {
+                    // --- Bowler Movement Controls ---
+                    if (e.key === 'ArrowLeft') {
+                        bowlerX = Math.max(GUTTER_LEFT, bowlerX - 5);
+                        bowler.style.left = `${bowlerX}px`;
+                    } else if (e.key === 'ArrowRight') {
+                        bowlerX = Math.min(GUTTER_RIGHT - BOWLER_WIDTH, bowlerX + 5);
+                        bowler.style.left = `${bowlerX}px`;
+                    } else if (e.key === ' ' || e.key === 'Spacebar') {
+                        // --- Roll Ball ---
+                        rollBall();
+                    }
+                }
+            });
+
+            // Stop hooking when the key is released
+            document.addEventListener('keyup', (e) => {
+                if (rolling) {
+                    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                        ballDx = 0;
+                    }
+                }
+            });
+
+            // --- Game Logic ---
+
+            function rollBall() {
+                if (rolling) return; // Don't roll if already rolling
+                rolling = true;
+                
+                // Set ball's starting position based on bowler
+                ballY = parseInt(window.getComputedStyle(ball).bottom);
+                ballX = bowlerX + (BOWLER_WIDTH / 2) - (BALL_WIDTH / 2);
+                
+                ball.style.left = `${ballX}px`;
+                ball.style.bottom = `${ballY}px`;
+                ball.style.display = 'block';
+
+                // Start the game loop
+                gameLoop();
+            }
+
+            // Simple collision check (AABB)
+            function checkCollision(a, b) {
+                return (
+                    a.x < b.x + b.width &&
+                    a.x + a.width > b.x &&
+                    a.y < b.y + b.height &&
+                    a.y + a.height > b.y
+                );
+            }
+
+            // Update the score display
+            function updateScore(pinsHit) {
+                score += pinsHit;
+                scoreboard.textContent = String(score).padStart(2, '0');
+            }
+
+            // --- Main Game Loop (called every frame) ---
+            function gameLoop() {
+                if (!rolling) return;
+
+                // 1. Move ball
+                ballY += Math.abs(ballDy); // Move up the screen (increase 'bottom')
+                ballX += ballDx; // Apply hook
+
+                // 2. Update ball's position in the DOM
+                // We use 'top' for collision math, so we must calculate it
+                let ballTop = gameContainer.clientHeight - ballY - BALL_WIDTH;
+                ball.style.bottom = `${ballY}px`;
+                ball.style.left = `${ballX}px`;
+
+                // 3. Check for collision with pins
+                let pinsHitThisFrame = 0;
+                const ballRect = { x: ballX, y: ballTop, width: BALL_WIDTH, height: 10 };
+
+                pins.forEach(pin => {
+                    if (pin.isUp) { // Only check pins that are still up
+                        const pinRect = { x: pin.x, y: pin.y, width: pin.width, height: pin.height };
+                        if (checkCollision(ballRect, pinRect)) {
+                            pin.isUp = false; // Mark pin as "down"
+                            pin.element.style.display = 'none'; // Hide it
+                            pinsHitThisFrame++;
+                        }
+                    }
+                });
+                
+                // 4. Update score if pins were hit
+                if (pinsHitThisFrame > 0) {
+                    updateScore(pinsHitThisFrame);
+                }
+
+                // 5. Check for end of roll (ball goes off-screen)
+                if (ballTop < 0) {
+                    rolling = false;
+                    ball.style.display = 'none';
+                    nextBall(); // Move to the next ball or frame
+                } else {
+                    // Keep the loop going
+                    requestAnimationFrame(gameLoop);
+                }
+            }
+
+            // --- Initialize Game ---
+            resetFrame(); 
+        });
+    </script>
+</body>
+</html>
