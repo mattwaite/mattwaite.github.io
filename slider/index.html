@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Comparison Slider</title>
+    
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .content-wrapper {
+            width: 90%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        /* The Comparison Container */
+        .comparison-container {
+            position: relative; /* Establishes a coordinate system for children */
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Clips everything outside the container */
+            
+            /* Ensures container has no extra space from line-height */
+            line-height: 0; 
+            
+            /* Add labels */
+            position: relative;
+        }
+
+        .comparison-container::before,
+        .comparison-container::after {
+            content: attr(data-label-before);
+            position: absolute;
+            top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 5;
+            pointer-events: none; /* Make them unclickable */
+        }
+        
+        .comparison-container::before {
+            content: attr(data-label-after); /* "After" label */
+            left: 1rem;
+        }
+
+        .comparison-container::after {
+            content: attr(data-label-before); /* "Before" label */
+            right: 1rem;
+        }
+
+
+        /* The "Before" Image (Bottom Layer) */
+        .comparison-img-bottom {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* The "After" Image Wrapper (Top Layer)
+           This div is what gets resized. */
+        .comparison-img-top-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%; /* Initial position: 50% revealed */
+            height: 100%;
+            overflow: hidden; /* This is the "magic" that clips the top image */
+            box-sizing: border-box;
+        }
+
+        /* The "After" Image
+           This image must be the *exact same size* as the bottom one.
+           We set its width with JavaScript to ensure it's always
+           100% of the *container*, not 100% of its wrapper. */
+        .comparison-img-top {
+            display: block;
+            height: auto; /* Maintain aspect ratio */
+            /* Width is set by JavaScript */
+        }
+
+        /* The Slider Handle */
+        .comparison-slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%; /* Initial position */
+            width: 4px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            cursor: ew-resize; /* East-West resize cursor */
+            z-index: 10;
+            
+            /* Center the 4px line on the 50% mark */
+            transform: translateX(-50%);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* The circular grabber icon on the handle */
+        .comparison-slider-handle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 44px;
+            height: 44px;
+            background: white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+            /* Embedded SVG for the left/right arrows */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 17l-5-5 5-5M16 17l5-5-5-5"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <h1>Campus Development Comparison</h1>
+        <p>Drag the slider left and right (or swipe on mobile) to see the changes between 2014 and 2025.</p>
+
+        <div class="comparison-container" id="image-comparison" data-label-before="October 2014" data-label-after="March 2025">
+            
+            <img src="campusoctober2014.jpg" alt="Campus October 2014" class="comparison-img-bottom">
+
+            <div class="comparison-img-top-wrapper">
+                <img src="campusmarch2025.jpg" alt="Campus March 2025" class="comparison-img-top">
+            </div>
+
+            <div class="comparison-slider-handle"></div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Initializes an image comparison slider.
+         * @param {string} containerId - The ID of the main container element.
+         */
+        function initImageComparison(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) {
+                console.error("Comparison container not found:", containerId);
+                return;
+            }
+
+            const topWrapper = container.querySelector(".comparison-img-top-wrapper");
+            const topImage = container.querySelector(".comparison-img-top");
+            const handle = container.querySelector(".comparison-slider-handle");
+
+            let isDragging = false;
+
+            // --- Core Functions ---
+
+            /**
+             * Sets the top image's width to match the container's width.
+             * This is crucial for keeping the images perfectly aligned
+             * as the top image is inside a wrapper that changes size.
+             */
+            function syncTopImageWidth() {
+                const containerWidth = container.offsetWidth;
+                topImage.style.width = containerWidth + 'px';
+            }
+
+            /**
+             * Moves the slider and resizes the top image wrapper.
+             * @param {number} clientX - The horizontal coordinate of the mouse/touch.
+             */
+            function moveSlider(clientX) {
+                // Get the container's position on the page
+                const containerRect = container.getBoundingClientRect();
+                
+                // Calculate the new horizontal position relative to the container's left edge
+                let position = clientX - containerRect.left;
+
+                // Constrain the position to be within the container's bounds
+                if (position < 0) position = 0;
+                if (position > containerRect.width) position = containerRect.width;
+
+                // Convert the position to a percentage
+                let positionPercent = (position / containerRect.width) * 100;
+
+                // Update the width of the top image wrapper
+                topWrapper.style.width = positionPercent + '%';
+                
+                // Update the position of the handle
+                handle.style.left = positionPercent + '%';
+            }
+
+            // --- Event Handlers ---
+
+            function startDrag(e) {
+                isDragging = true;
+                // Prevent default actions like text selection or page scrolling
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            function stopDrag() {
+                isDragging = false;
+            }
+
+            function onDrag(e) {
+                if (!isDragging) return;
+
+                // Prevent default scrolling
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Get the X coordinate, handling both mouse and touch events
+                let clientX = e.clientX || (e.touches && e.touches[0].clientX);
+                if (clientX === undefined) return;
+
+                moveSlider(clientX);
+            }
+
+            // --- Event Listeners ---
+
+            // Run on load and on window resize to keep images synced
+            window.addEventListener('load', syncTopImageWidth);
+            window.addEventListener('resize', syncTopImageWidth);
+
+            // Mouse events
+            handle.addEventListener('mousedown', startDrag);
+            // Add listeners to the *document* to catch mouse-up/move
+            // even if the cursor leaves the handle or window.
+            document.addEventListener('mouseup', stopDrag);
+            document.addEventListener('mousemove', onDrag);
+
+            // Touch events
+            // { passive: false } is important to allow e.preventDefault()
+            handle.addEventListener('touchstart', startDrag, { passive: false });
+            document.addEventListener('touchend', stopDrag);
+            document.addEventListener('touchmove', onDrag, { passive: false });
+
+            // Extra: Allow clicking on the image to move the slider
+            container.addEventListener('click', function(e) {
+                if (isDragging) return; // Don't run if this is the end of a drag
+                if (e.target === handle) return; // Don't run if clicking the handle itself
+
+                // Add a small transition for a smooth "jump"
+                topWrapper.style.transition = 'width 0.2s ease-out';
+                handle.style.transition = 'left 0.2s ease-out';
+                
+                moveSlider(e.clientX);
+                
+                // Remove the transition after it finishes
+                // so it doesn't interfere with dragging
+                setTimeout(() => {
+                    topWrapper.style.transition = '';
+                    handle.style.transition = '';
+                }, 200);
+            });
+        }
+
+        // Initialize the slider!
+        initImageComparison('image-comparison');
+
+    </script>
+</body>
+</html>
