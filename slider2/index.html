@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNL School of Music Comparison</title>
+    
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Main container for the whole slider component */
+        .comparison-slider {
+            max-width: 900px; /* Adjust max width as needed */
+            width: 90%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .comparison-slider h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .comparison-slider p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* The container that holds the images and slider */
+        .image-container {
+            position: relative; /* Establishes the coordinate system for absolute children */
+            width: 100%;
+            overflow: hidden; /* Ensures nothing spills out */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Both images */
+        .image-container img {
+            display: block;
+            width: 100%;
+            height: auto;
+            pointer-events: none; /* Prevents image dragging interference */
+            user-select: none;    /* Prevents image selection */
+        }
+
+        /* The "before" image (bottom layer) */
+        .img-before {
+            position: relative; /* Sits on the bottom, sets the container's height */
+        }
+
+        /* The "after" image (top layer) */
+        .img-after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover; /* Ensures image covers the area */
+            
+            /* This is the magic: we clip the top image to show the bottom one */
+            /* We start at a 50% view */
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+        }
+
+        /* The vertical slider line */
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%; /* Start at 50% */
+            width: 4px;
+            height: 100%;
+            background-color: white;
+            transform: translateX(-50%); /* Centers the line on the 'left' position */
+            cursor: ew-resize; /* East-West resize cursor */
+            pointer-events: all; /* Make sure we can interact with this */
+        }
+
+        /* The circular grabber handle */
+        .slider-grabber {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the grabber on the line */
+            width: 44px;
+            height: 44px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10px;
+            box-sizing: border-box;
+            color: #333;
+            font-size: 1.2rem;
+            user-select: none; /* Prevents text selection of the arrows */
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="comparison-slider" id="unl-slider">
+
+        <h1>Check out the changes to UNL's School of Music from 2014 to 2025</h1>
+        <p>Click and drag the slider handle (the white circle) left and right to see the comparison. On mobile, just drag with your finger.</p>
+
+        <div class="image-container">
+            <img src="campusoctober2014.jpg" alt="UNL School of Music in 2014" class="img-before">
+            
+            <img src="campusmarch2025.jpg" alt="UNL School of Music in 2025" class="img-after">
+            
+            <div class="slider-handle">
+                <div class="slider-grabber">
+                    <span>&#9664;</span> <span>&#9654;</span> </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        // Wait for the document to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Select the main elements for the slider
+            const slider = document.getElementById('unl-slider');
+            const container = slider.querySelector('.image-container');
+            const imgAfter = slider.querySelector('.img-after');
+            const handle = slider.querySelector('.slider-handle');
+
+            // A flag to track if we are currently dragging
+            let isDragging = false;
+
+            // --- Event Listeners for Desktop (Mouse) ---
+
+            // When mouse is pressed down on the handle
+            handle.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                e.preventDefault(); // Prevent default image drag behavior
+            });
+
+            // When mouse is moved *anywhere* on the window
+            window.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    moveSlider(e.clientX);
+                }
+            });
+
+            // When mouse button is released *anywhere* on the window
+            window.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            // --- Event Listeners for Mobile (Touch) ---
+
+            // When finger touches the handle
+            handle.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                e.preventDefault(); // Prevent page scrolling
+            });
+
+            // When finger moves *anywhere* on the screen
+            window.addEventListener('touchmove', (e) => {
+                if (isDragging) {
+                    // Use the first touch point
+                    moveSlider(e.touches[0].clientX);
+                }
+            });
+
+            // When finger is lifted *anywhere* from the screen
+            window.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            /**
+             * The main function that updates the slider position and image clip
+             * @param {number} x - The horizontal coordinate (clientX) of the mouse or touch
+             */
+            function moveSlider(x) {
+                // Get the position and size of the image container
+                const rect = container.getBoundingClientRect();
+                
+                // Calculate the 'x' position relative to the container
+                let position = x - rect.left;
+
+                // Constrain the position to be within the container boundaries
+                if (position < 0) {
+                    position = 0;
+                }
+                if (position > rect.width) {
+                    position = rect.width;
+                }
+
+                // Calculate the percentage width
+                const percent = (position / rect.width) * 100;
+
+                // Update the CSS
+                // 1. Move the handle
+                handle.style.left = `${percent}%`;
+                
+                // 2. Update the clip-path of the top image
+                imgAfter.style.clipPath = `polygon(0 0, ${percent}% 0, ${percent}% 100%, 0 100%)`;
+            }
+
+        });
+    </script>
+
+</body>
+</html>
