@@ -515,20 +515,62 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Matt Waite is a professor of practice in the College of Journalism and Mass Communications at the University of Nebraska-Lincoln.\nSince he joined the faculty in 2011, he founded the Drone Journalism Lab, the first of its kind at a journalism school. His students have used drones to report news in six countries on three continents. He regularly speaks about the legal and ethical complexities of using drones at conferences around the world and is frequently consulted by media organizations about their potential. He also teaches courses in data journalism, web development and the intersection of storytelling and technology. He created an open learning lab for students called Maker Hours, helped develop an interdisciplinary minor in Informatics and serves on the Publications Board of the Daily Nebraskan. In 2016, he received the University of Nebraska’s Innovation, Development and Entrepreneurship Award and was inducted into the Nebraska Press Association’s Hall of Fame in October.\nFrom 2007-2011, he was a hybrid programmer/journalist for the St. Petersburg Times where he developed PolitiFact, a website that fact checks what politicians say. The site became the first website awarded the Pulitzer Prize in 2009.\nBefore becoming a web developer, he was an award-winning investigative reporter. He began his journalism career at the Arkansas Democrat-Gazette in Little Rock, covering police and breaking news, including the crash of American Airlines flight 1420 in 1999. In 2000, he moved to the St. Petersburg Times. From 2005-2007, he co-authored a series of award-winning stories about Florida’s vanishing wetlands. That work was later expanded into a book, “Paving Paradise: Florida’s Vanishing Wetlands and the Failure of No Net Loss,” published in 2009 by the University Press of Florida."
+    "text": "My career merges practical experience in investigative journalism and news technology with my current role as an academic leader in journalism education. Currently serving as a Professor of Practice in Journalism at the University of Nebraska-Lincoln, my teaching encompasses a range of contemporary skills, including data journalism, sports data analysis and visualization, reporting, and various technology-related courses that explore the applications of drones and artificial intelligence within the field."
   },
   {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
+    "objectID": "about.html#biography",
+    "href": "about.html#biography",
     "title": "About",
-    "section": "Education",
-    "text": "Education\nUniversity of Nebraska-Lincoln | Lincoln, NE Masters of Science in Business Analytics | Dec 2020\nUniversity of Nebraska-Lincoln | Lincoln, NE B.J in Journalism | Dec 1997"
+    "section": "Biography",
+    "text": "Biography\n\nEarly Career\nBefore transitioning to academia, I spent nearly 15 years in daily newspapers in both Arkansas and Florida. My tenure at the Tampa Bay Times in Florida included awards for a co-authored series of stories that meticulously examined and exposed the state and federal efforts to protect wetlands. This work was later expanded into the book, “Paving Paradise: Florida’s Vanishing Wetlands and the Failure of No Net Loss,” published in 2009.\n\n\nPolitiFact\nA pivotal moment in my career occurred in 2007 when I took on the role of principal developer for PolitiFact.com. This project showcased my ability to blend journalistic insight with technical proficiency. In a landmark achievement for digital journalism, PolitiFact.com became the first website to be awarded a Pulitzer Prize in 2009, specifically for national reporting.\n\n\nTransition to Academia\nIn 2011, I joined the faculty at the University of Nebraska-Lincoln’s College of Journalism and Mass Communications. This transition provided me with an opportunity to share my knowledge and practical experience with aspiring journalists. As a Professor of Practice, my teaching portfolio encompasses a range of courses that reflect the evolving skills and technologies crucial for modern journalism."
+  },
+  {
+    "objectID": "about.html#the-drone-journalism-lab",
+    "href": "about.html#the-drone-journalism-lab",
+    "title": "About",
+    "section": "The Drone Journalism Lab",
+    "text": "The Drone Journalism Lab\nI founded the Drone Journalism Lab at the University of Nebraska-Lincoln, recognizing the potential of drone technology for newsgathering colliding with federal regulations and journalistic ethics. The lab’s primary mission revolved around exploring the use of drones in news reporting and providing students with comprehensive training on how to operate these devices responsibly and ethically. During the lab’s time, students actively utilized drones to cover news events across six countries on three continents."
   },
   {
     "objectID": "about.html#experience",
     "href": "about.html#experience",
     "title": "About",
     "section": "Experience",
-    "text": "Experience\nProfessor of practice | University of Nebraska-Lincoln | August 2011 - Present\nReporter, Technologist | Tampa Bay Times, St. Petersburg, FL | March 2000 - Feb. 2011\nReporter | Arkansas Democrat Gazette, Little Rock, AR | January 1998 - Feb. 2000"
+    "text": "Experience\n\nProfessor of Practice, University of Nebraska-Lincoln (2011-Present)\nCo-founder, Hot Type Consulting (2009-2021)\nSenior News Technologist, St. Petersburg Times (2006-2011)\nStaff Writer, St. Petersburg Times (2000-2006)\nStaff Writer, Arkansas Democrat-Gazette (1998-2000)"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\n\nMS, Business Analytics, University of Nebraska-Lincoln, 2020\nBA, Journalism, University of Nebraska-Lincoln, 1997"
+  },
+  {
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About",
+    "section": "Skills",
+    "text": "Skills\n\nData Analysis & Visualization: R, Python, Excel, SQL\nWeb Development: HTML, CSS, JavaScript, Python\nGIS & Spatial Analysis: ArcGIS, QGIS\nDrone Piloting: FAA Remote Pilot Certificate"
+  },
+  {
+    "objectID": "about.html#teaching",
+    "href": "about.html#teaching",
+    "title": "About",
+    "section": "Teaching",
+    "text": "Teaching\nI have developed and taught 27 unique courses, across three academic colleges, including:\n\nData Journalism\nSports Data Analysis and Visualization\nDrone Journalism\nAI for Journalism\nNews Applications\nSensors for Journalism"
+  },
+  {
+    "objectID": "about.html#selected-awards",
+    "href": "about.html#selected-awards",
+    "title": "About",
+    "section": "Selected Awards",
+    "text": "Selected Awards\n\nPulitzer Prize for National Reporting (2009)\nNebraska Journalism Hall of Fame (2016)\nDaily Nebraskan Hall of Fame (2022)\nUniversity of Nebraska Innovation, Development, and Engagement Award (2016)"
+  },
+  {
+    "objectID": "about.html#talks",
+    "href": "about.html#talks",
+    "title": "About",
+    "section": "Talks",
+    "text": "Talks\nFor a collection of my talks, please visit the Talks page."
   }
 ]
