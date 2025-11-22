@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Matt Waite">
-<meta name="dcterms.date" content="2024-11-08">
+<meta name="dcterms.date" content="2018-06-12">
 
-<title>Nebraska’s season long slide on offense – Matt Waite's Collection of Miscellany</title>
+<title>Choosing a World Cup Team to root for in each match: An algorithmic approach. – Matt Waite’s Collection of Miscellany</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -74,13 +38,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a14e3238c51140e99ccc48519b6ed9ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/intersection-observer-polyfill-1.0.0/intersection-observer.js"></script>
-<script src="../../site_libs/quarto-contrib/scrollama-3.2.0/scrollama.min.js"></script>
-<script src="../../site_libs/quarto-contrib/closeread-0.1.0/closeread.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-a9957ab5e8b7c67643b7e2e6b5c1e54e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -117,27 +82,181 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 </script>
-<meta cr-debug-mode="false">
-<meta cr-remove-header-space="false">
 
 
-<link rel="stylesheet" href="_extensions/qmd-lab/closeread/closeread.css">
-<meta property="og:title" content="Nebraska’s season long slide on offense – Matt Waite’s Collection of Miscellany">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Choosing a World Cup Team to root for in each match: An algorithmic approach. – Matt Waite’s Collection of Miscellany">
 <meta property="og:description" content="A blog about random fiddling with code and data.">
-<meta property="og:image" content="https://mattwaite.github.io/posts/scrollytelling-nebraskas-season/image.png">
 <meta property="og:site_name" content="Matt Waite's Collection of Miscellany">
-<meta property="og:image:height" content="598">
-<meta property="og:image:width" content="845">
-<meta name="twitter:title" content="Nebraska’s season long slide on offense – Matt Waite’s Collection of Miscellany">
+<meta name="twitter:title" content="Choosing a World Cup Team to root for in each match: An algorithmic approach. – Matt Waite’s Collection of Miscellany">
 <meta name="twitter:description" content="A blog about random fiddling with code and data.">
-<meta name="twitter:image" content="https://mattwaite.github.io/posts/scrollytelling-nebraskas-season/image.png">
 <meta name="twitter:creator" content="@mattwaite">
-<meta name="twitter:image-height" content="598">
-<meta name="twitter:image-width" content="845">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -183,30 +302,19 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Nebraska’s season long slide on offense</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">code</div>
-                <div class="quarto-category">football</div>
-                <div class="quarto-category">huskers</div>
-              </div>
-                  </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Choosing a World Cup Team to root for in each match: An algorithmic approach.</h1>
+                      </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta">
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Matt Waite </p>
-            </div>
-    </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 8, 2024</p>
+        <p class="date">June 12, 2018</p>
       </div>
     </div>
     
@@ -214,189 +322,41 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
-      <!-- user-provided yaml closeread style options -->
-      <style>
-        :root {
-          --cr-section-background-color: transparent;
---cr-narrative-text-color-overlay: black;
---cr-narrative-background-color-sidebar: transparent;
---cr-narrative-background-color-overlay: transparent;
-        }
-      </style>
-    
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cfbfastR)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>plays <span class="ot">&lt;-</span> <span class="fu">load_cfb_pbp</span>(<span class="dv">2024</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>nebrollingepa <span class="ot">&lt;-</span> plays <span class="sc">|&gt;</span> </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(pos_team <span class="sc">==</span> <span class="st">"Nebraska"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sequential_play_number =</span> <span class="fu">row_number</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(pos_team, def_pos_team, sequential_play_number, EPA) <span class="sc">|&gt;</span> </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cumulative_epa_mean =</span> <span class="fu">cummean</span>(EPA))</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>indrollingepa <span class="ot">&lt;-</span> plays <span class="sc">|&gt;</span> </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(pos_team <span class="sc">==</span> <span class="st">"Indiana"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sequential_play_number =</span> <span class="fu">row_number</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(pos_team, def_pos_team, sequential_play_number, EPA) <span class="sc">|&gt;</span> </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cumulative_epa_mean =</span> <span class="fu">cummean</span>(EPA)) </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>coloradogame <span class="ot">&lt;-</span> nebrollingepa <span class="sc">|&gt;</span> <span class="fu">filter</span>(def_pos_team <span class="sc">==</span> <span class="st">"Colorado"</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>indianagame <span class="ot">&lt;-</span> nebrollingepa <span class="sc">|&gt;</span> <span class="fu">filter</span>(def_pos_team <span class="sc">==</span> <span class="st">"Indiana"</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>ohiostategame <span class="ot">&lt;-</span> nebrollingepa <span class="sc">|&gt;</span> <span class="fu">filter</span>(def_pos_team <span class="sc">==</span> <span class="st">"Ohio State"</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>uclagame <span class="ot">&lt;-</span> nebrollingepa <span class="sc">|&gt;</span> <span class="fu">filter</span>(def_pos_team <span class="sc">==</span> <span class="st">"UCLA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>If you’ve been following Nebraska’s football season, you’d be forgiven if you thought it started out great and has slowly driven into a ditch as time went on. Even after a loss against Illinois in overtime, hope remained high.</p>
-<p>That is, until the Indiana game. A close loss at Ohio State revived some of that hope, and then a loss to UCLA crushed it.</p>
-<p>So what’s happening?</p>
-<p>The answer? The offense is slowly getting worse as the season goes on. That almost certainly has something to do with Nebraska hiring Dana Holgerson as an offensive consultant. How bad is it? The team is approaching the point that the average offensive play doesn’t add anything to the final score.</p>
-<p>What do I mean by that? There is a metric called Expected Points Added, and every play gets a score. Big plays have higher scores – 4, 5 even 6 points. Your two-yards-and-cloud-of-dust run from your own 15 will get you less than 1 point.</p>
-<p>Average them together over the course of an entire season and you can get a sense of an offense. And, at this point of the season, Nebraska needs 10 plays to score a point. Indiana, the surprise team of the season, needs 5.</p>
-<p>Here’s a closer look.</p>
-<div class="cr-section cr-column-screen sidebar-left">
-<div class="narrative-col">
-<div class="trigger new-trigger" data-focus-on="cr-season">
-<div class="narrative">
-<p>This is what Nebraska’s offensive season looks like overall. If you’ve never seen a EPA average chart, the first thing you need to do is ignore the first game. There’s just not enough data and the average flies around. Where it starts to reveal who you are is later in the season, when more data comes in.</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-focus-on="cr-colorado">
-<div class="narrative">
-<p>Where you want to start focusing is the Colorado game. You can <em>see</em> the glorious first half were the game got out of hand, and the dud of a second half where Nebraska’s offense went to sleep.</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-focus-on="cr-indiana">
-<div class="narrative">
-<p>Now the disaster at Indiana. Nebraska had 300 yards of offense that day … but that is buried by the 5 turnovers, not to mention going 0-4 on fourth down.</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-focus-on="cr-ohiostate">
-<div class="narrative">
-<p>No one expected Nebraska to give Ohio State all it wanted. Vegas thought Nebraska would lose by at least three touchdowns. The offense played better than it had – you can see the line move up a bit – but alas, still a loss.</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-focus-on="cr-ucla">
-<div class="narrative">
-<p>UCLA was a tale of two halves. The first? Bad. The second? Better, and you can see the season average line curve up for that second half.</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-focus-on="cr-indianaseason">
-<div class="narrative">
-<p>Now. Want to be sad? Here’s what Indiana’s season looks like. The Hoosiers are remarkably consistent.</p>
-</div>
-</div>
-<div class="trigger new-trigger" data-focus-on="cr-merged">
-<div class="narrative">
-<p>When compared to Nebraska, Indiana started hot and has stayed hot. Nebraska started hot and … didn’t.</p>
-</div>
-</div>
-</div>
-<div class="sticky-col">
-<div class="sticky-col-stack">
-<div id="cr-season" class="sticky">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="cr-colorado" class="sticky">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="cr-indiana" class="sticky">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="cr-ohiostate" class="sticky">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="cr-ucla" class="sticky">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="cr-indianaseason" class="sticky">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="cr-merged" class="sticky">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<p>The World Cup is here. For a large swath of the planet, we do not have a team in the tournament, which raises a question: Who do you root for game by game?</p>
+<p>I’m teaching a sports data visualization and analysis course this fall, so I started thinking if there was an assignment in here somewhere. Could students develop some kind of algorithm? And the more I thought about it, the more I realized: Nope.&nbsp;</p>
+<p>Here’s why, in pseudocode, that an algorithmic approach to choosing a side in each match is not something you can do in code:&nbsp;</p>
+<p>for each of two teams in a match: &nbsp; &nbsp;if you’ve been to that country: &nbsp; &nbsp; &nbsp; &nbsp;take that team &nbsp; &nbsp;else if you’ve been to both: &nbsp; &nbsp; &nbsp; &nbsp;take the one where you have better friends &nbsp; &nbsp;else if you have good friends or no friends in both: &nbsp; &nbsp; &nbsp; &nbsp;take the one where you had a better meal &nbsp; &nbsp;else if the food is pretty good in both: &nbsp; &nbsp; &nbsp; &nbsp;take the one with the less horrible national drink &nbsp; &nbsp;else if you’ve been to neither: &nbsp; &nbsp; &nbsp; &nbsp;take the one that didn’t bribe their way into the tournament &nbsp; &nbsp;else if both arrived seemingly fairly/both bribed everyone to get there: &nbsp; &nbsp; &nbsp; &nbsp;take the one who used to be a beloved ally until recently &nbsp; &nbsp;else if both were beloved allies until recently: &nbsp; &nbsp; &nbsp; &nbsp;take the one who you haven’t fought a war against at some point in history &nbsp; &nbsp;else if you’ve never fought a war against either: &nbsp; &nbsp; &nbsp; &nbsp;take the one that has a player you’ve heard of before &nbsp; &nbsp;else if neither has a player you know: &nbsp; &nbsp; &nbsp; &nbsp;take the one with the cooler nickname (example: the Indomitable Lions of&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Cameroon, sadly not in the tournament) &nbsp; &nbsp;else if neither country are all that friendly: &nbsp; &nbsp; &nbsp; &nbsp;take the one not run by a murderous dictator &nbsp; &nbsp;else if both are run by a murderous dictator: &nbsp; &nbsp; &nbsp; &nbsp;take the one with a better uniform &nbsp; &nbsp;else if both murderous dictatorships have decent kits: &nbsp; &nbsp; &nbsp; &nbsp;take the one that has nuclear weapons &nbsp; &nbsp;and if all else fails: &nbsp; &nbsp; &nbsp; &nbsp; root for Iceland. Their whole country has a population equal to Honolulu, Hawaii.</p>
 
 
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
