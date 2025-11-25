@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,18 +35,19 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-a9957ab5e8b7c67643b7e2e6b5c1e54e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-de0ed3b9a49d5daa615839eefb10c6a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -128,7 +129,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -408,7 +409,33 @@ window.Quarto = {
 <h2 class="anchored">Blog</h2>
 <div id="listing-blog-timeline" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1741327200000" data-listing-file-modified-sort="1763769826824" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="943">
+<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1763964000000" data-listing-file-modified-sort="1764042915974" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1180">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-11-24-parsing-pdfs-with-antigravity/index.html" class="no-external">Parsing PDFs with Antigravity</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/2025-11-24-parsing-pdfs-with-antigravity/index.html" class="no-external">
+Last week, Google launched their much anticipated Gemini 3 model, and much is being said and written about it. One very interesting thing they did was launch a Visual Studio…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2025-11-24-parsing-pdfs-with-antigravity/index.html" class="no-external">
+<div class="listing-date">
+Nov 24, 2025
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1741327200000" data-listing-file-modified-sort="1763769826824" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="943">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/r-llm-starter-pack/index.html" class="no-external">An R + LLM starter kit</a>
@@ -434,7 +461,7 @@ Mar 7, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="QUklMkNjb2RlJTJDciUyQ2VkdWNhdGlvbg==" data-listing-date-sort="1732600800000" data-listing-file-modified-sort="1763770040896" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1343">
+<div class="quarto-post image-right" data-index="2" data-categories="QUklMkNjb2RlJTJDciUyQ2VkdWNhdGlvbg==" data-listing-date-sort="1732600800000" data-listing-file-modified-sort="1763770040896" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1343">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/an-academic-integrity-friendly-pal/index.html" class="no-external">An academic integrity-friendly code pal for R Studio</a>
@@ -462,7 +489,7 @@ Nov 26, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2Zvb3RiYWxsJTJDaHVza2Vycw==" data-listing-date-sort="1731045600000" data-listing-file-modified-sort="1763769788185" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1477">
+<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2Zvb3RiYWxsJTJDaHVza2Vycw==" data-listing-date-sort="1731045600000" data-listing-file-modified-sort="1763769788185" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1477">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/scrollytelling-nebraskas-season/index.html" class="no-external">Nebraska’s season long slide on offense</a>
@@ -488,7 +515,7 @@ Nov 8, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1729659600000" data-listing-file-modified-sort="1763770080346" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2851">
+<div class="quarto-post image-right" data-index="4" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1729659600000" data-listing-file-modified-sort="1763770080346" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2851">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external">A simple example of AI agents(?) doing journalism(?) work</a>
@@ -514,7 +541,7 @@ Oct 23, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1648443600000" data-listing-file-modified-sort="1763770269986" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4354">
+<div class="quarto-post image-right" data-index="5" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1648443600000" data-listing-file-modified-sort="1763770269986" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4354">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external">Another year, another attempt, another bracket disaster</a>
@@ -538,7 +565,7 @@ Mar 28, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1647752400000" data-listing-file-modified-sort="1763769865690" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1096">
+<div class="quarto-post image-right" data-index="6" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1647752400000" data-listing-file-modified-sort="1763769865690" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1096">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external">Nebraska is not the best worst team in basketball again. They’re third best worst.</a>
@@ -564,7 +591,7 @@ Mar 20, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1616907600000" data-listing-file-modified-sort="1763769924412" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1209">
+<div class="quarto-post image-right" data-index="7" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1616907600000" data-listing-file-modified-sort="1763769924412" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1209">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external">Is Nebraska the best worst team in college basketball?</a>
@@ -590,7 +617,7 @@ Mar 28, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1616389200000" data-listing-file-modified-sort="1763769739532" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1700">
+<div class="quarto-post image-right" data-index="8" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1616389200000" data-listing-file-modified-sort="1763769739532" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1700">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external">How I (poorly) filled out my NCAA bracket with machine learning</a>
@@ -614,7 +641,7 @@ Mar 22, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1528779600000" data-listing-file-modified-sort="1763756108000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="398">
+<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1528779600000" data-listing-file-modified-sort="1763756108000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="398">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/2018-06-12-choosing-a-world-cup-team-to-root-for-in-each-match-an-algorithmic-approach/index.html" class="no-external">Choosing a World Cup Team to root for in each match: An algorithmic approach.</a>
@@ -627,30 +654,6 @@ The World Cup is here. For a large swath of the planet, we do not have a team in
 <a href="./posts/2018-06-12-choosing-a-world-cup-team-to-root-for-in-each-match-an-algorithmic-approach/index.html" class="no-external">
 <div class="listing-date">
 Jun 12, 2018
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="ZGF0YSUyMGpvdXJuYWxpc20lMkNyZXRybw==" data-listing-date-sort="1458795600000" data-listing-file-modified-sort="1763770609980" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="725">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2016-03-24-i-wrote-a-data-journalism-manual-for-my-college-in-1997-they-never-used-it-but-they-kept-it/index.html" class="no-external">I wrote a data journalism manual for my college in 1997. They never used it, but they kept it.</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMGpvdXJuYWxpc20='); return false;">data journalism</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cmV0cm8='); return false;">retro</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/2016-03-24-i-wrote-a-data-journalism-manual-for-my-college-in-1997-they-never-used-it-but-they-kept-it/index.html" class="no-external">
-In October 1997, I was trying to graduate from college. The University of Nebraska-Lincoln’s College of Journalism and Mass Communications told me that I needed 19 credit…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/2016-03-24-i-wrote-a-data-journalism-manual-for-my-college-in-1997-they-never-used-it-but-they-kept-it/index.html" class="no-external">
-<div class="listing-date">
-Mar 24, 2016
 </div>
 </a>
 </div>
@@ -729,13 +732,14 @@ Mar 24, 2016
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

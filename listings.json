@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/2025-11-24-parsing-pdfs-with-antigravity/index.html",
       "/posts/r-llm-starter-pack/index.html",
       "/posts/an-academic-integrity-friendly-pal/index.html",
       "/posts/scrollytelling-nebraskas-season/index.html",
@@ -59,6 +60,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2025-11-24-parsing-pdfs-with-antigravity/index.html",
       "/posts/r-llm-starter-pack/index.html",
       "/posts/an-academic-integrity-friendly-pal/index.html",
       "/posts/scrollytelling-nebraskas-season/index.html",

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,18 +35,19 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-a9957ab5e8b7c67643b7e2e6b5c1e54e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-de0ed3b9a49d5daa615839eefb10c6a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -128,7 +129,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -146,15 +147,15 @@ window.Quarto = {
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Blog – Matt Waite’s Collection of Miscellany">
-<meta property="og:image" content="https://mattwaite.github.io/posts/r-llm-starter-pack/image.png">
+<meta property="og:image" content="https://mattwaite.github.io/posts/2025-11-24-parsing-pdfs-with-antigravity/image.png">
 <meta property="og:site_name" content="Matt Waite's Collection of Miscellany">
-<meta property="og:image:height" content="1060">
-<meta property="og:image:width" content="1972">
+<meta property="og:image:height" content="1898">
+<meta property="og:image:width" content="3238">
 <meta name="twitter:title" content="Blog – Matt Waite’s Collection of Miscellany">
-<meta name="twitter:image" content="https://mattwaite.github.io/posts/r-llm-starter-pack/image.png">
+<meta name="twitter:image" content="https://mattwaite.github.io/posts/2025-11-24-parsing-pdfs-with-antigravity/image.png">
 <meta name="twitter:creator" content="@mattwaite">
-<meta name="twitter:image-height" content="1060">
-<meta name="twitter:image-width" content="1972">
+<meta name="twitter:image-height" content="1898">
+<meta name="twitter:image-width" content="3238">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -388,7 +389,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(52)</span></div><div class="category" data-category="QUk=">AI <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(8)</span></div><div class="category" data-category="Y29udGVudA==">content <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YQ==">data <span class="quarto-category-count">(6)</span></div><div class="category" data-category="ZGF0YSUyMGpvdXJuYWxpc20=">data journalism <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGphbmdv">django <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWR1Y2F0aW9u">education <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Zm9vdGJhbGw=">football <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnV0dXJl">future <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aHVza2Vycw==">huskers <span class="quarto-category-count">(3)</span></div><div class="category" data-category="am91cm5hbGlzbQ==">journalism <span class="quarto-category-count">(14)</span></div><div class="category" data-category="bWFuaWZlc3Rv">manifesto <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bWFya2V0aW5n">marketing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3c2FwcHM=">newsapps <span class="quarto-category-count">(10)</span></div><div class="category" data-category="cGxhdGZvcm1z">platforms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cG9saXRpZmFjdA==">politifact <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cg==">r <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmFudA==">rant <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cmVzZWFyY2g=">research <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmV0cm8=">retro <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFsa3M=">talks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHdpdHRlcg==">twitter <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(53)</span></div><div class="category" data-category="QUk=">AI <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(7)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(9)</span></div><div class="category" data-category="Y29udGVudA==">content <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YQ==">data <span class="quarto-category-count">(6)</span></div><div class="category" data-category="ZGF0YSUyMGpvdXJuYWxpc20=">data journalism <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZGphbmdv">django <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWR1Y2F0aW9u">education <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Zm9vdGJhbGw=">football <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnV0dXJl">future <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aHVza2Vycw==">huskers <span class="quarto-category-count">(3)</span></div><div class="category" data-category="am91cm5hbGlzbQ==">journalism <span class="quarto-category-count">(14)</span></div><div class="category" data-category="bWFuaWZlc3Rv">manifesto <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bWFya2V0aW5n">marketing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3c2FwcHM=">newsapps <span class="quarto-category-count">(10)</span></div><div class="category" data-category="cGxhdGZvcm1z">platforms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cG9saXRpZmFjdA==">politifact <span class="quarto-category-count">(3)</span></div><div class="category" data-category="cg==">r <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmFudA==">rant <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cmVzZWFyY2g=">research <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmV0cm8=">retro <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGFsa3M=">talks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHdpdHRlcg==">twitter <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -403,7 +404,44 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1741327200000" data-listing-file-modified-sort="1763769826824" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="943">
+<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1763964000000" data-listing-file-modified-sort="1764042915974" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1180">
+<div class="thumbnail"><a href="./posts/2025-11-24-parsing-pdfs-with-antigravity/index.html" class="no-external">
+
+<img loading="lazy" src="./posts/2025-11-24-parsing-pdfs-with-antigravity/image.png" class="thumbnail-image">
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2025-11-24-parsing-pdfs-with-antigravity/index.html" class="no-external">Parsing PDFs with Antigravity</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2025-11-24-parsing-pdfs-with-antigravity/index.html" class="no-external">In a word: Gobsmacked.</a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/2025-11-24-parsing-pdfs-with-antigravity/index.html" class="no-external">
+Last week, Google launched their much anticipated Gemini 3 model, and much is being said and written about it. One very interesting thing they did was launch a Visual Studio…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2025-11-24-parsing-pdfs-with-antigravity/index.html" class="no-external">
+<div class="listing-date">
+Nov 24, 2025
+</div>
+<div class="listing-author">
+Matt Waite
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1741327200000" data-listing-file-modified-sort="1763769826824" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="943">
 <div class="thumbnail"><a href="./posts/r-llm-starter-pack/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/r-llm-starter-pack/image.png" class="thumbnail-image">
@@ -440,7 +478,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="QUklMkNjb2RlJTJDciUyQ2VkdWNhdGlvbg==" data-listing-date-sort="1732600800000" data-listing-file-modified-sort="1763770040896" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1343">
+<div class="quarto-post image-right" data-index="2" data-categories="QUklMkNjb2RlJTJDciUyQ2VkdWNhdGlvbg==" data-listing-date-sort="1732600800000" data-listing-file-modified-sort="1763770040896" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1343">
 <div class="thumbnail"><a href="./posts/an-academic-integrity-friendly-pal/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/an-academic-integrity-friendly-pal/image.png" class="thumbnail-image">
@@ -479,7 +517,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2Zvb3RiYWxsJTJDaHVza2Vycw==" data-listing-date-sort="1731045600000" data-listing-file-modified-sort="1763769788185" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1477">
+<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2Zvb3RiYWxsJTJDaHVza2Vycw==" data-listing-date-sort="1731045600000" data-listing-file-modified-sort="1763769788185" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1477">
 <div class="thumbnail"><a href="./posts/scrollytelling-nebraskas-season/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/scrollytelling-nebraskas-season/image.png" class="thumbnail-image">
@@ -516,7 +554,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1729659600000" data-listing-file-modified-sort="1763770080346" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2851">
+<div class="quarto-post image-right" data-index="4" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1729659600000" data-listing-file-modified-sort="1763770080346" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2851">
 <div class="thumbnail"><a href="./posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/a-simple-example-ai-agents-doing-journalism/image.png" class="thumbnail-image">
@@ -553,7 +591,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1648443600000" data-listing-file-modified-sort="1763770269986" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4354">
+<div class="quarto-post image-right" data-index="5" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1648443600000" data-listing-file-modified-sort="1763770269986" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4354">
 <div class="thumbnail"><a href="./posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/another-year-another-attempt-another-bracket-disaster/image.png" class="thumbnail-image">
@@ -588,7 +626,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1647752400000" data-listing-file-modified-sort="1763769865690" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1096">
+<div class="quarto-post image-right" data-index="6" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1647752400000" data-listing-file-modified-sort="1763769865690" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1096">
 <div class="thumbnail"><a href="./posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/nebraska-is-the-third-best-worst-basketball-team/image.png" class="thumbnail-image">
@@ -625,7 +663,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1616907600000" data-listing-file-modified-sort="1763769924412" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1209">
+<div class="quarto-post image-right" data-index="7" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1616907600000" data-listing-file-modified-sort="1763769924412" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1209">
 <div class="thumbnail"><a href="./posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/is-nebraska-the-best-worst-basketball-team/image.png" class="thumbnail-image">
@@ -662,7 +700,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1616389200000" data-listing-file-modified-sort="1763769739532" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1700">
+<div class="quarto-post image-right" data-index="8" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1616389200000" data-listing-file-modified-sort="1763769739532" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1700">
 <div class="thumbnail"><a href="./posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/ncaa-bracket-with-machine-learning-2021/Screen Shot 2021-03-22 at 10.39.09 PM.png" class="thumbnail-image">
@@ -697,7 +735,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1528779600000" data-listing-file-modified-sort="1763756108000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="398">
+<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1528779600000" data-listing-file-modified-sort="1763756108000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="398">
 <div class="thumbnail"><a href="./posts/2018-06-12-choosing-a-world-cup-team-to-root-for-in-each-match-an-algorithmic-approach/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -722,7 +760,7 @@ Jun 12, 2018
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="ZGF0YSUyMGpvdXJuYWxpc20lMkNyZXRybw==" data-listing-date-sort="1458795600000" data-listing-file-modified-sort="1763770609980" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="725">
+<div class="quarto-post image-right" data-index="10" data-categories="ZGF0YSUyMGpvdXJuYWxpc20lMkNyZXRybw==" data-listing-date-sort="1458795600000" data-listing-file-modified-sort="1763770609980" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="725">
 <div class="thumbnail"><a href="./posts/2016-03-24-i-wrote-a-data-journalism-manual-for-my-college-in-1997-they-never-used-it-but-they-kept-it/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -757,7 +795,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="" data-listing-date-sort="1421992800000" data-listing-file-modified-sort="1763768569805" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="535">
+<div class="quarto-post image-right" data-index="11" data-categories="" data-listing-date-sort="1421992800000" data-listing-file-modified-sort="1763768569805" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="535">
 <div class="thumbnail"><a href="./posts/2015-01-23-using-lego-to-teach-data-visualization/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -788,7 +826,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="ZGF0YSUyMGpvdXJuYWxpc20lMkN0YWxrcw==" data-listing-date-sort="1418104800000" data-listing-file-modified-sort="1763770968132" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="33">
+<div class="quarto-post image-right" data-index="12" data-categories="ZGF0YSUyMGpvdXJuYWxpc20lMkN0YWxrcw==" data-listing-date-sort="1418104800000" data-listing-file-modified-sort="1763770968132" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="33">
 <div class="thumbnail"><a href="./posts/2014-12-09-everything-i-know-about-data-i-learned-from-70s-album-rock/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -823,7 +861,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="" data-listing-date-sort="1416463200000" data-listing-file-modified-sort="1763768569813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="577">
+<div class="quarto-post image-right" data-index="13" data-categories="" data-listing-date-sort="1416463200000" data-listing-file-modified-sort="1763768569813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="577">
 <div class="thumbnail"><a href="./posts/2014-11-20-a-classroom-experiment-in-twitter-bots-and-creativity/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -854,7 +892,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="" data-listing-date-sort="1396242000000" data-listing-file-modified-sort="1763768569810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="201">
+<div class="quarto-post image-right" data-index="14" data-categories="" data-listing-date-sort="1396242000000" data-listing-file-modified-sort="1763768569810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="201">
 <div class="thumbnail"><a href="./posts/2014-03-31-unl-cojmc-students-two-dataprogrammingfuture-courses-for-the-fall/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -885,7 +923,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="" data-listing-date-sort="1393740000000" data-listing-file-modified-sort="1763768569804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1367">
+<div class="quarto-post image-right" data-index="15" data-categories="" data-listing-date-sort="1393740000000" data-listing-file-modified-sort="1763768569804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1367">
 <div class="thumbnail"><a href="./posts/2014-03-02-a-5-step-nicar-recovery-plan/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -916,7 +954,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="" data-listing-date-sort="1392098400000" data-listing-file-modified-sort="1763768569808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="625">
+<div class="quarto-post image-right" data-index="16" data-categories="" data-listing-date-sort="1392098400000" data-listing-file-modified-sort="1763768569808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="625">
 <div class="thumbnail"><a href="./posts/2014-02-11-a-small-step-toward-solving-the-our-curriculum-is-too-full-problem/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -947,7 +985,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="" data-listing-date-sort="1378962000000" data-listing-file-modified-sort="1763768569814" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="71">
+<div class="quarto-post image-right" data-index="17" data-categories="" data-listing-date-sort="1378962000000" data-listing-file-modified-sort="1763768569814" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="71">
 <div class="thumbnail"><a href="./posts/2013-09-12-unconference-panel-pitch-i-will-someday-make/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -978,7 +1016,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="" data-listing-date-sort="1378184400000" data-listing-file-modified-sort="1763768569808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="503">
+<div class="quarto-post image-right" data-index="18" data-categories="" data-listing-date-sort="1378184400000" data-listing-file-modified-sort="1763768569808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="503">
 <div class="thumbnail"><a href="./posts/2013-09-03-the-minimum-viable-participant/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1009,7 +1047,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="" data-listing-date-sort="1373864400000" data-listing-file-modified-sort="1763768569811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="51">
+<div class="quarto-post image-right" data-index="19" data-categories="" data-listing-date-sort="1373864400000" data-listing-file-modified-sort="1763768569811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="51">
 <div class="thumbnail"><a href="./posts/2013-07-15-replacing-reporters-with-robots-i-might-be/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1040,7 +1078,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="" data-listing-date-sort="1370840400000" data-listing-file-modified-sort="1763768569805" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="59">
+<div class="quarto-post image-right" data-index="20" data-categories="" data-listing-date-sort="1370840400000" data-listing-file-modified-sort="1763768569805" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="59">
 <div class="thumbnail"><a href="./posts/2013-06-10-here-is-john-keefe-and-i-talking-about-the-near/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1071,7 +1109,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="" data-listing-date-sort="1368766800000" data-listing-file-modified-sort="1763768569810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
+<div class="quarto-post image-right" data-index="21" data-categories="" data-listing-date-sort="1368766800000" data-listing-file-modified-sort="1763768569810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
 <div class="thumbnail"><a href="./posts/2013-05-17-a-new-way-for-data-journalists-to-thwart-newsroom-it-the-raspberry-pi/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1102,7 +1140,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-categories="" data-listing-date-sort="1367384400000" data-listing-file-modified-sort="1763768569810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="88">
+<div class="quarto-post image-right" data-index="22" data-categories="" data-listing-date-sort="1367384400000" data-listing-file-modified-sort="1763768569810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="88">
 <div class="thumbnail"><a href="./posts/2013-05-01-adventures-in-prototyping/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1133,7 +1171,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-categories="" data-listing-date-sort="1359352800000" data-listing-file-modified-sort="1763768569814" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="443">
+<div class="quarto-post image-right" data-index="23" data-categories="" data-listing-date-sort="1359352800000" data-listing-file-modified-sort="1763768569814" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="443">
 <div class="thumbnail"><a href="./posts/2013-01-28-writing-stories-with-code-part-2-conditional-leads-from-trends/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1164,7 +1202,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-categories="" data-listing-date-sort="1359180000000" data-listing-file-modified-sort="1763768569806" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="717">
+<div class="quarto-post image-right" data-index="24" data-categories="" data-listing-date-sort="1359180000000" data-listing-file-modified-sort="1763768569806" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="717">
 <div class="thumbnail"><a href="./posts/2013-01-26-writing-stories-with-code/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1195,7 +1233,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="24" data-categories="" data-listing-date-sort="1354687200000" data-listing-file-modified-sort="1763768569815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
+<div class="quarto-post image-right" data-index="25" data-categories="" data-listing-date-sort="1354687200000" data-listing-file-modified-sort="1763768569815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
 <div class="thumbnail"><a href="./posts/2012-12-05-drones-soldering-irons-micro-controllers/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1226,7 +1264,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="25" data-categories="" data-listing-date-sort="1339218000000" data-listing-file-modified-sort="1763768569815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="251">
+<div class="quarto-post image-right" data-index="26" data-categories="" data-listing-date-sort="1339218000000" data-listing-file-modified-sort="1763768569815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="251">
 <div class="thumbnail"><a href="./posts/2012-06-09-numeracy/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1257,7 +1295,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="26" data-categories="" data-listing-date-sort="1337144400000" data-listing-file-modified-sort="1763768569815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="153">
+<div class="quarto-post image-right" data-index="27" data-categories="" data-listing-date-sort="1337144400000" data-listing-file-modified-sort="1763768569815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="153">
 <div class="thumbnail"><a href="./posts/2012-05-16-help-me-plan-a-hacker-spacedrone-lab/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1288,7 +1326,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="27" data-categories="" data-listing-date-sort="1336626000000" data-listing-file-modified-sort="1763768569816" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="249">
+<div class="quarto-post image-right" data-index="28" data-categories="" data-listing-date-sort="1336626000000" data-listing-file-modified-sort="1763768569816" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="249">
 <div class="thumbnail"><a href="./posts/2012-05-10-if-you-were-teaching-a-course-in-data-visualization/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1319,7 +1357,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="28" data-categories="am91cm5hbGlzbSUyQ2VkdWNhdGlvbiUyQ21hbmlmZXN0byUyQ3JhbnQ=" data-listing-date-sort="1331701200000" data-listing-file-modified-sort="1763768569811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1079">
+<div class="quarto-post image-right" data-index="29" data-categories="am91cm5hbGlzbSUyQ2VkdWNhdGlvbiUyQ21hbmlmZXN0byUyQ3JhbnQ=" data-listing-date-sort="1331701200000" data-listing-file-modified-sort="1763768569811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1079">
 <div class="thumbnail"><a href="./posts/2012-03-14-toward-a-solution-to-the-more-tech-in-j-school-problem/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1358,7 +1396,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="29" data-categories="" data-listing-date-sort="1328162400000" data-listing-file-modified-sort="1763768569813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
+<div class="quarto-post image-right" data-index="30" data-categories="" data-listing-date-sort="1328162400000" data-listing-file-modified-sort="1763768569813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
 <div class="thumbnail"><a href="./posts/2012-02-02-using-python-to-access-tweets-from-the-command-line/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1389,7 +1427,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="30" data-categories="" data-listing-date-sort="1326780000000" data-listing-file-modified-sort="1763768569809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="765">
+<div class="quarto-post image-right" data-index="31" data-categories="" data-listing-date-sort="1326780000000" data-listing-file-modified-sort="1763768569809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="765">
 <div class="thumbnail"><a href="./posts/2012-01-17-a-completely-arbitrary-list-of-takeaways-from-two-unconferences/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1421,7 +1459,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="31" data-categories="" data-listing-date-sort="1326088800000" data-listing-file-modified-sort="1763768569807" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="427">
+<div class="quarto-post image-right" data-index="32" data-categories="" data-listing-date-sort="1326088800000" data-listing-file-modified-sort="1763768569807" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="427">
 <div class="thumbnail"><a href="./posts/2012-01-09-a-word-of-advice-for-code-year-participants/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1452,7 +1490,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="32" data-categories="" data-listing-date-sort="1325656800000" data-listing-file-modified-sort="1763768569812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="186">
+<div class="quarto-post image-right" data-index="33" data-categories="" data-listing-date-sort="1325656800000" data-listing-file-modified-sort="1763768569812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="186">
 <div class="thumbnail"><a href="./posts/2012-01-04-data-journalism-class-description-your-thoughts/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1483,7 +1521,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="33" data-categories="" data-listing-date-sort="1321336800000" data-listing-file-modified-sort="1763768569812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="397">
+<div class="quarto-post image-right" data-index="34" data-categories="" data-listing-date-sort="1321336800000" data-listing-file-modified-sort="1763768569812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="397">
 <div class="thumbnail"><a href="./posts/2011-11-15-thinking-out-loud-the-management-wisdom-of-battlestar-galactica/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1514,7 +1552,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="34" data-categories="" data-listing-date-sort="1318827600000" data-listing-file-modified-sort="1763768569812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="377">
+<div class="quarto-post image-right" data-index="35" data-categories="" data-listing-date-sort="1318827600000" data-listing-file-modified-sort="1763768569812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="377">
 <div class="thumbnail"><a href="./posts/2011-10-17-help-me-refine-an-incomplete-idea/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1545,7 +1583,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="35" data-categories="" data-listing-date-sort="1318568400000" data-listing-file-modified-sort="1763768569806" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="284">
+<div class="quarto-post image-right" data-index="36" data-categories="" data-listing-date-sort="1318568400000" data-listing-file-modified-sort="1763768569806" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="284">
 <div class="thumbnail"><a href="./posts/2011-10-14-journalism-students-vs-tech-focused-students/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1576,7 +1614,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="36" data-categories="" data-listing-date-sort="1317618000000" data-listing-file-modified-sort="1763768569810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="889">
+<div class="quarto-post image-right" data-index="37" data-categories="" data-listing-date-sort="1317618000000" data-listing-file-modified-sort="1763768569810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="889">
 <div class="thumbnail"><a href="./posts/2011-10-03-news-nerd-rage-the-trouble-with-conferences/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1607,7 +1645,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="37" data-categories="am91cm5hbGlzbSUyQ2Z1dHVyZSUyQ21hbmlmZXN0byUyQ3BvbGl0aWZhY3Q=" data-listing-date-sort="1317099600000" data-listing-file-modified-sort="1763768569807" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3831">
+<div class="quarto-post image-right" data-index="38" data-categories="am91cm5hbGlzbSUyQ2Z1dHVyZSUyQ21hbmlmZXN0byUyQ3BvbGl0aWZhY3Q=" data-listing-date-sort="1317099600000" data-listing-file-modified-sort="1763768569807" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3831">
 <div class="thumbnail"><a href="./posts/2011-09-27-me-vs-130-journalism-101-students-the-epic-qa/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1646,7 +1684,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="38" data-categories="am91cm5hbGlzbSUyQ2RhdGE=" data-listing-date-sort="1310706000000" data-listing-file-modified-sort="1763768569804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="301">
+<div class="quarto-post image-right" data-index="39" data-categories="am91cm5hbGlzbSUyQ2RhdGE=" data-listing-date-sort="1310706000000" data-listing-file-modified-sort="1763768569804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="301">
 <div class="thumbnail"><a href="./posts/2011-07-15-some-very-smart-posts-about-killing-your-cms/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1681,7 +1719,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="39" data-categories="cmVzZWFyY2glMkNqb3VybmFsaXNtJTJDZnV0dXJl" data-listing-date-sort="1310706000000" data-listing-file-modified-sort="1763768569806" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="49">
+<div class="quarto-post image-right" data-index="40" data-categories="cmVzZWFyY2glMkNqb3VybmFsaXNtJTJDZnV0dXJl" data-listing-date-sort="1310706000000" data-listing-file-modified-sort="1763768569806" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="49">
 <div class="thumbnail"><a href="./posts/2011-07-15-take-a-few-minutes-and-watch-this-and-1-tell-me/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1718,7 +1756,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="40" data-categories="am91cm5hbGlzbSUyQ2VkdWNhdGlvbg==" data-listing-date-sort="1258956000000" data-listing-file-modified-sort="1763768569803" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="347">
+<div class="quarto-post image-right" data-index="41" data-categories="am91cm5hbGlzbSUyQ2VkdWNhdGlvbg==" data-listing-date-sort="1258956000000" data-listing-file-modified-sort="1763768569803" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="347">
 <div class="thumbnail"><a href="./posts/2009-11-23-what-would-you-want-out-of-a-class-taught-by-a-journalist-programmer/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1753,7 +1791,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="41" data-categories="am91cm5hbGlzbSUyQ2RqYW5nbyUyQ3BvbGl0aWZhY3QlMkNuZXdzYXBwcw==" data-listing-date-sort="1240808400000" data-listing-file-modified-sort="1763768569808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="600">
+<div class="quarto-post image-right" data-index="42" data-categories="am91cm5hbGlzbSUyQ2RqYW5nbyUyQ3BvbGl0aWZhY3QlMkNuZXdzYXBwcw==" data-listing-date-sort="1240808400000" data-listing-file-modified-sort="1763768569808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="600">
 <div class="thumbnail"><a href="./posts/2009-04-27-the-key-lesson-i-learned-building-politifact-demos-not-memos/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1792,7 +1830,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="42" data-categories="bmV3c2FwcHM=" data-listing-date-sort="1239512400000" data-listing-file-modified-sort="1763768569813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="804">
+<div class="quarto-post image-right" data-index="43" data-categories="bmV3c2FwcHM=" data-listing-date-sort="1239512400000" data-listing-file-modified-sort="1763768569813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="804">
 <div class="thumbnail"><a href="./posts/2009-04-12-telling-the-google-bot-no/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1825,7 +1863,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="43" data-categories="am91cm5hbGlzbSUyQ25ld3NhcHBz" data-listing-date-sort="1236060000000" data-listing-file-modified-sort="1763768569804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="453">
+<div class="quarto-post image-right" data-index="44" data-categories="am91cm5hbGlzbSUyQ25ld3NhcHBz" data-listing-date-sort="1236060000000" data-listing-file-modified-sort="1763768569804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="453">
 <div class="thumbnail"><a href="./posts/2009-03-03-build-something-or-stfu/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1860,7 +1898,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="44" data-categories="bmV3c2FwcHMlMkN0d2l0dGVyJTJDbWFya2V0aW5n" data-listing-date-sort="1232863200000" data-listing-file-modified-sort="1763768569812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="801">
+<div class="quarto-post image-right" data-index="45" data-categories="bmV3c2FwcHMlMkN0d2l0dGVyJTJDbWFya2V0aW5n" data-listing-date-sort="1232863200000" data-listing-file-modified-sort="1763768569812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="801">
 <div class="thumbnail"><a href="./posts/2009-01-25-twitter-marketing-and-the-devil/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1897,7 +1935,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="45" data-categories="am91cm5hbGlzbSUyQ2RhdGElMkNjb250ZW50JTJDcGxhdGZvcm1zJTJDbmV3c2FwcHM=" data-listing-date-sort="1232431200000" data-listing-file-modified-sort="1763768569809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="316">
+<div class="quarto-post image-right" data-index="46" data-categories="am91cm5hbGlzbSUyQ2RhdGElMkNjb250ZW50JTJDcGxhdGZvcm1zJTJDbmV3c2FwcHM=" data-listing-date-sort="1232431200000" data-listing-file-modified-sort="1763768569809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="316">
 <div class="thumbnail"><a href="./posts/2009-01-20-data-content-content-data/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1938,7 +1976,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="46" data-categories="am91cm5hbGlzbQ==" data-listing-date-sort="1216357200000" data-listing-file-modified-sort="1763768569804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="496">
+<div class="quarto-post image-right" data-index="47" data-categories="am91cm5hbGlzbQ==" data-listing-date-sort="1216357200000" data-listing-file-modified-sort="1763768569804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="496">
 <div class="thumbnail"><a href="./posts/2008-07-18-how-not-to-be-a-wordpress-hero/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1971,7 +2009,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="47" data-categories="ZGF0YSUyQ2pvdXJuYWxpc20lMkNuZXdzYXBwcw==" data-listing-date-sort="1201500000000" data-listing-file-modified-sort="1763768569805" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1064">
+<div class="quarto-post image-right" data-index="48" data-categories="ZGF0YSUyQ2pvdXJuYWxpc20lMkNuZXdzYXBwcw==" data-listing-date-sort="1201500000000" data-listing-file-modified-sort="1763768569805" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1064">
 <div class="thumbnail"><a href="./posts/2008-01-28-thoughts-on-everyblock-and-context/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -2008,7 +2046,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="48" data-categories="am91cm5hbGlzbSUyQ2RhdGElMkNuZXdzYXBwcw==" data-listing-date-sort="1200117600000" data-listing-file-modified-sort="1763768569808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="981">
+<div class="quarto-post image-right" data-index="49" data-categories="am91cm5hbGlzbSUyQ2RhdGElMkNuZXdzYXBwcw==" data-listing-date-sort="1200117600000" data-listing-file-modified-sort="1763768569808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="981">
 <div class="thumbnail"><a href="./posts/2008-01-12-molten-content-data-ghettos-and-why-your-cms-problems-are-an-excuse-not-a-reason/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -2045,7 +2083,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="49" data-categories="ZGF0YSUyQ2pvdXJuYWxpc20lMkNuZXdzYXBwcyUyQ3JhbnQ=" data-listing-date-sort="1199426400000" data-listing-file-modified-sort="1763768569809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="796">
+<div class="quarto-post image-right" data-index="50" data-categories="ZGF0YSUyQ2pvdXJuYWxpc20lMkNuZXdzYXBwcyUyQ3JhbnQ=" data-listing-date-sort="1199426400000" data-listing-file-modified-sort="1763768569809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="796">
 <div class="thumbnail"><a href="./posts/2008-01-04-data-ghettos/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -2084,7 +2122,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="50" data-categories="am91cm5hbGlzbSUyQ25ld3NhcHBz" data-listing-date-sort="1189486800000" data-listing-file-modified-sort="1763768569811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="775">
+<div class="quarto-post image-right" data-index="51" data-categories="am91cm5hbGlzbSUyQ25ld3NhcHBz" data-listing-date-sort="1189486800000" data-listing-file-modified-sort="1763768569811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="775">
 <div class="thumbnail"><a href="./posts/2007-09-11-why-the-journalist-in-programmerjournalist-matters/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -2119,7 +2157,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="51" data-categories="cG9saXRpZmFjdCUyQ2pvdXJuYWxpc20lMkNkYXRhJTJDbmV3c2FwcHM=" data-listing-date-sort="1187758800000" data-listing-file-modified-sort="1763768569809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="856">
+<div class="quarto-post image-right" data-index="52" data-categories="cG9saXRpZmFjdCUyQ2pvdXJuYWxpc20lMkNkYXRhJTJDbmV3c2FwcHM=" data-listing-date-sort="1187758800000" data-listing-file-modified-sort="1763768569809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="856">
 <div class="thumbnail"><a href="./posts/2007-08-22-announcing-politifact/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -2228,13 +2266,14 @@ Matt Waite
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

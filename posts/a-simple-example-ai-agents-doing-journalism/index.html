@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,18 +70,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-a9957ab5e8b7c67643b7e2e6b5c1e54e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-fc539113232677d296c547e50173fa21.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-de0ed3b9a49d5daa615839eefb10c6a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -422,13 +423,13 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <p>The gemini.R package couldn’t make sending something to Gemini any more simple. The hardest part – which is not hard – is getting an API key from Google. How do you do that? Go here: <a href="https://makersuite.google.com/app/apikey" class="uri">https://makersuite.google.com/app/apikey</a>. So I always have mine and don’t lose it, I set it as an environment variable. To do that, run <code>usethis::edit_r_environ()</code> and add <code>GOOGLE_GEMINI_KEY="your key here"</code> to your environment, save that file and restart R Studio (or whatever IDE you use).</p>
 <p>You can test it out with something like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gemini.R)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setAPI</span>(<span class="fu">Sys.getenv</span>(<span class="st">"GOOGLE_GEMINI_KEY"</span>))</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gemini</span>(<span class="st">"Write me a haiku about the joy and sadness of being a Nebraska football fan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">gemini</span>(<span class="st">"Write me a haiku about the joy and sadness of being a Nebraska football fan"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>What do you get back?</p>
 <blockquote class="blockquote">
@@ -437,7 +438,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <p>Ouch.</p>
 <p>But that’s really it. Just <code>gemini("Words here")</code> and off it goes to an AI and back comes the results in plain text. So the first hard part is turning data into a text block we can send to Gemini. So I pull a dataset of Nebraska county population estimates, I’m going to thin the number of columns I’m working with first, then create the percent change column, create a GEOID column made up of the state and county FIPS number so I can join it to my map later, rank the counties by population change and then mash it all together into a single text blob called the <code>base_narrative</code>. It’s literally just Column Name: Number, Column Name: Number repeated over and over.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>countypopchange <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://the-art-of-data-journalism.github.io/tutorial-data/census-estimates/nebraska.csv"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>countypopchange <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://the-art-of-data-journalism.github.io/tutorial-data/census-estimates/nebraska.csv"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>statenarrative <span class="ot">&lt;-</span> countypopchange <span class="sc">|&gt;</span> </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(COUNTY, STATE, CTYNAME, STNAME, POPESTIMATE2023, POPESTIMATE2022, NPOPCHG2023, NATURALCHG2023, NETMIG2023) <span class="sc">|&gt;</span></span>
@@ -446,7 +447,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(POPPERCENTCHANGE)) <span class="sc">|&gt;</span> </span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">PCTCHANGERANK =</span> <span class="fu">row_number</span>()) <span class="sc">|&gt;</span> </span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">base_narrative =</span> <span class="fu">glue</span>(</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"County: {CTYNAME}, Population in 2023: {POPESTIMATE2023}, Population in 2022: {POPESTIMATE2022}, Population change: {NPOPCHG2023}, Percent change: {POPPERCENTCHANGE}, Percent change rank in {STNAME}: {PCTCHANGERANK}, Natural change (births vs deaths): {NATURALCHG2023}, Net migration: {NETMIG2023}"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"County: {CTYNAME}, Population in 2023: {POPESTIMATE2023}, Population in 2022: {POPESTIMATE2022}, Population change: {NPOPCHG2023}, Percent change: {POPPERCENTCHANGE}, Percent change rank in {STNAME}: {PCTCHANGERANK}, Natural change (births vs deaths): {NATURALCHG2023}, Net migration: {NETMIG2023}"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>What does a <code>base_narrative</code> look like?</p>
 <blockquote class="blockquote">
@@ -457,7 +458,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <p>Like any good LLM prompt, we’re going to start by giving our author agent a role – a job to do. Our agent is a demographics journalist from Nebraska. We give that agent a task with some details – keep it short but approachable. And then we give it the data.</p>
 <p>Below the role is a function that takes in a county name, finds the <code>base_narrative</code> for that county and then we merge together the <code>author_role</code> and the <code>base_narrative</code> when we send it to Gemini. We store the results in a variable called … <code>results</code> and do a little cleanup on it (Gemini likes to cram newline characters in the results). I’ve added a five second sleep between every county to keep from running afoul of Google’s free tier API limits. Theoretically I should be able to set it to four seconds, but I don’t need my account banned over a second. With those pauses, our author takes about eight minutes to write small narratives about each of the 93 counties.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>author_role <span class="ot">&lt;-</span> <span class="st">"You are a demographics journalist from Nebraska. Your job today is to write short -- 2-3 sentence -- summaries of population estimates from the Census Bureau for each county in the state. I will provide you the name of the county and a series of population numbers for the county. Your job is to turn it into a concise but approachable summary of what happened in that county. Here is the data you have to work with: "</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>author_role <span class="ot">&lt;-</span> <span class="st">"You are a demographics journalist from Nebraska. Your job today is to write short -- 2-3 sentence -- summaries of population estimates from the Census Bureau for each county in the state. I will provide you the name of the county and a series of population numbers for the county. Your job is to turn it into a concise but approachable summary of what happened in that county. Here is the data you have to work with: "</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>author_agent <span class="ot">&lt;-</span> <span class="cf">function</span>(county) {</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  county_narrative <span class="ot">&lt;-</span> statenarrative <span class="sc">|&gt;</span> <span class="fu">filter</span>(CTYNAME <span class="sc">==</span> county)</span>
@@ -471,7 +472,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Use map_df to directly create the final dataframe</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>author_agent_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_df</span>(statenarrative<span class="sc">$</span>CTYNAME, author_agent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>author_agent_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_df</span>(statenarrative<span class="sc">$</span>CTYNAME, author_agent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>When it’s done, we end up with a dataframe called <code>author_agent_results</code> which has the county name and the new narrative.</p>
 <p>What does it look like? Remember, we gave it this:</p>
@@ -485,7 +486,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <p>We could stop here, but why do that? Good journalism is often a layered process involving multiple sets of eyes reviewing the work along the way, and other skilled people adding to the product. So who would normally get this next? How about we fact check the work?</p>
 <p>Exact same pattern, just a different role for the AI.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fact_check_role <span class="ot">&lt;-</span> <span class="st">"You are a fact-checking editor. Your job today is to compare the information in the base narrative to the capsule narrative in the data provided to you. You will compare each number in the base narrative to the capsule narrative to make sure they are the same, and then you will check the context of how each number was used in comparison to the original base narrative. To be clear: the base narrative is the correct information. When you are finished, return just a single word. If everything is correct, respond Correct. If any part of it is not correct, respond Incorrect. "</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fact_check_role <span class="ot">&lt;-</span> <span class="st">"You are a fact-checking editor. Your job today is to compare the information in the base narrative to the capsule narrative in the data provided to you. You will compare each number in the base narrative to the capsule narrative to make sure they are the same, and then you will check the context of how each number was used in comparison to the original base narrative. To be clear: the base narrative is the correct information. When you are finished, return just a single word. If everything is correct, respond Correct. If any part of it is not correct, respond Incorrect. "</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>fact_check_agent <span class="ot">&lt;-</span> <span class="cf">function</span>(county_input) {</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  county_narrative <span class="ot">&lt;-</span> author_agent_results <span class="sc">|&gt;</span> <span class="fu">filter</span>(county <span class="sc">==</span> county_input)</span>
@@ -503,12 +504,12 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Use map_df to directly create the final dataframe</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>fact_check_agent_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_df</span>(author_agent_results<span class="sc">$</span>county, fact_check_agent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>fact_check_agent_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_df</span>(author_agent_results<span class="sc">$</span>county, fact_check_agent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Honestly, this part needs work. It flags about 10 percent of the results as being incorrect, but they aren’t. The reason it flags them is the author agent was a little glib with the numbers – saying “a slight increase natural growth because of more births” without giving the numbers themselves. The fact checking editor bot here does not like that. So it might need a little tweaking to see if we can get the fact checker to lighten up a bit.</p>
 <p>Quit now? Nah. How about we add a little local flair to each capsule. Google knows a lot of stuff, so why not add some kind of geographic context to each county. To do that, I created a rewrite editor and commanded it to add details like the region of the state, the county seat, the largest city, or some other detail to a single clause in the original narrative.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rewrite_role <span class="ot">&lt;-</span> <span class="st">"You are a re-write editor. Your job is to add a little local geographic context to a demographic capsule about a county in Nebraska. You'll do this by adding a clause to the paragraph I'll provide you. That clause should tell you something about that county. Maybe the county seat, or the largest city, or the region of the state it is in. We just need a clause added to one of the sentences, and do not do anything to show where you added it. Here is the capsule: "</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rewrite_role <span class="ot">&lt;-</span> <span class="st">"You are a re-write editor. Your job is to add a little local geographic context to a demographic capsule about a county in Nebraska. You'll do this by adding a clause to the paragraph I'll provide you. That clause should tell you something about that county. Maybe the county seat, or the largest city, or the region of the state it is in. We just need a clause added to one of the sentences, and do not do anything to show where you added it. Here is the capsule: "</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>rewrite_agent <span class="ot">&lt;-</span> <span class="cf">function</span>(county_input) {</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  county_narrative <span class="ot">&lt;-</span> fact_check_agent_results <span class="sc">|&gt;</span> <span class="fu">filter</span>(county <span class="sc">==</span> county_input)</span>
@@ -522,7 +523,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Use map_df to directly create the final dataframe</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>rewrite_agent_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_df</span>(fact_check_agent_results<span class="sc">$</span>county, rewrite_agent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>rewrite_agent_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_df</span>(fact_check_agent_results<span class="sc">$</span>county, rewrite_agent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>What did it give us for Banner County?</p>
 <blockquote class="blockquote">
@@ -531,7 +532,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <p>Hmmm. Is the fact that there were the same number of births and deaths caused by it’s location in the northwest corner of the state? Debatable. And, honestly, this re-write bot has been the source of the most questions I have about this whole enterprise. We’ll talk more about that below.</p>
 <p>One last thing: Why not give every county a headline instead of just simply having the county name in the map? Done and done.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>headline_writer_role <span class="ot">&lt;-</span> <span class="st">"You are a headline writer. Your job is to write a short headline based on the summary given to you. This headline should be short -- it has to fit into a small space -- so bear that in mind. Here is the capsule: "</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>headline_writer_role <span class="ot">&lt;-</span> <span class="st">"You are a headline writer. Your job is to write a short headline based on the summary given to you. This headline should be short -- it has to fit into a small space -- so bear that in mind. Here is the capsule: "</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>headline_agent <span class="ot">&lt;-</span> <span class="cf">function</span>(county_input) {</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  county_narrative <span class="ot">&lt;-</span> rewrite_agent_results <span class="sc">|&gt;</span> <span class="fu">filter</span>(county <span class="sc">==</span> county_input)</span>
@@ -545,7 +546,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Use map_df to directly create the final dataframe</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>headline_agent_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_df</span>(rewrite_agent_results<span class="sc">$</span>county, headline_agent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>headline_agent_results <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_df</span>(rewrite_agent_results<span class="sc">$</span>county, headline_agent)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>And what does that look like in Banner County?</p>
 <blockquote class="blockquote">
@@ -631,13 +632,14 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
