@@ -1,12 +1,13 @@
 :root {
-    --bg-color: #0f172a;
-    --card-bg: #1e293b;
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --accent-color: #38bdf8;
-    --accent-hover: #0ea5e9;
-    --border-color: #334155;
-    --font-family: 'Inter', sans-serif;
+    --bg-color: #ffffff;
+    --card-bg: #ffffff;
+    --text-primary: #111111;
+    --text-secondary: #555555;
+    --accent-color: #cc0000;
+    --accent-hover: #990000;
+    --border-color: #e2e8f0;
+    --font-family: 'Georgia', 'Times New Roman', serif;
+    --ui-font: 'Inter', sans-serif;
 }
 
 * {
@@ -37,13 +38,16 @@ header {
     text-align: center;
     margin-bottom: 3rem;
     animation: fadeInDown 0.8s ease-out;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.02em;
     margin-bottom: 0.5rem;
+    font-family: var(--font-family);
 }
 
 .year {
@@ -52,13 +56,14 @@ h1 {
 
 .subtitle {
     color: var(--text-secondary);
-    font-size: 1.1rem;
-    font-weight: 300;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: var(--ui-font);
 }
 
 .search-container {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     animation: fadeInUp 0.8s ease-out 0.2s backwards;
 }
 
@@ -67,18 +72,21 @@ input[type="text"] {
     padding: 1.2rem 1.5rem;
     padding-right: 3.5rem;
     font-size: 1.1rem;
-    background-color: var(--card-bg);
+    background-color: #f8fafc;
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 4px;
+    /* More squared off like a newspaper site might be */
     color: var(--text-primary);
+    font-family: var(--ui-font);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
 }
 
 input[type="text"]:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.1);
 }
 
 .search-icon {
@@ -99,41 +107,47 @@ input[type="text"]:focus {
     color: var(--text-secondary);
     padding: 2rem;
     font-style: italic;
+    font-family: var(--ui-font);
 }
 
 .result-count {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 1.5rem;
     color: var(--text-secondary);
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.5rem;
+    font-family: var(--ui-font);
 }
 
 .highlight {
+    background-color: rgba(204, 0, 0, 0.1);
     color: var(--accent-color);
     font-weight: 600;
+    padding: 0 2px;
 }
 
 .story-card {
     background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem 0;
+    margin-bottom: 0;
+    transition: background-color 0.2s ease;
+}
+
+.story-card:last-child {
+    border-bottom: none;
 }
 
 .story-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    border-color: var(--accent-color);
+    background-color: #fcfcfc;
 }
 
 .story-title {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
-    line-height: 1.4;
+    line-height: 1.3;
+    font-family: var(--font-family);
 }
 
 .story-title a {
@@ -144,23 +158,29 @@ input[type="text"]:focus {
 
 .story-title a:hover {
     color: var(--accent-color);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
 }
 
 .story-author {
     font-size: 0.95rem;
     color: var(--text-secondary);
+    font-family: var(--ui-font);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
 }
 
 .story-author a {
-    color: var(--text-secondary);
+    color: var(--accent-color);
     text-decoration: none;
-    border-bottom: 1px dotted var(--text-secondary);
-    transition: color 0.2s ease, border-color 0.2s ease;
+    font-weight: 600;
+    transition: color 0.2s ease;
 }
 
 .story-author a:hover {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
+    color: var(--accent-hover);
+    text-decoration: underline;
 }
 
 footer {
@@ -168,7 +188,12 @@ footer {
     text-align: center;
     color: var(--text-secondary);
     font-size: 0.9rem;
-    opacity: 0.6;
+    opacity: 0.8;
+    font-family: var(--ui-font);
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+    width: 100%;
+    max-width: 800px;
 }
 
 @keyframes fadeInDown {
@@ -176,6 +201,7 @@ footer {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -187,6 +213,7 @@ footer {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
