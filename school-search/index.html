@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find your district's chronic absentee rate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Find your district's chronic absentee rate</h1>
+            <p class="subtitle">Search for a Nebraska school district to see the trends in chronic absenteeism over recent years.</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="district-search" placeholder="Start typing a district name..." autocomplete="off">
+            <div id="search-results" class="search-results hidden"></div>
+        </div>
+
+        <div id="data-display" class="data-display hidden">
+            <h2 id="district-name"></h2>
+            
+            <div class="chart-container">
+                <canvas id="absenteeismChart"></canvas>
+            </div>
+
+            <div class="table-container">
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>School Year</th>
+                            <th>Chronic Absenteeism Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

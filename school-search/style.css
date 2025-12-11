@@ -1,0 +1,195 @@
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --background-color: #f8fafc;
+    --card-background: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --radius: 0.5rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    padding: 2rem 1rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+}
+
+.search-container {
+    position: relative;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.125rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    background-color: var(--card-background);
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    margin-top: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+    box-shadow: var(--shadow-md);
+    display: none;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.result-item {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.result-item:hover {
+    background-color: #f1f5f9;
+}
+
+.data-display {
+    background-color: var(--card-background);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.data-display.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.data-display.hidden {
+    display: none;
+}
+
+#district-name {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    font-weight: 600;
+    color: var(--text-secondary);
+    background-color: #f8fafc;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Scrollbar styling for search results */
+.search-results::-webkit-scrollbar {
+    width: 8px;
+}
+
+.search-results::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.search-results::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+@media (max-width: 640px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    .data-display {
+        padding: 1.5rem;
+    }
+}
