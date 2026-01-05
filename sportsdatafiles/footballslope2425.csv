@@ -7,7 +7,7 @@ season,team,conference,yards_per_play
 2024,Arizona State,Big 12 Conference,6.178828365878726
 2024,Arkansas,Southeastern Conference,6.578193832599119
 2024,Arkansas State,Sun Belt Conference,5.373118279569892
-2024,Army,American Conference,6.021444695259594
+2024,Army,American Athletic Conference,6.021444695259594
 2024,Auburn,Southeastern Conference,6.666235446313066
 2024,BYU,Big 12 Conference,6.100478468899522
 2024,Ball State,Mid-American Conference,5.140394088669951
@@ -18,23 +18,23 @@ season,team,conference,yards_per_play
 2024,Buffalo,Mid-American Conference,5.25
 2024,California,Atlantic Coast Conference,5.442731277533039
 2024,Central Michigan,Mid-American Conference,5.279038718291055
-2024,Charlotte,American Conference,5.510094212651413
+2024,Charlotte,American Athletic Conference,5.510094212651413
 2024,Cincinnati,Big 12 Conference,6.139902676399027
 2024,Clemson,Atlantic Coast Conference,6.288270377733598
-2024,Coastal Carolina,Sun Belt Conference,5.7746144721233685
+2024,Coastal Carolina,Sun Belt Conference,5.762752075919336
 2024,Colorado,Big 12 Conference,6.05224787363305
 2024,Colorado State,Mountain West Conference,5.907385697538101
 2024,Connecticut,Independent,5.667763157894737
 2024,Duke,Atlantic Coast Conference,5.162735849056604
-2024,East Carolina,American Conference,6.310344827586207
+2024,East Carolina,American Athletic Conference,6.310344827586207
 2024,Eastern Michigan,Mid-American Conference,5.077267637178052
 2024,Florida,Southeastern Conference,6.2640099626401
-2024,Florida Atlantic,American Conference,5.90470297029703
+2024,Florida Atlantic,American Athletic Conference,5.90470297029703
 2024,Florida International,Conference USA,5.714285714285714
 2024,Florida State,Atlantic Coast Conference,4.4242837653478855
 2024,Fresno State,Mountain West Conference,5.433128834355828
 2024,Georgia,Southeastern Conference,6.025477707006369
-2024,Georgia Southern,Sun Belt Conference,5.330347144456887
+2024,Georgia Southern,Sun Belt Conference,5.319148936170213
 2024,Georgia State,Sun Belt Conference,5.7346437346437344
 2024,Georgia Tech,Atlantic Coast Conference,6.111849390919159
 2024,Hawaii,Mountain West Conference,5.353658536585366
@@ -59,16 +59,16 @@ season,team,conference,yards_per_play
 2024,Marshall,Sun Belt Conference,5.909738717339668
 2024,Maryland,Big Ten Conference,5.362268518518518
 2024,Massachusetts,Independent,5.114814814814815
-2024,Memphis,American Conference,6.234088457389428
+2024,Memphis,American Athletic Conference,6.234088457389428
 2024,Miami (FL),Atlantic Coast Conference,7.573752711496746
 2024,Miami (OH),Mid-American Conference,6.08128078817734
 2024,Michigan,Big Ten Conference,4.68639798488665
-2024,Michigan State,Big Ten Conference,5.379356568364611
+2024,Michigan State,Big Ten Conference,5.356091030789826
 2024,Middle Tennessee State,Conference USA,5.505897771952818
 2024,Minnesota,Big Ten Conference,5.381127450980392
 2024,Mississippi State,Southeastern Conference,5.750952986022872
 2024,Missouri,Southeastern Conference,5.492407809110629
-2024,Navy,American Conference,6.260700389105058
+2024,Navy,American Athletic Conference,6.260700389105058
 2024,Nebraska,Big Ten Conference,5.285390713476784
 2024,Nevada,Mountain West Conference,5.904589371980676
 2024,Nevada-Las Vegas,Mountain West Conference,6.25107296137339
@@ -76,22 +76,22 @@ season,team,conference,yards_per_play
 2024,New Mexico State,Conference USA,4.758282208588957
 2024,North Carolina,Atlantic Coast Conference,5.953828828828829
 2024,North Carolina State,Atlantic Coast Conference,6.048029556650246
-2024,North Texas,American Conference,6.717758985200845
+2024,North Texas,American Athletic Conference,6.717758985200845
 2024,Northern Illinois,Mid-American Conference,5.32583065380493
 2024,Northwestern,Big Ten Conference,4.575067024128686
-2024,Notre Dame,Independent,6.303060217176703
+2024,Notre Dame,Independent,6.454648526077097
 2024,Ohio,Mid-American Conference,6.1784548422198045
-2024,Ohio State,Big Ten Conference,6.9464105156723965
+2024,Ohio State,Big Ten Conference,6.959770114942529
 2024,Oklahoma,Southeastern Conference,4.813199105145414
 2024,Oklahoma State,Big 12 Conference,5.561338289962825
 2024,Old Dominion,Sun Belt Conference,5.936117936117936
 2024,Ole Miss,Southeastern Conference,7.3286937901498925
 2024,Oregon,Big Ten Conference,6.3858185610010425
 2024,Oregon State,Independent,5.553317535545023
-2024,Penn State,Big Ten Conference,6.5427756653992395
+2024,Penn State,Big Ten Conference,6.630192502532928
 2024,Pitt,Atlantic Coast Conference,5.768729641693811
 2024,Purdue,Big Ten Conference,5.312130177514793
-2024,Rice,American Conference,5.436456996148909
+2024,Rice,American Athletic Conference,5.436456996148909
 2024,Rutgers,Big Ten Conference,5.455043859649122
 2024,SMU,Atlantic Coast Conference,6.1482617586912065
 2024,Sam Houston,Conference USA,4.986769570011026
@@ -99,27 +99,27 @@ season,team,conference,yards_per_play
 2024,San Jose State,Mountain West Conference,6.082191780821918
 2024,South Alabama,Sun Belt Conference,6.8428571428571425
 2024,South Carolina,Southeastern Conference,5.9361702127659575
-2024,South Florida,American Conference,5.668449197860962
+2024,South Florida,American Athletic Conference,5.668449197860962
 2024,Southern Mississippi,Sun Belt Conference,4.666666666666667
 2024,Stanford,Atlantic Coast Conference,4.8166047087980175
 2024,Syracuse,Atlantic Coast Conference,6.079
-2024,Temple,American Conference,4.648682559598495
+2024,Temple,American Athletic Conference,4.648682559598495
 2024,Tennessee,Southeastern Conference,6.065762004175365
-2024,Texas,Southeastern Conference,6.211180124223603
+2024,Texas,Southeastern Conference,6.288007554296506
 2024,Texas A&M,Southeastern Conference,5.9470124013528745
 2024,Texas Christian,Big 12 Conference,6.248873873873874
 2024,Texas State,Sun Belt Conference,6.478578892371996
 2024,Texas Tech,Big 12 Conference,5.955445544554456
 2024,Toledo,Mid-American Conference,5.409448818897638
 2024,Troy,Sun Belt Conference,5.716129032258064
-2024,Tulane,American Conference,6.328125
-2024,Tulsa,American Conference,5.25984251968504
-2024,UAB,American Conference,5.627240143369176
+2024,Tulane,American Athletic Conference,6.328125
+2024,Tulsa,American Athletic Conference,5.25984251968504
+2024,UAB,American Athletic Conference,5.627240143369176
 2024,UCF,Big 12 Conference,6.496977025392987
 2024,UCLA,Big Ten Conference,5.360054347826087
 2024,USC,Big Ten Conference,6.315555555555555
 2024,UTEP,Conference USA,4.793275217932752
-2024,UTSA,American Conference,5.870870870870871
+2024,UTSA,American Athletic Conference,5.870870870870871
 2024,Utah,Big 12 Conference,5.201051248357424
 2024,Utah State,Mountain West Conference,6.377272727272727
 2024,Vanderbilt,Southeastern Conference,5.313222079589217
