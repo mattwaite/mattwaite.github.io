@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!query) {
             // If empty, maybe clear results?
-             return;
+            return;
         }
 
         const filtered = allFacilities.filter(facility => {
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     title: {
                         display: true,
                         text: 'Top 15 Counties by Facility Count',
-                        color: '#f8fafc',
+                        color: '#1e293b',
                         font: {
                             size: 16,
                             family: 'Outfit'
@@ -141,10 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     y: {
                         beginAtZero: true,
                         grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
+                            color: 'rgba(0, 0, 0, 0.1)'
                         },
                         ticks: {
-                            color: '#94a3b8'
+                            color: '#64748b'
                         }
                     },
                     x: {
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             display: false
                         },
                         ticks: {
-                            color: '#94a3b8'
+                            color: '#64748b'
                         }
                     }
                 }

@@ -2,11 +2,15 @@
     --primary: #4f46e5;
     --primary-hover: #4338ca;
     --secondary: #ec4899;
-    --bg-dark: #0f172a;
-    --text-light: #f8fafc;
-    --text-dim: #94a3b8;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --bg-dark: #f8fafc;
+    /* Changed to light background */
+    --text-light: #1e293b;
+    /* Changed to dark text */
+    --text-dim: #64748b;
+    /* Adjusted dim text */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    /* More opaque white for glass */
+    --glass-border: rgba(255, 255, 255, 0.5);
     --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
@@ -74,9 +78,19 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    33% { transform: translate(30px, -50px) rotate(10deg); }
-    66% { transform: translate(-20px, 20px) rotate(-10deg); }
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(30px, -50px) rotate(10deg);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) rotate(-10deg);
+    }
 }
 
 .container {
@@ -141,7 +155,7 @@ body {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 #searchBtn {
@@ -186,7 +200,8 @@ body {
 
 .chart-container {
     position: relative;
-    height: 400px; /* specific height for chart */
+    height: 400px;
+    /* specific height for chart */
     width: 100%;
 }
 
@@ -212,8 +227,9 @@ body {
 
 .facility-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: rgba(79, 70, 229, 0.4);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .facility-name {
@@ -259,18 +275,37 @@ body {
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive */
@@ -278,11 +313,11 @@ body {
     .header h1 {
         font-size: 2.2rem;
     }
-    
+
     .chart-container {
         height: 300px;
     }
-    
+
     .results-grid {
         grid-template-columns: 1fr;
     }
