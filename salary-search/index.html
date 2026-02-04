@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Nebraska Salary Search</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #d00000;
+        }
+
+        .results-info {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .results {
+            display: none;
+        }
+
+        .result-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: #fafafa;
+        }
+
+        .result-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-title {
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .result-details span {
+            color: #666;
+        }
+
+        .result-salary {
+            font-weight: 600;
+            color: #222 !important;
+        }
+
+        .no-results {
+            color: #666;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .prompt {
+            color: #888;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .result-details {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>University of Nebraska Salary Search</h1>
+    <p class="subtitle">Search for faculty and staff by name</p>
+
+    <input type="text" class="search-box" id="search" placeholder="Enter a name..." autocomplete="off">
+
+    <div class="results-info" id="results-info"></div>
+    <div class="results" id="results"></div>
+    <div class="prompt" id="prompt">Type at least 2 characters to search</div>
+
+    <script>
+        let data = [];
+
+        async function loadData() {
+            const response = await fetch('personnel_data.csv');
+            const text = await response.text();
+            const lines = text.split('\n');
+            const headers = parseCSVLine(lines[0]);
+
+            for (let i = 1; i < lines.length; i++) {
+                if (lines[i].trim()) {
+                    const values = parseCSVLine(lines[i]);
+                    const record = {};
+                    headers.forEach((header, index) => {
+                        record[header] = values[index] || '';
+                    });
+                    data.push(record);
+                }
+            }
+        }
+
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current.trim());
+            return result;
+        }
+
+        function search(query) {
+            if (query.length < 2) {
+                document.getElementById('results').style.display = 'none';
+                document.getElementById('results-info').textContent = '';
+                document.getElementById('prompt').style.display = 'block';
+                return;
+            }
+
+            document.getElementById('prompt').style.display = 'none';
+
+            const queryLower = query.toLowerCase();
+            const matches = data.filter(row =>
+                row.Name && row.Name.toLowerCase().includes(queryLower)
+            ).slice(0, 50);
+
+            const resultsDiv = document.getElementById('results');
+            const infoDiv = document.getElementById('results-info');
+
+            if (matches.length === 0) {
+                resultsDiv.innerHTML = '<div class="no-results">No results found</div>';
+                infoDiv.textContent = '';
+            } else {
+                infoDiv.textContent = `Showing ${matches.length}${matches.length === 50 ? '+' : ''} result${matches.length !== 1 ? 's' : ''}`;
+                resultsDiv.innerHTML = matches.map(row => `
+                    <div class="result-card">
+                        <div class="result-name">${escapeHtml(row.Name)}</div>
+                        <div class="result-title">${escapeHtml(row.Title)}</div>
+                        <div class="result-details">
+                            <span>${escapeHtml(row.Campus)}</span>
+                            <span class="result-salary">$${escapeHtml(row.Salary)}</span>
+                            <span>FTE: ${escapeHtml(row.FTE)}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            resultsDiv.style.display = 'block';
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        document.getElementById('search').addEventListener('input', (e) => {
+            search(e.target.value);
+        });
+
+        loadData();
+    </script>
+</body>
+</html>
