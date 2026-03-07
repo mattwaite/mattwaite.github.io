@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Audio Transcription with Faster Whisper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --paper: #f5f0e8;
+      --paper-dark: #ede7d6;
+      --accent: #c94c1e;
+      --accent-light: #f0e4dc;
+      --muted: #6b6358;
+      --code-bg: #1e1e1e;
+      --code-fg: #d4d0c8;
+      --mac: #0071e3;
+      --win: #0067b8;
+      --success: #2d6a4f;
+      --warn-bg: #fff8e6;
+      --warn-border: #e6a817;
+      --rule: #c8bfae;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 12px,
+        rgba(255,255,255,0.025) 12px,
+        rgba(255,255,255,0.025) 13px
+      );
+    }
+
+    header .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      max-width: 700px;
+      margin: 0 auto 1rem;
+    }
+
+    header p.subtitle {
+      font-size: 1rem;
+      color: #b0a898;
+      max-width: 520px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 5rem;
+    }
+
+    /* ── Section headers ── */
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .step-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: var(--accent);
+      color: white;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    /* ── Platform tabs ── */
+    .platform-tabs {
+      display: flex;
+      gap: 0;
+      margin: 1.25rem 0 0;
+      border-radius: 6px 6px 0 0;
+      overflow: hidden;
+      border: 1.5px solid var(--rule);
+      border-bottom: none;
+    }
+
+    .platform-tab {
+      flex: 1;
+      padding: 0.6rem 1rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s;
+      text-align: center;
+    }
+
+    .tab-mac { background: #e8f0fb; color: var(--mac); }
+    .tab-win { background: #e8f0fb; color: var(--win); }
+
+    .tab-mac.active { background: var(--mac); color: white; }
+    .tab-win.active { background: var(--win); color: white; }
+
+    .platform-content {
+      border: 1.5px solid var(--rule);
+      border-radius: 0 0 6px 6px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .platform-panel { display: none; }
+    .platform-panel.active { display: block; }
+
+    /* ── Code blocks ── */
+    .code-block {
+      background: var(--code-bg);
+      color: var(--code-fg);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      padding: 1.25rem 1.5rem;
+      overflow-x: auto;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .code-block .comment {
+      color: #7a7a6e;
+    }
+
+    .code-block .cmd {
+      color: #a8d8a8;
+    }
+
+    .code-block .path {
+      color: #ffd8a8;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      background: rgba(255,255,255,0.1);
+      color: #999;
+      border: none;
+      border-radius: 4px;
+      padding: 0.25rem 0.6rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .copy-btn:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    .copy-btn.copied { color: #a8d8a8; }
+
+    /* ── Prose ── */
+    p { margin-bottom: 1rem; color: #2a2420; }
+
+    .note {
+      background: var(--warn-bg);
+      border-left: 3px solid var(--warn-border);
+      padding: 0.85rem 1.1rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+    }
+
+    .note strong {
+      font-weight: 600;
+      color: #8a5a00;
+    }
+
+    .success-note {
+      background: #eaf4ef;
+      border-left: 3px solid var(--success);
+      padding: 0.85rem 1.1rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+    }
+
+    .success-note strong { color: var(--success); }
+
+    /* ── Inline code ── */
+    code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.83em;
+      background: var(--paper-dark);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+      color: var(--accent);
+    }
+
+    /* ── Screenshot placeholder / callout ── */
+    .callout {
+      background: var(--paper-dark);
+      border: 1.5px dashed var(--rule);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin: 1rem 0 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .callout-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* ── What you'll see output ── */
+    .output-block {
+      background: #111;
+      color: #c0e8c0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82rem;
+      padding: 1.1rem 1.4rem;
+      border-radius: 0 0 6px 6px;
+      border: 1.5px solid #333;
+      border-top: none;
+      line-height: 1.8;
+    }
+
+    .output-label {
+      background: #222;
+      color: #666;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      padding: 0.4rem 1.4rem;
+      border: 1.5px solid #333;
+      border-bottom: none;
+      border-radius: 6px 6px 0 0;
+      text-transform: uppercase;
+    }
+
+    /* ── Command options table ── */
+    .options-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.875rem;
+    }
+
+    .options-table th {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.6rem 1rem;
+      text-align: left;
+    }
+
+    .options-table td {
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+
+    .options-table tr:last-child td { border-bottom: none; }
+    .options-table tr:nth-child(even) td { background: var(--paper-dark); }
+    .options-table td:first-child {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--paper-dark);
+      border: 1.5px solid var(--rule);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    .toc h3 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .toc ol {
+      padding-left: 1.25rem;
+    }
+
+    .toc li {
+      margin-bottom: 0.35rem;
+    }
+
+    .toc a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .toc a:hover { color: var(--accent); }
+
+    h3.subhead {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin: 1.75rem 0 0.6rem;
+    }
+
+    .pill {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.15em 0.6em;
+      border-radius: 99px;
+      margin-right: 0.3rem;
+      vertical-align: middle;
+    }
+
+    .pill-mac { background: #ddeeff; color: var(--mac); }
+    .pill-win { background: #dde8ff; color: var(--win); }
+    .pill-both { background: #e8e4dc; color: #4a4038; }
+
+    @media (max-width: 600px) {
+      .step-title { font-size: 1.25rem; }
+      .code-block { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Audio Transcription Guide</p>
+  <h1>Transcribing Audio Files on Your Own Computer</h1>
+  <p class="subtitle">A step-by-step setup guide using uv and Faster Whisper — no prior technical experience needed.</p>
+</header>
+
+<div class="container">
+
+  <div class="toc">
+    <h3>What's in this guide</h3>
+    <ol>
+      <li><a href="#step1">Open your Terminal (Mac) or Command Prompt (Windows)</a></li>
+      <li><a href="#step2">Install uv — a Python manager</a></li>
+      <li><a href="#step3">Create a project folder and Python environment</a></li>
+      <li><a href="#step4">Install Faster Whisper</a></li>
+      <li><a href="#step5">Transcribe your first audio file</a></li>
+      <li><a href="#step6">Saving your transcript to a file</a></li>
+      <li><a href="#step7">Common options and tips</a></li>
+      <li><a href="#step8">Troubleshooting</a></li>
+    </ol>
+  </div>
+
+  <p>This guide walks you through installing everything you need to transcribe audio files on your own laptop — no internet connection required once it's set up, and no files are sent to any outside service. Everything runs locally on your machine.</p>
+
+  <p>We'll use a tool called <strong>uv</strong> to handle Python installation for us, which avoids most of the confusing issues people run into with Python on Macs and Windows.</p>
+
+  <div class="note">
+    <strong>⏱ Time estimate:</strong> This setup takes about 10–15 minutes the first time. After that, transcribing a file takes just one command.
+  </div>
+
+  <!-- ─────────────────────────────── STEP 1 ─────────────────────────────── -->
+  <div id="step1" class="step-header">
+    <div class="step-number">1</div>
+    <div class="step-title">Open your Terminal or Command Prompt</div>
+  </div>
+
+  <p>All the commands in this guide are typed into a text interface called the <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows). Think of it as a way to give your computer very direct instructions by typing them.</p>
+
+  <div class="platform-tabs" id="tabs1">
+    <button class="platform-tab tab-mac active" onclick="switchTab('tabs1', 'mac', this)">🍎 Mac</button>
+    <button class="platform-tab tab-win" onclick="switchTab('tabs1', 'win', this)">🪟 Windows</button>
+  </div>
+  <div class="platform-content">
+    <div class="platform-panel active" id="tabs1-mac">
+      <div class="code-block">
+        <span class="comment"># Press Command (⌘) + Spacebar to open Spotlight Search</span><br>
+        <span class="comment"># Type: Terminal</span><br>
+        <span class="comment"># Press Enter</span><br><br>
+        <span class="comment"># A white or black window with a blinking cursor will appear.</span><br>
+        <span class="comment"># That's your Terminal. You're ready.</span>
+      </div>
+    </div>
+    <div class="platform-panel" id="tabs1-win">
+      <div class="code-block">
+        <span class="comment"># Press the Windows key, then type: cmd</span><br>
+        <span class="comment"># Click "Command Prompt" in the results</span><br><br>
+        <span class="comment"># A black window with a blinking cursor will appear.</span><br>
+        <span class="comment"># That's your Command Prompt. You're ready.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">💡</span>
+    <span>When this guide says "type a command," it means: click inside the Terminal/Command Prompt window, type exactly what's shown, and press <strong>Enter</strong>. The computer won't do anything until you press Enter.</span>
+  </div>
+
+
+  <!-- ─────────────────────────────── STEP 2 ─────────────────────────────── -->
+  <div id="step2" class="step-header">
+    <div class="step-number">2</div>
+    <div class="step-title">Install uv</div>
+  </div>
+
+  <p><strong>uv</strong> is a modern tool that installs Python and manages your Python projects. It avoids the confusing version conflicts that come with the default Python on Macs and Windows machines.</p>
+
+  <p>Copy and paste the command below for your operating system, then press Enter:</p>
+
+  <div class="platform-tabs" id="tabs2">
+    <button class="platform-tab tab-mac active" onclick="switchTab('tabs2', 'mac', this)">🍎 Mac</button>
+    <button class="platform-tab tab-win" onclick="switchTab('tabs2', 'win', this)">🪟 Windows</button>
+  </div>
+  <div class="platform-content">
+    <div class="platform-panel active" id="tabs2-mac">
+      <div class="code-block" id="code-uv-mac">
+        <button class="copy-btn" onclick="copyCode('code-uv-mac', this)">copy</button>
+        <span class="cmd">curl -LsSf https://astral.sh/uv/install.sh | sh</span>
+      </div>
+    </div>
+    <div class="platform-panel" id="tabs2-win">
+      <div class="code-block" id="code-uv-win">
+        <button class="copy-btn" onclick="copyCode('code-uv-win', this)">copy</button>
+        <span class="cmd">powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</span>
+      </div>
+    </div>
+  </div>
+
+  <p>You'll see a bunch of text scroll by as it downloads and installs. This is normal. When it finishes, you'll see your cursor again.</p>
+
+  <div class="note">
+    <strong>Mac users — one extra step:</strong> After uv installs, it may tell you to run one more command to "update your shell profile." If you see a line starting with <code>source</code>, copy and paste that line and press Enter too. Then close your Terminal window and open a fresh one before continuing.
+  </div>
+
+  <h3 class="subhead">Verify the installation worked</h3>
+  <p>Type this command and press Enter:</p>
+
+  <div class="code-block" id="code-verify-uv">
+    <button class="copy-btn" onclick="copyCode('code-verify-uv', this)">copy</button>
+    <span class="cmd">uv --version</span>
+  </div>
+
+  <p>You should see something like <code>uv 0.5.x</code>. If you see that, uv is installed and working.</p>
+
+
+  <!-- ─────────────────────────────── STEP 3 ─────────────────────────────── -->
+  <div id="step3" class="step-header">
+    <div class="step-number">3</div>
+    <div class="step-title">Create a project folder and Python environment</div>
+  </div>
+
+  <p>We'll create a dedicated folder for your transcription work, then set up an isolated Python environment inside it. Think of this like a clean workspace — any software installed here stays separate from the rest of your computer.</p>
+
+  <div class="platform-tabs" id="tabs3">
+    <button class="platform-tab tab-mac active" onclick="switchTab('tabs3', 'mac', this)">🍎 Mac</button>
+    <button class="platform-tab tab-win" onclick="switchTab('tabs3', 'win', this)">🪟 Windows</button>
+  </div>
+  <div class="platform-content">
+    <div class="platform-panel active" id="tabs3-mac">
+      <div class="code-block" id="code-setup-mac">
+        <button class="copy-btn" onclick="copyCode('code-setup-mac', this)">copy</button>
+        <span class="comment"># Create a folder called "transcription" on your Desktop</span><br>
+        <span class="cmd">mkdir ~/Desktop/transcription</span><br><br>
+        <span class="comment"># Move into that folder</span><br>
+        <span class="cmd">cd ~/Desktop/transcription</span><br><br>
+        <span class="comment"># Create a Python 3.12 environment (must be 3.12, not 3.13)</span><br>
+        <span class="cmd">uv venv --python 3.12</span><br><br>
+        <span class="comment"># Activate the environment</span><br>
+        <span class="cmd">source .venv/bin/activate</span>
+      </div>
+    </div>
+    <div class="platform-panel" id="tabs3-win">
+      <div class="code-block" id="code-setup-win">
+        <button class="copy-btn" onclick="copyCode('code-setup-win', this)">copy</button>
+        <span class="comment">:: Create a folder called "transcription" on your Desktop</span><br>
+        <span class="cmd">mkdir %USERPROFILE%\Desktop\transcription</span><br><br>
+        <span class="comment">:: Move into that folder</span><br>
+        <span class="cmd">cd %USERPROFILE%\Desktop\transcription</span><br><br>
+        <span class="comment">:: Create a Python 3.12 environment (must be 3.12, not 3.13)</span><br>
+        <span class="cmd">uv venv --python 3.12</span><br><br>
+        <span class="comment">:: Activate the environment</span><br>
+        <span class="cmd">.venv\Scripts\activate</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="success-note">
+    <strong>✓ You'll know the environment is active</strong> when your command prompt changes to show <code>(.venv)</code> at the beginning of the line, like: <code>(.venv) your-computer:transcription $</code>
+  </div>
+
+  <div class="note">
+    <strong>Why Python 3.12 specifically?</strong> Faster Whisper depends on a library called ctranslate2 that doesn't yet support Python 3.13 (the newest version). Using 3.12 avoids a frustrating error.
+  </div>
+
+  <div class="note">
+    <strong>Important:</strong> Every time you open a new Terminal window in the future to do transcription, you'll need to navigate back to your folder and re-activate the environment. The two commands are:<br><br>
+    <span class="pill pill-mac">Mac</span> <code>cd ~/Desktop/transcription</code> then <code>source .venv/bin/activate</code><br>
+    <span class="pill pill-win">Win</span> <code>cd %USERPROFILE%\Desktop\transcription</code> then <code>.venv\Scripts\activate</code>
+  </div>
+
+
+  <!-- ─────────────────────────────── STEP 4 ─────────────────────────────── -->
+  <div id="step4" class="step-header">
+    <div class="step-number">4</div>
+    <div class="step-title">Install Faster Whisper</div>
+  </div>
+
+  <p>With your environment active (you should see <code>(.venv)</code> in your prompt), run this command. It works the same on both Mac and Windows:</p>
+
+  <div class="code-block" id="code-install">
+    <button class="copy-btn" onclick="copyCode('code-install', this)">copy</button>
+    <span class="cmd">uv pip install faster-whisper-cli</span>
+  </div>
+
+  <p>This will download Faster Whisper and everything it needs. The first time will take a minute or two depending on your internet speed. You'll see a progress bar as packages download.</p>
+
+  <h3 class="subhead">Verify the installation</h3>
+
+  <div class="code-block" id="code-verify-fw">
+    <button class="copy-btn" onclick="copyCode('code-verify-fw', this)">copy</button>
+    <span class="cmd">faster-whisper --help</span>
+  </div>
+
+  <p>If you see a list of options and flags, you're all set. Faster Whisper is installed and ready to use.</p>
+
+
+  <!-- ─────────────────────────────── STEP 5 ─────────────────────────────── -->
+  <div id="step5" class="step-header">
+    <div class="step-number">5</div>
+    <div class="step-title">Transcribe your first audio file</div>
+  </div>
+
+  <p>Copy your audio file (MP3, WAV, M4A, or most other formats) into your <code>transcription</code> folder on your Desktop. Then run:</p>
+
+  <div class="code-block" id="code-transcribe">
+    <button class="copy-btn" onclick="copyCode('code-transcribe', this)">copy</button>
+    <span class="comment"># Replace "myaudio.mp3" with the actual name of your file</span><br>
+    <span class="cmd">faster-whisper myaudio.mp3</span>
+  </div>
+
+  <div class="note">
+    <strong>First run takes longer.</strong> The first time you run Faster Whisper, it downloads an AI model (about 150MB for the default "small" model). This happens automatically and only happens once. After that, transcription is fast.
+  </div>
+
+  <h3 class="subhead">What you'll see</h3>
+
+  <div class="output-label">EXAMPLE OUTPUT</div>
+  <div class="output-block">
+[00:00.000 --> 00:03.240] Welcome to today's interview. My name is Sarah.<br>
+[00:03.240 --> 00:07.810] We're going to talk about the proposed changes to the zoning ordinance.<br>
+[00:07.810 --> 00:12.440] Joining me is council member James Rivera from District 4.<br>
+...
+  </div>
+
+  <p style="margin-top:1rem;">Each line shows a timestamp followed by the transcribed text. The transcript prints directly to your Terminal window.</p>
+
+  <div class="note">
+    <strong>Accuracy note:</strong> Faster Whisper is excellent but not perfect. Proper nouns, technical jargon, and heavily accented speech may need manual correction. Always review your transcript before using it.
+  </div>
+
+
+  <!-- ─────────────────────────────── STEP 6 ─────────────────────────────── -->
+  <div id="step6" class="step-header">
+    <div class="step-number">6</div>
+    <div class="step-title">Saving your transcript to a file</div>
+  </div>
+
+  <p>By default, the transcript just prints to the screen. To save it to a text file you can open in any text editor, use the <code>-o</code> flag followed by the output filename:</p>
+
+  <div class="code-block" id="code-save">
+    <button class="copy-btn" onclick="copyCode('code-save', this)">copy</button>
+    <span class="comment"># Save transcript to a file called "transcript.txt"</span><br>
+    <span class="cmd">faster-whisper myaudio.mp3 -o transcript.txt</span>
+  </div>
+
+  <p>The file will appear in your <code>transcription</code> folder on your Desktop. You can open it in any text editor (TextEdit on Mac, Notepad on Windows, or Word).</p>
+
+  <h3 class="subhead">Transcribing multiple files</h3>
+  <p>To transcribe several files, run the command once for each file, giving each a different output name:</p>
+
+  <div class="code-block" id="code-multi">
+    <button class="copy-btn" onclick="copyCode('code-multi', this)">copy</button>
+    <span class="cmd">faster-whisper interview1.mp3 -o interview1_transcript.txt</span><br>
+    <span class="cmd">faster-whisper interview2.mp3 -o interview2_transcript.txt</span><br>
+    <span class="cmd">faster-whisper meeting.m4a -o meeting_transcript.txt</span>
+  </div>
+
+
+  <!-- ─────────────────────────────── STEP 7 ─────────────────────────────── -->
+  <div id="step7" class="step-header">
+    <div class="step-number">7</div>
+    <div class="step-title">Useful options</div>
+  </div>
+
+  <p>You can add flags to the command to change how the transcription works. Here are the most useful ones:</p>
+
+  <table class="options-table">
+    <thead>
+      <tr><th>Flag</th><th>What it does</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>-o FILE</td>
+        <td>Save output to a text file instead of printing to screen</td>
+        <td><code>-o transcript.txt</code></td>
+      </tr>
+      <tr>
+        <td>--language</td>
+        <td>Tell Whisper what language is spoken (speeds things up; auto-detects by default)</td>
+        <td><code>--language en</code></td>
+      </tr>
+      <tr>
+        <td>--model</td>
+        <td>Choose a larger model for better accuracy (uses more memory and time)</td>
+        <td><code>--model medium</code></td>
+      </tr>
+      <tr>
+        <td>--task translate</td>
+        <td>Translate non-English audio to English text</td>
+        <td><code>--task translate</code></td>
+      </tr>
+      <tr>
+        <td>--word_timestamps True</td>
+        <td>Include timestamps for every word, not just each segment</td>
+        <td><code>--word_timestamps True</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="subhead">Model sizes</h3>
+  <p>Faster Whisper comes with several model sizes. Bigger = more accurate but slower:</p>
+
+  <table class="options-table">
+    <thead>
+      <tr><th>Model</th><th>Speed</th><th>Accuracy</th><th>Good for</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>tiny</td><td>Very fast</td><td>Basic</td><td>Quick drafts, clear speech</td></tr>
+      <tr><td>base</td><td>Fast</td><td>Good</td><td>Most everyday use</td></tr>
+      <tr><td>small</td><td>Moderate</td><td>Very good</td><td>Default — good balance</td></tr>
+      <tr><td>medium</td><td>Slow</td><td>Excellent</td><td>Interviews, noisy audio</td></tr>
+      <tr><td>large-v3</td><td>Very slow</td><td>Best</td><td>When accuracy is critical</td></tr>
+    </tbody>
+  </table>
+
+  <p>Example using medium model with English language specified:</p>
+  <div class="code-block" id="code-medium">
+    <button class="copy-btn" onclick="copyCode('code-medium', this)">copy</button>
+    <span class="cmd">faster-whisper interview.mp3 --model medium --language en -o transcript.txt</span>
+  </div>
+
+
+  <!-- ─────────────────────────────── STEP 8 ─────────────────────────────── -->
+  <div id="step8" class="step-header">
+    <div class="step-number">8</div>
+    <div class="step-title">Troubleshooting</div>
+  </div>
+
+  <h3 class="subhead">"faster-whisper: command not found"</h3>
+  <p>Your virtual environment is not active. Navigate to your transcription folder and activate it:</p>
+
+  <div class="platform-tabs" id="tabs8">
+    <button class="platform-tab tab-mac active" onclick="switchTab('tabs8', 'mac', this)">🍎 Mac</button>
+    <button class="platform-tab tab-win" onclick="switchTab('tabs8', 'win', this)">🪟 Windows</button>
+  </div>
+  <div class="platform-content">
+    <div class="platform-panel active" id="tabs8-mac">
+      <div class="code-block" id="code-reactivate-mac">
+        <button class="copy-btn" onclick="copyCode('code-reactivate-mac', this)">copy</button>
+        <span class="cmd">cd ~/Desktop/transcription</span><br>
+        <span class="cmd">source .venv/bin/activate</span>
+      </div>
+    </div>
+    <div class="platform-panel" id="tabs8-win">
+      <div class="code-block" id="code-reactivate-win">
+        <button class="copy-btn" onclick="copyCode('code-reactivate-win', this)">copy</button>
+        <span class="cmd">cd %USERPROFILE%\Desktop\transcription</span><br>
+        <span class="cmd">.venv\Scripts\activate</span>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subhead">"No such file or directory" when running faster-whisper</h3>
+  <p>The audio file isn't in your transcription folder, or the filename is spelled differently. Make sure your file is in <code>~/Desktop/transcription</code> (Mac) or <code>%USERPROFILE%\Desktop\transcription</code> (Windows). Filenames are case-sensitive on Mac.</p>
+
+  <h3 class="subhead">Transcription seems to hang or is very slow</h3>
+  <p>This is normal for larger audio files and larger models. A one-hour recording on the <code>medium</code> model can take 10–15 minutes on a laptop CPU. Try the <code>small</code> or <code>base</code> model for faster results, or let it run and be patient.</p>
+
+  <h3 class="subhead">"uv: command not found" after restarting Terminal</h3>
+  <p>On Mac, close your Terminal and open it fresh. If uv is still not found, run the install command from Step 2 again.</p>
+
+  <div class="success-note" style="margin-top:2rem;">
+    <strong>✓ Quick-start checklist for each session:</strong><br>
+    1. Open Terminal / Command Prompt<br>
+    2. <code>cd ~/Desktop/transcription</code> (Mac) or <code>cd %USERPROFILE%\Desktop\transcription</code> (Windows)<br>
+    3. Activate: <code>source .venv/bin/activate</code> (Mac) or <code>.venv\Scripts\activate</code> (Windows)<br>
+    4. Copy your audio file into the transcription folder<br>
+    5. <code>faster-whisper yourfile.mp3 -o transcript.txt</code>
+  </div>
+
+</div>
+
+<footer>
+  Prepared for JOUR/JOMC students &nbsp;·&nbsp; Uses <a href="https://github.com/SYSTRAN/faster-whisper" style="color:inherit">faster-whisper</a> by SYSTRAN &nbsp;·&nbsp; Runs entirely on your local machine
+</footer>
+
+<script>
+  function switchTab(groupId, platform, btn) {
+    // Toggle button states
+    const tabs = document.getElementById(groupId);
+    tabs.querySelectorAll('.platform-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Toggle panels — find the next sibling .platform-content
+    const content = tabs.nextElementSibling;
+    content.querySelectorAll('.platform-panel').forEach(p => p.classList.remove('active'));
+    const target = content.querySelector('#' + groupId + '-' + platform);
+    if (target) target.classList.add('active');
+  }
+
+  function copyCode(blockId, btn) {
+    const block = document.getElementById(blockId);
+    // Get text content, stripping button text
+    const clone = block.cloneNode(true);
+    clone.querySelectorAll('.copy-btn').forEach(b => b.remove());
+    const text = clone.innerText.replace(/^\s*#[^\n]*/gm, '').replace(/^\s*::[^\n]*/gm, '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
