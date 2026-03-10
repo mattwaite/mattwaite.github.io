@@ -568,6 +568,12 @@ a:hover {
 }
 
 .title-block-banner .description,
+#title-block-header .description,
+.quarto-title-block .description,
+p.description {
+    display: none !important;
+}
+
 .title-block-banner .subtitle {
     color: rgba(255, 255, 255, 0.75) !important;
     font-family: var(--font-body);
