@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Archive of posts on journalism, data, code, and technology.">
 
 <title>Blog posts – Matt Waite’s Collection of Miscellany</title>
 <style>
@@ -40,14 +41,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-de0ed3b9a49d5daa615839eefb10c6a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-99258d85ffddbd9841977770f8edb96b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -114,6 +111,8 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 </script>
+<!-- Adobe Fonts / Typekit -->
+<link rel="stylesheet" href="https://use.typekit.net/bhc7pvg.css">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -147,11 +146,13 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../styles.css">
 <meta property="og:title" content="Blog posts – Matt Waite’s Collection of Miscellany">
+<meta property="og:description" content="Archive of posts on journalism, data, code, and technology.">
 <meta property="og:image" content="https://mattwaite.github.io/posts/2025-11-24-parsing-pdfs-with-antigravity/image.png">
 <meta property="og:site_name" content="Matt Waite's Collection of Miscellany">
 <meta property="og:image:height" content="1898">
 <meta property="og:image:width" content="3238">
 <meta name="twitter:title" content="Blog posts – Matt Waite’s Collection of Miscellany">
+<meta name="twitter:description" content="Archive of posts on journalism, data, code, and technology.">
 <meta name="twitter:image" content="https://mattwaite.github.io/posts/2025-11-24-parsing-pdfs-with-antigravity/image.png">
 <meta name="twitter:creator" content="@mattwaite">
 <meta name="twitter:image-height" content="1898">
@@ -159,169 +160,7 @@ window.Quarto = {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
-      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script>
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -362,7 +201,6 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -372,7 +210,12 @@ window.Quarto = {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
       <h1 class="title">Blog posts</h1>
-                      </div>
+                  <div>
+        <div class="description">
+          Archive of posts on journalism, data, code, and technology.
+        </div>
+      </div>
+                </div>
   </div>
     
   
@@ -401,10 +244,9 @@ window.Quarto = {
 
 
 
-
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1763964000000" data-listing-file-modified-sort="1764092942764" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1268">
+<div class="quarto-post image-right" data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1763964000000" data-listing-file-modified-sort="1773153010158" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1268">
 <div class="thumbnail"><a href="../posts/2025-11-24-parsing-pdfs-with-antigravity/index.html" class="no-external">
 
 <img loading="lazy" src="../posts/2025-11-24-parsing-pdfs-with-antigravity/image.png" class="thumbnail-image">
@@ -427,7 +269,7 @@ window.Quarto = {
 
 </div>
 <div class="delink listing-description"><a href="../posts/2025-11-24-parsing-pdfs-with-antigravity/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2025-11-24-parsing-pdfs-with-antigravity/index.html -->
+<p>The author highlights Google’s new Antigravity tool as a promising solution for automating tedious PDF parsing in data journalism.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -441,7 +283,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1741327200000" data-listing-file-modified-sort="1763769826824" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="943">
+<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1741327200000" data-listing-file-modified-sort="1773153018828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="943">
 <div class="thumbnail"><a href="../posts/r-llm-starter-pack/index.html" class="no-external">
 
 <img loading="lazy" src="../posts/r-llm-starter-pack/image.png" class="thumbnail-image">
@@ -464,7 +306,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/r-llm-starter-pack/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/r-llm-starter-pack/index.html -->
+<p>This blog post shares a starter kit of R libraries and external tools for integrating large language models into data journalism workflows.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -478,7 +320,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="QUklMkNjb2RlJTJDciUyQ2VkdWNhdGlvbg==" data-listing-date-sort="1732600800000" data-listing-file-modified-sort="1763770040896" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1343">
+<div class="quarto-post image-right" data-index="2" data-categories="QUklMkNjb2RlJTJDciUyQ2VkdWNhdGlvbg==" data-listing-date-sort="1732600800000" data-listing-file-modified-sort="1773153012549" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1343">
 <div class="thumbnail"><a href="../posts/an-academic-integrity-friendly-pal/index.html" class="no-external">
 
 <img loading="lazy" src="../posts/an-academic-integrity-friendly-pal/image.png" class="thumbnail-image">
@@ -503,7 +345,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/an-academic-integrity-friendly-pal/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/an-academic-integrity-friendly-pal/index.html -->
+<p>This post explains setting up a free local AI code assistant for R Studio to help journalism students learn coding without enabling cheating.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -517,7 +359,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2Zvb3RiYWxsJTJDaHVza2Vycw==" data-listing-date-sort="1731045600000" data-listing-file-modified-sort="1763769788185" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1477">
+<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2Zvb3RiYWxsJTJDaHVza2Vycw==" data-listing-date-sort="1731045600000" data-listing-file-modified-sort="1773153020084" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1477">
 <div class="thumbnail"><a href="../posts/scrollytelling-nebraskas-season/index.html" class="no-external">
 
 <img loading="lazy" src="../posts/scrollytelling-nebraskas-season/image.png" class="thumbnail-image">
@@ -540,7 +382,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/scrollytelling-nebraskas-season/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/scrollytelling-nebraskas-season/index.html -->
+<p>This blog analyzes Nebraska’s declining offensive performance using expected points added metrics to show their efficiency dropping as the season progresses.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -554,7 +396,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1729659600000" data-listing-file-modified-sort="1763770080346" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2851">
+<div class="quarto-post image-right" data-index="4" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1729659600000" data-listing-file-modified-sort="1773153011319" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2851">
 <div class="thumbnail"><a href="../posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external">
 
 <img loading="lazy" src="../posts/a-simple-example-ai-agents-doing-journalism/image.png" class="thumbnail-image">
@@ -577,7 +419,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/a-simple-example-ai-agents-doing-journalism/index.html -->
+<p>The author shares a simple, working example of AI agents performing journalism tasks using R and Google Gemini.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -591,7 +433,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1648443600000" data-listing-file-modified-sort="1763770269986" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4354">
+<div class="quarto-post image-right" data-index="5" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1648443600000" data-listing-file-modified-sort="1773153013656" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4354">
 <div class="thumbnail"><a href="../posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external">
 
 <img loading="lazy" src="../posts/another-year-another-attempt-another-bracket-disaster/image.png" class="thumbnail-image">
@@ -612,7 +454,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/another-year-another-attempt-another-bracket-disaster/index.html -->
+<p>The author details a failed machine learning attempt to predict the NCAA tournament after their algorithms missed every national title winner.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -626,7 +468,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1647752400000" data-listing-file-modified-sort="1763769865690" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1096">
+<div class="quarto-post image-right" data-index="6" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1647752400000" data-listing-file-modified-sort="1773153017628" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1096">
 <div class="thumbnail"><a href="../posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external">
 
 <img loading="lazy" src="../posts/nebraska-is-the-third-best-worst-basketball-team/image.png" class="thumbnail-image">
@@ -649,7 +491,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/nebraska-is-the-third-best-worst-basketball-team/index.html -->
+<p>Nebraska has fallen from the best worst team to the third best worst in college basketball, behind West Virginia and NC State.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -663,7 +505,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1616907600000" data-listing-file-modified-sort="1763769924412" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1209">
+<div class="quarto-post image-right" data-index="7" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1616907600000" data-listing-file-modified-sort="1773153015315" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1209">
 <div class="thumbnail"><a href="../posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external">
 
 <img loading="lazy" src="../posts/is-nebraska-the-best-worst-basketball-team/image.png" class="thumbnail-image">
@@ -686,7 +528,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/is-nebraska-the-best-worst-basketball-team/index.html -->
+<p>This analysis argues Nebraska is college basketball’s best worst team based on their strong Simple Rating System despite a poor record.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -700,7 +542,7 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1616389200000" data-listing-file-modified-sort="1763769739532" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1700">
+<div class="quarto-post image-right" data-index="8" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1616389200000" data-listing-file-modified-sort="1773153016449" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1700">
 <div class="thumbnail"><a href="../posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external">
 
 <img loading="lazy" src="../posts/ncaa-bracket-with-machine-learning-2021/Screen Shot 2021-03-22 at 10.39.09 PM.png" class="thumbnail-image">
@@ -721,7 +563,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/ncaa-bracket-with-machine-learning-2021/index.html -->
+<p>The author uses machine learning to fill out a poorly informed NCAA bracket with disappointing results.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -735,10 +577,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1528779600000" data-listing-file-modified-sort="1763756108000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="398">
+<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1528779600000" data-listing-file-modified-sort="1773153008919" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="398">
 <div class="thumbnail"><a href="../posts/2018-06-12-choosing-a-world-cup-team-to-root-for-in-each-match-an-algorithmic-approach/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2018-06-12-choosing-a-world-cup-team-to-root-for-in-each-match-an-algorithmic-approach/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -749,7 +591,7 @@ Matt Waite
 <a href="../posts/2018-06-12-choosing-a-world-cup-team-to-root-for-in-each-match-an-algorithmic-approach/index.html" class="no-external"></a>
 </div>
 <div class="delink listing-description"><a href="../posts/2018-06-12-choosing-a-world-cup-team-to-root-for-in-each-match-an-algorithmic-approach/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2018-06-12-choosing-a-world-cup-team-to-root-for-in-each-match-an-algorithmic-approach/index.html -->
+<p>The blog post humorously argues that personal experiences and quirks prevent an algorithmic approach to choosing a World Cup team.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -760,10 +602,10 @@ Jun 12, 2018
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="ZGF0YSUyMGpvdXJuYWxpc20lMkNyZXRybw==" data-listing-date-sort="1458795600000" data-listing-file-modified-sort="1763770609980" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="725">
+<div class="quarto-post image-right" data-index="10" data-categories="ZGF0YSUyMGpvdXJuYWxpc20lMkNyZXRybw==" data-listing-date-sort="1458795600000" data-listing-file-modified-sort="1773153007582" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="725">
 <div class="thumbnail"><a href="../posts/2016-03-24-i-wrote-a-data-journalism-manual-for-my-college-in-1997-they-never-used-it-but-they-kept-it/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2016-03-24-i-wrote-a-data-journalism-manual-for-my-college-in-1997-they-never-used-it-but-they-kept-it/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -781,7 +623,7 @@ Jun 12, 2018
 
 </div>
 <div class="delink listing-description"><a href="../posts/2016-03-24-i-wrote-a-data-journalism-manual-for-my-college-in-1997-they-never-used-it-but-they-kept-it/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2016-03-24-i-wrote-a-data-journalism-manual-for-my-college-in-1997-they-never-used-it-but-they-kept-it/index.html -->
+<p>The author reflects on a 1997 data journalism manual he wrote for his college, which they kept despite never using it.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -795,10 +637,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="" data-listing-date-sort="1421992800000" data-listing-file-modified-sort="1763768569805" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="535">
+<div class="quarto-post image-right" data-index="11" data-categories="" data-listing-date-sort="1421992800000" data-listing-file-modified-sort="1773153006355" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="535">
 <div class="thumbnail"><a href="../posts/2015-01-23-using-lego-to-teach-data-visualization/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2015-01-23-using-lego-to-teach-data-visualization/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -812,7 +654,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2015-01-23-using-lego-to-teach-data-visualization/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2015-01-23-using-lego-to-teach-data-visualization/index.html -->
+<p>The author shares a lesson plan using Lego bricks to teach students about data visualization constraints without relying on software tools.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -826,10 +668,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="ZGF0YSUyMGpvdXJuYWxpc20lMkN0YWxrcw==" data-listing-date-sort="1418104800000" data-listing-file-modified-sort="1763770968132" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="33">
+<div class="quarto-post image-right" data-index="12" data-categories="ZGF0YSUyMGpvdXJuYWxpc20lMkN0YWxrcw==" data-listing-date-sort="1418104800000" data-listing-file-modified-sort="1773153005247" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="33">
 <div class="thumbnail"><a href="../posts/2014-12-09-everything-i-know-about-data-i-learned-from-70s-album-rock/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2014-12-09-everything-i-know-about-data-i-learned-from-70s-album-rock/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -847,7 +689,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2014-12-09-everything-i-know-about-data-i-learned-from-70s-album-rock/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2014-12-09-everything-i-know-about-data-i-learned-from-70s-album-rock/index.html -->
+<p>This blog post describes a 2014 Ignite talk connecting data insights to 70s album rock radio.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -861,10 +703,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="" data-listing-date-sort="1416463200000" data-listing-file-modified-sort="1763768569813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="577">
+<div class="quarto-post image-right" data-index="13" data-categories="" data-listing-date-sort="1416463200000" data-listing-file-modified-sort="1773153004313" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="577">
 <div class="thumbnail"><a href="../posts/2014-11-20-a-classroom-experiment-in-twitter-bots-and-creativity/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2014-11-20-a-classroom-experiment-in-twitter-bots-and-creativity/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -878,7 +720,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2014-11-20-a-classroom-experiment-in-twitter-bots-and-creativity/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2014-11-20-a-classroom-experiment-in-twitter-bots-and-creativity/index.html -->
+<p>Students in a story bots class demonstrate their creativity by building diverse Twitter bots ranging from poetic mashups to automated news alerts.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -892,10 +734,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="" data-listing-date-sort="1396242000000" data-listing-file-modified-sort="1763768569810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="201">
+<div class="quarto-post image-right" data-index="14" data-categories="" data-listing-date-sort="1396242000000" data-listing-file-modified-sort="1773153002987" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="201">
 <div class="thumbnail"><a href="../posts/2014-03-31-unl-cojmc-students-two-dataprogrammingfuture-courses-for-the-fall/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2014-03-31-unl-cojmc-students-two-dataprogrammingfuture-courses-for-the-fall/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -909,7 +751,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2014-03-31-unl-cojmc-students-two-dataprogrammingfuture-courses-for-the-fall/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2014-03-31-unl-cojmc-students-two-dataprogrammingfuture-courses-for-the-fall/index.html -->
+<p>Two fall courses for UNL CoJMC students cover data journalism and creating automated storybots.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -923,10 +765,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="" data-listing-date-sort="1393740000000" data-listing-file-modified-sort="1763768569804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1367">
+<div class="quarto-post image-right" data-index="15" data-categories="" data-listing-date-sort="1393740000000" data-listing-file-modified-sort="1773153002073" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1367">
 <div class="thumbnail"><a href="../posts/2014-03-02-a-5-step-nicar-recovery-plan/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2014-03-02-a-5-step-nicar-recovery-plan/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -940,7 +782,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2014-03-02-a-5-step-nicar-recovery-plan/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2014-03-02-a-5-step-nicar-recovery-plan/index.html -->
+<p>This post outlines five steps to maintain NICAR conference momentum by turning new skills into immediate work projects.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -954,10 +796,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="" data-listing-date-sort="1392098400000" data-listing-file-modified-sort="1763768569808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="625">
+<div class="quarto-post image-right" data-index="16" data-categories="" data-listing-date-sort="1392098400000" data-listing-file-modified-sort="1773153000900" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="625">
 <div class="thumbnail"><a href="../posts/2014-02-11-a-small-step-toward-solving-the-our-curriculum-is-too-full-problem/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2014-02-11-a-small-step-toward-solving-the-our-curriculum-is-too-full-problem/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -971,7 +813,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2014-02-11-a-small-step-toward-solving-the-our-curriculum-is-too-full-problem/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2014-02-11-a-small-step-toward-solving-the-our-curriculum-is-too-full-problem/index.html -->
+<p>The author argues that journalism schools should integrate data and math skills into reporting classes to address curriculum concerns without sacrificing fundamentals.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -985,10 +827,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="" data-listing-date-sort="1378962000000" data-listing-file-modified-sort="1763768569814" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="71">
+<div class="quarto-post image-right" data-index="17" data-categories="" data-listing-date-sort="1378962000000" data-listing-file-modified-sort="1773152999749" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="71">
 <div class="thumbnail"><a href="../posts/2013-09-12-unconference-panel-pitch-i-will-someday-make/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2013-09-12-unconference-panel-pitch-i-will-someday-make/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1002,7 +844,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2013-09-12-unconference-panel-pitch-i-will-someday-make/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2013-09-12-unconference-panel-pitch-i-will-someday-make/index.html -->
+<p>The author seeks a journalism problem to solve with a MakerBot for an upcoming unconference panel pitch.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1016,10 +858,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="" data-listing-date-sort="1378184400000" data-listing-file-modified-sort="1763768569808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="503">
+<div class="quarto-post image-right" data-index="18" data-categories="" data-listing-date-sort="1378184400000" data-listing-file-modified-sort="1773152998945" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="503">
 <div class="thumbnail"><a href="../posts/2013-09-03-the-minimum-viable-participant/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2013-09-03-the-minimum-viable-participant/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1033,7 +875,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2013-09-03-the-minimum-viable-participant/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2013-09-03-the-minimum-viable-participant/index.html -->
+<p>The blog proposes the Minimum Viable Participant as a flexible baseline of skills for student journalists to adapt to the digital future.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1047,10 +889,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="" data-listing-date-sort="1373864400000" data-listing-file-modified-sort="1763768569811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="51">
+<div class="quarto-post image-right" data-index="19" data-categories="" data-listing-date-sort="1373864400000" data-listing-file-modified-sort="1773152997775" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="51">
 <div class="thumbnail"><a href="../posts/2013-07-15-replacing-reporters-with-robots-i-might-be/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2013-07-15-replacing-reporters-with-robots-i-might-be/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1064,7 +906,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2013-07-15-replacing-reporters-with-robots-i-might-be/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2013-07-15-replacing-reporters-with-robots-i-might-be/index.html -->
+<p>The post discusses how robotics and bots will increasingly impact the future of reporters.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1078,10 +920,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="" data-listing-date-sort="1370840400000" data-listing-file-modified-sort="1763768569805" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="59">
+<div class="quarto-post image-right" data-index="20" data-categories="" data-listing-date-sort="1370840400000" data-listing-file-modified-sort="1773152997019" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="59">
 <div class="thumbnail"><a href="../posts/2013-06-10-here-is-john-keefe-and-i-talking-about-the-near/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2013-06-10-here-is-john-keefe-and-i-talking-about-the-near/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1095,7 +937,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2013-06-10-here-is-john-keefe-and-i-talking-about-the-near/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2013-06-10-here-is-john-keefe-and-i-talking-about-the-near/index.html -->
+<p>The post shares a video of John Keefe and the author discussing sensor journalism at a Tow Center workshop.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1109,10 +951,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-categories="" data-listing-date-sort="1368766800000" data-listing-file-modified-sort="1763768569810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
+<div class="quarto-post image-right" data-index="21" data-categories="" data-listing-date-sort="1368766800000" data-listing-file-modified-sort="1773152996129" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
 <div class="thumbnail"><a href="../posts/2013-05-17-a-new-way-for-data-journalists-to-thwart-newsroom-it-the-raspberry-pi/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2013-05-17-a-new-way-for-data-journalists-to-thwart-newsroom-it-the-raspberry-pi/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1126,7 +968,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2013-05-17-a-new-way-for-data-journalists-to-thwart-newsroom-it-the-raspberry-pi/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2013-05-17-a-new-way-for-data-journalists-to-thwart-newsroom-it-the-raspberry-pi/index.html -->
+<p>A data journalist describes using a cheap Raspberry Pi to bypass restrictive newsroom IT and automate data scraping tasks independently.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1140,10 +982,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-categories="" data-listing-date-sort="1367384400000" data-listing-file-modified-sort="1763768569810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="88">
+<div class="quarto-post image-right" data-index="22" data-categories="" data-listing-date-sort="1367384400000" data-listing-file-modified-sort="1773152995018" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="88">
 <div class="thumbnail"><a href="../posts/2013-05-01-adventures-in-prototyping/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2013-05-01-adventures-in-prototyping/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1157,7 +999,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2013-05-01-adventures-in-prototyping/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2013-05-01-adventures-in-prototyping/index.html -->
+<p>The blog post describes using microwaved dirt and linear algebra to measure soil moisture in a journalism school.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1171,10 +1013,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-categories="" data-listing-date-sort="1359352800000" data-listing-file-modified-sort="1763768569814" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="443">
+<div class="quarto-post image-right" data-index="23" data-categories="" data-listing-date-sort="1359352800000" data-listing-file-modified-sort="1773152994193" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="443">
 <div class="thumbnail"><a href="../posts/2013-01-28-writing-stories-with-code-part-2-conditional-leads-from-trends/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2013-01-28-writing-stories-with-code-part-2-conditional-leads-from-trends/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1188,7 +1030,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2013-01-28-writing-stories-with-code-part-2-conditional-leads-from-trends/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2013-01-28-writing-stories-with-code-part-2-conditional-leads-from-trends/index.html -->
+<p>This blog explains how to update a code script to write news leads that reflect crime trends over multiple consecutive years.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1202,10 +1044,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="24" data-categories="" data-listing-date-sort="1359180000000" data-listing-file-modified-sort="1763768569806" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="717">
+<div class="quarto-post image-right" data-index="24" data-categories="" data-listing-date-sort="1359180000000" data-listing-file-modified-sort="1773152992894" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="717">
 <div class="thumbnail"><a href="../posts/2013-01-26-writing-stories-with-code/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=false, height=]:listing:posts/2013-01-26-writing-stories-with-code/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1219,7 +1061,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2013-01-26-writing-stories-with-code/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2013-01-26-writing-stories-with-code/index.html -->
+<p>The post argues that while bots can write simple data stories, true humanity makes compelling storytelling impossible for machines.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1233,10 +1075,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="25" data-categories="" data-listing-date-sort="1354687200000" data-listing-file-modified-sort="1763768569815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
+<div class="quarto-post image-right" data-index="25" data-categories="" data-listing-date-sort="1354687200000" data-listing-file-modified-sort="1773152991609" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
 <div class="thumbnail"><a href="../posts/2012-12-05-drones-soldering-irons-micro-controllers/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2012-12-05-drones-soldering-irons-micro-controllers/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1250,7 +1092,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2012-12-05-drones-soldering-irons-micro-controllers/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2012-12-05-drones-soldering-irons-micro-controllers/index.html -->
+<p>The post advocates for experimenting with tools like drones and microcontrollers to transform journalism education.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1264,10 +1106,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="26" data-categories="" data-listing-date-sort="1339218000000" data-listing-file-modified-sort="1763768569815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="251">
+<div class="quarto-post image-right" data-index="26" data-categories="" data-listing-date-sort="1339218000000" data-listing-file-modified-sort="1773152990912" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="251">
 <div class="thumbnail"><a href="../posts/2012-06-09-numeracy/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2012-06-09-numeracy/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1281,7 +1123,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2012-06-09-numeracy/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2012-06-09-numeracy/index.html -->
+<p>The author exposes how a tuition hike at the University of Nebraska cancels out the savings from reducing graduation credit hours.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1295,10 +1137,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="27" data-categories="" data-listing-date-sort="1337144400000" data-listing-file-modified-sort="1763768569815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="153">
+<div class="quarto-post image-right" data-index="27" data-categories="" data-listing-date-sort="1337144400000" data-listing-file-modified-sort="1773152989846" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="153">
 <div class="thumbnail"><a href="../posts/2012-05-16-help-me-plan-a-hacker-spacedrone-lab/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2012-05-16-help-me-plan-a-hacker-spacedrone-lab/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1312,7 +1154,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2012-05-16-help-me-plan-a-hacker-spacedrone-lab/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2012-05-16-help-me-plan-a-hacker-spacedrone-lab/index.html -->
+<p>The author seeks suggestions for requirements to build a hacker space and drone lab at a journalism college.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1326,10 +1168,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="28" data-categories="" data-listing-date-sort="1336626000000" data-listing-file-modified-sort="1763768569816" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="249">
+<div class="quarto-post image-right" data-index="28" data-categories="" data-listing-date-sort="1336626000000" data-listing-file-modified-sort="1773152988957" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="249">
 <div class="thumbnail"><a href="../posts/2012-05-10-if-you-were-teaching-a-course-in-data-visualization/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2012-05-10-if-you-were-teaching-a-course-in-data-visualization/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1343,7 +1185,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2012-05-10-if-you-were-teaching-a-course-in-data-visualization/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2012-05-10-if-you-were-teaching-a-course-in-data-visualization/index.html -->
+<p>The author seeks feedback on their draft syllabus for a new data visualization course covering theory, tools, and real-world projects.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1357,10 +1199,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="29" data-categories="am91cm5hbGlzbSUyQ2VkdWNhdGlvbiUyQ21hbmlmZXN0byUyQ3JhbnQ=" data-listing-date-sort="1331701200000" data-listing-file-modified-sort="1763768569811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1079">
+<div class="quarto-post image-right" data-index="29" data-categories="am91cm5hbGlzbSUyQ2VkdWNhdGlvbiUyQ21hbmlmZXN0byUyQ3JhbnQ=" data-listing-date-sort="1331701200000" data-listing-file-modified-sort="1773152987835" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1079">
 <div class="thumbnail"><a href="../posts/2012-03-14-toward-a-solution-to-the-more-tech-in-j-school-problem/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2012-03-14-toward-a-solution-to-the-more-tech-in-j-school-problem/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1382,7 +1224,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2012-03-14-toward-a-solution-to-the-more-tech-in-j-school-problem/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2012-03-14-toward-a-solution-to-the-more-tech-in-j-school-problem/index.html -->
+<p>This post argues that journalism schools struggle to fit increasing tech requirements into a limited curriculum while maintaining core reporting skills.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1396,10 +1238,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="30" data-categories="" data-listing-date-sort="1328162400000" data-listing-file-modified-sort="1763768569813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
+<div class="quarto-post image-right" data-index="30" data-categories="" data-listing-date-sort="1328162400000" data-listing-file-modified-sort="1773152986739" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
 <div class="thumbnail"><a href="../posts/2012-02-02-using-python-to-access-tweets-from-the-command-line/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2012-02-02-using-python-to-access-tweets-from-the-command-line/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1413,7 +1255,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2012-02-02-using-python-to-access-tweets-from-the-command-line/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2012-02-02-using-python-to-access-tweets-from-the-command-line/index.html -->
+<p>This blog post guides beginners through using Python on Ubuntu to access tweets via the Twitter API for a journalism class.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1427,10 +1269,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="31" data-categories="" data-listing-date-sort="1326780000000" data-listing-file-modified-sort="1763768569809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="765">
+<div class="quarto-post image-right" data-index="31" data-categories="" data-listing-date-sort="1326780000000" data-listing-file-modified-sort="1773152985633" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="765">
 <div class="thumbnail"><a href="../posts/2012-01-17-a-completely-arbitrary-list-of-takeaways-from-two-unconferences/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2012-01-17-a-completely-arbitrary-list-of-takeaways-from-two-unconferences/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1444,7 +1286,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2012-01-17-a-completely-arbitrary-list-of-takeaways-from-two-unconferences/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2012-01-17-a-completely-arbitrary-list-of-takeaways-from-two-unconferences/index.html -->
+<p>The author shares arbitrary thoughts on journalism school curricula and the shortage of student journalist-developers based on recent unconferences.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1458,10 +1300,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="32" data-categories="" data-listing-date-sort="1326088800000" data-listing-file-modified-sort="1763768569807" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="427">
+<div class="quarto-post image-right" data-index="32" data-categories="" data-listing-date-sort="1326088800000" data-listing-file-modified-sort="1773152984476" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="427">
 <div class="thumbnail"><a href="../posts/2012-01-09-a-word-of-advice-for-code-year-participants/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2012-01-09-a-word-of-advice-for-code-year-participants/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1475,7 +1317,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2012-01-09-a-word-of-advice-for-code-year-participants/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2012-01-09-a-word-of-advice-for-code-year-participants/index.html -->
+<p>This blog advises Code Year participants to unplug from digital distractions to focus deeply and effectively learn programming.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1489,10 +1331,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="33" data-categories="" data-listing-date-sort="1325656800000" data-listing-file-modified-sort="1763768569812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="186">
+<div class="quarto-post image-right" data-index="33" data-categories="" data-listing-date-sort="1325656800000" data-listing-file-modified-sort="1773152983287" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="186">
 <div class="thumbnail"><a href="../posts/2012-01-04-data-journalism-class-description-your-thoughts/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2012-01-04-data-journalism-class-description-your-thoughts/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1506,7 +1348,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2012-01-04-data-journalism-class-description-your-thoughts/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2012-01-04-data-journalism-class-description-your-thoughts/index.html -->
+<p>The author seeks feedback on a data journalism class description that teaches reporters to analyze digital data for investigative stories.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1520,10 +1362,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="34" data-categories="" data-listing-date-sort="1321336800000" data-listing-file-modified-sort="1763768569812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="397">
+<div class="quarto-post image-right" data-index="34" data-categories="" data-listing-date-sort="1321336800000" data-listing-file-modified-sort="1773152982372" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="397">
 <div class="thumbnail"><a href="../posts/2011-11-15-thinking-out-loud-the-management-wisdom-of-battlestar-galactica/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2011-11-15-thinking-out-loud-the-management-wisdom-of-battlestar-galactica/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1537,7 +1379,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2011-11-15-thinking-out-loud-the-management-wisdom-of-battlestar-galactica/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2011-11-15-thinking-out-loud-the-management-wisdom-of-battlestar-galactica/index.html -->
+<p>The author proposes an Ignite talk on applying project management wisdom from Battlestar Galactica’s Admiral Adama to news product development.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1551,10 +1393,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="35" data-categories="" data-listing-date-sort="1318827600000" data-listing-file-modified-sort="1763768569812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="377">
+<div class="quarto-post image-right" data-index="35" data-categories="" data-listing-date-sort="1318827600000" data-listing-file-modified-sort="1773152981067" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="377">
 <div class="thumbnail"><a href="../posts/2011-10-17-help-me-refine-an-incomplete-idea/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2011-10-17-help-me-refine-an-incomplete-idea/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1568,7 +1410,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2011-10-17-help-me-refine-an-incomplete-idea/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2011-10-17-help-me-refine-an-incomplete-idea/index.html -->
+<p>The author seeks reader feedback to refine a proposal for a specialized reporting institute focused on data journalism and news apps.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1582,10 +1424,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="36" data-categories="" data-listing-date-sort="1318568400000" data-listing-file-modified-sort="1763768569806" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="284">
+<div class="quarto-post image-right" data-index="36" data-categories="" data-listing-date-sort="1318568400000" data-listing-file-modified-sort="1773152979971" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="284">
 <div class="thumbnail"><a href="../posts/2011-10-14-journalism-students-vs-tech-focused-students/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2011-10-14-journalism-students-vs-tech-focused-students/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1599,7 +1441,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2011-10-14-journalism-students-vs-tech-focused-students/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2011-10-14-journalism-students-vs-tech-focused-students/index.html -->
+<p>A faculty member worries that journalism students’ self-selecting inability with coding threatens the future of an industry that needs technical skills.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1613,10 +1455,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="37" data-categories="" data-listing-date-sort="1317618000000" data-listing-file-modified-sort="1763768569810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="889">
+<div class="quarto-post image-right" data-index="37" data-categories="" data-listing-date-sort="1317618000000" data-listing-file-modified-sort="1773152978842" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="889">
 <div class="thumbnail"><a href="../posts/2011-10-03-news-nerd-rage-the-trouble-with-conferences/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2011-10-03-news-nerd-rage-the-trouble-with-conferences/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1630,7 +1472,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2011-10-03-news-nerd-rage-the-trouble-with-conferences/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2011-10-03-news-nerd-rage-the-trouble-with-conferences/index.html -->
+<p>The author critiques journalism conferences for over-reliance on uninspiring panels and questions their overall value despite a decade of speaking experience.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1644,10 +1486,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="38" data-categories="am91cm5hbGlzbSUyQ2Z1dHVyZSUyQ21hbmlmZXN0byUyQ3BvbGl0aWZhY3Q=" data-listing-date-sort="1317099600000" data-listing-file-modified-sort="1763768569807" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3831">
+<div class="quarto-post image-right" data-index="38" data-categories="am91cm5hbGlzbSUyQ2Z1dHVyZSUyQ21hbmlmZXN0byUyQ3BvbGl0aWZhY3Q=" data-listing-date-sort="1317099600000" data-listing-file-modified-sort="1773152977636" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="20" data-listing-word-count-sort="3831">
 <div class="thumbnail"><a href="../posts/2011-09-27-me-vs-130-journalism-101-students-the-epic-qa/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2011-09-27-me-vs-130-journalism-101-students-the-epic-qa/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1669,7 +1511,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2011-09-27-me-vs-130-journalism-101-students-the-epic-qa/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2011-09-27-me-vs-130-journalism-101-students-the-epic-qa/index.html -->
+<p>The author shares answers to Journalism 101 students’ texted questions about their blog and career advice.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1683,10 +1525,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="39" data-categories="am91cm5hbGlzbSUyQ2RhdGE=" data-listing-date-sort="1310706000000" data-listing-file-modified-sort="1763768569804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="301">
+<div class="quarto-post image-right" data-index="39" data-categories="am91cm5hbGlzbSUyQ2RhdGE=" data-listing-date-sort="1310706000000" data-listing-file-modified-sort="1773152975587" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="301">
 <div class="thumbnail"><a href="../posts/2011-07-15-some-very-smart-posts-about-killing-your-cms/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2011-07-15-some-very-smart-posts-about-killing-your-cms/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1704,7 +1546,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2011-07-15-some-very-smart-posts-about-killing-your-cms/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2011-07-15-some-very-smart-posts-about-killing-your-cms/index.html -->
+<p>This post highlights two insightful articles advocating for replacing legacy CMSes with modular web delivery platforms.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1718,10 +1560,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="40" data-categories="cmVzZWFyY2glMkNqb3VybmFsaXNtJTJDZnV0dXJl" data-listing-date-sort="1310706000000" data-listing-file-modified-sort="1763768569806" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="49">
+<div class="quarto-post image-right" data-index="40" data-categories="cmVzZWFyY2glMkNqb3VybmFsaXNtJTJDZnV0dXJl" data-listing-date-sort="1310706000000" data-listing-file-modified-sort="1773152976433" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="49">
 <div class="thumbnail"><a href="../posts/2011-07-15-take-a-few-minutes-and-watch-this-and-1-tell-me/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2011-07-15-take-a-few-minutes-and-watch-this-and-1-tell-me/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1741,7 +1583,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2011-07-15-take-a-few-minutes-and-watch-this-and-1-tell-me/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2011-07-15-take-a-few-minutes-and-watch-this-and-1-tell-me/index.html -->
+<p>The blog post praises a technology capable of covering natural disasters for impactful journalism, highlighting how futuristic these tools have become.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1755,10 +1597,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="41" data-categories="am91cm5hbGlzbSUyQ2VkdWNhdGlvbg==" data-listing-date-sort="1258956000000" data-listing-file-modified-sort="1763768569803" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="347">
+<div class="quarto-post image-right" data-index="41" data-categories="am91cm5hbGlzbSUyQ2VkdWNhdGlvbg==" data-listing-date-sort="1258956000000" data-listing-file-modified-sort="1773152974422" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="347">
 <div class="thumbnail"><a href="../posts/2009-11-23-what-would-you-want-out-of-a-class-taught-by-a-journalist-programmer/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2009-11-23-what-would-you-want-out-of-a-class-taught-by-a-journalist-programmer/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1776,7 +1618,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2009-11-23-what-would-you-want-out-of-a-class-taught-by-a-journalist-programmer/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2009-11-23-what-would-you-want-out-of-a-class-taught-by-a-journalist-programmer/index.html -->
+<p>A journalist-programmer seeks ideas for a new 2010 class blending journalism, programming, and entrepreneurship.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1790,10 +1632,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="42" data-categories="am91cm5hbGlzbSUyQ2RqYW5nbyUyQ3BvbGl0aWZhY3QlMkNuZXdzYXBwcw==" data-listing-date-sort="1240808400000" data-listing-file-modified-sort="1763768569808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="600">
+<div class="quarto-post image-right" data-index="42" data-categories="am91cm5hbGlzbSUyQ2RqYW5nbyUyQ3BvbGl0aWZhY3QlMkNuZXdzYXBwcw==" data-listing-date-sort="1240808400000" data-listing-file-modified-sort="1773152973296" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="600">
 <div class="thumbnail"><a href="../posts/2009-04-27-the-key-lesson-i-learned-building-politifact-demos-not-memos/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2009-04-27-the-key-lesson-i-learned-building-politifact-demos-not-memos/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1815,7 +1657,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2009-04-27-the-key-lesson-i-learned-building-politifact-demos-not-memos/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2009-04-27-the-key-lesson-i-learned-building-politifact-demos-not-memos/index.html -->
+<p>The author shares the key lesson from building PolitiFact that using demos rather than memos makes ideas concrete and reduces unproductive meetings.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1829,10 +1671,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="43" data-categories="bmV3c2FwcHM=" data-listing-date-sort="1239512400000" data-listing-file-modified-sort="1763768569813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="804">
+<div class="quarto-post image-right" data-index="43" data-categories="bmV3c2FwcHM=" data-listing-date-sort="1239512400000" data-listing-file-modified-sort="1773152971893" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="804">
 <div class="thumbnail"><a href="../posts/2009-04-12-telling-the-google-bot-no/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2009-04-12-telling-the-google-bot-no/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1848,7 +1690,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2009-04-12-telling-the-google-bot-no/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2009-04-12-telling-the-google-bot-no/index.html -->
+<p>This blog post explains how a Tampa Bay mug shots site stopped Google from indexing permanent criminal records by expiring photos after 60 days.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1862,10 +1704,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="44" data-categories="am91cm5hbGlzbSUyQ25ld3NhcHBz" data-listing-date-sort="1236060000000" data-listing-file-modified-sort="1763768569804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="453">
+<div class="quarto-post image-right" data-index="44" data-categories="am91cm5hbGlzbSUyQ25ld3NhcHBz" data-listing-date-sort="1236060000000" data-listing-file-modified-sort="1773152970642" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="453">
 <div class="thumbnail"><a href="../posts/2009-03-03-build-something-or-stfu/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2009-03-03-build-something-or-stfu/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1883,7 +1725,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2009-03-03-build-something-or-stfu/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2009-03-03-build-something-or-stfu/index.html -->
+<p>The author urges journalists to stop complaining and build something real instead of just writing about what they think should be done.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1897,10 +1739,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="45" data-categories="bmV3c2FwcHMlMkN0d2l0dGVyJTJDbWFya2V0aW5n" data-listing-date-sort="1232863200000" data-listing-file-modified-sort="1763768569812" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="801">
+<div class="quarto-post image-right" data-index="45" data-categories="bmV3c2FwcHMlMkN0d2l0dGVyJTJDbWFya2V0aW5n" data-listing-date-sort="1232863200000" data-listing-file-modified-sort="1773152969509" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="801">
 <div class="thumbnail"><a href="../posts/2009-01-25-twitter-marketing-and-the-devil/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2009-01-25-twitter-marketing-and-the-devil/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1920,7 +1762,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2009-01-25-twitter-marketing-and-the-devil/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2009-01-25-twitter-marketing-and-the-devil/index.html -->
+<p>The blog post argues against using automated tools for Twitter marketing, calling them soulless spam that fails to deliver results.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1934,10 +1776,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="46" data-categories="am91cm5hbGlzbSUyQ2RhdGElMkNjb250ZW50JTJDcGxhdGZvcm1zJTJDbmV3c2FwcHM=" data-listing-date-sort="1232431200000" data-listing-file-modified-sort="1763768569809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="316">
+<div class="quarto-post image-right" data-index="46" data-categories="am91cm5hbGlzbSUyQ2RhdGElMkNjb250ZW50JTJDcGxhdGZvcm1zJTJDbmV3c2FwcHM=" data-listing-date-sort="1232431200000" data-listing-file-modified-sort="1773152968372" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="316">
 <div class="thumbnail"><a href="../posts/2009-01-20-data-content-content-data/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2009-01-20-data-content-content-data/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1961,7 +1803,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2009-01-20-data-content-content-data/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2009-01-20-data-content-content-data/index.html -->
+<p>The post argues for treating content as data to innovate journalism at its core rather than focusing on external platforms.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -1975,10 +1817,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="47" data-categories="am91cm5hbGlzbQ==" data-listing-date-sort="1216357200000" data-listing-file-modified-sort="1763768569804" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="496">
+<div class="quarto-post image-right" data-index="47" data-categories="am91cm5hbGlzbQ==" data-listing-date-sort="1216357200000" data-listing-file-modified-sort="1773152967323" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="496">
 <div class="thumbnail"><a href="../posts/2008-07-18-how-not-to-be-a-wordpress-hero/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2008-07-18-how-not-to-be-a-wordpress-hero/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -1994,7 +1836,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2008-07-18-how-not-to-be-a-wordpress-hero/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2008-07-18-how-not-to-be-a-wordpress-hero/index.html -->
+<p>The blog post advises journalists to avoid being Wordpress Heroes by using personal experience, conducting actual research, and maintaining humility in their writing.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -2008,10 +1850,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="48" data-categories="ZGF0YSUyQ2pvdXJuYWxpc20lMkNuZXdzYXBwcw==" data-listing-date-sort="1201500000000" data-listing-file-modified-sort="1763768569805" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1064">
+<div class="quarto-post image-right" data-index="48" data-categories="ZGF0YSUyQ2pvdXJuYWxpc20lMkNuZXdzYXBwcw==" data-listing-date-sort="1201500000000" data-listing-file-modified-sort="1773152966120" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1064">
 <div class="thumbnail"><a href="../posts/2008-01-28-thoughts-on-everyblock-and-context/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2008-01-28-thoughts-on-everyblock-and-context/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -2031,7 +1873,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2008-01-28-thoughts-on-everyblock-and-context/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2008-01-28-thoughts-on-everyblock-and-context/index.html -->
+<p>The author argues that EveryBlock provides geographic context rather than being a data ghetto and should not be feared by newspapers.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -2045,10 +1887,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="49" data-categories="am91cm5hbGlzbSUyQ2RhdGElMkNuZXdzYXBwcw==" data-listing-date-sort="1200117600000" data-listing-file-modified-sort="1763768569808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="981">
+<div class="quarto-post image-right" data-index="49" data-categories="am91cm5hbGlzbSUyQ2RhdGElMkNuZXdzYXBwcw==" data-listing-date-sort="1200117600000" data-listing-file-modified-sort="1773152964982" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="981">
 <div class="thumbnail"><a href="../posts/2008-01-12-molten-content-data-ghettos-and-why-your-cms-problems-are-an-excuse-not-a-reason/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2008-01-12-molten-content-data-ghettos-and-why-your-cms-problems-are-an-excuse-not-a-reason/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -2068,7 +1910,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2008-01-12-molten-content-data-ghettos-and-why-your-cms-problems-are-an-excuse-not-a-reason/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2008-01-12-molten-content-data-ghettos-and-why-your-cms-problems-are-an-excuse-not-a-reason/index.html -->
+<p>The author advocates for molten content to escape data ghettos by dynamically integrating information across platforms instead of siloing it.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -2082,10 +1924,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="50" data-categories="ZGF0YSUyQ2pvdXJuYWxpc20lMkNuZXdzYXBwcyUyQ3JhbnQ=" data-listing-date-sort="1199426400000" data-listing-file-modified-sort="1763768569809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="796">
+<div class="quarto-post image-right" data-index="50" data-categories="ZGF0YSUyQ2pvdXJuYWxpc20lMkNuZXdzYXBwcyUyQ3JhbnQ=" data-listing-date-sort="1199426400000" data-listing-file-modified-sort="1773152963791" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="796">
 <div class="thumbnail"><a href="../posts/2008-01-04-data-ghettos/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2008-01-04-data-ghettos/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -2107,7 +1949,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2008-01-04-data-ghettos/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2008-01-04-data-ghettos/index.html -->
+<p>The author criticizes newspaper data hubs for being uncreative ghettos that limit user exploration to simple search boxes instead of browsing.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -2121,10 +1963,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="51" data-categories="am91cm5hbGlzbSUyQ25ld3NhcHBz" data-listing-date-sort="1189486800000" data-listing-file-modified-sort="1763768569811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="775">
+<div class="quarto-post image-right" data-index="51" data-categories="am91cm5hbGlzbSUyQ25ld3NhcHBz" data-listing-date-sort="1189486800000" data-listing-file-modified-sort="1773152962586" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="775">
 <div class="thumbnail"><a href="../posts/2007-09-11-why-the-journalist-in-programmerjournalist-matters/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2007-09-11-why-the-journalist-in-programmerjournalist-matters/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -2142,7 +1984,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2007-09-11-why-the-journalist-in-programmerjournalist-matters/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2007-09-11-why-the-journalist-in-programmerjournalist-matters/index.html -->
+<p>This blog shares lessons on building PolitiFact by keeping the initial team small to maintain decisiveness and vision.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -2156,10 +1998,10 @@ Matt Waite
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="52" data-categories="cG9saXRpZmFjdCUyQ2pvdXJuYWxpc20lMkNkYXRhJTJDbmV3c2FwcHM=" data-listing-date-sort="1187758800000" data-listing-file-modified-sort="1763768569809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="856">
+<div class="quarto-post image-right" data-index="52" data-categories="cG9saXRpZmFjdCUyQ2pvdXJuYWxpc20lMkNkYXRhJTJDbmV3c2FwcHM=" data-listing-date-sort="1187758800000" data-listing-file-modified-sort="1773152961487" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="856">
 <div class="thumbnail"><a href="../posts/2007-08-22-announcing-politifact/index.html" class="no-external">
 
-<!-- img(9CEB782EFEE6)[progressive=true, height=]:listing:posts/2007-08-22-announcing-politifact/index.html -->
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
 </a></div>
 <div class="body">
@@ -2181,7 +2023,7 @@ Matt Waite
 
 </div>
 <div class="delink listing-description"><a href="../posts/2007-08-22-announcing-politifact/index.html" class="no-external">
-<!-- desc(5A0113B34292)[max=175]:posts/2007-08-22-announcing-politifact/index.html -->
+<p>This blog post announces PolitiFact, a data-driven political fact-checking website inspired by traditional newspaper truth squads.</p>
 </a></div>
 </div>
 <div class="metadata">
@@ -2203,19 +2045,6 @@ Matt Waite
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
-    }
-    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
