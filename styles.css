@@ -353,20 +353,6 @@ a:hover {
     color: var(--accent);
 }
 
-.quarto-listing-default .quarto-post .listing-description,
-.quarto-listing-default .quarto-post a.listing-description {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: var(--gray-dark);
-    line-height: 1.55;
-    border-bottom: none;
-    display: block;
-    margin-top: 0.3rem;
-}
-
-.quarto-listing-default .quarto-post .listing-description:hover {
-    color: var(--gray-dark);
-}
 
 /* Category pills */
 .quarto-listing-default .quarto-post .listing-categories {
