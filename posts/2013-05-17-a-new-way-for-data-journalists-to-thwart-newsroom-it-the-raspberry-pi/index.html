@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>A new way for data journalists to thwart newsroom IT: the Raspberry Pi – Matt Waite’s Collection of Miscellany</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -36,15 +39,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7c69b197886ae2a34062761d21e44731.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -88,7 +90,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="A new way for data journalists to thwart newsroom IT: the Raspberry Pi – Matt Waite’s Collection of Miscellany">
 <meta property="og:description" content="A data journalist describes using a cheap Raspberry Pi to bypass restrictive newsroom IT and automate data scraping tasks independently.">
-<meta property="og:site_name" content="Matt Waite's Collection of Miscellany">
+<meta property="og:site_name" content="Matt Waite’s Collection of Miscellany">
 <meta name="twitter:title" content="A new way for data journalists to thwart newsroom IT: the Raspberry Pi – Matt Waite’s Collection of Miscellany">
 <meta name="twitter:description" content="A data journalist describes using a cheap Raspberry Pi to bypass restrictive newsroom IT and automate data scraping tasks independently.">
 <meta name="twitter:creator" content="@mattwaite">
@@ -188,7 +190,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <p><img src="https://64.media.tumblr.com/1859afd856577e162c6c2803d0ab9c9e/0fd0cc5f5d0d45f8-ad/s540x810/f239e45339ecf9e8e90f7b7afe91f326f84a665f.jpg" class="img-fluid"></p>
 <p>One of my old jokes is that newsroom IT puts the No in Innovation, so I’m always on the lookout for ways to get around them. And I’ve been playing around with a good one: <a href="http://www.raspberrypi.org/">The Raspberry Pi</a>.</p>
 <p>Unfamiliar with the Pi? The Model B Pi is a $35 computer that’s about the size of a deck of cards. It’s got an ethernet port, and you supply the hard drive in the form of an SD card, the keyboard, mouse and monitor. Now, for $35, you’re not getting a ton of horsepower, but for simple repetitive tasks it works great.</p>
-<p>What kind of simple, repetitive tasks? Let’s pretend for a second that you wanted to set up a scraper that dumped data into a database every hour. Ideally, you’d have a server somewhere and you’d set up a task on it – I like using ’nix’s cron for things like this – and off it would go, mindlessly gathering data for you and putting it into a database. You could then go about your life, stopping by from time to time to get that data and do whatever you’re going to do with it. So you ask newsroom IT for this and, of course, the answer is no. And no we won’t give you the money to run this in the cloud for a few bucks a month either.&nbsp;</p>
+<p>What kind of simple, repetitive tasks? Let’s pretend for a second that you wanted to set up a scraper that dumped data into a database every hour. Ideally, you’d have a server somewhere and you’d set up a task on it – I like using ‘nix’s cron for things like this – and off it would go, mindlessly gathering data for you and putting it into a database. You could then go about your life, stopping by from time to time to get that data and do whatever you’re going to do with it. So you ask newsroom IT for this and, of course, the answer is no. And no we won’t give you the money to run this in the cloud for a few bucks a month either.&nbsp;</p>
 <p>Enter the Pi.</p>
 <p>For $35, you can write your scripts, put them in a cron job and off it’ll go, gathering your data for you. No need for a server, no need for a server administrator, no need to make sure your work computer stays on and running the whole time, just some elbow grease to get the script running and an ethernet connection to the internet.&nbsp;</p>
 <p>I’ve had my Pi running <a href="https://github.com/mattwaite/TweetsWithR">a repetitive task</a> for two weeks now and it’s plugging along without issue, having gathered 50,000 records without me having to do anything. In a month, I’ll have a dataset worth analyzing, and it will only ever cost me $35. And I can use it for other things as well.&nbsp;</p>
