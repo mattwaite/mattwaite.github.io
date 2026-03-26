@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Data Catalog</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --border: #e1e4e8;
+      --accent: #0066cc;
+      --accent-light: #e8f0fb;
+      --green: #1a7f37;
+      --green-light: #e6f4ea;
+      --amber: #9a6700;
+      --amber-light: #fff8e1;
+      --red: #cf222e;
+      --red-light: #ffeef0;
+      --text: #24292f;
+      --muted: #57606a;
+      --tag-bg: #eef2ff;
+      --tag-text: #3451b2;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 2rem 2rem 1.5rem;
+      border-bottom: 4px solid var(--accent);
+    }
+
+    header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
+    header p { color: #cdd9e5; font-size: 0.95rem; }
+
+    .meta-bar {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 2rem;
+      display: flex;
+      gap: 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .meta-bar span strong { color: var(--text); }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+    }
+
+    nav a {
+      display: block;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+    .sport-section {
+      margin-bottom: 3rem;
+    }
+
+    .sport-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .sport-icon {
+      font-size: 1.5rem;
+    }
+
+    .sport-header h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .sport-header .sport-count {
+      font-size: 0.8rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 0.1rem 0.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid-two { grid-template-columns: 1fr; }
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 0.75rem 1rem;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .panel-header.scrapers { background: var(--accent-light); color: var(--accent); }
+    .panel-header.data { background: var(--green-light); color: var(--green); }
+
+    /* Scraper cards */
+    .scraper-card {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .scraper-card:last-child { border-bottom: none; }
+
+    .scraper-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    .scraper-desc {
+      font-size: 0.85rem;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .scraper-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .tag.source { background: #f0f4ff; color: #3451b2; }
+    .tag.outputs { background: #f0fdf4; color: #166534; }
+    .tag.method { background: #fef9ee; color: #854d0e; }
+
+    /* Data rows */
+    .data-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.65rem 1rem;
+      border-bottom: 1px solid var(--border);
+      gap: 0.5rem;
+    }
+
+    .data-row:last-child { border-bottom: none; }
+
+    .data-filename {
+      font-size: 0.82rem;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      color: var(--green);
+      font-weight: 600;
+      flex: 1;
+      min-width: 0;
+      word-break: break-word;
+    }
+
+    .data-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.15rem;
+      flex-shrink: 0;
+    }
+
+    .data-rows {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .data-range {
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .data-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .group-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      padding: 0.4rem 1rem;
+      background: #f6f8fa;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .badge-new {
+      display: inline-block;
+      font-size: 0.68rem;
+      background: var(--green);
+      color: white;
+      padding: 0.05rem 0.35rem;
+      border-radius: 3px;
+      font-weight: 700;
+      vertical-align: middle;
+      margin-left: 0.25rem;
+    }
+
+    .badge-large {
+      display: inline-block;
+      font-size: 0.68rem;
+      background: #7c3aed;
+      color: white;
+      padding: 0.05rem 0.35rem;
+      border-radius: 3px;
+      font-weight: 700;
+      vertical-align: middle;
+      margin-left: 0.25rem;
+    }
+
+    .intro-box {
+      background: var(--accent-light);
+      border: 1px solid #b3d1f5;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+      color: #1a3a5c;
+    }
+
+    .intro-box strong { display: block; margin-bottom: 0.25rem; font-size: 0.95rem; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🏆 Sports Data Catalog</h1>
+  <p>A guide to available scrapers and datasets for sports data visualization projects</p>
+</header>
+
+<div class="meta-bar">
+  <span><strong>27+</strong> scrapers / scripts</span>
+  <span><strong>9</strong> sports covered</span>
+  <span><strong>190+</strong> data files</span>
+  <span>Sources: sports-reference.com · baseball-reference.com · stats.ncaa.org · hockey-reference.com · pro-football-reference.com · fbref.com · pgatour.com · transfermarkt.com</span>
+  <span>Language: <strong>R</strong> (tidyverse, rvest)</span>
+</div>
+
+<nav>
+  <a href="#cfb">College Football</a>
+  <a href="#nfl">NFL</a>
+  <a href="#cbb">College Basketball</a>
+  <a href="#nba">NBA</a>
+  <a href="#mlb">MLB</a>
+  <a href="#ncaabaseball">NCAA Baseball</a>
+  <a href="#softball">NCAA Softball</a>
+  <a href="#volleyball">NCAA Volleyball</a>
+  <a href="#nhl">NHL</a>
+  <a href="#soccer">Soccer</a>
+  <a href="#other">Other Sports</a>
+</nav>
+
+<main>
+
+  <div class="intro-box">
+    <strong>How to use this catalog</strong>
+    Each section lists the scraper scripts available (left panel) and the data files already collected (right panel). Scrapers can be re-run to update data. All scripts are R Markdown (.Rmd) or plain R (.R) files using the <code>tidyverse</code> and <code>rvest</code> packages unless otherwise noted.
+  </div>
+
+  <!-- ===================== COLLEGE FOOTBALL ===================== -->
+  <div class="sport-section" id="cfb">
+    <div class="sport-header">
+      <span class="sport-icon">🏈</span>
+      <h2>College Football (FBS)</h2>
+      <span class="sport-count">4 scrapers</span>
+    </div>
+    <div class="grid-two">
+      <div class="panel">
+        <div class="panel-header scrapers">Scrapers</div>
+        <div class="scraper-card">
+          <div class="scraper-name">CFBLogsScrape.Rmd</div>
+          <div class="scraper-desc">Scrapes FBS team game-by-game offensive and defensive logs for a single season. Edit the year variable to target any season.</div>
+          <div class="scraper-meta">
+            <span class="tag source">sports-reference.com/cfb</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ footballlogs{year}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">CFBLogsScrapeOlderYears.Rmd</div>
+          <div class="scraper-desc">Same as above but configured for 2020 season — useful template for scraping pre-2022 seasons where conference structures differed.</div>
+          <div class="scraper-meta">
+            <span class="tag source">sports-reference.com/cfb</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ footballlogs{year}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">FBSHistoryScrape.Rmd</div>
+          <div class="scraper-desc">Scrapes all-time win-loss records, bowl records, and historical program data for every FBS program.</div>
+          <div class="scraper-meta">
+            <span class="tag source">sports-reference.com/cfb/schools</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ CFBteamhistory.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NCAA_Football_Quarterbacks.Rmd</div>
+          <div class="scraper-desc">Scrapes FBS quarterback passing statistics for a given season (minimum attempts filter applied). Update the <code>season</code> variable.</div>
+          <div class="scraper-meta">
+            <span class="tag source">sports-reference.com/cfb</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ ncaa_football_quarterbacks_{year}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NCAAFootballRosterScrape.R</div>
+          <div class="scraper-desc">Scrapes full team rosters (player name, position, height, weight, year) for all FBS teams from stats.ncaa.org. Requires a seed CSV of team URLs (football2020.csv).</div>
+          <div class="scraper-meta">
+            <span class="tag source">stats.ncaa.org</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ footballrosters{year}.csv</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header data">Data Files</div>
+        <div class="group-label">Team Game Logs — by Season</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">footballlogs11.csv – footballlogs24.csv</div>
+            <div class="data-note">One file per season (2011–2024). Each row = one team's game. Includes passing, rushing, scoring, turnovers, penalties for both offense and defense.</div>
+          </div>
+          <div class="data-info">
+            <div class="data-rows">~1,500–1,700 rows/yr</div>
+            <div class="data-range">2011 – 2024</div>
+          </div>
+        </div>
+        <div class="group-label">Merged Multi-Year Files</div>
+        <div class="data-row">
+          <div><div class="data-filename">footballlogs1120.csv</div></div>
+          <div class="data-info"><div class="data-rows">15,637 rows</div><div class="data-range">2011–2020</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">footballlogs1121.csv</div></div>
+          <div class="data-info"><div class="data-rows">17,292 rows</div><div class="data-range">2011–2021</div></div>
+        </div>
+        <div class="group-label">Other CFB Data</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">CFBteamhistory.csv</div>
+            <div class="data-note">All-time program records: W, L, T, bowl record, SRS, SOS, AP titles.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">10,860 rows</div><div class="data-range">All-time</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">ncaa_football_quarterbacks_2025.csv</div>
+            <div class="data-note">FBS QB passing stats: completions, attempts, yards, TDs, INTs, rating.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">205 rows</div><div class="data-range">2025</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== NFL ===================== -->
+  <div class="sport-section" id="nfl">
+    <div class="sport-header">
+      <span class="sport-icon">🏈</span>
+      <h2>NFL</h2>
+      <span class="sport-count">4 scrapers</span>
+    </div>
+    <div class="grid-two">
+      <div class="panel">
+        <div class="panel-header scrapers">Scrapers</div>
+        <div class="scraper-card">
+          <div class="scraper-name">ScrapingNFLQuarterbacks.Rmd</div>
+          <div class="scraper-desc">Scrapes NFL quarterback passing stats (1975–2024) and rushing stats (1975–2024) for all QBs, one season at a time, then combines.</div>
+          <div class="scraper-meta">
+            <span class="tag source">pro-football-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ nfl_qb_passing_19752024.csv · nfl_qb_rushing_19752024.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">ScrapingNFLReceivers.Rmd</div>
+          <div class="scraper-desc">Scrapes NFL receiving stats for all players (2010–2024). Primarily targets wide receivers but includes all positions.</div>
+          <div class="scraper-meta">
+            <span class="tag source">pro-football-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ nfl_qb_receiving_20102024.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">ScrapingNFLTeamOffense.Rmd</div>
+          <div class="scraper-desc">Scrapes NFL team offensive stats by season (2020–2024). Includes historical scraping going back to 1971 at different schema versions.</div>
+          <div class="scraper-meta">
+            <span class="tag source">pro-football-reference.com</span>
+            <span class="tag method">HTML + comment node scraping</span>
+            <span class="tag outputs">→ nfl_team_offense_2020_2024.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">ScrapingNFLTeamDefense.Rmd</div>
+          <div class="scraper-desc">Scrapes NFL team defensive stats (opponent stats) by season (2020–2024). Same structure as offense scraper but pulls from /opp.htm endpoint.</div>
+          <div class="scraper-meta">
+            <span class="tag source">pro-football-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ nfl_team_defense_2020_2024.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NFLTeamPassingOffense.Rmd</div>
+          <div class="scraper-desc">Scrapes NFL team-level passing offense stats (completions, yards, TDs, INT, sack rate, net yards/attempt) for all teams, 2000–2023.</div>
+          <div class="scraper-meta">
+            <span class="tag source">pro-football-reference.com</span>
+            <span class="tag method">HTML comment node scraping</span>
+            <span class="tag outputs">→ nfl team passing CSV</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">fantasyscraper.Rmd / FantasyWR.Rmd</div>
+          <div class="scraper-desc">Scrapes NFL fantasy football stats (passing, rushing, receiving, fantasy points) for all skill position players, 2014–2023. Great for comparing players across eras or building fantasy-relevant visualizations.</div>
+          <div class="scraper-meta">
+            <span class="tag source">pro-football-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ fantasy stats CSV</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header data">Data Files</div>
+        <div class="group-label">QB Stats</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nfl_qb_passing_19752024.csv</div>
+            <div class="data-note">Individual QB passing stats per season: Att, Cmp, Yds, TD, INT, rating, sacks, AY/A.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">3,731 rows</div><div class="data-range">1975–2024</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nfl_qb_rushing_19752024.csv</div>
+            <div class="data-note">Individual QB rushing stats per season: Att, Yds, Avg, TD.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">3,542 rows</div><div class="data-range">1975–2024</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nfl_qb_receiving_20102024.csv</div>
+            <div class="data-note">Individual receiving stats for all positions: Targets, Rec, Yds, Y/R, TD, Fum.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">9,226 rows</div><div class="data-range">2010–2024</div></div>
+        </div>
+        <div class="group-label">Team Stats</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nfl_team_offense_2020_2024.csv</div>
+            <div class="data-note">Team offensive totals per season: passing, rushing, first downs, turnovers, penalties.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">160 rows</div><div class="data-range">2020–2024</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nfl_team_defense_2020_2024.csv</div>
+            <div class="data-note">Team defensive totals per season (points and yards allowed, opponent passing/rushing).</div>
+          </div>
+          <div class="data-info"><div class="data-rows">160 rows</div><div class="data-range">2020–2024</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== COLLEGE BASKETBALL ===================== -->
+  <div class="sport-section" id="cbb">
+    <div class="sport-header">
+      <span class="sport-icon">🏀</span>
+      <h2>College Basketball (NCAA Men's)</h2>
+      <span class="sport-count">3 scrapers</span>
+    </div>
+    <div class="grid-two">
+      <div class="panel">
+        <div class="panel-header scrapers">Scrapers</div>
+        <div class="scraper-card">
+          <div class="scraper-name">ScrapingBasketballPlayers.Rmd</div>
+          <div class="scraper-desc">Scrapes NCAA men's basketball player statistics (per game, season totals) from Sports Reference. Loops through all D-I schools to build a full player dataset for one season.</div>
+          <div class="scraper-meta">
+            <span class="tag source">sports-reference.com/cbb</span>
+            <span class="tag method">HTML table + roster scraping</span>
+            <span class="tag outputs">→ mbbplayers{year}.csv / ncaa_mens_basketball_players{year}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">LogScraperScript.R</div>
+          <div class="scraper-desc">Script version of the CBB team game log scraper. Produces season-by-season log files (logs15–24.csv) covering all D-I teams' game-by-game results.</div>
+          <div class="scraper-meta">
+            <span class="tag source">sports-reference.com/cbb</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ logs{year}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">BasketballLogsMerge.Rmd</div>
+          <div class="scraper-desc">Utility script to combine individual season log files into multi-year merged files for easier analysis.</div>
+          <div class="scraper-meta">
+            <span class="tag method">File merge / CSV combine</span>
+            <span class="tag outputs">→ cbblogs1522.csv · cbbplayers1322.csv</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header data">Data Files</div>
+        <div class="group-label">Team Game Logs — by Season</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">logs15.csv – logs24.csv</div>
+            <div class="data-note">One file per season (2015–2024). Each row = one team's game. Includes FG, 3P, FT, rebounds, assists, turnovers, opponent stats, win/loss.</div>
+          </div>
+          <div class="data-info">
+            <div class="data-rows">~9,000–12,000/yr</div>
+            <div class="data-range">2015–2024</div>
+          </div>
+        </div>
+        <div class="group-label">Merged Multi-Year Logs</div>
+        <div class="data-row">
+          <div><div class="data-filename">cbblogs1521.csv</div></div>
+          <div class="data-info"><div class="data-rows">74,497 rows</div><div class="data-range">2015–2021</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">cbblogs1522.csv</div></div>
+          <div class="data-info"><div class="data-rows">75,819 rows</div><div class="data-range">2015–2022</div></div>
+        </div>
+        <div class="group-label">Advanced Game Logs</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">ncaa_mens_basketball_advancedlogs23.csv</div>
+            <div class="data-note">Game logs with advanced stats (Pace, ORtg, DRtg, etc.)</div>
+          </div>
+          <div class="data-info"><div class="data-rows">11,995 rows</div><div class="data-range">2022–23</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">ncaa_mens_basketball_advancedlogs24.csv</div></div>
+          <div class="data-info"><div class="data-rows">11,907 rows</div><div class="data-range">2023–24</div></div>
+        </div>
+        <div class="group-label">Player Stats — by Season</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">mbbplayers13.csv – mbbplayers22.csv</div>
+            <div class="data-note">Individual player season stats (older format, 2013–2022).</div>
+          </div>
+          <div class="data-info"><div class="data-rows">~4,700–5,700/yr</div><div class="data-range">2013–2022</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">ncaa_mens_basketball_players19.csv – _players25.csv</div>
+            <div class="data-note">Individual player season stats (newer format, 2019–2025).</div>
+          </div>
+          <div class="data-info"><div class="data-rows">~5,400–5,800/yr</div><div class="data-range">2019–2025</div></div>
+        </div>
+        <div class="group-label">Merged Player Files</div>
+        <div class="data-row">
+          <div><div class="data-filename">cbbplayers1321.csv</div></div>
+          <div class="data-info"><div class="data-rows">43,461 rows</div><div class="data-range">2013–2021</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">cbbplayers1322.csv</div></div>
+          <div class="data-info"><div class="data-rows">49,212 rows</div><div class="data-range">2013–2022</div></div>
+        </div>
+        <div class="group-label">Team Season Stats</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">ncaa_mens_basketball_team_stats15.csv – _team_stats24.csv</div>
+            <div class="data-note">Team-level season summary stats for all D-I teams per year.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">~350/yr</div><div class="data-range">2015–2024</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== NBA ===================== -->
+  <div class="sport-section" id="nba">
+    <div class="sport-header">
+      <span class="sport-icon">🏀</span>
+      <h2>NBA</h2>
+      <span class="sport-count">5 scrapers</span>
+    </div>
+    <div class="grid-two">
+      <div class="panel">
+        <div class="panel-header scrapers">Scrapers</div>
+        <div class="scraper-card">
+          <div class="scraper-name">NBALogScraper.Rmd</div>
+          <div class="scraper-desc">Scrapes NBA team basic game logs for one season. Loops through all 30 teams in both conferences to produce per-game box score stats.</div>
+          <div class="scraper-meta">
+            <span class="tag source">basketball-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ nbalogs{season}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NBAAdvancedLogScraper.Rmd</div>
+          <div class="scraper-desc">Scrapes NBA team advanced game logs (ORtg, DRtg, Pace, TS%, four factors) for one season.</div>
+          <div class="scraper-meta">
+            <span class="tag source">basketball-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ nbaadvancedlogs{season}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NBACombinedLogsScraper.Rmd</div>
+          <div class="scraper-desc">Most current scraper — fetches both basic AND advanced game logs in a single pass, plus per-game team stats. Also merges multi-year files and joins a team name key for consistent naming.</div>
+          <div class="scraper-meta">
+            <span class="tag source">basketball-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ nbaadvancedlogs{year}.csv · nbastats{year}.csv · nbaadvancedlogs1523.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NBAStandingsScraper.Rmd</div>
+          <div class="scraper-desc">Loops 2000–2023 to pull end-of-season standings (wins, losses, GB, SRS, SOS) for both conferences.</div>
+          <div class="scraper-meta">
+            <span class="tag source">basketball-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ nbastandings00-23.csv (saves to Desktop)</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">ScrapingNBAAdvancedStats.Rmd</div>
+          <div class="scraper-desc">Fetches individual player scoring leaders from the NBA Stats API (stats.nba.com) via JSON. Also has a version scraping team advanced season stats (1980–2022) from Basketball Reference.</div>
+          <div class="scraper-meta">
+            <span class="tag source">stats.nba.com API · basketball-reference.com</span>
+            <span class="tag method">JSON API · HTML table</span>
+            <span class="tag outputs">→ leaders.csv · nbateamrecords.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">ScrapingNBAAllTimers.Rmd</div>
+          <div class="scraper-desc">Scrapes NBA all-time career statistical leaders (points, rebounds, assists, 3-point %, etc.) from Basketball Reference's career leader pages. Good for historical context visualizations.</div>
+          <div class="scraper-meta">
+            <span class="tag source">basketball-reference.com/leaders</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ in-memory / visualization use</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">ScrapingOpeningLines.Rmd</div>
+          <div class="scraper-desc">Scrapes NBA opening money lines from VegasInsider. Appends daily to a running CSV of betting lines. Designed to be run each day during the season.</div>
+          <div class="scraper-meta">
+            <span class="tag source">vegasinsider.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ NBABettingLines.csv (append mode)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header data">Data Files</div>
+        <div class="group-label">Team Basic Game Logs</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nbalogs20152016.csv – nbalogs20192020.csv</div>
+            <div class="data-note">Team game-by-game: FG, 3P, FT, rebounds, assists, steals, blocks, turnovers for both teams.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">~1,400–2,100/yr</div><div class="data-range">2015–2020</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">nbalogs20152020.csv</div></div>
+          <div class="data-info"><div class="data-rows">11,960 rows</div><div class="data-range">2015–2020</div></div>
+        </div>
+        <div class="group-label">Team Advanced Game Logs</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nbaadvancedlogs15.csv – nbaadvancedlogs23.csv</div>
+            <div class="data-note">Per-game: ORtg, DRtg, Pace, FTr, TS%, four factors (offense and defense).</div>
+          </div>
+          <div class="data-info"><div class="data-rows">~2,100–2,460/yr</div><div class="data-range">2015–2023</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">nbaadvancedlogs1522.csv <span class="badge-large">LARGE</span></div></div>
+          <div class="data-info"><div class="data-rows">65,360 rows</div><div class="data-range">2015–2022</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">nbaadvancedlogs1523.csv</div></div>
+          <div class="data-info"><div class="data-rows">21,098 rows</div><div class="data-range">2015–2023</div></div>
+        </div>
+        <div class="group-label">Team Season Stats (Per Game)</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nbastats15.csv – nbastats23.csv · nbastats1523.csv</div>
+            <div class="data-note">30 teams per season, per-game averages for scoring, shooting, rebounding, etc.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">30/yr · 270 merged</div><div class="data-range">2015–2023</div></div>
+        </div>
+        <div class="group-label">Individual Player Stats</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nba_player_stats_1976_2025.csv</div>
+            <div class="data-note">All NBA player season stats (standard box score). <span class="badge-new">DEEP</span></div>
+          </div>
+          <div class="data-info"><div class="data-rows">25,954 rows</div><div class="data-range">1976–2025</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">nba_player_advanced_1976_2025.csv</div></div>
+          <div class="data-info"><div class="data-rows">25,954 rows</div><div class="data-range">1976–2025</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nba_player_advanced_postseason_1976_2024.csv</div>
+            <div class="data-note">Playoff advanced stats.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">9,102 rows</div><div class="data-range">1976–2024</div></div>
+        </div>
+        <div class="group-label">Miscellaneous</div>
+        <div class="data-row">
+          <div><div class="data-filename">nbalong.csv</div><div class="data-note">Simplified team PTS by season (wide-to-long format).</div></div>
+          <div class="data-info"><div class="data-rows">270 rows</div><div class="data-range">2015–2023</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">leaders.csv</div><div class="data-note">NBA.com API: per-game scoring leaders for a single season.</div></div>
+          <div class="data-info"><div class="data-rows">265 rows</div><div class="data-range">2018–19</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">NBABettingLines.csv · ArchivedBettingLines.csv</div><div class="data-note">NBA money lines scraped from VegasInsider.</div></div>
+          <div class="data-info"><div class="data-rows">10 · 92 rows</div><div class="data-range">2021</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">NBADraft.csv</div><div class="data-note">NBA Draft picks (source: Basketball Reference).</div></div>
+          <div class="data-info"><div class="data-rows">360 rows</div><div class="data-range">Various</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MLB ===================== -->
+  <div class="sport-section" id="mlb">
+    <div class="sport-header">
+      <span class="sport-icon">⚾</span>
+      <h2>MLB Baseball</h2>
+      <span class="sport-count">5 scrapers</span>
+    </div>
+    <div class="grid-two">
+      <div class="panel">
+        <div class="panel-header scrapers">Scrapers</div>
+        <div class="scraper-card">
+          <div class="scraper-name">MLBgameresults.Rmd</div>
+          <div class="scraper-desc">Scrapes season schedule and game results for all 30 MLB teams for a given year. Calculates home/away scores, day/night games, attendance.</div>
+          <div class="scraper-meta">
+            <span class="tag source">baseball-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ mlbgamescores{year}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">HistoricBaseballHitters.Rmd</div>
+          <div class="scraper-desc">Loops 1914–2025 to pull every individual MLB hitter's season stats. One of the deepest historical datasets available.</div>
+          <div class="scraper-meta">
+            <span class="tag source">baseball-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ baseballhitters19142025.csv · mlb_hitter_stats_1914_2024.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">MLBHitterValue.Rmd</div>
+          <div class="scraper-desc">Scrapes Baseball Reference's "value batting" table (WAR, RAA, RAR) for every hitter across all seasons 1914–2024.</div>
+          <div class="scraper-meta">
+            <span class="tag source">baseball-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ mlb_hitter_value_1914_2024.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">MLBPostSeasonSeriesStats.Rmd</div>
+          <div class="scraper-desc">Scrapes batting and pitching stats by series (ALCS, NLCS, World Series, Division Series) for all postseason matchups 2000–2024.</div>
+          <div class="scraper-meta">
+            <span class="tag source">baseball-reference.com/postseason</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ mlb_postseason_batting_2000_2024.csv · mlb_postseason_pitching_2000_2024.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">ScrapingBaseballTeamStats.Rmd</div>
+          <div class="scraper-desc">Scrapes MLB team season batting and pitching summary stats (2000–2023). Uses hidden/commented HTML nodes.</div>
+          <div class="scraper-meta">
+            <span class="tag source">baseball-reference.com</span>
+            <span class="tag method">HTML comment node scraping</span>
+            <span class="tag outputs">→ mlbbatting0023.csv · mlbpitching0023.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">MLBAttendanceParkFX.Rmd</div>
+          <div class="scraper-desc">Scrapes MLB team miscellaneous stats including attendance, estimated payroll, park factor, and BPF/PPF values for 2016–2024.</div>
+          <div class="scraper-meta">
+            <span class="tag source">baseball-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ mlb_misc_2016_2024.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">MLBPlayByPlayScrape.Rmd / .R / MLBPlayByPlayScrape15.R / 16.R</div>
+          <div class="scraper-desc">Scrapes full MLB play-by-play data using the <code>baseballr</code> package. Generates massive files (~190K rows per season). Separate scripts for 2015 and 2016 and combined versions for later years.</div>
+          <div class="scraper-meta">
+            <span class="tag source">Retrosheet via baseballr package</span>
+            <span class="tag method">baseballr R package</span>
+            <span class="tag outputs">→ playbyplays{year}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">FetchMLBgamepacks.Rmd</div>
+          <div class="scraper-desc">Uses the <code>baseballr</code> package to fetch MLB game information (attendance, venue, weather, umpires) for a date range. Complements game score data with contextual metadata.</div>
+          <div class="scraper-meta">
+            <span class="tag source">MLB Stats API via baseballr</span>
+            <span class="tag method">baseballr R package</span>
+            <span class="tag outputs">→ gamepacks.csv</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header data">Data Files</div>
+        <div class="group-label">Game Results</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">mlbgamescores2016.csv – mlbgamescores2024.csv</div>
+            <div class="data-note">One file per season. Each row = one team's game entry. Home/away teams, scores, innings, W/L/Save pitcher, attendance, day/night.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">~1,800–4,860/yr</div><div class="data-range">2016–2024</div></div>
+        </div>
+        <div class="group-label">Hitter Stats</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">baseballhitters19142025.csv <span class="badge-large">LARGE</span></div>
+            <div class="data-note">Every individual MLB hitter, every season. Standard batting: AB, H, 2B, HR, RBI, BB, SO, BA, OBP, SLG, OPS.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">106,300 rows</div><div class="data-range">1914–2025</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">mlb_hitter_stats_1914_2024.csv</div></div>
+          <div class="data-info"><div class="data-rows">105,159 rows</div><div class="data-range">1914–2024</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">mlb_hitter_value_1914_2024.csv</div>
+            <div class="data-note">WAR-based value stats: RAA, RAR, WAR, oWAR, dWAR per player-season.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">105,159 rows</div><div class="data-range">1914–2024</div></div>
+        </div>
+        <div class="group-label">Postseason</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">mlb_postseason_batting_2000_2024.csv</div>
+            <div class="data-note">Batting stats by series (WS, ALCS, NLCS, ALDS, NLDS) per team.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">10,115 rows</div><div class="data-range">2000–2024</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">mlb_postseason_pitching_2000_2024.csv</div></div>
+          <div class="data-info"><div class="data-rows">4,665 rows</div><div class="data-range">2000–2024</div></div>
+        </div>
+        <div class="group-label">Team Stats</div>
+        <div class="data-row">
+          <div><div class="data-filename">mlbbatting0023.csv</div><div class="data-note">MLB team batting totals per season.</div></div>
+          <div class="data-info"><div class="data-rows">720 rows</div><div class="data-range">2000–2023</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">mlbpitching0023.csv</div></div>
+          <div class="data-info"><div class="data-rows">720 rows</div><div class="data-range">2000–2023</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">mlb_misc_2016_2024.csv</div>
+            <div class="data-note">Team miscellaneous: attendance, attend/game, estimated payroll, park factors (BPF/PPF).</div>
+          </div>
+          <div class="data-info"><div class="data-rows">270 rows</div><div class="data-range">2016–2024</div></div>
+        </div>
+        <div class="group-label">Play-by-Play <span class="badge-large">MASSIVE FILES</span></div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">playbyplays15.csv – playbyplays21.csv</div>
+            <div class="data-note">Full MLB play-by-play data from Retrosheet/baseballr. Each row = one play. Warning: ~49MB per season.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">~190,000/yr</div><div class="data-range">2015–2021</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== NCAA BASEBALL ===================== -->
+  <div class="sport-section" id="ncaabaseball">
+    <div class="sport-header">
+      <span class="sport-icon">⚾</span>
+      <h2>NCAA Baseball</h2>
+      <span class="sport-count">2 scrapers</span>
+    </div>
+    <div class="grid-two">
+      <div class="panel">
+        <div class="panel-header scrapers">Scrapers</div>
+        <div class="scraper-card">
+          <div class="scraper-name">NCAABaseballScraper.Rmd</div>
+          <div class="scraper-desc">Scrapes NCAA baseball player stats, team game-by-game hitting logs, and pitching logs from stats.ncaa.org. Loops through all teams in a provided URL list. Very thorough — collects hitting, pitching, and team-level data.</div>
+          <div class="scraper-meta">
+            <span class="tag source">stats.ncaa.org</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ baseballteamstats{year}.csv · baseballhittinglogs{year}.csv · baseballpitchinglogs{year}.csv · baseballplayergamelogurls{year}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NCAABaseballScraperScript.R</div>
+          <div class="scraper-desc">Script version of the NCAA baseball scraper — same functionality, no notebook format. Good for running headlessly.</div>
+          <div class="scraper-meta">
+            <span class="tag source">stats.ncaa.org</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ Same as above</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header data">Data Files</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">baseballteamstats2021.csv</div>
+            <div class="data-note">NCAA baseball player roster stats (all D-I teams, 2021 season). Hitting: G, AB, R, H, 2B, HR, RBI, BB, K, SB, AVG.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">5,638 rows</div><div class="data-range">2021</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">baseballhittinglogs2021.csv</div>
+            <div class="data-note">Game-by-game team hitting totals.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">13,500 rows</div><div class="data-range">2021</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">baseballpitchinglogs2021.csv</div>
+            <div class="data-note">Game-by-game team pitching totals.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">13,500 rows</div><div class="data-range">2021</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">baseballhittingstats2022.csv · baseballpitchingstats2022.csv</div>
+            <div class="data-note">Player stats for 2022 season.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">9,706 rows each</div><div class="data-range">2022</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">baseballplayergamelogurls2021.csv</div>
+            <div class="data-note">URL list for fetching individual player game logs from stats.ncaa.org.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">8,200 rows</div><div class="data-range">2021</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">baseball.csv</div>
+            <div class="data-note">Seed file of team page URLs for stats.ncaa.org (required to run the scraper).</div>
+          </div>
+          <div class="data-info"><div class="data-rows">273 rows</div><div class="data-range">—</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== NCAA SOFTBALL ===================== -->
+  <div class="sport-section" id="softball">
+    <div class="sport-header">
+      <span class="sport-icon">🥎</span>
+      <h2>NCAA Softball</h2>
+      <span class="sport-count">2 scrapers</span>
+    </div>
+    <div class="grid-two">
+      <div class="panel">
+        <div class="panel-header scrapers">Scrapers</div>
+        <div class="scraper-card">
+          <div class="scraper-name">NCAASoftballScraper.Rmd</div>
+          <div class="scraper-desc">Scrapes NCAA softball player stats, team game-by-game hitting logs, and pitching logs from stats.ncaa.org. Identical in structure to the baseball scraper. Requires a seed CSV of team URLs.</div>
+          <div class="scraper-meta">
+            <span class="tag source">stats.ncaa.org</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ softballteamstats{year}.csv · softballhittinglogs{year}.csv · softballpitchinglogs{year}.csv · softballplayergamelogurls{year}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NCAASoftballScraperScript.R / NCAASoftballStatsScraperScript.R</div>
+          <div class="scraper-desc">Script versions of the softball scraper for non-notebook use.</div>
+          <div class="scraper-meta">
+            <span class="tag source">stats.ncaa.org</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ Same as above</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header data">Data Files</div>
+        <div class="group-label">Team/Player Season Stats</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">softballteamstats2015.csv – softballteamstats2021.csv</div>
+            <div class="data-note">Player-level season stats for all D-I softball programs per year. Hitting stats: AB, H, HR, RBI, BB, K, SB, AVG.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">~4,600–5,800/yr</div><div class="data-range">2015–2021</div></div>
+        </div>
+        <div class="group-label">Game Logs</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">softballhittinglogs2020.csv · softballhittinglogs2021.csv</div>
+            <div class="data-note">Game-by-game team hitting totals.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">6,405 · 13,173</div><div class="data-range">2020–2021</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">softballpitchinglogs2020.csv · softballpitchinglogs2021.csv</div>
+            <div class="data-note">Game-by-game team pitching totals.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">6,405 · 13,173</div><div class="data-range">2020–2021</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">softballplayergamelogurls2020.csv · _2021.csv</div>
+            <div class="data-note">URL lists for fetching individual player game logs.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">15,932 · 28,432</div><div class="data-range">2020–2021</div></div>
+        </div>
+        <div class="group-label">Seed Files (required by scraper)</div>
+        <div class="data-row">
+          <div><div class="data-filename">softball2013.csv – softball2021.csv</div><div class="data-note">Team URL lists for stats.ncaa.org by season.</div></div>
+          <div class="data-info"><div class="data-rows">~290–300/yr</div><div class="data-range">2013–2021</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== NCAA VOLLEYBALL ===================== -->
+  <div class="sport-section" id="volleyball">
+    <div class="sport-header">
+      <span class="sport-icon">🏐</span>
+      <h2>NCAA Volleyball</h2>
+      <span class="sport-count">3 scrapers</span>
+    </div>
+    <div class="grid-two">
+      <div class="panel">
+        <div class="panel-header scrapers">Scrapers</div>
+        <div class="scraper-card">
+          <div class="scraper-name">NCAAVolleyballScraper.Rmd</div>
+          <div class="scraper-desc">Scrapes NCAA volleyball player roster stats and game-by-game logs (kills, errors, attacks, hit%, assists, aces, digs, blocks) for all D-I teams in a season.</div>
+          <div class="scraper-meta">
+            <span class="tag source">stats.ncaa.org</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ volleyballteamstats{year}.csv · volleyballgamelogs{year}.csv · volleyballplayergamelogurls{year}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NCAAVolleyballBoxScoreScraper.R / NCAAVolleyballPlayByPlayScraper.Rmd</div>
+          <div class="scraper-desc">Fetches individual game box scores (player-level stats per game) using the URL list generated by the main scraper. Also has a play-by-play variant.</div>
+          <div class="scraper-meta">
+            <span class="tag source">stats.ncaa.org</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ volleyballplayergames{year}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NCAAVolleyballScraperScript.R</div>
+          <div class="scraper-desc">Script version of the main volleyball scraper for non-notebook use.</div>
+          <div class="scraper-meta">
+            <span class="tag source">stats.ncaa.org</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ Same as NCAAVolleyballScraper</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header data">Data Files</div>
+        <div class="group-label">Team/Player Season Stats</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">volleyballteamstats2018.csv – volleyballteamstats2020.csv</div>
+            <div class="data-note">Player-level season stats for all D-I programs: kills, hit%, assists, aces, digs, blocks, points.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">~4,400–5,200/yr</div><div class="data-range">2018–2020</div></div>
+        </div>
+        <div class="group-label">Game Logs</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">volleyballgamelogs2018.csv – volleyballgamelogs2020.csv</div>
+            <div class="data-note">Team game-by-game totals: kills, errors, hit%, assists, aces, digs, blocks per match.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">10,115 · 10,073 · 5,200</div><div class="data-range">2018–2020</div></div>
+        </div>
+        <div class="group-label">Player Box Scores</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">volleyballplayergames2020.csv <span class="badge-large">LARGE</span></div>
+            <div class="data-note">Individual player stats per game (both teams). Kills, errors, attacks, digs, blocks, aces, sets per player per match.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">59,257 rows</div><div class="data-range">2020</div></div>
+        </div>
+        <div class="group-label">URL Seed Files</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">volleyballurls20182019.csv – volleyballurls20202021.csv</div>
+            <div class="data-note">Team URL lists for stats.ncaa.org by season (required by scraper).</div>
+          </div>
+          <div class="data-info"><div class="data-rows">~300–340/yr</div><div class="data-range">2018–2021</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== NHL ===================== -->
+  <div class="sport-section" id="nhl">
+    <div class="sport-header">
+      <span class="sport-icon">🏒</span>
+      <h2>NHL</h2>
+      <span class="sport-count">4 scrapers</span>
+    </div>
+    <div class="grid-two">
+      <div class="panel">
+        <div class="panel-header scrapers">Scrapers</div>
+        <div class="scraper-card">
+          <div class="scraper-name">NHLRegularSeasonScrape.Rmd</div>
+          <div class="scraper-desc">Scrapes NHL team game logs (goals, shots, PIM, power play, corsi, fenwick, face-offs, PDO) for all teams in a season. Older version targeting 2019-20.</div>
+          <div class="scraper-meta">
+            <span class="tag source">hockey-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ nhllogs20192020.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NHLLogScraper.Rmd</div>
+          <div class="scraper-desc">Updated version of the NHL team game log scraper. Uses janitor for cleaner column handling. Targets 2024-25 season (configurable).</div>
+          <div class="scraper-meta">
+            <span class="tag source">hockey-reference.com</span>
+            <span class="tag method">HTML table + janitor</span>
+            <span class="tag outputs">→ hockeylogs{year}.csv (saves to Desktop)</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NHLPostSeasonScrape.Rmd</div>
+          <div class="scraper-desc">Same structure as regular season scraper but pulls playoff game logs. Handles teams that didn't make playoffs gracefully with tryCatch.</div>
+          <div class="scraper-meta">
+            <span class="tag source">hockey-reference.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ nhlplayofflogs{season}.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">NHLTeamStats.Rmd · ScrapingNHLPlayers.Rmd</div>
+          <div class="scraper-desc">Team stats: loops 2015–2025 for team-level season totals (GP, W, L, OTL, GF, GA, SRS). Player stats: loops 2015–2025 for all skater standard + advanced stats.</div>
+          <div class="scraper-meta">
+            <span class="tag source">hockey-reference.com</span>
+            <span class="tag method">HTML comment node + HTML table</span>
+            <span class="tag outputs">→ nhlstats2015_2025.csv · nhl_players_skater_stats_15_25.csv · nhl_players_skater_advanced_stats_15_25.csv</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header data">Data Files</div>
+        <div class="group-label">Team Game Logs</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nhllogs20192020.csv</div>
+            <div class="data-note">Goals, shots, PIM, PP goals/opp, Corsi, Fenwick, face-off%, PDO per team per game.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">2,164 rows</div><div class="data-range">2019–20</div></div>
+        </div>
+        <div class="data-row">
+          <div><div class="data-filename">nhlplayofflogs20192020.csv</div><div class="data-note">Same schema, playoffs only.</div></div>
+          <div class="data-info"><div class="data-rows">245 rows</div><div class="data-range">2019–20</div></div>
+        </div>
+        <div class="group-label">Team Season Stats</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nhlstats2015_2025.csv</div>
+            <div class="data-note">Team season totals: GP, W, L, OTL, PTS, GF, GA, SRS, SOS, RPt%.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">342 rows</div><div class="data-range">2015–2025</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nhlstats1967_2024.csv <span class="badge-new">DEEP</span></div>
+            <div class="data-note">Merged file combining three historical era files into full NHL history.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">1,344 rows</div><div class="data-range">1967–2024</div></div>
+        </div>
+        <div class="group-label">Player Stats</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nhl_players_skater_stats_15_25.csv</div>
+            <div class="data-note">Individual skater season stats: G, A, PTS, +/-, PIM, PP, SH, GW, shots, S%.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">12,953 rows</div><div class="data-range">2015–2025</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nhl_players_skater_advanced_stats_15_25.csv</div>
+            <div class="data-note">Individual skater advanced stats: Corsi, Fenwick, zone starts, PDO, xG metrics.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">11,754 rows</div><div class="data-range">2015–2025</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">nhl_players_skater_stats_8023.csv <span class="badge-large">LARGE</span></div>
+            <div class="data-note">Very long historical skater stats file.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">40,441 rows</div><div class="data-range">1980–2023</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SOCCER ===================== -->
+  <div class="sport-section" id="soccer">
+    <div class="sport-header">
+      <span class="sport-icon">⚽</span>
+      <h2>Soccer (MLS &amp; Premier League)</h2>
+      <span class="sport-count">2 scrapers</span>
+    </div>
+    <div class="grid-two">
+      <div class="panel">
+        <div class="panel-header scrapers">Scrapers</div>
+        <div class="scraper-card">
+          <div class="scraper-name">MLSPlayerData.Rmd</div>
+          <div class="scraper-desc">Scrapes 2024 MLS player stats from FBRef. Includes minutes, goals, assists, xG, progressive carries/passes, and other advanced metrics. Uses hidden HTML comment nodes.</div>
+          <div class="scraper-meta">
+            <span class="tag source">fbref.com</span>
+            <span class="tag method">HTML comment node scraping</span>
+            <span class="tag outputs">→ mls_players_2024.csv</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">UpdatePremiereLeagueBump.Rmd</div>
+          <div class="scraper-desc">Scrapes Premier League standings week-by-week from Transfermarkt to enable bump chart visualizations showing how teams' positions change across a season.</div>
+          <div class="scraper-meta">
+            <span class="tag source">transfermarkt.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ premlereleaguebump.csv</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header data">Data Files</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">mls_players_2024.csv</div>
+            <div class="data-note">MLS player stats 2024: minutes, goals, assists, xG, non-penalty xG, progressive passes, carries, and more.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">819 rows</div><div class="data-range">2024</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">premleague2021.csv</div>
+            <div class="data-note">Premier League weekly standings (rank, club, matchweek) — for bump charts.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">536 rows</div><div class="data-range">2020–21</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== OTHER SPORTS ===================== -->
+  <div class="sport-section" id="other">
+    <div class="sport-header">
+      <span class="sport-icon">🎯</span>
+      <h2>Other Sports &amp; Specialty Scrapers</h2>
+      <span class="sport-count">4 scrapers</span>
+    </div>
+    <div class="grid-two">
+      <div class="panel">
+        <div class="panel-header scrapers">Scrapers</div>
+        <div class="scraper-card">
+          <div class="scraper-name">PGAScraper.Rmd</div>
+          <div class="scraper-desc">Fetches PGA Tour player stats via the PGA Tour's internal GraphQL API (orchestrator.pgatour.com). Extracts data from embedded JSON in the page. Stat ID can be changed to fetch any available stat category (e.g., driving distance = 120).</div>
+          <div class="scraper-meta">
+            <span class="tag source">pgatour.com GraphQL API</span>
+            <span class="tag method">JSON / Next.js data extraction</span>
+            <span class="tag outputs">→ varies by stat category</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">ScrapingDarts.Rmd</div>
+          <div class="scraper-desc">Fetches professional darts player statistics (averages, whitewashes, checkout %) from the Darts Orakel API via HTTP requests with custom user-agent headers.</div>
+          <div class="scraper-meta">
+            <span class="tag source">dartsorakel.com JSON API</span>
+            <span class="tag method">httr2 JSON API</span>
+            <span class="tag outputs">→ various stat tables</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">AAARecordScraper.Rmd</div>
+          <div class="scraper-desc">Scrapes Pacific Coast League (AAA) team records across multiple seasons (2009–2023) from Baseball Reference's minor league section.</div>
+          <div class="scraper-meta">
+            <span class="tag source">baseball-reference.com/register</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ in-memory / visualization use</span>
+          </div>
+        </div>
+        <div class="scraper-card">
+          <div class="scraper-name">ScrapingAmericanAssociationSchedules.Rmd</div>
+          <div class="scraper-desc">Scrapes game schedules and results for independent league (American Association) teams via Pointstreak. Includes cumulative win totals for slope/bump charts.</div>
+          <div class="scraper-meta">
+            <span class="tag source">pointstreak.com</span>
+            <span class="tag method">HTML table scraping</span>
+            <span class="tag outputs">→ independent league schedule data</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header data">Data Files &amp; Other Files</div>
+        <div class="group-label">Specialty / Misc Data</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">huskersoftball.csv</div>
+            <div class="data-note">Nebraska Huskers softball data (likely scraped from huskers.com).</div>
+          </div>
+          <div class="data-info"><div class="data-rows">159 rows</div><div class="data-range">—</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">lakerlogs.csv</div>
+            <div class="data-note">LA Lakers game logs (used in ScrapingLebron.Rmd analysis).</div>
+          </div>
+          <div class="data-info"><div class="data-rows">819 rows</div><div class="data-range">—</div></div>
+        </div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">namekey.csv</div>
+            <div class="data-note">Team name crosswalk: full name ↔ abbreviation ↔ short name. Used to join NBA datasets.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">30 rows</div><div class="data-range">—</div></div>
+        </div>
+        <div class="group-label">Transfer Portal</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">TransferPortal/ (folder)</div>
+            <div class="data-note">CFB transfer portal data scraped from 247Sports HTML. Includes player names, positions, ratings, transferring from/to. Used via TransferPortal.Rmd (reads local saved HTML).</div>
+          </div>
+          <div class="data-info"><div class="data-rows">—</div><div class="data-range">2021–2022</div></div>
+        </div>
+        <div class="group-label">Modeling / ML Files</div>
+        <div class="data-row">
+          <div>
+            <div class="data-filename">training.csv · predict.csv · predicted.csv · mldata.csv</div>
+            <div class="data-note">Files used in SPMC460 modeling work. Training/test splits for sports prediction modeling.</div>
+          </div>
+          <div class="data-info"><div class="data-rows">~5,000–34,000</div><div class="data-range">—</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Sports Data Catalog · Generated March 2026 · All scrapers written in R (tidyverse, rvest, janitor) · Sources: Sports Reference family, stats.ncaa.org, pro-football-reference.com, hockey-reference.com, fbref.com, baseball-reference.com
+</footer>
+
+</body>
+</html>
