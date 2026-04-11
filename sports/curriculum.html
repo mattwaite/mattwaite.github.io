@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>All 40 Tutorials — Sports Data Analysis</title>
+<meta name="description" content="Browse all 40 free sports data analysis tutorials covering R fundamentals, data visualization with ggplot2, web scraping, statistical modeling, and publishing."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "navy": "#00193c",
+          "navy-dark": "#000d1f",
+          "navy-mid": "#002d62",
+          "orange": "#ff6428",
+          "slate": "#515f74",
+          "slate-light": "#7796d1",
+          "surface": "#f7f9fb",
+          "surface-low": "#f2f4f6",
+          "surface-mid": "#eceef0",
+          "surface-high": "#e6e8ea",
+          "surface-highest": "#e0e3e5",
+          "outline": "#c4c6d1",
+        },
+        fontFamily: {
+          headline: ["Space Grotesk"],
+          body: ["Inter"],
+          label: ["Lexend"],
+        },
+        borderRadius: {
+          DEFAULT: "0.125rem",
+          sm: "0.25rem",
+          md: "0.5rem",
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .dot-grid {
+    background-image: radial-gradient(circle, #c4c6d1 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.05;
+  }
+</style>
+</head>
+<body class="bg-surface font-body" style="color:#191c1e">
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+  <div class="flex justify-between items-center px-6 lg:px-8 py-4 max-w-screen-xl mx-auto">
+    <a href="index.html" class="font-headline font-black tracking-tight text-navy text-xl">
+      Sports Data Analysis
+    </a>
+    <div class="hidden md:flex items-center gap-8 font-label text-sm">
+      <a href="curriculum.html" class="text-orange border-b border-orange pb-0.5">Tutorials</a>
+      <a href="installation.html" class="text-slate hover:text-orange transition-colors">Installation</a>
+      <a href="https://github.com/mattwaite/SportsDataTutorials" target="_blank" rel="noopener" class="text-slate hover:text-orange transition-colors flex items-center gap-1">
+        <span class="material-symbols-outlined text-base">code</span>
+        GitHub
+      </a>
+    </div>
+    <a href="installation.html" class="bg-navy text-white font-label text-sm font-semibold py-2 px-5 rounded-sm hover:bg-navy-mid transition-colors">
+      Get Started
+    </a>
+  </div>
+</nav>
+
+<!-- Page header -->
+<div class="pt-28 pb-16 bg-white relative overflow-hidden">
+  <div class="absolute inset-0 dot-grid pointer-events-none"></div>
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8 relative">
+    <p class="font-label text-xs text-orange font-semibold uppercase tracking-widest mb-3">SPMC 350 · University of Nebraska-Lincoln</p>
+    <h1 class="font-headline font-black text-navy text-5xl lg:text-6xl tracking-tight mb-4">All 40 Tutorials</h1>
+    <p class="text-slate text-lg max-w-2xl leading-relaxed">
+      Each tutorial runs interactively inside RStudio — write code, see results, make mistakes, learn. Work through them in order or jump to what you need.
+    </p>
+  </div>
+</div>
+
+<main class="max-w-screen-xl mx-auto px-6 lg:px-8 py-16 space-y-20">
+
+  <!-- Part 1 -->
+  <section>
+    <div class="flex items-center gap-4 mb-8">
+      <div class="w-12 h-12 bg-navy flex items-center justify-center rounded-sm text-white font-headline font-black text-lg flex-shrink-0">01</div>
+      <div>
+        <h2 class="font-headline font-bold text-navy text-2xl">R Fundamentals &amp; Statistics</h2>
+        <p class="font-label text-xs text-slate uppercase tracking-widest mt-0.5">Lessons 1–12 · Learn to work with data in R</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-slate-light hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-slate-light font-bold">Lesson 1</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">The Basics</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn the very basics of R — using it as a calculator, creating variables, and understanding data types. Applied to real Nebraska baseball statistics.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-slate-light hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-slate-light font-bold">Lesson 2</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Data Basics</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn fundamental data terminology — rows, columns, data types, and how to load a CSV. The vocabulary you'll use throughout the course.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-slate-light hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-slate-light font-bold">Lesson 3</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Aggregates, Part 1</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn how to take lots of individual records and total them into summaries — counting, summing, and grouping sports data with dplyr.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-slate-light hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-slate-light font-bold">Lesson 4</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Aggregates, Part 2</h3>
+        <p class="text-slate text-sm leading-relaxed">Go deeper into grouping and summarizing — calculating means, medians, and multiple statistics at once across different categories.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-slate-light hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-slate-light font-bold">Lesson 5</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Mutating Data</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn how to create new columns from existing ones — calculating percentages, per-game rates, and other derived statistics.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-slate-light hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-slate-light font-bold">Lesson 6</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Filters</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn how to narrow in on what's important and remove what isn't — filtering rows by conditions to focus your analysis.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-slate-light hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-slate-light font-bold">Lesson 7</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Transforming Data</h3>
+        <p class="text-slate text-sm leading-relaxed">Reshape data between wide and long formats — a critical skill for preparing data for visualization and analysis.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-slate-light hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-slate-light font-bold">Lesson 8</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Significance Tests</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn how to see if differences are meaningful, or just noise. Covers t-tests and what statistical significance actually means for sports stories.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-slate-light hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-slate-light font-bold">Lesson 9</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Correlations &amp; Regressions</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn how to see how related two numbers are and build a simple predictive model — a fundamental tool for data-driven sports stories.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-slate-light hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-slate-light font-bold">Lesson 10</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Residuals</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn how to use residuals to find who is better or worse than a model predicts — a powerful technique for identifying over- and underperformers.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-slate-light hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-slate-light font-bold">Lesson 11</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Z-Scores</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn how to compare athletes and teams across different leagues, seasons, and contexts by standardizing to z-scores.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-slate-light hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-slate-light font-bold">Lesson 12</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Using Sports Data Packages</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn to use R packages that pull sports data directly — NFL, NBA, college football — without downloading any CSV files manually.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Part 2 -->
+  <section>
+    <div class="flex items-center gap-4 mb-8">
+      <div class="w-12 h-12 bg-orange flex items-center justify-center rounded-sm text-white font-headline font-black text-lg flex-shrink-0">02</div>
+      <div>
+        <h2 class="font-headline font-bold text-navy text-2xl">Data Visualization with ggplot2</h2>
+        <p class="font-label text-xs text-slate uppercase tracking-widest mt-0.5">Lessons 13–27 · Build charts that tell stories</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 13</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Bar Charts</h3>
+        <p class="text-slate text-sm leading-relaxed">Start turning data into graphics. Learn the grammar of ggplot2 and build your first bar chart from sports data.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 14</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Stacked Bar Charts</h3>
+        <p class="text-slate text-sm leading-relaxed">Add nuance to a bar chart by showing composition — how a total breaks down into parts — with stacked and filled bar charts.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 15</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Waffle Charts</h3>
+        <p class="text-slate text-sm leading-relaxed">Make a chart that shows both magnitude and part-to-whole composition using the waffle package — intuitive for general audiences.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 16</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Line Charts</h3>
+        <p class="text-slate text-sm leading-relaxed">Show change over time with line charts — the workhorse of sports trend analysis.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 17</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Step Charts</h3>
+        <p class="text-slate text-sm leading-relaxed">Show change over time where values hold steady until a discrete event — useful for cumulative totals and season progressions.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 18</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Slope Charts</h3>
+        <p class="text-slate text-sm leading-relaxed">Show how values changed between two specific points in time — great for before/after comparisons and season-over-season shifts.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 19</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Scatterplots</h3>
+        <p class="text-slate text-sm leading-relaxed">Show the relationship between two numeric variables. A staple for exploring whether two stats are actually connected.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 20</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Bubble Charts</h3>
+        <p class="text-slate text-sm leading-relaxed">Add a third dimension to a scatterplot by encoding a value in point size — showing relationships along with magnitude.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 21</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Beeswarm Plots</h3>
+        <p class="text-slate text-sm leading-relaxed">Make scatterplots grouped by category along a number line — ideal for comparing distributions across teams or conferences.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 22</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Bump Charts</h3>
+        <p class="text-slate text-sm leading-relaxed">Show how rankings change over time — a combination of step chart and connected dot plot that reveals movement in standings.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 23</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Dumbbell Charts</h3>
+        <p class="text-slate text-sm leading-relaxed">Show the difference between two values for multiple subjects — comparing teams, players, or time periods side by side.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 24</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Tables</h3>
+        <p class="text-slate text-sm leading-relaxed">Make data tables that are actually readable — formatted, styled, and ready for publication using the gt package.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 25</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Faceting</h3>
+        <p class="text-slate text-sm leading-relaxed">Make many small charts from one dataset with a single line of code — small multiples for comparing across groups.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 26</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Arranging Plots</h3>
+        <p class="text-slate text-sm leading-relaxed">Combine multiple charts into a single graphic using patchwork — build multi-panel figures for stories with several angles.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-orange/40 hover:border-orange transition-colors group">
+        <span class="font-label text-xs text-orange font-bold">Lesson 27</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-orange transition-colors">Encircling Points</h3>
+        <p class="text-slate text-sm leading-relaxed">Use shapes as a storytelling device — draw attention to specific data points by highlighting or encircling them.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Part 3 -->
+  <section>
+    <div class="flex items-center gap-4 mb-8">
+      <div class="w-12 h-12 bg-slate flex items-center justify-center rounded-sm text-white font-headline font-black text-lg flex-shrink-0">03</div>
+      <div>
+        <h2 class="font-headline font-bold text-navy text-2xl">Advanced Topics</h2>
+        <p class="font-label text-xs text-slate uppercase tracking-widest mt-0.5">Lessons 28–37 · Publishing, scraping, and modeling</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-slate transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 28</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-slate transition-colors">Blogging with Quarto &amp; GitHub Pages</h3>
+        <p class="text-slate text-sm leading-relaxed">Build a public portfolio of data stories using Quarto documents and GitHub Pages — the same tools working journalists use.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-slate transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 29</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-slate transition-colors">Text Cleaning</h3>
+        <p class="text-slate text-sm leading-relaxed">Clear out junk that data providers give you — inconsistent capitalization, extra whitespace, encoding issues — using stringr.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-slate transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 30</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-slate transition-colors">Annotations &amp; Headlines</h3>
+        <p class="text-slate text-sm leading-relaxed">Add context directly to charts with text annotations, reference lines, and headlines that guide readers to the story in the data.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-slate transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 31</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-slate transition-colors">Color</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn how limited, intentional use of color draws attention and focuses your story — and how overuse destroys meaning.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-slate transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 32</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-slate transition-colors">Finishing Touches</h3>
+        <p class="text-slate text-sm leading-relaxed">Add the final visual flourishes — proper axis labels, captions, themes, and font choices — that make a chart publication-ready.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-slate transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 33</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-slate transition-colors">Web Scraping with rvest</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn to scrape data tables from websites using rvest — pull stats from anywhere on the web into a data frame in R.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-slate transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 34</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-slate transition-colors">Multiple Regression</h3>
+        <p class="text-slate text-sm leading-relaxed">Predict an outcome using multiple input variables — a more realistic model for complex sports questions than simple regression.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-slate transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 35</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-slate transition-colors">Clustering</h3>
+        <p class="text-slate text-sm leading-relaxed">Group similar teams or players together using k-means clustering — let math find the natural categories in your data.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-slate transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 36</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-slate transition-colors">Simulations</h3>
+        <p class="text-slate text-sm leading-relaxed">Use simulation to figure out whether a result was bad luck or something more unusual — a powerful tool for contextualizing sports outcomes.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-slate transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 37</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-slate transition-colors">Joins</h3>
+        <p class="text-slate text-sm leading-relaxed">Combine two separate datasets into one by matching on a common field — essential for bringing together stats from different sources.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Part 4 -->
+  <section>
+    <div class="flex items-center gap-4 mb-8">
+      <div class="w-12 h-12 bg-white border-2 border-navy flex items-center justify-center rounded-sm text-navy font-headline font-black text-lg flex-shrink-0">04</div>
+      <div>
+        <h2 class="font-headline font-bold text-navy text-2xl">Reference Guides</h2>
+        <p class="font-label text-xs text-slate uppercase tracking-widest mt-0.5">Lessons 38–40 · Tools to have at your side</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-navy transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 38</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-navy/70 transition-colors">Getting CSVs from Sports Reference</h3>
+        <p class="text-slate text-sm leading-relaxed">Learn how to export any table from Sports Reference websites as a CSV and import it cleanly into R. Practical and immediately useful.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-navy transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 39</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-navy/70 transition-colors">Project Checklist</h3>
+        <p class="text-slate text-sm leading-relaxed">A checklist for data-driven story projects — what to check before you publish, common mistakes to avoid, and what makes a strong data story.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-sm border-l-4 border-surface-highest hover:border-navy transition-colors group">
+        <span class="font-label text-xs text-slate font-bold">Lesson 40</span>
+        <h3 class="font-headline font-bold text-navy mt-1 mb-2 group-hover:text-navy/70 transition-colors">Tutorial Index</h3>
+        <p class="text-slate text-sm leading-relaxed">An index of every function and concept covered across all 40 tutorials. Use it when you remember learning something but can't recall which lesson covered it.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <div class="bg-navy rounded-sm p-10 lg:p-14 text-center">
+    <h2 class="font-headline font-black text-white text-3xl mb-3">Ready to start?</h2>
+    <p class="text-slate-light max-w-xl mx-auto mb-8 leading-relaxed">
+      Install R, RStudio, and the tutorials package — then open the Tutorial tab and start Lesson 1. The whole setup takes about 15 minutes.
+    </p>
+    <a href="installation.html" class="inline-block bg-orange text-white font-headline font-bold px-8 py-4 rounded-sm hover:bg-orange/90 transition-colors">
+      Installation Guide →
+    </a>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-navy-dark py-14 border-t border-white/10 mt-10">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <div class="md:col-span-2 space-y-4">
+      <p class="font-headline font-bold text-white text-lg">Sports Data Analysis</p>
+      <p class="text-white/40 text-sm leading-relaxed max-w-md">
+        Companion tutorials for SPMC 350 at the University of Nebraska-Lincoln, College of Journalism and Mass Communications. Built and maintained by <a href="mailto:matt.waite@unl.edu" class="text-white/60 hover:text-white transition-colors">Matt Waite</a>.
+      </p>
+      <p class="text-white/30 text-xs">MIT License · Free to use, modify, and teach with</p>
+    </div>
+    <div class="space-y-3">
+      <p class="font-label font-semibold text-white/60 text-xs uppercase tracking-widest">Resources</p>
+      <ul class="space-y-2">
+        <li><a href="curriculum.html" class="text-white/40 text-sm hover:text-white transition-colors">All Tutorials</a></li>
+        <li><a href="installation.html" class="text-white/40 text-sm hover:text-white transition-colors">Installation Guide</a></li>
+        <li><a href="https://github.com/mattwaite/SportsDataTutorials" target="_blank" rel="noopener" class="text-white/40 text-sm hover:text-white transition-colors">GitHub Repository</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

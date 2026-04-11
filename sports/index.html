@@ -1,933 +1,348 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Matt Waite">
-<meta name="dcterms.date" content="2022-06-27">
-
-<title>Sports Data Analysis and Visualization</title>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sports Data Analysis — Free R Tutorials for Sports Journalists</title>
+<meta name="description" content="40 free, interactive tutorials teaching R programming for sports data analysis. Used in SPMC 350 at the University of Nebraska-Lincoln. Open source, self-paced, no enrollment required."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "navy": "#00193c",
+          "navy-dark": "#000d1f",
+          "navy-mid": "#002d62",
+          "orange": "#ff6428",
+          "slate": "#515f74",
+          "slate-light": "#7796d1",
+          "surface": "#f7f9fb",
+          "surface-low": "#f2f4f6",
+          "surface-mid": "#eceef0",
+          "surface-high": "#e6e8ea",
+          "surface-highest": "#e0e3e5",
+          "outline": "#c4c6d1",
+        },
+        fontFamily: {
+          headline: ["Space Grotesk"],
+          body: ["Inter"],
+          label: ["Lexend"],
+          mono: ["ui-monospace", "SFMono-Regular", "monospace"],
+        },
+        borderRadius: {
+          DEFAULT: "0.125rem",
+          sm: "0.25rem",
+          md: "0.5rem",
+        }
+      }
+    }
+  }
+</script>
 <style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .hero-gradient { background: linear-gradient(135deg, #00193c 0%, #002d62 100%); }
+  .data-grid {
+    background-image: linear-gradient(to right, rgba(196,198,209,0.07) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(196,198,209,0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f44d2fa0b39953e31839d49989be9305.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
-
-
 </head>
+<body class="bg-surface font-body text-navy" style="color:#191c1e">
 
-<body class="nav-sidebar floating quarto-light">
-
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Throwing cold water on hot takes</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+  <div class="flex justify-between items-center px-6 lg:px-8 py-4 max-w-screen-xl mx-auto">
+    <a href="index.html" class="font-headline font-black tracking-tight text-navy text-xl">
+      Sports Data Analysis
+    </a>
+    <div class="hidden md:flex items-center gap-8 font-label text-sm">
+      <a href="curriculum.html" class="text-slate hover:text-orange transition-colors">Tutorials</a>
+      <a href="installation.html" class="text-slate hover:text-orange transition-colors">Installation</a>
+      <a href="https://github.com/mattwaite/SportsDataTutorials" target="_blank" rel="noopener" class="text-slate hover:text-orange transition-colors flex items-center gap-1">
+        <span class="material-symbols-outlined text-base">code</span>
+        GitHub
+      </a>
     </div>
-  </nav>
+    <a href="installation.html" class="bg-navy text-white font-label text-sm font-semibold py-2 px-5 rounded-sm hover:bg-navy-mid transition-colors">
+      Get Started
+    </a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero-gradient pt-32 pb-24 lg:pt-44 lg:pb-36 relative overflow-hidden">
+  <div class="absolute inset-0 data-grid pointer-events-none"></div>
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8 relative z-10">
+    <div class="max-w-3xl">
+      <span class="inline-block bg-orange/20 text-orange font-label text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-sm mb-6">
+        SPMC 350 · University of Nebraska-Lincoln
+      </span>
+      <h1 class="font-headline font-black text-white text-5xl lg:text-6xl leading-tight tracking-tight mb-6">
+        Learn Sports Data Analysis with R.
+        <span class="text-slate-light block mt-1">Free. Open source. Self-paced.</span>
+      </h1>
+      <p class="text-slate-light text-lg lg:text-xl leading-relaxed max-w-2xl mb-10">
+        40 interactive tutorials that teach R programming through real sports data — the same materials used in SPMC 350 at UNL's College of Journalism and Mass Communications. No enrollment required.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="installation.html" class="bg-orange text-white font-headline font-bold text-base px-8 py-4 rounded-sm hover:bg-orange/90 transition-colors flex items-center justify-center gap-2">
+          Start Learning
+          <span class="material-symbols-outlined text-lg">arrow_forward</span>
+        </a>
+        <a href="curriculum.html" class="bg-white/10 text-white border border-white/20 font-headline font-bold text-base px-8 py-4 rounded-sm hover:bg-white/15 transition-colors flex items-center justify-center gap-2">
+          Browse All 40 Tutorials
+        </a>
+      </div>
+    </div>
+  </div>
 </header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Sports Data Analysis and Visualization</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/mattwaite/SportsDataTextbook" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Sports-Data-Analysis-and-Visualization.pdf">
-              <i class="bi bi-file-pdf pe-1"></i>
-            Download PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Sports-Data-Analysis-and-Visualization.epub">
-              <i class="bi bi-journal pe-1"></i>
-            Download ePub
-            </a>
-          </li>
+
+<!-- How it works -->
+<section class="bg-white py-20">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+    <h2 class="font-headline font-black text-navy text-3xl mb-2">How it works</h2>
+    <div class="w-16 h-1 bg-orange mb-12"></div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="flex flex-col gap-4">
+        <div class="w-12 h-12 bg-surface-low flex items-center justify-center rounded-sm">
+          <span class="material-symbols-outlined text-navy text-2xl">download</span>
+        </div>
+        <h3 class="font-headline font-bold text-navy text-xl">1. Install R &amp; RStudio</h3>
+        <p class="text-slate leading-relaxed">Both are free and open-source. R is the statistical computing language; RStudio is the editor that makes working with R comfortable.</p>
+      </div>
+      <div class="flex flex-col gap-4">
+        <div class="w-12 h-12 bg-surface-low flex items-center justify-center rounded-sm">
+          <span class="material-symbols-outlined text-navy text-2xl">package_2</span>
+        </div>
+        <h3 class="font-headline font-bold text-navy text-xl">2. Install the package</h3>
+        <p class="text-slate leading-relaxed">One command installs all 40 tutorials directly from GitHub. They run inside RStudio's built-in Tutorial tab — no browser, no accounts.</p>
+      </div>
+      <div class="flex flex-col gap-4">
+        <div class="w-12 h-12 bg-surface-low flex items-center justify-center rounded-sm">
+          <span class="material-symbols-outlined text-navy text-2xl">school</span>
+        </div>
+        <h3 class="font-headline font-bold text-navy text-xl">3. Work at your own pace</h3>
+        <p class="text-slate leading-relaxed">Each tutorial is interactive — write and run code directly in the lesson. Make mistakes, experiment, and reread as many times as you need.</p>
+      </div>
+    </div>
+
+    <!-- Install command callout -->
+    <div class="mt-16 bg-navy rounded-sm overflow-hidden">
+      <div class="flex items-center px-4 py-2 bg-navy-dark border-b border-white/5">
+        <div class="flex gap-1.5">
+          <div class="w-3 h-3 rounded-full bg-red-500/40"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-500/40"></div>
+          <div class="w-3 h-3 rounded-full bg-green-500/40"></div>
+        </div>
+        <span class="ml-4 font-mono text-xs text-white/40">RStudio Console</span>
+      </div>
+      <div class="p-6 lg:p-8 font-mono text-sm">
+        <p class="text-slate-light/60 mb-1"><span class="text-orange/80"># Step 1: install required packages</span></p>
+        <p class="text-white mb-4">install.packages(<span class="text-slate-light">"devtools"</span>)</p>
+        <p class="text-slate-light/60 mb-1"><span class="text-orange/80"># Step 2: install the tutorials</span></p>
+        <p class="text-white">devtools::install_github(<span class="text-slate-light">"mattwaite/SportsDataTutorials"</span>)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Four curriculum parts -->
+<section class="bg-surface py-20">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+    <h2 class="font-headline font-black text-navy text-3xl mb-2">What you'll learn</h2>
+    <div class="w-16 h-1 bg-orange mb-12"></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Part 1 -->
+      <div class="bg-white p-8 rounded-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="font-headline font-black text-navy/20 text-4xl leading-none">01</span>
+          <div>
+            <p class="font-label text-xs text-orange font-semibold uppercase tracking-widest">Lessons 1–12</p>
+            <h3 class="font-headline font-bold text-navy text-xl">R Fundamentals &amp; Statistics</h3>
+          </div>
+        </div>
+        <p class="text-slate leading-relaxed mb-6">Start from zero. Learn to use R as a calculator, load and clean data, filter and summarize sports statistics, and understand the math behind what you read — significance tests, regressions, z-scores, and residuals.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">tidyverse</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">dplyr</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">t-tests</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">regression</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">z-scores</span>
+        </div>
+      </div>
+
+      <!-- Part 2 -->
+      <div class="bg-white p-8 rounded-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="font-headline font-black text-navy/20 text-4xl leading-none">02</span>
+          <div>
+            <p class="font-label text-xs text-orange font-semibold uppercase tracking-widest">Lessons 13–27</p>
+            <h3 class="font-headline font-bold text-navy text-xl">Data Visualization with ggplot2</h3>
+          </div>
+        </div>
+        <p class="text-slate leading-relaxed mb-6">Build 15 different chart types using ggplot2 — from simple bar charts to bump charts and dumbbell charts. Learn when to use each one and how to make publication-quality graphics that tell a clear story.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">ggplot2</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">bar charts</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">scatterplots</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">bump charts</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">faceting</span>
+        </div>
+      </div>
+
+      <!-- Part 3 -->
+      <div class="bg-white p-8 rounded-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="font-headline font-black text-navy/20 text-4xl leading-none">03</span>
+          <div>
+            <p class="font-label text-xs text-orange font-semibold uppercase tracking-widest">Lessons 28–37</p>
+            <h3 class="font-headline font-bold text-navy text-xl">Advanced Topics</h3>
+          </div>
+        </div>
+        <p class="text-slate leading-relaxed mb-6">Go further: publish data stories as a blog with Quarto and GitHub Pages, scrape sports tables from websites with rvest, clean messy text data, use color and annotations effectively, and apply clustering and simulation methods.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">Quarto</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">rvest</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">clustering</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">simulation</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">joins</span>
+        </div>
+      </div>
+
+      <!-- Part 4 -->
+      <div class="bg-white p-8 rounded-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="font-headline font-black text-navy/20 text-4xl leading-none">04</span>
+          <div>
+            <p class="font-label text-xs text-orange font-semibold uppercase tracking-widest">Lessons 38–40</p>
+            <h3 class="font-headline font-bold text-navy text-xl">Reference Guides</h3>
+          </div>
+        </div>
+        <p class="text-slate leading-relaxed mb-6">Practical reference material: how to pull data from Sports Reference into R, a project checklist for data-driven stories, and a full index of every function and concept covered across all 40 tutorials.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">Sports Reference</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">project checklist</span>
+          <span class="bg-surface-low text-slate font-label text-xs px-2 py-1 rounded-sm">function index</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="bg-navy py-20">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+    <h2 class="font-headline font-black text-white text-3xl mb-2">What students say</h2>
+    <div class="w-16 h-1 bg-orange mb-12"></div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white/5 border border-white/10 p-8 rounded-sm">
+        <p class="text-slate-light italic leading-relaxed mb-8">
+          "The tutorials are genius... Going through at my own pace, being able to try practice problems that have no real effect if I get them wrong, and getting to reread things as many times as I needed to, made me get comfortable and confident with what we were doing super fast."
+        </p>
+        <div class="font-label text-xs text-white/50 uppercase tracking-widest">Spring 2025 · SPMC 350</div>
+      </div>
+      <div class="bg-white/5 border border-white/10 p-8 rounded-sm">
+        <p class="text-slate-light italic leading-relaxed mb-8">
+          "The RStudio tutorials were extremely beneficial to my learning and success in this class. It was easy to learn step by step how to do things, and bring that over to do by ourselves."
+        </p>
+        <div class="font-label text-xs text-white/50 uppercase tracking-widest">Spring 2022 · SPMC 350</div>
+      </div>
+      <div class="bg-white/5 border border-white/10 p-8 rounded-sm">
+        <p class="text-slate-light italic leading-relaxed mb-8">
+          "The tutorials are really easy to follow and help me understand the goal of the assignments and how to complete them. They were also beneficial during projects because it allowed me to look back at previous work as a reference."
+        </p>
+        <div class="font-label text-xs text-white/50 uppercase tracking-widest">Spring 2023 · SPMC 350</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Open source note -->
+<section class="bg-white py-20">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="font-headline font-black text-navy text-3xl mb-2">Open source &amp; free forever</h2>
+        <div class="w-16 h-1 bg-orange mb-6"></div>
+        <p class="text-slate leading-relaxed mb-4">
+          These tutorials were developed for SPMC 350 at the University of Nebraska-Lincoln's College of Journalism and Mass Communications, but they belong to everyone. The package is MIT-licensed and the source is on GitHub.
+        </p>
+        <p class="text-slate leading-relaxed mb-8">
+          If you're a student, a journalist learning data skills on your own, or an instructor who wants to use these materials in your own course — go ahead. No registration, no fee, no waitlist.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://github.com/mattwaite/SportsDataTutorials" target="_blank" rel="noopener" class="bg-navy text-white font-headline font-bold px-6 py-3 rounded-sm hover:bg-navy-mid transition-colors flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg">open_in_new</span>
+            View on GitHub
+          </a>
+          <a href="curriculum.html" class="bg-surface-low text-navy font-headline font-bold px-6 py-3 rounded-sm hover:bg-surface-mid transition-colors">
+            Browse the Curriculum
+          </a>
+        </div>
+      </div>
+      <div class="bg-surface-low p-8 rounded-sm">
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-orange mt-0.5">check_circle</span>
+            <div>
+              <p class="font-label font-semibold text-navy text-sm">40 interactive tutorials</p>
+              <p class="text-slate text-sm">Write and run real R code inside each lesson</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-orange mt-0.5">check_circle</span>
+            <div>
+              <p class="font-label font-semibold text-navy text-sm">Real sports data throughout</p>
+              <p class="text-slate text-sm">Nebraska baseball, college football, NBA, and more</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-orange mt-0.5">check_circle</span>
+            <div>
+              <p class="font-label font-semibold text-navy text-sm">No prerequisites</p>
+              <p class="text-slate text-sm">Designed for journalists with zero coding experience</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-orange mt-0.5">check_circle</span>
+            <div>
+              <p class="font-label font-semibold text-navy text-sm">MIT license</p>
+              <p class="text-slate text-sm">Use it, modify it, teach with it — it's yours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-navy-dark py-14 border-t border-white/10">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <div class="md:col-span-2 space-y-4">
+      <p class="font-headline font-bold text-white text-lg">Sports Data Analysis</p>
+      <p class="text-white/40 text-sm leading-relaxed max-w-md">
+        Companion tutorials for SPMC 350 at the University of Nebraska-Lincoln, College of Journalism and Mass Communications. Built and maintained by <a href="mailto:matt.waite@unl.edu" class="text-white/60 hover:text-white transition-colors">Matt Waite</a>.
+      </p>
+      <p class="text-white/30 text-xs">MIT License · Free to use, modify, and teach with</p>
+    </div>
+    <div class="space-y-3">
+      <p class="font-label font-semibold text-white/60 text-xs uppercase tracking-widest">Resources</p>
+      <ul class="space-y-2">
+        <li><a href="curriculum.html" class="text-white/40 text-sm hover:text-white transition-colors">All Tutorials</a></li>
+        <li><a href="installation.html" class="text-white/40 text-sm hover:text-white transition-colors">Installation Guide</a></li>
+        <li><a href="https://github.com/mattwaite/SportsDataTutorials" target="_blank" rel="noopener" class="text-white/40 text-sm hover:text-white transition-colors">GitHub Repository</a></li>
       </ul>
     </div>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Throwing cold water on hot takes</span></span></a>
   </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The very basics</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data, structures and types</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./aggregates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aggregates</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./mutating.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Mutating data</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./filtering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Filters and selections</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./transforming.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Transforming data</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./significancetests.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Significance tests</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./correlations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Correlations and regression</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./multipleregression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Multiple regression</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./residuals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Residuals</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./zscores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Z-scores</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clustering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Clustering</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./simulations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Simulations</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./barcharts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Intro to ggplot with bar charts</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./stackedbars.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Stacked bar charts</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./circularbarcharts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Circular bar charts</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./wafflecharts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Waffle charts</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./linecharts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Line charts</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./stepcharts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Step charts</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./dumbbellcharts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Dumbbell and lollipop charts</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./scatterplots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Scatterplots</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./bubblecharts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Bubble charts</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./beeswarmplots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Beeswarm plots</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./bumpcharts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Bump charts</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Tables</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./facetwraps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Facet wraps</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./cowplots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Arranging multiple plots together</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./encirclingpoints.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Encircling points on a scatterplot</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./textcleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Text cleaning</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./headlines.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Headlines</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./annotations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Annotations</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./finishingtouches.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Finishing touches</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./rtweet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Rtweet and Text Analysis</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./rvest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Intro to rvest</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./advancedrvest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">Advanced rvest</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./blogging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Building your own blog with blogdown</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./checklist.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Project Checklist</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./usingpackages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title">Using packages to get data</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sportsreferencecsvs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title">Getting CSVs from Sports Reference</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./onboarding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title">Installations</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./tutorials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title">Installing the tutorials</span></span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#throwing-cold-water-on-hot-takes" id="toc-throwing-cold-water-on-hot-takes" class="nav-link active" data-scroll-target="#throwing-cold-water-on-hot-takes"><span class="header-section-number">1</span> Throwing cold water on hot takes</a>
-  <ul class="collapse">
-  <li><a href="#requirements-and-conventions" id="toc-requirements-and-conventions" class="nav-link" data-scroll-target="#requirements-and-conventions"><span class="header-section-number">1.1</span> Requirements and Conventions</a></li>
-  <li><a href="#about-this-book" id="toc-about-this-book" class="nav-link" data-scroll-target="#about-this-book"><span class="header-section-number">1.2</span> About this book</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
+</footer>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Sports Data Analysis and Visualization</h1>
-<p class="subtitle lead">Code, data and visuals for storytellers</p>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Matt Waite </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">June 27, 2022</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="throwing-cold-water-on-hot-takes" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Throwing cold water on hot takes</h1>
-<p>The 2018 season started out disastrously for the Nebraska Cornhuskers. The first game against a probably overmatched opponent? Called on account of an epic thunderstorm that plowed right over Memorial Stadium. The next game? Loss. The one following? Loss. The next four? All losses, after the fanbase was whipped into a hopeful frenzy by the hiring of Scott Frost, national title winning quarterback turned hot young coach come back home to save a mythical football program from the mediocrity it found itself mired in.</p>
-<p>All that excitement lay in tatters.</p>
-<p>On sports talk radio, on the sports pages and across social media and cafe conversations, one topic kept coming up again and again to explain why the team was struggling: Penalties. The team was just committing too many of them. In fact, six games and no wins into the season, they were dead last in the FBS penalty yards.</p>
-<p>Worse yet for this line of reasoning? Nebraska won game 7, against Minnesota, committing only six penalties for 43 yards, just about half their average over the season. Then they won game 8 against FCS patsy Bethune Cookman, committing only five penalties for 35 yards. That’s a whopping 75 yards less than when they were losing. See? Cut the penalties, win games screamed the radio show callers.</p>
-<p>The problem? It’s not true. Penalties might matter for a single drive. They may even throw a single game. But if you look at every top-level college football team since 2009, the number of penalty yards the team racks up means absolutely nothing to the total number of points they score. There’s no relationship between them. Penalty yards have no discernible influence on points beyond just random noise.</p>
-<p>Put this another way: If you were Scott Frost, and a major college football program was paying you $5 million a year to make your team better, what should you focus on in practice? If you had growled at some press conference that you’re going to work on penalties in practice until your team stops committing them, the results you’d get from all that wasted practice time would be impossible to separate from just random chance. You very well may reduce your penalty yards and still lose.</p>
-<p>How do I know this? Simple statistics.</p>
-<p>That’s one of the three pillars of this book: Simple stats. The three pillars are:</p>
-<ol type="1">
-<li>Simple, easy to understand statistics …</li>
-<li>… extracted using simple code …</li>
-<li>… visualized simply to reveal new and interesting things in sports.</li>
-</ol>
-<p>Do you need to be a math whiz to read this book? No.&nbsp;I’m not one either. What we’re going to look at is pretty basic, but that’s also why it’s so powerful.</p>
-<p>Do you need to be a computer science major to write code? Nope. I’m not one of those either. But anyone can think logically, and write simple code that is repeatable and replicable.</p>
-<p>Do you need to be an artist to create compelling visuals? I think you see where this is going. No.&nbsp;I can barely draw stick figures, but I’ve been paid to make graphics in my career. With a little graphic design know how, you can create publication worthy graphics with code.</p>
-<section id="requirements-and-conventions" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="requirements-and-conventions"><span class="header-section-number">1.1</span> Requirements and Conventions</h2>
-<p>This book is all in the R statistical language. To follow along, you’ll do the following:</p>
-<ol type="1">
-<li><p>Install the R language on your computer. Go to the <a href="https://www.r-project.org/">R Project website</a>, click download R and select a mirror closest to your location. Then download the version for your computer.</p></li>
-<li><p>Install <a href="https://www.rstudio.com/products/rstudio/#Desktop">R Studio Desktop</a>. The free version is great.</p></li>
-</ol>
-<p>Going forward, you’ll see passages like this:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Don’t do it now, but that is code that you’ll need to run in your R Studio. When you see that, you’ll know what to do.</p>
-</section>
-<section id="about-this-book" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="about-this-book"><span class="header-section-number">1.2</span> About this book</h2>
-<p>This book is the collection of class materials for the author’s Sports Data Analysis and Visualization class at the University of Nebraska-Lincoln’s College of Journalism and Mass Communications. There’s some things you should know about it:</p>
-<ul>
-<li>It is free for students.</li>
-<li>The topics will remain the same but the text is going to be constantly tinkered with.</li>
-<li>What is the work of the author is copyright Matt Waite 2019.</li>
-<li>The text is <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 International</a> Creative Commons licensed. That means you can share it and change it, but only if you share your changes with the same license and it cannot be used for commercial purposes. I’m not making money on this so you can’t either.</li>
-<li>As such, the whole book – authored in Quarto – is <a href="https://github.com/mattwaite/sportsdatabook">open sourced on Github</a>. Pull requests welcomed!</li>
-</ul>
-
-
-</section>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
-      } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
-      }
-    }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
-          }
-        } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
-            if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
-    }
-  });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link" aria-label="The very basics">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">The very basics</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
-</div> <!-- /content -->
-
-
-
-
-</body></html>
+</body>
+</html>
