@@ -416,6 +416,31 @@
   }
   .pulse { animation: pulse 0.4s ease; }
 
+  /* ── Citations ── */
+  .cite sup, sup.cite { font-size: 0.72em; }
+  .cite a { color: #7eb8f7; text-decoration: none; }
+  .cite a:hover { text-decoration: underline; }
+  .cite a.broken { color: #ff4d6d; }
+  .cite-needed { color: #ff7070; font-size: 0.78em; font-style: italic; cursor: help; }
+  .cite-plain { color: #e8c14a; font-size: 0.88em; } /* ChatGPT plaintext style – no superscript */
+
+  .passage-refs {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #2a2a3a;
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .passage-refs .refs-title { font-weight: 600; color: #7a7a9a; margin-bottom: 6px; text-transform: uppercase; font-size: 0.68rem; letter-spacing: 0.08em; }
+  .passage-refs ol { padding-left: 1.4em; }
+  .passage-refs li { margin-bottom: 4px; }
+  .passage-refs a { color: #7eb8f7; word-break: break-all; }
+  .passage-refs a:hover { text-decoration: underline; }
+  .passage-refs a.broken { color: #ff4d6d; }
+  .passage-refs .ref-note { color: #ff4d6d; font-size: 0.75em; margin-left: 4px; }
+  .passage-refs .ref-note.ok { color: #4dff91; }
+
   /* mobile */
   @media (max-width: 500px) {
     .card { padding: 20px 16px; }
