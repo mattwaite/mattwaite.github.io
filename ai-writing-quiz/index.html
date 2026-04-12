@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI or Human? — The Writing Detection Game Show</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #f5c518;
+    --gold-dark: #c9a00e;
+    --bg: #0d0d14;
+    --surface: #16161f;
+    --surface2: #1e1e2a;
+    --text: #e8e8f0;
+    --muted: #8888aa;
+    --ai-color: #ff4d6d;
+    --human-color: #4dff91;
+    --ai-dark: #c0001e;
+    --human-dark: #00a84a;
+    --radius: 12px;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px 40px;
+  }
+
+  /* ── Header ── */
+  .site-header {
+    width: 100%;
+    max-width: 860px;
+    text-align: center;
+    padding: 32px 0 20px;
+  }
+  .site-header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 7vw, 4.2rem);
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    text-shadow: 0 0 40px rgba(245,197,24,0.35);
+    line-height: 1;
+  }
+  .site-header .subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-top: 6px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── Score bar ── */
+  .score-bar {
+    width: 100%;
+    max-width: 860px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid #2a2a3a;
+    border-radius: var(--radius);
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+  }
+  .score-bar .item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .score-bar .label { color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .score-bar .value { font-weight: 700; font-size: 1.1rem; }
+  .score-bar .value.correct { color: var(--human-color); }
+  .score-bar .value.wrong { color: var(--ai-color); }
+  .score-bar .value.round-val { color: var(--gold); }
+
+  /* ── Progress ── */
+  .progress-wrap {
+    width: 100%;
+    max-width: 860px;
+    margin-bottom: 20px;
+  }
+  .progress-track {
+    height: 6px;
+    background: #2a2a3a;
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+    border-radius: 99px;
+    transition: width 0.5s ease;
+  }
+  .progress-label {
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-align: right;
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Passage card ── */
+  .card {
+    width: 100%;
+    max-width: 860px;
+    background: var(--surface);
+    border: 1px solid #2a2a3a;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: border-color 0.4s;
+  }
+  .card.revealed-ai   { border-color: var(--ai-color); box-shadow: 0 0 30px rgba(255,77,109,0.15); }
+  .card.revealed-human{ border-color: var(--human-color); box-shadow: 0 0 30px rgba(77,255,145,0.12); }
+
+  .card-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .passage-text {
+    line-height: 1.75;
+    color: var(--text);
+    font-size: 0.95rem;
+    max-height: 340px;
+    overflow-y: auto;
+    padding-right: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: #3a3a50 transparent;
+  }
+  .passage-text::-webkit-scrollbar { width: 4px; }
+  .passage-text::-webkit-scrollbar-thumb { background: #3a3a50; border-radius: 99px; }
+
+  .passage-text p { margin-bottom: 0.9em; }
+  .passage-text p:last-child { margin-bottom: 0; }
+  .passage-text ul { margin: 0.5em 0 0.9em 1.4em; }
+  .passage-text li { margin-bottom: 0.3em; }
+  .passage-text strong { color: #c8c8e8; }
+
+  /* ── Buttons ── */
+  .btn-row {
+    width: 100%;
+    max-width: 860px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .btn {
+    padding: 18px 10px;
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    outline: none;
+    user-select: none;
+  }
+  .btn:disabled { opacity: 0.45; cursor: default; }
+
+  .btn-ai {
+    background: rgba(255,77,109,0.12);
+    border-color: var(--ai-color);
+    color: var(--ai-color);
+  }
+  .btn-ai:not(:disabled):hover {
+    background: var(--ai-color);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(255,77,109,0.4);
+  }
+  .btn-human {
+    background: rgba(77,255,145,0.1);
+    border-color: var(--human-color);
+    color: var(--human-color);
+  }
+  .btn-human:not(:disabled):hover {
+    background: var(--human-color);
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(77,255,145,0.35);
+  }
+
+  /* ── Reveal panel ── */
+  .reveal-panel {
+    width: 100%;
+    max-width: 860px;
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    display: none;
+    animation: slideUp 0.35s ease;
+  }
+  .reveal-panel.show { display: block; }
+  .reveal-panel.ai-panel {
+    background: rgba(255,77,109,0.08);
+    border: 1px solid var(--ai-color);
+  }
+  .reveal-panel.human-panel {
+    background: rgba(77,255,145,0.07);
+    border: 1px solid var(--human-color);
+  }
+
+  .verdict-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .verdict-badge {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.08em;
+    padding: 4px 16px;
+    border-radius: 6px;
+  }
+  .badge-ai    { background: var(--ai-color);    color: #fff; }
+  .badge-human { background: var(--human-color); color: #000; }
+  .badge-correct { background: var(--gold); color: #000; padding: 4px 12px; border-radius: 6px; font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.06em; }
+  .badge-wrong   { background: #444; color: #ccc; padding: 4px 12px; border-radius: 6px; font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.06em; }
+
+  .reveal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .tells-list {
+    list-style: none;
+    padding: 0;
+  }
+  .tells-list li {
+    padding: 7px 0 7px 20px;
+    position: relative;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #cccce0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .tells-list li:last-child { border-bottom: none; }
+  .tells-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  /* ── Next button ── */
+  .btn-next {
+    display: block;
+    width: 100%;
+    max-width: 860px;
+    padding: 16px;
+    border: none;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: #000;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: none;
+    transition: all 0.18s ease;
+  }
+  .btn-next.show { display: block; }
+  .btn-next:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,197,24,0.35); }
+
+  /* ── Results screen ── */
+  .results-screen {
+    width: 100%;
+    max-width: 860px;
+    display: none;
+    animation: slideUp 0.4s ease;
+  }
+  .results-screen.show { display: block; }
+
+  .results-hero {
+    text-align: center;
+    padding: 40px 20px 30px;
+    background: var(--surface);
+    border: 1px solid #2a2a3a;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+  }
+  .results-hero .big-score {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 14vw, 7rem);
+    color: var(--gold);
+    line-height: 1;
+    text-shadow: 0 0 60px rgba(245,197,24,0.4);
+  }
+  .results-hero .grade { font-size: 1rem; color: var(--muted); margin-top: 6px; }
+  .results-hero .grade strong { color: var(--text); }
+
+  .breakdown-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .breakdown-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .breakdown-item {
+    background: var(--surface);
+    border: 1px solid #2a2a3a;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.88rem;
+  }
+  .breakdown-item .bi-num { color: var(--muted); width: 20px; flex-shrink: 0; font-size: 0.75rem; }
+  .breakdown-item .bi-topic { flex: 1; font-weight: 500; }
+  .breakdown-item .bi-answer { font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+  .bi-answer.correct-ai    { background: rgba(255,77,109,0.15); color: var(--ai-color); }
+  .bi-answer.correct-human { background: rgba(77,255,145,0.12); color: var(--human-color); }
+  .bi-answer.wrong-ans     { background: rgba(255,255,255,0.07); color: var(--muted); text-decoration: line-through; }
+  .bi-result { font-size: 1rem; }
+
+  .btn-restart {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: #000;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.18s ease;
+  }
+  .btn-restart:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,197,24,0.35); }
+
+  /* ── Intro screen ── */
+  .intro-screen {
+    width: 100%;
+    max-width: 860px;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .intro-screen p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto 20px;
+  }
+  .intro-screen p strong { color: var(--text); }
+  .intro-rules {
+    background: var(--surface);
+    border: 1px solid #2a2a3a;
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    text-align: left;
+    max-width: 560px;
+    margin: 0 auto 28px;
+  }
+  .intro-rules h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .intro-rules ul { padding-left: 1.2em; color: var(--muted); font-size: 0.9rem; line-height: 1.8; }
+  .intro-rules li strong { color: var(--text); }
+  .btn-start {
+    display: inline-block;
+    padding: 18px 56px;
+    border: none;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: #000;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+  .btn-start:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(245,197,24,0.45); }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.04); }
+  }
+  .pulse { animation: pulse 0.4s ease; }
+
+  /* mobile */
+  @media (max-width: 500px) {
+    .card { padding: 20px 16px; }
+    .btn-row { grid-template-columns: 1fr; }
+    .reveal-panel { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>🤖 AI OR HUMAN?</h1>
+  <div class="subtitle">The Wikipedia Writing Detection Challenge</div>
+</header>
+
+<!-- Intro Screen -->
+<div class="intro-screen" id="introScreen">
+  <p>
+    Wikipedia editors have a problem: <strong>AI-generated articles</strong> are flooding the platform.
+    Can you tell the difference between text written by a human and text generated by an AI?
+  </p>
+  <div class="intro-rules">
+    <h3>How to Play</h3>
+    <ul>
+      <li>You'll read <strong>10 Wikipedia article excerpts</strong></li>
+      <li>Decide if each was written by an <strong>AI</strong> or a <strong>Human</strong></li>
+      <li>After each guess, you'll see the answer and key <strong>detection clues</strong></li>
+      <li>Try to beat the class average!</li>
+    </ul>
+  </div>
+  <button class="btn-start" onclick="startQuiz()">LET'S PLAY</button>
+</div>
+
+<!-- Quiz UI (hidden until started) -->
+<div id="quizUI" style="display:none; width:100%; max-width:860px;">
+
+  <div class="score-bar">
+    <div class="item"><span class="label">Round</span><span class="value round-val" id="roundDisp">1 / 10</span></div>
+    <div class="item"><span class="label">Correct</span><span class="value correct" id="scoreCorrect">0</span></div>
+    <div class="item"><span class="label">Wrong</span><span class="value wrong" id="scoreWrong">0</span></div>
+    <div class="item"><span class="label">Accuracy</span><span class="value round-val" id="scoreAccuracy">—</span></div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="progress-label" id="progressLabel">Question 0 of 10</div>
+  </div>
+
+  <div class="card" id="passageCard">
+    <div class="card-label">Wikipedia Excerpt — Round <span id="cardRound">1</span></div>
+    <div class="card-title" id="passageTitle"></div>
+    <div class="passage-text" id="passageText"></div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-ai"    id="btnAI"    onclick="guess('ai')">🤖 AI Generated</button>
+    <button class="btn btn-human" id="btnHuman" onclick="guess('human')">✍️ Human Written</button>
+  </div>
+
+  <div class="reveal-panel" id="revealPanel">
+    <div class="verdict-row">
+      <span class="verdict-badge" id="verdictBadge"></span>
+      <span id="verdictResult"></span>
+    </div>
+    <div class="reveal-title">Detection Clues</div>
+    <ul class="tells-list" id="tellsList"></ul>
+  </div>
+
+  <button class="btn-next" id="btnNext" onclick="nextQuestion()">NEXT QUESTION →</button>
+</div>
+
+<!-- Results screen -->
+<div class="results-screen" id="resultsScreen">
+  <div class="results-hero">
+    <div class="big-score" id="finalScore"></div>
+    <div class="grade" id="finalGrade"></div>
+  </div>
+  <div class="breakdown-title">Your Answers</div>
+  <ul class="breakdown-list" id="breakdownList"></ul>
+  <button class="btn-restart" onclick="restartQuiz()">PLAY AGAIN</button>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+//  QUIZ DATA
+//  answer: 'ai' | 'human'
+//  tells: bullet points shown after reveal
+// ══════════════════════════════════════════════════════════════
+const QUESTIONS = [
+  {
+    title: "Kamru Village",
+    answer: "ai",
+    text: `<p><strong>Kamru</strong> (also spelled Kamroo or Kamru Khas) is a historic village in the Kinnaur district of Himachal Pradesh, India. Located at an elevation of approximately 2,600 m above sea level, Kamru sits on a hillside overlooking the Sutlej River valley and the town of Sangla, approximately 2 km away.</p>
+<p>Kamru served as the ancient capital of the Bushahr kingdom (also known as the Kinnaur kingdom) before the seat of power was moved to Rampur. The village's historical significance is evident in its architectural heritage and its continued importance as a cultural center in the region. For centuries, Kamru was the political and administrative hub of the local rulers who governed this remote Himalayan territory.</p>
+<p>The most prominent structure in the village is the <strong>Kamru Fort</strong> (Kamakshi Devi Temple complex), a remarkable example of traditional Kinnauri architecture. Built primarily of wood and stone, the fort rises several stories and combines elements of Buddhist and Hindu architectural styles. The structure features intricate wood carvings on doorways, windows, and balconies, a distinctive pagoda-style roof, and traditional Kinnauri construction techniques without the use of nails.</p>
+<p>The village practices a syncretic form of religion incorporating elements of Hinduism, Buddhism, and indigenous beliefs. Religious festivals and rituals follow a calendar that reflects this religious plurality.</p>
+<p>Like many traditional Himalayan villages, Kamru faces challenges including outmigration of youth to urban areas, maintenance of historic wooden structures, and balance between tourism development and cultural preservation. Efforts by government agencies and cultural organizations aim to preserve the village's architectural heritage and traditional way of life while supporting sustainable development.</p>`,
+    tells: [
+      "Every single statement requires a [citation needed] tag — Claude itself added them, a reveal in the answer key.",
+      "Overemphasis on \"significance\" and \"cultural heritage\" without specific sourced facts.",
+      "Outline-like section structure with vague generalizations (e.g., \"efforts aim to preserve the village's architectural heritage\").",
+      "Hollow filler phrases: \"Like many traditional Himalayan villages...\" — signals AI defaulting to generic context.",
+      "Bullet-list formatting within prose sections is a common AI writing pattern on Wikipedia.",
+      "The categories linked (\"Former capitals of India\") point to pages that do not exist."
+    ]
+  },
+  {
+    title: "Rainforests of Malaysia",
+    answer: "ai",
+    text: `<p><strong>Rainforests in Malaysia</strong> consist of tropical evergreen forests found on both Peninsular Malaysia and the islands of East Malaysia (Sabah and Sarawak) on Borneo. These forests are part of the broader Malesia biogeographical region and are among the oldest continuously existing tropical forests.</p>
+<p>Malaysian rainforests cover large areas of both Peninsular and East Malaysia. In Peninsular Malaysia, major forest complexes include Taman Negara and Endau-Rompin National Park. East Malaysia contains extensive tracts of lowland and montane rainforest, notably within Kinabalu Park, Gunung Mulu National Park, and the Danum Valley Conservation Area.</p>
+<p>The rainforests experience a humid equatorial climate with mean annual temperatures ranging between 25°C and 28°C. Annual precipitation commonly exceeds 2,500 mm, distributed throughout the year with peaks during the monsoon seasons.</p>
+<p>The forests comprise dipterocarp-dominated vegetation, with families such as Dipterocarpaceae, Euphorbiaceae, and Fabaceae being prominent. Lowland areas support dense dipterocarp canopy trees, while montane regions contain oaks, laurels, and conifers.</p>
+<p>Malaysian rainforests are inhabited by species such as the Malayan tiger (<em>Panthera tigris jacksoni</em>), Malay tapir (<em>Tapirus indicus</em>), and Bornean orangutan (<em>Pongo pygmaeus</em>). Endemism is high in isolated mountain and island habitats.</p>
+<p>Extensive logging and agricultural conversion, particularly for oil palm cultivation, have led to deforestation. Both federal and state governments have designated protected areas and implemented forest certification schemes to promote sustainable management.</p>`,
+    tells: [
+      "The Whitmore (1984) citation has a failed ISBN checksum — corrupted data typical of AI hallucination.",
+      "The cited WWF source is about Borneo/Sumatra broadly and mentions only <em>Sunda tigers</em> (Panthera tigris sondaica), but the article calls them \"Malayan tigers\" (Panthera tigris jacksoni) — a subtle species-name hallucination.",
+      "WWF source says nothing about tapirs, yet tapirs appear in the fauna list alongside that citation.",
+      "Very short yet consistent paragraph length throughout — artificially uniform structure.",
+      "Generic \"See also\" section links (e.g., \"Tropical rainforest\") rather than specific related Malaysian articles.",
+      "One of the See Also links is a red-link (page doesn't exist), a sign of low-quality curation."
+    ]
+  },
+  {
+    title: "C. B. Fisk, Inc.",
+    answer: "human",
+    text: `<p><strong>C.B. Fisk, Inc.</strong> is a company in Gloucester, Massachusetts that designs and builds mechanical action pipe organs. It was founded in 1961 by Charles Brenton Fisk (1925–1983), the first American organ builder to build significant tracker organs in the 20th century. His study of early American and European instruments led him to return to mechanical action and to set a new course for American organ building.</p>
+<p>Born in Washington, D.C., and raised in Cambridge, Massachusetts, Fisk loved music and grew up tinkering with hifi equipment. He was a chorister at Christ Church on Cambridge Common where E. Power Biggs was Choirmaster. Charles showed such intelligence as a young man that when he was drafted during WWII, he was sent to Los Alamos where he worked for Robert Oppenheimer on the Manhattan Project. He was 18 years old. After the war he attended Harvard and Stanford, majoring in nuclear physics, and worked briefly at Brookhaven National Laboratories, but during his Stanford years decided to pursue a career in organ building.</p>
+<p>He apprenticed himself first with John Swinford in Redwood City, California, and then with Walter Holtkamp, Sr. in Cleveland, Ohio, who was at the time the most avant garde of American organbuilders. He went on to become a partner and later sole owner of the Andover Organ Company. In 1961 he established C. B. Fisk near his childhood summer home on Cape Ann in Massachusetts.</p>
+<p>The company has built a number of instruments based on historical organs, among them one at Wellesley College patterned after North German organs of the early 17th century, one at the University of Michigan in the manner of the Saxon builder Gottfried Silbermann, and a three-manual instrument at Rice University modeled on the work of the 19th century French master builder Aristide Cavaillé-Coll. In its 50 years C.B. Fisk, Inc. has completed over 90 instruments in 23 U.S. states, Switzerland, Japan, and South Korea.</p>`,
+    tells: [
+      "This is HUMAN-WRITTEN — from a real Wikipedia article. Don't be fooled!",
+      "The text is promotional in tone, but that is normal for a company Wikipedia article written by fans or the company itself.",
+      "Specific, verifiable details: exact dates, named places, named people (Oppenheimer, Holtkamp, Biggs) — AI tends to be vaguer.",
+      "Authentic narrative arc: the Manhattan Project → nuclear physics → organ building story is too specific and quirky to be fabricated.",
+      "Some reference links are broken due to normal link rot (web pages disappearing over time), not AI hallucination.",
+      "Key giveaway that it's human: no hedging language, no filler phrases, no suspiciously uniform paragraph lengths."
+    ]
+  },
+  {
+    title: "Jewish Peoplehood",
+    answer: "human",
+    text: `<p><strong>Jewish Peoplehood</strong> (Hebrew: עמיות יהודית, Amiut Yehudit) – the awareness of the underlying unity that makes the individual a part of the Jewish people.</p>
+<p>The concept of Peoplehood has a double meaning. The first is descriptive, as a concept factually describing the existence of the Jews as a people. The second is normative, as a value that describes the feeling of belonging and commitment to the Jewish people.</p>
+<p>This is a dramatic paradigm shift in Jewish life, which is gaining increasing support within Jewish communities worldwide. This shift, from the classic Zionistic, Israeli-centered paradigm toward a more People-centric paradigm, a Peoplehood paradigm, calls to put the Jewish People in the center and to ensure that the Jewish People, wherever its daughters and sons reside, maintains strong links to and with its nation-state, the State of Israel.</p>
+<p>Those concerned with the Jewish Peoplehood concept do not focus on the identity of individuals, but rather on the nature of connections between Jews. The concern is with common elements and frameworks that enable Jews to connect with one another both emotionally and socially.</p>
+<blockquote style="border-left:3px solid #444;padding-left:14px;margin:12px 0;color:#aaa;font-style:italic;">"Peoplehood is merely the interconnectedness of the Jewish People based on shared history, culture, tradition and religion… and yet there is something about being part of a People that goes beyond the dictionary definition." — Tova Serkin, Kol Dor</blockquote>
+<blockquote style="border-left:3px solid #444;padding-left:14px;margin:12px 0;color:#aaa;font-style:italic;">"Peoplehood will not work as a rallying cry to the Jewish public, which is post-tribal in its inclinations and commitments. Peoplehood is, rather, an organizing principle to recalibrate and synchronize the Jewish enterprise and philanthropy. It is our future blue-print." — Yosef Israel Abramowitz</blockquote>`,
+    tells: [
+      "This is HUMAN-WRITTEN — from a 2010 Wikipedia revision.",
+      "Heavy reliance on lengthy direct quotations that aren't paraphrased — AI almost always rephrases sources rather than quoting at length.",
+      "Inconsistent header capitalization ('The Origins of Jewish Peoplehood' vs 'Key characteristics') reflects older Wikipedia editorial norms, not AI's perfectly uniform formatting.",
+      "Some phrases like \"key characteristics\" sound AI-like, but they are sparse and isolated within overwhelmingly human-sounding prose.",
+      "The article meanders and shifts register in ways typical of multiple human editors contributing over time.",
+      "Tip-off: genuine scholarly citations with specific page numbers from niche publications — AI tends to cite more generic or made-up sources."
+    ]
+  },
+  {
+    title: "Prevagen",
+    answer: "ai",
+    text: `<p><strong>Prevagen</strong> is an over-the-counter dietary supplement marketed in the United States for memory and brain health. It is manufactured and distributed by Quincy Bioscience Holding Company, Inc., a company based in Madison, Wisconsin. The supplement's primary active ingredient is <strong>apoaequorin</strong>, a calcium-binding protein originally isolated from the jellyfish <em>Aequorea victoria</em>.</p>
+<p>Prevagen is sold in capsule form and marketed primarily to older adults. Commercial formulations typically contain apoaequorin in doses ranging from 10 mg to 40 mg per capsule, along with vitamin D and inactive ingredients. The manufacturer has promoted the product as supporting memory, learning, and other aspects of cognitive function.</p>
+<p>Independent scientists and medical organizations have questioned the biological plausibility of Prevagen's proposed mechanism. Dietary proteins such as apoaequorin are generally broken down into amino acids during digestion, and there is no established evidence that intact apoaequorin crosses the blood–brain barrier or affects neuronal calcium regulation in humans.</p>
+<p>In January 2017, the U.S. Federal Trade Commission (FTC) and the New York State Attorney General filed a joint lawsuit against Quincy Bioscience, alleging that the company made false and unsubstantiated claims that Prevagen improves memory and prevents cognitive decline.</p>
+<p>Multiple private lawsuits and class actions have also alleged that Prevagen's advertising was misleading and that the product does not provide the advertised cognitive benefits.</p>`,
+    tells: [
+      "Reference 3 (FTC press release) leads to a 404 page and is not indexed on archive.org — AI-generated citations often lead nowhere.",
+      "Undue emphasis on independent coverage and controversy, leaning editorially against the product — subtle bias.",
+      "\"Multiple private lawsuits\" is an overgeneralization from a single ClassAction.org mention — AI inflates claims.",
+      "The \"See also\" section contains generic entries (\"Dietary supplement\") rather than specific related topics.",
+      "One citation links circularly to Wikipedia itself as a source — a characteristic AI mistake.",
+      "The ingredients list includes a bold entry for apoaequorin that cites Wikipedia's own Aequorin article as its source."
+    ]
+  },
+  {
+    title: "Alessandro Bausani",
+    answer: "human",
+    text: `<p><strong>Alessandro Bausani</strong> (Rome, 29 May 1921 – Rome, 12 March 1988) was a scholar of Islam, Arab and Persian studies, artificial languages and the History of Religion, translating many works into Italian. He was one of the greatest Italian scholars of Islam, as well as a translator and commentator of one of the most important translations of the Quran into the Italian language.</p>
+<p>From 1956 to 1971 Bausani taught language and Persian literature and language as well as Indonesian literature at the Istituto Universitario Orientale in Naples. There he instituted teaching of language and Urdu literature and Farsi literature of India. Later he taught Islamic studies at the Scuola Orientale of the Facoltà di Lettere e Filosofia of the Università di Roma "La Sapienza". He served as the President of the Istituto per l'Oriente in Rome.</p>
+<p>His work included the translation into Italian of the poetry of Muhammad Iqbal (Parma, 1956), as well as that of Nizami, Omar Khayyam and Rumi.</p>
+<p>Alessandro Bausani's influence was recognised by diverse communities. Three years after his death, coinciding with his 70th birthday, the University of Rome published <em>Yad-Nama. In Memoria di Alessandro Bausani</em> in two volumes, containing 74 articles by scholars from around the world on topics related to Islamic studies, the history of science, linguistics, and literature. Ten years earlier, on the occasion of his 60th birthday, a festschrift called <em>La Bisaccia dello Sheikh</em> was published, including 39 articles by his colleagues and former students at the University of Venice. And, in 1995, scholars at the Istituto Universitario Orientale di Napoli dedicated a volume of 35 studies to his memory, titled <em>Un Ricordo che Non si Spegne</em> ("A record that will not die").</p>`,
+    tells: [
+      "This is HUMAN-WRITTEN — from a March 2019 Wikipedia revision.",
+      "The level of bibliographic specificity (publication city, year, exact article counts in festschrift volumes) is far too granular for AI to reliably invent.",
+      "Multiple cross-referenced institutional sources: Treccani, Encyclopedia Iranica, Bahá'í Studies Review, Indonesia Circle — this breadth reflects human research.",
+      "The citation URLs (Treccani, Iranica) are real, working links to legitimate encyclopedic entries.",
+      "Prose quality is uneven in places (repeated 'language and...') — reflecting multiple human editors, not AI's polished uniformity.",
+      "AI would likely smooth over the quirky sentence structures; this article preserves them."
+    ]
+  },
+  {
+    title: "Senchal Lake",
+    answer: "human",
+    text: `<p><strong>Senchal lake</strong>, located 10 km to the south-east of Darjeeling, is the main reservoir of potable water for the town of Darjeeling, India. The lake is located at an altitude of 8,160 ft (2,487 m) atop a hill. The hill also has one of the highest golf courses in the world. Senchal is a favourite picnic spot. A tourist lodge at Senchal provides accommodation to tourists. This lake is a part of the Senchal Wildlife Sanctuary.</p>`,
+    tells: [
+      "This is HUMAN-WRITTEN — from a January 2022 Wikipedia revision.",
+      "Extremely short and direct — one paragraph with no padding, no filler context, no hedging. AI articles almost always inflate length.",
+      "\"Senchal is a favourite picnic spot\" — casual, conversational phrasing that AI would typically formalize or expand.",
+      "Single citation to a small travel website (zubin.com) — unpretentious sourcing typical of a brief human stub article.",
+      "No attempt to over-structure with headers for such a small amount of content — AI would likely add Geography, Climate, History sections.",
+      "The brevity is the tell: AI generates more text. Human editors sometimes write stubs."
+    ]
+  },
+  {
+    title: "Rapa Fruit Dove",
+    answer: "human",
+    text: `<p>The <strong>Rapa fruit dove</strong> (<em>Ptilinopus huttoni</em>) is a species of bird in the family Columbidae, which includes pigeons and doves. It is endemic to the island of Rapa Iti in French Polynesia. The species was classified as Critically Endangered by the IUCN Red List in 2018 because of its small population and predicted continued decline. The Rapa fruit dove primarily feeds on fleshy fruit. Its natural habitat is subtropical or tropical moist lowland forests and it has an extent of 30 km². It is threatened by habitat loss due to deforestation and invasive species.</p>
+<p>The Rapa fruit dove is approximately 31 centimeters tall, making it a medium sized dove. It is a colorful bird, with mostly green plumage, especially on its wings. Its foreparts (head, neck, chest, upper back) have blue-gray plumage. It has a yellow lower belly with a rose-purple band below its chest feathers. A distinguishing feature of the Rapa fruit dove is its bright pink crown, located on the face between the eyes.</p>
+<p>The population was estimated at 160 individuals in 2017, with all individuals in one subpopulation. Surveys carried out in 1989–1990 found a population of approximately 274, resulting in a 42% decline in population between the two surveys.</p>
+<p>The Rapa fruit dove lives in the remaining undisturbed forest fragments on the island and prefers an elevation between 40–450 meters. They prefer the most wooded areas but can occasionally be found in the Caribbean pine plantations. Since they are heavier than some other fruit doves, the Rapa fruit dove does not move out to the end of the branches, and instead must perform many contortions to reach the fruit.</p>`,
+    tells: [
+      "This is HUMAN-WRITTEN — from a May 2019 Wikipedia revision.",
+      "The article meanders slightly more than a typical AI species article — AI produces tighter, more formulaic structure.",
+      "Specific IUCN citation with access date and version number — authentic scholarly referencing practice.",
+      "Some reference degradation (deprecated templates, link rot) resulted from years of normal Wikipedia editing, not AI generation.",
+      "The quirky detail — \"must perform many contortions to reach the fruit\" — is the kind of vivid, specific observation sourced from a real ornithology study.",
+      "Header capitalization is inconsistent (\"Description and Range\" vs \"Conservation Threats to Habitat\") — reflects genuine human editing over time."
+    ]
+  },
+  {
+    title: "Pusionella ghanaensis",
+    answer: "ai",
+    text: `<p><em><strong>Pusionella ghanaensis</strong></em> is a species of sea snail, a marine gastropod mollusk belonging to the family Clavatulidae [1]. This species was formally described by Emile Dautzenberg and Philippe Dautzenberg in 1912 [1, 2]. As its name suggests, it is primarily found off the coast of Ghana, West Africa.</p>
+<p>While a detailed, standalone morphological description of <em>Pusionella ghanaensis</em> is not extensively available in common databases, general characteristics can be inferred from its genus, <em>Pusionella</em>. Species within <em>Pusionella</em> typically exhibit:</p>
+<ul>
+<li><strong>Shell Shape:</strong> A fusiform (spindle-shaped) to turriform (tower-shaped) shell [3].</li>
+<li><strong>Sculpture:</strong> The shell often features strong axial ribs and spiral cords.</li>
+<li><strong>Aperture:</strong> The opening (aperture) is usually relatively narrow.</li>
+<li><strong>Siphonal Canal:</strong> A distinct, often moderately long siphonal canal is present at the base of the aperture.</li>
+<li><strong>Anal Sinus:</strong> Like other members of the superfamily Conoidea, <em>Pusionella</em> species possess an anal sinus on the outer lip, near the suture, which is used for expelling waste [3].</li>
+</ul>
+<p>Like most members of the superfamily Conoidea, species in the family Clavatulidae are predatory marine snails. They typically hunt other invertebrates, often using a venomous radula to immobilize their prey. However, <strong>specific dietary habits or predatory mechanisms of <em>P. ghanaensis</em> are not detailed in readily available information.</strong></p>`,
+    tells: [
+      "Uses plaintext [1], [2], [3] citation markers — ChatGPT's default style, not Wikipedia's {{cite}} template format.",
+      "\"While a detailed...description is not extensively available in common databases\" — AI filling gaps by admitting uncertainty instead of finding sources.",
+      "\"Specific dietary habits...are not detailed in readily available information\" — classic AI hedge when it lacks data.",
+      "Reference [1] links circularly back to Wikipedia itself as a source within a Wikipedia article.",
+      "Unnecessary random bolding of routine facts (Shell Shape, Sculpture) with no editorial purpose.",
+      "The description relies on genus-level generalizations because AI couldn't find species-specific data — but presents this as factual species information."
+    ]
+  },
+  {
+    title: "Telna Inc.",
+    answer: "ai",
+    text: `<p><strong>Telna Inc.</strong> (founded as KnowRoaming in 2011) is a telecommunications company providing global mobile connectivity solutions. The company initially gained recognition for its consumer SIM sticker technology that allowed travelers to bypass roaming fees. It later shifted its focus to serve communications service providers (CSPs), mobile network operators (MNOs), and enterprises with roaming, eSIM, and IoT connectivity solutions.</p>
+<p>Telna was founded in 2011 under the name KnowRoaming. Its initial product was a thin SIM sticker that automatically switched to cheaper roaming agreements when users traveled abroad. In 2015–2016, KnowRoaming acquired Telecom North America, which controlled the multi-IMSI network the company had been using. The deal enabled KnowRoaming to operate its own mobile core network and negotiate direct roaming agreements worldwide.</p>
+<p>Telna operates a multi-IMSI global network that enables devices to switch between multiple carrier profiles based on availability, cost, and quality of service.</p>
+<p>Telna <strong>emphasizes</strong> eSIM technology, allowing devices to switch between carrier profiles digitally without physical SIM cards. The company provides connectivity for Internet of Things (IoT) applications across industries such as transportation and logistics.</p>
+<p>In 2024, Telna was ranked in the <strong>Deloitte Technology Fast 50 Canada</strong> and the <strong>Deloitte Technology Fast 500 North America</strong>. In 2025, Telna received first place in the <strong>ROCCO Innovators</strong> ranking for eSIM travel and roaming innovation, and was awarded <strong>eSIM Trailblazer of the Year</strong> at the <strong>MVNOs World Awards</strong>.</p>`,
+    tells: [
+      "\"Telna <strong>emphasizes</strong> eSIM technology\" — the word 'emphasizes' is a subtle but characteristic AI vocabulary choice; humans would write 'offers' or 'focuses on'.",
+      "Short sections of nearly identical length throughout — artificially consistent structure.",
+      "Overemphasis on awards and recognition over substantive technical detail — AI padding.",
+      "Random bolding of proper nouns (Deloitte Technology Fast 50, ROCCO Innovators) without editorial purpose.",
+      "Vague See Also entries: \"Multi-IMSI\" listed without disambiguation context.",
+      "Creator of the article disclosed AI use; reference 13 leads to a 404, though it is archived on the Wayback Machine — AI frequently generates citations to real-but-dead URLs."
+    ]
+  }
+];
+
+// ══════════════════════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════════════════════
+let order = [];
+let current = 0;
+let score = 0;
+let wrong = 0;
+let userAnswers = [];
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function startQuiz() {
+  order = shuffle([...Array(QUESTIONS.length).keys()]);
+  current = 0; score = 0; wrong = 0; userAnswers = [];
+  document.getElementById('introScreen').style.display = 'none';
+  document.getElementById('resultsScreen').classList.remove('show');
+  document.getElementById('quizUI').style.display = 'block';
+  loadQuestion();
+}
+
+function loadQuestion() {
+  const q = QUESTIONS[order[current]];
+  document.getElementById('cardRound').textContent = current + 1;
+  document.getElementById('roundDisp').textContent = `${current + 1} / 10`;
+  document.getElementById('passageTitle').textContent = q.title;
+  document.getElementById('passageText').innerHTML = q.text;
+  document.getElementById('passageCard').className = 'card';
+
+  // Reset UI
+  document.getElementById('revealPanel').className = 'reveal-panel';
+  document.getElementById('btnNext').className = 'btn-next';
+  document.getElementById('btnAI').disabled = false;
+  document.getElementById('btnHuman').disabled = false;
+
+  // Progress
+  const pct = (current / QUESTIONS.length) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = `Question ${current} of ${QUESTIONS.length}`;
+
+  updateScoreBar();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateScoreBar() {
+  document.getElementById('scoreCorrect').textContent = score;
+  document.getElementById('scoreWrong').textContent = wrong;
+  const total = score + wrong;
+  document.getElementById('scoreAccuracy').textContent = total === 0 ? '—' : Math.round(score / total * 100) + '%';
+}
+
+function guess(answer) {
+  const q = QUESTIONS[order[current]];
+  const isCorrect = answer === q.answer;
+
+  if (isCorrect) score++; else wrong++;
+  userAnswers.push({ idx: order[current], userAnswer: answer, correct: isCorrect });
+
+  // Disable buttons
+  document.getElementById('btnAI').disabled = true;
+  document.getElementById('btnHuman').disabled = true;
+
+  // Style card
+  document.getElementById('passageCard').classList.add(q.answer === 'ai' ? 'revealed-ai' : 'revealed-human');
+
+  // Build reveal panel
+  const panel = document.getElementById('revealPanel');
+  panel.className = 'reveal-panel show ' + (q.answer === 'ai' ? 'ai-panel' : 'human-panel');
+
+  const badge = document.getElementById('verdictBadge');
+  badge.className = 'verdict-badge ' + (q.answer === 'ai' ? 'badge-ai' : 'badge-human');
+  badge.textContent = q.answer === 'ai' ? '🤖 AI GENERATED' : '✍️ HUMAN WRITTEN';
+
+  const result = document.getElementById('verdictResult');
+  result.innerHTML = isCorrect
+    ? `<span class="badge-correct">✓ CORRECT</span>`
+    : `<span class="badge-wrong">✗ WRONG</span>`;
+
+  // Tells
+  const list = document.getElementById('tellsList');
+  list.innerHTML = q.tells.map(t => `<li>${t}</li>`).join('');
+
+  // Next
+  const btnNext = document.getElementById('btnNext');
+  btnNext.className = 'btn-next show';
+  if (current === QUESTIONS.length - 1) {
+    btnNext.textContent = 'SEE RESULTS →';
+  } else {
+    btnNext.textContent = 'NEXT QUESTION →';
+  }
+
+  updateScoreBar();
+}
+
+function nextQuestion() {
+  current++;
+  if (current >= QUESTIONS.length) {
+    showResults();
+  } else {
+    loadQuestion();
+  }
+}
+
+function showResults() {
+  document.getElementById('quizUI').style.display = 'none';
+  const screen = document.getElementById('resultsScreen');
+  screen.classList.add('show');
+
+  document.getElementById('finalScore').textContent = `${score} / 10`;
+
+  const grades = [
+    [10, "🏆 Perfect score! You're an AI detection expert."],
+    [9,  "🥇 Excellent! You have a sharp eye for AI writing."],
+    [8,  "🥈 Great job! You caught most of the AI tells."],
+    [7,  "🥉 Good work! A few slipped past you."],
+    [5,  "🎯 Not bad — this quiz fools a lot of people."],
+    [3,  "🤔 Tricky, isn't it? AI writing is getting very good."],
+    [0,  "😅 Even GPT detectors struggle with this. Keep practicing!"]
+  ];
+  const grade = grades.find(([min]) => score >= min);
+  document.getElementById('finalGrade').innerHTML = `<strong>${grade[1]}</strong>`;
+
+  const list = document.getElementById('breakdownList');
+  list.innerHTML = userAnswers.map((ua, i) => {
+    const q = QUESTIONS[ua.idx];
+    const ansLabel = q.answer === 'ai' ? 'AI' : 'HUMAN';
+    const cls = ua.correct
+      ? (q.answer === 'ai' ? 'correct-ai' : 'correct-human')
+      : 'wrong-ans';
+    return `<li class="breakdown-item">
+      <span class="bi-num">${i+1}</span>
+      <span class="bi-topic">${q.title}</span>
+      <span class="bi-answer ${cls}">${ansLabel}</span>
+      <span class="bi-result">${ua.correct ? '✅' : '❌'}</span>
+    </li>`;
+  }).join('');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function restartQuiz() {
+  document.getElementById('resultsScreen').classList.remove('show');
+  startQuiz();
+}
+</script>
+</body>
+</html>
