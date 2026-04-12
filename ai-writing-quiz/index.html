@@ -425,6 +425,7 @@
   .cite-plain { color: #e8c14a; font-size: 0.88em; } /* ChatGPT plaintext style – no superscript */
 
   .passage-refs {
+    display: none;
     margin-top: 16px;
     padding-top: 12px;
     border-top: 1px solid #2a2a3a;
@@ -821,6 +822,9 @@ function guess(answer) {
   // Disable buttons
   document.getElementById('btnAI').disabled = true;
   document.getElementById('btnHuman').disabled = true;
+
+  // Show references now that the answer is locked in
+  document.querySelectorAll('#passageText .passage-refs').forEach(el => el.style.display = 'block');
 
   // Style card
   document.getElementById('passageCard').classList.add(q.answer === 'ai' ? 'revealed-ai' : 'revealed-human');
