@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutorial Search</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  background: #fff;
+  color: #222;
+  line-height: 1.5;
+}
+
+#search-wrap {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 10px 12px 8px;
+  border-bottom: 2px solid #e0e0e0;
+  z-index: 10;
+}
+
+#search-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+#search-input:focus { border-color: #2563eb; }
+
+#status {
+  font-size: 11px;
+  color: #888;
+  margin-top: 5px;
+  min-height: 14px;
+}
+
+#results {
+  padding: 8px 10px;
+}
+
+.card {
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: #f8fafc;
+}
+
+.card-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 3px;
+}
+
+.tut-badge {
+  display: inline-block;
+  background: #2563eb;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tut-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: #1e293b;
+  flex: 1;
+  min-width: 0;
+}
+
+.tut-section {
+  font-size: 11.5px;
+  color: #64748b;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.snippet {
+  font-size: 12.5px;
+  color: #374151;
+  line-height: 1.55;
+}
+
+.snippet mark {
+  background: #fef08a;
+  color: inherit;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
+.code-block {
+  margin-top: 7px;
+  background: #1e293b;
+  color: #e2e8f0;
+  border-radius: 4px;
+  padding: 7px 10px;
+  font-family: "SFMono-Regular", "Cascadia Code", Consolas, "Liberation Mono", monospace;
+  font-size: 11.5px;
+  white-space: pre;
+  overflow-x: auto;
+  max-height: 130px;
+  line-height: 1.5;
+}
+
+#empty-state {
+  padding: 32px 12px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+#empty-state strong {
+  display: block;
+  font-size: 15px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+</style>
+</head>
+<body>
+
+<div id="search-wrap">
+  <input id="search-input" type="search"
+    placeholder="Search all tutorials… (e.g. ggplot, regression, clustering)"
+    autocomplete="off" autofocus>
+  <div id="status">Loading index…</div>
+</div>
+
+<div id="results"></div>
+
+<div id="empty-state">
+  <strong>Search across all 39 tutorials</strong>
+  Type a function name, concept, or term above.
+</div>
+
+<script src="https://unpkg.com/lunr@2.3.9/lunr.js"></script>
+<script>
+let allDocs = [];
+let idx = null;
+
+const searchInput = document.getElementById('search-input');
+const resultsEl   = document.getElementById('results');
+const statusEl    = document.getElementById('status');
+const emptyEl     = document.getElementById('empty-state');
+
+fetch('search-index.json')
+  .then(r => r.json())
+  .then(docs => {
+    allDocs = docs;
+    idx = lunr(function () {
+      this.ref('id');
+      this.field('tutorial',    { boost: 10 });
+      this.field('description', { boost: 6  });
+      this.field('section',     { boost: 5  });
+      this.field('text',        { boost: 2  });
+      this.field('code',        { boost: 3  });
+      docs.forEach(d => this.add(d));
+    });
+    const tutCount = new Set(docs.map(d => d.folder)).size;
+    statusEl.textContent = `${tutCount} tutorials ready to search.`;
+  })
+  .catch(() => {
+    statusEl.textContent = 'Could not load search index.';
+  });
+
+let timer;
+searchInput.addEventListener('input', () => {
+  clearTimeout(timer);
+  timer = setTimeout(doSearch, 160);
+});
+
+function doSearch() {
+  const raw = searchInput.value.trim();
+
+  if (!raw || !idx) {
+    resultsEl.innerHTML = '';
+    emptyEl.style.display = '';
+    statusEl.textContent = idx
+      ? `${new Set(allDocs.map(d => d.folder)).size} tutorials ready to search.`
+      : 'Loading…';
+    return;
+  }
+
+  let hits;
+  try {
+    const terms = raw.split(/\s+/).filter(Boolean);
+    hits = idx.query(q => {
+      terms.forEach(t => {
+        // Exact match (high weight)
+        q.term(t, { boost: 10 });
+        // Trailing wildcard for partial typing ("muta" → "mutate")
+        q.term(t, { boost: 4, wildcard: lunr.Query.wildcard.TRAILING });
+      });
+    });
+  } catch (_) {
+    hits = [];
+  }
+
+  emptyEl.style.display = 'none';
+
+  if (!hits.length) {
+    resultsEl.innerHTML =
+      `<div style="padding:20px 12px;color:#888;font-size:13px">
+        No results for <strong>${esc(raw)}</strong>.
+        Try a shorter or different term.
+       </div>`;
+    statusEl.textContent = '0 results';
+    return;
+  }
+
+  const shown = hits.slice(0, 40);
+  statusEl.textContent = `${hits.length} result${hits.length === 1 ? '' : 's'}${hits.length > 40 ? ' (showing first 40)' : ''}`;
+
+  const terms = raw.toLowerCase().split(/\s+/).filter(t => t.length > 1);
+
+  resultsEl.innerHTML = shown.map(hit => {
+    const doc = allDocs.find(d => d.id === hit.ref);
+    if (!doc) return '';
+
+    const snippetSrc = doc.text || doc.description || '';
+    const snippet    = highlight(esc(truncate(snippetSrc, 220)), terms);
+    const codeBlock  = doc.code
+      ? `<pre class="code-block">${esc(doc.code)}</pre>`
+      : '';
+
+    return `<div class="card">
+      <div class="card-header">
+        <span class="tut-badge">Tutorial ${esc(doc.num)}</span>
+        <span class="tut-title">${esc(doc.tutorial)}</span>
+      </div>
+      <div class="tut-section">${esc(doc.section)}</div>
+      <div class="snippet">${snippet}</div>
+      ${codeBlock}
+    </div>`;
+  }).join('');
+}
+
+function truncate(str, max) {
+  if (!str) return '';
+  return str.length > max ? str.slice(0, max) + '…' : str;
+}
+
+function esc(s) {
+  return String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function highlight(escaped, terms) {
+  let s = escaped;
+  terms.forEach(t => {
+    if (t.length < 2) return;
+    const safe = t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    s = s.replace(new RegExp(`(${safe})`, 'gi'), '<mark>$1</mark>');
+  });
+  return s;
+}
+</script>
+</body>
+</html>
