@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.31">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Matt Waite’s Collection of Miscellany</title>
+<title>Matt Waite</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7c69b197886ae2a34062761d21e44731.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -114,6 +114,18 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 </script>
 <!-- Adobe Fonts / Typekit -->
 <link rel="stylesheet" href="https://use.typekit.net/bhc7pvg.css">
+<!-- Google Fonts: Design System — Noto Serif / Inter / Work Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&amp;family=Inter:wght@400;500;600&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+    line-height: 1;
+  }
+</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -146,13 +158,19 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="– Matt Waite’s Collection of Miscellany">
-<meta property="og:description" content="A blog about random fiddling with code and data.">
-<meta property="og:site_name" content="Matt Waite’s Collection of Miscellany">
-<meta name="twitter:title" content="– Matt Waite’s Collection of Miscellany">
-<meta name="twitter:description" content="A blog about random fiddling with code and data.">
+<meta property="og:title" content="– Matt Waite">
+<meta property="og:image" content="https://mattwaite.github.io/profile.png">
+<meta property="og:site_name" content="Matt Waite">
+<meta property="og:image:alt" content="Matt Waite">
+<meta property="og:image:height" content="1208">
+<meta property="og:image:width" content="1368">
+<meta name="twitter:title" content="– Matt Waite">
+<meta name="twitter:image" content="https://mattwaite.github.io/profile.png">
 <meta name="twitter:creator" content="@mattwaite">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image:alt" content="Matt Waite">
+<meta name="twitter:image-height" content="1208">
+<meta name="twitter:image-width" content="1368">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -163,7 +181,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Matt Waite’s Collection of Miscellany</span>
+    <span class="navbar-title">Matt Waite</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -174,11 +192,11 @@ window.Quarto = {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">Portfolio</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./posts/index.html"> 
-<span class="menu-text">Blog</span></a>
+<span class="menu-text">Archive</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
@@ -186,7 +204,7 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./nicar/index.html"> 
-<span class="menu-text">NICAR</span></a>
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/mattwaite"> <i class="bi bi-github" role="img">
@@ -206,49 +224,128 @@ window.Quarto = {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Matt Waite</h1></header>
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
-<div class="hero-section">
-<section id="matt-waite" class="hero-text">
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section class="dc-hero">
+  <div class="dc-hero-content">
 
-<h3 id="professor-of-practice-journalism-technology" class="anchored">Professor of Practice | Journalism | Technology</h3>
-<p>I am a professor at the University of Nebraska-Lincoln and a data journalist. I build things, analyze data, and teach others how to do the same.</p>
+    <div class="dc-hero-text">
+      <span class="dc-label">Professor of Practice &amp; Technologist</span>
+      <h1>Matt Waite</h1>
+      <p>
+        A career spent at the intersection of storytelling and code.
+        From Pulitzer Prize-winning data projects to pioneering the use
+        of drones in the newsroom.
+      </p>
+      <div class="dc-hero-ctas">
+        <a href="./posts/" class="dc-btn-primary">Explore</a>
+        <a href="about.html" class="dc-btn-secondary">About Matt</a>
+      </div>
+    </div>
+
+    <div class="dc-hero-portrait">
+      <img src="profile.png" alt="Matt Waite">
+      <div class="dc-hero-accent"></div>
+    </div>
+
+  </div>
 </section>
-</div>
-<section id="projects" class="projects-section">
-<h2 class="anchored">Projects</h2>
-<div class="grid">
-<div class="g-col-12 g-col-md-6 g-col-lg-4">
-<section id="the-art-of-data-journalism" class="project-card">
-<h3 class="anchored"><a href="https://the-art-of-data-journalism.github.io/">The Art of Data Journalism</a></h3>
-<p>Interactive tutorials teaching data journalism through R and the Tidyverse.</p>
+
+<!-- ═══════════════════════════════════════════════
+     FEATURED PROJECTS
+═══════════════════════════════════════════════ -->
+<section class="dc-projects">
+
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="dc-section-header">
+      <div>
+        <h2 class="dc-section-title anchored">Featured Projects</h2>
+        <div class="dc-section-underline"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dc-bento">
+
+    <!-- Large card: Drone Journalism Lab -->
+    <div class="dc-card-large">
+      <div>
+        <span class="dc-card-label">Institutional Research</span>
+        <h3 class="anchored">The Drone Journalism Lab</h3>
+        <p>
+          Establishing the ethical and practical frameworks for small
+          unmanned aircraft systems in the pursuit of public interest
+          journalism. One of the first drone journalism programs in the world.
+        </p>
+      </div>
+      <a href="https://mattwaite.github.io/dronebook/" class="dc-card-link">
+        View Laboratory Notes
+      </a>
+      <div class="dc-ghost-icon">✈</div>
+    </div>
+
+    <!-- Dark card: Sports Data Tutorials -->
+    <div class="dc-card-dark">
+      <div>
+        <span class="dc-card-label" style="color:#878585;">Education &amp; Data</span>
+        <h3 class="anchored">Sports Data Tutorials</h3>
+        <p>
+          Mastering the R language through the lens of sports analytics.
+          A comprehensive guide for journalists to find the story in the
+          box score.
+        </p>
+      </div>
+      <a href="https://mattwaite.github.io/sports/" class="dc-btn-light">
+        Start Learning
+      </a>
+    </div>
+
+    <!-- Full-width card: Art of Data Journalism -->
+    <div class="dc-card-wide">
+      <div class="dc-card-image">
+        <img src="hero.jpg" alt="Data journalism in practice">
+      </div>
+      <div>
+        <span class="dc-card-label">Visual Storytelling</span>
+        <h3 class="anchored">The Art of Data Journalism</h3>
+        <p>
+          Beyond the spreadsheet. Teaching the next generation how to
+          transform raw datasets into compelling, interactive visual
+          narratives that drive impact.
+        </p>
+        <a href="https://the-art-of-data-journalism.github.io/" class="dc-card-link">
+          Explore the Book
+        </a>
+      </div>
+    </div>
+
+  </div>
 </section>
-</div>
-<div class="g-col-12 g-col-md-6 g-col-lg-4">
-<section id="sports-data-tutorials" class="project-card">
-<h3 class="anchored"><a href="https://github.com/mattwaite/SportsDataTutorials">Sports Data Tutorials</a></h3>
-<p>Interactive tutorials for analyzing and visualizing sports data using R and the Tidyverse.</p>
-</section>
-</div>
-<div class="g-col-12 g-col-md-6 g-col-lg-4">
-<section id="drone-journalism" class="project-card">
-<h3 class="anchored"><a href="https://mattwaite.github.io/dronebook/">Drone Journalism</a></h3>
-<p>What you need to know to get a drone license in the US and what separates a journalist from just someone with a controller in their hand.</p>
-</section>
-</div>
-</div>
-</section>
-<section id="blog" class="blog-section">
-<h2 class="anchored">Blog</h2>
+
+<!-- ═══════════════════════════════════════════════
+     RECENT POSTS
+═══════════════════════════════════════════════ -->
+<section class="dc-recent-posts">
+  <div class="dc-recent-posts-inner">
+
+    <div class="dc-recent-posts-header">
+      <div>
+        <h2 class="dc-section-title anchored">Recent Posts</h2>
+      </div>
+      <a href="./posts/" class="dc-archive-link">Archive Index</a>
+    </div>
 <div id="listing-blog-timeline" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1773153031482" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1774045552049" data-listing-reading-time-sort="1" data-listing-word-count-sort="58">
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/index.html" class="no-external">Blog posts</a>
+<a href="./posts/index.html" class="no-external"></a>
 </h3>
 </div>
 <div class="metadata">
@@ -350,121 +447,16 @@ Nov 8, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1729659600000" data-listing-file-modified-sort="1773153011319" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2851">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external">A simple example of AI agents(?) doing journalism(?) work</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
-
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/a-simple-example-ai-agents-doing-journalism/index.html" class="no-external">
-<div class="listing-date">
-Oct 23, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1648443600000" data-listing-file-modified-sort="1773153013656" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4354">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external">Another year, another attempt, another bracket disaster</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/another-year-another-attempt-another-bracket-disaster/index.html" class="no-external">
-<div class="listing-date">
-Mar 28, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1647752400000" data-listing-file-modified-sort="1773153017628" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1096">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external">Nebraska is not the best worst team in basketball again. They’re third best worst.</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('aHVza2Vycw=='); return false;">huskers</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/nebraska-is-the-third-best-worst-basketball-team/index.html" class="no-external">
-<div class="listing-date">
-Mar 20, 2022
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="aHVza2VycyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1616907600000" data-listing-file-modified-sort="1773153015315" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1209">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external">Is Nebraska the best worst team in college basketball?</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('aHVza2Vycw=='); return false;">huskers</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/is-nebraska-the-best-worst-basketball-team/index.html" class="no-external">
-<div class="listing-date">
-Mar 28, 2021
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="Y29kZSUyQ2FuYWx5c2lz" data-listing-date-sort="1616389200000" data-listing-file-modified-sort="1773153016449" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1700">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external">How I (poorly) filled out my NCAA bracket with machine learning</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/ncaa-bracket-with-machine-learning-2021/index.html" class="no-external">
-<div class="listing-date">
-Mar 22, 2021
-</div>
-</a>
-</div>
-</div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div>
-<p><a href="./posts/">View Full Archive</a></p>
+    <div class="dc-view-all">
+      <a href="./posts/" class="dc-btn-outline">
+        View Full Archive
+      </a>
+    </div>
+
+  </div>
 </section>
 
 
