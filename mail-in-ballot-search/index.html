@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail-in Ballot Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-hover: #1e293b;
+            --focus-ring: #3b82f6;
+            --bg-color: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --row-hover: #f8fafc;
+            --header-bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Container for the iframe environment */
+        .widget-container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Search Input Styling */
+        .search-wrapper {
+            position: relative;
+            margin-bottom: 24px;
+            max-width: 400px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            color: #94a3b8;
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 16px 14px 44px;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--text-main);
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease-in-out;
+            box-sizing: border-box;
+        }
+
+        .search-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--focus-ring);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        /* Table Styling */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: var(--header-bg);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        th:first-child, td:first-child {
+            text-align: left;
+            position: sticky;
+            left: 0;
+            background-color: inherit;
+            z-index: 1;
+        }
+
+        th:first-child {
+            background-color: var(--header-bg);
+            z-index: 2;
+        }
+
+        tbody tr {
+            background-color: #fff;
+            transition: background-color 0.15s ease;
+        }
+
+        tbody tr:hover {
+            background-color: var(--row-hover);
+        }
+
+        /* First column (County Name) is bolder */
+        td:first-child {
+            font-weight: 500;
+        }
+
+        /* States */
+        .loading, .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .no-results {
+            display: none;
+        }
+
+        /* Spinner */
+        .spinner {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(148, 163, 184, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 12px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="widget-container">
+        <div class="search-wrapper">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search county name..." autocomplete="off">
+        </div>
+
+        <div class="table-responsive">
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <div>Loading data...</div>
+            </div>
+            
+            <table id="dataTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Total Votes Cast</th>
+                        <th>Total Mail Votes</th>
+                        <th>Turnout Percent</th>
+                        <th>Mail Vote Percent</th>
+                        <th>Total Mail Ballots Rejected</th>
+                        <th>Total Mail Ballots Reject Because They Were Late</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Javascript will populate rows here -->
+                </tbody>
+            </table>
+            
+            <div id="noResults" class="no-results">
+                No counties found matching your search.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let countyData = [];
+        const searchInput = document.getElementById('searchInput');
+        const tableBody = document.getElementById('tableBody');
+        const dataTable = document.getElementById('dataTable');
+        const loadingDiv = document.getElementById('loading');
+        const noResultsDiv = document.getElementById('noResults');
+
+        // Formatter functions
+        const formatNumber = (num) => {
+            if (num === null || num === undefined || num === '') return '';
+            return Number(num).toLocaleString('en-US');
+        };
+
+        const formatPercent = (num) => {
+            if (num === null || num === undefined || num === '') return '';
+            return Number(num).toFixed(1) + '%';
+        };
+
+        // Load and parse CSV
+        Papa.parse('cleanmail.csv', {
+            download: true,
+            header: true,
+            dynamicTyping: true,
+            skipEmptyLines: true,
+            complete: function(results) {
+                countyData = results.data;
+                loadingDiv.style.display = 'none';
+                dataTable.style.display = 'table';
+                renderTable(countyData);
+            },
+            error: function(err) {
+                console.error('Error parsing CSV:', err);
+                loadingDiv.innerHTML = 'Failed to load data.';
+            }
+        });
+
+        // Search event listener
+        searchInput.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase().trim();
+            
+            if (!query) {
+                renderTable(countyData);
+                return;
+            }
+
+            const filteredData = countyData.filter(row => {
+                const name = row.Jurisdiction_Name ? row.Jurisdiction_Name.toLowerCase() : '';
+                return name.includes(query);
+            });
+
+            renderTable(filteredData);
+        });
+
+        // Render function
+        function renderTable(data) {
+            tableBody.innerHTML = '';
+            
+            if (data.length === 0) {
+                dataTable.style.display = 'none';
+                noResultsDiv.style.display = 'block';
+                return;
+            }
+
+            dataTable.style.display = 'table';
+            noResultsDiv.style.display = 'none';
+
+            const fragment = document.createDocumentFragment();
+
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                
+                tr.innerHTML = `
+                    <td>${row.Jurisdiction_Name || ''}</td>
+                    <td>${formatNumber(row.F1a)}</td>
+                    <td>${formatNumber(row.TotalMailInVotes)}</td>
+                    <td>${formatPercent(row.Turnout)}</td>
+                    <td>${formatPercent(row.percent)}</td>
+                    <td>${formatNumber(row.C9a)}</td>
+                    <td>${formatNumber(row.C9b)}</td>
+                `;
+                
+                fragment.appendChild(tr);
+            });
+
+            tableBody.appendChild(fragment);
+        }
+    </script>
+</body>
+</html>
