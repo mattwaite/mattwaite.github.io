@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Matt Waite">
+<meta name="dcterms.date" content="2026-04-30">
+<meta name="description" content="A step by step guide to create a quick search of some data and publishing it on the internet for free.">
 
-<title>Matt Waite</title>
+<title>Teaching a one-hour throwaway news apps class – Matt Waite</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,26 +29,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./logo.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,36 +74,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-blog-timeline .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      page: 25,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-blog-timeline'] = new List('listing-blog-timeline', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-TQ9B01DPX0"></script>
 
 <script type="text/javascript">
@@ -127,60 +98,31 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
   }
 </style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="– Matt Waite">
-<meta property="og:image" content="https://mattwaite.github.io/profile.png">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Teaching a one-hour throwaway news apps class – Matt Waite">
+<meta property="og:description" content="A step by step guide to create a quick search of some data and publishing it on the internet for free.">
+<meta property="og:image" content="https://mattwaite.github.io/posts/2026-04-30-teaching-a-one-hour-throwaway-news-apps-class/image.png">
 <meta property="og:site_name" content="Matt Waite">
-<meta property="og:image:alt" content="Matt Waite">
-<meta property="og:image:height" content="1208">
-<meta property="og:image:width" content="1368">
-<meta name="twitter:title" content="– Matt Waite">
-<meta name="twitter:image" content="https://mattwaite.github.io/profile.png">
+<meta property="og:image:height" content="278">
+<meta property="og:image:width" content="680">
+<meta name="twitter:title" content="Teaching a one-hour throwaway news apps class – Matt Waite">
+<meta name="twitter:description" content="A step by step guide to create a quick search of some data and publishing it on the internet for free.">
+<meta name="twitter:image" content="https://mattwaite.github.io/posts/2026-04-30-teaching-a-one-hour-throwaway-news-apps-class/image.png">
 <meta name="twitter:creator" content="@mattwaite">
-<meta name="twitter:image:alt" content="Matt Waite">
-<meta name="twitter:image-height" content="1208">
-<meta name="twitter:image-width" content="1368">
+<meta name="twitter:image-height" content="278">
+<meta name="twitter:image-width" content="680">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Matt Waite</span>
     </a>
   </div>
@@ -191,19 +133,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Portfolio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts/index.html"> 
+    <a class="nav-link" href="../../posts/index.html"> 
 <span class="menu-text">Archive</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./nicar/index.html"> 
+    <a class="nav-link" href="../../nicar/index.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item compact">
@@ -219,248 +161,91 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Teaching a one-hour throwaway news apps class</h1>
+            <p class="subtitle lead">A step-by-step guide.</p>
+                  <div>
+        <div class="description">
+          A step by step guide to create a quick search of some data and publishing it on the internet for free.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">webdev</div>
+                <div class="quarto-category">AI</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Matt Waite </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 30, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<!-- ═══════════════════════════════════════════════
-     HERO
-═══════════════════════════════════════════════ -->
-<section class="dc-hero">
-  <div class="dc-hero-content">
 
-    <div class="dc-hero-text">
-      <span class="dc-label">Professor of Practice &amp; Technologist</span>
-      <h1>Matt Waite</h1>
-      <p>
-        A career spent at the intersection of storytelling and code.
-        From Pulitzer Prize-winning data projects to pioneering the use
-        of drones in the newsroom.
-      </p>
-      <div class="dc-hero-ctas">
-        <a href="./posts/" class="dc-btn-primary">Explore</a>
-        <a href="about.html" class="dc-btn-secondary">About Matt</a>
-      </div>
-    </div>
-
-    <div class="dc-hero-portrait">
-      <img src="profile.png" alt="Matt Waite">
-      <div class="dc-hero-accent"></div>
-    </div>
-
-  </div>
+<p>What you will need: * A <a href="https://github.com">Github</a> Account (if you don’t already have one) * <a href="https://antigravity.google/">Google Antigravity</a> * Some data in csv format.</p>
+<section id="step-1-setup" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-setup">Step 1: Setup</h3>
+<p>On the first page you see, you should see a big blue Open Folder button. Click that.</p>
+<ul>
+<li>For most of you, you’re going to need to create a new folder and that new folder <em>must</em> be named [githubusername].github.io where githubusername is your github username that you just created. It must match it exactly. So, for example, my github user name is mattwaite, so my folder is called mattwaite.github.io. It has to match your username and watch the spelling of github. A common mistake is to misspell github in the name.</li>
+<li>If you already have a Github Pages repository, go find that folder (that’s your username.github.io folder).</li>
+</ul>
 </section>
-
-<!-- ═══════════════════════════════════════════════
-     FEATURED PROJECTS
-═══════════════════════════════════════════════ -->
-<section class="dc-projects">
-
-  <div style="max-width:1200px; margin:0 auto;">
-    <div class="dc-section-header">
-      <div>
-        <h2 class="dc-section-title anchored">Featured Projects</h2>
-        <div class="dc-section-underline"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="dc-bento">
-
-    <!-- Large card: Drone Journalism Lab -->
-    <div class="dc-card-large">
-      <div>
-        <span class="dc-card-label">Institutional Research</span>
-        <h3 class="anchored">The Drone Journalism Lab</h3>
-        <p>
-          Establishing the ethical and practical frameworks for small
-          unmanned aircraft systems in the pursuit of public interest
-          journalism. One of the first drone journalism programs in the world.
-        </p>
-      </div>
-      <a href="https://mattwaite.github.io/dronebook/" class="dc-card-link">
-        View Laboratory Notes
-      </a>
-      <div class="dc-ghost-icon">✈</div>
-    </div>
-
-    <!-- Dark card: Sports Data Tutorials -->
-    <div class="dc-card-dark">
-      <div>
-        <span class="dc-card-label" style="color:#878585;">Education &amp; Data</span>
-        <h3 class="anchored">Sports Data Tutorials</h3>
-        <p>
-          Mastering the R language through the lens of sports analytics.
-          A comprehensive guide for journalists to find the story in the
-          box score.
-        </p>
-      </div>
-      <a href="https://mattwaite.github.io/sports/" class="dc-btn-light">
-        Start Learning
-      </a>
-    </div>
-
-    <!-- Full-width card: Art of Data Journalism -->
-    <div class="dc-card-wide">
-      <div class="dc-card-image">
-        <img src="hero.jpg" alt="Data journalism in practice">
-      </div>
-      <div>
-        <span class="dc-card-label">Visual Storytelling</span>
-        <h3 class="anchored">The Art of Data Journalism</h3>
-        <p>
-          Beyond the spreadsheet. Teaching the next generation how to
-          transform raw datasets into compelling, interactive visual
-          narratives that drive impact.
-        </p>
-        <a href="https://the-art-of-data-journalism.github.io/" class="dc-card-link">
-          Explore the Book
-        </a>
-      </div>
-    </div>
-
-  </div>
+<section id="step-2-if-you-dont-have-one-make-a-homepage" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-if-you-dont-have-one-make-a-homepage">Step 2: If you don’t have one, make a homepage</h3>
+<p>For people who don’t already have a Github Pages account and have nothing in here, go over to the agent window and write “Make me a nice looking homepage that says Coming Soon. This will be hosted on github pages.”</p>
 </section>
-
-<!-- ═══════════════════════════════════════════════
-     RECENT POSTS
-═══════════════════════════════════════════════ -->
-<section class="dc-recent-posts">
-  <div class="dc-recent-posts-inner">
-
-    <div class="dc-recent-posts-header">
-      <div>
-        <h2 class="dc-section-title anchored">Recent Posts</h2>
-      </div>
-      <a href="./posts/" class="dc-archive-link">Archive Index</a>
-    </div>
-<div id="listing-blog-timeline" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1774045552049" data-listing-reading-time-sort="1" data-listing-word-count-sort="58">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/index.html" class="no-external"></a>
-</h3>
-</div>
-<div class="metadata">
-<a href="./posts/index.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZSUyQ3dlYmRldiUyQ0FJ" data-listing-date-sort="1777525200000" data-listing-file-modified-sort="1777571750772" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="520">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2026-04-30-teaching-a-one-hour-throwaway-news-apps-class/index.html" class="no-external">Teaching a one-hour throwaway news apps class</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('d2ViZGV2'); return false;">webdev</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
-
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2026-04-30-teaching-a-one-hour-throwaway-news-apps-class/index.html" class="no-external">
-<div class="listing-date">
-Apr 30, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1763964000000" data-listing-file-modified-sort="1773153010158" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1268">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2025-11-24-parsing-pdfs-with-antigravity/index.html" class="no-external">Parsing PDFs with Antigravity</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
-
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2025-11-24-parsing-pdfs-with-antigravity/index.html" class="no-external">
-<div class="listing-date">
-Nov 24, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDQUk=" data-listing-date-sort="1741327200000" data-listing-file-modified-sort="1773153018828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="943">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/r-llm-starter-pack/index.html" class="no-external">An R + LLM starter kit</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
-
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/r-llm-starter-pack/index.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="QUklMkNjb2RlJTJDciUyQ2VkdWNhdGlvbg==" data-listing-date-sort="1732600800000" data-listing-file-modified-sort="1773153012549" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1343">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/an-academic-integrity-friendly-pal/index.html" class="no-external">An academic integrity-friendly code pal for R Studio</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('QUk='); return false;">AI</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cg=='); return false;">r</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZWR1Y2F0aW9u'); return false;">education</div>
-
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/an-academic-integrity-friendly-pal/index.html" class="no-external">
-<div class="listing-date">
-Nov 26, 2024
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-    <div class="dc-view-all">
-      <a href="./posts/" class="dc-btn-outline">
-        View Full Archive
-      </a>
-    </div>
-
-  </div>
+<section id="step-3-make-a-folder-for-your-throwaway-web-app" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-make-a-folder-for-your-throwaway-web-app">Step 3: Make a folder for your throwaway web app</h3>
+<p>Inside of your username.github.io folder, create a folder using Antigravity.</p>
+<p><img src="image.png" class="img-fluid"></p>
+<p>You should name this folder dataname-search where dataname is a one word description of your data. If your data is election data, make it election-search. If it’s Groundhog Day predictions, make it predictions-search. The reason you use lowercase letters and dashes for spaces is because this folder name will be part of the url.</p>
+<p>Click and highlight your folder after you have created it.</p>
 </section>
+<section id="step-4-put-your-data-into-the-dataname-search-folder" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-put-your-data-into-the-dataname-search-folder">Step 4: Put your data into the dataname-search folder</h3>
+<p>That’s it. Just move it into that folder. You can drag the file from your file explorer (Finder on Mac, File Explorer on Windows) into the folder in Antigravity and it will move it.</p>
+</section>
+<section id="step-5-time-to-prompt" class="level3">
+<h3 class="anchored" data-anchor-id="step-5-time-to-prompt">Step 5: Time to prompt</h3>
+<p>With your folder created and your csv inside of the folder, it’s time to tell Antigravity what you want. Your prompt should: * Say that you are creating a web search of this data in your dataname-search folder. * That the page is hosted on Github Pages so it must be static files. * That you intend to iframe the page into a Content Management System elsewhere. * What columns you want people to be able to search. * How you want the data to be displayed, correcting any column names that won’t make sense to the general public. For example, if your column is called Jurisdiction_Name, you should tell Gemini you just want that to be Name. ### Step 6: Review and revise</p>
+<p>What do you think? Don’t like something? Tell Gemini to change it.</p>
+</section>
+<section id="step-7-commit-and-push-to-github" class="level3">
+<h3 class="anchored" data-anchor-id="step-7-commit-and-push-to-github">Step 7: Commit and push to Github</h3>
+<p>Click the Source Control button. In the box that says Messages, say what you are committing. In this case, it’s likely something like Adding dataname search. It does not need to be verbose. It’s a note to yourself what this is so that you can know at a glance later what it is if you were to go diving through your own git commits. When done click commit.</p>
 
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
