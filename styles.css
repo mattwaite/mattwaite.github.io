@@ -771,8 +771,8 @@ p.description {
 /* Categories in title block */
 .quarto-categories .quarto-category {
     background: transparent !important;
-    border: 1px solid var(--secondary) !important;
-    color: var(--secondary) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    color: white !important;
     font-family: var(--font-label);
     font-size: 0.62rem;
     font-weight: 700;
@@ -784,7 +784,7 @@ p.description {
 }
 
 .quarto-categories .quarto-category:hover {
-    background: var(--secondary) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
     color: white !important;
 }
 

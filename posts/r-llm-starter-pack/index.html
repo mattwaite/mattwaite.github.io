@@ -8,7 +8,7 @@
 
 <meta name="author" content="Matt Waite">
 <meta name="dcterms.date" content="2025-03-07">
-<meta name="description" content="This blog post shares a starter kit of R libraries and external tools for integrating large language models into data journalism workflows.">
+<meta name="description" content="I’ve written before, I am at best an enthusiastic amateur when it comes to AI, LLMs and R. But I’m braver/dumber than most, so for a talk I’m giving to NE-RUG – the Nebraska R Users Group – and to the NICAR data journalism conference, I’ve got some resources and some code to share. R libraries : From the folks who brought you the comes , a library that supports talking to a large number of LLMs. To talk to the big commercial LLMs, you’ll need API keys, and that usually means having an API budget. But what I like…">
 
 <title>An R + LLM starter kit – Matt Waite</title>
 <style>
@@ -136,13 +136,13 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="An R + LLM starter kit – Matt Waite">
-<meta property="og:description" content="This blog post shares a starter kit of R libraries and external tools for integrating large language models into data journalism workflows.">
+<meta property="og:description" content="I’ve written before, I am at best an enthusiastic amateur when it comes to AI, LLMs and R. But I’m braver/dumber than most, so for a talk I’m giving to NE-RUG – the Nebraska R Users Group – and to the NICAR data journalism conference, I’ve got some resources and some code to share. R libraries : From the folks who brought you the comes , a library that supports talking to a large number of LLMs. To talk to the big commercial LLMs, you’ll need API keys, and that usually means having an API budget. But what I like…">
 <meta property="og:image" content="https://mattwaite.github.io/posts/r-llm-starter-pack/image.png">
 <meta property="og:site_name" content="Matt Waite">
 <meta property="og:image:height" content="1060">
 <meta property="og:image:width" content="1972">
 <meta name="twitter:title" content="An R + LLM starter kit – Matt Waite">
-<meta name="twitter:description" content="This blog post shares a starter kit of R libraries and external tools for integrating large language models into data journalism workflows.">
+<meta name="twitter:description" content="I’ve written before, I am at best an enthusiastic amateur when it comes to AI, LLMs and R. But I’m braver/dumber than most, so for a talk I’m giving to NE-RUG – the Nebraska R Users Group – and to the NICAR data journalism conference, I’ve got some resources and some code to share. R libraries : From the folks who brought you the comes , a library that supports talking to a large number of LLMs. To talk to the big commercial LLMs, you’ll need API keys, and that usually means having an API budget. But what I like…">
 <meta name="twitter:image" content="https://mattwaite.github.io/posts/r-llm-starter-pack/image.png">
 <meta name="twitter:creator" content="@mattwaite">
 <meta name="twitter:image-height" content="1060">
@@ -202,7 +202,7 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
       <h1 class="title">An R + LLM starter kit</h1>
                   <div>
         <div class="description">
-          This blog post shares a starter kit of R libraries and external tools for integrating large language models into data journalism workflows.
+          I’ve written before, I am at best an enthusiastic amateur when it comes to AI, LLMs and R. But I’m braver/dumber than most, so for a talk I’m giving to NE-RUG – the Nebraska R Users Group – and to the NICAR data journalism conference, I’ve got some resources and some code to share. R libraries <a href="https://ellmer.tidyverse.org/index.html"></a>: From the folks who brought you the comes , a library that supports talking to a large number of LLMs. To talk to the big commercial LLMs, you’ll need API keys, and that usually means having an API budget. But what I like…
         </div>
       </div>
                           <div class="quarto-categories">
@@ -269,16 +269,17 @@ gtag('config', 'G-TQ9B01DPX0', { 'anonymize_ip': true});
 <div class="cell-output cell-output-stdout">
 <pre><code>Here are three jokes about journalists:
 
-1.  A journalist dies and goes to heaven. St. Peter greets him at the pearly 
-gates. St. Peter says, "Welcome! But before you enter, we need to know what you
-consider the *absolute truth*." The journalist thinks for a moment and replies,
-"I'll get back to you on that, but first, what's your angle?"
+1.  What's a journalist's favorite kind of fish?
+    A **red herring**!
 
-2.  Why did the journalist cross the road?
-    To get both sides of the street.
+2.  Why did the journalist break up with the thesaurus?
+    It kept giving him too many synonyms for "scoop"!
 
-3.  What's the difference between a journalist and a dog?
-    A dog knows when to stop chasing the car.</code></pre>
+3.  A journalist dies and goes to heaven. St. Peter meets him at the gates. 
+"Welcome!" says St. Peter. "Before you come in, I just have one question for 
+you."
+    The journalist immediately pulls out his notebook and pen, eyes gleaming. 
+"Fantastic!" he replies. "My first question for *you* is..."</code></pre>
 </div>
 </div>
 </section>
@@ -377,10 +378,9 @@ $fully_spelled_out_no_abbreviations
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>chat<span class="sc">$</span><span class="fu">chat</span>(statenarrative<span class="sc">$</span>base_narrative[[<span class="dv">1</span>]])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Banner County saw its population rise to 674 residents in 2023, an increase of 
-17 people from the previous year's 657. This 2.59% growth, entirely fueled by 
-people moving into the county, made Banner County the fastest-growing county in
-Nebraska.</code></pre>
+<pre><code>Banner County saw its population rise to 674 residents in 2023, adding 17 
+people since 2022. This 2.6% growth rate was the highest in Nebraska, fueled 
+entirely by new residents moving into the county.</code></pre>
 </div>
 </div>
 <p>Earth-shattering? Hardly. But what if instead of world changing uses of technology, the right aim for AI is to offload tasks we would do because it would be better, but aren’t worth spending the time doing because we all have a limited time on this earth?</p>
