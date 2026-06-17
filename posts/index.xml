@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>Matt Waite</title>
-<link>https://mattwaite.github.io/posts/</link>
-<atom:link href="https://mattwaite.github.io/posts/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://www.mattwaite.com/posts/</link>
+<atom:link href="https://www.mattwaite.com/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description>Archive of posts on journalism, data, code, and technology.</description>
 <generator>quarto-1.9.36</generator>
 <lastBuildDate>Tue, 16 Jun 2026 05:00:00 GMT</lastBuildDate>
 <item>
   <title>A rant about teaching journalism in 2026</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/2026-06-16-a-rant-about-teaching-in-2026/</link>
+  <link>https://www.mattwaite.com/posts/2026-06-16-a-rant-about-teaching-in-2026/</link>
   <description><![CDATA[ 
 
 
@@ -59,14 +59,14 @@
   <category>journalism</category>
   <category>education</category>
   <category>AI</category>
-  <guid>https://mattwaite.github.io/posts/2026-06-16-a-rant-about-teaching-in-2026/</guid>
+  <guid>https://www.mattwaite.com/posts/2026-06-16-a-rant-about-teaching-in-2026/</guid>
   <pubDate>Tue, 16 Jun 2026 05:00:00 GMT</pubDate>
-  <media:content url="https://mattwaite.github.io/posts/2026-06-16-a-rant-about-teaching-in-2026/image.png" medium="image" type="image/png"/>
+  <media:content url="https://www.mattwaite.com/posts/2026-06-16-a-rant-about-teaching-in-2026/image.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Teaching a one-hour throwaway news apps class</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/2026-04-30-teaching-a-one-hour-throwaway-news-apps-class/</link>
+  <link>https://www.mattwaite.com/posts/2026-04-30-teaching-a-one-hour-throwaway-news-apps-class/</link>
   <description><![CDATA[ 
 
 
@@ -89,7 +89,7 @@
 <section id="step-3-make-a-folder-for-your-throwaway-web-app" class="level3">
 <h3 class="anchored" data-anchor-id="step-3-make-a-folder-for-your-throwaway-web-app">Step 3: Make a folder for your throwaway web app</h3>
 <p>Inside of your username.github.io folder, create a folder using Antigravity.</p>
-<p><img src="https://mattwaite.github.io/posts/2026-04-30-teaching-a-one-hour-throwaway-news-apps-class/image.png" class="img-fluid"></p>
+<p><img src="https://www.mattwaite.com/posts/2026-04-30-teaching-a-one-hour-throwaway-news-apps-class/image.png" class="img-fluid"></p>
 <p>You should name this folder dataname-search where dataname is a one word description of your data. If your data is election data, make it election-search. If it’s Groundhog Day predictions, make it predictions-search. The reason you use lowercase letters and dashes for spaces is because this folder name will be part of the url.</p>
 <p>Click and highlight your folder after you have created it.</p>
 </section>
@@ -113,14 +113,14 @@
   <category>code</category>
   <category>webdev</category>
   <category>AI</category>
-  <guid>https://mattwaite.github.io/posts/2026-04-30-teaching-a-one-hour-throwaway-news-apps-class/</guid>
+  <guid>https://www.mattwaite.com/posts/2026-04-30-teaching-a-one-hour-throwaway-news-apps-class/</guid>
   <pubDate>Thu, 30 Apr 2026 05:00:00 GMT</pubDate>
-  <media:content url="https://mattwaite.github.io/posts/2026-04-30-teaching-a-one-hour-throwaway-news-apps-class/image.png" medium="image" type="image/png" height="59" width="144"/>
+  <media:content url="https://www.mattwaite.com/posts/2026-04-30-teaching-a-one-hour-throwaway-news-apps-class/image.png" medium="image" type="image/png" height="59" width="144"/>
 </item>
 <item>
   <title>Parsing PDFs with Antigravity</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/2025-11-24-parsing-pdfs-with-antigravity/</link>
+  <link>https://www.mattwaite.com/posts/2025-11-24-parsing-pdfs-with-antigravity/</link>
   <description><![CDATA[ 
 
 
@@ -137,7 +137,7 @@
 <p>What makes it so hard are people who get paid out of multiple budget pots. Take, for example, me. I have one job according to the university: professor of practice. I get paid out of one account. My entry in the pdf is one line. Easy. Colleagues of mine might have multiple jobs. Some administrators in my college are half administrators (pot one), half professors (pot two). But they also have endowed positions, so they get paid from a third pot. In the PDF, they’re on four lines. Pots one, two and three and a fourth that is the total. But only the first line gets all of the data. The rest? Blank.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/2025-11-24-parsing-pdfs-with-antigravity/screenshot1.png" class="img-fluid figure-img" alt="A screenshot of the PDF provided by the University of Nebraska to report public salaries."></p>
+<p><img src="https://www.mattwaite.com/posts/2025-11-24-parsing-pdfs-with-antigravity/screenshot1.png" class="img-fluid figure-img" alt="A screenshot of the PDF provided by the University of Nebraska to report public salaries."></p>
 <figcaption>Three people. Three salaries. Eight lines of data.</figcaption>
 </figure>
 </div>
@@ -164,7 +164,7 @@
 <p>It didn’t want to make assumptions about spacing, so it left odd spacing that is an artifact of the PDF. So some people are Ma tt Waite or Profe ssor. The overlapping columns are an issue I’m likely going to have to contend with manually. I’m going to have to fill in blank columns and total up people to get to one row one person.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/2025-11-24-parsing-pdfs-with-antigravity/screenshot2.png" class="img-fluid figure-img" alt="A table of university employees as part of the output from Google's Antigravity."></p>
+<p><img src="https://www.mattwaite.com/posts/2025-11-24-parsing-pdfs-with-antigravity/screenshot2.png" class="img-fluid figure-img" alt="A table of university employees as part of the output from Google's Antigravity."></p>
 <figcaption>The output from Antigravity.</figcaption>
 </figure>
 </div>
@@ -179,14 +179,14 @@
   <category>code</category>
   <category>analysis</category>
   <category>AI</category>
-  <guid>https://mattwaite.github.io/posts/2025-11-24-parsing-pdfs-with-antigravity/</guid>
+  <guid>https://www.mattwaite.com/posts/2025-11-24-parsing-pdfs-with-antigravity/</guid>
   <pubDate>Mon, 24 Nov 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://mattwaite.github.io/posts/2025-11-24-parsing-pdfs-with-antigravity/image.png" medium="image" type="image/png" height="84" width="144"/>
+  <media:content url="https://www.mattwaite.com/posts/2025-11-24-parsing-pdfs-with-antigravity/image.png" medium="image" type="image/png" height="84" width="144"/>
 </item>
 <item>
   <title>An R + LLM starter kit</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/r-llm-starter-pack/</link>
+  <link>https://www.mattwaite.com/posts/r-llm-starter-pack/</link>
   <description><![CDATA[ 
 
 
@@ -497,14 +497,14 @@ entirely by new residents moving into the county.</code></pre>
   <category>code</category>
   <category>analysis</category>
   <category>AI</category>
-  <guid>https://mattwaite.github.io/posts/r-llm-starter-pack/</guid>
+  <guid>https://www.mattwaite.com/posts/r-llm-starter-pack/</guid>
   <pubDate>Fri, 07 Mar 2025 06:00:00 GMT</pubDate>
-  <media:content url="https://mattwaite.github.io/posts/r-llm-starter-pack/image.png" medium="image" type="image/png" height="77" width="144"/>
+  <media:content url="https://www.mattwaite.com/posts/r-llm-starter-pack/image.png" medium="image" type="image/png" height="77" width="144"/>
 </item>
 <item>
   <title>An academic integrity-friendly code pal for R Studio</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/an-academic-integrity-friendly-pal/</link>
+  <link>https://www.mattwaite.com/posts/an-academic-integrity-friendly-pal/</link>
   <description><![CDATA[ 
 
 
@@ -567,21 +567,21 @@ When using a filter, you must use == for equal to instead of =.</div>
   <category>code</category>
   <category>r</category>
   <category>education</category>
-  <guid>https://mattwaite.github.io/posts/an-academic-integrity-friendly-pal/</guid>
+  <guid>https://www.mattwaite.com/posts/an-academic-integrity-friendly-pal/</guid>
   <pubDate>Tue, 26 Nov 2024 06:00:00 GMT</pubDate>
-  <media:content url="https://mattwaite.github.io/posts/an-academic-integrity-friendly-pal/image.png" medium="image" type="image/png" height="90" width="144"/>
+  <media:content url="https://www.mattwaite.com/posts/an-academic-integrity-friendly-pal/image.png" medium="image" type="image/png" height="90" width="144"/>
 </item>
 <item>
   <title>Nebraska’s season long slide on offense</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/scrollytelling-nebraskas-season/</link>
+  <link>https://www.mattwaite.com/posts/scrollytelling-nebraskas-season/</link>
   <description><![CDATA[ 
       <!-- user-provided yaml closeread style options -->
       <style>
         :root {
-          --cr-narrative-background-color-sidebar: transparent;
+          --cr-section-background-color: transparent;
 --cr-narrative-text-color-overlay: black;
---cr-section-background-color: transparent;
+--cr-narrative-background-color-sidebar: transparent;
 --cr-narrative-background-color-overlay: transparent;
         }
       </style>
@@ -792,7 +792,7 @@ font-style: inherit;">"UCLA"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.mattwaite.com/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -803,7 +803,7 @@ font-style: inherit;">"UCLA"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.mattwaite.com/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -814,7 +814,7 @@ font-style: inherit;">"UCLA"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.mattwaite.com/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -825,7 +825,7 @@ font-style: inherit;">"UCLA"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.mattwaite.com/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -836,7 +836,7 @@ font-style: inherit;">"UCLA"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.mattwaite.com/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -847,7 +847,7 @@ font-style: inherit;">"UCLA"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.mattwaite.com/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -858,7 +858,7 @@ font-style: inherit;">"UCLA"</span>)</span></code></pre></div></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.mattwaite.com/posts/scrollytelling-nebraskas-season/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -874,14 +874,14 @@ font-style: inherit;">"UCLA"</span>)</span></code></pre></div></div>
   <category>code</category>
   <category>football</category>
   <category>huskers</category>
-  <guid>https://mattwaite.github.io/posts/scrollytelling-nebraskas-season/</guid>
+  <guid>https://www.mattwaite.com/posts/scrollytelling-nebraskas-season/</guid>
   <pubDate>Fri, 08 Nov 2024 06:00:00 GMT</pubDate>
-  <media:content url="https://mattwaite.github.io/posts/scrollytelling-nebraskas-season/image.png" medium="image" type="image/png" height="102" width="144"/>
+  <media:content url="https://www.mattwaite.com/posts/scrollytelling-nebraskas-season/image.png" medium="image" type="image/png" height="102" width="144"/>
 </item>
 <item>
   <title>A simple example of AI agents(?) doing journalism(?) work</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/a-simple-example-ai-agents-doing-journalism/</link>
+  <link>https://www.mattwaite.com/posts/a-simple-example-ai-agents-doing-journalism/</link>
   <description><![CDATA[ 
 
 
@@ -1460,14 +1460,14 @@ font-style: inherit;">$</span>county, headline_agent)</span></code></pre></div><
   <category>code</category>
   <category>analysis</category>
   <category>AI</category>
-  <guid>https://mattwaite.github.io/posts/a-simple-example-ai-agents-doing-journalism/</guid>
+  <guid>https://www.mattwaite.com/posts/a-simple-example-ai-agents-doing-journalism/</guid>
   <pubDate>Wed, 23 Oct 2024 05:00:00 GMT</pubDate>
-  <media:content url="https://mattwaite.github.io/posts/a-simple-example-ai-agents-doing-journalism/image.png" medium="image" type="image/png" height="117" width="144"/>
+  <media:content url="https://www.mattwaite.com/posts/a-simple-example-ai-agents-doing-journalism/image.png" medium="image" type="image/png" height="117" width="144"/>
 </item>
 <item>
   <title>Another year, another attempt, another bracket disaster</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/another-year-another-attempt-another-bracket-disaster/</link>
+  <link>https://www.mattwaite.com/posts/another-year-another-attempt-another-bracket-disaster/</link>
   <description><![CDATA[ 
 
 
@@ -7151,14 +7151,14 @@ font-style: inherit;">1</span></span>
  ]]></description>
   <category>code</category>
   <category>analysis</category>
-  <guid>https://mattwaite.github.io/posts/another-year-another-attempt-another-bracket-disaster/</guid>
+  <guid>https://www.mattwaite.com/posts/another-year-another-attempt-another-bracket-disaster/</guid>
   <pubDate>Mon, 28 Mar 2022 05:00:00 GMT</pubDate>
-  <media:content url="https://mattwaite.github.io/posts/another-year-another-attempt-another-bracket-disaster/image.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://www.mattwaite.com/posts/another-year-another-attempt-another-bracket-disaster/image.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>Nebraska is not the best worst team in basketball again. They’re third best worst.</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/nebraska-is-the-third-best-worst-basketball-team/</link>
+  <link>https://www.mattwaite.com/posts/nebraska-is-the-third-best-worst-basketball-team/</link>
   <description><![CDATA[ 
 
 
@@ -8479,7 +8479,7 @@ font-style: inherit;">"plot"</span></span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/nebraska-is-the-third-best-worst-basketball-team/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.mattwaite.com/posts/nebraska-is-the-third-best-worst-basketball-team/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8667,7 +8667,7 @@ font-style: inherit;">"plot"</span></span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/nebraska-is-the-third-best-worst-basketball-team/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.mattwaite.com/posts/nebraska-is-the-third-best-worst-basketball-team/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -8680,14 +8680,14 @@ font-style: inherit;">"plot"</span></span>
   <category>huskers</category>
   <category>code</category>
   <category>analysis</category>
-  <guid>https://mattwaite.github.io/posts/nebraska-is-the-third-best-worst-basketball-team/</guid>
+  <guid>https://www.mattwaite.com/posts/nebraska-is-the-third-best-worst-basketball-team/</guid>
   <pubDate>Sun, 20 Mar 2022 05:00:00 GMT</pubDate>
-  <media:content url="https://mattwaite.github.io/posts/nebraska-is-the-third-best-worst-basketball-team/image.png" medium="image" type="image/png" height="144" width="144"/>
+  <media:content url="https://www.mattwaite.com/posts/nebraska-is-the-third-best-worst-basketball-team/image.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
   <title>Is Nebraska the best worst team in college basketball?</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/is-nebraska-the-best-worst-basketball-team/</link>
+  <link>https://www.mattwaite.com/posts/is-nebraska-the-best-worst-basketball-team/</link>
   <description><![CDATA[ 
 
 
@@ -10009,7 +10009,7 @@ font-style: inherit;">"plot"</span></span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/is-nebraska-the-best-worst-basketball-team/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.mattwaite.com/posts/is-nebraska-the-best-worst-basketball-team/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -10196,7 +10196,7 @@ font-style: inherit;">"plot"</span></span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/is-nebraska-the-best-worst-basketball-team/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://www.mattwaite.com/posts/is-nebraska-the-best-worst-basketball-team/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -10210,14 +10210,14 @@ font-style: inherit;">"plot"</span></span>
   <category>huskers</category>
   <category>code</category>
   <category>analysis</category>
-  <guid>https://mattwaite.github.io/posts/is-nebraska-the-best-worst-basketball-team/</guid>
+  <guid>https://www.mattwaite.com/posts/is-nebraska-the-best-worst-basketball-team/</guid>
   <pubDate>Sun, 28 Mar 2021 05:00:00 GMT</pubDate>
-  <media:content url="https://mattwaite.github.io/posts/is-nebraska-the-best-worst-basketball-team/image.png" medium="image" type="image/png" height="88" width="144"/>
+  <media:content url="https://www.mattwaite.com/posts/is-nebraska-the-best-worst-basketball-team/image.png" medium="image" type="image/png" height="88" width="144"/>
 </item>
 <item>
   <title>How I (poorly) filled out my NCAA bracket with machine learning</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/ncaa-bracket-with-machine-learning-2021/</link>
+  <link>https://www.mattwaite.com/posts/ncaa-bracket-with-machine-learning-2021/</link>
   <description><![CDATA[ 
 
 
@@ -11177,10 +11177,10 @@ font-style: inherit;">everything</span>())</span>
 <p>When the dust has settled, I’m going to come back and evaluate. Here’s screenshots of my bracket.</p>
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src="https://mattwaite.github.io/posts/ncaa-bracket-with-machine-learning-2021/Screen Shot 2021-03-22 at 10.39.09 PM.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%"></p>
+<p><img src="https://www.mattwaite.com/posts/ncaa-bracket-with-machine-learning-2021/Screen Shot 2021-03-22 at 10.39.09 PM.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%"></p>
 </figure>
 </div>
-<p><img src="https://mattwaite.github.io/posts/ncaa-bracket-with-machine-learning-2021/Screen Shot 2021-03-22 at 10.39.24 PM.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://www.mattwaite.com/posts/ncaa-bracket-with-machine-learning-2021/Screen Shot 2021-03-22 at 10.39.24 PM.png" class="img-fluid" style="width:100.0%"></p>
 
 
 </section>
@@ -11188,13 +11188,13 @@ font-style: inherit;">everything</span>())</span>
  ]]></description>
   <category>code</category>
   <category>analysis</category>
-  <guid>https://mattwaite.github.io/posts/ncaa-bracket-with-machine-learning-2021/</guid>
+  <guid>https://www.mattwaite.com/posts/ncaa-bracket-with-machine-learning-2021/</guid>
   <pubDate>Mon, 22 Mar 2021 05:00:00 GMT</pubDate>
-  <media:content url="https://mattwaite.github.io/posts/ncaa-bracket-with-machine-learning-2021/Screen Shot 2021-03-22 at 10.39.09 PM.png" medium="image" type="image/png" height="75" width="144"/>
+  <media:content url="https://www.mattwaite.com/posts/ncaa-bracket-with-machine-learning-2021/Screen Shot 2021-03-22 at 10.39.09 PM.png" medium="image" type="image/png" height="75" width="144"/>
 </item>
 <item>
   <title>Choosing a World Cup Team to root for in each match: An algorithmic approach.</title>
-  <link>https://mattwaite.github.io/posts/2018-06-12-choosing-a-world-cup-team-to-root-for-in-each-match-an-algorithmic-approach/</link>
+  <link>https://www.mattwaite.com/posts/2018-06-12-choosing-a-world-cup-team-to-root-for-in-each-match-an-algorithmic-approach/</link>
   <description><![CDATA[ 
 
 
@@ -11209,13 +11209,13 @@ font-style: inherit;">everything</span>())</span>
 
 
  ]]></description>
-  <guid>https://mattwaite.github.io/posts/2018-06-12-choosing-a-world-cup-team-to-root-for-in-each-match-an-algorithmic-approach/</guid>
+  <guid>https://www.mattwaite.com/posts/2018-06-12-choosing-a-world-cup-team-to-root-for-in-each-match-an-algorithmic-approach/</guid>
   <pubDate>Tue, 12 Jun 2018 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>I wrote a data journalism manual for my college in 1997. They never used it, but they kept it.</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/2016-03-24-i-wrote-a-data-journalism-manual-for-my-college-in-1997-they-never-used-it-but-they-kept-it/</link>
+  <link>https://www.mattwaite.com/posts/2016-03-24-i-wrote-a-data-journalism-manual-for-my-college-in-1997-they-never-used-it-but-they-kept-it/</link>
   <description><![CDATA[ 
 
 
@@ -11245,13 +11245,13 @@ font-style: inherit;">everything</span>())</span>
  ]]></description>
   <category>data journalism</category>
   <category>retro</category>
-  <guid>https://mattwaite.github.io/posts/2016-03-24-i-wrote-a-data-journalism-manual-for-my-college-in-1997-they-never-used-it-but-they-kept-it/</guid>
+  <guid>https://www.mattwaite.com/posts/2016-03-24-i-wrote-a-data-journalism-manual-for-my-college-in-1997-they-never-used-it-but-they-kept-it/</guid>
   <pubDate>Thu, 24 Mar 2016 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Using Lego to teach data visualization</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/2015-01-23-using-lego-to-teach-data-visualization/</link>
+  <link>https://www.mattwaite.com/posts/2015-01-23-using-lego-to-teach-data-visualization/</link>
   <description><![CDATA[ 
 
 
@@ -11282,13 +11282,13 @@ font-style: inherit;">everything</span>())</span>
 
 
  ]]></description>
-  <guid>https://mattwaite.github.io/posts/2015-01-23-using-lego-to-teach-data-visualization/</guid>
+  <guid>https://www.mattwaite.com/posts/2015-01-23-using-lego-to-teach-data-visualization/</guid>
   <pubDate>Fri, 23 Jan 2015 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Everything I Know About Data I Learned From 70s Album Rock…</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/2014-12-09-everything-i-know-about-data-i-learned-from-70s-album-rock/</link>
+  <link>https://www.mattwaite.com/posts/2014-12-09-everything-i-know-about-data-i-learned-from-70s-album-rock/</link>
   <description><![CDATA[ 
 
 
@@ -11304,13 +11304,13 @@ font-style: inherit;">everything</span>())</span>
  ]]></description>
   <category>data journalism</category>
   <category>talks</category>
-  <guid>https://mattwaite.github.io/posts/2014-12-09-everything-i-know-about-data-i-learned-from-70s-album-rock/</guid>
+  <guid>https://www.mattwaite.com/posts/2014-12-09-everything-i-know-about-data-i-learned-from-70s-album-rock/</guid>
   <pubDate>Tue, 09 Dec 2014 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>A classroom experiment in Twitter Bots and creativity</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/2014-11-20-a-classroom-experiment-in-twitter-bots-and-creativity/</link>
+  <link>https://www.mattwaite.com/posts/2014-11-20-a-classroom-experiment-in-twitter-bots-and-creativity/</link>
   <description><![CDATA[ 
 
 
@@ -11407,13 +11407,13 @@ font-style: inherit;">everything</span>())</span>
 
 
  ]]></description>
-  <guid>https://mattwaite.github.io/posts/2014-11-20-a-classroom-experiment-in-twitter-bots-and-creativity/</guid>
+  <guid>https://www.mattwaite.com/posts/2014-11-20-a-classroom-experiment-in-twitter-bots-and-creativity/</guid>
   <pubDate>Thu, 20 Nov 2014 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>UNL CoJMC students: Two data/programming/future courses for the fall</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/2014-03-31-unl-cojmc-students-two-dataprogrammingfuture-courses-for-the-fall/</link>
+  <link>https://www.mattwaite.com/posts/2014-03-31-unl-cojmc-students-two-dataprogrammingfuture-courses-for-the-fall/</link>
   <description><![CDATA[ 
 
 
@@ -11427,13 +11427,13 @@ font-style: inherit;">everything</span>())</span>
 
 
  ]]></description>
-  <guid>https://mattwaite.github.io/posts/2014-03-31-unl-cojmc-students-two-dataprogrammingfuture-courses-for-the-fall/</guid>
+  <guid>https://www.mattwaite.com/posts/2014-03-31-unl-cojmc-students-two-dataprogrammingfuture-courses-for-the-fall/</guid>
   <pubDate>Mon, 31 Mar 2014 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>A 5-step NICAR recovery plan</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/2014-03-02-a-5-step-nicar-recovery-plan/</link>
+  <link>https://www.mattwaite.com/posts/2014-03-02-a-5-step-nicar-recovery-plan/</link>
   <description><![CDATA[ 
 
 
@@ -11475,13 +11475,13 @@ font-style: inherit;">everything</span>())</span>
 
 
  ]]></description>
-  <guid>https://mattwaite.github.io/posts/2014-03-02-a-5-step-nicar-recovery-plan/</guid>
+  <guid>https://www.mattwaite.com/posts/2014-03-02-a-5-step-nicar-recovery-plan/</guid>
   <pubDate>Sun, 02 Mar 2014 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>A small step toward solving the our curriculum is too full problem</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/2014-02-11-a-small-step-toward-solving-the-our-curriculum-is-too-full-problem/</link>
+  <link>https://www.mattwaite.com/posts/2014-02-11-a-small-step-toward-solving-the-our-curriculum-is-too-full-problem/</link>
   <description><![CDATA[ 
 
 
@@ -11514,13 +11514,13 @@ font-style: inherit;">everything</span>())</span>
 
 
  ]]></description>
-  <guid>https://mattwaite.github.io/posts/2014-02-11-a-small-step-toward-solving-the-our-curriculum-is-too-full-problem/</guid>
+  <guid>https://www.mattwaite.com/posts/2014-02-11-a-small-step-toward-solving-the-our-curriculum-is-too-full-problem/</guid>
   <pubDate>Tue, 11 Feb 2014 06:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Unconference panel pitch I will someday make</title>
   <dc:creator>Matt Waite</dc:creator>
-  <link>https://mattwaite.github.io/posts/2013-09-12-unconference-panel-pitch-i-will-someday-make/</link>
+  <link>https://www.mattwaite.com/posts/2013-09-12-unconference-panel-pitch-i-will-someday-make/</link>
   <description><![CDATA[ 
 
 
@@ -11534,7 +11534,7 @@ font-style: inherit;">everything</span>())</span>
 
 
  ]]></description>
-  <guid>https://mattwaite.github.io/posts/2013-09-12-unconference-panel-pitch-i-will-someday-make/</guid>
+  <guid>https://www.mattwaite.com/posts/2013-09-12-unconference-panel-pitch-i-will-someday-make/</guid>
   <pubDate>Thu, 12 Sep 2013 05:00:00 GMT</pubDate>
 </item>
 </channel>
