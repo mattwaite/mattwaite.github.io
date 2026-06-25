@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Pitfall!</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      overscroll-behavior: none;   /* stop pull-to-refresh on iOS/Android */
+      height: 100%;
+    }
+
+    body {
+      background: #0a0a14;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100%;
+      min-height: 100dvh;         /* dynamic viewport height — accounts for mobile chrome UI */
+      font-family: monospace;
+      user-select: none;
+      -webkit-user-select: none;
+      overscroll-behavior: none;
+    }
+
+    /* ── Game canvas ─────────────────────────────────────────────────── */
+    #display {
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      display: block;
+      max-width: 100%;
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      touch-action: none;          /* prevent scroll/zoom when touching canvas */
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ── Keyboard hint (desktop only) ───────────────────────────────── */
+    #controls {
+      color: #445;
+      font-size: 11px;
+      margin-top: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Touch controls ─────────────────────────────────────────────── */
+    #touch-controls {
+      display: none;               /* hidden until a touch device is detected */
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 10px 20px 16px;
+      flex-shrink: 0;
+    }
+
+    .touch-cluster {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .touch-btn {
+      width: 72px;
+      height: 72px;
+      background: #1a2038;
+      border: 3px solid #364870;
+      color: #7898c0;
+      font-size: 24px;
+      border-radius: 14px;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+      /* Prevent text selection on long press */
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .touch-btn.pressed {
+      background: #2a3858;
+      border-color: #5878b8;
+      color: #b8d0f0;
+    }
+
+    /* Down button: smaller, tucked beside jump */
+    #btn-down {
+      width: 56px;
+      height: 56px;
+      font-size: 20px;
+    }
+
+    /* Jump: biggest, most prominent */
+    #btn-jump {
+      width: 88px;
+      height: 88px;
+      font-size: 32px;
+      border-color: #4868a8;
+      color: #90b8e8;
+    }
+
+    /* ── Mobile layout ───────────────────────────────────────────────── */
+    @media (hover: none) and (pointer: coarse) {
+      body {
+        justify-content: flex-start;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+
+      #display {
+        /* Leave room for the button row */
+        max-height: 60dvh;
+        max-height: 60vh;
+        width: 100%;
+      }
+
+      #touch-controls {
+        display: flex;
+      }
+
+      #controls {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="display"></canvas>
+  <div id="controls">← → move &nbsp;|&nbsp; SPACE jump &nbsp;|&nbsp; ↓ descend ladder &nbsp;|&nbsp; jump into vine to swing</div>
+
+  <!-- On-screen touch controls (shown only on touch devices via CSS) -->
+  <div id="touch-controls">
+    <div class="touch-cluster">
+      <button id="btn-left"  class="touch-btn" aria-label="Move left">◀</button>
+      <button id="btn-right" class="touch-btn" aria-label="Move right">▶</button>
+    </div>
+    <div class="touch-cluster">
+      <button id="btn-down" class="touch-btn" aria-label="Descend ladder">▼</button>
+      <button id="btn-jump" class="touch-btn" aria-label="Jump">▲</button>
+    </div>
+  </div>
+
+  <!-- Load order matters: config first, theme, base classes, subclasses, world, player, game -->
+  <script src="src/config.js"></script>
+  <script src="src/themes/jungle.js"></script>
+  <script src="src/themes/dcmall.js"></script>
+  <script src="src/Renderer.js"></script>
+  <script src="src/Camera.js"></script>
+  <script src="src/obstacles/Obstacle.js"></script>
+  <script src="src/obstacles/TarPit.js"></script>
+  <script src="src/obstacles/Vine.js"></script>
+  <script src="src/obstacles/Ladder.js"></script>
+  <script src="src/obstacles/Scorpion.js"></script>
+  <script src="src/obstacles/Log.js"></script>
+  <script src="src/obstacles/BrickWall.js"></script>
+  <script src="src/obstacles/ChainlinkFence.js"></script>
+  <script src="src/obstacles/Collectible.js"></script>
+  <script src="src/World.js"></script>
+  <script src="src/Player.js"></script>
+  <script src="src/HUD.js"></script>
+  <script src="src/Game.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
