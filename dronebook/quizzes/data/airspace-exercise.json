@@ -1,0 +1,125 @@
+{
+  "title": "Do: Airspace Exercise",
+  "questions": [
+    {
+      "question": "<p>Search KORD in vfrmap.com.</p>\n<p>This is O'Hare Airport in Chicago. To the northeast of the airport, on the shores of Lake Michigan, is Ryan Field at Northwestern University. It is one of the worst stadiums in the Big Ten, home to a bunch of trust-funders who I loathe, irrespective of what any scoreboard says.</p>\n<p>What airspace is that garbage field in?</p>",
+      "choices": [
+        {
+          "id": "5968",
+          "text": "Class G"
+        },
+        {
+          "id": "8216",
+          "text": "Class B"
+        },
+        {
+          "id": "7842",
+          "text": "Class C"
+        },
+        {
+          "id": "3217",
+          "text": "Class D"
+        }
+      ],
+      "correct": [
+        "5968"
+      ]
+    },
+    {
+      "question": "<p>Due north of Chicago O'Hare Airport is Chicago Executive airport. What airspace surrounds that airport?</p>",
+      "choices": [
+        {
+          "id": "8141",
+          "text": "Class D"
+        },
+        {
+          "id": "8800",
+          "text": "Class B"
+        },
+        {
+          "id": "8671",
+          "text": "Class C"
+        },
+        {
+          "id": "2008",
+          "text": "Class E"
+        }
+      ],
+      "correct": [
+        "8141"
+      ]
+    },
+    {
+      "question": "<p>What altitude does the airspace around Chicago Executive go up to?</p>",
+      "choices": [
+        {
+          "id": "4849",
+          "text": "Up to and including 3000 feet MSL"
+        },
+        {
+          "id": "8515",
+          "text": "Up to but not including 3000 feet MSL"
+        },
+        {
+          "id": "1188",
+          "text": "Up to but not including 3000 feet AGL"
+        },
+        {
+          "id": "7771",
+          "text": "Up to and including 3000 feet AGL"
+        }
+      ],
+      "correct": [
+        "8515"
+      ]
+    },
+    {
+      "question": "<p>Search for KIOW in vfrmap.</p>\n<p>Welcome to a pit of scum forgotten by God known as Iowa City, Iowa.</p>\n<p>What does the airspace marker around that godforsaken hellhole indicate?</p>",
+      "choices": [
+        {
+          "id": "6068",
+          "text": "There is a class E airspace at 700 feet above the ground around the airport."
+        },
+        {
+          "id": "3832",
+          "text": "It is a class E airspace around the airport."
+        },
+        {
+          "id": "7757",
+          "text": "It is a class D airspace around the airport."
+        },
+        {
+          "id": "4090",
+          "text": "It is a class C airspace around the airport."
+        }
+      ],
+      "correct": [
+        "6068"
+      ]
+    },
+    {
+      "question": "<p>Search for KCMH in vfrmap.</p>\n<p>Welcome to THE Ohio State University, which ... don't get me started.</p>\n<p>What is the floor of the airspace restriction around the stadium (due west of the airport)?</p>\n<p>CAREFUL. This is a trick question.</p>",
+      "choices": [
+        {
+          "id": "8831",
+          "text": "700 feet AGL"
+        },
+        {
+          "id": "8141",
+          "text": "2500 MSL"
+        },
+        {
+          "id": "164",
+          "text": "Surface"
+        },
+        {
+          "id": "2550",
+          "text": "400 feet AGL"
+        }
+      ],
+      "correct": [
+        "8831"
+      ]
+    }
+  ]
+}

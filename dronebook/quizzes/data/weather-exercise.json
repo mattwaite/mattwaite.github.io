@@ -1,0 +1,221 @@
+{
+  "title": "Do: Weather Exercise",
+  "questions": [
+    {
+      "question": "<p>Here's a weather report from Des Moines airport (KDSM):</p>\n<p><code>KDSM 080303Z 12004KT 6SM BR OVC005 00/M02 A3010 RMK AO2 T00001017</code></p>\n<p>Let's ignore the timestamp for this exercise and pretend this is the weather report before a flight.\u00a0</p>\n<p>What is the windspeed in this weather report?</p>\n<p>\u00a0</p>",
+      "choices": [
+        {
+          "id": "3389",
+          "text": "4 knots"
+        },
+        {
+          "id": "1839",
+          "text": "12 knots"
+        },
+        {
+          "id": "1294",
+          "text": "20 knots"
+        }
+      ],
+      "correct": [
+        "3389"
+      ]
+    },
+    {
+      "question": "<p><code>KDSM 080303Z 12004KT 6SM BR OVC005 00/M02 A3010 RMK AO2 T00001017</code></p>\n<p>What direction is the wind coming from?</p>",
+      "choices": [
+        {
+          "id": "6119",
+          "text": "120"
+        },
+        {
+          "id": "3896",
+          "text": "004"
+        },
+        {
+          "id": "9273",
+          "text": "200"
+        }
+      ],
+      "correct": [
+        "6119"
+      ]
+    },
+    {
+      "question": "In English, what direction is the previous answer coming from?",
+      "choices": [
+        {
+          "id": "7884",
+          "text": "The southeast"
+        },
+        {
+          "id": "9062",
+          "text": "The northwest"
+        },
+        {
+          "id": "7165",
+          "text": "The southwest"
+        },
+        {
+          "id": "9353",
+          "text": "The northeast"
+        }
+      ],
+      "correct": [
+        "7884"
+      ]
+    },
+    {
+      "question": "<p><code>KDSM 080303Z 12004KT 6SM BR OVC005 00/M02 A3010 RMK AO2 T00001017</code></p>\n<p>Given this cloud report, how high could you fly?</p>",
+      "choices": [
+        {
+          "id": "2179",
+          "text": "100 feet"
+        },
+        {
+          "id": "8459",
+          "text": "400 feet"
+        },
+        {
+          "id": "742",
+          "text": "0 feet"
+        },
+        {
+          "id": "1073",
+          "text": "200 feet"
+        }
+      ],
+      "correct": [
+        "742"
+      ]
+    },
+    {
+      "question": "<p><code>KDSM 080303Z 12004KT 6SM BR OVC005 00/M02 A3010 RMK AO2 T00001017</code></p>\n<p>Given this weather report, are you flying? Why or why not?</p>",
+      "choices": [
+        {
+          "id": "1684",
+          "text": "No, BR indicates mist."
+        },
+        {
+          "id": "1708",
+          "text": "No, the cloud ceiling is too low."
+        },
+        {
+          "id": "5001",
+          "text": "Yes, there 6 miles of visibility."
+        },
+        {
+          "id": "9801",
+          "text": "Yes, the winds are low."
+        },
+        {
+          "id": "2491",
+          "text": "Both mist and the cloud ceiling would keep you from flying."
+        }
+      ],
+      "correct": [
+        "2491"
+      ]
+    },
+    {
+      "question": "<p>This is a weather report from Eugene, Oregon. How many weather minimums aren't met in this report?</p>\n<p><code>KEUG 080354Z 21004KT 2SM R16R/2200V3000FT BR BCFG BKN001 BKN250 04/03 A3030</code></p>",
+      "choices": [
+        {
+          "id": "9555",
+          "text": "3: Visibility, cloud ceiling, and fog."
+        },
+        {
+          "id": "2690",
+          "text": "2: Visibility and cloud ceiling."
+        },
+        {
+          "id": "442",
+          "text": "1. Visibility."
+        }
+      ],
+      "correct": [
+        "9555"
+      ]
+    },
+    {
+      "question": "<p>What precipitation is present in Eugene?</p>\n<p><code>KEUG 080354Z 21004KT 2SM R16R/2200V3000FT BR BCFG BKN001 BKN250 04/03 A3030</code></p>",
+      "choices": [
+        {
+          "id": "5931",
+          "text": "Mist"
+        },
+        {
+          "id": "4257",
+          "text": "Rain"
+        },
+        {
+          "id": "4377",
+          "text": "Snow"
+        }
+      ],
+      "correct": [
+        "5931"
+      ]
+    },
+    {
+      "question": "<p>This is a weather report from Spencer, Iowa.</p>\n<p><code>KSPW 080353Z AUTO 00000KT 1/4SM HZ VV002 M03/M06 A3008 RMK AO2 SLP204 I1001 T10281056</code></p>\n<p>What is the visibility report?\u00a0</p>",
+      "choices": [
+        {
+          "id": "5036",
+          "text": "One quarter mile visibility"
+        },
+        {
+          "id": "3985",
+          "text": "One to four miles of visibility"
+        },
+        {
+          "id": "8259",
+          "text": "14 miles of visibility"
+        }
+      ],
+      "correct": [
+        "5036"
+      ]
+    },
+    {
+      "question": "<p>What is causing the visibility problem at Spencer Municipal?</p>\n<p><code>KSPW 080353Z AUTO 00000KT 1/4SM HZ VV002 M03/M06 A3008 RMK AO2 SLP204 I1001 T10281056</code></p>",
+      "choices": [
+        {
+          "id": "4727",
+          "text": "Haze"
+        },
+        {
+          "id": "4502",
+          "text": "Hail"
+        },
+        {
+          "id": "308",
+          "text": "Mist"
+        }
+      ],
+      "correct": [
+        "4727"
+      ]
+    },
+    {
+      "question": "<p>What is the wind direction and speed at Spencer Municipal?</p>\n<p><code>KSPW 080353Z AUTO 00000KT 1/4SM HZ VV002 M03/M06 A3008 RMK AO2 SLP204 I1001 T10281056</code></p>",
+      "choices": [
+        {
+          "id": "5827",
+          "text": "There is no wind."
+        },
+        {
+          "id": "2847",
+          "text": "100 at 4 knots"
+        },
+        {
+          "id": "400",
+          "text": "1/4 mph from 000."
+        }
+      ],
+      "correct": [
+        "5827"
+      ]
+    }
+  ]
+}

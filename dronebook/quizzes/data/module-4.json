@@ -1,0 +1,205 @@
+{
+  "title": "Do: Module 4 Quiz",
+  "questions": [
+    {
+      "question": "What effect does humidity have on performance?",
+      "choices": [
+        {
+          "id": "5978",
+          "text": "It decreases performance"
+        },
+        {
+          "id": "2291",
+          "text": "It increases performance"
+        },
+        {
+          "id": "8281",
+          "text": "It has no effect on performance."
+        }
+      ],
+      "correct": [
+        "5978"
+      ]
+    },
+    {
+      "question": "Every physical process of weather is a result of ...",
+      "choices": [
+        {
+          "id": "8409",
+          "text": "heat exchange"
+        },
+        {
+          "id": "2859",
+          "text": "movement of air"
+        },
+        {
+          "id": "9901",
+          "text": "pressure differential"
+        }
+      ],
+      "correct": [
+        "8409"
+      ]
+    },
+    {
+      "question": "Clouds, fog, or dew will always form when ...",
+      "choices": [
+        {
+          "id": "3035",
+          "text": "water vapor condenses"
+        },
+        {
+          "id": "1828",
+          "text": "water vapor is present"
+        },
+        {
+          "id": "4847",
+          "text": "relative humidity reaches 100 percent"
+        }
+      ],
+      "correct": [
+        "3035"
+      ]
+    },
+    {
+      "question": "A strong steady wind exists out of the north. You need to photograph an area to the south of your location. You are located in an open field with no obstructions. Which of the following is not a concern during this operation?",
+      "choices": [
+        {
+          "id": "973",
+          "text": "Turbulent conditions will likely be a significant factor during the operation."
+        },
+        {
+          "id": "7591",
+          "text": "Strong wind conditions may consume more battery power at a faster rate than in calm conditions."
+        },
+        {
+          "id": "4998",
+          "text": "Strong winds may exceed the performance of the sUAS making it impossible to recover."
+        }
+      ],
+      "correct": [
+        "973"
+      ]
+    },
+    {
+      "question": "Thunderstorms which generally produce the most intense hazard to aircraft are ...",
+      "choices": [
+        {
+          "id": "4426",
+          "text": "squall line thunderstorms"
+        },
+        {
+          "id": "3407",
+          "text": "steady-state thunderstorms"
+        },
+        {
+          "id": "1319",
+          "text": "warm front thunderstorms"
+        }
+      ],
+      "correct": [
+        "4426"
+      ]
+    },
+    {
+      "question": "<p><img src=\"images/Screen%20Shot%202020-12-08%20at%202.28.12%20PM.png\" alt=\"Screen Shot 2020-12-08 at 2.28.12 PM.png\" width=\"660\" height=\"249\" loading=\"lazy\"></p>\n<p>Between 1000Z and 1200Z the visibility at KMEM is forecast to be ...</p>",
+      "choices": [
+        {
+          "id": "7733",
+          "text": "3 statute miles"
+        },
+        {
+          "id": "8359",
+          "text": "6 statute miles"
+        },
+        {
+          "id": "9343",
+          "text": "1/2 statute miles"
+        }
+      ],
+      "correct": [
+        "7733"
+      ]
+    },
+    {
+      "question": "<p><img src=\"images/Screen%20Shot%202020-12-08%20at%202.30.36%20PM.png\" alt=\"Screen Shot 2020-12-08 at 2.30.36 PM.png\" width=\"651\" height=\"157\" loading=\"lazy\"></p>\n<p>What are the current conditions for Chicago Midway Airport (KMDW)?</p>",
+      "choices": [
+        {
+          "id": "1371",
+          "text": "Sky 700 feet overcast, visibility 1-1/2 SM, rain."
+        },
+        {
+          "id": "5834",
+          "text": "Sky 7,000 feet overcast, visibility 1-1/2 SM, heavy rain."
+        },
+        {
+          "id": "4549",
+          "text": "Sky 700 feet overcast, visibility 11, occasionally 2 SM, with rain."
+        }
+      ],
+      "correct": [
+        "1371"
+      ]
+    },
+    {
+      "question": "The minimum distance from clouds required for sUAS Part 107 operations is",
+      "choices": [
+        {
+          "id": "4181",
+          "text": "500 feet below, 2000 feet horizontally"
+        },
+        {
+          "id": "2180",
+          "text": "clear of clouds"
+        },
+        {
+          "id": "32",
+          "text": "500 feet above, 1,000 feet horizontally"
+        }
+      ],
+      "correct": [
+        "4181"
+      ]
+    },
+    {
+      "question": "Wind shear can exist",
+      "choices": [
+        {
+          "id": "6627",
+          "text": "at all altitudes"
+        },
+        {
+          "id": "8930",
+          "text": "at low altitudes"
+        },
+        {
+          "id": "3298",
+          "text": "at high altitudes"
+        }
+      ],
+      "correct": [
+        "6627"
+      ]
+    },
+    {
+      "question": "How would high density altitude affect the performance of a small unmanned aircraft?",
+      "choices": [
+        {
+          "id": "2948",
+          "text": "Decreased performance"
+        },
+        {
+          "id": "5009",
+          "text": "Increased performance"
+        },
+        {
+          "id": "9621",
+          "text": "No chnge in performance"
+        }
+      ],
+      "correct": [
+        "2948"
+      ]
+    }
+  ]
+}

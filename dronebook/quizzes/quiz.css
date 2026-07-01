@@ -1,0 +1,154 @@
+/* Quiz-specific styling layered on top of the book's own bootstrap.min.css (Litera theme) */
+
+body {
+  padding-top: 4.5rem;
+}
+
+.quiz-navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.quiz-navbar .navbar-brand {
+  font-weight: 700;
+  color: #343a40;
+}
+
+.quiz-navbar .btn-quiz-sm {
+  padding: .25rem .6rem;
+  font-size: .875rem;
+  border-radius: .2rem;
+}
+
+/* The book's bootstrap.min.css has its Bootstrap grid (.container/.row/.col-*)
+   stripped out, since Quarto lays out pages with its own CSS Grid. These quiz
+   pages are hand-rolled with flexbox/grid instead of relying on those classes. */
+.quiz-shell {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.quiz-sidebar-col {
+  flex: 0 0 230px;
+}
+
+.quiz-main-col {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 850px;
+}
+
+.quiz-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .quiz-shell {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .quiz-sidebar-col {
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+
+.quiz-sidebar {
+  position: sticky;
+  top: 5.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-sidebar .sidebar-heading {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: #6c757d;
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: .5rem;
+}
+
+.quiz-sidebar .nav-link {
+  color: #343a40;
+  padding: .3rem .5rem;
+  border-radius: .25rem;
+}
+
+.quiz-sidebar .nav-link:hover {
+  background-color: #f8f9fa;
+}
+
+.quiz-sidebar .nav-link.active {
+  background-color: #4582ec;
+  color: #fff;
+}
+
+.quiz-card {
+  border: 1px solid #dee2e6;
+  border-radius: .5rem;
+}
+
+.quiz-progress-label {
+  font-size: .9rem;
+  color: #6c757d;
+}
+
+.choice-btn {
+  text-align: left;
+  white-space: normal;
+  margin-bottom: .6rem;
+}
+
+.choice-btn.correct-choice {
+  background-color: #02b875;
+  border-color: #02b875;
+  color: #fff;
+}
+
+.choice-btn.incorrect-choice {
+  background-color: #d9534f;
+  border-color: #d9534f;
+  color: #fff;
+}
+
+.choice-btn:disabled {
+  opacity: 1;
+}
+
+.quiz-question-text img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #dee2e6;
+  border-radius: .25rem;
+  margin-bottom: .5rem;
+}
+
+.review-item.is-correct {
+  border-left: 4px solid #02b875;
+}
+
+.review-item.is-incorrect {
+  border-left: 4px solid #d9534f;
+}
+
+.score-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  border: 6px solid #4582ec;
+  margin: 0 auto 1rem auto;
+}

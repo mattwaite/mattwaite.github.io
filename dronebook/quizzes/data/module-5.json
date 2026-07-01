@@ -1,0 +1,205 @@
+{
+  "title": "Do: Module 5 Quiz",
+  "questions": [
+    {
+      "question": "To satisfy medical requirements, all sUAS crewmembers must ...",
+      "choices": [
+        {
+          "id": "8470",
+          "text": "be free of any physical or mental condition that would interfere with the safe operation of the small unmanned aircraft."
+        },
+        {
+          "id": "3516",
+          "text": "hold a valid third-class medical certificate."
+        },
+        {
+          "id": "1001",
+          "text": "complete a physical with an Aviation Medical Examiner."
+        }
+      ],
+      "correct": [
+        "8470"
+      ]
+    },
+    {
+      "question": "Which of the following would medically disqualify a Remote Pilot?",
+      "choices": [
+        {
+          "id": "2269",
+          "text": "A migraine headache with the side effect of blurred vision"
+        },
+        {
+          "id": "8947",
+          "text": "Taking a presciption medication that does not have any noticeable side effects"
+        },
+        {
+          "id": "1079",
+          "text": "Occasional muscle soreness following exercise"
+        }
+      ],
+      "correct": [
+        "2269"
+      ]
+    },
+    {
+      "question": "Who is responsible for determining whether a pilot is fit to fly for a particular flight?",
+      "choices": [
+        {
+          "id": "7908",
+          "text": "The pilot."
+        },
+        {
+          "id": "5119",
+          "text": "The FAA."
+        },
+        {
+          "id": "4372",
+          "text": "The medical examiner."
+        }
+      ],
+      "correct": [
+        "7908"
+      ]
+    },
+    {
+      "question": "You have been hired as a Remote Pilot in Command by a local TV news station to film breaking news with a small unmanned aircraft. You expressed a safety concern and the station manager has instructed you to \"fly first, ask questions later.\" What type of hazardous attitude does this attitude represent?",
+      "choices": [
+        {
+          "id": "1435",
+          "text": "Impulsivity"
+        },
+        {
+          "id": "8717",
+          "text": "invulnerability"
+        },
+        {
+          "id": "7099",
+          "text": "Machismo."
+        }
+      ],
+      "correct": [
+        "1435"
+      ]
+    },
+    {
+      "question": "What antidotal phrase can help reverse the hazardous attitude of impulsivity?",
+      "choices": [
+        {
+          "id": "6671",
+          "text": "Not so fast, think first."
+        },
+        {
+          "id": "1509",
+          "text": "It could happen to me."
+        },
+        {
+          "id": "6863",
+          "text": "Do it quickly to get it over with."
+        }
+      ],
+      "correct": [
+        "6671"
+      ]
+    },
+    {
+      "question": "What would most likely result in hyperventilation?",
+      "choices": [
+        {
+          "id": "3554",
+          "text": "Insufficient oxygen"
+        },
+        {
+          "id": "1113",
+          "text": "Excessive carbon monoxide"
+        },
+        {
+          "id": "5010",
+          "text": "Insufficient carbon dioxide"
+        }
+      ],
+      "correct": [
+        "5010"
+      ]
+    },
+    {
+      "question": "Fatigue can be recognized",
+      "choices": [
+        {
+          "id": "5214",
+          "text": "as being in an impaired state"
+        },
+        {
+          "id": "2135",
+          "text": "easily by an experienced pilot"
+        },
+        {
+          "id": "6058",
+          "text": "by an abiliity to overcome sleep deprivation"
+        }
+      ],
+      "correct": [
+        "5214"
+      ]
+    },
+    {
+      "question": "Safety is an important element for a remote pilot to consider prior to operating an unmanned aircraft system. To prevent the final \"link\" in the accident chain, a remote pilot must consider which methodology?",
+      "choices": [
+        {
+          "id": "7026",
+          "text": "Risk management"
+        },
+        {
+          "id": "3457",
+          "text": "Crew resource management"
+        },
+        {
+          "id": "7859",
+          "text": "Safety management system"
+        }
+      ],
+      "correct": [
+        "7026"
+      ]
+    },
+    {
+      "question": "A remote pilot in command and a visual observer define their roles and responsibilities prior to and during the operation of a small UA. This is a good use of ...",
+      "choices": [
+        {
+          "id": "5856",
+          "text": "Crew resource management"
+        },
+        {
+          "id": "8888",
+          "text": "authoritarian resource management"
+        },
+        {
+          "id": "2813",
+          "text": "sinigle-pilot resource management"
+        }
+      ],
+      "correct": [
+        "5856"
+      ]
+    },
+    {
+      "question": "<p><img src=\"images/Screen%20Shot%202020-12-08%20at%209.08.45%20PM.png\" alt=\"Screen Shot 2020-12-08 at 9.08.45 PM.png\" width=\"1534\" height=\"942\" loading=\"lazy\"></p>\n<p>You are operating near the Fremont Airport, and monitoring air traffic radio for enhanced safety. A pilot reports their position as being on the left downwind leg for runway 32. Where is that aircraft in relation to the airfield?</p>",
+      "choices": [
+        {
+          "id": "8297",
+          "text": "East"
+        },
+        {
+          "id": "2390",
+          "text": "West"
+        },
+        {
+          "id": "256",
+          "text": "North"
+        }
+      ],
+      "correct": [
+        "2390"
+      ]
+    }
+  ]
+}

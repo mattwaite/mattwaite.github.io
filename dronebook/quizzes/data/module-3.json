@@ -1,0 +1,105 @@
+{
+  "title": "Do: Module 3 Quiz",
+  "questions": [
+    {
+      "question": "What type of flights are being conducted as indicated by IR678?",
+      "choices": [
+        {
+          "id": "1758",
+          "text": "IFR military training route above 1,500 feet AGL"
+        },
+        {
+          "id": "9620",
+          "text": "VFR military training route above 1,500 feet AGL"
+        },
+        {
+          "id": "1545",
+          "text": "VFR military training route below 1,500 AGL"
+        }
+      ],
+      "correct": [
+        "1758"
+      ]
+    },
+    {
+      "question": "<p>Search for KAND on <a href=\"http://vfrmap.com/\">http://vfrmap.com/</a></p>\n<p>What ATC permissions are required to operate near Anderson Airport?</p>",
+      "choices": [
+        {
+          "id": "364",
+          "text": "ATC clearance required."
+        },
+        {
+          "id": "9319",
+          "text": "No ATC permission is required."
+        },
+        {
+          "id": "11",
+          "text": "Waiver must be requested."
+        }
+      ],
+      "correct": [
+        "364"
+      ]
+    },
+    {
+      "question": "<p>Search for KECG in vfrmap.com</p>\n<p>With ATC authorization, you are operating your small unmanned aircraft approximately 4 miles southeast of Elizabeth City Regional Airport. What hazard is indicated to be in that area?</p>",
+      "choices": [
+        {
+          "id": "3524",
+          "text": "Unmarked balloon on a cable."
+        },
+        {
+          "id": "1728",
+          "text": "High density military operations in the vicinity."
+        },
+        {
+          "id": "2684",
+          "text": "Marked balloon on a rope."
+        }
+      ],
+      "correct": [
+        "3524"
+      ]
+    },
+    {
+      "question": "<p>Search for KADS on vfrmap.com</p>\n<p>The airspace directly overlaying Addison Airport (ADS) is ...</p>",
+      "choices": [
+        {
+          "id": "5887",
+          "text": "Class D up to but not including 3,000 feet MSL"
+        },
+        {
+          "id": "1079",
+          "text": "Class D up to 3,000 feet MSL"
+        },
+        {
+          "id": "5362",
+          "text": "Class E from the surface up to 3,000 feet MSL"
+        }
+      ],
+      "correct": [
+        "5887"
+      ]
+    },
+    {
+      "question": "<p>Search for KSUX in vfrmap.com</p>\n<p>You are hired to inspect the railroad tracks from the town of Hinton, north of Sioux City, to the town of Winnebago, which is south of Sioux City. Will you require ATC authorization?</p>",
+      "choices": [
+        {
+          "id": "9890",
+          "text": "Yes, your route of flight will pass through Class D airspace"
+        },
+        {
+          "id": "3017",
+          "text": "Yes, your route of flight will pass through Class E airspace"
+        },
+        {
+          "id": "1168",
+          "text": "No, the flight will remain clear of controlled airspace"
+        }
+      ],
+      "correct": [
+        "9890"
+      ]
+    }
+  ]
+}

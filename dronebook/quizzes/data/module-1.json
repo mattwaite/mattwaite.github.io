@@ -1,0 +1,125 @@
+{
+  "title": "Do: Module 1 Quiz",
+  "questions": [
+    {
+      "question": "According to 14 CFR Part 48, when must a person register a small Unmanned Aircraft with the Federal Aviation Administration?",
+      "choices": [
+        {
+          "id": "3495",
+          "text": "All civilian small UAS weighing greater than .55 pounds must be registered regardless of its intended use."
+        },
+        {
+          "id": "5287",
+          "text": "When the small UA is used for any purpose other than as a model aircraft."
+        },
+        {
+          "id": "8173",
+          "text": "Only when the operator will be paid for commercial services."
+        }
+      ],
+      "correct": [
+        "3495"
+      ]
+    },
+    {
+      "question": "According to 14 CFR Part 48, a Unmanned Aircraft System (UAS) must be registered to its owner unless ...",
+      "choices": [
+        {
+          "id": "5526",
+          "text": "The owner is under 13 years of age."
+        },
+        {
+          "id": "2664",
+          "text": "The owner is over 13 years of age."
+        },
+        {
+          "id": "1938",
+          "text": "The owner has a medical condition preventing them from registering."
+        }
+      ],
+      "correct": [
+        "5526"
+      ]
+    },
+    {
+      "question": "You have how many days to update your registration information if it changes:",
+      "choices": [
+        {
+          "id": "9356",
+          "text": "14"
+        },
+        {
+          "id": "8401",
+          "text": "21"
+        },
+        {
+          "id": "2386",
+          "text": "30"
+        }
+      ],
+      "correct": [
+        "9356"
+      ]
+    },
+    {
+      "question": "The registration certificate on your UAS is good for",
+      "choices": [
+        {
+          "id": "835",
+          "text": "3 years"
+        },
+        {
+          "id": "1336",
+          "text": "2 years"
+        },
+        {
+          "id": "340",
+          "text": "4 years"
+        }
+      ],
+      "correct": [
+        "835"
+      ]
+    },
+    {
+      "question": "The registration number issued by the FAA must be readily accessible and visible upon inspection. It can be inside a compartment if",
+      "choices": [
+        {
+          "id": "336",
+          "text": "the compartment can be accessed without tools"
+        },
+        {
+          "id": "7967",
+          "text": "the compartment has a window allowing you to see into it"
+        },
+        {
+          "id": "4140",
+          "text": "The compartment is sealed with tape"
+        }
+      ],
+      "correct": [
+        "336"
+      ]
+    },
+    {
+      "question": "According to 14CFR Part 89, commercial drone operators must comply with Remote ID only if ...",
+      "choices": [
+        {
+          "id": "9837",
+          "text": "All commercial operators, regardless of drone size, must comply."
+        },
+        {
+          "id": "602",
+          "text": "If they are flying a drone greater than .55 pounds."
+        },
+        {
+          "id": "9031",
+          "text": "If they are operating outside of a recognized remote ID area."
+        }
+      ],
+      "correct": [
+        "9837"
+      ]
+    }
+  ]
+}

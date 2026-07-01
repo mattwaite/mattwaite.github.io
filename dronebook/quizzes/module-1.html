@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1 Quiz · Drone Journalism Quizzes</title>
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="quiz.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top quiz-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="../index.html">Drone Journalism</a>
+    <div class="d-flex">
+      <a class="btn btn-outline-secondary btn-quiz-sm me-2" href="../index.html">Book</a>
+      <a class="btn btn-primary btn-quiz-sm" href="index.html">Quizzes</a>
+    </div>
+  </div>
+</nav>
+<div class="quiz-shell">
+  <div class="quiz-sidebar-col">
+      <nav class="nav flex-column quiz-sidebar">
+        <a class="nav-link" href="index.html"><i class="bi bi-grid-fill me-1"></i> All Quizzes</a>
+        <div class="sidebar-heading">Module Quizzes</div>
+        <a class="nav-link active" href="module-1.html">Module 1 Quiz</a>
+          <a class="nav-link" href="module-2.html">Module 2 Quiz</a>
+          <a class="nav-link" href="module-3.html">Module 3 Quiz</a>
+          <a class="nav-link" href="module-4.html">Module 4 Quiz</a>
+          <a class="nav-link" href="module-5.html">Module 5 Quiz</a>
+        <div class="sidebar-heading">Exercises &amp; Final Exam</div>
+        <a class="nav-link" href="weather-exercise.html">Weather Exercise</a>
+          <a class="nav-link" href="airspace-exercise.html">Airspace Exercise</a>
+          <a class="nav-link" href="final-exam.html">Final Exam</a>
+        <div class="sidebar-heading">Book</div>
+        <a class="nav-link" href="../index.html"><i class="bi bi-book-half me-1"></i> Read the Book</a>
+      </nav>
+  </div>
+  <div class="quiz-main-col">
+      <h1 class="h2 mb-1">Module 1 Quiz</h1>
+      <p class="text-muted mb-4">6 multiple-choice questions. Pick an answer to see if you're right, then move to the next question.</p>
+      <div id="quiz-root" data-quiz-src="data/module-1.json"></div>
+      <script src="quiz.js"></script>
+  </div>
+</div>
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

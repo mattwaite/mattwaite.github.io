@@ -1,0 +1,205 @@
+{
+  "title": "Do: Module 2 Quiz",
+  "questions": [
+    {
+      "question": "During a flight of your small unmanned aircraft, you see a hot air balloon enter the area. You should:",
+      "choices": [
+        {
+          "id": "1661",
+          "text": "Yield the right-of-way to the hot air balloon."
+        },
+        {
+          "id": "7025",
+          "text": "Ensure the unmanned aircraft passes below, above, or ahead of the balloon."
+        },
+        {
+          "id": "356",
+          "text": "Expect the hot air balloon to climb above your altitude."
+        }
+      ],
+      "correct": [
+        "1661"
+      ]
+    },
+    {
+      "question": "Upon request by the FAA, the remote pilot-in-command must provide ...",
+      "choices": [
+        {
+          "id": "404",
+          "text": "a remote pilot certificate with a small UAS rating."
+        },
+        {
+          "id": "6972",
+          "text": "a logbook documenting small UA landing currency"
+        },
+        {
+          "id": "9368",
+          "text": "any employer issued photo identification"
+        }
+      ],
+      "correct": [
+        "404"
+      ]
+    },
+    {
+      "question": "When using a small unmanned aircraft in a commercial operation, who is responsible for briefing the participants about emergency procedures?",
+      "choices": [
+        {
+          "id": "7933",
+          "text": "The Remote Pilot In Command"
+        },
+        {
+          "id": "2300",
+          "text": "The lead visual observer"
+        },
+        {
+          "id": "1289",
+          "text": "The FAA inspector-in-charge"
+        }
+      ],
+      "correct": [
+        "7933"
+      ]
+    },
+    {
+      "question": "According to 14 CFR Part 107, what is the maximum ground speed for a small UA?",
+      "choices": [
+        {
+          "id": "1989",
+          "text": "100 mph"
+        },
+        {
+          "id": "3038",
+          "text": "100 knots"
+        },
+        {
+          "id": "7024",
+          "text": "87 mph"
+        }
+      ],
+      "correct": [
+        "1989"
+      ]
+    },
+    {
+      "question": "You are part of a news crew, operating a drone to cover a breaking story. You experience a mechanical failure and strike a vehicle, causing $800 of damage. When must you report the accident to the FAA?",
+      "choices": [
+        {
+          "id": "1056",
+          "text": "Within 10 days"
+        },
+        {
+          "id": "4909",
+          "text": "Any time"
+        },
+        {
+          "id": "7665",
+          "text": "Not to exceed 30 days"
+        }
+      ],
+      "correct": [
+        "1056"
+      ]
+    },
+    {
+      "question": "A power company uses a drone to inspect a long stretch of power lines. Muddy conditions prevent them from following the line. The manager says they will use binoculars to maintain visual line of sight with the drone. Is this operation in compliance with 14 CFR Part 107?",
+      "choices": [
+        {
+          "id": "6266",
+          "text": "No, the operation is not compliant with Part 107"
+        },
+        {
+          "id": "2722",
+          "text": "Yes, the operation is compliant with Part 107"
+        },
+        {
+          "id": "7381",
+          "text": "There is not enough information to make a determination."
+        }
+      ],
+      "correct": [
+        "6266"
+      ]
+    },
+    {
+      "question": "If the sunset is 20:21 and the end of evening civil twilight is 20:43, when must a remote pilot flying a drone without additional equipment terminate the flight?",
+      "choices": [
+        {
+          "id": "7459",
+          "text": "20:43"
+        },
+        {
+          "id": "288",
+          "text": "20:21"
+        },
+        {
+          "id": "1456",
+          "text": "21:21"
+        }
+      ],
+      "correct": [
+        "288"
+      ]
+    },
+    {
+      "question": "A person may not act as a crewmember of a small unmanned aircraft if alcoholic beverages have been consumed by that person within the previous ...",
+      "choices": [
+        {
+          "id": "2239",
+          "text": "8 hours"
+        },
+        {
+          "id": "4688",
+          "text": "12 hours"
+        },
+        {
+          "id": "1031",
+          "text": "24 hours"
+        }
+      ],
+      "correct": [
+        "2239"
+      ]
+    },
+    {
+      "question": "The basic weather minimums for operating a small unmanned aircraft up to the 400 feet AGL limit are ...",
+      "choices": [
+        {
+          "id": "4278",
+          "text": "900-foot ceiling and 3 miles of visibility"
+        },
+        {
+          "id": "3621",
+          "text": "2,000-foot ceiling and 1 miles visibility"
+        },
+        {
+          "id": "2375",
+          "text": "clear of clouds and 2 miles visibility"
+        }
+      ],
+      "correct": [
+        "4278"
+      ]
+    },
+    {
+      "question": "After receiving a Part 107 remote pilot certificate, how often must you satisfy recurrent training requirements?",
+      "choices": [
+        {
+          "id": "7056",
+          "text": "Every 24 months"
+        },
+        {
+          "id": "5277",
+          "text": "Every 12 months"
+        },
+        {
+          "id": "5712",
+          "text": "Every 6 months"
+        }
+      ],
+      "correct": [
+        "7056"
+      ]
+    }
+  ]
+}

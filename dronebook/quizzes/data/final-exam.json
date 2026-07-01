@@ -1,0 +1,809 @@
+{
+  "title": "Final Exam",
+  "questions": [
+    {
+      "question": "<p>Refer to Figure 21</p>\n<p>What airport is located approximately 48 (degrees) 16 (minutes) N latitude and 101 (degrees) 16 (minutes) W longitude?</p>",
+      "choices": [
+        {
+          "id": "98311",
+          "text": "Mercer County Regional Airport"
+        },
+        {
+          "id": "10372",
+          "text": "Minot International"
+        },
+        {
+          "id": "2795",
+          "text": "Garrison Airport"
+        }
+      ],
+      "correct": [
+        "10372"
+      ]
+    },
+    {
+      "question": "<p>Refer to Figure 26.</p>\n<p>What does the line of longitude at area 4 measure?</p>",
+      "choices": [
+        {
+          "id": "66995",
+          "text": "The degrees of longitude east and west of the Prime Meridian."
+        },
+        {
+          "id": "13508",
+          "text": "The degrees of longitude north and south from the equator."
+        },
+        {
+          "id": "37433",
+          "text": "The degrees of latitude east and west of the line that passes through Greenwich, England."
+        }
+      ],
+      "correct": [
+        "13508"
+      ]
+    },
+    {
+      "question": "<p>Refer to Figure 59</p>\n<p>What is the floor of the Toledo Class C airspace at the shelf area (outer circle)?</p>",
+      "choices": [
+        {
+          "id": "20756",
+          "text": "2,000 feet AGL"
+        },
+        {
+          "id": "69882",
+          "text": "2,000 feet MSL"
+        },
+        {
+          "id": "14787",
+          "text": "4,700 feet MSL"
+        }
+      ],
+      "correct": [
+        "69882"
+      ]
+    },
+    {
+      "question": "Figure 21, in the Devils Lake MOA shows a gray line with \"IR1644-659.\" Could this area present a hazard to the operations of a small UA?",
+      "choices": [
+        {
+          "id": "25639",
+          "text": "No, all operations will be above 400 feet."
+        },
+        {
+          "id": "1020",
+          "text": "Yes, this is a Military Training Route from 1,500 feet AGL."
+        },
+        {
+          "id": "61471",
+          "text": "Yes, the defined route provides traffic separation to manned aircraft."
+        }
+      ],
+      "correct": [
+        "25639"
+      ]
+    },
+    {
+      "question": "According to 14 CFR part 107 the remote pilot-in-command (PIC) of a small unmanned aircraft planning to operate within Class D airspace",
+      "choices": [
+        {
+          "id": "51824",
+          "text": "must use a visual observer."
+        },
+        {
+          "id": "43465",
+          "text": "is required to file a flight plan."
+        },
+        {
+          "id": "98117",
+          "text": "is required to receive ATC authorization"
+        }
+      ],
+      "correct": [
+        "98117"
+      ]
+    },
+    {
+      "question": "<p>Refer to Figure 23</p>\n<p>You have been hired by a farmer to use your small UA to inspect his crops. The area that you are to survey is in the Bulldog B MOA. How would you find out if the MOA is active?</p>",
+      "choices": [
+        {
+          "id": "49608",
+          "text": "Refer to the legend for special use airspace phone number."
+        },
+        {
+          "id": "62608",
+          "text": "This information is available in the Small UAS database."
+        },
+        {
+          "id": "80262",
+          "text": "In the Military Operations Directory."
+        }
+      ],
+      "correct": [
+        "49608"
+      ]
+    },
+    {
+      "question": "How would a remote PIC \"CHECK NOTAMS\" as noted in the CAUTION box regarding the unmarked balloon in Figure 20 area 5?",
+      "choices": [
+        {
+          "id": "35107",
+          "text": "By utilizing the B4UFLY mobile application"
+        },
+        {
+          "id": "3792",
+          "text": "By contacting the FAA district office"
+        },
+        {
+          "id": "46379",
+          "text": "By obtaining a briefing via an online source such as: 1800WXBrief.com"
+        }
+      ],
+      "correct": [
+        "46379"
+      ]
+    },
+    {
+      "question": "Additional equipment added to a unmanned multi-rotor aircraft has exceeded the center of gravity (CG) limits aftward. What are the consequences of this?",
+      "choices": [
+        {
+          "id": "5596",
+          "text": "The aircraft will tilt backwards, resulting in a loss of control."
+        },
+        {
+          "id": "49552",
+          "text": "The aircraft will tilt forwards, resulting in a loss of control"
+        },
+        {
+          "id": "99022",
+          "text": "The aircraft will not take off."
+        }
+      ],
+      "correct": [
+        "5596"
+      ]
+    },
+    {
+      "question": "Load factor on the wings is zero when",
+      "choices": [
+        {
+          "id": "62755",
+          "text": "the CG is shifted rearward to the aft CG limit."
+        },
+        {
+          "id": "58138",
+          "text": "the airplane is in straight and level flight"
+        },
+        {
+          "id": "8711",
+          "text": "the airplance is subject to maneuvers other than straight and level flight"
+        }
+      ],
+      "correct": [
+        "58138"
+      ]
+    },
+    {
+      "question": "A stall occurs when the wing",
+      "choices": [
+        {
+          "id": "97097",
+          "text": "exceeds the maximum speed"
+        },
+        {
+          "id": "10625",
+          "text": "exceeds maximum allowable operating weight"
+        },
+        {
+          "id": "91529",
+          "text": "exceeds it\u2019s critical angle of attack"
+        }
+      ],
+      "correct": [
+        "91529"
+      ]
+    },
+    {
+      "question": "<p>Refer to Figure 2</p>\n<p>If an unmanned airplane weighs 6 pounds, what approximate weight would the airplane structure be required to support during a 45\u00b0 banked turn while maintaining altitude?</p>",
+      "choices": [
+        {
+          "id": "58574",
+          "text": "8.84 pounds."
+        },
+        {
+          "id": "71880",
+          "text": "9.36 pounds."
+        },
+        {
+          "id": "69478",
+          "text": "8.48 pounds."
+        }
+      ],
+      "correct": [
+        "69478"
+      ]
+    },
+    {
+      "question": "Which is true regarding the presence of alcohol within the human body?",
+      "choices": [
+        {
+          "id": "25429",
+          "text": "A small amount of alcohol increases vision acuity."
+        },
+        {
+          "id": "41930",
+          "text": "Consuming an equal amount of water will increase the destruction of alcohol and alleviate a hangover."
+        },
+        {
+          "id": "71065",
+          "text": "Judgment and decision-making abilities can be adversely affected by even small amounts of alcohol."
+        }
+      ],
+      "correct": [
+        "71065"
+      ]
+    },
+    {
+      "question": "When using a small UA in a commercial operation, who is responsible for briefing the participants about obstacles in the operation area?",
+      "choices": [
+        {
+          "id": "44630",
+          "text": "The FAA inspector-in-charge"
+        },
+        {
+          "id": "39000",
+          "text": "The lead visual observer"
+        },
+        {
+          "id": "72212",
+          "text": "The remote PIC"
+        }
+      ],
+      "correct": [
+        "72212"
+      ]
+    },
+    {
+      "question": "To avoid a possible collision with a manned airplane, you estimate that your small UA climbed to an altitude greater than 600 feet AGL. To whom must you report the deviation?",
+      "choices": [
+        {
+          "id": "73329",
+          "text": "Air Traffic Control"
+        },
+        {
+          "id": "73842",
+          "text": "The National Transportation Safety Board"
+        },
+        {
+          "id": "25593",
+          "text": "Upon request of the Federal Aviation Administration"
+        }
+      ],
+      "correct": [
+        "25593"
+      ]
+    },
+    {
+      "question": "<p>Refer to Figure 21 Area 2</p>\n<p>While monitoring the Garrison CTAF you hear an aircraft announce that they are midfield left downwind to RWY 31. Where would the aircraft be relative to the runway? </p>",
+      "choices": [
+        {
+          "id": "68960",
+          "text": "The aircraft is East."
+        },
+        {
+          "id": "36041",
+          "text": "The aircraft is North."
+        },
+        {
+          "id": "78633",
+          "text": "The aircraft is West."
+        }
+      ],
+      "correct": [
+        "78633"
+      ]
+    },
+    {
+      "question": "Under what condition should the operator of a small UA establish scheduled maintenance protocol?",
+      "choices": [
+        {
+          "id": "64369",
+          "text": "When the manufacturer does not provide a maintenance schedule."
+        },
+        {
+          "id": "51490",
+          "text": "UAS does not need a required maintenance schedule."
+        },
+        {
+          "id": "27458",
+          "text": "When the FAA requires you to, following an accident."
+        }
+      ],
+      "correct": [
+        "64369"
+      ]
+    },
+    {
+      "question": "According to 14 CFR part 107, the responsibility to inspect the small UAS to ensure it is in a safe operating condition rests with the",
+      "choices": [
+        {
+          "id": "2782",
+          "text": "remote pilot-in-command."
+        },
+        {
+          "id": "47141",
+          "text": "visual observer."
+        },
+        {
+          "id": "184",
+          "text": "owner of the small UAS."
+        },
+        {
+          "id": "60333",
+          "text": "No answer text provided."
+        }
+      ],
+      "correct": [
+        "2782"
+      ]
+    },
+    {
+      "question": "Identify the hazardous attitude or characteristic a remote pilot displays while taking risks without considering them beforehand?",
+      "choices": [
+        {
+          "id": "21676",
+          "text": "Impulsivity."
+        },
+        {
+          "id": "10131",
+          "text": "Invulnerability."
+        },
+        {
+          "id": "46251",
+          "text": "Macho."
+        }
+      ],
+      "correct": [
+        "21676"
+      ]
+    },
+    {
+      "question": "You are a remote pilot for a co-op energy service provider. You are to use your UA to inspect power lines in a remote area 15 hours away from your home office. After the drive, fatigue impacts your abilities to complete your assignment on time. Fatigue can be recognized",
+      "choices": [
+        {
+          "id": "5638",
+          "text": "easily by an experienced pilot."
+        },
+        {
+          "id": "12118",
+          "text": "as being in an impaired state."
+        },
+        {
+          "id": "50041",
+          "text": "by an ability to overcome sleep deprivation."
+        }
+      ],
+      "correct": [
+        "12118"
+      ]
+    },
+    {
+      "question": "Safety is an important element for a remote pilot to consider prior to operating an unmanned aircraft system. To use all elements of operations, including human, information and hardware, is to use which method?",
+      "choices": [
+        {
+          "id": "97918",
+          "text": "Crew Resource Management."
+        },
+        {
+          "id": "46710",
+          "text": "Safety Management System."
+        },
+        {
+          "id": "3681",
+          "text": "Risk Management."
+        }
+      ],
+      "correct": [
+        "97918"
+      ]
+    },
+    {
+      "question": "When adapting crew resource management (CRM) concepts to the operation of a small UA, CRM must be integrated into",
+      "choices": [
+        {
+          "id": "30765",
+          "text": "the flight portion only"
+        },
+        {
+          "id": "61856",
+          "text": "all phases of the operation"
+        },
+        {
+          "id": "49193",
+          "text": "the communications only"
+        }
+      ],
+      "correct": [
+        "61856"
+      ]
+    },
+    {
+      "question": "You have been hired as a remote pilot by a local TV news station to film breaking news with a small UA. You expressed a safety concern and the station manager said \u201ca real pilot could make that flight.\u201d What type of hazardous attitude does this attitude represent?",
+      "choices": [
+        {
+          "id": "22926",
+          "text": "Macho"
+        },
+        {
+          "id": "27629",
+          "text": "Invulnerability"
+        },
+        {
+          "id": "63591",
+          "text": "Impulsivity"
+        }
+      ],
+      "correct": [
+        "22926"
+      ]
+    },
+    {
+      "question": "A local TV station has hired a remote pilot to operate their small UA to cover breaking news stories. The remote pilot has had multiple near misses with obstacles on the ground and two small UAS accidents. What would be a solution for the news station to improve their operating safety culture?",
+      "choices": [
+        {
+          "id": "84088",
+          "text": "The news station should implement a policy of no more than five crashes/incidents within 6 months."
+        },
+        {
+          "id": "11967",
+          "text": "The news station does not need to make any changes; there are times that an accident is unavoidable."
+        },
+        {
+          "id": "12687",
+          "text": "The news station should recognize hazardous attitudes and situations and develop standard operating procedures that emphasize safety."
+        }
+      ],
+      "correct": [
+        "12687"
+      ]
+    },
+    {
+      "question": "<p>Refer to Figure 22 Area 2</p>\n<p>You are flying your sUAS with authorization on the north side of Coeur D'Alene but south of the airport. From which general direction would the wind be coming from for it to create a situation where you would need to be vigilant of air traffic at the airport?</p>",
+      "choices": [
+        {
+          "id": "11947",
+          "text": "Between 180 and 270."
+        },
+        {
+          "id": "50297",
+          "text": "Between 270 and 0"
+        },
+        {
+          "id": "28074",
+          "text": "Between 0 and 090"
+        }
+      ],
+      "correct": [
+        "11947"
+      ]
+    },
+    {
+      "question": "<p>Refer to Figure 26, area 5</p>\n<p>You have been hired to inspect the tall structures, including going to the maximum altitude above the structures, at 46 degrees 55 minutes N and 97 degrees 58 minutes W, near Barnes County (BAC). What must you receive prior to flying your unmanned aircraft in this area? </p>",
+      "choices": [
+        {
+          "id": "12083",
+          "text": "Authorization is not required."
+        },
+        {
+          "id": "54012",
+          "text": "Authorization from ATC."
+        },
+        {
+          "id": "628",
+          "text": "Authorization from the National Tower Inspection Service.."
+        }
+      ],
+      "correct": [
+        "12083"
+      ]
+    },
+    {
+      "question": "<p>Refer to Figure 20 Area 3</p>\n<p>With ATC authorization, you are operating your small unmanned aircraft approximately 4 SM southeast of Elizabeth City Regional Airport (ECG). What hazard is indicated to be in that area? </p>",
+      "choices": [
+        {
+          "id": "29993",
+          "text": "High density military operations in the vicinity."
+        },
+        {
+          "id": "2825",
+          "text": "Unmarked balloon on a cable up to 3,008 feet AGL."
+        },
+        {
+          "id": "84394",
+          "text": "Unmarked balloon on a cable up to 3,008 feet MSL."
+        }
+      ],
+      "correct": [
+        "84394"
+      ]
+    },
+    {
+      "question": "The most comprehensive information on a given airport is provided by",
+      "choices": [
+        {
+          "id": "17170",
+          "text": "the Chart Supplements U.S. (formerly Airport Facility Directory)."
+        },
+        {
+          "id": "53277",
+          "text": "Notices to Airmen (NOTAMS)."
+        },
+        {
+          "id": "21124",
+          "text": "Terminal Area Chart (TAC)."
+        }
+      ],
+      "correct": [
+        "17170"
+      ]
+    },
+    {
+      "question": "According to 14 CFR part 107, who is responsible for determining the performance of a small unmanned aircraft?",
+      "choices": [
+        {
+          "id": "86847",
+          "text": "Remote pilot-in-command."
+        },
+        {
+          "id": "96611",
+          "text": "Manufacturer."
+        },
+        {
+          "id": "62003",
+          "text": "Owner or operator."
+        }
+      ],
+      "correct": [
+        "86847"
+      ]
+    },
+    {
+      "question": "What antidotal phrase can help reverse the hazardous attitude of \"antiauthority\"?",
+      "choices": [
+        {
+          "id": "41944",
+          "text": "Follow the rules"
+        },
+        {
+          "id": "91003",
+          "text": "I know what I am doing"
+        },
+        {
+          "id": "26865",
+          "text": "Rules do not apply in this situation"
+        }
+      ],
+      "correct": [
+        "41944"
+      ]
+    },
+    {
+      "question": "Under what condition would a small UA not have to be registered before it is operated in the United States?",
+      "choices": [
+        {
+          "id": "49272",
+          "text": "When the aircraft weighs less than .55 pounds on takeoff, including everything that is on-board or attached to the aircraft."
+        },
+        {
+          "id": "17614",
+          "text": "When the aircraft has a takeoff weight that is more than .55 pounds, but less than 55 pounds, not including fuel and necessary attachments."
+        },
+        {
+          "id": "24140",
+          "text": "All small UAS need to be registered regardless of the weight of the aircraft before, during, or after the flight."
+        }
+      ],
+      "correct": [
+        "49272"
+      ]
+    },
+    {
+      "question": "According to 14 CFR part 48, when must a person register a small UA with the Federal Aviation Administration?",
+      "choices": [
+        {
+          "id": "49002",
+          "text": "All civilian small UAs weighing greater than     .55 pounds must be registered regardless of its intended use."
+        },
+        {
+          "id": "48731",
+          "text": "When the small UA is used for any purpose other than as a model aircraft."
+        },
+        {
+          "id": "51703",
+          "text": "Only when the operator will be paid for commercial services."
+        }
+      ],
+      "correct": [
+        "49002"
+      ]
+    },
+    {
+      "question": "According to 14 CFR part 48, how old must a UA owner be in order to be permitted to register it?",
+      "choices": [
+        {
+          "id": "42584",
+          "text": "13 years old"
+        },
+        {
+          "id": "6077",
+          "text": "14 years old"
+        },
+        {
+          "id": "70556",
+          "text": "18 years old"
+        }
+      ],
+      "correct": [
+        "42584"
+      ]
+    },
+    {
+      "question": "According to 14 CFR part 107, how may a remote pilot operate an unmanned aircraft in class B airspace?",
+      "choices": [
+        {
+          "id": "122",
+          "text": "The remote pilot must have prior authorization from the Air Traffic Control (ATC) facility having jurisdiction over that airspace."
+        },
+        {
+          "id": "80450",
+          "text": "The remote pilot must monitor the Air Traffic Control (ATC) frequency from launch to recovery."
+        },
+        {
+          "id": "46699",
+          "text": "The remote pilot must contact the Air Traffic Control (ATC) facility after launching the unmanned aircraft."
+        }
+      ],
+      "correct": [
+        "122"
+      ]
+    },
+    {
+      "question": "According to 14 CFR part 107, what is required to operate a small UA within 30 minutes after official sunset?",
+      "choices": [
+        {
+          "id": "58365",
+          "text": "Use of anti-collision lights."
+        },
+        {
+          "id": "39989",
+          "text": "Must be operated in a rural area."
+        },
+        {
+          "id": "74464",
+          "text": "Use of a transponder."
+        }
+      ],
+      "correct": [
+        "58365"
+      ]
+    },
+    {
+      "question": "What conditions are necessary for the formation of thunderstorms?",
+      "choices": [
+        {
+          "id": "55433",
+          "text": "High humidity, lifting force and unstable conditions"
+        },
+        {
+          "id": "29115",
+          "text": "High humidity, high temperature, and cumulus clouds"
+        },
+        {
+          "id": "25753",
+          "text": "Lifting force, moist air and extensive cloud cover"
+        }
+      ],
+      "correct": [
+        "55433"
+      ]
+    },
+    {
+      "question": "What effect does high density altitude have on the efficiency of a UA propeller?",
+      "choices": [
+        {
+          "id": "83254",
+          "text": "Propeller efficiency is increased."
+        },
+        {
+          "id": "44988",
+          "text": "Propeller efficiency is decreased."
+        },
+        {
+          "id": "30656",
+          "text": "Density altitude does not affect propeller efficiency."
+        }
+      ],
+      "correct": [
+        "44988"
+      ]
+    },
+    {
+      "question": "You obtained a weather report from a nearby airport for your operation. The weather reports an overcast cloud ceiling at 800 feet. What is the maximum altitude allowed for your operation?",
+      "choices": [
+        {
+          "id": "93008",
+          "text": "300 feet"
+        },
+        {
+          "id": "58051",
+          "text": "400 feet"
+        },
+        {
+          "id": "58710",
+          "text": "200 feet"
+        }
+      ],
+      "correct": [
+        "93008"
+      ]
+    },
+    {
+      "question": "What is the best way for a remote pilot to determine the likelihood of local fog formation?",
+      "choices": [
+        {
+          "id": "51430",
+          "text": "Monitor the temperature/dew point spread."
+        },
+        {
+          "id": "91430",
+          "text": "Monitor the wind conditions to insure the wind speed is not increasing"
+        },
+        {
+          "id": "83187",
+          "text": "Monitor the barometric pressure to insure that it is not decreasing."
+        }
+      ],
+      "correct": [
+        "51430"
+      ]
+    },
+    {
+      "question": "<p>Refer to Figure 12</p>\n<p>The wind direction and velocity at KINK is from\u00a0</p>",
+      "choices": [
+        {
+          "id": "62780",
+          "text": "110\u00b0 true at 12 knots gusting to 18"
+        },
+        {
+          "id": "10036",
+          "text": "110\u00b0 magnetic at 12 knots gusting to 18"
+        },
+        {
+          "id": "73267",
+          "text": "110\u00b0 true at 12 knots."
+        }
+      ],
+      "correct": [
+        "62780"
+      ]
+    },
+    {
+      "question": "<p>Refer to Figure 12:</p>\n<p>Which airport is reporting mist?</p>",
+      "choices": [
+        {
+          "id": "91844",
+          "text": "KLAX"
+        },
+        {
+          "id": "20817",
+          "text": "KMDW"
+        },
+        {
+          "id": "1017",
+          "text": "KJFK"
+        }
+      ],
+      "correct": [
+        "91844"
+      ]
+    }
+  ]
+}
