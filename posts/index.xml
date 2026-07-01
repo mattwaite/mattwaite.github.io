@@ -9,6 +9,11 @@
 <link>https://www.mattwaite.com/posts/</link>
 <atom:link href="https://www.mattwaite.com/posts/index.xml" rel="self" type="application/rss+xml"/>
 <description>Archive of posts on journalism, data, code, and technology.</description>
+<image>
+<url>https://www.mattwaite.com/card-preview.png</url>
+<title>Matt Waite</title>
+<link>https://www.mattwaite.com/posts/</link>
+</image>
 <generator>quarto-1.9.36</generator>
 <lastBuildDate>Tue, 16 Jun 2026 05:00:00 GMT</lastBuildDate>
 <item>
@@ -580,9 +585,9 @@ When using a filter, you must use == for equal to instead of =.</div>
       <style>
         :root {
           --cr-section-background-color: transparent;
+--cr-narrative-background-color-overlay: transparent;
 --cr-narrative-text-color-overlay: black;
 --cr-narrative-background-color-sidebar: transparent;
---cr-narrative-background-color-overlay: transparent;
         }
       </style>
     
