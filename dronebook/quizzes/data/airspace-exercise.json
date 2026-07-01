@@ -2,7 +2,7 @@
   "title": "Do: Airspace Exercise",
   "questions": [
     {
-      "question": "<p>Search KORD in vfrmap.com.</p>\n<p>This is O'Hare Airport in Chicago. To the northeast of the airport, on the shores of Lake Michigan, is Ryan Field at Northwestern University. It is one of the worst stadiums in the Big Ten, home to a bunch of trust-funders who I loathe, irrespective of what any scoreboard says.</p>\n<p>What airspace is that garbage field in?</p>",
+      "question": "<p>Search KORD in vfrmap.com.</p>\n<p>This is O'Hare Airport in Chicago. To the northeast of the airport, on the shores of Lake Michigan, is Ryan Field at Northwestern University. It is one of the worst stadiums in the Big Ten.</p>\n<p>What airspace is that garbage field in?</p>",
       "choices": [
         {
           "id": "5968",
