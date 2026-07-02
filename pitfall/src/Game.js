@@ -131,10 +131,25 @@ class Game {
   }
 
   _respawn() {
-    const savedX   = this.player.worldX;
-    this.player    = new Player(savedX);
+    // Never respawn over a pool — the player would fall straight back in
+    // and burn every remaining life in a loop.
+    const safeX    = this._findSafeX(this.player.worldX);
+    this.player    = new Player(safeX);
     this.player.invincible = 3; // 3 seconds of invincibility
-    this.camera.follow(savedX);
+    this.camera.follow(safeX);
+  }
+
+  // Nearest X with solid ground, backed off a little from any pool edge.
+  _findSafeX(x) {
+    const solid = wx => this.world.getGroundY(wx, 'surface') !== Infinity;
+    for (let off = 0; off <= C.ROOM_W; off += 4) {
+      for (const dir of [-1, 1]) {
+        const cand = x + dir * off;
+        if (cand < C.PW / 2) continue;
+        if (solid(cand) && solid(cand + dir * 10)) return cand + dir * 10;
+      }
+    }
+    return x;
   }
 
   _reset() {
@@ -161,7 +176,8 @@ class Game {
         'ARROW KEYS or WASD to move',
         'SPACE / UP to jump',
         'DOWN near ladder to descend',
-        'Jump into vine to swing',
+        'Time your jump to catch',
+        'the swinging rope',
         '',
         'PRESS SPACE TO START',
       ]);

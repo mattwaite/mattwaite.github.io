@@ -30,6 +30,7 @@ const C = {
   // Vine
   VINE_ANCHOR_Y: 18,
   VINE_LEN:      88,
+  VINE_AMP:      0.96,  // swing amplitude in radians (~55°) — bob reaches ±72px
 
   // Score values
   SCORE: { gold: 4000, silver: 3250, ring: 2000, bag: 1000 },

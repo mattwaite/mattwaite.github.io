@@ -1,11 +1,12 @@
 // News van: rolls back and forth, lethal on contact.
 // Replaced the original rolling-log sprite; all game logic unchanged.
 class Log extends Obstacle {
-  constructor(worldX, layer) {
+  constructor(worldX, layer, speed) {
     super(worldX, 28, 14);
     this.layer  = layer || 'surface';
     this.lethal = true;
-    this.vx     = -55;
+    this.speed  = speed || 55;
+    this.vx     = -this.speed;
     this.frame  = 0;
     this.leftBound  = worldX - 140;
     this.rightBound = worldX + 140;
@@ -13,8 +14,8 @@ class Log extends Obstacle {
 
   update(dt) {
     this.worldX += this.vx * dt;
-    if (this.worldX <= this.leftBound)  { this.worldX = this.leftBound;  this.vx =  55; }
-    if (this.worldX >= this.rightBound) { this.worldX = this.rightBound; this.vx = -55; }
+    if (this.worldX <= this.leftBound)  { this.worldX = this.leftBound;  this.vx =  this.speed; }
+    if (this.worldX >= this.rightBound) { this.worldX = this.rightBound; this.vx = -this.speed; }
     this.frame++;
   }
 

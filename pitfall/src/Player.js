@@ -12,9 +12,13 @@ class Player {
     this.frame    = 0;
 
     // Vine swing
-    this.vineRef    = null;
-    this.vineAngle  = 0;
-    this.vineOmega  = 0;
+    this.vineRef      = null;
+    this.vineAngle    = 0;
+    this.vineOmega    = 0;
+    this.vineCooldown = 0;   // brief lockout after release so we don't regrab
+
+    // Sinking into a pool after falling in
+    this.sinking = false;
 
     // Ladder
     this.ladderRef = null;
@@ -49,12 +53,11 @@ class Player {
   grabVine(vine) {
     this.state    = 'swing';
     this.vineRef  = vine;
-    // Start at a pre-set angle in the approach direction so the player
-    // gets a full, satisfying arc regardless of exact grab timing.
-    const movingRight = this.vx >= 0;
-    this.vineAngle = movingRight ? -Math.PI / 4.5 : Math.PI / 4.5;
-    const speed    = Math.abs(this.vx) / C.VINE_LEN;
-    this.vineOmega = movingRight ? speed : -speed;
+    vine.held     = true;
+    // Inherit the rope's motion — catching it early in the arc means a big
+    // carry, catching it near dead-bottom means a weak one.
+    this.vineAngle = vine.angle;
+    this.vineOmega = vine.omega;
     this.vx = 0;
     this.vy = 0;
   }
@@ -67,8 +70,15 @@ class Player {
     this.vx = L * omega * Math.cos(theta);
     this.vy = -L * omega * Math.sin(theta);
     this.state    = 'jump';
-    this.vineRef  = null;
     this.grounded = false;
+    // Rope keeps swinging from where we let go
+    if (this.vineRef) {
+      this.vineRef.held  = false;
+      this.vineRef.angle = this.vineAngle;
+      this.vineRef.omega = this.vineOmega;
+    }
+    this.vineRef      = null;
+    this.vineCooldown = 0.4;
   }
 
   die() {
@@ -82,10 +92,13 @@ class Player {
   // ── Main update ───────────────────────────────────────────────────────────
   update(dt, input, world) {
     this.frame++;
-    if (this.invincible > 0) this.invincible -= dt;
+    if (this.invincible > 0)   this.invincible   -= dt;
+    if (this.vineCooldown > 0) this.vineCooldown -= dt;
 
     if (this.state === 'dead') {
       this.deadTimer -= dt;
+      // Slowly disappear into the algae water
+      if (this.sinking && this.y < C.GROUND_BOT) this.y += 10 * dt;
       return;
     }
 
@@ -145,9 +158,12 @@ class Player {
     const groundY = world.getGroundY(this.worldX, this.layer);
 
     if (groundY === Infinity) {
-      // Over a pit — gravity takes over, player falls
+      // Over a pool — gravity takes over; hitting the water is death
       this.grounded = false;
-      if (this.y > C.GROUND_Y + 30) this.die();
+      if (this.y >= C.GROUND_Y + 8) {
+        this.sinking = true;
+        this.die();
+      }
     } else if (this.y >= groundY && this.vy >= 0) {
       this.y        = groundY;
       this.vy       = 0;
@@ -158,8 +174,9 @@ class Player {
     }
 
     // ── Vine grab ────────────────────────────────────────────────────
-    if (this.airborne && this.state === 'jump' && this.layer === 'surface') {
-      const vine = world.getVineAt(this.worldX, this.y);
+    if (this.airborne && this.state === 'jump' &&
+        this.layer === 'surface' && this.vineCooldown <= 0) {
+      const vine = world.getVineAt(this);
       if (vine) this.grabVine(vine);
     }
 
@@ -177,8 +194,11 @@ class Player {
     this.vineAngle += this.vineOmega * dt;
 
     const vine    = this.vineRef;
+    vine.angle    = this.vineAngle;   // keep rope state in sync for release
+    vine.omega    = this.vineOmega;
     this.worldX   = vine.worldX + Math.sin(this.vineAngle) * L;
     this.y        = C.VINE_ANCHOR_Y + Math.cos(this.vineAngle) * L;
+    this.facingRight = this.vineOmega >= 0;
 
     if (input.jumpPressed) this.releaseVine();
   }

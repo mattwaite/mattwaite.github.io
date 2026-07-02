@@ -1,20 +1,21 @@
 // Reporter: patrols back and forth with a camera, lethal on contact.
 // Replaced the original Scorpion sprite; all game logic unchanged.
 class Scorpion extends Obstacle {
-  constructor(worldX, layer, patrolLeft, patrolRight) {
+  constructor(worldX, layer, patrolLeft, patrolRight, speed) {
     super(worldX, 10, 14);
     this.layer       = layer || 'surface';
     this.lethal      = true;
     this.patrolLeft  = patrolLeft;
     this.patrolRight = patrolRight;
-    this.vx          = 32;
+    this.speed       = speed || 32;
+    this.vx          = this.speed;
     this.frame       = 0;
   }
 
   update(dt) {
     this.worldX += this.vx * dt;
-    if (this.worldX >= this.patrolRight) { this.worldX = this.patrolRight; this.vx = -32; }
-    if (this.worldX <= this.patrolLeft)  { this.worldX = this.patrolLeft;  this.vx =  32; }
+    if (this.worldX >= this.patrolRight) { this.worldX = this.patrolRight; this.vx = -this.speed; }
+    if (this.worldX <= this.patrolLeft)  { this.worldX = this.patrolLeft;  this.vx =  this.speed; }
     this.frame++;
   }
 
