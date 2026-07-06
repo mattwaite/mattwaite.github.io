@@ -15,7 +15,62 @@
 <link>https://www.mattwaite.com/posts/</link>
 </image>
 <generator>quarto-1.9.36</generator>
-<lastBuildDate>Tue, 16 Jun 2026 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 06 Jul 2026 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>Irrational products, editorial games, AI and 2 Live Crew</title>
+  <dc:creator>Matt Waite</dc:creator>
+  <link>https://www.mattwaite.com/posts/2026-07-06-irrational-products-ai-and-2-live-crew/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>In 1923, the American Journal of Sociology published a study called The Natural History of the Newspaper by Robert E. Park, one of the most influential figures in early American sociology and one of the reasons sociology is the discipline it is today. For those of us with a little salt and pepper in their hair who can remember newspapers as they were, Park’s paper is a fun read. It contains little gems like this: “The newspaper, like the modern city, is not wholly a rational product. No one sought to make it just what it is.”</p>
+<p>And that, to me, is ammunition for seemingly neverending arguments about What Journalism Is or Is Not. And frankly, there are echoes of some tired old arguments in this genre around the AI discussions going on.</p>
+<p>But as Park wrote, what we consider sacrosanct is really accident. At least half of “the way we’ve always done it” was dictacted by technology, time, economics and the audience that was available at the time. Even the titans of journalism couldn’t even agree on what the newspaper was <em>for</em>.</p>
+<blockquote class="blockquote">
+<p>Pulitzer’s principal contribution to yellow journalism was muck raking, Hearst’s was mainly “jazz.” The newspaper had been conducted up to this time upon the theory that its business was to instruct. Hearst rejected that conception. His appeal was frankly not to the intellect but to the heart. The newspaper was for him first and last a form of entertainment.</p>
+</blockquote>
+<p>Which brings me to what I’ve been playing around with lately: Games. Specifically, making games with AI, since I have absolutely zero game making experience. But it’s not just games for games’ sake: Some are games with a message. A point of view. Opinion games.</p>
+<section id="micro-software-creativity-and-interactivity" class="level2">
+<h2 class="anchored" data-anchor-id="micro-software-creativity-and-interactivity">Micro-software, creativity and interactivity</h2>
+<p>I got this idea last fall, when I taught a multimedia class, which forced me to think about what exactly <em>is</em> multimedia in 2025/2026. One of the answers I came up with, and experimented with students, was the idea of a <a href="https://www.niemanlab.org/2025/12/the-rise-of-the-throwaway-news-app/">throwaway news app</a> – simple, short-term value, based-on-the-news web apps that give readers some insight, built with AI in under 30 minutes, no server and no maintenance required. Got a spreadsheet of some data? Make a throwaway news app so people can search it. With a decent coding agent, it’s done in about the same time it takes to make a Datawrapper chart – minutes. They just become another piece of the puzzle, and because they’re built in minutes and don’t require maintenance (necessarily), the economics works. You don’t need a bajillion pageviews or convert dozens of subs from your one app. It’s the exact same sales pitch that Datawrapper makes – you don’t need a data visualization professional to make a bar chart. Well, you also don’t need a full stack web developer to let people search a data file of 50,000 rows.</p>
+<p>To be honest, I thought it would take students more time and effort to make these throwaway web apps, but they ripped through them. So I was left wondering … what now? And I started thinking about other forms of interactivity. And then it hit me: games.</p>
+<p>Not just games, but news games. Silly little things that try to get people into the news in a new way. Together, we tried making a trivia game based on current news stories. Ripped through it. Like left class early level ripped through it. Then I gave them a very flexible pitch – make a game based on the news for the campus newspaper – and let them go. They didn’t even have a coding agent – we were using free Google AI Pro accounts and Google released Antigravity the week after this assignment was due – and yet they made all kinds of games. One was a news topics matching game. Another was a <a href="https://flappybird.io/">Flappy Birds</a> clone where a dot had to <a href="https://treysonmarler.github.io/News-Game/">fly through a laundry room full of dryers</a> on fire a few days after firefighters were called to douse a smoking dryer on campus. Another created a text-based Oregon Trail homage where <a href="https://liviaziskey.github.io/husker-trail/">the protagonist is a college student</a>, and the choices they make have different effects on the outcome. Mine was an <a href="https://www.mattwaite.com/bowling-for-dollars/">Atari Bowling clone from 1978</a>, where the chancellor at the time was bowling for dollars. Every pin was a million dollars cut from the budget. After 10 frames, your score was tallied and compared to the budget defecit on campus.</p>
+<p>That silly bowling game, terrible as it is, got me thinking: What if these games had a message? Instead of news games, what if they were opinion games?</p>
+<p>I believe one of the outcomes of AI in journalism is that an industry where so much of good journalism is just an infinite supply of edge cases that defy standardization is now going to be able to create all manner of micro-software – throwaway scripts and programs that solve a problem that only exists on a particular story. Rarely ever are the needs that complex, and almost never is there value in continuing to work on the problem to refine it. Once the story is done, move on.</p>
+<p>No newsroom anywhere has so many software developers laying around that any whim can be made real. But now … they kinda can. I find people using AI to write stories so tedious and boring. Hooray, just what everyone wants: more content to consume that is so low value as to not need a human to write. But some of us have been shouting from the rooftops that we need to find new ways to tell stories. Coding agents and a little creativity open those doors very, very wide.</p>
+<p>Here’s an example: The other day, I thought to myself that it would be funny if someone took the 1982 Atari 2600 classic game Pitfall! by Activision and modernized it so the player character is the president and the swamps are the Reflecting Pool clogged with algae. Instead of dodging scorpions and logs, it’s reporters and TV news vans.</p>
+<p>It’s taken about three or four revisions to get the gameplay a little better and there’s more I <em>could</em> do with it, but for about an hour’s worth of work, it’s pretty good. I gave Claude an image of gameplay from Pitfall and asked if it recognized it. It did, and so I described the game and how I wanted it to be different and modern given the situation at the reflecting pool. After that, it was just revisions. For example, the pools were too small – you could just jump over them originally – and the vines didn’t swing. A little update later and boom, what you see is there.</p>
+<div id="poolfall">
+
+</div>
+<script src="https://pym.nprapps.org/pym.v1.min.js"></script>
+<script>new pym.Parent("poolfall", "https://www.mattwaite.com/poolfall/");</script>
+<p>What’s needed now is text – a headline, the editorial viewpoint of the organization, details about the problems with the pool for those not following along. Others are better at that than I am, but it’s not hard to envision this silly game as what we called art in the middle of the text. Headline, intro text, set up the game, game. Easy.</p>
+</section>
+<section id="hey-wait-is-this-legal" class="level2">
+<h2 class="anchored" data-anchor-id="hey-wait-is-this-legal">Hey wait, is this legal?</h2>
+<p>I’m not a lawyer, so if you’re a news organization you should consult yours before doing this. But my layman’s understanding of fair use – specifically the comment and criticism parts of fair use – make this pretty likely to be considered fair use.</p>
+<p>And weirdly, we can thank 2 Live Crew. Yes, that 2 Live Crew.</p>
+<p>Copyright law says every fair use case is individual, but there’s a generic four-part test for determining if something is considered fair use or not. 1. Purpose and character – are you making something substantially new or are you just copying it? Did you add new meaning or expression? Seems were on pretty solid ground here. 2. Nature of the copyrighted work. Are you taking from factual work, which gives you more leeway, or from creative work, which gives you less? This is a strike against us. 3. The amount and substantiality of the portion taken. The short version of the rule here is less is more. The less you take, the more likely it is to be fair use, especially if it’s not the central, most recognizable part of the work. However, it’s not always true, thanks to 2 Live Crew. More on that soon. 4. The effect of the use on the potential market. Are you depriving the copyright owner of income? Are you undermining a potential market for their work? And here’s where 2 Live Crew comes in again.</p>
+<p>2 Live Crew are the winners of two major free expression cases in U.S. law. The one most people remember is when their album <em>As Nasty As They Wanna Be</em> was attacked by various culture war groups as being obscene, a charge a court later rejected. A later case is lesser known: Campbell v Acuff-Rose Music Inc (1994), where the Supreme Court unanimously held that 2 Live Crew did not infringe on Roy Orbison’s “Oh Pretty Woman” when they made a parody version of it.</p>
+<p>The Court reversed an appeals court ruling against 2 Live Crew saying they made two major mistakes. First, they agreed with the appeals court that parody requires some different rules than other fair use cases because the amount of copying needed to make a parody of something is different. But the Supreme Court went further, saying that with parody, copying the “heart” of the work is often necessary because that is what conjures up the work in the person’s mind so it can be parodied. The Less Is More rule doesn’t apply here. The second mistake the court took issue with is the assumption that 2 Live Crew did harm to the copyright holder simply because the use was for commercial gain. The appeals court envisioned a world where there was room for only one song that sounded like “Oh Pretty Woman” and that two versions would take money from the copyright holder. The Court found that doesn’t apply beyond pure duplication. “As to parody pure and simple, it is unlikely that the work will act as a substitute for the original, since the two works usually serve different market functions,” Justice Souter wrote in delivering the opinion of the Court. (Rabbit hole note: It will never get old seeing wildy incongruous things like <a href="https://supreme.justia.com/cases/federal/us/510/569/case.pdf">2 Live Crew lyrics in Supreme Court decisions</a>.)</p>
+<p>So does my Pitfall riff take the heart of the game? It does. Does it create something new with it, with a distinct purpose other than pure duplication? It does! Will my version act as a substitution for a game from console dead for 40 years? Very unlikely. The version you see here isn’t even trying to make a penny. Does advertising on the page or subscription revenue change that? Probably, but Campbell v Acuff-Rose sets a high bar.</p>
+<p>So there it is: Some creativity, a coding agent, a bit of time and the free expression rights 2 Live Crew fought to provide you can make something new and different that might hook an audience for a little bit of time. Seems worth trying.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>journalism</category>
+  <category>education</category>
+  <category>AI</category>
+  <guid>https://www.mattwaite.com/posts/2026-07-06-irrational-products-ai-and-2-live-crew/</guid>
+  <pubDate>Mon, 06 Jul 2026 05:00:00 GMT</pubDate>
+  <media:content url="https://www.mattwaite.com/posts/2026-07-06-irrational-products-ai-and-2-live-crew/image.png" medium="image" type="image/png" height="92" width="144"/>
+</item>
 <item>
   <title>A rant about teaching journalism in 2026</title>
   <dc:creator>Matt Waite</dc:creator>
@@ -584,10 +639,10 @@ When using a filter, you must use == for equal to instead of =.</div>
       <!-- user-provided yaml closeread style options -->
       <style>
         :root {
-          --cr-section-background-color: transparent;
---cr-narrative-background-color-overlay: transparent;
---cr-narrative-text-color-overlay: black;
+          --cr-narrative-background-color-overlay: transparent;
 --cr-narrative-background-color-sidebar: transparent;
+--cr-section-background-color: transparent;
+--cr-narrative-text-color-overlay: black;
         }
       </style>
     
@@ -11521,26 +11576,6 @@ font-style: inherit;">everything</span>())</span>
  ]]></description>
   <guid>https://www.mattwaite.com/posts/2014-02-11-a-small-step-toward-solving-the-our-curriculum-is-too-full-problem/</guid>
   <pubDate>Tue, 11 Feb 2014 06:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Unconference panel pitch I will someday make</title>
-  <dc:creator>Matt Waite</dc:creator>
-  <link>https://www.mattwaite.com/posts/2013-09-12-unconference-panel-pitch-i-will-someday-make/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p><strong>I want to solve a journalism problem with a <a href="http://store.makerbot.com/replicator2.html">MakerBot</a>. What is it?</strong></p>
-<p>I hate having a fantastic solution and no problem to solve. Being a solution in search of a problem sucks. I’m hoping to get students thinking about this in an <a href="http://makerhours.org/post/60465693744/announcing-the-maker-hours-fund">open lab time I’m running</a>. But seriously. I want a MakerBot. My gut says there’s a journalism problem to solve here. But I don’t know what it is yet.&nbsp;</p>
-<p>Yet.</p>
-
-
-
- ]]></description>
-  <guid>https://www.mattwaite.com/posts/2013-09-12-unconference-panel-pitch-i-will-someday-make/</guid>
-  <pubDate>Thu, 12 Sep 2013 05:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
