@@ -639,8 +639,8 @@ When using a filter, you must use == for equal to instead of =.</div>
         :root {
           --cr-narrative-background-color-overlay: transparent;
 --cr-section-background-color: transparent;
---cr-narrative-text-color-overlay: black;
 --cr-narrative-background-color-sidebar: transparent;
+--cr-narrative-text-color-overlay: black;
         }
       </style>
     

@@ -788,14 +788,16 @@ p.description {
     color: white !important;
 }
 
-/* === ARTICLE BODY ========================================== */
-article {
+/* === ARTICLE BODY =========================================== */
+/* Quarto wraps post content in <main id="quarto-document-content">,
+   not <article> — these rules target that wrapper directly. */
+body.fullcontent #quarto-document-content {
     font-family: var(--font-body);
     font-size: 1.05rem;
     line-height: 1.8;
 }
 
-article h2 {
+body.fullcontent #quarto-document-content h2 {
     font-family: var(--font-headline);
     font-size: 1.65rem;
     border-bottom: 2px solid var(--primary);
@@ -804,13 +806,13 @@ article h2 {
     margin-bottom: 1.25rem;
 }
 
-article h3 {
+body.fullcontent #quarto-document-content h3 {
     font-family: var(--font-headline);
     font-size: 1.25rem;
     margin-top: 2rem;
 }
 
-article blockquote {
+body.fullcontent #quarto-document-content blockquote {
     border-left: 4px solid var(--secondary);
     border-top: none;
     border-right: none;
@@ -821,26 +823,38 @@ article blockquote {
     font-style: italic;
 }
 
-article code {
+body.fullcontent #quarto-document-content a {
+    color: var(--secondary);
+    text-decoration: underline;
+    text-decoration-color: rgba(180, 39, 32, 0.4);
+    text-underline-offset: 2px;
+}
+
+body.fullcontent #quarto-document-content a:hover {
+    color: var(--primary);
+    text-decoration-color: var(--primary);
+}
+
+body.fullcontent #quarto-document-content code {
     font-size: 0.85em;
     background: var(--surface-low);
     padding: 0.15em 0.4em;
     color: var(--primary);
 }
 
-article pre code {
+body.fullcontent #quarto-document-content pre code {
     background: transparent;
     padding: 0;
 }
 
-article pre {
+body.fullcontent #quarto-document-content pre {
     background: var(--surface-low);
     border-left: 3px solid var(--secondary);
     padding: 1.25rem 1.5rem;
     overflow-x: auto;
 }
 
-article hr {
+body.fullcontent #quarto-document-content hr {
     border: none;
     border-top: 2px solid var(--primary);
     margin: 2.5rem 0;
