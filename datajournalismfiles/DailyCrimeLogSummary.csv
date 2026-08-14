@@ -1,4 +1,4 @@
-Case #,Incident Code,Reported,Disposition,Start Occurred,End Occurred,Location
+case_number,incident_code,reported,disposition,start_occurred,end_occurred,location
 26002124,NARCOTICS - POSSESSION,2026-08-11T22:40:00Z,Closed - Cleared by Arrest-Adult,46245.944444444445,NULL,900 N 16th St
 26002123,TRAFFIC - SUSPENDED DRIVER,2026-08-11T20:51:00Z,Closed - Cleared by Arrest-Adult,46245.868750000001,NULL,N 27TH ST & VINE ST
 26002114,SUSPICIOUS PERSON,2026-08-10T15:06:00Z,Open,46244.604166666664,46244.61041666667,1248 R St
