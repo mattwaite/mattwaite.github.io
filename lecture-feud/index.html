@@ -673,18 +673,19 @@
   });
 
   resetGameBtn.addEventListener("click", function(){
-    if(confirm("Reset the whole game? This clears both team scores and the current board. Imported poll data is kept.")){
-      var keepPollData = state.pollData;
+    if(confirm("Reset the whole game? This clears team scores, the current board, and any imported poll data.")){
       state = {
-        teamA: { name: teamAName.value.trim() || "Team A", score: 0 },
-        teamB: { name: teamBName.value.trim() || "Team B", score: 0 },
+        teamA: { name: "Team A", score: 0 },
+        teamB: { name: "Team B", score: 0 },
         control: "A",
         strikes: 0,
         pot: 0,
         stealMode: false,
         board: null,
-        pollData: keepPollData
+        pollData: null
       };
+      pollCsvInput.value = "";
+      pollStatus.textContent = "";
       save();
       populateSetupFromState(false);
     }
