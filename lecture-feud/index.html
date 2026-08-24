@@ -250,6 +250,26 @@
       </div>
     </div>
 
+    <div class="field-row" id="pollImportRow">
+      <label>Import Poll Results (CSV)</label>
+      <input type="file" id="pollCsvInput" accept=".csv,text/csv">
+      <div id="pollStatus" style="font-size:12px;color:#aebbe8;margin-top:6px;font-family:Arial,sans-serif;"></div>
+    </div>
+
+    <div class="field-row" id="pollQuestionRow" style="display:none;">
+      <label>Load Poll Question Into Board</label>
+      <select id="pollQuestionSelect"></select>
+      <div class="team-names" style="margin-top:10px;">
+        <div class="field-row" style="margin-bottom:0;">
+          <label>Top Answers to Include</label>
+          <input type="number" id="pollTopN" min="1" max="20" value="8">
+        </div>
+        <div class="field-row" style="margin-bottom:0;display:flex;align-items:flex-end;">
+          <button class="btn btn-gold" id="loadPollBtn" type="button" style="width:100%;">Load Poll Into Board ▶</button>
+        </div>
+      </div>
+    </div>
+
     <div class="field-row">
       <label>Question</label>
       <input type="text" id="questionInput" placeholder="e.g. Name something you'd bring to a desert island">
@@ -331,7 +351,8 @@
     strikes: 0,
     pot: 0,
     stealMode: false,
-    board: null // { question: "", answers: [{text, points, revealed}] }
+    board: null, // { question: "", answers: [{text, points, revealed}] }
+    pollData: null // { columns: [{header, responseCount, tallies:[{text,count}]}] }
   };
 
   function save(){
@@ -407,6 +428,12 @@
   var addAnswerBtn = document.getElementById("addAnswerBtn");
   var createBoardBtn = document.getElementById("createBoardBtn");
   var resetGameBtn = document.getElementById("resetGameBtn");
+  var pollCsvInput = document.getElementById("pollCsvInput");
+  var pollStatus = document.getElementById("pollStatus");
+  var pollQuestionRow = document.getElementById("pollQuestionRow");
+  var pollQuestionSelect = document.getElementById("pollQuestionSelect");
+  var pollTopN = document.getElementById("pollTopN");
+  var loadPollBtn = document.getElementById("loadPollBtn");
 
   var questionBanner = document.getElementById("questionBanner");
   var board = document.getElementById("board");
@@ -496,7 +523,135 @@
       questionInput.value = "";
       for(var i=0;i<4;i++) addAnswerRow("", "");
     }
+    populatePollSelect();
   }
+
+  // ---------------- Poll CSV import ----------------
+  var NON_QUESTION_HEADER_RE = /^(name|nuid|id|student ?id|student ?number|email|e-?mail)$/i;
+
+  function parseCSV(text){
+    var rows = [];
+    var row = [];
+    var field = "";
+    var inQuotes = false;
+    for(var i=0;i<text.length;i++){
+      var c = text[i];
+      if(inQuotes){
+        if(c === '"'){
+          if(text[i+1] === '"'){ field += '"'; i++; }
+          else { inQuotes = false; }
+        } else {
+          field += c;
+        }
+      } else {
+        if(c === '"'){ inQuotes = true; }
+        else if(c === ','){ row.push(field); field = ""; }
+        else if(c === '\r'){ /* ignore, \n handles line end */ }
+        else if(c === '\n'){ row.push(field); rows.push(row); row = []; field = ""; }
+        else { field += c; }
+      }
+    }
+    if(field.length > 0 || row.length > 0){ row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  function buildPollData(rows){
+    if(rows.length < 2) return null;
+    var header = rows[0];
+    var qCols = [];
+    header.forEach(function(h, idx){
+      var trimmed = (h || "").trim();
+      if(trimmed.length === 0) return;
+      if(NON_QUESTION_HEADER_RE.test(trimmed)) return;
+      qCols.push({ idx: idx, header: trimmed });
+    });
+    var dataRows = rows.slice(1).filter(function(r){
+      return r.some(function(c){ return (c || "").trim().length > 0; });
+    });
+
+    qCols.forEach(function(col){
+      var groups = {}; // normalized -> { count, variants:{exactText:count} }
+      var responseCount = 0;
+      dataRows.forEach(function(r){
+        var raw = (r[col.idx] || "").trim();
+        if(!raw) return;
+        responseCount++;
+        var key = raw.toLowerCase().replace(/\s+/g, " ");
+        if(!groups[key]) groups[key] = { count: 0, variants: {} };
+        groups[key].count++;
+        groups[key].variants[raw] = (groups[key].variants[raw] || 0) + 1;
+      });
+      var tallies = Object.keys(groups).map(function(key){
+        var g = groups[key];
+        var bestText = key, bestCount = -1;
+        Object.keys(g.variants).forEach(function(v){
+          if(g.variants[v] > bestCount){ bestCount = g.variants[v]; bestText = v; }
+        });
+        return { text: bestText, count: g.count };
+      });
+      tallies.sort(function(a,b){ return b.count - a.count; });
+      col.tallies = tallies;
+      col.responseCount = responseCount;
+    });
+
+    return { columns: qCols };
+  }
+
+  function populatePollSelect(){
+    if(!state.pollData || !state.pollData.columns || state.pollData.columns.length === 0){
+      pollQuestionRow.style.display = "none";
+      return;
+    }
+    pollQuestionRow.style.display = "block";
+    pollQuestionSelect.innerHTML = "";
+    state.pollData.columns.forEach(function(col, idx){
+      var opt = document.createElement("option");
+      opt.value = idx;
+      opt.textContent = col.header + " (" + col.responseCount + " responses, " + col.tallies.length + " unique answers)";
+      pollQuestionSelect.appendChild(opt);
+    });
+  }
+
+  pollCsvInput.addEventListener("change", function(e){
+    var file = e.target.files[0];
+    if(!file) return;
+    var reader = new FileReader();
+    reader.onload = function(evt){
+      try{
+        var rows = parseCSV(String(evt.target.result));
+        var pd = buildPollData(rows);
+        if(!pd || pd.columns.length === 0){
+          pollStatus.textContent = "Couldn't find any poll question columns in that CSV.";
+          return;
+        }
+        state.pollData = pd;
+        save();
+        populatePollSelect();
+        pollStatus.textContent = "Loaded " + pd.columns.length + " poll question(s) from " + file.name + ". Pick one below and load it into the board.";
+      }catch(err){
+        pollStatus.textContent = "Error reading CSV: " + err.message;
+      }
+    };
+    reader.onerror = function(){ pollStatus.textContent = "Couldn't read that file."; };
+    reader.readAsText(file);
+  });
+
+  loadPollBtn.addEventListener("click", function(){
+    if(!state.pollData) return;
+    var col = state.pollData.columns[parseInt(pollQuestionSelect.value, 10)];
+    if(!col) return;
+    var topN = parseInt(pollTopN.value, 10);
+    if(isNaN(topN) || topN < 1) topN = 8;
+
+    questionInput.value = col.header.replace(/^Q\d+\s*:\s*/i, "").trim() || col.header;
+    answersList.innerHTML = "";
+    col.tallies.slice(0, topN).forEach(function(t){
+      addAnswerRow(t.text, t.count);
+    });
+    if(col.tallies.length === 0){
+      addAnswerRow("", "");
+    }
+  });
 
   createBoardBtn.addEventListener("click", function(){
     var q = questionInput.value.trim();
@@ -518,7 +673,8 @@
   });
 
   resetGameBtn.addEventListener("click", function(){
-    if(confirm("Reset the whole game? This clears both team scores and the current board.")){
+    if(confirm("Reset the whole game? This clears both team scores and the current board. Imported poll data is kept.")){
+      var keepPollData = state.pollData;
       state = {
         teamA: { name: teamAName.value.trim() || "Team A", score: 0 },
         teamB: { name: teamBName.value.trim() || "Team B", score: 0 },
@@ -526,7 +682,8 @@
         strikes: 0,
         pot: 0,
         stealMode: false,
-        board: null
+        board: null,
+        pollData: keepPollData
       };
       save();
       populateSetupFromState(false);
