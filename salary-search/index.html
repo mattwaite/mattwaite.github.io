@@ -88,6 +88,26 @@
             color: #222 !important;
         }
 
+        .result-year-row {
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .result-year-row:first-of-type {
+            padding-top: 0;
+            margin-top: 0;
+            border-top: none;
+        }
+
+        .result-year-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #999;
+            margin-bottom: 0.25rem;
+        }
+
         .no-results {
             color: #666;
             padding: 2rem;
@@ -120,12 +140,14 @@
 
     <script>
         let data = [];
+        let priorByName = {};
 
-        async function loadData() {
-            const response = await fetch('personnel_data.csv');
+        async function loadCsv(path) {
+            const response = await fetch(path);
             const text = await response.text();
             const lines = text.split('\n');
             const headers = parseCSVLine(lines[0]);
+            const rows = [];
 
             for (let i = 1; i < lines.length; i++) {
                 if (lines[i].trim()) {
@@ -134,9 +156,22 @@
                     headers.forEach((header, index) => {
                         record[header] = values[index] || '';
                     });
-                    data.push(record);
+                    rows.push(record);
                 }
             }
+            return rows;
+        }
+
+        async function loadData() {
+            const [current, prior] = await Promise.all([
+                loadCsv('personnel_data_2025_2026.csv'),
+                loadCsv('personnel_data_2024_2025.csv')
+            ]);
+
+            data = current;
+            prior.forEach(row => {
+                priorByName[row.Name] = row;
+            });
         }
 
         function parseCSVLine(line) {
@@ -182,20 +217,33 @@
                 infoDiv.textContent = '';
             } else {
                 infoDiv.textContent = `Showing ${matches.length}${matches.length === 50 ? '+' : ''} result${matches.length !== 1 ? 's' : ''}`;
-                resultsDiv.innerHTML = matches.map(row => `
+                resultsDiv.innerHTML = matches.map(row => {
+                    const priorRow = priorByName[row.Name];
+                    return `
                     <div class="result-card">
                         <div class="result-name">${escapeHtml(row.Name)}</div>
-                        <div class="result-title">${escapeHtml(row.Title)}</div>
-                        <div class="result-details">
-                            <span>${escapeHtml(row.Campus)}</span>
-                            <span class="result-salary">$${escapeHtml(row.Salary)}</span>
-                            <span>FTE: ${escapeHtml(row.FTE)}</span>
-                        </div>
+                        ${renderYearRow('2025-2026', row)}
+                        ${priorRow ? renderYearRow('2024-2025', priorRow) : ''}
                     </div>
-                `).join('');
+                `;
+                }).join('');
             }
 
             resultsDiv.style.display = 'block';
+        }
+
+        function renderYearRow(yearLabel, row) {
+            return `
+                <div class="result-year-row">
+                    <div class="result-year-label">${yearLabel}</div>
+                    <div class="result-title">${escapeHtml(row.Title)}</div>
+                    <div class="result-details">
+                        <span>${escapeHtml(row.Campus)}</span>
+                        <span class="result-salary">$${escapeHtml(row.Salary)}</span>
+                        <span>FTE: ${escapeHtml(row.FTE)}</span>
+                    </div>
+                </div>
+            `;
         }
 
         function escapeHtml(text) {
