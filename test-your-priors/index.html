@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Your Priors</title>
+<style>
+  :root{
+    --navy-dark:#0a1958;
+    --navy:#132a7a;
+    --navy-light:#1e42b0;
+    --gold:#ffcc33;
+    --gold-dark:#c99a1f;
+    --red:#d92b2b;
+    --dot:#5b8dff;
+    --dot-edge:#a9c2ff;
+    --high:#ff6b6b;
+    --low:#5b8dff;
+    --close:#ffcc33;
+    --panel-bg:#0d1440;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;padding:0;height:100%;
+    background:radial-gradient(ellipse at center, #050a2e 0%, #01031a 100%);
+    font-family:'Arial Black','Arial',sans-serif;
+    color:#fff;
+    overflow-x:hidden;
+  }
+  #app{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:16px;}
+
+  h1.title{
+    font-size:clamp(22px,4vw,40px);
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--gold);
+    text-shadow:0 0 12px rgba(255,204,51,0.5), 2px 2px 0 #000;
+    margin:6px 0 18px;
+    text-align:center;
+  }
+
+  /* ---------- SETUP SCREEN ---------- */
+  .setup-card{
+    background:var(--panel-bg);
+    border:3px solid var(--gold-dark);
+    border-radius:16px;
+    padding:24px;
+    max-width:820px;
+    width:100%;
+    box-shadow:0 0 40px rgba(0,0,0,0.6);
+  }
+  .field-row{margin-bottom:16px;}
+  label{
+    display:block;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#aebbe8;
+    margin-bottom:6px;
+    font-family:Arial,sans-serif;
+    font-weight:bold;
+  }
+  input[type="text"], input[type="number"], select, textarea{
+    width:100%;
+    padding:10px 12px;
+    border-radius:8px;
+    border:2px solid #35468f;
+    background:#16205c;
+    color:#fff;
+    font-size:16px;
+    font-family:Arial,sans-serif;
+  }
+  textarea{resize:vertical;min-height:80px;font-size:13px;font-family:Menlo,Consolas,monospace;}
+  input:focus, select:focus, textarea:focus{outline:2px solid var(--gold);}
+  .hint{font-size:12px;color:#aebbe8;margin-top:6px;font-family:Arial,sans-serif;line-height:1.4;}
+  .hint.warn{color:#ffb4b4;}
+  .or-divider{
+    display:flex;align-items:center;gap:10px;margin:12px 0 8px;
+    font-size:11px;color:#5a6aa8;text-transform:uppercase;letter-spacing:1px;font-family:Arial,sans-serif;font-weight:bold;
+  }
+  .or-divider:before,.or-divider:after{content:"";flex:1;height:1px;background:#35468f;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .three-col{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px;}
+  @media (max-width:600px){.two-col,.three-col{grid-template-columns:1fr;}}
+
+  .btn{
+    cursor:pointer;
+    border:none;
+    border-radius:8px;
+    font-family:Arial,sans-serif;
+    font-weight:bold;
+    font-size:14px;
+    padding:10px 16px;
+    transition:transform .08s ease, filter .15s ease;
+  }
+  .btn:hover{filter:brightness(1.12);}
+  .btn:active{transform:scale(0.96);}
+  .btn:disabled{opacity:0.35;cursor:not-allowed;}
+  .btn-gold{background:linear-gradient(180deg,#ffe066,var(--gold-dark));color:#231a00;}
+  .btn-red{background:linear-gradient(180deg,#ff5b5b,#a01818);color:#fff;}
+  .btn-ghost{background:#222c66;color:#cfd8ff;}
+  .btn-big{font-size:clamp(18px,2.4vw,24px);padding:16px 40px;letter-spacing:2px;text-transform:uppercase;border-radius:12px;
+    box-shadow:0 0 28px rgba(255,204,51,0.35);}
+  .setup-actions{display:flex;justify-content:space-between;gap:12px;margin-top:20px;flex-wrap:wrap;}
+
+  /* ---------- GAME SCREEN ---------- */
+  #game-screen{width:100%;max-width:1400px;display:flex;flex-direction:column;align-items:center;gap:16px;}
+  .question-banner{
+    background:linear-gradient(180deg,var(--navy-light),var(--navy-dark));
+    border:3px solid var(--gold);
+    border-radius:14px;
+    padding:16px 28px;
+    font-size:clamp(18px,2.6vw,30px);
+    text-align:center;
+    max-width:960px;
+    width:100%;
+    box-shadow:0 0 30px rgba(255,204,51,0.15);
+  }
+
+  .plot-card{
+    background:var(--panel-bg);
+    border:3px solid var(--gold-dark);
+    border-radius:16px;
+    padding:14px 14px 8px;
+    width:100%;
+    box-shadow:0 0 40px rgba(0,0,0,0.6);
+    position:relative;
+    overflow:hidden;
+  }
+  .plot{
+    position:relative;
+    width:100%;
+    height:clamp(280px,46vh,460px);
+    user-select:none;
+  }
+  .axis-line{
+    position:absolute;left:0;right:0;height:2px;background:#5a6aa8;
+  }
+  .tick{
+    position:absolute;width:0;transform:translateX(-50%);
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .tick .tick-mark{width:2px;height:8px;background:#5a6aa8;}
+  .tick .tick-label{
+    margin-top:4px;font-size:clamp(11px,1.3vw,15px);color:#aebbe8;font-family:Arial,sans-serif;font-weight:bold;white-space:nowrap;
+  }
+  .dot{
+    position:absolute;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, #cfe0ff 0%, var(--dot) 45%, #2b57c9 100%);
+    border:1px solid var(--dot-edge);
+    box-shadow:0 0 8px rgba(91,141,255,0.6);
+    transform:scale(0);
+    transition:transform .45s cubic-bezier(.2,.8,.3,1.1), left .3s ease, top .3s ease, background .5s ease, box-shadow .5s ease;
+  }
+  .dot.in{transform:scale(1);}
+  .plot.judged .dot.high{background:radial-gradient(circle at 35% 35%, #ffd0d0 0%, var(--high) 45%, #b32020 100%);border-color:#ffb4b4;box-shadow:0 0 8px rgba(255,107,107,0.6);}
+  .plot.judged .dot.low{background:radial-gradient(circle at 35% 35%, #cfe0ff 0%, var(--low) 45%, #2b57c9 100%);}
+  .plot.judged .dot.close{background:radial-gradient(circle at 35% 35%, #fff3c4 0%, var(--close) 45%, #b8860b 100%);border-color:#fff3c4;box-shadow:0 0 12px rgba(255,204,51,0.9);}
+
+  .tower-label{
+    position:absolute;transform:translate(-50%,-100%);
+    font-size:clamp(11px,1.2vw,14px);font-family:Arial,sans-serif;font-weight:bold;
+    color:#cfd8ff;white-space:nowrap;text-shadow:0 0 6px #000, 0 0 2px #000;
+    pointer-events:none;
+  }
+  .truth-marker{
+    position:absolute;top:0;width:0;pointer-events:none;
+    visibility:hidden;
+  }
+  .truth-marker.in{visibility:visible;}
+  .truth-line{
+    position:absolute;left:-2px;top:0;width:4px;
+    background:linear-gradient(180deg,#fff6da,var(--gold));
+    box-shadow:0 0 14px rgba(255,204,51,0.9), 0 0 30px rgba(255,204,51,0.5);
+    border-radius:2px;
+    transform:scaleY(0);transform-origin:top center;
+    transition:transform .55s cubic-bezier(.2,.8,.3,1.1);
+  }
+  .truth-marker.in .truth-line{transform:scaleY(1);}
+  .truth-label{
+    position:absolute;top:-4px;left:0;
+    transform:translate(-50%,-50%) scale(0);
+    transition:transform .5s cubic-bezier(.2,.8,.3,1.25) .35s;
+    background:linear-gradient(180deg,#fff6da,#ffe066);
+    color:#1a1200;
+    border:2px solid #fff;
+    border-radius:12px;
+    padding:6px 16px;
+    font-size:clamp(16px,2.4vw,28px);
+    white-space:nowrap;
+    box-shadow:0 0 24px rgba(255,204,51,0.9);
+    text-align:center;
+  }
+  .truth-label small{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:Arial,sans-serif;color:#6b5400;}
+  .truth-marker.in .truth-label{transform:translate(-50%,-50%) scale(1);}
+  .truth-marker.no-anim .truth-line,.truth-marker.no-anim .truth-label{transition:none;}
+  .truth-marker.left-edge .truth-label{transform:translate(-8%,-50%) scale(0);}
+  .truth-marker.left-edge.in .truth-label{transform:translate(-8%,-50%) scale(1);}
+  .truth-marker.right-edge .truth-label{transform:translate(-92%,-50%) scale(0);}
+  .truth-marker.right-edge.in .truth-label{transform:translate(-92%,-50%) scale(1);}
+
+  .flash{
+    position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;border-radius:13px;
+  }
+  .flash.go{animation:flash .7s ease-out forwards;}
+  @keyframes flash{0%{opacity:0;}12%{opacity:.85;}100%{opacity:0;}}
+  .plot-card.shake{animation:shake .5s cubic-bezier(.36,.07,.19,.97) both;}
+  @keyframes shake{
+    10%,90%{transform:translate3d(-1px,0,0);}
+    20%,80%{transform:translate3d(2px,0,0);}
+    30%,50%,70%{transform:translate3d(-4px,0,0);}
+    40%,60%{transform:translate3d(4px,0,0);}
+  }
+
+  .plot-legend{
+    display:flex;gap:18px;flex-wrap:wrap;justify-content:center;
+    margin-top:8px;font-size:12px;color:#aebbe8;font-family:Arial,sans-serif;font-weight:bold;text-transform:uppercase;letter-spacing:1px;
+  }
+  .legend-item{display:flex;align-items:center;gap:6px;}
+  .legend-swatch{width:12px;height:12px;border-radius:50%;display:inline-block;}
+  .legend-swatch.guess{background:var(--dot);}
+  .legend-swatch.high{background:var(--high);}
+  .legend-swatch.low{background:var(--low);}
+  .legend-swatch.close{background:var(--close);}
+  .legend-swatch.truth{border-radius:2px;width:4px;background:var(--gold);box-shadow:0 0 8px var(--gold);}
+  .legend-item.post{display:none;}
+  .revealed .legend-item.post{display:flex;}
+  .revealed .legend-item.pre{display:none;}
+
+  .stats-strip{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:12px;width:100%;
+  }
+  .stat-tile{
+    background:var(--panel-bg);border:2px solid var(--gold-dark);border-radius:12px;
+    padding:12px 14px;text-align:center;
+    transform:scale(1);transition:transform .4s cubic-bezier(.2,.8,.3,1.1), opacity .4s ease;
+  }
+  .stat-tile.pop{transform:scale(0);opacity:0;}
+  .stat-tile.truth-tile{border-color:var(--gold);box-shadow:0 0 24px rgba(255,204,51,0.4);}
+  .stat-label{font-size:11px;font-family:Arial,sans-serif;color:#aebbe8;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+  .stat-value{font-size:clamp(20px,2.8vw,30px);color:var(--gold);text-shadow:2px 2px 0 #000;}
+  .stat-sub{font-size:12px;font-family:Arial,sans-serif;font-weight:bold;color:#cfd8ff;margin-top:4px;}
+  .stat-sub.over{color:var(--high);}
+  .stat-sub.under{color:#9ab8ff;}
+  .stat-sub.spot{color:var(--gold);}
+
+  .game-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:6px;}
+
+  .footer-note{margin-top:24px;font-size:11px;color:#5a6aa8;font-family:Arial,sans-serif;text-align:center;line-height:1.5;max-width:720px;}
+</style>
+</head>
+<body>
+<div id="app">
+  <h1 class="title">🔮 Test Your Priors</h1>
+
+  <!-- ================= SETUP SCREEN ================= -->
+  <div id="setup-screen" class="setup-card">
+    <div class="field-row">
+      <label>Import Poll Results (CSV)</label>
+      <input type="file" id="pollCsvInput" accept=".csv,text/csv">
+      <div class="or-divider">or paste CSV text</div>
+      <textarea id="pollCsvText" placeholder="Paste the exported poll CSV here (header row first)"></textarea>
+      <div style="margin-top:8px;"><button class="btn btn-ghost" id="parsePasteBtn" type="button">Use Pasted CSV</button></div>
+      <div id="pollStatus" class="hint"></div>
+    </div>
+
+    <div id="questionSection" style="display:none;">
+      <div class="field-row">
+        <label>Pick the Question</label>
+        <select id="questionSelect"></select>
+        <div id="parseNote" class="hint"></div>
+      </div>
+
+      <div class="field-row">
+        <label>Question Text (as shown on screen)</label>
+        <input type="text" id="questionInput" placeholder="e.g. What is the median household income in Lincoln?">
+      </div>
+
+      <div class="two-col">
+        <div class="field-row">
+          <label>The Real Number</label>
+          <input type="text" id="truthInput" placeholder="e.g. 72000">
+          <div id="truthPreview" class="hint"></div>
+        </div>
+        <div class="field-row">
+          <label>Format</label>
+          <select id="formatSelect">
+            <option value="number">Plain number (72,000)</option>
+            <option value="currency">Currency ($72,000)</option>
+            <option value="percent">Percent (72%)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="field-row">
+          <label>Prefix (optional)</label>
+          <input type="text" id="prefixInput" placeholder="e.g. about ">
+        </div>
+        <div class="field-row">
+          <label>Suffix (optional)</label>
+          <input type="text" id="suffixInput" placeholder="e.g.  per year">
+        </div>
+      </div>
+    </div>
+
+    <div class="setup-actions">
+      <button class="btn btn-red" id="resetBtn" type="button">Reset Everything</button>
+      <button class="btn btn-gold" id="generateBtn" type="button" disabled>Generate Game ▶</button>
+    </div>
+  </div>
+
+  <!-- ================= GAME SCREEN ================= -->
+  <div id="game-screen" style="display:none;">
+    <div class="question-banner" id="questionBanner"></div>
+
+    <div class="plot-card" id="plotCard">
+      <div class="plot" id="plot"></div>
+      <div class="flash" id="flash"></div>
+      <div class="plot-legend" id="plotLegend">
+        <div class="legend-item pre"><span class="legend-swatch guess"></span> one dot = one guess</div>
+        <div class="legend-item pre" id="legendN"></div>
+        <div class="legend-item post"><span class="legend-swatch truth"></span> the truth</div>
+        <div class="legend-item post"><span class="legend-swatch high"></span> guessed too high</div>
+        <div class="legend-item post"><span class="legend-swatch low"></span> guessed too low</div>
+        <div class="legend-item post"><span class="legend-swatch close"></span> within 5%</div>
+      </div>
+    </div>
+
+    <div class="stats-strip" id="statsStrip"></div>
+
+    <div class="game-actions">
+      <button class="btn btn-gold btn-big" id="revealBtn" type="button">Reveal the Truth</button>
+    </div>
+    <div class="game-actions">
+      <button class="btn btn-ghost" id="editBtn" type="button">Edit This Game</button>
+      <button class="btn btn-ghost" id="newQuestionBtn" type="button">New Question</button>
+      <button class="btn btn-ghost" id="fullscreenBtn" type="button">Fullscreen</button>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    The CSV is read entirely in your browser and never uploaded. Only the numeric answer columns are kept;
+    name, ID and email columns are never read. State autosaves in this browser — "Reset Everything" clears it.
+    Press <b>Space</b> or <b>Enter</b> on the game screen to reveal.
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var STORAGE_KEY = "testYourPriorsState_v1";
+  var CLOSE_TOLERANCE = 0.05; // within 5% of the truth counts as "close"
+
+  // pollData lives in memory only and is never written to storage: nothing the instructor didn't
+  // explicitly pick for a game leaves this page load. Only the current game is persisted.
+  var state = {
+    pollData: null, // { columns: [{ header, values:[numbers], skipped:[rawStrings] }] }
+    game: null      // { question, truth, format, prefix, suffix, values:[numbers], revealed }
+  };
+
+  function save(){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify({ game: state.game })); }catch(e){}
+  }
+  function load(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if(raw){
+        var parsed = JSON.parse(raw);
+        if(parsed && typeof parsed === "object" && parsed.game) state.game = parsed.game;
+      }
+    }catch(e){}
+  }
+
+  // ---------------- AUDIO (synthesized, no external files) ----------------
+  var audioCtx = null;
+  function ctx(){
+    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    return audioCtx;
+  }
+  function tone(freq, start, dur, type, gainPeak){
+    var c = ctx();
+    var osc = c.createOscillator();
+    var gain = c.createGain();
+    osc.type = type || "sine";
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0, c.currentTime + start);
+    gain.gain.linearRampToValueAtTime(gainPeak || 0.3, c.currentTime + start + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.001, c.currentTime + start + dur);
+    osc.connect(gain);
+    gain.connect(c.destination);
+    osc.start(c.currentTime + start);
+    osc.stop(c.currentTime + start + dur + 0.05);
+  }
+  function playWhoosh(){
+    try{
+      var c = ctx();
+      var len = Math.floor(c.sampleRate * 0.6);
+      var buf = c.createBuffer(1, len, c.sampleRate);
+      var data = buf.getChannelData(0);
+      for(var i=0;i<len;i++){ data[i] = (Math.random()*2-1) * (1 - i/len); }
+      var src = c.createBufferSource();
+      src.buffer = buf;
+      var filt = c.createBiquadFilter();
+      filt.type = "bandpass";
+      filt.Q.value = 1.2;
+      filt.frequency.setValueAtTime(200, c.currentTime);
+      filt.frequency.exponentialRampToValueAtTime(3500, c.currentTime + 0.5);
+      var g = c.createGain();
+      g.gain.value = 0.6;
+      src.connect(filt); filt.connect(g); g.connect(c.destination);
+      src.start();
+    }catch(e){}
+  }
+  function playSlam(){
+    try{
+      tone(70, 0, 0.35, "sine", 0.6);
+      tone(1046.5, 0.05, 0.4, "sine", 0.35);   // C6
+      tone(1318.5, 0.14, 0.5, "sine", 0.3);    // E6
+      tone(1568.0, 0.23, 0.7, "sine", 0.25);   // G6
+    }catch(e){}
+  }
+
+  // ---------------- DOM refs ----------------
+  var setupScreen = document.getElementById("setup-screen");
+  var gameScreen = document.getElementById("game-screen");
+  var pollCsvInput = document.getElementById("pollCsvInput");
+  var pollCsvText = document.getElementById("pollCsvText");
+  var parsePasteBtn = document.getElementById("parsePasteBtn");
+  var pollStatus = document.getElementById("pollStatus");
+  var questionSection = document.getElementById("questionSection");
+  var questionSelect = document.getElementById("questionSelect");
+  var parseNote = document.getElementById("parseNote");
+  var questionInput = document.getElementById("questionInput");
+  var truthInput = document.getElementById("truthInput");
+  var truthPreview = document.getElementById("truthPreview");
+  var formatSelect = document.getElementById("formatSelect");
+  var prefixInput = document.getElementById("prefixInput");
+  var suffixInput = document.getElementById("suffixInput");
+  var resetBtn = document.getElementById("resetBtn");
+  var generateBtn = document.getElementById("generateBtn");
+
+  var questionBanner = document.getElementById("questionBanner");
+  var plotCard = document.getElementById("plotCard");
+  var plot = document.getElementById("plot");
+  var flash = document.getElementById("flash");
+  var legendN = document.getElementById("legendN");
+  var statsStrip = document.getElementById("statsStrip");
+  var revealBtn = document.getElementById("revealBtn");
+  var editBtn = document.getElementById("editBtn");
+  var newQuestionBtn = document.getElementById("newQuestionBtn");
+  var fullscreenBtn = document.getElementById("fullscreenBtn");
+
+  // ---------------- Number parsing ----------------
+  // Accepts things students actually type: "$75,000", "75k", "72,000/yr", "about 60000", "1.5 million", "3.5%".
+  var SUFFIX_MULT = { k:1e3, thousand:1e3, m:1e6, mil:1e6, million:1e6, b:1e9, bil:1e9, billion:1e9 };
+  function parseNumber(raw){
+    if(raw === null || raw === undefined) return null;
+    var s = String(raw).trim().toLowerCase().replace(/,/g, "");
+    if(!s) return null;
+    var m = s.match(/(-)?\s*\$?\s*(\d+(?:\.\d+)?|\.\d+)\s*(k|thousand|mil|million|m|bil|billion|b)?(?![a-z])/);
+    if(!m) return null;
+    var n = parseFloat(m[2]);
+    if(isNaN(n)) return null;
+    if(m[3] && SUFFIX_MULT[m[3]]) n *= SUFFIX_MULT[m[3]];
+    if(m[1]) n = -n;
+    return n;
+  }
+
+  // ---------------- CSV import ----------------
+  // Columns matching this are identity columns. They are never read: their indices are simply never visited.
+  var NON_QUESTION_HEADER_RE = /^(name|first ?name|last ?name|full ?name|nuid|id|student ?id|student ?number|email|e-?mail|timestamp|date|time|section)$/i;
+
+  function parseCSV(text){
+    var rows = [];
+    var row = [];
+    var field = "";
+    var inQuotes = false;
+    for(var i=0;i<text.length;i++){
+      var c = text[i];
+      if(inQuotes){
+        if(c === '"'){
+          if(text[i+1] === '"'){ field += '"'; i++; }
+          else { inQuotes = false; }
+        } else {
+          field += c;
+        }
+      } else {
+        if(c === '"'){ inQuotes = true; }
+        else if(c === ','){ row.push(field); field = ""; }
+        else if(c === '\r'){ /* ignore, \n handles line end */ }
+        else if(c === '\n'){ row.push(field); rows.push(row); row = []; field = ""; }
+        else { field += c; }
+      }
+    }
+    if(field.length > 0 || row.length > 0){ row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  // Keeps only numeric-answer columns. For each candidate column we read only that column's cells,
+  // so identity columns never get touched.
+  function buildPollData(rows){
+    if(rows.length < 2) return null;
+    var header = rows[0];
+    var dataRows = rows.slice(1);
+    var columns = [];
+    header.forEach(function(h, idx){
+      var trimmed = (h || "").trim();
+      if(trimmed.length === 0) return;
+      if(NON_QUESTION_HEADER_RE.test(trimmed)) return;
+      var values = [];
+      var skipped = [];
+      dataRows.forEach(function(r){
+        var raw = (r[idx] || "").trim();
+        if(!raw) return;
+        var n = parseNumber(raw);
+        if(n === null) skipped.push(raw);
+        else values.push(n);
+      });
+      var nonEmpty = values.length + skipped.length;
+      // A question column is one where most answers are numbers.
+      if(values.length === 0 || values.length < nonEmpty * 0.5) return;
+      columns.push({ header: trimmed, values: values, skipped: skipped });
+    });
+    return { columns: columns };
+  }
+
+  function cleanHeader(h){
+    return h.replace(/^Q\d+\s*[:.)-]\s*/i, "").trim() || h;
+  }
+
+  function ingestCSVText(text, sourceLabel){
+    try{
+      var rows = parseCSV(String(text));
+      var pd = buildPollData(rows);
+      if(!pd || pd.columns.length === 0){
+        pollStatus.className = "hint warn";
+        pollStatus.textContent = "Couldn't find any numeric poll question columns in " + sourceLabel + ".";
+        return;
+      }
+      state.pollData = pd;
+      state.game = null;
+      save();
+      pollStatus.className = "hint";
+      pollStatus.textContent = "Loaded " + pd.columns.length + " numeric question(s) from " + sourceLabel + ". Pick one below.";
+      populateSetup(false);
+    }catch(err){
+      pollStatus.className = "hint warn";
+      pollStatus.textContent = "Error reading CSV: " + err.message;
+    }
+  }
+
+  pollCsvInput.addEventListener("change", function(e){
+    var file = e.target.files[0];
+    if(!file) return;
+    var reader = new FileReader();
+    reader.onload = function(evt){ ingestCSVText(evt.target.result, file.name); };
+    reader.onerror = function(){ pollStatus.className = "hint warn"; pollStatus.textContent = "Couldn't read that file."; };
+    reader.readAsText(file);
+  });
+  parsePasteBtn.addEventListener("click", function(){
+    var text = pollCsvText.value;
+    if(!text.trim()){ pollStatus.className = "hint warn"; pollStatus.textContent = "Paste some CSV text first."; return; }
+    ingestCSVText(text, "the pasted text");
+  });
+
+  // ---------------- Formatting ----------------
+  function decimalsNeeded(values){
+    var d = 0;
+    values.forEach(function(v){
+      var s = String(v);
+      var i = s.indexOf(".");
+      if(i >= 0) d = Math.max(d, Math.min(2, s.length - i - 1));
+    });
+    return d;
+  }
+  function fmtNum(v, decimals){
+    return v.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: decimals });
+  }
+  function fmtCompact(v){
+    var a = Math.abs(v), s;
+    if(a >= 1e9) s = trimZeros((a/1e9).toFixed(1)) + "B";
+    else if(a >= 1e6) s = trimZeros((a/1e6).toFixed(1)) + "M";
+    else if(a >= 1e3) s = trimZeros((a/1e3).toFixed(1)) + "k";
+    else s = trimZeros(a.toFixed(2));
+    return (v < 0 ? "-" : "") + s;
+  }
+  function trimZeros(s){ return s.indexOf(".") >= 0 ? s.replace(/\.?0+$/, "") : s; }
+
+  // Full formatting (stats, truth label). Compact formatting (axis ticks) drops the prefix/suffix to stay short.
+  function formatValue(v, g, compact){
+    var core;
+    if(compact){
+      core = fmtCompact(v);
+    } else {
+      core = fmtNum(Math.abs(v), g.decimals);
+      if(v < 0) core = "-" + core;
+    }
+    if(g.format === "currency"){
+      core = core.charAt(0) === "-" ? "-$" + core.slice(1) : "$" + core;
+    } else if(g.format === "percent"){
+      core = core + "%";
+    }
+    if(compact) return core;
+    return (g.prefix || "") + core + (g.suffix || "");
+  }
+
+  // ---------------- Setup screen ----------------
+  // The columns the setup screen can offer: the imported CSV, or (after a reload with no CSV) just the
+  // saved game's own numbers.
+  function availableColumns(){
+    if(state.pollData && state.pollData.columns && state.pollData.columns.length) return state.pollData.columns;
+    if(state.game) return [{ header: state.game.question, values: state.game.values, skipped: [], fromGame: true }];
+    return [];
+  }
+  function currentColumn(){
+    return availableColumns()[parseInt(questionSelect.value, 10)] || null;
+  }
+
+  function populateSetup(prefillGame){
+    var cols = availableColumns();
+    if(cols.length === 0){
+      questionSection.style.display = "none";
+      generateBtn.disabled = true;
+      return;
+    }
+    questionSection.style.display = "block";
+    questionSelect.innerHTML = "";
+    cols.forEach(function(col, idx){
+      var opt = document.createElement("option");
+      opt.value = idx;
+      opt.textContent = col.header + " (" + col.values.length + " numeric answers)" + (col.fromGame ? " \u2014 current game" : "");
+      questionSelect.appendChild(opt);
+    });
+    if(cols[0].fromGame){
+      pollStatus.className = "hint";
+      pollStatus.textContent = "The current game's numbers are still here. To switch to a different question, import the CSV again.";
+    }
+
+    var g = prefillGame ? state.game : null;
+    if(g){
+      if(typeof g.columnIndex === "number" && cols[g.columnIndex] && !cols[0].fromGame) questionSelect.value = g.columnIndex;
+      questionInput.value = g.question;
+      truthInput.value = g.truthRaw || String(g.truth);
+      formatSelect.value = g.format;
+      prefixInput.value = g.prefix || "";
+      suffixInput.value = g.suffix || "";
+    } else {
+      questionSelect.value = 0;
+      questionInput.value = cleanHeader(cols[0].header);
+      truthInput.value = "";
+      formatSelect.value = "number";
+      prefixInput.value = "";
+      suffixInput.value = "";
+    }
+    updateParseNote();
+    updateTruthPreview();
+  }
+
+  function updateParseNote(){
+    var col = currentColumn();
+    if(!col){ parseNote.textContent = ""; return; }
+    var total = col.values.length + col.skipped.length;
+    var msg = col.values.length + " of " + total + " answers parsed as numbers.";
+    if(col.skipped.length){
+      msg += " Skipped: " + col.skipped.map(function(s){ return "“" + s + "”"; }).join(", ");
+    }
+    parseNote.textContent = msg;
+  }
+
+  function readSetupGame(){
+    var col = currentColumn();
+    if(!col) return null;
+    var truth = parseNumber(truthInput.value);
+    var g = {
+      columnIndex: parseInt(questionSelect.value, 10),
+      question: questionInput.value.trim() || cleanHeader(col.header),
+      truth: truth,
+      truthRaw: truthInput.value,
+      format: formatSelect.value,
+      prefix: prefixInput.value,
+      suffix: suffixInput.value,
+      values: col.values.slice(),
+      revealed: false
+    };
+    g.decimals = decimalsNeeded(g.values.concat(truth === null ? [] : [truth]));
+    return g;
+  }
+
+  function updateTruthPreview(){
+    var g = readSetupGame();
+    if(!g){ truthPreview.textContent = ""; generateBtn.disabled = true; return; }
+    if(g.truth === null){
+      truthPreview.className = "hint" + (truthInput.value.trim() ? " warn" : "");
+      truthPreview.textContent = truthInput.value.trim() ? "Couldn't read that as a number." : "Enter the real number to enable the game.";
+      generateBtn.disabled = true;
+      return;
+    }
+    truthPreview.className = "hint";
+    truthPreview.textContent = "Will be revealed as: " + formatValue(g.truth, g, false);
+    generateBtn.disabled = false;
+  }
+
+  questionSelect.addEventListener("change", function(){
+    var col = currentColumn();
+    if(col) questionInput.value = cleanHeader(col.header);
+    updateParseNote();
+    updateTruthPreview();
+  });
+  [truthInput, formatSelect, prefixInput, suffixInput].forEach(function(el){
+    el.addEventListener("input", updateTruthPreview);
+    el.addEventListener("change", updateTruthPreview);
+  });
+
+  generateBtn.addEventListener("click", function(){
+    var g = readSetupGame();
+    if(!g){ alert("Load a CSV and pick a question first."); return; }
+    if(g.truth === null){ alert("Enter the real number."); return; }
+    if(!g.question){ alert("Enter the question text."); return; }
+    state.game = g;
+    save();
+    showGameScreen(true);
+  });
+
+  resetBtn.addEventListener("click", function(){
+    if(confirm("Reset everything? This clears the imported poll data and the current game.")){
+      state.pollData = null;
+      state.game = null;
+      pollCsvInput.value = "";
+      pollCsvText.value = "";
+      pollStatus.textContent = "";
+      save();
+      populateSetup(false);
+    }
+  });
+
+  // ---------------- Stats ----------------
+  function computeStats(values, truth){
+    var sorted = values.slice().sort(function(a,b){ return a-b; });
+    var n = sorted.length;
+    var sum = sorted.reduce(function(a,b){ return a+b; }, 0);
+    var median = n % 2 ? sorted[(n-1)/2] : (sorted[n/2-1] + sorted[n/2]) / 2;
+    var tol = Math.abs(truth) * CLOSE_TOLERANCE;
+    var high = 0, low = 0, close = 0;
+    sorted.forEach(function(v){
+      if(v > truth + tol) high++;
+      else if(v < truth - tol) low++;
+      else close++;
+    });
+    return { n:n, min:sorted[0], max:sorted[n-1], median:median, mean:sum/n, high:high, low:low, close:close };
+  }
+  function judge(v, truth){
+    var tol = Math.abs(truth) * CLOSE_TOLERANCE;
+    if(v > truth + tol) return "high";
+    if(v < truth - tol) return "low";
+    return "close";
+  }
+  function pctOff(guess, truth){
+    if(truth === 0) return null;
+    return (guess - truth) / Math.abs(truth) * 100;
+  }
+  function offText(guess, truth){
+    var p = pctOff(guess, truth);
+    if(p === null) return { text: "", cls: "" };
+    var a = Math.abs(p);
+    if(a < 0.5) return { text: "spot on", cls: "spot" };
+    var pct = a >= 100 ? Math.round(a) : (a >= 10 ? Math.round(a) : Math.round(a*10)/10);
+    return p > 0 ? { text: pct + "% over the truth", cls: "over" } : { text: pct + "% under the truth", cls: "under" };
+  }
+
+  // ---------------- Plot ----------------
+  function niceStep(raw){
+    var exp = Math.pow(10, Math.floor(Math.log10(raw)));
+    var f = raw / exp;
+    var nf = f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10;
+    return nf * exp;
+  }
+  function roundTo(v, step){
+    var digits = Math.max(0, -Math.floor(Math.log10(step)) + 1);
+    return parseFloat(v.toFixed(Math.min(10, digits)));
+  }
+
+  // Positions one dot per guess on a number line. Identical guesses stack into a tower at their exact
+  // value; neighbouring towers are merged only when they would overlap by more than 40% of a dot.
+  // Dot size balances "big dots" against "few merged towers". The domain always includes the truth
+  // so the marker can never land off-canvas.
+  function layoutPlot(values, truth, W, H){
+    var padL = 34, padR = 34, top = 44, axisH = 34;
+    var baseY = H - axisH;
+    var innerW = Math.max(50, W - padL - padR);
+    var all = values.concat([truth]);
+    var lo = Math.min.apply(null, all), hi = Math.max.apply(null, all);
+    if(lo === hi){ var p = Math.abs(lo) * 0.1 || 1; lo -= p; hi += p; }
+    var span = hi - lo;
+    var allNonNegative = lo >= 0;
+    lo -= span * 0.04; hi += span * 0.04;
+    if(allNonNegative && lo < 0) lo = 0; // don't invent a negative axis for counts, money, etc.
+    var step = niceStep((hi - lo) / 6);
+    var dMin = Math.floor(lo / step) * step;
+    var dMax = Math.ceil(hi / step) * step;
+    function x(v){ return padL + (v - dMin) / (dMax - dMin) * innerW; }
+
+    var ticks = [];
+    for(var t = dMin; t <= dMax + step/2; t += step) ticks.push(roundTo(t, step));
+    var thin = 1;
+    while(innerW / (ticks.length / thin) < 64) thin++;
+    ticks = ticks.filter(function(_, i){ return i % thin === 0; });
+
+    var counts = {};
+    values.forEach(function(v){ counts[v] = (counts[v] || 0) + 1; });
+    var distinct = Object.keys(counts).map(Number).sort(function(a,b){ return a-b; });
+
+    function buildTowers(r){
+      var d = r*2, towers = [], merges = 0, maxStack = 0;
+      distinct.forEach(function(v){
+        var px = x(v), n = counts[v];
+        var last = towers[towers.length-1];
+        if(last && px - last.anchor < d * 0.6){
+          last.members.push(v);
+          last.cx = (last.cx * last.count + px * n) / (last.count + n);
+          last.count += n;
+          merges++;
+        } else {
+          towers.push({ anchor: px, cx: px, members: [v], count: n });
+        }
+        maxStack = Math.max(maxStack, towers[towers.length-1].count);
+      });
+      return { r:r, d:d, towers:towers, merges:merges, fits: maxStack * d <= baseY - top };
+    }
+
+    var best = null;
+    [14, 12, 10, 8, 7, 6].forEach(function(r){
+      var cand = buildTowers(r);
+      if(!cand.fits) return;
+      cand.score = cand.merges + (14 - r) * 0.5;
+      if(!best || cand.score < best.score) best = cand;
+    });
+    if(!best){
+      // Huge class: shrink purely to fit the tallest tower.
+      var small = [5, 4, 3];
+      for(var i=0;i<small.length;i++){ best = buildTowers(small[i]); if(best.fits) break; }
+    }
+
+    var dots = [], labels = [];
+    best.towers.forEach(function(tw){
+      var k = 0;
+      tw.members.forEach(function(v){
+        for(var i=0;i<counts[v];i++){
+          dots.push({ v: v, cx: tw.cx, cy: baseY - best.r - k * best.d });
+          k++;
+        }
+      });
+      if(tw.count >= 3){
+        labels.push({ cx: tw.cx, y: baseY - tw.count * best.d - 6, count: tw.count,
+                      lo: tw.members[0], hi: tw.members[tw.members.length-1] });
+      }
+    });
+
+    return { x:x, ticks:ticks, dots:dots, labels:labels, r:best.r, baseY:baseY, top:top, W:W, truthX:x(truth) };
+  }
+
+  var truthMarkerEl = null;
+
+  function renderPlot(animate){
+    var g = state.game;
+    if(!g) return;
+    plot.innerHTML = "";
+    truthMarkerEl = null;
+    var W = plot.clientWidth, H = plot.clientHeight;
+    if(W === 0 || H === 0) return;
+    var L = layoutPlot(g.values, g.truth, W, H);
+
+    var axis = document.createElement("div");
+    axis.className = "axis-line";
+    axis.style.top = L.baseY + "px";
+    plot.appendChild(axis);
+
+    L.ticks.forEach(function(t){
+      var tick = document.createElement("div");
+      tick.className = "tick";
+      tick.style.left = L.x(t) + "px";
+      tick.style.top = L.baseY + "px";
+      var mark = document.createElement("div"); mark.className = "tick-mark";
+      var lab = document.createElement("div"); lab.className = "tick-label"; lab.textContent = formatValue(t, g, true);
+      tick.appendChild(mark); tick.appendChild(lab);
+      plot.appendChild(tick);
+    });
+
+    var maxDelay = 1400, per = Math.min(40, maxDelay / Math.max(1, L.dots.length));
+    L.dots.forEach(function(dt, i){
+      var dot = document.createElement("div");
+      dot.className = "dot " + judge(dt.v, g.truth);
+      dot.style.width = dot.style.height = (L.r*2) + "px";
+      dot.style.left = (dt.cx - L.r) + "px";
+      dot.style.top = (dt.cy - L.r) + "px";
+      dot.title = formatValue(dt.v, g, false);
+      if(animate){
+        dot.style.transitionDelay = (i * per) + "ms, 0ms, 0ms, 0ms, 0ms";
+        plot.appendChild(dot);
+      } else {
+        dot.style.transition = "none";
+        dot.classList.add("in");
+        plot.appendChild(dot);
+      }
+    });
+    if(animate){
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){
+        plot.querySelectorAll(".dot").forEach(function(el){ el.classList.add("in"); });
+      }); });
+    }
+
+    // Tallest towers get labelled first; any label that would collide with one already placed is dropped.
+    var placed = [];
+    L.labels.slice().sort(function(a,b){ return b.count - a.count; }).forEach(function(lb){
+      var el = document.createElement("div");
+      el.className = "tower-label";
+      el.style.left = lb.cx + "px";
+      el.style.top = lb.y + "px";
+      var range = lb.lo === lb.hi ? formatValue(lb.lo, g, true) : formatValue(lb.lo, g, true) + "\u2013" + formatValue(lb.hi, g, true);
+      el.textContent = range + " \u00D7" + lb.count;
+      plot.appendChild(el);
+      var w = el.offsetWidth, h = el.offsetHeight;
+      var rect = { x0: lb.cx - w/2 - 3, x1: lb.cx + w/2 + 3, y0: lb.y - h, y1: lb.y };
+      var collides = placed.some(function(r){ return rect.x0 < r.x1 && rect.x1 > r.x0 && rect.y0 < r.y1 && rect.y1 > r.y0; });
+      if(collides) plot.removeChild(el);
+      else placed.push(rect);
+    });
+
+    var marker = document.createElement("div");
+    marker.className = "truth-marker";
+    marker.style.left = L.truthX + "px";
+    if(L.truthX < 90) marker.classList.add("left-edge");
+    else if(L.W - L.truthX < 90) marker.classList.add("right-edge");
+    var line = document.createElement("div");
+    line.className = "truth-line";
+    line.style.top = (L.top - 16) + "px";
+    line.style.height = (L.baseY - L.top + 16) + "px";
+    var label = document.createElement("div");
+    label.className = "truth-label";
+    label.style.top = (L.top - 14) + "px";
+    var small = document.createElement("small"); small.textContent = "the truth";
+    label.appendChild(small);
+    label.appendChild(document.createTextNode(formatValue(g.truth, g, false)));
+    marker.appendChild(line);
+    marker.appendChild(label);
+    plot.appendChild(marker);
+    truthMarkerEl = marker;
+
+    plot.classList.toggle("judged", !!g.revealed);
+    if(g.revealed){
+      marker.classList.add("no-anim");
+      marker.classList.add("in");
+    }
+  }
+
+  function statTile(label, value, sub, subCls, extraCls){
+    var tile = document.createElement("div");
+    tile.className = "stat-tile" + (extraCls ? " " + extraCls : "");
+    var l = document.createElement("div"); l.className = "stat-label"; l.textContent = label;
+    var v = document.createElement("div"); v.className = "stat-value"; v.textContent = value;
+    tile.appendChild(l); tile.appendChild(v);
+    if(sub){
+      var s = document.createElement("div"); s.className = "stat-sub" + (subCls ? " " + subCls : ""); s.textContent = sub;
+      tile.appendChild(s);
+    }
+    return tile;
+  }
+
+  function renderStats(animate){
+    var g = state.game;
+    if(!g) return;
+    var st = computeStats(g.values, g.truth);
+    statsStrip.innerHTML = "";
+    var tiles = [];
+    if(!g.revealed){
+      tiles.push(statTile("Guesses", st.n));
+      tiles.push(statTile("Lowest guess", formatValue(st.min, g, false)));
+      tiles.push(statTile("Median guess", formatValue(st.median, g, false)));
+      tiles.push(statTile("Highest guess", formatValue(st.max, g, false)));
+    } else {
+      var med = offText(st.median, g.truth), mean = offText(st.mean, g.truth);
+      tiles.push(statTile("The truth", formatValue(g.truth, g, false), null, null, "truth-tile"));
+      tiles.push(statTile("Median guess", formatValue(st.median, g, false), med.text, med.cls));
+      tiles.push(statTile("Mean guess", formatValue(st.mean, g, false), mean.text, mean.cls));
+      tiles.push(statTile("Too high", st.high, Math.round(st.high / st.n * 100) + "% of the class", "over"));
+      tiles.push(statTile("Too low", st.low, Math.round(st.low / st.n * 100) + "% of the class", "under"));
+      tiles.push(statTile("Within 5%", st.close, Math.round(st.close / st.n * 100) + "% of the class", "spot"));
+    }
+    tiles.forEach(function(t, i){
+      if(animate){ t.classList.add("pop"); t.style.transitionDelay = (i * 90) + "ms"; }
+      statsStrip.appendChild(t);
+    });
+    if(animate){
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){
+        statsStrip.querySelectorAll(".stat-tile").forEach(function(t){ t.classList.remove("pop"); });
+      }); });
+    }
+  }
+
+  // ---------------- Game screen ----------------
+  var revealing = false;
+
+  function showGameScreen(animate){
+    setupScreen.style.display = "none";
+    gameScreen.style.display = "flex";
+    renderGame(animate);
+  }
+  function showSetupScreen(prefillGame){
+    gameScreen.style.display = "none";
+    setupScreen.style.display = "block";
+    populateSetup(prefillGame);
+  }
+
+  function renderGame(animate){
+    var g = state.game;
+    if(!g) return;
+    questionBanner.textContent = g.question;
+    legendN.textContent = g.values.length + " guesses";
+    gameScreen.classList.toggle("revealed", !!g.revealed);
+    revealBtn.style.display = g.revealed ? "none" : "inline-block";
+    renderPlot(animate);
+    renderStats(false);
+  }
+
+  function reveal(){
+    var g = state.game;
+    if(!g || g.revealed || revealing) return;
+    revealing = true;
+    revealBtn.disabled = true;
+    playWhoosh();
+    setTimeout(function(){
+      if(truthMarkerEl) truthMarkerEl.classList.add("in");
+    }, 250);
+    setTimeout(function(){
+      playSlam();
+      flash.classList.remove("go"); void flash.offsetWidth; flash.classList.add("go");
+      plotCard.classList.remove("shake"); void plotCard.offsetWidth; plotCard.classList.add("shake");
+    }, 780);
+    setTimeout(function(){
+      plot.classList.add("judged");
+    }, 1250);
+    setTimeout(function(){
+      g.revealed = true;
+      save();
+      gameScreen.classList.add("revealed");
+      revealBtn.style.display = "none";
+      revealBtn.disabled = false;
+      renderStats(true);
+      revealing = false;
+    }, 1500);
+  }
+
+  revealBtn.addEventListener("click", reveal);
+  document.addEventListener("keydown", function(e){
+    if(gameScreen.style.display === "none") return;
+    var tag = (e.target && e.target.tagName || "").toLowerCase();
+    if(tag === "input" || tag === "textarea" || tag === "select") return;
+    if(e.key === " " || e.key === "Enter" || e.key === "Spacebar" || e.code === "Space"){
+      e.preventDefault();
+      reveal();
+    }
+  });
+
+  editBtn.addEventListener("click", function(){ showSetupScreen(true); });
+  newQuestionBtn.addEventListener("click", function(){
+    state.game = null;
+    save();
+    showSetupScreen(false);
+  });
+  fullscreenBtn.addEventListener("click", function(){
+    if(!document.fullscreenElement){
+      document.documentElement.requestFullscreen().catch(function(){});
+    } else {
+      document.exitFullscreen();
+    }
+  });
+
+  var resizeTimer = null;
+  window.addEventListener("resize", function(){
+    if(gameScreen.style.display === "none" || revealing) return;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){ renderPlot(false); }, 120);
+  });
+
+  // ---------------- init ----------------
+  load();
+  save(); // rewrite storage in the current shape so nothing but the game is ever kept
+  if(state.game){
+    showGameScreen(true);
+  } else {
+    populateSetup(false);
+  }
+})();
+</script>
+</body>
+</html>
