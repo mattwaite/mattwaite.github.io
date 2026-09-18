@@ -1,0 +1,1603 @@
+date,contest_id,status,neutral_site,team1,team1_rank,team1_record,team2,team2_rank,team2_record,team1_sets_won,team2_sets_won,s1_t1,s1_t2,s2_t1,s2_t2,s3_t1,s3_t2,s4_t1,s4_t2,s5_t1,s5_t2
+2026-08-21,6603081,final,TRUE,Kentucky,,1-0,Wisconsin,,0-1,3,0,25,20,26,24,25,18,,,,
+2026-08-21,6603659,final,TRUE,Texas A&M,,0-1,Louisville,,1-0,1,3,20,25,23,25,25,20,21,25,,
+2026-08-22,6603663,final,TRUE,Wisconsin,,1-1,Louisville,,1-1,3,0,25,18,25,20,25,18,,,,
+2026-08-22,6607974,final,TRUE,Texas,,0-1,Arizona St.,,1-0,1,3,17,25,17,25,25,19,18,25,,
+2026-08-23,6599090,final,TRUE,Texas A&M,,0-2,SMU,,1-0,0,3,25,27,19,25,20,25,,,,
+2026-08-23,6603086,final,TRUE,Pittsburgh,,1-0,Kentucky,,1-1,3,1,25,14,21,25,25,13,25,21,,
+2026-08-24,6599159,final,TRUE,Texas,,1-1,Marquette,,0-1,3,2,22,25,25,19,25,16,23,25,15,8
+2026-08-24,6615179,final,TRUE,Xavier,,0-1,Pittsburgh,,2-0,0,3,24,26,13,25,18,25,,,,
+2026-08-28,6583616,final,FALSE,Indiana,,0-1,Louisville,,2-1,0,3,20,25,12,25,11,25,,,,
+2026-08-28,6583690,final,TRUE,Western Caro.,,0-1,Butler,,1-0,2,3,22,25,21,25,25,19,26,24,13,15
+2026-08-28,6583698,final,FALSE,Illinois St.,,0-1,Seton Hall,,1-0,0,3,18,25,19,25,23,25,,,,
+2026-08-28,6583830,final,FALSE,Marquette,,0-2,Dayton,,1-0,1,3,23,25,25,22,21,25,21,25,,
+2026-08-28,6583872,final,FALSE,Utah Tech,,1-0,Utah Valley,,0-1,3,1,25,21,21,25,25,22,25,11,,
+2026-08-28,6583873,final,FALSE,Utah,,1-0,Utah Valley,,0-2,3,0,25,17,25,22,25,23,,,,
+2026-08-28,6583912,final,FALSE,LIU,,0-1,Michigan,,1-0,0,3,11,25,22,25,13,25,,,,
+2026-08-28,6584022,final,TRUE,Middle Tenn.,,1-0,Boise St.,,0-1,3,2,25,23,29,27,21,25,23,25,15,12
+2026-08-28,6584137,final,FALSE,Cincinnati,,1-0,Illinois,,0-1,3,2,17,25,22,25,25,16,25,23,15,12
+2026-08-28,6584161,final,FALSE,Miami (FL),,0-1,Michigan St.,,1-0,2,3,19,25,26,24,25,23,19,25,6,15
+2026-08-28,6584424,final,TRUE,UIC,,0-2,Lindenwood,,1-0,0,3,23,25,19,25,16,25,,,,
+2026-08-28,6584783,final,FALSE,Northwestern,,0-1,George Mason,,1-0,1,3,23,25,26,28,25,18,23,25,,
+2026-08-28,6585250,final,TRUE,Elon,,0-1,St. John's (NY),,1-0,1,3,25,22,19,25,23,25,19,25,,
+2026-08-28,6585454,final,TRUE,Tarleton St.,,0-1,UC Santa Barbara,,1-0,2,3,25,22,25,22,15,25,22,25,9,15
+2026-08-28,6585588,final,TRUE,Lamar University,,0-1,CSU Bakersfield,,1-0,0,3,25,27,19,25,21,25,,,,
+2026-08-28,6585590,final,FALSE,Lamar University,,0-2,Abilene Christian,,1-0,1,3,15,25,21,25,27,25,7,25,,
+2026-08-28,6585675,final,FALSE,Portland St.,,0-1,Portland,,1-0,2,3,23,25,25,17,27,25,17,25,8,15
+2026-08-28,6585934,final,FALSE,Northwestern St.,,0-1,West Ga.,,1-0,0,3,17,25,19,25,23,25,,,,
+2026-08-28,6585940,final,FALSE,Grambling,,1-1,West Ga.,,1-1,3,2,20,25,25,17,25,23,19,25,15,11
+2026-08-28,6586154,final,FALSE,Maryland,,1-0,Howard,,0-1,3,0,25,23,25,14,25,22,,,,
+2026-08-28,6586712,final,TRUE,Siena,,0-1,Rhode Island,,1-0,2,3,21,25,25,16,25,22,23,25,11,15
+2026-08-28,6586875,final,TRUE,Milwaukee,,0-1,DePaul,,1-0,0,3,18,25,16,25,19,25,,,,
+2026-08-28,6587097,final,FALSE,Mercyhurst,,0-1,Youngstown St.,,1-0,0,3,17,25,16,25,13,25,,,,
+2026-08-28,6587100,final,FALSE,Duquesne,,2-0,Youngstown St.,,1-1,3,1,25,23,25,19,21,25,25,15,,
+2026-08-28,6587154,final,FALSE,Mercer,,0-1,Troy,,1-0,0,3,13,25,21,25,9,25,,,,
+2026-08-28,6587992,final,TRUE,Minnesota,,0-1,Arizona St.,,2-0,0,3,24,26,17,25,23,25,,,,
+2026-08-28,6588065,final,TRUE,William & Mary,,0-1,Coppin St.,,1-0,1,3,19,25,26,24,17,25,21,25,,
+2026-08-28,6588066,final,TRUE,Coppin St.,,1-1,Kent St.,,1-1,2,3,21,25,25,22,25,27,25,13,12,15
+2026-08-28,6588436,final,TRUE,FIU,,2-0,Merrimack,,0-2,3,0,25,16,25,19,25,16,,,,
+2026-08-28,6588507,final,TRUE,Buffalo,,1-0,UIC,,0-1,3,2,25,22,25,18,17,25,23,25,15,13
+2026-08-28,6588508,final,FALSE,Buffalo,,1-1,Saint Louis,,1-0,1,3,22,25,15,25,25,17,14,25,,
+2026-08-28,6588597,final,TRUE,Oakland,,1-0,Binghamton,,0-2,3,0,25,21,25,19,25,23,,,,
+2026-08-28,6588935,final,FALSE,Col. of Charleston,,0-1,Vanderbilt,,1-0,0,3,14,25,20,25,11,25,,,,
+2026-08-28,6589237,final,TRUE,UNI,,0-1,Georgia Tech,,1-0,0,3,22,25,21,25,17,25,,,,
+2026-08-28,6589712,final,FALSE,USC Upstate,,2-0,Norfolk St.,,0-1,3,1,20,25,25,14,25,20,25,21,,
+2026-08-28,6590001,final,TRUE,UMES,,1-1,Mississippi Val.,,0-2,3,0,25,13,25,20,25,14,,,,
+2026-08-28,6590307,final,FALSE,South Carolina St.,,1-2,Alabama A&M,,2-0,0,3,10,25,14,25,7,25,,,,
+2026-08-28,6590324,final,FALSE,UMES,,0-1,Alabama A&M,,1-0,0,3,15,25,33,35,20,25,,,,
+2026-08-28,6590688,final,TRUE,Belmont,,1-0,San Jose St.,,0-1,3,2,19,25,18,25,25,18,25,23,15,12
+2026-08-28,6590737,final,FALSE,Samford,,0-1,Alabama,,1-0,1,3,23,25,20,25,25,22,20,25,,
+2026-08-28,6590832,final,FALSE,Colgate,,0-1,Tennessee,,1-0,0,3,17,25,12,25,12,25,,,,
+2026-08-28,6590875,final,TRUE,Morehead St.,,1-0,Fairfield,,0-1,3,2,25,22,20,25,25,19,23,25,15,13
+2026-08-28,6590897,final,FALSE,UC San Diego,,1-0,Saint Mary's (CA),,0-1,3,1,20,25,25,22,25,15,25,19,,
+2026-08-28,6591450,final,TRUE,Western Ky.,,1-1,Oregon,,1-0,0,3,23,25,20,25,23,25,,,,
+2026-08-28,6591639,final,FALSE,New Haven,,0-1,New Hampshire,,1-0,2,3,15,25,18,25,25,21,25,23,8,15
+2026-08-28,6591836,final,FALSE,Ga. Southern,,0-1,Hawaii,,1-0,1,3,18,25,20,25,25,17,18,25,,
+2026-08-28,6591961,final,FALSE,Tennessee St.,,0-1,Chattanooga,,1-0,0,3,12,25,14,25,26,28,,,,
+2026-08-28,6591964,final,FALSE,Valparaiso,,2-0,Chattanooga,,1-1,3,1,25,18,23,25,25,17,25,22,,
+2026-08-28,6592143,final,FALSE,Loyola Maryland,,0-1,James Madison,,1-0,0,3,14,25,20,25,23,25,,,,
+2026-08-28,6592204,final,FALSE,Alcorn,,0-1,LSU New Orleans,,1-0,0,3,21,25,16,25,23,25,,,,
+2026-08-28,6592327,final,TRUE,South Fla.,,0-1,Eastern Ky.,,1-0,2,3,25,19,10,25,19,25,25,18,13,15
+2026-08-28,6592821,final,FALSE,Iowa,,1-0,Army West Point,,0-1,3,0,25,23,25,15,25,17,,,,
+2026-08-28,6592830,final,TRUE,Montana,,1-0,Central Mich.,,0-1,3,0,25,17,25,14,25,21,,,,
+2026-08-28,6592972,final,FALSE,Memphis,,0-1,Lipscomb,,1-0,1,3,9,25,25,23,23,25,22,25,,
+2026-08-28,6593044,final,TRUE,Southern U.,,0-2,Southern Miss.,,1-0,0,3,15,25,17,25,12,25,,,,
+2026-08-28,6593165,final,FALSE,South Dakota,,1-0,Drake,,0-1,3,1,25,18,16,25,25,18,25,15,,
+2026-08-28,6593319,final,FALSE,Wake Forest,,0-1,LSU,,1-0,2,3,20,25,25,22,23,25,25,23,15,17
+2026-08-28,6593415,final,FALSE,UNC Greensboro,,0-1,South Carolina,,1-0,0,3,8,25,22,25,21,25,,,,
+2026-08-28,6593809,final,TRUE,Jacksonville,,1-0,Southern U.,,0-1,3,0,25,14,25,14,25,17,,,,
+2026-08-28,6593855,final,FALSE,USC Upstate,,1-0,Old Dominion,,0-1,3,2,22,25,25,23,19,25,25,17,15,11
+2026-08-28,6594310,final,FALSE,Kansas,,0-1,Pittsburgh,,3-0,1,3,17,25,25,14,23,25,20,25,,
+2026-08-28,6594582,final,FALSE,Iona,,0-1,Louisiana Tech,,1-0,0,3,19,25,23,25,21,25,,,,
+2026-08-28,6595046,final,TRUE,Northern Ariz.,,0-1,LMU (CA),,1-0,0,3,22,25,22,25,18,25,,,,
+2026-08-28,6595179,final,TRUE,The Citadel,,0-1,Kennesaw St.,,1-0,0,3,19,25,16,25,13,25,,,,
+2026-08-28,6595180,final,TRUE,The Citadel,,1-1,Le Moyne,,0-2,3,0,25,23,25,18,25,18,,,,
+2026-08-28,6595788,final,TRUE,Stonehill,,0-1,Nicholls,,1-0,2,3,15,25,25,21,20,25,25,21,12,15
+2026-08-28,6595804,final,TRUE,Baylor,,1-0,San Diego,,0-1,3,0,26,24,34,32,25,23,,,,
+2026-08-28,6595824,final,TRUE,Stonehill,,0-2,Oral Roberts,,1-0,0,3,17,25,26,28,23,25,,,,
+2026-08-28,6596111,final,TRUE,SFA,,0-1,Idaho St.,,1-0,1,3,25,20,23,25,17,25,18,25,,
+2026-08-28,6596117,final,TRUE,Idaho St.,,1-1,Missouri St.,,1-0,0,3,18,25,20,25,25,27,,,,
+2026-08-28,6596243,final,FALSE,Duke,,1-0,Coastal Carolina,,0-1,3,1,17,25,25,20,25,19,25,23,,
+2026-08-28,6596757,final,FALSE,Western Ky.,,1-0,Southeast Mo. St.,,0-1,3,0,25,23,25,13,25,20,,,,
+2026-08-28,6596910,final,TRUE,George Washington,,0-1,Furman,,1-0,2,3,25,13,24,26,25,22,17,25,14,16
+2026-08-28,6596914,final,TRUE,Furman,,1-1,North Florida,,1-1,1,3,25,21,20,25,18,25,18,25,,
+2026-08-28,6597509,final,FALSE,UCLA,,1-0,Long Beach St.,,0-1,3,1,25,27,25,19,25,23,25,20,,
+2026-08-28,6597538,final,FALSE,Murray St.,,0-1,Southern Ind.,,1-0,1,3,22,25,25,16,15,25,16,25,,
+2026-08-28,6597539,final,FALSE,Eastern Mich.,,2-0,Southern Ind.,,1-1,3,1,25,20,25,20,20,25,25,23,,
+2026-08-28,6597564,final,FALSE,Cal St. Fullerton,,0-1,Sam Houston,,1-0,0,3,16,25,15,25,21,25,,,,
+2026-08-28,6597565,final,FALSE,Miami (OH),,1-1,Sam Houston,,2-0,2,3,27,29,25,19,16,25,25,18,11,15
+2026-08-28,6597896,final,FALSE,Tulsa,,1-0,New Mexico St.,,0-1,3,1,25,20,13,25,25,21,25,22,,
+2026-08-28,6598148,final,FALSE,Niagara,,0-1,Marshall,,1-0,0,3,18,25,8,25,16,25,,,,
+2026-08-28,6598172,final,FALSE,Jacksonville,,2-0,Jacksonville St.,,0-1,3,0,25,23,25,15,25,13,,,,
+2026-08-28,6598194,final,FALSE,Bucknell,,0-2,Marshall,,2-0,0,3,19,25,29,31,21,25,,,,
+2026-08-28,6598331,final,FALSE,Bethune-Cookman,,0-2,East Carolina,,1-0,0,3,20,25,11,25,12,25,,,,
+2026-08-28,6598424,final,FALSE,Holy Cross,,0-1,Central Conn. St.,,1-0,2,3,21,25,15,25,25,18,30,28,11,15
+2026-08-28,6598587,final,FALSE,North Dakota St.,,1-0,Tulane,,0-1,3,2,20,25,25,19,25,22,22,25,15,12
+2026-08-28,6598636,final,TRUE,Fresno St.,,0-1,Northern Ky.,,1-0,2,3,27,25,25,22,26,28,14,25,16,18
+2026-08-28,6598688,final,FALSE,Western Ill.,,0-1,Missouri,,1-0,0,3,9,25,11,25,14,25,,,,
+2026-08-28,6598689,final,FALSE,Towson,,0-2,Missouri,,2-0,0,3,19,25,17,25,21,25,,,,
+2026-08-28,6599004,final,FALSE,Gardner-Webb,,0-1,Lehigh,,1-0,0,3,18,25,13,25,14,25,,,,
+2026-08-28,6599081,final,TRUE,Saint Peter's,,0-1,Providence,,1-0,0,3,21,25,21,25,16,25,,,,
+2026-08-28,6599256,final,TRUE,Central Ark.,,0-1,Denver,,1-0,1,3,24,26,17,25,25,18,11,25,,
+2026-08-28,6599295,final,FALSE,Ball St.,,1-0,Notre Dame,,0-1,3,2,8,25,21,25,25,19,25,21,15,12
+2026-08-28,6599305,final,TRUE,High Point,,1-0,UConn,,0-1,3,2,26,24,25,27,25,23,17,25,15,13
+2026-08-28,6599436,final,FALSE,Villanova,,0-1,Pepperdine,,1-0,1,3,21,25,25,18,19,25,20,25,,
+2026-08-28,6599807,final,TRUE,Liberty,,0-1,Auburn,,1-0,0,3,20,25,23,25,17,25,,,,
+2026-08-28,6599852,final,TRUE,Valparaiso,,1-0,UAB,,0-1,3,2,19,25,25,22,23,25,25,22,16,14
+2026-08-28,6599955,final,FALSE,Arkansas St.,,0-1,Texas A&M,,2-2,0,3,15,25,16,25,18,25,,,,
+2026-08-28,6600164,final,FALSE,Pacific,,0-1,California,,1-0,0,3,17,25,15,25,11,25,,,,
+2026-08-28,6600306,final,FALSE,SFA,,0-2,Wichita St.,,1-0,0,3,16,25,23,25,24,26,,,,
+2026-08-28,6600662,final,FALSE,UTRGV,,0-1,West Virginia,,1-0,1,3,14,25,18,25,25,23,18,25,,
+2026-08-28,6601170,final,FALSE,Rice,,1-0,South Alabama,,0-1,3,2,18,25,25,17,19,25,25,17,15,13
+2026-08-28,6601327,final,FALSE,Green Bay,,0-1,Western Mich.,,1-0,1,3,18,25,27,25,11,25,25,27,,
+2026-08-28,6602316,final,FALSE,Air Force,,0-1,Boston College,,1-0,0,3,18,25,22,25,13,25,,,,
+2026-08-28,6602451,final,FALSE,Loyola Chicago,,0-1,Iowa St.,,1-0,0,3,12,25,20,25,22,25,,,,
+2026-08-28,6602502,final,TRUE,Houston,,1-0,UIW,,0-1,3,0,25,16,25,20,25,17,,,,
+2026-08-28,6602723,final,TRUE,Mercyhurst,,1-1,Canisius,,0-2,3,2,25,15,25,19,20,25,25,27,15,12
+2026-08-28,6602852,final,TRUE,Jackson St.,,0-1,Kansas City,,1-0,0,3,14,25,23,25,22,25,,,,
+2026-08-28,6602857,final,FALSE,Jackson St.,,1-1,Austin Peay,,1-1,3,2,25,22,19,25,25,22,23,25,15,11
+2026-08-28,6603095,final,FALSE,Utah St.,,0-1,Kentucky,,2-1,0,3,13,25,14,25,17,25,,,,
+2026-08-28,6603339,final,FALSE,Robert Morris,,0-2,UCF,,1-0,1,3,10,25,12,25,25,20,21,25,,
+2026-08-28,6603849,final,TRUE,BYU,,1-0,Florida St.,,0-1,3,2,8,25,19,25,25,12,25,20,15,11
+2026-08-28,6603869,final,FALSE,UT Martin,,0-1,Austin Peay,,1-0,0,3,6,25,24,26,17,25,,,,
+2026-08-28,6603874,final,TRUE,Kansas City,,2-0,UT Martin,,0-2,3,2,16,25,25,19,28,26,24,26,15,11
+2026-08-28,6604217,final,TRUE,Stetson,,0-1,FIU,,1-0,2,3,25,16,11,25,26,24,17,25,11,15
+2026-08-28,6604378,final,TRUE,Purdue,,0-1,Creighton,,1-0,2,3,25,19,22,25,23,25,25,11,11,15
+2026-08-28,6604703,final,FALSE,Le Moyne,,0-1,UNCW,,1-0,0,3,12,25,17,25,14,25,,,,
+2026-08-28,6604716,final,FALSE,Kennesaw St.,,2-0,UNCW,,1-1,3,1,15,25,25,23,25,22,25,23,,
+2026-08-28,6605139,final,TRUE,Binghamton,,0-1,Bradley,,1-0,0,3,19,25,12,25,20,25,,,,
+2026-08-28,6605150,final,FALSE,Bradley,,1-1,Toledo,,1-0,0,3,18,25,19,25,24,26,,,,
+2026-08-28,6605198,final,TRUE,Rider,,1-0,Fordham,,0-1,3,2,25,23,9,25,25,21,21,25,15,12
+2026-08-28,6605676,final,FALSE,North Florida,,0-1,Georgia,,1-0,0,3,21,25,19,25,14,25,,,,
+2026-08-28,6605678,final,FALSE,George Washington,,0-2,Georgia,,2-0,0,3,19,25,20,25,20,25,,,,
+2026-08-28,6606154,final,TRUE,Rutgers,,0-1,Purdue Fort Wayne,,1-0,2,3,25,23,25,20,23,25,24,26,16,18
+2026-08-28,6606158,final,TRUE,Purdue Fort Wayne,,2-0,Evansville,,0-1,3,1,25,16,25,18,24,26,25,15,,
+2026-08-28,6606247,final,TRUE,Grand Canyon,,0-2,Cal Poly,,1-0,0,3,22,25,21,25,22,25,,,,
+2026-08-28,6606269,final,TRUE,Georgia St.,,0-1,Mississippi St.,,1-0,0,3,20,25,21,25,22,25,,,,
+2026-08-28,6606368,final,TRUE,N.C. A&T,,1-0,App State,,0-1,3,2,14,25,20,25,27,25,27,25,15,10
+2026-08-28,6606440,final,TRUE,McNeese,,0-1,Miami (OH),,1-0,0,3,24,26,22,25,22,25,,,,
+2026-08-28,6606453,final,TRUE,McNeese,,0-2,Cal St. Fullerton,,1-1,0,3,24,26,19,25,26,28,,,,
+2026-08-28,6606656,final,FALSE,UC Irvine,,0-1,Washington,,1-0,1,3,25,17,14,25,10,25,20,25,,
+2026-08-28,6606739,final,FALSE,Texas Southern,,0-1,East Texas A&M,,1-0,0,3,20,25,16,25,9,25,,,,
+2026-08-28,6606947,final,TRUE,Stony Brook,,1-1,NC State,,1-0,0,3,22,25,15,25,15,25,,,,
+2026-08-28,6607012,final,TRUE,Florida A&M,,0-1,Delaware St.,,1-0,1,3,18,25,25,17,22,25,9,25,,
+2026-08-28,6607125,final,FALSE,Wheeling,,1-1,West Florida,,1-0,0,3,10,25,15,25,19,25,,,,
+2026-08-28,6607619,final,FALSE,Texas Tech,,0-1,Wyoming,,1-0,1,3,21,25,25,14,11,25,15,25,,
+2026-08-28,6607865,final,FALSE,California Baptist,,1-0,New Mexico,,0-1,3,1,27,25,18,25,25,15,25,22,,
+2026-08-28,6607941,final,FALSE,A&M-Corpus Christi,,0-1,Kansas St.,,1-0,0,3,15,25,14,25,24,26,,,,
+2026-08-28,6608057,final,TRUE,IU Indy,,0-1,San Diego St.,,1-0,1,3,25,23,23,25,15,25,19,25,,
+2026-08-28,6608091,final,FALSE,Grand Canyon,,0-1,Texas A&M,,1-2,1,3,15,25,17,25,25,15,13,25,,
+2026-08-28,6608230,final,TRUE,South Dakota St.,,1-0,Sacramento St.,,0-1,3,2,25,22,19,25,25,21,14,25,15,7
+2026-08-28,6608395,final,FALSE,Akron,,1-0,ETSU,,0-1,3,2,25,20,25,17,22,25,11,25,15,11
+2026-08-28,6608402,final,FALSE,Auburn,,2-0,ETSU,,0-2,3,1,25,13,25,13,28,30,25,20,,
+2026-08-28,6608542,final,FALSE,UC Davis,,0-1,Colorado St.,,1-0,0,3,21,25,16,25,16,25,,,,
+2026-08-28,6608681,final,TRUE,Eastern Ill.,,1-0,Santa Clara,,0-1,3,2,13,25,18,25,25,18,25,22,15,9
+2026-08-28,6608877,final,TRUE,Navy,,0-1,Indiana St.,,1-0,2,3,25,19,20,25,24,26,25,23,12,15
+2026-08-28,6608970,final,FALSE,Oklahoma,,1-0,Texas St.,,0-1,3,0,25,19,25,12,25,12,,,,
+2026-08-28,6609212,final,FALSE,Charleston So.,,0-1,Clemson,,1-0,1,3,12,25,14,25,25,15,20,25,,
+2026-08-28,6609755,final,TRUE,Duquesne,,1-0,Canisius,,0-1,3,0,25,15,25,18,25,12,,,,
+2026-08-28,6609797,final,TRUE,Presbyterian,,1-0,Grambling,,0-1,3,1,30,32,25,12,25,20,25,21,,
+2026-08-28,6609919,final,TRUE,Eastern Wash.,,1-0,North Dakota,,0-1,3,0,25,17,25,23,25,17,,,,
+2026-08-28,6610077,final,FALSE,Georgetown,,1-0,American,,0-1,3,1,16,25,25,21,25,22,26,24,,
+2026-08-28,6610284,final,TRUE,Stony Brook,,1-0,Robert Morris,,0-1,3,2,25,22,20,25,25,21,17,25,15,12
+2026-08-28,6610817,final,TRUE,Southern Utah,,0-1,Gonzaga,,1-0,0,3,14,25,14,25,18,25,,,,
+2026-08-28,6610893,final,FALSE,St. John's (NY),,1-1,Old Dominion,,1-1,2,3,20,25,25,18,25,21,21,25,11,15
+2026-08-28,6611385,final,TRUE,Oregon St.,,0-1,Utah Tech,,2-0,0,3,21,25,23,25,19,25,,,,
+2026-08-28,6611955,final,FALSE,Merrimack,,0-1,Fla. Atlantic,,1-0,0,3,17,25,17,25,20,25,,,,
+2026-08-28,6611959,final,FALSE,Stetson,,0-2,Fla. Atlantic,,2-0,0,3,25,27,13,25,10,25,,,,
+2026-08-28,6612126,final,TRUE,Ohio,,1-0,Bucknell,,0-1,3,0,25,16,25,21,25,19,,,,
+2026-08-28,6612655,final,FALSE,Chicago St.,,0-1,Seattle U,,1-0,0,3,12,25,21,25,15,25,,,,
+2026-08-28,6612857,final,TRUE,NIU,,0-1,Eastern Mich.,,1-0,2,3,24,26,25,16,18,25,25,23,13,15
+2026-08-28,6613012,final,TRUE,Towson,,0-1,Idaho,,1-0,2,3,25,17,25,15,18,25,22,25,12,15
+2026-08-28,6613319,final,TRUE,UTSA,,0-1,UT Arlington,,1-0,1,3,23,25,25,13,20,25,12,25,,
+2026-08-28,6613361,final,FALSE,San Francisco,,0-1,Weber St.,,1-0,1,3,18,25,25,22,13,25,16,25,,
+2026-08-28,6613586,final,FALSE,CSUN,,0-1,Colorado,,1-0,0,3,19,25,18,25,21,25,,,,
+2026-08-28,6613601,final,TRUE,Wisconsin,,1-2,Stanford,,1-0,1,3,25,15,26,28,20,25,14,25,,
+2026-08-28,6613607,final,FALSE,Prairie View,,0-1,Arizona,,1-0,0,3,12,25,19,25,10,25,,,,
+2026-08-28,6613616,final,TRUE,N.C. Central,,1-0,Ark.-Pine Bluff,,0-1,3,0,25,20,26,24,25,17,,,,
+2026-08-28,6613629,final,TRUE,N.C. Central,,2-0,Florida A&M,,0-2,3,1,16,25,25,22,25,18,26,24,,
+2026-08-28,6613741,final,TRUE,Little Rock,,1-0,Houston Christian,,0-1,3,2,25,19,19,25,23,25,25,18,17,15
+2026-08-28,6613812,final,TRUE,South Carolina St.,,1-1,Ark.-Pine Bluff,,1-1,2,3,22,25,25,23,25,20,23,25,10,15
+2026-08-28,6615627,final,FALSE,Boise St.,,1-1,UNC Asheville,,1-1,3,0,25,16,25,16,25,21,,,,
+2026-08-28,6615681,final,FALSE,Omaha,,0-1,Washington St.,,1-0,0,3,19,25,20,25,22,25,,,,
+2026-08-28,6616014,final,FALSE,William & Mary,,1-1,Virginia Tech,,1-1,3,2,25,18,21,25,27,25,17,25,15,12
+2026-08-28,6616555,final,FALSE,Kent St.,,0-1,Virginia Tech,,1-0,0,3,20,25,24,26,23,25,,,,
+2026-08-28,6617324,final,FALSE,Manhattan,,0-1,Temple,,1-0,0,3,18,25,20,25,22,25,,,,
+2026-08-28,6617834,final,FALSE,VCU,,0-1,FGCU,,1-0,1,3,17,25,16,25,26,24,19,25,,
+2026-08-28,6618594,final,TRUE,Ohio,,2-0,Niagara,,0-2,3,0,25,10,25,11,25,10,,,,
+2026-08-28,6618737,final,TRUE,Morgan St.,,0-1,Cleveland St.,,1-0,0,3,19,25,21,25,16,25,,,,
+2026-08-28,6618738,final,FALSE,Cleveland St.,,1-1,Lehigh,,2-0,0,3,19,25,19,25,21,25,,,,
+2026-08-28,6619152,final,TRUE,Santa Clara,,0-2,Wright St.,,1-0,2,3,25,20,14,25,22,25,25,16,13,15
+2026-08-28,6620224,final,FALSE,SIUE,,0-1,Arkansas,,1-0,0,3,14,25,16,25,17,25,,,,
+2026-08-28,6620675,final,TRUE,Murray St.,,0-2,NIU,,1-1,0,3,21,25,22,25,16,25,,,,
+2026-08-28,6620769,final,TRUE,NJIT,,0-1,FDU,,1-0,0,3,22,25,10,25,11,25,,,,
+2026-08-28,6620922,final,FALSE,Bryant,,0-1,Charlotte,,1-0,0,3,21,25,22,25,24,26,,,,
+2026-08-28,6621279,final,FALSE,Winthrop,,0-1,Davidson,,1-0,2,3,22,25,25,21,15,25,25,18,16,18
+2026-08-28,6621484,final,FALSE,Bowling Green,,1-0,Ohio St.,,0-1,3,1,25,21,25,21,24,26,25,22,,
+2026-08-28,6621961,final,FALSE,Montreat,,,UNC Asheville,,1-0,0,3,13,25,8,25,9,25,,,,
+2026-08-28,6622196,final,FALSE,Southeastern La.,,0-1,Ole Miss,,1-0,2,3,28,26,25,17,19,25,19,25,12,15
+2026-08-28,6622774,final,TRUE,CSU Bakersfield,,1-1,North Texas,,1-0,1,3,28,30,14,25,25,20,20,25,,
+2026-08-28,6622839,final,TRUE,Oral Roberts,,2-0,Nicholls,,1-1,3,2,23,25,20,25,25,23,25,22,15,12
+2026-08-28,6624109,final,TRUE,Alabama St.,,0-1,North Ala.,,1-0,0,3,20,25,14,25,23,25,,,,
+2026-08-28,6624203,final,TRUE,Southern Ill.,,1-0,ULM,,0-1,3,1,25,21,26,24,15,25,25,20,,
+2026-08-28,6624295,final,FALSE,Rutgers,,1-1,Bellarmine,,0-1,3,1,25,15,22,25,25,21,25,19,,
+2026-08-28,6624995,final,TRUE,Hampton,,1-0,Bethune-Cookman,,0-1,3,0,25,19,25,14,25,15,,,,
+2026-08-28,6625005,final,TRUE,South Carolina St.,,1-0,Mississippi Val.,,0-1,3,2,17,25,20,25,25,20,25,19,15,6
+2026-08-29,6583694,final,TRUE,Western Caro.,,0-2,Charleston So.,,1-1,2,3,25,23,24,26,18,25,25,22,6,15
+2026-08-29,6583702,final,FALSE,FDU,,1-1,Seton Hall,,2-0,0,3,22,25,13,25,12,25,,,,
+2026-08-29,6583832,final,FALSE,Santa Clara,,0-3,Dayton,,2-0,1,3,25,20,19,25,23,25,21,25,,
+2026-08-29,6583835,final,FALSE,Eastern Ill.,,1-2,Dayton,,3-0,0,3,21,25,18,25,22,25,,,,
+2026-08-29,6583874,final,FALSE,Oregon St.,,1-1,Utah Valley,,0-3,3,1,25,17,25,23,23,25,27,25,,
+2026-08-29,6583916,final,FALSE,Miami (FL),,0-2,Michigan,,2-0,0,3,15,25,15,25,19,25,,,,
+2026-08-29,6584163,final,FALSE,LIU,,0-2,Michigan St.,,2-0,0,3,13,25,14,25,12,25,,,,
+2026-08-29,6584426,final,TRUE,Lindenwood,,1-1,Buffalo,,2-1,1,3,25,18,23,25,22,25,22,25,,
+2026-08-29,6584786,final,FALSE,George Mason,,1-1,Georgetown,,2-0,1,3,28,30,25,22,19,25,21,25,,
+2026-08-29,6585254,final,TRUE,St. John's (NY),,2-1,USC Upstate,,2-1,3,1,25,18,25,16,14,25,25,15,,
+2026-08-29,6585459,final,TRUE,UC Santa Barbara,,2-0,Prairie View,,0-2,3,0,25,21,25,18,25,19,,,,
+2026-08-29,6585592,final,TRUE,North Texas,,2-0,Lamar University,,0-3,3,1,27,25,15,25,25,23,25,22,,
+2026-08-29,6585680,final,FALSE,Nevada,,0-1,Portland,,2-0,0,3,23,25,18,25,18,25,,,,
+2026-08-29,6585957,final,FALSE,Presbyterian,,3-0,West Ga.,,1-2,3,1,25,18,25,17,23,25,25,18,,
+2026-08-29,6586352,final,FALSE,CSU Bakersfield,,2-1,Abilene Christian,,1-1,3,1,25,14,25,20,22,25,25,18,,
+2026-08-29,6586355,final,FALSE,North Texas,,3-0,Abilene Christian,,1-2,3,1,25,18,25,14,23,25,25,13,,
+2026-08-29,6586713,final,TRUE,Rhode Island,,2-0,Holy Cross,,1-2,3,2,25,21,19,25,25,21,16,25,15,9
+2026-08-29,6586872,final,TRUE,South Dakota,,2-0,Milwaukee,,0-2,3,0,25,8,25,22,25,21,,,,
+2026-08-29,6586873,final,FALSE,Milwaukee,,0-3,Drake,,1-2,1,3,21,25,25,22,22,25,23,25,,
+2026-08-29,6587082,final,TRUE,Louisiana,,0-1,Oklahoma,,2-0,0,3,14,25,19,25,25,27,,,,
+2026-08-29,6587103,final,FALSE,Canisius,,0-3,Youngstown St.,,2-1,0,3,13,25,18,25,20,25,,,,
+2026-08-29,6587161,final,FALSE,North Ala.,,2-0,Troy,,1-1,3,0,25,18,25,22,25,15,,,,
+2026-08-29,6588008,final,TRUE,Minnesota,,1-1,Creighton,,1-1,3,0,25,18,25,23,25,12,,,,
+2026-08-29,6588068,final,FALSE,Coppin St.,,1-2,Virginia Tech,,2-1,1,3,21,25,25,20,16,25,21,25,,
+2026-08-29,6588435,final,FALSE,FIU,,2-1,Fla. Atlantic,,3-0,0,3,13,25,23,25,19,25,,,,
+2026-08-29,6588437,final,FALSE,Southern U.,,0-3,Jacksonville St.,,1-1,1,3,20,25,25,16,16,25,17,25,,
+2026-08-29,6588603,final,TRUE,Bradley,,2-1,Oakland,,1-1,3,2,25,21,25,16,24,26,17,25,15,12
+2026-08-29,6588607,final,FALSE,Oakland,,1-2,Toledo,,3-0,0,3,18,25,23,25,14,25,,,,
+2026-08-29,6588936,final,FALSE,Col. of Charleston,,0-2,Lipscomb,,2-0,0,3,19,25,21,25,24,26,,,,
+2026-08-29,6589242,final,TRUE,UNI,,1-1,Loyola Chicago,,0-2,3,2,25,22,17,25,18,25,25,8,16,14
+2026-08-29,6589568,final,TRUE,UMBC,,1-0,UTRGV,,0-2,3,0,25,14,25,13,25,21,,,,
+2026-08-29,6589729,final,TRUE,Norfolk St.,,1-1,Elon,,0-2,3,1,25,23,26,28,30,28,25,14,,
+2026-08-29,6590002,final,TRUE,Mississippi Val.,,0-3,Delaware St.,,2-0,0,3,13,25,20,25,20,25,,,,
+2026-08-29,6590312,final,FALSE,N.C. Central,,2-1,Alabama A&M,,3-0,2,3,25,15,29,27,24,26,20,25,10,15
+2026-08-29,6590710,final,TRUE,San Francisco,,1-1,Belmont,,1-1,3,2,22,25,19,25,25,23,25,21,15,8
+2026-08-29,6590722,final,FALSE,Belmont,,1-2,Weber St.,,3-0,2,3,23,25,25,18,20,25,25,22,11,15
+2026-08-29,6590835,final,FALSE,Morehead St.,,1-1,Tennessee,,2-0,0,3,16,25,18,25,12,25,,,,
+2026-08-29,6590840,final,FALSE,Fairfield,,1-2,Tennessee,,3-0,0,3,25,27,23,25,12,25,,,,
+2026-08-29,6590877,final,TRUE,Colgate,,0-2,Fairfield,,1-1,0,3,14,25,20,25,15,25,,,,
+2026-08-29,6590898,final,FALSE,Southern Utah,,0-2,Saint Mary's (CA),,1-1,0,3,11,25,17,25,13,25,,,,
+2026-08-29,6591457,final,FALSE,Oregon,,2-0,Southeast Mo. St.,,0-3,3,1,25,14,25,14,20,25,25,21,,
+2026-08-29,6591640,final,TRUE,Providence,,2-0,New Haven,,0-2,3,0,25,14,26,24,25,20,,,,
+2026-08-29,6591642,final,TRUE,New Haven,,1-2,Saint Peter's,,0-3,3,1,23,25,28,26,33,31,25,18,,
+2026-08-29,6591837,final,TRUE,San Diego,,1-1,Ga. Southern,,0-2,3,1,25,17,26,24,17,25,25,9,,
+2026-08-29,6591969,final,FALSE,UAB,,2-1,Chattanooga,,1-2,3,1,25,15,25,22,22,25,25,17,,
+2026-08-29,6592146,final,FALSE,Loyola Maryland,,0-2,James Madison,,2-0,0,3,19,25,17,25,15,25,,,,
+2026-08-29,6592206,final,FALSE,Stonehill,,1-2,LSU New Orleans,,1-1,3,1,21,25,25,19,25,20,25,17,,
+2026-08-29,6592208,final,FALSE,Oral Roberts,,3-0,LSU New Orleans,,1-2,3,2,17,25,25,16,10,25,25,16,15,10
+2026-08-29,6592330,final,TRUE,Eastern Ky.,,2-0,Utah St.,,0-2,3,1,20,25,25,21,25,18,25,22,,
+2026-08-29,6592827,final,FALSE,Sacred Heart,,0-1,Army West Point,,1-1,1,3,25,23,18,25,23,25,14,25,,
+2026-08-29,6592832,final,TRUE,Omaha,,1-1,Central Mich.,,0-2,3,0,25,20,25,18,25,23,,,,
+2026-08-29,6592973,final,FALSE,Memphis,,0-2,Vanderbilt,,2-0,0,3,23,25,13,25,22,25,,,,
+2026-08-29,6593045,final,TRUE,Southern Miss.,,2-0,Jacksonville,,2-1,3,2,23,25,25,20,16,25,25,20,15,10
+2026-08-29,6593048,final,FALSE,Southern Miss.,,3-0,Jacksonville St.,,1-2,3,0,25,22,25,19,25,14,,,,
+2026-08-29,6593166,final,FALSE,DePaul,,2-0,Drake,,0-2,3,0,25,20,25,22,25,21,,,,
+2026-08-29,6593217,final,TRUE,Middle Tenn.,,2-0,Boise St.,,1-2,3,0,25,19,25,22,25,18,,,,
+2026-08-29,6593321,final,FALSE,UIW,,0-2,LSU,,2-0,1,3,20,25,27,25,11,25,19,25,,
+2026-08-29,6594585,final,TRUE,Iona,,0-2,Little Rock,,2-0,0,3,5,25,15,25,18,25,,,,
+2026-08-29,6595045,final,TRUE,Southeastern La.,,0-2,LMU (CA),,2-0,0,3,19,25,21,25,21,25,,,,
+2026-08-29,6595181,final,FALSE,The Citadel,,1-2,UNCW,,2-1,2,3,25,21,18,25,25,12,22,25,12,15
+2026-08-29,6595809,final,FALSE,Baylor,,2-0,Hawaii,,1-1,3,2,25,17,14,25,25,22,23,25,15,9
+2026-08-29,6596119,final,FALSE,Idaho St.,,2-1,Wichita St.,,1-1,3,1,9,25,25,23,25,22,25,20,,
+2026-08-29,6596761,final,FALSE,Western Ky.,,2-1,Southeast Mo. St.,,0-2,3,0,25,20,25,20,25,20,,,,
+2026-08-29,6597510,final,FALSE,Long Beach St.,,0-2,UCLA,,2-0,0,3,21,25,28,30,16,25,,,,
+2026-08-29,6597540,final,FALSE,NIU,,1-2,Southern Ind.,,2-1,0,3,18,25,19,25,19,25,,,,
+2026-08-29,6597560,final,FALSE,Furman,,1-2,Georgia,,3-0,1,3,13,25,25,21,19,25,18,25,,
+2026-08-29,6597566,final,FALSE,McNeese,,0-3,Sam Houston,,3-0,0,3,13,25,24,26,16,25,,,,
+2026-08-29,6597902,final,TRUE,UTEP,,0-1,Tulsa,,2-0,2,3,24,26,25,18,25,18,20,25,7,15
+2026-08-29,6598195,final,FALSE,Ohio,,3-0,Marshall,,2-1,3,0,27,25,25,16,25,17,,,,
+2026-08-29,6598293,final,TRUE,Queens (NC),,0-1,Duke,,2-0,0,3,13,25,14,25,20,25,,,,
+2026-08-29,6598334,final,FALSE,Hampton,,1-2,East Carolina,,2-0,0,3,19,25,20,25,25,27,,,,
+2026-08-29,6598426,final,TRUE,Siena,,0-2,Holy Cross,,1-1,1,3,16,25,27,25,17,25,19,25,,
+2026-08-29,6598637,final,FALSE,Fresno St.,,0-2,Ohio St.,,1-1,0,3,21,25,15,25,9,25,,,,
+2026-08-29,6598690,final,FALSE,Idaho,,1-1,Missouri,,3-0,0,3,18,25,21,25,12,25,,,,
+2026-08-29,6599007,final,TRUE,Gardner-Webb,,1-1,Morgan St.,,0-2,3,0,25,23,25,21,25,10,,,,
+2026-08-29,6599009,final,TRUE,Gardner-Webb,,1-2,Cleveland St.,,2-1,0,3,19,25,17,25,21,25,,,,
+2026-08-29,6599095,final,FALSE,SMU,,2-0,Colorado St.,,1-1,3,1,25,20,19,25,25,23,27,25,,
+2026-08-29,6599124,final,FALSE,Providence,,2-1,New Hampshire,,3-0,1,3,25,21,8,25,23,25,13,25,,
+2026-08-29,6599185,final,FALSE,Marquette,,1-2,Wright St.,,2-1,3,0,25,16,25,21,26,24,,,,
+2026-08-29,6599257,final,TRUE,Denver,,2-0,CSUN,,0-2,3,2,25,20,22,25,26,24,22,25,15,11
+2026-08-29,6599309,final,TRUE,Hofstra,,1-0,High Point,,1-1,3,1,26,24,22,25,25,20,25,15,,
+2026-08-29,6599390,final,FALSE,South Fla.,,0-2,Kentucky,,3-1,0,3,18,25,16,25,19,25,,,,
+2026-08-29,6599438,final,TRUE,Villanova,,1-1,Sacramento St.,,0-2,3,1,23,25,25,23,25,16,25,16,,
+2026-08-29,6599703,final,TRUE,Wofford,,1-0,Winthrop,,0-2,3,0,25,22,25,20,25,14,,,,
+2026-08-29,6599813,final,TRUE,Liberty,,1-1,Akron,,1-1,3,1,25,23,25,21,14,25,25,22,,
+2026-08-29,6599815,final,FALSE,Liberty,,2-1,ETSU,,0-3,3,2,25,23,21,25,32,30,13,25,18,16
+2026-08-29,6599851,final,TRUE,Tennessee St.,,0-3,Valparaiso,,3-0,0,3,15,25,19,25,17,25,,,,
+2026-08-29,6599854,final,TRUE,Western Ill.,,0-2,Towson,,1-2,1,3,25,22,19,25,19,25,17,25,,
+2026-08-29,6599958,final,TRUE,Grand Canyon,,1-2,Arkansas St.,,0-2,3,0,25,19,25,15,25,23,,,,
+2026-08-29,6600043,final,FALSE,UIC,,0-3,Saint Louis,,2-0,2,3,22,25,25,22,22,25,25,17,13,15
+2026-08-29,6600165,final,TRUE,Gonzaga,,1-1,Pacific,,1-1,1,3,21,25,23,25,25,22,19,25,,
+2026-08-29,6600316,final,TRUE,Missouri St.,,1-1,SFA,,1-2,2,3,24,26,25,23,20,25,25,18,12,15
+2026-08-29,6600582,final,TRUE,Northern Ky.,,1-1,Bowling Green,,2-0,2,3,28,26,25,20,22,25,24,26,12,15
+2026-08-29,6600952,final,TRUE,UNC Greensboro,,1-1,Northeastern,,0-1,3,1,25,27,26,24,25,21,25,18,,
+2026-08-29,6601048,final,FALSE,UConn,,0-2,Penn St.,,1-0,0,3,14,25,21,25,18,25,,,,
+2026-08-29,6601201,final,FALSE,Mississippi St.,,2-0,South Alabama,,0-2,3,0,25,19,25,15,25,20,,,,
+2026-08-29,6601338,final,FALSE,Navy,,0-2,Western Mich.,,2-0,0,3,13,25,14,25,16,25,,,,
+2026-08-29,6602324,final,TRUE,Quinnipiac,,0-1,Air Force,,1-1,0,3,24,26,18,25,16,25,,,,
+2026-08-29,6602726,final,TRUE,Duquesne,,3-0,Mercyhurst,,1-2,3,0,25,21,25,20,25,11,,,,
+2026-08-29,6603022,final,TRUE,UT Martin,,0-3,Jackson St.,,2-1,1,3,20,25,18,25,25,21,16,25,,
+2026-08-29,6603341,final,FALSE,Stony Brook,,1-2,UCF,,2-0,0,3,20,25,24,26,22,25,,,,
+2026-08-29,6603854,final,FALSE,BYU,,2-0,FGCU,,1-1,3,1,25,17,23,25,25,15,25,21,,
+2026-08-29,6604212,final,TRUE,Radford,,1-0,Hampton,,1-1,3,2,25,19,22,25,22,25,25,17,16,14
+2026-08-29,6604213,final,TRUE,Radford,,1-1,Bethune-Cookman,,1-2,2,3,25,13,25,18,21,25,24,26,9,15
+2026-08-29,6604280,final,FALSE,Butler,,2-0,Clemson,,1-1,3,2,25,22,25,22,22,25,28,30,15,11
+2026-08-29,6604302,scheduled,TRUE,Norfolk St.,,1-1,Elon,,0-2,,,,,,,,,,,,
+2026-08-29,6604304,final,FALSE,Elon,,1-2,Old Dominion,,1-2,3,1,25,14,18,25,25,21,25,22,,
+2026-08-29,6604483,final,FALSE,Tarleton St.,,0-2,Arizona,,2-0,0,3,17,25,23,25,22,25,,,,
+2026-08-29,6605047,final,FALSE,UC Davis,,1-1,Northern Colo.,,0-1,3,1,20,25,25,20,25,15,25,18,,
+2026-08-29,6605211,final,FALSE,Fordham,,1-1,Temple,,1-1,3,1,25,19,25,16,15,25,25,12,,
+2026-08-29,6605234,final,TRUE,Manhattan,,0-2,Fordham,,2-1,2,3,25,18,25,22,16,25,12,25,7,15
+2026-08-29,6605370,final,FALSE,California Baptist,,1-1,New Mexico St.,,1-1,0,3,24,26,23,25,19,25,,,,
+2026-08-29,6605825,final,TRUE,Indiana St.,,2-0,Green Bay,,0-2,3,0,31,29,25,17,25,18,,,,
+2026-08-29,6606161,final,FALSE,Purdue Fort Wayne,,2-1,Bellarmine,,1-1,2,3,25,27,24,26,25,22,25,20,15,17
+2026-08-29,6606165,final,TRUE,North Florida,,2-1,George Washington,,0-3,3,1,25,19,25,20,13,25,25,19,,
+2026-08-29,6606260,final,FALSE,Cal Poly,,1-1,Texas A&M,,3-2,0,3,24,26,15,25,23,25,,,,
+2026-08-29,6606279,final,TRUE,Georgia St.,,0-2,Rice,,2-0,1,3,25,20,18,25,23,25,22,25,,
+2026-08-29,6606371,final,TRUE,N.C. A&T,,2-0,Bryant,,0-2,3,1,25,23,21,25,25,22,25,21,,
+2026-08-29,6606452,final,FALSE,San Jose St.,,0-2,Weber St.,,2-0,0,3,15,25,22,25,21,25,,,,
+2026-08-29,6606640,final,FALSE,South Dakota St.,,1-1,Pepperdine,,2-0,0,3,16,25,19,25,21,25,,,,
+2026-08-29,6606661,final,TRUE,UC Irvine,,0-2,IU Indy,,1-1,0,3,23,25,21,25,26,28,,,,
+2026-08-29,6606740,final,FALSE,Southern Ill.,,2-0,East Texas A&M,,1-1,3,1,25,27,25,22,25,21,25,19,,
+2026-08-29,6606952,final,TRUE,Robert Morris,,0-3,NC State,,2-0,0,3,17,25,20,25,12,25,,,,
+2026-08-29,6607027,final,TRUE,Delaware St.,,3-0,Ark.-Pine Bluff,,1-2,3,0,25,21,25,15,25,15,,,,
+2026-08-29,6607123,final,FALSE,Southwest Minn. St.,,2-0,West Florida,,2-0,1,3,25,19,16,25,23,25,22,25,,
+2026-08-29,6607225,final,TRUE,Mercer,,1-1,Alabama St.,,0-2,3,2,22,25,25,16,21,25,25,22,16,14
+2026-08-29,6607978,final,TRUE,Southern California,,1-0,Arizona St.,,2-1,3,0,25,23,25,21,25,22,,,,
+2026-08-29,6607990,final,FALSE,Alcorn,,0-2,Nicholls,,2-1,2,3,27,25,21,25,25,21,14,25,7,15
+2026-08-29,6608009,final,TRUE,Stonehill,,2-2,Alcorn,,0-3,3,0,25,15,25,21,25,20,,,,
+2026-08-29,6608684,final,FALSE,Eastern Ill.,,1-1,Wright St.,,2-0,0,3,24,26,23,25,10,25,,,,
+2026-08-29,6609800,final,TRUE,Northwestern St.,,1-2,Grambling,,1-2,3,1,25,15,25,19,22,25,26,24,,
+2026-08-29,6609912,final,TRUE,Presbyterian,,2-0,Northwestern St.,,0-2,3,0,25,18,25,20,25,13,,,,
+2026-08-29,6609922,final,FALSE,North Dakota,,0-2,Seattle U,,2-0,2,3,25,27,21,25,25,15,25,15,12,15
+2026-08-29,6610011,final,FALSE,Montana St.,,2-0,Lafayette,,1-1,3,0,25,22,25,21,25,18,,,,
+2026-08-29,6610015,final,TRUE,Montana St.,,1-0,Delaware,,0-1,3,2,19,25,14,25,25,21,25,21,16,14
+2026-08-29,6610080,final,FALSE,Northwestern,,0-2,American,,1-1,2,3,25,22,21,25,25,20,19,25,12,15
+2026-08-29,6610315,final,FALSE,Kansas City,,2-1,Austin Peay,,2-1,0,3,19,25,16,25,24,26,,,,
+2026-08-29,6610419,final,FALSE,Saint Peter's,,0-2,New Hampshire,,2-0,0,3,12,25,19,25,20,25,,,,
+2026-08-29,6611260,final,FALSE,Montana,,1-1,Washington St.,,2-0,1,3,25,23,16,25,16,25,19,25,,
+2026-08-29,6611273,final,TRUE,Le Moyne,,0-3,Kennesaw St.,,3-0,0,3,11,25,19,25,13,25,,,,
+2026-08-29,6611406,final,TRUE,Auburn,,3-0,Akron,,1-2,3,0,25,16,28,26,25,15,,,,
+2026-08-29,6611834,final,FALSE,Binghamton,,0-3,Toledo,,2-0,0,3,12,25,22,25,15,25,,,,
+2026-08-29,6612001,final,TRUE,Texas Tech,,1-1,St. Thomas (MN),,0-1,3,2,25,17,25,19,20,25,22,25,17,15
+2026-08-29,6612120,final,TRUE,Niagara,,0-3,Bucknell,,1-2,1,3,25,20,18,25,21,25,17,25,,
+2026-08-29,6612519,final,TRUE,Utah,,2-0,Utah Tech,,2-1,3,0,25,20,25,22,25,23,,,,
+2026-08-29,6612717,final,TRUE,Campbell,,1-0,A&M-Corpus Christi,,0-2,3,2,25,10,25,23,28,30,14,25,15,12
+2026-08-29,6612889,final,TRUE,Eastern Mich.,,3-0,Murray St.,,0-3,3,0,25,23,25,21,25,21,,,,
+2026-08-29,6613065,final,TRUE,VCU,,0-2,Florida St.,,1-1,1,3,19,25,25,19,22,25,24,26,,
+2026-08-29,6613329,final,TRUE,UT Arlington,,2-0,SIUE,,0-2,3,2,22,25,25,20,19,25,29,27,15,12
+2026-08-29,6613587,final,FALSE,Central Ark.,,0-2,Colorado,,2-0,0,3,13,25,25,27,18,25,,,,
+2026-08-29,6613742,final,FALSE,Houston Christian,,0-2,Louisiana Tech,,2-0,2,3,25,23,25,21,23,25,28,30,12,15
+2026-08-29,6614660,final,FALSE,UT Arlington,,2-1,Arkansas,,2-0,0,3,20,25,22,25,17,25,,,,
+2026-08-29,6615185,final,TRUE,Nebraska,,1-0,UNLV,,0-1,3,0,25,18,25,15,25,16,,,,
+2026-08-29,6615277,final,FALSE,Georgia Tech,,2-0,Iowa St.,,1-1,3,0,25,23,25,20,25,17,,,,
+2026-08-29,6616019,final,TRUE,Kent St.,,2-1,William & Mary,,1-2,3,2,20,25,23,25,25,13,25,14,15,9
+2026-08-29,6616552,final,TRUE,Miami (OH),,2-1,Cal St. Fullerton,,1-2,3,1,23,25,25,18,25,3,25,16,,
+2026-08-29,6617114,final,FALSE,Marist,,0-1,Lafayette,,1-0,1,3,21,25,25,19,21,25,28,30,,
+2026-08-29,6617116,final,TRUE,Marist,,0-2,Delaware,,1-1,0,3,20,25,21,25,25,27,,,,
+2026-08-29,6618004,final,FALSE,Siena,,1-2,Central Conn. St.,,1-1,3,0,25,23,25,23,25,20,,,,
+2026-08-29,6618050,final,TRUE,Wake Forest,,1-1,Houston,,1-1,3,2,17,25,25,18,21,25,25,22,15,11
+2026-08-29,6618342,final,TRUE,Syracuse,,0-1,Cincinnati,,2-0,0,3,25,27,19,25,11,25,,,,
+2026-08-29,6618658,final,TRUE,Xavier,,0-2,Ball St.,,2-0,1,3,19,25,25,21,22,25,22,25,,
+2026-08-29,6618746,final,TRUE,TCU,,0-1,Texas,,2-1,0,3,28,30,23,25,23,25,,,,
+2026-08-29,6619496,final,TRUE,Merrimack,,0-3,Stetson,,1-2,1,3,18,25,26,24,16,25,22,25,,
+2026-08-29,6619805,final,TRUE,UAB,,1-1,Tennessee St.,,0-2,3,0,25,17,25,18,25,20,,,,
+2026-08-29,6619923,final,TRUE,Sacred Heart,,1-1,UAlbany,,0-2,3,0,25,16,25,20,25,22,,,,
+2026-08-29,6619945,final,FALSE,UC San Diego,,1-1,California,,2-0,1,3,16,25,25,18,22,25,17,25,,
+2026-08-29,6620028,final,TRUE,Illinois St.,,1-1,NJIT,,0-2,3,0,25,15,25,18,25,13,,,,
+2026-08-29,6620912,final,TRUE,North Dakota St.,,2-0,Tennessee Tech,,0-1,3,0,25,16,25,23,25,20,,,,
+2026-08-29,6621280,final,FALSE,North Carolina,,1-0,Davidson,,1-1,3,0,25,22,25,17,25,22,,,,
+2026-08-29,6621600,final,FALSE,Morgan St.,,0-3,Lehigh,,3-0,0,3,18,25,17,25,18,25,,,,
+2026-08-29,6621820,final,FALSE,Middle Tenn.,,2-1,UNC Asheville,,2-1,1,3,25,17,26,28,21,25,24,26,,
+2026-08-29,6621907,final,TRUE,SIUE,,0-3,UTSA,,1-1,2,3,25,21,20,25,17,25,26,24,11,15
+2026-08-29,6622198,final,FALSE,Northern Ariz.,,0-2,Ole Miss,,2-0,1,3,25,23,16,25,22,25,22,25,,
+2026-08-29,6624204,final,TRUE,Texas Southern,,0-2,ULM,,1-1,0,3,14,25,23,25,12,25,,,,
+2026-08-29,6624301,final,FALSE,Evansville,,0-3,Bellarmine,,2-1,0,3,15,25,15,25,17,25,,,,
+2026-08-29,6625048,final,TRUE,Chicago St.,,0-2,Eastern Wash.,,2-0,0,3,9,25,17,25,16,25,,,,
+2026-08-29,6625075,final,TRUE,UMES,,1-2,Florida A&M,,1-2,0,3,18,25,22,25,19,25,,,,
+2026-08-29,6625089,final,TRUE,UAlbany,,0-1,Iowa,,2-0,1,3,18,25,29,27,16,25,13,25,,
+2026-08-29,6625167,final,TRUE,Rutgers,,2-1,Evansville,,0-2,3,1,25,22,18,25,25,22,25,14,,
+2026-08-29,6625753,final,FALSE,San Diego St.,,1-1,Washington,,2-0,0,3,17,25,24,26,20,25,,,,
+2026-08-29,6627807,final,FALSE,UC Riverside,,0-1,Alabama,,2-0,0,3,10,25,17,25,10,25,,,,
+2026-08-29,6628642,final,FALSE,App State,,1-1,Charlotte,,1-1,3,2,23,25,25,18,23,25,25,20,15,13
+2026-08-30,6583696,final,FALSE,Western Caro.,,0-3,Clemson,,2-1,1,3,20,25,25,22,24,26,20,25,,
+2026-08-30,6583704,final,FALSE,NJIT,,0-3,Seton Hall,,3-0,0,3,18,25,24,26,26,28,,,,
+2026-08-30,6584292,final,FALSE,Syracuse,,0-2,Illinois,,1-1,0,3,17,25,17,25,14,25,,,,
+2026-08-30,6584427,final,FALSE,Lindenwood,,2-1,Saint Louis,,2-1,3,2,25,17,25,22,21,25,22,25,15,12
+2026-08-30,6584789,final,FALSE,George Mason,,2-1,Howard,,0-2,3,2,17,25,15,25,26,24,25,19,15,13
+2026-08-30,6585462,final,FALSE,UC Santa Barbara,,3-0,Arizona,,2-1,3,0,25,22,29,27,25,23,,,,
+2026-08-30,6586714,final,FALSE,Rhode Island,,3-0,Central Conn. St.,,1-2,3,1,25,12,25,21,18,25,25,14,,
+2026-08-30,6587084,final,FALSE,Louisiana,,0-2,Texas St.,,1-1,0,3,25,27,16,25,20,25,,,,
+2026-08-30,6587166,final,FALSE,Alabama St.,,0-3,Troy,,2-1,0,3,15,25,15,25,11,25,,,,
+2026-08-30,6588939,final,TRUE,Memphis,,0-3,Col. of Charleston,,1-2,2,3,25,19,23,25,26,24,23,25,8,15
+2026-08-30,6589245,final,FALSE,UNI,,1-2,Iowa St.,,2-1,1,3,18,25,18,25,25,21,34,36,,
+2026-08-30,6589569,final,FALSE,UMBC,,2-0,West Virginia,,1-1,3,2,25,23,25,13,19,25,18,25,15,13
+2026-08-30,6590738,final,FALSE,UC Riverside,,1-1,Samford,,0-2,3,1,25,23,25,21,22,25,31,29,,
+2026-08-30,6590899,final,FALSE,California,,2-1,Saint Mary's (CA),,2-1,2,3,23,25,25,16,19,25,25,22,13,15
+2026-08-30,6591838,final,TRUE,Ga. Southern,,0-3,Baylor,,3-0,1,3,22,25,16,25,25,23,21,25,,
+2026-08-30,6592339,final,TRUE,Morehead St.,,1-2,Colgate,,1-2,2,3,14,25,25,23,25,20,23,25,9,15
+2026-08-30,6592828,final,FALSE,UAlbany,,0-3,Army West Point,,2-1,2,3,25,21,19,25,25,22,14,25,10,15
+2026-08-30,6592834,final,FALSE,Central Mich.,,0-3,Washington St.,,3-0,0,3,18,25,15,25,18,25,,,,
+2026-08-30,6593416,final,FALSE,Northeastern,,0-2,South Carolina,,2-0,0,3,22,25,14,25,17,25,,,,
+2026-08-30,6594242,final,TRUE,South Dakota,,2-1,DePaul,,3-0,1,3,21,25,25,20,22,25,22,25,,
+2026-08-30,6594323,final,TRUE,Kansas,,0-2,Stanford,,2-0,1,3,25,27,22,25,25,14,21,25,,
+2026-08-30,6594586,final,TRUE,Iona,,1-2,Houston Christian,,0-3,3,2,24,26,25,22,17,25,25,13,15,13
+2026-08-30,6595047,final,FALSE,LMU (CA),,3-0,Ole Miss,,2-1,3,1,25,20,26,28,25,20,25,22,,
+2026-08-30,6597904,final,TRUE,Tulsa,,3-0,New Mexico,,0-2,3,1,25,18,23,25,25,20,25,19,,
+2026-08-30,6598337,final,FALSE,Radford,,1-2,East Carolina,,3-0,1,3,21,25,19,25,25,19,15,25,,
+2026-08-30,6598588,final,FALSE,Tennessee Tech,,0-2,Tulane,,1-1,0,3,11,25,23,25,21,25,,,,
+2026-08-30,6598638,final,TRUE,Fresno St.,,0-3,Bowling Green,,3-0,0,3,23,25,13,25,20,25,,,,
+2026-08-30,6599100,final,TRUE,UC Davis,,1-2,SMU,,3-0,2,3,25,27,20,25,25,20,25,23,12,15
+2026-08-30,6599258,final,FALSE,Denver,,2-1,Colorado,,3-0,0,3,19,25,21,25,22,25,,,,
+2026-08-30,6599296,final,FALSE,Xavier,,1-2,Notre Dame,,0-2,3,1,29,27,25,15,18,25,25,15,,
+2026-08-30,6599353,final,FALSE,High Point,,1-2,Penn St.,,2-0,2,3,25,20,13,25,19,25,26,24,10,15
+2026-08-30,6599394,final,TRUE,Utah St.,,0-3,South Fla.,,1-2,0,3,23,25,20,25,19,25,,,,
+2026-08-30,6599441,final,TRUE,Villanova,,2-1,South Dakota St.,,1-2,3,2,25,21,20,25,28,30,25,20,15,9
+2026-08-30,6599705,final,FALSE,Wofford,,2-0,Davidson,,1-2,3,1,25,19,25,22,18,25,25,21,,
+2026-08-30,6599859,final,TRUE,Western Ill.,,0-3,Idaho,,2-1,0,3,26,28,18,25,13,25,,,,
+2026-08-30,6599962,final,TRUE,Cal Poly,,2-1,Arkansas St.,,0-3,3,0,25,15,25,20,25,23,,,,
+2026-08-30,6600166,final,TRUE,Southern Utah,,0-3,Pacific,,2-1,2,3,25,22,25,21,16,25,13,25,12,15
+2026-08-30,6600591,final,FALSE,Northern Ky.,,1-2,Ohio St.,,2-1,1,3,25,22,20,25,19,25,17,25,,
+2026-08-30,6601180,final,TRUE,Hofstra,,2-0,UConn,,0-3,3,0,25,23,25,11,25,14,,,,
+2026-08-30,6601221,final,FALSE,Georgia St.,,0-3,South Alabama,,1-2,1,3,21,25,25,20,11,25,20,25,,
+2026-08-30,6601346,final,FALSE,Indiana St.,,2-1,Western Mich.,,3-0,0,3,15,25,20,25,20,25,,,,
+2026-08-30,6601948,final,FALSE,Hofstra,,2-1,Penn St.,,3-0,0,3,20,25,9,25,23,25,,,,
+2026-08-30,6602467,final,FALSE,New Mexico St.,,1-2,UTEP,,1-1,2,3,23,25,25,13,26,24,22,25,13,15
+2026-08-30,6602469,final,TRUE,Loyola Chicago,,0-3,Georgia Tech,,3-0,1,3,11,25,25,21,18,25,14,25,,
+2026-08-30,6603343,final,FALSE,NC State,,2-1,UCF,,3-0,0,3,21,25,20,25,26,28,,,,
+2026-08-30,6604021,final,FALSE,Missouri St.,,1-2,Wichita St.,,2-1,0,3,23,25,22,25,16,25,,,,
+2026-08-30,6604265,final,TRUE,Charleston So.,,2-1,Butler,,2-1,3,2,25,27,25,20,23,25,25,19,15,12
+2026-08-30,6604385,final,TRUE,Southern California,,1-1,Creighton,,2-1,1,3,25,23,22,25,21,25,19,25,,
+2026-08-30,6604525,final,TRUE,Prairie View,,0-3,Tarleton St.,,1-2,0,3,18,25,19,25,19,25,,,,
+2026-08-30,6604814,final,FALSE,UNCW,,2-2,North Carolina,,2-0,0,3,13,25,12,25,10,25,,,,
+2026-08-30,6605335,final,FALSE,Nevada,,0-2,Portland St.,,1-1,2,3,25,27,15,25,27,25,25,23,5,15
+2026-08-30,6605829,final,TRUE,Navy,,0-3,Green Bay,,1-2,0,3,17,25,21,25,20,25,,,,
+2026-08-30,6606374,final,FALSE,N.C. A&T,,2-1,Charlotte,,2-1,0,3,17,25,24,26,20,25,,,,
+2026-08-30,6606454,final,TRUE,San Jose St.,,1-2,San Francisco,,1-2,3,0,25,16,25,19,25,20,,,,
+2026-08-30,6606641,final,FALSE,Sacramento St.,,0-3,Pepperdine,,3-0,2,3,16,25,16,25,25,20,25,20,12,15
+2026-08-30,6606663,final,TRUE,San Diego St.,,2-1,UC Irvine,,0-3,3,0,25,17,25,22,25,22,,,,
+2026-08-30,6606741,final,FALSE,ULM,,1-2,East Texas A&M,,2-1,2,3,19,25,19,25,25,20,25,21,13,15
+2026-08-30,6607228,final,TRUE,North Ala.,,3-0,Mercer,,1-2,3,0,25,21,25,12,25,21,,,,
+2026-08-30,6607621,final,FALSE,St. Thomas (MN),,0-2,Wyoming,,2-0,0,3,20,25,21,25,17,25,,,,
+2026-08-30,6607944,final,FALSE,Campbell,,1-1,Kansas St.,,2-0,1,3,17,25,25,20,18,25,11,25,,
+2026-08-30,6608058,final,FALSE,IU Indy,,1-2,Washington,,3-0,2,3,16,25,25,23,12,25,25,22,9,15
+2026-08-30,6609924,final,TRUE,North Dakota,,1-2,Chicago St.,,0-3,3,0,25,12,25,20,25,15,,,,
+2026-08-30,6610022,final,TRUE,Montana St.,,3-0,Marist,,0-3,3,2,25,17,25,21,22,25,19,25,15,12
+2026-08-30,6610085,final,FALSE,American,,2-1,Virginia,,0-1,3,1,25,21,25,21,22,25,25,21,,
+2026-08-30,6610291,final,FALSE,Stony Brook,,1-3,Florida,,1-0,0,3,16,25,20,25,20,25,,,,
+2026-08-30,6610816,final,TRUE,UC San Diego,,2-1,Gonzaga,,1-2,3,1,25,17,21,25,25,21,25,17,,
+2026-08-30,6611404,final,FALSE,Oregon St.,,1-2,Utah,,3-0,0,3,19,25,20,25,20,25,,,,
+2026-08-30,6611680,final,FALSE,Queens (NC),,0-2,Coastal Carolina,,1-1,2,3,10,25,25,23,25,23,23,25,11,15
+2026-08-30,6612370,final,FALSE,Quinnipiac,,0-2,Boston College,,2-0,0,3,20,25,20,25,17,25,,,,
+2026-08-30,6612657,final,FALSE,Eastern Wash.,,3-0,Seattle U,,2-1,3,1,25,21,25,17,17,25,25,12,,
+2026-08-30,6613067,final,FALSE,Florida St.,,2-1,FGCU,,1-2,3,1,25,19,19,25,25,21,27,25,,
+2026-08-30,6615194,final,TRUE,UNLV,,0-2,TCU,,1-1,0,3,17,25,16,25,31,33,,,,
+2026-08-30,6615205,final,FALSE,Wisconsin,,1-3,Pittsburgh,,4-0,0,3,13,25,21,25,16,25,,,,
+2026-08-30,6617097,final,TRUE,Mississippi St.,,2-1,Rice,,3-0,1,3,20,25,22,25,28,26,17,25,,
+2026-08-30,6617329,final,FALSE,Rider,,1-1,Temple,,2-1,0,3,14,25,20,25,24,26,,,,
+2026-08-30,6618748,final,TRUE,Texas,,2-2,Nebraska,,2-0,0,3,19,25,19,25,16,25,,,,
+2026-08-30,6619928,final,TRUE,Iowa,,3-0,Sacred Heart,,1-2,3,0,25,20,25,20,25,19,,,,
+2026-08-30,6620031,final,TRUE,FDU,,1-2,Illinois St.,,2-1,0,3,18,25,14,25,21,25,,,,
+2026-08-30,6620361,final,FALSE,San Diego,,2-1,Hawaii,,1-2,3,0,25,16,25,17,25,18,,,,
+2026-08-30,6621032,final,TRUE,Bryant,,0-3,App State,,2-1,0,3,19,25,18,25,22,25,,,,
+2026-08-30,6621325,final,TRUE,Northern Ariz.,,1-2,Southeastern La.,,0-3,3,1,25,17,25,17,23,25,25,21,,
+2026-08-30,6621520,final,FALSE,Northwestern,,1-2,Georgetown,,2-1,3,0,25,23,25,15,25,17,,,,
+2026-08-30,6622729,final,TRUE,CSUN,,1-2,Central Ark.,,0-3,3,1,25,19,25,16,21,25,25,17,,
+2026-08-30,6624419,final,FALSE,Little Rock,,3-0,Louisiana Tech,,2-1,3,0,25,20,25,22,25,19,,,,
+2026-08-30,6624857,final,FALSE,UTSA,,1-2,Arkansas,,3-0,1,3,21,25,20,25,25,22,17,25,,
+2026-08-30,6625109,final,TRUE,Southern Ill.,,3-0,Texas Southern,,0-3,3,0,25,21,25,14,25,21,,,,
+2026-08-30,6625496,final,FALSE,Delaware,,1-2,Lafayette,,2-1,2,3,23,25,25,17,24,26,25,22,7,15
+2026-08-31,6583840,final,FALSE,Dayton,,3-1,Louisville,,3-1,0,3,14,25,14,25,11,25,,,,
+2026-09-01,6583617,final,TRUE,Georgia,,3-1,Indiana,,1-1,1,3,24,26,22,25,25,22,17,25,,
+2026-09-01,6583920,final,FALSE,South Carolina,,3-0,Michigan,,2-1,3,2,19,25,20,25,25,18,27,25,17,15
+2026-09-01,6584168,final,TRUE,Michigan St.,,3-0,LSU,,2-1,3,0,25,21,25,20,25,19,,,,
+2026-09-01,6584294,final,FALSE,Illinois,,1-2,Tennessee,,4-0,0,3,19,25,17,25,11,25,,,,
+2026-09-01,6586155,final,FALSE,Maryland,,1-1,Vanderbilt,,3-0,0,3,18,25,15,25,19,25,,,,
+2026-09-01,6587088,final,FALSE,McNeese,,0-4,Louisiana,,1-2,0,3,26,28,18,25,15,25,,,,
+2026-09-01,6588016,final,TRUE,Florida,,2-0,Minnesota,,1-2,3,1,27,25,24,26,25,23,25,21,,
+2026-09-01,6589732,final,FALSE,Old Dominion,,2-2,Norfolk St.,,1-2,3,0,25,20,25,14,25,22,,,,
+2026-09-01,6591466,final,FALSE,Oregon,,3-0,Missouri,,3-1,3,1,16,25,25,16,25,20,25,19,,
+2026-09-01,6591644,final,FALSE,Holy Cross,,2-2,New Haven,,1-3,3,0,25,22,25,22,25,20,,,,
+2026-09-01,6596764,final,FALSE,Southeast Mo. St.,,1-3,Evansville,,0-4,3,1,25,17,25,19,17,25,25,17,,
+2026-09-01,6599707,final,FALSE,Presbyterian,,3-1,Wofford,,3-0,1,3,27,25,14,25,17,25,16,25,,
+2026-09-01,6604307,final,FALSE,Elon,,1-3,UNC Asheville,,3-1,2,3,26,24,25,20,16,25,12,25,8,15
+2026-09-01,6604387,final,FALSE,Gardner-Webb,,2-2,N.C. Central,,2-2,3,1,21,25,25,14,25,22,25,17,,
+2026-09-01,6605048,final,FALSE,Northern Colo.,,0-2,Colorado St.,,2-1,1,3,22,25,23,25,25,22,19,25,,
+2026-09-01,6605228,final,FALSE,FDU,,1-3,Fordham,,3-1,0,3,17,25,18,25,23,25,,,,
+2026-09-01,6605699,final,FALSE,Texas A&M,,3-3,Purdue,,1-1,0,3,25,27,23,25,20,25,,,,
+2026-09-01,6606163,final,FALSE,Purdue Fort Wayne,,2-2,Toledo,,4-0,0,3,14,25,17,25,21,25,,,,
+2026-09-01,6612922,final,FALSE,Northwestern St.,,1-3,ULM,,2-2,0,3,20,25,20,25,19,25,,,,
+2026-09-01,6613369,final,FALSE,CSU Bakersfield,,2-2,San Francisco,,2-2,0,3,18,25,18,25,16,25,,,,
+2026-09-01,6618346,final,FALSE,Santa Clara,,1-3,Cincinnati,,2-1,3,0,25,16,25,23,25,21,,,,
+2026-09-01,6618414,final,FALSE,Liberty,,2-2,Virginia,,1-1,1,3,25,17,24,26,9,25,18,25,,
+2026-09-01,6620225,final,TRUE,Rutgers,,3-1,Arkansas,,3-1,3,0,25,19,25,20,25,16,,,,
+2026-09-02,6583618,final,TRUE,Texas A&M,,3-4,Indiana,,2-1,2,3,24,26,28,26,23,25,25,17,9,15
+2026-09-02,6583924,final,FALSE,LSU,,2-2,Michigan,,3-1,1,3,20,25,20,25,25,23,21,25,,
+2026-09-02,6584170,final,TRUE,South Carolina,,3-1,Michigan St.,,4-0,0,3,14,25,12,25,13,25,,,,
+2026-09-02,6586156,final,TRUE,Maryland,,2-1,Arkansas,,3-2,3,1,24,26,30,28,25,22,25,18,,
+2026-09-02,6588017,final,TRUE,Auburn,,3-1,Minnesota,,2-2,1,3,12,25,25,21,16,25,24,26,,
+2026-09-02,6588514,final,FALSE,Canisius,,0-4,Buffalo,,3-1,0,3,13,25,21,25,20,25,,,,
+2026-09-02,6588614,final,FALSE,Oakland,,2-2,Central Mich.,,0-4,3,1,29,27,25,20,20,25,25,17,,
+2026-09-02,6589736,final,FALSE,Hampton,,1-3,Norfolk St.,,2-2,2,3,22,25,25,17,19,25,28,26,8,15
+2026-09-02,6595829,final,FALSE,Stonehill,,2-3,Bryant,,1-3,0,3,18,25,13,25,17,25,,,,
+2026-09-02,6597512,final,FALSE,UCLA,,2-1,Kentucky,,4-1,0,3,13,25,18,25,23,25,,,,
+2026-09-02,6599104,final,FALSE,SMU,,3-1,TCU,,2-1,2,3,25,16,22,25,16,25,28,26,12,15
+2026-09-02,6603407,final,FALSE,Delaware St.,,4-0,Saint Peter's,,0-4,3,1,20,25,25,19,25,23,25,19,,
+2026-09-02,6604502,final,FALSE,Tarleton St.,,1-3,Rice,,4-0,1,3,25,21,22,25,17,25,14,25,,
+2026-09-02,6605346,final,FALSE,Portland St.,,1-2,DePaul,,4-0,1,3,25,22,9,25,11,25,18,25,,
+2026-09-02,6605682,final,FALSE,Georgia,,3-2,Purdue,,2-1,2,3,25,27,25,19,10,25,26,24,14,16
+2026-09-02,6609651,final,FALSE,Nebraska,,3-0,South Dakota St.,,1-3,3,0,25,18,25,20,25,15,,,,
+2026-09-02,6609806,final,FALSE,Nicholls,,2-2,Grambling,,2-2,1,3,25,14,23,25,22,25,19,25,,
+2026-09-02,6615501,final,FALSE,Manhattan,,0-3,NJIT,,1-3,2,3,15,25,26,24,23,25,25,19,12,15
+2026-09-02,6618706,final,FALSE,Southern California,,1-2,Texas,,3-2,0,3,16,25,21,25,20,25,,,,
+2026-09-02,6620174,final,FALSE,Rutgers,,3-2,Vanderbilt,,4-0,1,3,20,25,25,23,23,25,21,25,,
+2026-09-02,6621485,final,TRUE,Ohio St.,,2-2,Ole Miss,,3-1,1,3,22,25,25,17,17,25,22,25,,
+2026-09-02,6621894,final,FALSE,Florida,,2-1,Wisconsin,,2-3,2,3,21,25,25,20,19,25,26,24,13,15
+2026-09-02,6625142,final,FALSE,Alabama A&M,,3-1,North Ala.,,4-0,0,3,23,25,17,25,18,25,,,,
+2026-09-03,6583875,final,FALSE,Utah Valley,,0-4,South Dakota,,3-1,0,3,21,25,20,25,16,25,,,,
+2026-09-03,6585415,final,FALSE,Iowa St.,,3-1,UC Santa Barbara,,3-1,3,1,18,25,26,24,25,20,25,21,,
+2026-09-03,6586356,final,FALSE,Abilene Christian,,1-3,Houston,,3-1,2,3,13,25,18,25,25,23,28,26,12,15
+2026-09-03,6586772,final,TRUE,Syracuse,,1-2,Howard,,0-3,3,0,25,13,25,18,25,22,,,,
+2026-09-03,6586874,final,TRUE,UIC,,0-4,Milwaukee,,1-3,0,3,21,25,21,25,21,25,,,,
+2026-09-03,6587091,final,FALSE,Southeastern La.,,0-4,Louisiana,,2-2,1,3,25,22,22,25,18,25,16,25,,
+2026-09-03,6587110,final,FALSE,Youngstown St.,,2-2,Butler,,3-1,0,3,19,25,12,25,21,25,,,,
+2026-09-03,6588452,final,FALSE,FIU,,2-2,North Florida,,3-1,1,3,21,25,20,25,25,10,19,25,,
+2026-09-03,6588956,final,FALSE,Col. of Charleston,,2-2,The Citadel,,1-3,3,0,25,16,25,18,25,16,,,,
+2026-09-03,6589253,final,TRUE,UNI,,2-2,Air Force,,1-2,3,1,23,25,25,20,25,17,25,22,,
+2026-09-03,6590901,final,TRUE,Saint Mary's (CA),,2-2,Texas Tech,,2-1,1,3,23,25,25,20,18,25,20,25,,
+2026-09-03,6592137,final,FALSE,Iowa,,3-1,Mississippi St.,,3-1,1,3,25,27,23,25,26,24,20,25,,
+2026-09-03,6592150,final,FALSE,James Madison,,2-1,North Carolina,,3-0,1,3,25,21,21,25,18,25,19,25,,
+2026-09-03,6592341,final,FALSE,Arizona St.,,3-1,Colgate,,1-3,3,0,25,10,25,12,26,24,,,,
+2026-09-03,6594328,final,FALSE,Kansas,,1-2,Lipscomb,,2-1,3,1,25,18,25,17,20,25,25,16,,
+2026-09-03,6595048,final,TRUE,LMU (CA),,4-0,UC San Diego,,2-2,3,1,26,24,18,25,29,27,28,26,,
+2026-09-03,6595815,final,FALSE,North Texas,,3-1,Baylor,,4-0,0,3,20,25,13,25,26,28,,,,
+2026-09-03,6595834,final,FALSE,Stonehill,,2-4,Boston College,,3-0,0,3,21,25,17,25,21,25,,,,
+2026-09-03,6596122,final,TRUE,UNLV,,0-3,Idaho St.,,3-1,1,3,28,30,21,25,31,29,21,25,,
+2026-09-03,6597561,final,FALSE,Presbyterian,,3-2,Furman,,2-2,1,3,25,19,16,25,21,25,23,25,,
+2026-09-03,6598197,final,TRUE,Marshall,,3-1,Akron,,1-3,3,0,32,30,25,17,25,19,,,,
+2026-09-03,6598296,final,TRUE,Tulane,,2-1,Duke,,2-1,3,0,25,23,25,23,26,24,,,,
+2026-09-03,6598639,final,FALSE,Southern Utah,,0-4,Fresno St.,,1-3,0,3,14,25,12,25,18,25,,,,
+2026-09-03,6599260,final,FALSE,SIUE,,0-4,Denver,,3-1,1,3,25,20,19,25,15,25,22,25,,
+2026-09-03,6599400,final,FALSE,South Fla.,,1-3,Stanford,,3-0,1,3,17,25,18,25,32,30,15,25,,
+2026-09-03,6600167,final,TRUE,Pacific,,3-1,UC Riverside,,1-2,3,2,25,22,25,21,23,25,22,25,15,12
+2026-09-03,6600320,final,FALSE,Loyola Chicago,,0-4,SFA,,2-2,1,3,26,28,25,21,22,25,18,25,,
+2026-09-03,6601361,final,FALSE,Western Mich.,,4-0,Omaha,,1-2,3,2,25,14,25,20,19,25,23,25,15,12
+2026-09-03,6601576,final,TRUE,Northwestern,,2-2,Alabama,,2-1,3,1,16,25,25,18,25,18,25,23,,
+2026-09-03,6602478,final,FALSE,UIW,,0-3,UTSA,,2-2,2,3,17,25,25,22,19,25,25,12,8,15
+2026-09-03,6602491,final,TRUE,UTEP,,2-1,Texas St.,,1-2,3,2,25,27,19,25,25,22,25,12,15,10
+2026-09-03,6603856,final,FALSE,Eastern Ill.,,1-3,BYU,,3-0,0,3,14,25,18,25,22,25,,,,
+2026-09-03,6604823,final,TRUE,UNCW,,3-2,Alabama St.,,0-4,3,1,25,12,25,11,22,25,25,22,,
+2026-09-03,6605407,final,TRUE,UC Irvine,,0-4,New Mexico St.,,2-2,2,3,19,25,25,22,21,25,25,16,13,15
+2026-09-03,6606289,final,FALSE,Kennesaw St.,,3-1,Georgia St.,,1-3,2,3,20,25,25,23,17,25,25,21,9,15
+2026-09-03,6606377,final,TRUE,Queens (NC),,0-3,N.C. A&T,,3-1,0,3,19,25,22,25,23,25,,,,
+2026-09-03,6606456,final,FALSE,Portland,,2-1,San Jose St.,,2-2,2,3,25,11,23,25,25,19,19,25,9,15
+2026-09-03,6607573,final,TRUE,Western Ky.,,2-2,Ball St.,,3-0,1,3,25,20,20,25,17,25,21,25,,
+2026-09-03,6607867,final,FALSE,California Baptist,,1-2,Oregon St.,,2-2,0,3,14,25,19,25,19,25,,,,
+2026-09-03,6608017,final,FALSE,Dillard,,,Alcorn,,0-4,3,2,23,25,25,19,25,22,18,25,15,13
+2026-09-03,6608059,final,FALSE,Ohio,,3-1,IU Indy,,2-2,0,3,24,26,21,25,22,25,,,,
+2026-09-03,6608231,final,FALSE,Nevada,,0-3,Sacramento St.,,1-3,2,3,18,25,25,22,18,25,25,18,10,15
+2026-09-03,6609213,final,TRUE,South Carolina St.,,1-3,Charleston So.,,3-1,0,3,23,25,9,25,22,25,,,,
+2026-09-03,6610032,final,FALSE,Montana St.,,3-1,St. Thomas (MN),,1-2,1,3,25,27,27,25,18,25,15,25,,
+2026-09-03,6610810,final,FALSE,Cal St. Fullerton,,1-3,Gonzaga,,2-2,0,3,16,25,20,25,14,25,,,,
+2026-09-03,6611173,final,FALSE,Little Rock,,3-1,Missouri St.,,2-2,0,3,20,25,18,25,24,26,,,,
+2026-09-03,6611263,final,TRUE,Seattle U,,2-2,Montana,,2-1,0,3,18,25,23,25,20,25,,,,
+2026-09-03,6611408,final,FALSE,Auburn,,3-2,Wisconsin,,3-3,0,3,23,25,17,25,20,25,,,,
+2026-09-03,6611963,final,FALSE,Fla. Atlantic,,3-1,FGCU,,2-2,1,3,20,25,25,27,25,18,19,25,,
+2026-09-03,6612582,final,FALSE,Utah Tech,,2-2,Hawaii,,2-2,0,3,17,25,11,25,24,26,,,,
+2026-09-03,6613014,final,TRUE,Marist,,0-4,Idaho,,3-1,2,3,15,25,25,17,19,25,25,16,8,15
+2026-09-03,6613743,final,FALSE,Houston Christian,,1-3,Texas Southern,,0-5,3,1,25,22,20,25,25,12,25,13,,
+2026-09-03,6615199,final,FALSE,North Dakota St.,,2-1,Boise St.,,2-2,0,3,16,25,20,25,16,25,,,,
+2026-09-03,6616557,final,FALSE,Virginia Tech,,2-2,Winthrop,,1-2,0,3,18,25,23,25,20,25,,,,
+2026-09-03,6618060,final,FALSE,Texas Southern,,0-4,Houston,,2-1,0,3,16,25,14,25,23,25,,,,
+2026-09-03,6621486,final,FALSE,Ohio St.,,2-3,Oklahoma,,3-0,2,3,21,25,25,23,23,25,25,22,12,15
+2026-09-03,6622282,final,TRUE,Washington,,4-0,Ole Miss,,3-2,3,2,25,14,25,22,26,28,23,25,15,5
+2026-09-03,6623665,final,TRUE,Oral Roberts,,3-1,Eastern Wash.,,4-0,2,3,24,26,13,25,25,19,25,23,9,15
+2026-09-03,6624422,final,TRUE,Chicago St.,,0-4,Louisiana Tech,,3-1,0,3,23,25,8,25,16,25,,,,
+2026-09-03,6628916,final,FALSE,San Diego St.,,3-1,UC Davis,,1-3,3,0,28,26,25,23,25,19,,,,
+2026-09-04,6583700,final,TRUE,Western Caro.,,1-3,Bellarmine,,2-3,3,2,25,19,18,25,16,25,27,25,15,13
+2026-09-04,6583709,final,TRUE,Seton Hall,,4-0,Jacksonville St.,,1-3,3,1,25,21,24,26,25,17,25,23,,
+2026-09-04,6583843,final,TRUE,Ball St.,,4-0,Dayton,,3-2,3,0,25,19,25,23,25,23,,,,
+2026-09-04,6583877,final,TRUE,Utah Valley,,0-5,UNI,,3-2,0,3,20,25,21,25,17,25,,,,
+2026-09-04,6584429,final,TRUE,Portland St.,,1-3,Lindenwood,,3-1,0,3,21,25,20,25,18,25,,,,
+2026-09-04,6585221,final,FALSE,UAB,,2-3,St. John's (NY),,4-1,1,3,23,25,14,25,25,19,20,25,,
+2026-09-04,6585223,final,FALSE,Rider,,1-2,St. John's (NY),,3-1,0,3,17,25,22,25,13,25,,,,
+2026-09-04,6585596,final,FALSE,Lamar University,,0-4,Liberty,,3-2,0,3,19,25,18,25,23,25,,,,
+2026-09-04,6585992,final,TRUE,West Ga.,,1-3,Alabama A&M,,4-1,2,3,23,25,29,27,25,23,25,27,8,15
+2026-09-04,6585996,final,FALSE,West Ga.,,1-4,Kennesaw St.,,4-1,0,3,23,25,9,25,21,25,,,,
+2026-09-04,6586360,final,TRUE,Houston Christian,,1-4,Abilene Christian,,2-3,1,3,25,22,21,25,18,25,15,25,,
+2026-09-04,6586370,final,FALSE,Abilene Christian,,3-3,Texas Southern,,0-6,3,1,25,22,23,25,25,16,26,24,,
+2026-09-04,6586715,final,FALSE,Bryant,,2-3,Rhode Island,,3-1,3,0,25,22,25,18,25,20,,,,
+2026-09-04,6586773,final,FALSE,Howard,,0-4,Cornell,,1-0,0,3,23,25,13,25,18,25,,,,
+2026-09-04,6586876,final,TRUE,Milwaukee,,2-3,Montana St.,,3-2,3,2,25,15,23,25,18,25,25,21,15,12
+2026-09-04,6587135,final,TRUE,Youngstown St.,,2-3,Ohio,,4-1,1,3,21,25,22,25,25,21,12,25,,
+2026-09-04,6588070,final,FALSE,Coppin St.,,1-3,Navy,,1-3,1,3,22,25,25,21,22,25,23,25,,
+2026-09-04,6588455,final,TRUE,Tulane,,3-1,FIU,,2-3,3,2,22,25,25,17,25,22,20,25,15,13
+2026-09-04,6588516,final,FALSE,UMBC,,2-1,Buffalo,,4-1,2,3,24,26,23,25,25,21,25,23,5,15
+2026-09-04,6588962,final,TRUE,Col. of Charleston,,3-2,Charleston So.,,3-2,3,0,25,10,25,22,25,22,,,,
+2026-09-04,6590054,final,TRUE,Georgia St.,,1-4,Alabama A&M,,5-1,2,3,25,21,21,25,25,14,12,25,13,15
+2026-09-04,6590272,final,TRUE,Penn,,0-1,Stony Brook,,2-3,2,3,25,21,25,15,18,25,24,26,14,16
+2026-09-04,6590732,final,FALSE,South Alabama,,2-2,Belmont,,1-3,3,2,25,18,20,25,16,25,26,24,15,13
+2026-09-04,6590743,final,TRUE,Middle Tenn.,,3-1,Samford,,0-3,3,0,25,12,25,20,25,15,,,,
+2026-09-04,6590878,final,FALSE,Fairfield,,1-3,Harvard,,1-0,0,3,17,25,24,26,22,25,,,,
+2026-09-04,6590905,final,TRUE,Saint Mary's (CA),,3-2,Nevada,,0-4,3,0,31,29,25,19,25,20,,,,
+2026-09-04,6591477,final,FALSE,LIU,,0-3,Oregon,,4-0,0,3,18,25,16,25,19,25,,,,
+2026-09-04,6591646,final,TRUE,New Haven,,1-4,Fordham,,4-1,1,3,27,25,22,25,26,28,13,25,,
+2026-09-04,6591840,final,FALSE,Prairie View,,0-5,Ga. Southern,,1-3,0,3,10,25,20,25,20,25,,,,
+2026-09-04,6591974,final,TRUE,UT Martin,,0-4,Chattanooga,,2-2,0,3,15,25,14,25,21,25,,,,
+2026-09-04,6591979,final,FALSE,Chattanooga,,2-3,North Ala.,,6-0,0,3,14,25,18,25,22,25,,,,
+2026-09-04,6592134,final,TRUE,Iowa,,3-2,Alabama,,3-1,1,3,22,25,25,21,20,25,18,25,,
+2026-09-04,6592211,final,TRUE,UC Riverside,,2-2,LSU New Orleans,,1-3,3,0,25,21,25,19,25,22,,,,
+2026-09-04,6592362,final,TRUE,Radford,,2-3,Eastern Ky.,,3-0,2,3,13,25,25,16,25,27,25,23,18,20
+2026-09-04,6592829,final,TRUE,Army West Point,,3-1,Sam Houston,,3-1,3,0,25,21,25,21,26,24,,,,
+2026-09-04,6592831,final,TRUE,Kent St.,,2-2,Army West Point,,4-1,0,3,12,25,20,25,17,25,,,,
+2026-09-04,6592836,final,FALSE,Illinois St.,,3-1,Central Mich.,,0-5,3,0,25,18,25,22,25,12,,,,
+2026-09-04,6592974,final,TRUE,Southeastern La.,,1-4,Memphis,,0-4,3,1,28,26,25,12,19,25,25,23,,
+2026-09-04,6593472,final,TRUE,Villanova,,3-1,Princeton,,0-1,3,2,15,25,25,20,25,16,23,25,16,14
+2026-09-04,6593473,final,TRUE,Princeton,,0-2,Arizona St.,,4-1,0,3,19,25,13,25,14,25,,,,
+2026-09-04,6593931,final,FALSE,Alabama St.,,0-6,USC Upstate,,3-1,0,3,22,25,14,25,18,25,,,,
+2026-09-04,6594249,final,FALSE,Air Force,,1-3,South Dakota,,4-1,1,3,25,16,20,25,17,25,21,25,,
+2026-09-04,6594337,final,TRUE,Florida St.,,3-1,Kansas,,1-3,3,2,26,24,21,25,19,25,28,26,15,13
+2026-09-04,6594594,final,TRUE,Lafayette,,2-2,Iona,,2-2,1,3,22,25,8,25,25,20,22,25,,
+2026-09-04,6594596,final,FALSE,Iona,,2-3,Columbia,,2-0,1,3,25,17,15,25,19,25,18,25,,
+2026-09-04,6595050,final,FALSE,LMU (CA),,4-1,Hawaii,,3-2,2,3,10,25,18,25,25,22,28,26,11,15
+2026-09-04,6595182,final,FALSE,South Carolina St.,,1-4,The Citadel,,2-3,0,3,23,25,19,25,21,25,,,,
+2026-09-04,6595838,final,TRUE,Stonehill,,2-5,New Hampshire,,5-0,0,3,15,25,12,25,17,25,,,,
+2026-09-04,6596126,final,TRUE,North Dakota St.,,3-1,Idaho St.,,3-2,3,0,25,22,25,20,25,18,,,,
+2026-09-04,6596485,final,FALSE,UCLA,,3-1,Miami (FL),,0-3,3,0,25,20,25,20,25,23,,,,
+2026-09-04,6596766,final,FALSE,Southeast Mo. St.,,1-4,Southern Ill.,,4-0,2,3,22,25,25,17,14,25,25,20,11,15
+2026-09-04,6597541,final,FALSE,Southern Ind.,,2-2,Georgia Tech,,4-0,0,3,19,25,20,25,24,26,,,,
+2026-09-04,6597542,final,TRUE,Southern Ind.,,2-3,Campbell,,2-2,1,3,21,25,25,22,21,25,23,25,,
+2026-09-04,6597562,final,FALSE,Queens (NC),,0-4,Furman,,3-2,1,3,9,25,25,19,16,25,20,25,,
+2026-09-04,6597967,final,TRUE,Pepperdine,,3-1,Tulsa,,4-0,1,3,24,26,22,25,25,16,20,25,,
+2026-09-04,6598199,final,FALSE,Marshall,,4-1,IU Indy,,2-3,3,1,25,18,20,25,25,22,26,24,,
+2026-09-04,6598298,final,FALSE,Duke,,3-1,North Florida,,3-2,3,1,25,17,22,25,25,20,25,23,,
+2026-09-04,6598393,final,TRUE,East Carolina,,4-0,App State,,2-2,3,2,25,20,20,25,17,25,25,22,15,12
+2026-09-04,6598428,final,FALSE,Holy Cross,,2-3,Northeastern,,1-2,0,3,14,25,14,25,22,25,,,,
+2026-09-04,6598640,final,FALSE,New Mexico St.,,3-2,Fresno St.,,1-4,3,1,25,23,15,25,25,16,26,24,,
+2026-09-04,6599109,final,FALSE,SMU,,4-1,San Diego,,2-2,3,1,28,26,22,25,25,19,25,21,,
+2026-09-04,6599131,final,TRUE,Providence,,3-1,Brown,,0-1,3,2,25,16,20,25,25,20,22,25,15,9
+2026-09-04,6599262,final,FALSE,Idaho,,3-2,Denver,,4-1,1,3,19,25,25,19,19,25,16,25,,
+2026-09-04,6599709,final,TRUE,Wofford,,4-0,Charlotte,,2-2,3,0,25,17,25,18,26,24,,,,
+2026-09-04,6599855,final,FALSE,Cincinnati,,3-1,Valparaiso,,3-1,3,0,25,21,25,13,26,24,,,,
+2026-09-04,6599865,final,FALSE,Western Ill.,,0-4,South Dakota St.,,2-3,0,3,15,25,22,25,22,25,,,,
+2026-09-04,6599871,final,TRUE,Western Ill.,,0-5,Bradley,,3-2,0,3,15,25,21,25,22,25,,,,
+2026-09-04,6599964,final,FALSE,Arkansas St.,,1-3,Bowling Green,,3-1,3,2,25,23,29,31,25,17,22,25,15,8
+2026-09-04,6599968,final,TRUE,Northern Ky.,,1-4,Arkansas St.,,2-3,1,3,25,22,20,25,25,27,20,25,,
+2026-09-04,6600050,final,TRUE,Saint Louis,,3-1,Merrimack,,0-4,3,0,25,18,25,19,28,26,,,,
+2026-09-04,6600168,final,FALSE,Pacific,,3-2,San Jose St.,,3-2,1,3,18,25,16,25,25,15,20,25,,
+2026-09-04,6600627,final,TRUE,Northern Ky.,,1-3,American,,3-1,1,3,21,25,21,25,25,23,19,25,,
+2026-09-04,6600643,final,TRUE,West Virginia,,2-1,Fla. Atlantic,,3-2,3,2,25,22,16,25,25,18,22,25,15,10
+2026-09-04,6601418,final,TRUE,Western Mich.,,5-0,Chicago St.,,0-5,3,0,25,6,25,20,25,12,,,,
+2026-09-04,6601687,final,TRUE,UConn,,1-4,Florida A&M,,2-2,2,3,25,10,21,25,24,26,26,24,14,16
+2026-09-04,6601707,final,TRUE,Coastal Carolina,,1-2,UConn,,1-3,2,3,25,20,22,25,19,25,25,23,15,17
+2026-09-04,6601961,final,FALSE,Hofstra,,2-2,Yale,,1-0,2,3,26,24,25,18,23,25,25,27,7,15
+2026-09-04,6602318,final,TRUE,Long Beach St.,,1-2,Eastern Ill.,,1-4,3,0,25,16,25,17,25,21,,,,
+2026-09-04,6602479,final,TRUE,California,,3-1,Loyola Chicago,,0-5,3,0,25,21,25,16,25,14,,,,
+2026-09-04,6602497,final,FALSE,UTEP,,3-1,A&M-Corpus Christi,,0-3,3,1,25,23,24,26,25,13,26,24,,
+2026-09-04,6602728,final,FALSE,Morehead St.,,2-2,Mercyhurst,,1-3,3,0,25,13,25,10,25,20,,,,
+2026-09-04,6602729,final,FALSE,Siena,,2-3,Mercyhurst,,2-3,2,3,25,18,19,25,22,25,25,21,14,16
+2026-09-04,6603028,final,FALSE,Jackson St.,,2-2,North Ala.,,5-0,0,3,17,25,19,25,11,25,,,,
+2026-09-04,6603035,final,TRUE,UT Martin,,0-5,Jackson St.,,3-2,0,3,21,25,16,25,21,25,,,,
+2026-09-04,6603347,final,TRUE,UCF,,4-0,Georgetown,,2-2,3,1,21,25,25,16,25,18,25,18,,
+2026-09-04,6603667,final,FALSE,TCU,,2-2,Louisville,,4-1,0,3,23,25,14,25,25,27,,,,
+2026-09-04,6603860,final,FALSE,Pittsburgh,,5-0,BYU,,3-1,3,1,25,23,24,26,25,15,25,20,,
+2026-09-04,6604214,final,TRUE,Prairie View,,0-4,Radford,,2-2,1,3,26,28,25,19,22,25,18,25,,
+2026-09-04,6604270,final,FALSE,Akron,,1-4,Butler,,4-1,0,3,23,25,21,25,19,25,,,,
+2026-09-04,6604309,final,FALSE,Elon,,2-3,Robert Morris,,0-4,3,0,25,20,28,26,25,18,,,,
+2026-09-04,6604311,final,FALSE,Elon,,2-4,Duquesne,,5-0,0,3,18,25,15,25,14,25,,,,
+2026-09-04,6604388,final,FALSE,UNCW,,3-3,Gardner-Webb,,3-2,2,3,25,18,21,25,25,23,14,25,10,15
+2026-09-04,6604390,final,FALSE,Arizona,,2-2,Creighton,,3-1,2,3,24,26,25,19,25,19,18,25,12,15
+2026-09-04,6604509,final,FALSE,Wichita St.,,2-2,Colorado,,4-0,0,3,18,25,21,25,19,25,,,,
+2026-09-04,6604821,final,FALSE,Tarleton St.,,1-4,UTSA,,3-2,0,3,19,25,12,25,13,25,,,,
+2026-09-04,6604984,final,FALSE,Eastern Mich.,,4-1,Robert Morris,,0-5,3,0,28,26,25,19,25,16,,,,
+2026-09-04,6605056,final,TRUE,New Mexico,,1-2,Northern Colo.,,0-3,3,1,25,20,23,25,25,20,25,16,,
+2026-09-04,6605163,final,TRUE,Northern Ariz.,,2-2,Bradley,,2-2,3,2,25,18,20,25,26,24,17,25,15,4
+2026-09-04,6605241,final,FALSE,Fordham,,4-2,Delaware,,2-2,2,3,15,25,25,17,25,16,23,25,12,15
+2026-09-04,6605360,final,FALSE,Portland St.,,1-4,NIU,,2-3,1,3,23,25,21,25,25,19,17,25,,
+2026-09-04,6605833,final,FALSE,Green Bay,,2-3,Tennessee Tech,,2-2,2,3,23,25,24,26,25,19,25,17,13,15
+2026-09-04,6605836,final,TRUE,Green Bay,,2-2,Tennessee St.,,0-4,3,0,25,14,25,18,25,13,,,,
+2026-09-04,6606166,final,TRUE,Kansas City,,3-1,Purdue Fort Wayne,,2-3,3,1,17,25,25,19,25,22,25,16,,
+2026-09-04,6606168,final,TRUE,Purdue Fort Wayne,,3-3,Evansville,,0-6,3,0,26,24,25,20,25,13,,,,
+2026-09-04,6606171,final,FALSE,George Washington,,0-4,NC State,,3-1,0,3,12,25,20,25,9,25,,,,
+2026-09-04,6606271,final,TRUE,San Diego St.,,3-2,Cal Poly,,3-1,1,3,22,25,22,25,25,20,24,26,,
+2026-09-04,6606381,final,TRUE,N.C. A&T,,3-2,Presbyterian,,4-2,1,3,23,25,25,11,20,25,20,25,,
+2026-09-04,6606457,final,FALSE,McNeese,,0-5,Rice,,5-0,0,3,18,25,14,25,20,25,,,,
+2026-09-04,6606664,final,TRUE,UC Irvine,,1-4,Southern Utah,,0-5,3,0,25,12,25,18,25,12,,,,
+2026-09-04,6606742,final,TRUE,UAB,,2-2,East Texas A&M,,3-1,1,3,25,16,23,25,22,25,15,25,,
+2026-09-04,6606743,final,TRUE,East Texas A&M,,4-1,Rider,,1-3,3,1,24,26,25,14,25,21,25,22,,
+2026-09-04,6607039,final,FALSE,NJIT,,1-4,Delaware St.,,5-0,0,3,19,25,21,25,15,25,,,,
+2026-09-04,6607133,final,TRUE,West Florida,,3-0,Alabama St.,,0-5,3,0,25,14,25,11,25,21,,,,
+2026-09-04,6607146,final,TRUE,Morehead St.,,3-2,Cleveland St.,,2-3,3,1,25,18,26,24,15,25,25,16,,
+2026-09-04,6607572,final,FALSE,Western Ky.,,3-2,Wright St.,,2-2,3,0,25,21,25,22,25,21,,,,
+2026-09-04,6607627,final,FALSE,Wyoming,,2-1,Utah,,4-0,0,3,15,25,14,25,23,25,,,,
+2026-09-04,6607869,scheduled,TRUE,TBA,,,California Baptist,,2-2,,,,,,,,,,,,
+2026-09-04,6607947,final,FALSE,CSUN,,1-3,Kansas St.,,3-0,0,3,26,28,18,25,23,25,,,,
+2026-09-04,6608021,final,FALSE,Nicholls,,3-2,Alcorn,,0-5,3,1,21,25,25,9,25,12,25,20,,
+2026-09-04,6608097,final,FALSE,ULM,,2-3,Grand Canyon,,2-2,0,3,16,25,20,25,21,25,,,,
+2026-09-04,6608232,final,FALSE,Texas Tech,,2-2,Sacramento St.,,2-3,0,3,22,25,24,26,25,27,,,,
+2026-09-04,6608414,final,FALSE,ETSU,,0-4,VCU,,1-2,2,3,25,14,28,30,25,16,16,25,13,15
+2026-09-04,6608544,final,FALSE,Colorado St.,,2-2,North Carolina,,4-0,2,3,19,25,21,25,25,21,25,18,14,16
+2026-09-04,6608882,final,TRUE,Northwestern St.,,1-4,Indiana St.,,3-1,2,3,24,26,25,23,25,22,9,25,5,15
+2026-09-04,6608887,final,TRUE,Little Rock,,4-1,Indiana St.,,3-2,3,2,26,24,20,25,25,13,22,25,15,7
+2026-09-04,6608992,final,TRUE,UTRGV,,1-2,Texas St.,,1-3,3,0,25,19,25,22,25,18,,,,
+2026-09-04,6609657,final,FALSE,Northern Ariz.,,2-3,South Dakota St.,,3-3,1,3,18,25,25,20,17,25,18,25,,
+2026-09-04,6609761,final,FALSE,Dartmouth,,1-0,Canisius,,0-5,3,1,25,19,20,25,33,28,50,18,,
+2026-09-04,6610095,final,FALSE,American,,3-2,Bowling Green,,4-1,1,3,21,25,25,22,19,25,19,25,,
+2026-09-04,6610323,final,FALSE,Austin Peay,,2-2,Tennessee Tech,,1-2,2,3,25,15,25,23,18,25,22,25,14,16
+2026-09-04,6610342,final,TRUE,Tennessee St.,,0-5,Austin Peay,,3-2,0,3,16,25,14,25,18,25,,,,
+2026-09-04,6610423,final,TRUE,New Hampshire,,4-0,Bucknell,,1-3,3,0,25,17,25,20,25,20,,,,
+2026-09-04,6610806,final,FALSE,Oral Roberts,,4-1,Gonzaga,,2-3,3,2,25,22,25,21,22,25,20,25,15,12
+2026-09-04,6611175,final,FALSE,Northwestern St.,,1-5,Missouri St.,,3-2,0,3,22,25,22,25,18,25,,,,
+2026-09-04,6611225,final,FALSE,UNC Greensboro,,1-2,Clemson,,3-1,1,3,22,25,20,25,25,18,23,25,,
+2026-09-04,6611266,final,FALSE,Montana,,2-2,Oregon St.,,3-2,1,3,21,25,25,20,20,25,18,25,,
+2026-09-04,6611280,final,FALSE,Le Moyne,,0-4,Sacred Heart,,2-2,0,3,8,25,15,25,15,25,,,,
+2026-09-04,6611681,final,FALSE,Coastal Carolina,,2-2,Jacksonville,,2-2,3,1,25,16,30,28,20,25,25,23,,
+2026-09-04,6612002,final,FALSE,Towson,,2-2,Loyola Maryland,,0-3,3,1,25,13,25,21,27,29,27,25,,
+2026-09-04,6612131,final,FALSE,Bucknell,,1-4,Boston College,,4-0,0,3,3,25,14,25,17,25,,,,
+2026-09-04,6612190,final,TRUE,Binghamton,,1-3,Central Conn. St.,,1-3,3,1,25,22,25,22,21,25,25,15,,
+2026-09-04,6612579,final,TRUE,UC San Diego,,2-3,Utah Tech,,3-2,2,3,19,25,20,25,25,19,25,22,13,15
+2026-09-04,6612661,final,TRUE,Seattle U,,2-3,California Baptist,,2-2,1,3,23,25,25,22,16,25,21,25,,
+2026-09-04,6612740,final,FALSE,Nebraska,,4-0,DePaul,,4-1,3,0,25,19,25,13,25,15,,,,
+2026-09-04,6612925,final,FALSE,Eastern Mich.,,3-1,Duquesne,,4-0,0,3,22,25,20,25,14,25,,,,
+2026-09-04,6613375,final,TRUE,Temple,,3-1,San Francisco,,2-3,3,0,25,20,25,18,25,15,,,,
+2026-09-04,6613744,final,FALSE,Houston Christian,,1-5,Houston,,4-1,0,3,16,25,12,25,9,25,,,,
+2026-09-04,6613977,final,TRUE,UT Tyler,,7-0,Ark.-Pine Bluff,,1-3,3,0,25,21,25,17,25,22,,,,
+2026-09-04,6614002,final,TRUE,Erskine,,1-4,Ark.-Pine Bluff,,2-3,1,3,19,25,25,16,19,25,15,25,,
+2026-09-04,6614698,final,FALSE,Kent St.,,2-3,UT Arlington,,3-1,2,3,16,25,17,25,25,23,25,20,3,15
+2026-09-04,6615317,final,TRUE,Utah St.,,0-4,Iowa St.,,4-1,1,3,20,25,25,17,26,28,23,25,,
+2026-09-04,6615634,final,FALSE,UNLV,,0-4,Boise St.,,3-2,0,3,22,25,19,25,16,25,,,,
+2026-09-04,6615755,final,FALSE,Louisiana Tech,,3-2,Omaha,,2-2,0,3,18,25,23,25,19,25,,,,
+2026-09-04,6615806,final,TRUE,Xavier,,2-2,Campbell,,1-2,3,2,21,25,25,16,25,22,22,25,15,10
+2026-09-04,6616025,final,TRUE,William & Mary,,1-3,Virginia,,2-1,1,3,23,25,25,15,19,25,21,25,,
+2026-09-04,6616556,final,TRUE,Eastern Wash.,,4-1,Cal St. Fullerton,,2-3,2,3,19,25,15,25,29,27,25,21,11,15
+2026-09-04,6616559,final,TRUE,Old Dominion,,2-3,Virginia Tech,,3-2,0,3,17,25,23,25,19,25,,,,
+2026-09-04,6617098,final,FALSE,Northwestern,,2-3,Mississippi St.,,4-1,1,3,18,25,25,16,13,25,18,25,,
+2026-09-04,6617128,final,TRUE,SIUE,,0-5,Marist,,1-4,2,3,26,24,16,25,25,19,22,25,14,16
+2026-09-04,6618741,final,TRUE,Siena,,2-2,Cleveland St.,,2-2,3,1,25,21,26,28,25,17,25,22,,
+2026-09-04,6619153,final,TRUE,Santa Clara,,2-3,Manhattan,,0-4,3,0,25,19,25,13,25,20,,,,
+2026-09-04,6619501,final,FALSE,Stetson,,2-2,Bethune-Cookman,,1-3,3,0,25,22,25,20,25,22,,,,
+2026-09-04,6620365,final,FALSE,UIC,,1-4,St. Thomas (MN),,1-3,3,2,21,25,19,25,25,23,25,12,15,9
+2026-09-04,6620681,final,FALSE,Murray St.,,1-3,NIU,,1-3,3,0,25,21,26,24,25,15,,,,
+2026-09-04,6620775,final,FALSE,FDU,,1-4,Columbia,,1-0,1,3,25,23,20,25,20,25,21,25,,
+2026-09-04,6621281,final,FALSE,Davidson,,2-2,Wake Forest,,1-2,3,1,20,25,26,24,25,21,25,20,,
+2026-09-04,6621621,final,TRUE,Quinnipiac,,0-3,Lehigh,,4-0,1,3,25,23,18,25,20,25,14,25,,
+2026-09-04,6621827,final,TRUE,UNC Asheville,,4-1,Bellarmine,,2-2,3,0,25,22,25,23,25,23,,,,
+2026-09-04,6622152,final,FALSE,Kansas City,,3-2,Miami (OH),,4-1,0,3,18,25,17,25,24,26,,,,
+2026-09-04,6622299,final,FALSE,Mercer,,2-2,North Dakota,,1-3,3,1,20,25,25,23,25,21,25,16,,
+2026-09-04,6623140,final,FALSE,Weber St.,,4-0,CSU Bakersfield,,2-3,3,1,21,25,25,22,25,21,27,25,,
+2026-09-04,6623617,final,FALSE,Washington,,5-0,Oklahoma,,3-1,3,1,25,18,19,25,25,16,26,24,,
+2026-09-04,6623644,final,FALSE,Evansville,,0-5,Miami (OH),,3-1,1,3,10,25,25,18,6,25,18,25,,
+2026-09-04,6625084,final,FALSE,Saint Peter's,,0-5,Morgan St.,,1-3,1,3,23,25,25,11,21,25,17,25,,
+2026-09-04,6625092,final,TRUE,Syracuse,,2-2,UAlbany,,0-4,3,0,25,20,25,15,25,20,,,,
+2026-09-04,6625161,final,FALSE,Merrimack,,0-5,Southern Ill.,,5-0,1,3,25,23,24,26,17,25,23,25,,
+2026-09-05,6583713,final,TRUE,UNC Asheville,,5-1,Seton Hall,,4-1,3,0,25,17,25,18,25,17,,,,
+2026-09-05,6583846,final,TRUE,Dayton,,4-2,Western Ky.,,3-3,3,2,25,15,19,25,25,19,18,25,15,10
+2026-09-05,6583876,final,TRUE,Air Force,,2-3,Utah Valley,,0-6,3,0,25,21,25,21,25,20,,,,
+2026-09-05,6583894,final,TRUE,Western Caro.,,2-3,Jacksonville St.,,1-5,3,1,25,20,22,25,25,21,25,15,,
+2026-09-05,6583937,final,TRUE,Michigan,,4-1,Cincinnati,,3-2,3,0,28,26,25,17,28,26,,,,
+2026-09-05,6584173,final,FALSE,Michigan St.,,5-0,Central Mich.,,0-7,3,0,25,18,25,10,25,19,,,,
+2026-09-05,6584295,final,TRUE,Illinois,,2-2,McNeese,,0-6,3,0,25,14,25,11,25,22,,,,
+2026-09-05,6584431,final,TRUE,Murray St.,,1-4,Lindenwood,,4-1,1,3,19,25,15,25,25,21,15,25,,
+2026-09-05,6584432,final,FALSE,Lindenwood,,5-1,NIU,,2-4,3,0,25,23,25,13,25,11,,,,
+2026-09-05,6584792,final,FALSE,UMES,,1-3,George Mason,,3-1,1,3,17,25,25,18,15,25,18,25,,
+2026-09-05,6585224,final,FALSE,East Texas A&M,,5-1,St. John's (NY),,4-2,3,1,25,22,25,20,23,25,25,22,,
+2026-09-05,6585407,final,FALSE,Utah St.,,0-5,UC Santa Barbara,,4-1,1,3,17,25,19,25,25,16,15,25,,
+2026-09-05,6585597,final,TRUE,Lamar University,,0-5,High Point,,2-2,0,3,22,25,21,25,16,25,,,,
+2026-09-05,6586000,final,FALSE,West Ga.,,1-5,Georgia St.,,2-4,0,3,21,25,13,25,18,25,,,,
+2026-09-05,6586716,final,FALSE,Brown,,1-1,Rhode Island,,3-2,3,2,18,25,21,25,25,9,40,38,16,14
+2026-09-05,6586774,final,TRUE,Howard,,0-5,UAlbany,,2-4,0,3,22,25,22,25,27,29,,,,
+2026-09-05,6586877,final,FALSE,Milwaukee,,3-3,St. Thomas (MN),,1-4,3,1,25,22,18,25,25,21,25,22,,
+2026-09-05,6587096,final,FALSE,Memphis,,1-4,Louisiana,,2-3,3,2,25,23,16,25,29,27,31,33,15,11
+2026-09-05,6587149,final,TRUE,Youngstown St.,,2-4,Marshall,,5-1,2,3,22,25,25,20,27,25,23,25,13,15
+2026-09-05,6587641,final,FALSE,Ark.-Pine Bluff,,2-5,Henderson St.,,3-5,0,3,5,25,9,25,21,25,,,,
+2026-09-05,6588072,final,TRUE,Coppin St.,,1-4,Penn,,1-1,2,3,25,23,23,25,17,25,29,27,14,16
+2026-09-05,6588074,final,TRUE,Stony Brook,,3-3,Coppin St.,,1-5,3,2,26,24,26,28,18,25,25,19,15,12
+2026-09-05,6588458,final,TRUE,FIU,,2-4,Duke,,4-1,0,3,22,25,26,28,13,25,,,,
+2026-09-05,6588517,final,FALSE,Dartmouth,,1-1,Buffalo,,5-1,1,3,22,25,18,25,25,23,17,25,,
+2026-09-05,6588619,final,FALSE,Oakland,,2-3,Valparaiso,,4-1,1,3,20,25,28,26,16,25,17,25,,
+2026-09-05,6588968,final,TRUE,Col. of Charleston,,4-2,South Carolina St.,,1-5,3,1,25,14,25,16,23,25,25,17,,
+2026-09-05,6589258,final,FALSE,UNI,,3-3,South Dakota,,5-1,2,3,22,25,25,21,25,19,21,25,15,17
+2026-09-05,6589570,final,FALSE,UMBC,,3-1,Canisius,,0-6,3,0,25,13,25,22,25,15,,,,
+2026-09-05,6590004,final,FALSE,Wiley,,,Mississippi Val.,,1-3,1,3,16,25,25,23,23,25,17,25,,
+2026-09-05,6590005,final,FALSE,Nicholls,,5-2,Mississippi Val.,,1-4,3,0,25,14,25,16,25,10,,,,
+2026-09-05,6590055,final,FALSE,Alabama A&M,,5-2,Kennesaw St.,,5-1,0,3,19,25,16,25,22,25,,,,
+2026-09-05,6590276,final,FALSE,Penn,,2-1,Navy,,1-4,3,1,25,21,23,25,29,27,25,21,,
+2026-09-05,6590735,final,FALSE,Samford,,1-3,Belmont,,1-4,3,2,25,19,23,25,21,25,35,33,15,10
+2026-09-05,6590879,final,TRUE,Holy Cross,,2-4,Fairfield,,2-3,1,3,25,22,18,25,21,25,21,25,,
+2026-09-05,6590881,final,FALSE,Fairfield,,3-3,Northeastern,,1-3,3,2,25,23,25,23,24,26,19,25,15,7
+2026-09-05,6590907,final,FALSE,Saint Mary's (CA),,3-3,Sacramento St.,,3-3,2,3,21,25,26,24,26,24,14,25,11,15
+2026-09-05,6591647,final,FALSE,New Haven,,1-5,Delaware,,3-2,0,3,16,25,23,25,20,25,,,,
+2026-09-05,6591843,final,FALSE,Radford,,2-4,Ga. Southern,,2-3,0,3,22,25,25,27,20,25,,,,
+2026-09-05,6591983,final,TRUE,Chattanooga,,3-3,Jackson St.,,3-3,3,2,26,24,26,24,25,27,20,25,15,11
+2026-09-05,6592153,final,TRUE,James Madison,,2-2,Colorado St.,,3-2,1,3,24,26,25,19,18,25,14,25,,
+2026-09-05,6592214,final,TRUE,Pacific,,4-2,LSU New Orleans,,1-4,3,1,23,25,25,15,25,17,25,22,,
+2026-09-05,6592343,final,FALSE,Princeton,,0-3,Colgate,,2-3,0,3,21,25,23,25,18,25,,,,
+2026-09-05,6592367,final,TRUE,Prairie View,,0-6,Eastern Ky.,,4-0,1,3,11,25,22,25,25,23,17,25,,
+2026-09-05,6592833,final,FALSE,Army West Point,,5-1,UT Arlington,,3-2,3,0,25,21,25,20,26,24,,,,
+2026-09-05,6592838,final,FALSE,Illinois St.,,4-1,Central Mich.,,0-6,3,0,25,20,25,15,25,19,,,,
+2026-09-05,6593049,final,TRUE,Central Ark.,,0-4,Southern Miss.,,4-0,0,3,18,25,17,25,33,35,,,,
+2026-09-05,6593052,final,FALSE,Southern Miss.,,4-1,Ole Miss,,4-2,1,3,30,32,25,20,23,25,14,25,,
+2026-09-05,6593167,final,TRUE,CSUN,,1-4,Drake,,2-2,2,3,25,27,23,25,25,18,25,18,5,15
+2026-09-05,6593220,final,TRUE,South Alabama,,2-3,Middle Tenn.,,4-1,1,3,25,22,8,25,18,25,23,25,,
+2026-09-05,6593936,final,FALSE,West Florida,,5-0,USC Upstate,,3-2,3,1,25,15,19,25,25,19,25,16,,
+2026-09-05,6594343,final,TRUE,Missouri S&T,,6-1,Ark.-Pine Bluff,,2-4,3,0,27,25,25,16,25,21,,,,
+2026-09-05,6594597,final,TRUE,FDU,,2-5,Iona,,2-4,3,0,25,22,25,23,25,20,,,,
+2026-09-05,6595184,final,FALSE,Charleston So.,,4-2,The Citadel,,2-4,3,1,23,25,25,23,25,23,25,20,,
+2026-09-05,6595819,final,FALSE,Florida,,3-1,Baylor,,4-1,3,0,25,13,25,23,25,19,,,,
+2026-09-05,6595847,final,TRUE,Stonehill,,2-6,Bucknell,,2-4,1,3,18,25,24,26,25,16,14,25,,
+2026-09-05,6596128,final,FALSE,Idaho St.,,4-2,Boise St.,,3-3,3,2,18,25,25,22,25,21,23,25,15,12
+2026-09-05,6596487,final,FALSE,UCLA,,4-1,Miami (FL),,0-4,3,0,26,24,25,23,25,23,,,,
+2026-09-05,6596767,final,TRUE,Southeast Mo. St.,,2-4,Merrimack,,0-6,3,0,25,12,25,9,25,16,,,,
+2026-09-05,6597543,final,TRUE,Southern Ind.,,2-4,Xavier,,3-2,1,3,18,25,23,25,25,17,18,25,,
+2026-09-05,6597563,final,FALSE,N.C. A&T,,4-2,Furman,,3-3,3,1,25,19,21,25,25,18,25,13,,
+2026-09-05,6597567,final,TRUE,Sam Houston,,4-1,Kent St.,,2-4,3,0,25,12,25,19,25,19,,,,
+2026-09-05,6597568,final,FALSE,Sam Houston,,5-1,UT Arlington,,3-3,3,2,25,18,24,26,23,25,25,15,15,11
+2026-09-05,6597973,final,TRUE,Tulsa,,5-0,Arizona,,2-3,3,0,29,27,25,16,25,18,,,,
+2026-09-05,6598176,final,TRUE,Jacksonville St.,,1-4,Bellarmine,,3-3,2,3,17,25,12,25,25,20,25,16,8,15
+2026-09-05,6598411,final,FALSE,East Carolina,,4-1,Clemson,,4-1,1,3,17,25,25,18,17,25,19,25,,
+2026-09-05,6598429,final,FALSE,Holy Cross,,2-5,Harvard,,2-0,1,3,25,18,22,25,20,25,15,25,,
+2026-09-05,6598641,final,FALSE,UC Irvine,,1-5,Fresno St.,,2-4,1,3,20,25,24,26,25,18,21,25,,
+2026-09-05,6599134,final,TRUE,Bryant,,2-4,Providence,,4-1,1,3,19,25,25,23,12,25,20,25,,
+2026-09-05,6599188,final,TRUE,South Fla.,,1-4,Marquette,,2-2,0,3,16,25,22,25,19,25,,,,
+2026-09-05,6599264,final,FALSE,Marist,,1-5,Denver,,5-1,1,3,23,25,21,25,25,22,23,25,,
+2026-09-05,6599299,final,FALSE,Notre Dame,,1-2,Toledo,,4-1,3,1,18,25,25,23,25,19,25,16,,
+2026-09-05,6599442,final,TRUE,Villanova,,3-2,Arizona St.,,5-1,0,3,15,25,13,25,14,25,,,,
+2026-09-05,6599713,final,FALSE,Wofford,,4-1,NC State,,4-1,2,3,25,20,17,25,19,25,26,24,7,15
+2026-09-05,6599877,final,TRUE,Western Ill.,,0-6,Northern Ariz.,,3-3,2,3,20,25,25,22,27,25,19,25,10,15
+2026-09-05,6599972,final,TRUE,Arkansas St.,,3-3,American,,3-3,3,1,25,16,25,18,23,25,25,14,,
+2026-09-05,6600053,final,FALSE,Saint Louis,,4-1,Southern Ill.,,5-1,3,2,25,23,22,25,16,25,25,12,15,9
+2026-09-05,6600323,final,FALSE,California,,4-1,SFA,,2-3,3,2,25,18,22,25,12,25,25,16,15,11
+2026-09-05,6600635,final,FALSE,Northern Ky.,,1-5,Bowling Green,,5-1,1,3,25,23,22,25,19,25,20,25,,
+2026-09-05,6600680,final,FALSE,West Virginia,,3-1,FGCU,,2-3,3,1,25,17,25,19,28,30,25,23,,
+2026-09-05,6601457,final,TRUE,Western Mich.,,6-0,Louisiana Tech,,3-3,3,1,21,25,25,21,25,19,25,15,,
+2026-09-05,6601725,final,FALSE,UConn,,2-4,Jacksonville,,2-3,3,0,25,17,25,19,25,23,,,,
+2026-09-05,6601968,final,TRUE,Santa Clara,,2-4,Hofstra,,3-2,0,3,23,25,20,25,22,25,,,,
+2026-09-05,6601979,final,TRUE,Manhattan,,0-6,Hofstra,,4-2,0,3,15,25,15,25,20,25,,,,
+2026-09-05,6602333,final,FALSE,Long Beach St.,,2-2,Utah,,4-1,3,2,25,15,26,24,20,25,19,25,17,15
+2026-09-05,6602512,final,FALSE,Tarleton St.,,1-5,UIW,,1-3,1,3,14,25,25,20,21,25,22,25,,
+2026-09-05,6602545,final,TRUE,UTRGV,,1-3,UTEP,,4-1,2,3,25,21,23,25,21,25,25,20,9,15
+2026-09-05,6602730,final,FALSE,Cleveland St.,,3-3,Mercyhurst,,2-4,3,1,21,25,25,14,25,22,25,18,,
+2026-09-05,6603348,final,FALSE,UCF,,4-1,Wake Forest,,2-2,2,3,25,15,16,25,18,25,25,14,11,15
+2026-09-05,6603883,final,FALSE,UT Martin,,0-6,North Ala.,,7-0,0,3,15,25,11,25,12,25,,,,
+2026-09-05,6604273,final,FALSE,Ohio,,4-2,Butler,,5-1,0,3,22,25,14,25,10,25,,,,
+2026-09-05,6604317,final,TRUE,Elon,,2-5,Eastern Mich.,,5-1,0,3,16,25,24,26,20,25,,,,
+2026-09-05,6604391,final,FALSE,Alabama St.,,0-7,Gardner-Webb,,4-2,0,3,24,26,15,25,18,25,,,,
+2026-09-05,6604393,final,FALSE,Pepperdine,,3-2,Creighton,,4-1,1,3,22,25,25,17,18,25,16,25,,
+2026-09-05,6604521,final,TRUE,Northern Colo.,,1-3,Wichita St.,,2-3,3,1,25,17,22,25,25,22,25,19,,
+2026-09-05,6604846,final,TRUE,UNCW,,3-4,West Florida,,4-0,0,3,20,25,15,25,21,25,,,,
+2026-09-05,6605170,final,FALSE,Bradley,,3-3,South Dakota St.,,4-3,0,3,24,26,23,25,19,25,,,,
+2026-09-05,6605416,final,TRUE,Southern Utah,,0-6,New Mexico St.,,4-2,1,3,21,25,27,25,17,25,16,25,,
+2026-09-05,6605461,final,TRUE,Murray St.,,1-5,Portland St.,,2-4,0,3,18,25,19,25,13,25,,,,
+2026-09-05,6605840,final,TRUE,Austin Peay,,4-2,Green Bay,,2-4,3,2,25,21,30,28,20,25,9,25,15,13
+2026-09-05,6606105,final,FALSE,Manhattan,,0-5,Yale,,2-0,0,3,11,25,20,25,11,25,,,,
+2026-09-05,6606114,final,FALSE,Santa Clara,,2-5,Yale,,3-0,1,3,24,26,22,25,25,23,22,25,,
+2026-09-05,6606169,final,FALSE,Purdue Fort Wayne,,3-4,Miami (OH),,5-1,1,3,24,26,15,25,25,18,22,25,,
+2026-09-05,6606176,final,TRUE,George Washington,,1-4,Charlotte,,2-3,3,0,25,17,25,18,25,20,,,,
+2026-09-05,6606266,final,FALSE,Cal Poly,,3-2,UC Davis,,2-3,2,3,21,25,25,18,25,23,23,25,12,15
+2026-09-05,6607063,final,FALSE,Quinnipiac,,0-4,Delaware St.,,6-0,2,3,26,24,25,27,25,21,24,26,7,15
+2026-09-05,6607149,final,TRUE,Siena,,2-4,Morehead St.,,4-2,1,3,19,25,26,28,25,19,14,25,,
+2026-09-05,6607629,final,TRUE,Wyoming,,3-1,Eastern Ill.,,1-5,3,1,25,15,15,25,25,20,25,19,,
+2026-09-05,6607871,scheduled,TRUE,TBA,,,California Baptist,,2-3,,,,,,,,,,,,
+2026-09-05,6608061,final,FALSE,Akron,,1-5,IU Indy,,3-3,2,3,14,25,25,16,22,25,25,17,12,15
+2026-09-05,6608100,final,FALSE,San Francisco,,3-3,Grand Canyon,,2-3,3,0,25,20,25,22,25,18,,,,
+2026-09-05,6608422,final,TRUE,ETSU,,0-5,William & Mary,,2-3,0,3,20,25,19,25,21,25,,,,
+2026-09-05,6608892,final,FALSE,Indiana St.,,3-3,Missouri St.,,4-2,1,3,25,14,23,25,14,25,17,25,,
+2026-09-05,6608993,final,FALSE,Texas St.,,2-3,A&M-Corpus Christi,,0-4,3,1,25,12,20,25,25,18,25,16,,
+2026-09-05,6609918,final,TRUE,Presbyterian,,5-2,Queens (NC),,0-5,3,1,33,31,25,21,20,25,26,24,,
+2026-09-05,6610037,final,TRUE,UIC,,1-5,Montana St.,,4-2,0,3,20,25,18,25,21,25,,,,
+2026-09-05,6610205,final,FALSE,UAlbany,,1-4,Cornell,,1-1,3,2,23,25,25,21,23,25,25,20,18,16
+2026-09-05,6610210,final,FALSE,Syracuse,,3-2,Cornell,,1-2,3,2,25,22,23,25,26,24,16,25,15,11
+2026-09-05,6610326,final,TRUE,Texas Tech,,3-2,Nevada,,0-5,3,2,25,19,25,15,22,25,23,25,15,9
+2026-09-05,6610425,final,FALSE,New Hampshire,,5-1,Boston College,,5-0,1,3,18,25,25,22,20,25,20,25,,
+2026-09-05,6610801,final,FALSE,Eastern Wash.,,5-1,Gonzaga,,2-4,3,2,17,25,25,18,25,23,28,30,15,13
+2026-09-05,6611230,final,TRUE,UNC Greensboro,,2-2,App State,,2-3,3,0,30,28,25,18,26,24,,,,
+2026-09-05,6611270,final,TRUE,Montana,,3-2,California Baptist,,2-3,3,2,18,25,25,18,16,25,25,23,15,9
+2026-09-05,6611288,final,TRUE,Le Moyne,,0-5,Binghamton,,3-3,0,3,14,25,9,25,13,25,,,,
+2026-09-05,6611407,final,FALSE,Seattle U,,2-4,Oregon St.,,4-2,0,3,10,25,18,25,9,25,,,,
+2026-09-05,6611682,final,TRUE,Florida A&M,,2-3,Coastal Carolina,,3-2,1,3,21,25,30,28,11,25,16,25,,
+2026-09-05,6612023,final,FALSE,Loyola Maryland,,1-3,Morgan St.,,1-4,3,2,25,19,25,19,24,26,22,25,15,6
+2026-09-05,6612204,final,FALSE,Binghamton,,2-3,Sacred Heart,,2-3,3,2,25,20,15,25,25,17,22,25,15,10
+2026-09-05,6612935,final,TRUE,Little Rock,,5-1,Northwestern St.,,1-6,3,0,25,8,25,18,25,11,,,,
+2026-09-05,6613020,final,TRUE,Idaho,,4-2,SIUE,,0-6,3,1,20,25,25,23,25,23,25,15,,
+2026-09-05,6613077,final,FALSE,Florida St.,,3-2,Lipscomb,,3-1,1,3,23,25,25,13,18,25,23,25,,
+2026-09-05,6613588,final,FALSE,New Mexico,,1-3,Colorado,,5-0,2,3,19,25,27,25,25,23,16,25,6,15
+2026-09-05,6615207,final,TRUE,UNLV,,0-5,North Dakota St.,,4-1,2,3,25,21,15,25,25,21,15,25,14,16
+2026-09-05,6615759,final,FALSE,Chicago St.,,0-6,Omaha,,3-2,0,3,11,25,20,25,10,25,,,,
+2026-09-05,6615812,final,FALSE,Campbell,,2-3,Georgia Tech,,5-0,1,3,16,25,25,23,11,25,17,25,,
+2026-09-05,6616558,final,TRUE,Oral Roberts,,5-1,Cal St. Fullerton,,2-4,3,1,20,25,27,25,25,22,25,21,,
+2026-09-05,6617338,final,TRUE,Temple,,4-1,ULM,,2-4,3,0,25,21,25,19,25,22,,,,
+2026-09-05,6618008,final,FALSE,Central Conn. St.,,1-4,Sacred Heart,,3-3,1,3,14,25,12,25,27,25,17,25,,
+2026-09-05,6618559,final,FALSE,Robert Morris,,0-6,Duquesne,,6-0,0,3,16,25,19,25,16,25,,,,
+2026-09-05,6618615,final,TRUE,UAB,,3-3,Rider,,1-4,3,1,23,25,28,26,25,12,25,18,,
+2026-09-05,6618661,final,FALSE,Ball St.,,5-0,Wright St.,,2-3,3,0,32,30,25,16,25,12,,,,
+2026-09-05,6619357,final,FALSE,Old Dominion,,2-4,Winthrop,,2-2,2,3,16,25,12,25,25,17,25,23,13,15
+2026-09-05,6619503,final,FALSE,Bethune-Cookman,,1-4,Stetson,,3-2,1,3,18,25,18,25,25,20,11,25,,
+2026-09-05,6619807,final,FALSE,Tennessee St.,,0-6,Tennessee Tech,,3-2,0,3,20,25,12,25,15,25,,,,
+2026-09-05,6620779,final,TRUE,Lafayette,,3-2,FDU,,1-5,3,0,25,23,25,20,25,20,,,,
+2026-09-05,6621282,final,TRUE,Davidson,,2-3,Georgetown,,3-2,0,3,26,28,22,25,18,25,,,,
+2026-09-05,6621290,final,TRUE,LIU,,0-4,Washington St.,,4-0,0,3,14,25,17,25,19,25,,,,
+2026-09-05,6621626,final,TRUE,Lehigh,,5-0,NJIT,,1-5,3,0,25,21,25,10,25,20,,,,
+2026-09-05,6621630,final,FALSE,Lehigh,,6-0,Delaware St.,,6-1,3,1,22,25,25,19,25,17,25,23,,
+2026-09-05,6622153,final,TRUE,Evansville,,0-7,Kansas City,,4-2,1,3,24,26,25,23,14,25,19,25,,
+2026-09-05,6622160,final,FALSE,Tulane,,4-1,North Florida,,3-3,3,0,25,17,25,14,25,11,,,,
+2026-09-05,6622301,final,FALSE,Mercer,,2-3,North Dakota,,2-3,1,3,25,21,18,25,22,25,20,25,,
+2026-09-05,6623144,final,FALSE,Weber St.,,4-1,CSU Bakersfield,,3-3,2,3,14,25,17,25,25,18,27,25,11,15
+2026-09-05,6624212,final,FALSE,Virginia,,3-1,VCU,,1-3,3,0,25,13,25,17,25,22,,,,
+2026-09-05,6624800,final,FALSE,Saint Peter's,,0-6,Towson,,3-2,0,3,20,25,20,25,16,25,,,,
+2026-09-05,6624980,final,TRUE,Portland,,3-1,UC Riverside,,2-3,3,1,22,25,27,25,25,11,27,25,,
+2026-09-05,6624999,final,TRUE,Hampton,,2-3,UMES,,1-4,3,0,25,17,25,18,25,22,,,,
+2026-09-05,6625149,final,TRUE,Quinnipiac,,1-4,NJIT,,1-6,3,0,26,24,25,15,25,12,,,,
+2026-09-05,6625497,final,FALSE,Lafayette,,3-3,Columbia,,3-0,1,3,25,21,20,25,16,25,20,25,,
+2026-09-05,6629782,final,TRUE,Wiley,,,Nicholls,,4-2,0,3,6,25,21,25,14,25,,,,
+2026-09-06,6583619,final,TRUE,Indiana,,2-2,Tennessee,,5-0,0,3,23,25,23,25,16,25,,,,
+2026-09-06,6583717,final,TRUE,Western Caro.,,2-4,Seton Hall,,5-1,2,3,24,26,25,23,25,22,15,25,6,15
+2026-09-06,6583850,final,FALSE,Dayton,,4-3,Wright St.,,3-3,2,3,22,25,27,25,25,22,21,25,7,15
+2026-09-06,6583940,final,FALSE,Michigan,,5-1,Valparaiso,,4-2,3,1,23,25,25,14,25,16,25,12,,
+2026-09-06,6584297,final,FALSE,Illinois,,3-2,Rice,,5-1,3,0,25,18,25,19,25,14,,,,
+2026-09-06,6584795,final,FALSE,Hampton,,2-4,George Mason,,4-1,0,3,16,25,17,25,21,25,,,,
+2026-09-06,6586158,final,FALSE,UMES,,1-5,Maryland,,3-1,0,3,15,25,16,25,16,25,,,,
+2026-09-06,6586717,final,FALSE,Providence,,5-1,Rhode Island,,3-3,3,0,25,19,25,14,25,19,,,,
+2026-09-06,6587288,final,FALSE,Troy,,2-2,South Carolina,,4-1,1,3,17,25,16,25,25,23,19,25,,
+2026-09-06,6588622,final,TRUE,Oakland,,2-4,Cincinnati,,4-2,0,3,13,25,18,25,19,25,,,,
+2026-09-06,6590736,final,FALSE,Middle Tenn.,,4-2,Belmont,,2-4,2,3,25,22,28,30,27,29,25,23,10,15
+2026-09-06,6590756,final,FALSE,Samford,,1-4,Vanderbilt,,5-0,0,3,16,25,19,25,10,25,,,,
+2026-09-06,6591479,final,FALSE,Washington St.,,4-1,Oregon,,5-0,1,3,25,23,23,25,22,25,29,31,,
+2026-09-06,6591845,final,FALSE,Eastern Ky.,,4-1,Ga. Southern,,3-3,2,3,18,25,25,22,25,22,21,25,7,15
+2026-09-06,6592218,final,FALSE,LSU New Orleans,,1-5,San Jose St.,,4-2,0,3,14,25,15,25,15,25,,,,
+2026-09-06,6592346,final,FALSE,Villanova,,4-2,Colgate,,2-4,3,2,33,31,20,25,22,25,25,21,15,10
+2026-09-06,6593168,final,FALSE,Drake,,2-3,Kansas St.,,4-0,0,3,17,25,13,25,20,25,,,,
+2026-09-06,6595051,final,TRUE,Utah Tech,,3-3,LMU (CA),,5-1,1,3,23,25,25,17,23,25,16,25,,
+2026-09-06,6597976,final,FALSE,Tulsa,,6-0,Creighton,,4-2,3,2,24,26,25,23,25,21,22,25,15,10
+2026-09-06,6598409,final,TRUE,UNC Greensboro,,3-2,East Carolina,,4-2,3,2,21,25,25,17,21,25,25,21,15,10
+2026-09-06,6598524,final,TRUE,UNC Asheville,,6-1,Jacksonville St.,,1-6,3,0,25,22,25,23,25,21,,,,
+2026-09-06,6598691,in_progress,TRUE,Nebraska,,4-0,Missouri,,3-1,,,11,7,,,,,,,,
+2026-09-06,6599191,final,FALSE,Marquette,,2-3,Stanford,,4-0,1,3,20,25,18,25,25,20,12,25,,
+2026-09-06,6599359,final,FALSE,High Point,,3-2,Liberty,,3-3,3,1,25,20,18,25,25,18,25,16,,
+2026-09-06,6599716,final,TRUE,Wofford,,5-1,George Washington,,1-5,3,0,25,18,25,15,25,16,,,,
+2026-09-06,6600970,final,FALSE,Harvard,,3-0,Northeastern,,1-4,3,2,25,23,21,25,28,30,26,24,15,10
+2026-09-06,6601292,final,FALSE,South Alabama,,2-4,Lipscomb,,4-1,0,3,21,25,18,25,21,25,,,,
+2026-09-06,6602352,final,TRUE,Long Beach St.,,3-2,Wyoming,,3-2,3,2,25,27,12,25,25,19,25,13,15,10
+2026-09-06,6603082,final,TRUE,Bryant,,3-4,Brown,,1-2,3,1,18,25,25,15,26,24,25,21,,
+2026-09-06,6603107,final,TRUE,Kentucky,,5-1,Penn St.,,3-1,3,1,25,23,25,21,23,25,25,15,,
+2026-09-06,6603350,final,TRUE,UCF,,5-1,Davidson,,2-4,3,0,25,19,25,17,25,15,,,,
+2026-09-06,6603670,final,TRUE,Louisville,,5-1,Texas,,3-3,3,0,25,12,28,26,25,16,,,,
+2026-09-06,6605063,final,FALSE,Northern Colo.,,1-4,Colorado,,6-0,2,3,25,15,20,25,25,16,9,25,6,15
+2026-09-06,6605724,final,FALSE,TCU,,3-2,Purdue,,2-2,3,0,25,22,25,19,25,23,,,,
+2026-09-06,6606954,final,FALSE,Charlotte,,2-4,NC State,,5-1,2,3,25,23,25,22,17,25,14,25,12,15
+2026-09-06,6608102,final,FALSE,Temple,,4-2,Grand Canyon,,3-3,1,3,23,25,13,25,25,20,15,25,,
+2026-09-06,6609765,final,FALSE,Dartmouth,,2-1,Canisius,,0-7,3,1,25,22,19,25,25,15,25,14,,
+2026-09-06,6610304,final,FALSE,Stony Brook,,4-3,Navy,,1-5,3,0,25,16,25,20,25,22,,,,
+2026-09-06,6612027,final,FALSE,Saint Peter's,,0-7,Loyola Maryland,,2-3,0,3,13,25,25,27,18,25,,,,
+2026-09-06,6612931,final,FALSE,Illinois St.,,5-1,Eastern Mich.,,5-2,3,2,14,25,25,21,25,23,19,25,16,14
+2026-09-06,6613378,final,TRUE,San Francisco,,4-3,ULM,,2-5,3,0,25,22,26,24,25,18,,,,
+2026-09-06,6613632,final,TRUE,Pepperdine,,4-2,Arizona,,2-4,3,2,25,17,24,26,25,19,22,25,15,11
+2026-09-06,6615213,final,FALSE,Pittsburgh,,6-0,Utah,,4-2,3,1,15,25,25,21,25,21,25,9,,
+2026-09-06,6615554,final,FALSE,Florida A&M,,2-4,Jacksonville,,3-3,0,3,19,25,13,25,15,25,,,,
+2026-09-06,6615871,final,FALSE,App State,,2-4,Clemson,,5-1,2,3,24,26,25,23,24,26,25,17,7,15
+2026-09-06,6619586,final,FALSE,Xavier,,3-3,Georgia Tech,,6-0,0,3,15,25,13,25,23,25,,,,
+2026-09-06,6620362,final,FALSE,UC San Diego,,2-4,Hawaii,,4-2,2,3,25,22,15,25,25,21,24,26,8,15
+2026-09-06,6621526,final,FALSE,Georgetown,,4-2,Wake Forest,,2-3,3,1,18,25,25,19,25,20,25,19,,
+2026-09-06,6622283,final,FALSE,Central Ark.,,0-5,Ole Miss,,5-2,0,3,18,25,18,25,17,25,,,,
+2026-09-06,6622796,final,FALSE,Florida,,4-1,North Texas,,3-2,3,0,25,17,28,26,25,16,,,,
+2026-09-06,6624232,final,FALSE,Southern California,,2-2,San Diego,,2-3,3,0,25,23,25,13,25,21,,,,
+2026-09-06,6624801,final,FALSE,Towson,,4-2,Morgan St.,,1-5,3,0,25,17,25,21,25,10,,,,
+2026-09-07,6583620,final,FALSE,Indiana,,3-2,Southern Ind.,,2-5,3,1,25,15,22,25,25,15,25,14,,
+2026-09-07,6584799,final,FALSE,George Mason,,4-2,Maryland,,4-1,0,3,14,25,10,25,12,25,,,,
+2026-09-07,6605424,final,FALSE,New Mexico St.,,4-3,New Mexico,,2-3,1,3,14,25,25,21,20,25,19,25,,
+2026-09-07,6609809,final,FALSE,Grambling,,2-3,Alabama,,4-1,0,3,18,25,8,25,6,25,,,,
+2026-09-07,6612746,final,FALSE,Penn St.,,4-1,DePaul,,4-2,3,0,25,23,27,25,25,21,,,,
+2026-09-08,6583902,final,FALSE,Gardner-Webb,,4-3,Western Caro.,,3-4,1,3,22,25,25,16,19,25,21,25,,
+2026-09-08,6584177,final,FALSE,Western Mich.,,6-1,Michigan St.,,6-0,0,3,18,25,19,25,14,25,,,,
+2026-09-08,6585600,final,FALSE,Lamar University,,0-6,Houston,,5-1,0,3,16,25,17,25,15,25,,,,
+2026-09-08,6586775,final,FALSE,Howard,,0-6,American,,4-3,0,3,19,25,20,25,19,25,,,,
+2026-09-08,6588971,final,FALSE,Col. of Charleston,,5-2,Presbyterian,,5-3,3,0,25,19,25,13,25,23,,,,
+2026-09-08,6589744,final,FALSE,William & Mary,,3-3,Norfolk St.,,2-3,3,0,25,17,25,16,27,25,,,,
+2026-09-08,6592130,final,FALSE,Iowa,,4-2,Iowa St.,,4-2,3,0,25,20,25,21,25,23,,,,
+2026-09-08,6593322,final,FALSE,NC State,,6-1,LSU,,2-3,3,2,23,25,25,21,26,24,19,25,15,12
+2026-09-08,6593417,final,FALSE,California,,5-1,South Carolina,,4-2,3,1,25,27,25,11,28,26,25,20,,
+2026-09-08,6593810,final,FALSE,Southern U.,,1-3,Southeastern La.,,1-5,3,1,25,23,26,24,18,25,25,18,,
+2026-09-08,6594340,final,FALSE,Wichita St.,,2-4,Kansas,,2-3,0,3,9,25,21,25,14,25,,,,
+2026-09-08,6596244,final,FALSE,Charleston So.,,4-3,Duke,,5-1,0,3,21,25,23,25,19,25,,,,
+2026-09-08,6597569,final,FALSE,SFA,,3-3,Sam Houston,,5-2,3,1,16,25,25,19,25,19,25,23,,
+2026-09-08,6597979,final,FALSE,Tulsa,,7-0,Oral Roberts,,5-2,3,0,25,16,25,15,25,17,,,,
+2026-09-08,6598431,final,FALSE,Marist,,1-6,Holy Cross,,3-5,1,3,17,25,25,15,24,26,16,25,,
+2026-09-08,6599304,final,FALSE,Notre Dame,,1-3,Georgia,,4-2,1,3,25,20,20,25,9,25,17,25,,
+2026-09-08,6599819,final,FALSE,Liberty,,4-3,Radford,,2-5,3,0,25,19,28,26,25,16,,,,
+2026-09-08,6601337,final,FALSE,Bryant,,3-5,UConn,,3-4,0,3,13,25,22,25,23,25,,,,
+2026-09-08,6601525,final,FALSE,Butler,,5-2,Northwestern,,3-3,1,3,21,25,25,19,17,25,20,25,,
+2026-09-08,6603049,final,FALSE,Jackson St.,,3-4,Northwestern St.,,2-6,1,3,22,25,17,25,25,19,23,25,,
+2026-09-08,6603861,final,FALSE,BYU,,4-1,Boise St.,,3-4,3,0,25,12,25,15,26,24,,,,
+2026-09-08,6604321,final,FALSE,App State,,3-4,Elon,,2-6,3,1,22,25,26,24,26,24,25,15,,
+2026-09-08,6605246,final,FALSE,St. John's (NY),,5-2,Fordham,,4-3,3,0,25,20,25,22,25,19,,,,
+2026-09-08,6607070,final,FALSE,Rutgers-Camden,,3-2,Delaware St.,,7-1,0,3,24,26,18,25,9,25,,,,
+2026-09-08,6608023,final,FALSE,Alcorn,,0-6,Louisiana Tech,,4-3,0,3,16,25,12,25,15,25,,,,
+2026-09-08,6610426,final,FALSE,New Hampshire,,6-1,Merrimack,,0-7,3,1,25,16,16,25,25,18,25,16,,
+2026-09-08,6611411,final,FALSE,Auburn,,4-2,Florida St.,,3-3,3,1,25,18,25,18,16,25,25,18,,
+2026-09-08,6613630,final,FALSE,UNC Asheville,,7-1,N.C. Central,,2-3,3,0,25,16,25,13,25,20,,,,
+2026-09-08,6615875,final,FALSE,Clemson,,5-2,Ole Miss,,6-2,2,3,23,25,25,21,18,25,25,18,13,15
+2026-09-08,6617100,final,FALSE,Mississippi St.,,5-1,Wake Forest,,2-4,3,1,25,18,25,14,21,25,25,18,,
+2026-09-08,6619788,final,FALSE,North Ala.,,8-0,Tennessee St.,,0-7,3,0,25,12,25,16,25,12,,,,
+2026-09-08,6623618,final,FALSE,Oklahoma,,3-2,Georgia Tech,,7-0,1,3,15,25,19,25,25,23,21,25,,
+2026-09-08,6625111,final,FALSE,Texas Southern,,0-7,UTRGV,,2-3,0,3,18,25,26,28,18,25,,,,
+2026-09-08,6627972,final,FALSE,LIU,,0-5,Rutgers,,4-2,1,3,8,25,27,25,16,25,18,25,,
+2026-09-09,6584299,final,FALSE,Lindenwood,,5-2,Illinois,,4-2,0,3,12,25,12,25,14,25,,,,
+2026-09-09,6587106,final,FALSE,Louisiana,,2-4,Florida St.,,4-3,1,3,25,21,22,25,21,25,22,25,,
+2026-09-09,6590845,final,TRUE,Tennessee,,5-1,Pittsburgh,,7-0,0,3,17,25,26,28,20,25,,,,
+2026-09-09,6593941,final,FALSE,USC Upstate,,4-2,Queens (NC),,0-6,3,2,20,25,25,23,25,27,25,23,15,9
+2026-09-09,6596489,final,FALSE,Miami (FL),,0-5,Florida,,5-1,0,3,15,25,19,25,22,25,,,,
+2026-09-09,6597513,final,FALSE,UCLA,,5-1,Utah St.,,0-6,3,0,25,20,25,22,25,20,,,,
+2026-09-09,6599111,final,FALSE,Texas,,3-4,SMU,,5-1,2,3,21,25,25,21,22,25,28,26,10,15
+2026-09-09,6603116,final,FALSE,North Carolina,,4-1,Kentucky,,6-1,0,3,11,25,19,25,18,25,,,,
+2026-09-09,6603354,final,FALSE,Stetson,,3-3,UCF,,6-1,0,3,17,25,15,25,13,25,,,,
+2026-09-09,6603705,final,FALSE,Arkansas,,4-2,Syracuse,,3-3,3,1,25,19,25,23,12,25,25,14,,
+2026-09-09,6604505,final,FALSE,Missouri,,3-2,Louisville,,6-1,1,3,21,25,25,22,15,25,17,25,,
+2026-09-09,6605736,final,FALSE,IU Indy,,3-4,Purdue,,3-2,0,3,10,25,9,25,16,25,,,,
+2026-09-09,6612375,final,FALSE,Vanderbilt,,6-0,Boston College,,5-1,3,0,25,23,25,14,25,13,,,,
+2026-09-09,6613606,final,TRUE,Texas A&M,,4-4,Stanford,,4-1,3,1,25,23,25,13,21,25,25,19,,
+2026-09-09,6615505,final,FALSE,Lafayette,,4-3,NJIT,,1-7,3,1,25,16,25,27,25,20,25,23,,
+2026-09-09,6618416,final,FALSE,Alabama,,5-1,Virginia,,3-2,3,1,28,26,25,23,14,25,25,16,,
+2026-09-09,6624300,final,FALSE,UC Riverside,,2-4,Northern Ariz.,,4-3,0,3,13,25,21,25,24,26,,,,
+2026-09-10,6583621,final,FALSE,Cal Poly,,3-3,Indiana,,4-2,0,3,11,25,16,25,26,28,,,,
+2026-09-10,6585486,final,FALSE,UC Santa Barbara,,4-2,Wyoming,,4-2,2,3,21,25,26,24,25,27,25,15,6,15
+2026-09-10,6586878,final,FALSE,Milwaukee,,4-3,Indiana St.,,3-4,3,2,25,18,18,25,18,25,27,25,15,13
+2026-09-10,6587112,final,FALSE,Louisiana,,2-5,Florida A&M,,3-4,2,3,25,18,22,25,25,19,18,25,13,15
+2026-09-10,6588079,final,TRUE,Valparaiso,,4-3,Coppin St.,,2-5,1,3,24,26,18,25,25,17,17,25,,
+2026-09-10,6590006,final,TRUE,Northwestern St.,,3-6,Mississippi Val.,,1-5,3,0,25,21,25,15,25,14,,,,
+2026-09-10,6590056,final,TRUE,Bradley,,4-3,Alabama A&M,,5-3,3,0,25,22,25,20,25,22,,,,
+2026-09-10,6590992,final,TRUE,Saint Mary's (CA),,4-3,Eastern Wash.,,5-2,3,0,25,23,25,23,25,23,,,,
+2026-09-10,6592123,final,FALSE,Southern Ill.,,5-2,Iowa,,5-2,1,3,23,25,25,22,15,25,23,25,,
+2026-09-10,6592155,final,TRUE,Eastern Ky.,,5-1,James Madison,,2-3,3,2,18,25,25,23,27,25,15,25,15,11
+2026-09-10,6592975,final,FALSE,Alcorn,,0-7,Memphis,,2-4,0,3,6,25,17,25,17,25,,,,
+2026-09-10,6593053,final,FALSE,Houston Christian,,1-6,Southern Miss.,,5-1,0,3,24,26,16,25,23,25,,,,
+2026-09-10,6594256,final,FALSE,South Dakota,,5-2,Colorado St.,,4-2,0,3,17,25,14,25,19,25,,,,
+2026-09-10,6594598,final,FALSE,Central Conn. St.,,1-5,Iona,,3-4,0,3,26,28,20,25,20,25,,,,
+2026-09-10,6595823,final,TRUE,Georgia Tech,,7-1,Baylor,,5-1,0,3,22,25,18,25,16,25,,,,
+2026-09-10,6596131,final,TRUE,Idaho St.,,5-2,Tennessee Tech,,3-3,3,1,25,21,27,25,19,25,25,17,,
+2026-09-10,6596769,final,FALSE,Southeast Mo. St.,,2-5,Loyola Chicago,,1-5,2,3,18,25,25,19,20,25,25,21,10,15
+2026-09-10,6597570,final,FALSE,Sam Houston,,5-3,Tarleton St.,,2-5,0,3,22,25,23,25,25,27,,,,
+2026-09-10,6597671,final,FALSE,The Citadel,,2-5,Charleston So.,,5-3,0,3,13,25,20,25,15,25,,,,
+2026-09-10,6599267,final,TRUE,Denver,,5-2,A&M-Corpus Christi,,1-4,2,3,23,25,26,24,26,24,22,25,6,15
+2026-09-10,6599402,final,FALSE,TCU,,4-2,South Fla.,,1-5,3,0,30,28,25,17,26,24,,,,
+2026-09-10,6599443,final,FALSE,Villanova,,5-2,American,,4-4,3,0,25,23,25,23,28,26,,,,
+2026-09-10,6599719,final,FALSE,Coastal Carolina,,4-2,Wofford,,5-2,3,2,18,25,11,25,25,14,28,26,16,14
+2026-09-10,6600333,final,FALSE,Texas St.,,3-3,SFA,,3-4,3,0,25,22,25,22,25,19,,,,
+2026-09-10,6600691,final,FALSE,VCU,,1-4,West Virginia,,4-1,1,3,12,25,27,25,18,25,23,25,,
+2026-09-10,6602396,final,FALSE,Little Rock,,5-2,Air Force,,3-3,0,3,24,26,19,25,22,25,,,,
+2026-09-10,6602558,final,FALSE,UTEP,,5-1,New Mexico St.,,4-4,3,0,27,25,25,17,26,24,,,,
+2026-09-10,6602564,final,TRUE,UIW,,1-4,Missouri St.,,5-2,1,3,16,25,25,21,21,25,22,25,,
+2026-09-10,6604275,final,FALSE,Bellarmine,,3-4,Butler,,6-2,1,3,14,25,18,25,27,25,18,25,,
+2026-09-10,6605467,final,TRUE,Prairie View,,0-7,Portland St.,,3-4,1,3,23,25,17,25,26,24,21,25,,
+2026-09-10,6605475,final,TRUE,UTRGV,,2-5,Portland St.,,4-4,0,3,16,25,19,25,17,25,,,,
+2026-09-10,6606118,final,FALSE,FDU,,2-6,Yale,,4-0,0,3,15,25,13,25,15,25,,,,
+2026-09-10,6606397,final,FALSE,N.C. Central,,2-4,N.C. A&T,,5-2,0,3,21,25,17,25,17,25,,,,
+2026-09-10,6606459,final,FALSE,McNeese,,0-7,ULM,,3-5,1,3,22,25,22,25,25,19,19,25,,
+2026-09-10,6606642,final,FALSE,Pepperdine,,4-3,Western Ky.,,4-3,1,3,22,25,25,16,16,25,17,25,,
+2026-09-10,6607154,final,FALSE,Cincinnati,,5-2,Morehead St.,,4-3,3,0,25,18,25,23,25,20,,,,
+2026-09-10,6607872,final,FALSE,North Dakota,,3-3,California Baptist,,2-4,3,2,25,19,23,25,10,25,25,23,15,13
+2026-09-10,6607981,final,FALSE,UC Davis,,3-3,Arizona St.,,5-2,3,1,25,19,25,20,22,25,25,21,,
+2026-09-10,6608104,final,TRUE,UC Riverside,,2-5,Grand Canyon,,4-3,1,3,13,25,17,25,25,19,13,25,,
+2026-09-10,6608233,final,FALSE,Sacramento St.,,3-4,Boise St.,,4-4,0,3,11,25,21,25,19,25,,,,
+2026-09-10,6609815,final,FALSE,Grambling,,2-4,Louisiana Tech,,5-3,1,3,25,21,24,26,12,25,18,25,,
+2026-09-10,6610041,final,FALSE,North Dakota St.,,4-2,Montana St.,,5-2,2,3,25,20,12,25,25,19,17,25,10,15
+2026-09-10,6610312,final,FALSE,Stony Brook,,4-4,Rutgers,,5-2,0,3,18,25,21,25,15,25,,,,
+2026-09-10,6610561,final,FALSE,Weber St.,,5-1,Nevada,,0-6,3,0,25,20,25,20,25,16,,,,
+2026-09-10,6610706,final,FALSE,Gonzaga,,2-5,UTSA,,4-2,0,3,16,25,15,25,21,25,,,,
+2026-09-10,6611835,final,TRUE,Lehigh,,6-1,Toledo,,5-1,1,3,17,25,25,17,22,25,22,25,,
+2026-09-10,6612006,final,FALSE,UTRGV,,2-4,Texas Tech,,4-2,1,3,17,25,25,21,21,25,26,28,,
+2026-09-10,6612013,final,FALSE,Prairie View,,0-8,Texas Tech,,5-2,2,3,25,23,26,24,17,25,20,25,9,15
+2026-09-10,6612226,final,FALSE,Temple,,4-3,Binghamton,,4-3,2,3,21,25,25,22,25,27,25,17,13,15
+2026-09-10,6613025,final,TRUE,Idaho,,4-3,Sacred Heart,,4-3,2,3,23,25,25,22,19,25,25,21,16,18
+2026-09-10,6614733,final,TRUE,UT Arlington,,4-3,North Texas,,3-3,3,1,25,13,25,18,21,25,26,24,,
+2026-09-10,6615779,final,FALSE,Omaha,,3-3,Northern Ariz.,,5-3,1,3,25,19,17,25,23,25,21,25,,
+2026-09-10,6618622,final,TRUE,Rider,,1-5,Delaware,,4-2,0,3,26,28,16,25,10,25,,,,
+2026-09-10,6618742,final,FALSE,Cleveland St.,,3-4,Akron,,2-5,1,3,27,29,17,25,25,21,17,25,,
+2026-09-10,6619790,final,FALSE,Evansville,,1-7,Tennessee St.,,0-8,3,1,25,19,25,23,29,31,25,23,,
+2026-09-10,6620363,final,FALSE,Central Ark.,,0-6,Hawaii,,5-2,0,3,12,25,17,25,18,25,,,,
+2026-09-10,6623464,final,FALSE,Lipscomb,,4-2,Washington,,6-0,0,3,14,25,16,25,21,25,,,,
+2026-09-10,6623709,final,FALSE,New Mexico,,2-4,Nebraska,,5-0,0,3,12,25,13,25,15,25,,,,
+2026-09-10,6625020,final,FALSE,South Carolina St.,,2-5,Tuskegee,,4-6,3,1,21,25,25,20,25,20,25,17,,
+2026-09-11,6583622,final,FALSE,Eastern Ill.,,1-7,Indiana,,5-2,0,3,16,25,18,25,13,25,,,,
+2026-09-11,6583725,final,FALSE,Seton Hall,,5-2,Maryland,,5-1,0,3,21,25,18,25,10,25,,,,
+2026-09-11,6583878,final,TRUE,Utah Valley,,0-7,Drake,,3-3,0,3,18,25,19,25,22,25,,,,
+2026-09-11,6583879,final,FALSE,Utah Valley,,1-7,Kansas City,,5-3,3,2,25,19,25,18,21,25,20,25,15,11
+2026-09-11,6583906,final,TRUE,North Florida,,4-3,Western Caro.,,3-5,3,0,27,25,25,20,25,18,,,,
+2026-09-11,6583943,final,TRUE,Michigan,,5-2,TCU,,5-2,1,3,19,25,23,25,25,17,23,25,,
+2026-09-11,6584184,final,TRUE,Michigan St.,,7-0,Cincinnati,,5-3,3,0,25,20,25,17,25,14,,,,
+2026-09-11,6584304,final,FALSE,Illinois,,4-3,Marquette,,3-3,0,3,16,25,22,25,24,26,,,,
+2026-09-11,6584434,final,TRUE,Purdue Fort Wayne,,3-5,Lindenwood,,6-2,0,3,14,25,21,25,20,25,,,,
+2026-09-11,6584805,final,FALSE,George Mason,,5-2,UMBC,,3-2,3,2,21,25,18,25,25,16,26,24,15,11
+2026-09-11,6585257,final,TRUE,St. John's (NY),,6-2,Central Conn. St.,,1-6,3,0,25,21,25,19,25,23,,,,
+2026-09-11,6585489,final,FALSE,UC Santa Barbara,,4-3,Colorado St.,,5-2,0,3,22,25,16,25,19,25,,,,
+2026-09-11,6585604,final,TRUE,Lamar University,,1-6,Southern U.,,1-4,3,0,25,12,26,24,25,17,,,,
+2026-09-11,6585606,final,FALSE,Lamar University,,1-7,Southern Miss.,,6-1,1,3,14,25,25,23,18,25,29,31,,
+2026-09-11,6585689,final,TRUE,Portland,,3-2,North Dakota St.,,5-2,0,3,21,25,22,25,16,25,,,,
+2026-09-11,6586004,final,FALSE,Gardner-Webb,,4-4,West Ga.,,2-5,1,3,23,25,23,25,26,24,11,25,,
+2026-09-11,6586010,final,FALSE,LSU New Orleans,,1-7,West Ga.,,3-5,0,3,9,25,18,25,14,25,,,,
+2026-09-11,6586371,final,FALSE,Abilene Christian,,4-3,Oral Roberts,,5-3,3,1,20,25,25,22,25,20,25,19,,
+2026-09-11,6586776,final,TRUE,Robert Morris,,0-8,Howard,,1-6,2,3,23,25,25,18,25,19,23,25,13,15
+2026-09-11,6586879,final,FALSE,Milwaukee,,5-3,Indiana St.,,3-5,3,1,19,25,28,26,28,26,25,23,,
+2026-09-11,6587118,final,TRUE,Louisiana,,3-5,Hampton,,2-6,3,0,25,19,25,13,25,19,,,,
+2026-09-11,6587158,final,TRUE,Youngstown St.,,2-5,Southern Ind.,,3-5,1,3,20,25,23,25,25,21,18,25,,
+2026-09-11,6588018,final,FALSE,Miami (FL),,0-6,Minnesota,,3-2,0,3,15,25,16,25,14,25,,,,
+2026-09-11,6588082,final,FALSE,Coppin St.,,3-5,Akron,,2-6,3,2,15,25,25,22,13,25,27,25,15,8
+2026-09-11,6588520,final,TRUE,Presbyterian,,6-3,Buffalo,,5-2,3,1,25,20,25,14,20,25,25,22,,
+2026-09-11,6588521,final,FALSE,Buffalo,,5-3,Queens (NC),,2-6,0,3,23,25,23,25,18,25,,,,
+2026-09-11,6588628,final,FALSE,UAB,,4-3,Oakland,,2-5,3,1,25,17,19,25,25,20,25,21,,
+2026-09-11,6588631,final,FALSE,Montana,,3-4,Oakland,,3-5,0,3,26,28,15,25,18,25,,,,
+2026-09-11,6588973,final,FALSE,Duquesne,,6-2,Col. of Charleston,,6-2,0,3,17,25,16,25,10,25,,,,
+2026-09-11,6589262,final,TRUE,UNI,,3-4,Creighton,,5-2,1,3,16,25,17,25,25,15,19,25,,
+2026-09-11,6589525,final,FALSE,Dayton,,5-3,South Fla.,,1-6,3,1,26,24,25,21,16,25,25,20,,
+2026-09-11,6589750,final,FALSE,Norfolk St.,,2-4,UNCW,,4-4,1,3,27,25,16,25,21,25,21,25,,
+2026-09-11,6589753,final,TRUE,Norfolk St.,,2-5,Harvard,,5-0,1,3,8,25,25,14,22,25,19,25,,
+2026-09-11,6590007,final,FALSE,Mississippi Val.,,1-6,Louisiana Tech,,6-3,0,3,10,25,12,25,22,25,,,,
+2026-09-11,6590057,final,TRUE,Alabama A&M,,5-4,Southeast Mo. St.,,4-5,1,3,27,25,11,25,22,25,14,25,,
+2026-09-11,6590765,final,FALSE,North Ala.,,9-0,Samford,,1-5,3,2,17,25,23,25,25,20,25,19,15,10
+2026-09-11,6590882,final,TRUE,Fairfield,,4-3,Army West Point,,6-2,3,0,27,25,25,22,25,12,,,,
+2026-09-11,6590994,final,FALSE,Saint Mary's (CA),,4-4,Boise St.,,5-4,0,3,18,25,15,25,24,26,,,,
+2026-09-11,6591491,final,FALSE,Oregon,,5-1,Arizona St.,,6-2,1,3,13,25,25,16,22,25,17,25,,
+2026-09-11,6591648,final,TRUE,New Haven,,1-6,Temple,,5-3,0,3,24,26,21,25,16,25,,,,
+2026-09-11,6591849,final,TRUE,ETSU,,0-6,Ga. Southern,,4-3,0,3,18,25,26,28,20,25,,,,
+2026-09-11,6591988,final,FALSE,Chattanooga,,3-4,Queens (NC),,1-6,1,3,25,18,21,25,20,25,17,25,,
+2026-09-11,6592004,final,TRUE,Presbyterian,,6-4,Chattanooga,,4-4,1,3,25,27,27,29,25,19,19,25,,
+2026-09-11,6592126,final,FALSE,UIW,,2-5,Iowa,,6-2,1,3,25,21,23,25,15,25,15,25,,
+2026-09-11,6592159,final,FALSE,James Madison,,2-4,Western Ky.,,5-3,2,3,17,25,25,16,25,20,22,25,14,16
+2026-09-11,6592228,final,TRUE,LSU New Orleans,,1-6,Mercer,,3-3,0,3,18,25,22,25,21,25,,,,
+2026-09-11,6592349,final,FALSE,Northeastern,,1-5,Colgate,,3-4,2,3,25,18,25,22,21,25,23,25,14,16
+2026-09-11,6592371,final,TRUE,Pepperdine,,5-3,Eastern Ky.,,5-2,3,0,25,22,25,23,25,21,,,,
+2026-09-11,6592835,final,TRUE,Army West Point,,6-1,Liberty,,4-4,3,0,25,19,25,13,25,17,,,,
+2026-09-11,6592840,final,FALSE,Central Mich.,,0-8,DePaul,,5-2,0,3,14,25,11,25,13,25,,,,
+2026-09-11,6592976,final,FALSE,Boston College,,6-1,Memphis,,2-5,3,1,25,18,25,18,17,25,25,22,,
+2026-09-11,6593170,final,TRUE,Radford,,2-7,Drake,,4-3,0,3,19,25,20,25,21,25,,,,
+2026-09-11,6593221,final,FALSE,Georgia St.,,3-4,Middle Tenn.,,4-3,3,1,18,25,25,17,25,23,25,22,,
+2026-09-11,6593224,final,FALSE,Northern Colo.,,2-5,Middle Tenn.,,5-3,1,3,24,26,25,10,20,25,22,25,,
+2026-09-11,6593324,final,FALSE,Charlotte,,2-5,LSU,,3-3,0,3,16,25,20,25,23,25,,,,
+2026-09-11,6593418,final,FALSE,South Carolina,,5-2,Clemson,,5-3,3,1,28,30,25,23,25,21,25,23,,
+2026-09-11,6593814,final,TRUE,Southern U.,,1-5,Houston Christian,,2-7,1,3,25,21,15,25,18,25,25,27,,
+2026-09-11,6593948,final,FALSE,USC Upstate,,5-2,N.C. Central,,2-5,3,0,25,22,25,22,28,26,,,,
+2026-09-11,6594260,final,FALSE,South Dakota,,6-2,Wyoming,,4-3,3,1,25,15,25,17,15,25,25,20,,
+2026-09-11,6594357,final,FALSE,South Dakota St.,,4-4,Kansas,,3-3,0,3,20,25,19,25,20,25,,,,
+2026-09-11,6594599,final,FALSE,NJIT,,1-8,Iona,,4-4,1,3,25,21,22,25,19,25,21,25,,
+2026-09-11,6595052,final,FALSE,LMU (CA),,6-1,UC Irvine,,1-6,3,2,18,25,13,25,25,22,25,19,15,8
+2026-09-11,6595826,final,FALSE,Baylor,,5-2,Nebraska,,6-0,0,3,20,25,22,25,24,26,,,,
+2026-09-11,6595872,final,TRUE,Stonehill,,2-7,Holy Cross,,4-5,1,3,17,25,22,25,25,19,23,25,,
+2026-09-11,6596137,final,TRUE,Little Rock,,5-3,Idaho St.,,6-2,1,3,13,25,17,25,25,21,18,25,,
+2026-09-11,6596245,final,FALSE,Marshall,,5-2,Duke,,6-1,1,3,18,25,18,25,28,26,26,28,,
+2026-09-11,6596771,final,TRUE,Southeast Mo. St.,,3-5,Bradley,,4-4,3,2,21,25,23,25,29,27,25,22,15,13
+2026-09-11,6597514,final,FALSE,UCLA,,5-2,BYU,,5-1,2,3,15,25,25,22,17,25,25,20,10,15
+2026-09-11,6597571,final,TRUE,Sam Houston,,6-3,A&M-Corpus Christi,,1-5,3,0,25,23,25,21,25,19,,,,
+2026-09-11,6597672,final,TRUE,The Citadel,,2-6,Bethune-Cookman,,2-5,1,3,22,25,25,23,24,26,6,25,,
+2026-09-11,6597713,final,TRUE,Stetson,,3-5,Furman,,4-3,0,3,24,26,21,25,23,25,,,,
+2026-09-11,6598416,final,FALSE,East Carolina,,5-2,Wake Forest,,2-5,3,0,25,18,25,23,25,11,,,,
+2026-09-11,6598642,final,TRUE,Fresno St.,,3-4,San Francisco,,4-4,3,2,25,21,25,14,18,25,15,25,15,13
+2026-09-11,6598692,final,FALSE,Arkansas St.,,3-4,Missouri,,4-2,1,3,25,15,21,25,23,25,24,26,,
+2026-09-11,6599139,final,FALSE,Manhattan,,0-7,Providence,,6-1,0,3,14,25,13,25,9,25,,,,
+2026-09-11,6599273,final,FALSE,Denver,,5-3,Tarleton St.,,3-5,2,3,23,25,25,23,17,25,25,14,8,15
+2026-09-11,6599307,final,TRUE,Notre Dame,,1-4,Northern Ky.,,3-5,1,3,24,26,16,25,28,26,25,27,,
+2026-09-11,6599366,final,TRUE,Wright St.,,4-3,High Point,,3-3,3,1,25,23,17,25,26,24,26,24,,
+2026-09-11,6599446,final,TRUE,Villanova,,5-3,Iowa St.,,5-2,0,3,24,26,18,25,23,25,,,,
+2026-09-11,6599822,final,FALSE,Liberty,,5-4,Hofstra,,4-3,3,2,21,25,19,25,25,21,25,23,15,6
+2026-09-11,6599856,final,FALSE,Valparaiso,,5-3,Cleveland St.,,3-5,3,2,27,25,19,25,22,25,25,18,15,10
+2026-09-11,6599881,final,FALSE,Western Ill.,,0-7,Illinois St.,,6-1,0,3,17,25,13,25,24,26,,,,
+2026-09-11,6600060,final,FALSE,Saint Louis,,4-2,Xavier,,4-3,1,3,20,25,26,24,19,25,12,25,,
+2026-09-11,6600169,final,FALSE,Pacific,,4-3,UTEP,,6-1,0,3,17,25,22,25,19,25,,,,
+2026-09-11,6600338,final,FALSE,North Texas,,4-3,SFA,,3-5,3,1,27,25,26,28,26,24,25,17,,
+2026-09-11,6600647,final,TRUE,Northern Ky.,,2-5,Duquesne,,6-1,3,2,26,24,25,23,18,25,16,25,15,12
+2026-09-11,6600701,final,FALSE,Lehigh,,7-1,West Virginia,,4-2,3,2,23,25,25,14,16,25,25,23,15,12
+2026-09-11,6600712,final,FALSE,Toledo,,7-1,West Virginia,,4-3,3,2,20,25,25,21,25,14,20,25,15,11
+2026-09-11,6601335,final,FALSE,Kennesaw St.,,5-2,South Alabama,,3-4,2,3,20,25,15,25,25,21,25,23,12,15
+2026-09-11,6601352,final,FALSE,New Hampshire,,7-2,UConn,,4-4,0,3,19,25,20,25,15,25,,,,
+2026-09-11,6601565,final,FALSE,Virginia Tech,,3-3,Northwestern,,4-3,0,3,17,25,20,25,23,25,,,,
+2026-09-11,6602364,final,FALSE,Brown,,1-3,Long Beach St.,,4-2,1,3,26,24,23,25,17,25,12,25,,
+2026-09-11,6602406,final,FALSE,Tennessee Tech,,3-4,Air Force,,4-3,1,3,13,25,18,25,25,23,22,25,,
+2026-09-11,6602499,final,FALSE,Bradley,,4-5,Loyola Chicago,,2-5,2,3,20,25,15,25,25,21,25,21,10,15
+2026-09-11,6602576,final,TRUE,Southern Ill.,,5-3,UIW,,2-4,0,3,18,25,14,25,19,25,,,,
+2026-09-11,6602731,final,FALSE,Columbia,,4-0,Mercyhurst,,2-5,3,1,25,20,20,25,25,23,26,24,,
+2026-09-11,6602732,final,FALSE,Kent St.,,4-4,Mercyhurst,,2-6,3,2,25,15,25,23,23,25,20,25,15,9
+2026-09-11,6603144,final,TRUE,Jackson St.,,4-4,Houston Christian,,1-7,3,2,25,19,21,25,25,10,24,26,15,13
+2026-09-11,6604215,final,FALSE,Radford,,2-6,Kansas City,,5-2,1,3,21,25,25,23,18,25,17,25,,
+2026-09-11,6604247,final,TRUE,Hampton,,2-5,FIU,,3-4,0,3,21,25,16,25,15,25,,,,
+2026-09-11,6604248,final,FALSE,FIU,,4-4,Florida A&M,,3-5,3,0,25,14,25,18,25,21,,,,
+2026-09-11,6604324,final,FALSE,Davidson,,3-4,Elon,,2-7,3,1,25,14,25,22,20,25,25,17,,
+2026-09-11,6604522,final,FALSE,Louisville,,7-1,Rice,,5-2,3,1,25,14,25,17,24,26,25,12,,
+2026-09-11,6604536,final,TRUE,Wichita St.,,3-4,FGCU,,2-4,3,1,25,21,25,22,23,25,25,22,,
+2026-09-11,6604756,final,FALSE,UNC Asheville,,8-2,UNCW,,4-5,3,2,25,23,19,25,31,29,20,25,15,13
+2026-09-11,6605138,final,TRUE,Northern Colo.,,2-4,Murray St.,,1-6,3,2,25,21,21,25,24,26,25,18,15,6
+2026-09-11,6605434,final,FALSE,UC San Diego,,2-5,New Mexico St.,,5-4,2,3,26,24,20,25,25,20,23,25,11,15
+2026-09-11,6605482,final,FALSE,Portland St.,,4-5,Texas Tech,,6-2,0,3,22,25,24,26,23,25,,,,
+2026-09-11,6605657,final,TRUE,Marist,,3-6,Fordham,,4-4,3,1,25,22,25,14,22,25,25,21,,
+2026-09-11,6605695,final,TRUE,Georgia,,5-2,Tulane,,4-2,3,0,25,20,25,18,25,16,,,,
+2026-09-11,6605843,final,TRUE,LIU,,0-6,Green Bay,,3-4,1,3,25,22,21,25,23,25,23,25,,
+2026-09-11,6606179,final,FALSE,George Washington,,2-5,Loyola Maryland,,2-4,3,1,20,25,25,15,25,21,25,13,,
+2026-09-11,6606278,final,TRUE,Eastern Ill.,,1-6,Cal Poly,,4-3,0,3,21,25,10,25,17,25,,,,
+2026-09-11,6606297,final,TRUE,Murray St.,,1-7,Georgia St.,,4-4,0,3,20,25,23,25,21,25,,,,
+2026-09-11,6606402,final,FALSE,UNC Greensboro,,4-2,N.C. A&T,,5-3,3,1,25,19,21,25,26,24,25,23,,
+2026-09-11,6606458,final,TRUE,Utah Tech,,4-3,San Jose St.,,4-3,3,0,25,23,25,16,25,20,,,,
+2026-09-11,6606461,final,FALSE,McNeese,,1-7,Grambling,,2-5,3,0,25,16,25,20,26,24,,,,
+2026-09-11,6606744,final,TRUE,IU Indy,,4-4,East Texas A&M,,5-2,3,1,25,23,17,25,25,22,29,27,,
+2026-09-11,6606745,final,FALSE,East Texas A&M,,5-3,UTSA,,5-2,0,3,18,25,22,25,19,25,,,,
+2026-09-11,6607082,final,FALSE,Delaware St.,,8-1,Siena,,2-5,3,0,25,23,25,23,25,13,,,,
+2026-09-11,6607136,final,FALSE,Fla. Southern,,4-3,West Florida,,6-0,1,3,13,25,25,27,25,22,18,25,,
+2026-09-11,6607874,final,FALSE,Sacred Heart,,5-4,California Baptist,,2-5,3,1,25,19,25,21,14,25,27,25,,
+2026-09-11,6607956,final,TRUE,Weber St.,,5-2,Kansas St.,,5-0,1,3,16,25,19,25,27,25,18,25,,
+2026-09-11,6608028,final,TRUE,Alcorn,,0-8,Mississippi St.,,6-1,0,3,8,25,19,25,16,25,,,,
+2026-09-11,6608062,final,TRUE,Gonzaga,,3-5,IU Indy,,4-5,3,2,25,16,25,27,21,25,26,24,15,11
+2026-09-11,6608105,final,FALSE,Grand Canyon,,5-3,Northern Ariz.,,5-4,3,2,20,25,25,20,25,14,20,25,15,11
+2026-09-11,6608234,final,TRUE,Sacramento St.,,3-5,Eastern Wash.,,6-2,2,3,17,25,25,12,16,25,25,12,10,15
+2026-09-11,6608994,final,TRUE,Texas St.,,4-3,UT Arlington,,4-4,3,2,20,25,23,25,25,21,25,14,15,10
+2026-09-11,6609214,final,FALSE,Cal St. Fullerton,,4-4,Charleston So.,,5-4,3,2,22,25,28,26,15,25,25,20,15,12
+2026-09-11,6609529,final,TRUE,UNC Asheville,,7-2,Harvard,,4-0,0,3,12,25,20,25,21,25,,,,
+2026-09-11,6609932,final,TRUE,North Dakota,,3-4,Idaho,,5-3,1,3,20,25,20,25,25,23,23,25,,
+2026-09-11,6609939,final,TRUE,Sacred Heart,,4-4,North Dakota,,4-4,2,3,17,25,25,21,23,25,25,12,9,15
+2026-09-11,6610215,final,FALSE,Cornell,,1-3,Binghamton,,5-3,2,3,19,25,25,18,20,25,25,23,11,15
+2026-09-11,6610318,final,TRUE,Stony Brook,,5-4,Rider,,1-6,3,0,25,16,25,22,25,12,,,,
+2026-09-11,6610366,final,TRUE,Bowling Green,,6-1,Austin Peay,,4-3,3,1,25,21,21,25,25,21,26,24,,
+2026-09-11,6610376,final,FALSE,Utah,,5-2,Utah St.,,0-7,3,0,25,17,25,19,25,23,,,,
+2026-09-11,6610501,final,TRUE,New Hampshire,,7-1,FDU,,2-7,3,1,30,32,25,21,25,18,25,13,,
+2026-09-11,6611006,final,TRUE,UC Davis,,3-4,San Diego,,3-3,2,3,26,24,21,25,25,22,23,25,11,15
+2026-09-11,6611180,final,TRUE,Missouri St.,,6-2,Southern Ill.,,5-4,3,0,25,18,25,16,25,22,,,,
+2026-09-11,6611277,final,TRUE,Eastern Mich.,,6-2,Montana,,3-3,3,0,25,21,26,24,25,21,,,,
+2026-09-11,6611290,final,TRUE,Le Moyne,,0-6,Bucknell,,3-4,0,3,20,25,18,25,11,25,,,,
+2026-09-11,6611294,final,FALSE,Le Moyne,,0-7,Siena,,3-5,0,3,9,25,14,25,19,25,,,,
+2026-09-11,6611409,final,TRUE,Oregon St.,,4-3,Colorado,,7-0,0,3,18,25,19,25,24,26,,,,
+2026-09-11,6611413,final,FALSE,Auburn,,5-2,UIC,,1-6,3,0,26,24,25,13,25,21,,,,
+2026-09-11,6611721,final,FALSE,Navy,,1-6,Old Dominion,,3-4,0,3,27,29,21,25,21,25,,,,
+2026-09-11,6611836,final,TRUE,Toledo,,6-1,VCU,,1-5,3,0,25,15,25,21,25,16,,,,
+2026-09-11,6611969,final,FALSE,Fla. Atlantic,,3-3,Florida,,6-1,1,3,25,23,18,25,15,25,18,25,,
+2026-09-11,6612663,final,FALSE,Southern Utah,,0-7,Seattle U,,3-4,1,3,25,23,21,25,22,25,13,25,,
+2026-09-11,6612940,final,TRUE,UAB,,5-3,Eastern Mich.,,6-3,3,1,25,21,16,25,25,20,25,19,,
+2026-09-11,6612970,final,TRUE,Northwestern St.,,4-6,ULM,,3-6,3,1,21,25,29,27,25,21,26,24,,
+2026-09-11,6613552,final,FALSE,Texas Southern,,0-8,Southeastern La.,,2-5,0,3,13,25,12,25,13,25,,,,
+2026-09-11,6613556,final,FALSE,Charlotte,,2-6,Southeastern La.,,3-5,1,3,18,25,23,25,25,13,17,25,,
+2026-09-11,6613608,final,TRUE,Stanford,,4-2,Penn St.,,5-1,0,3,25,27,20,25,21,25,,,,
+2026-09-11,6613613,final,FALSE,Arizona,,2-5,Southern California,,3-2,1,3,21,25,25,20,20,25,23,25,,
+2026-09-11,6614054,final,FALSE,Ark.-Pine Bluff,,2-6,SIUE,,1-6,0,3,7,25,14,25,21,25,,,,
+2026-09-11,6614061,final,TRUE,NIU,,4-4,Ark.-Pine Bluff,,2-7,3,0,25,11,25,18,25,15,,,,
+2026-09-11,6615210,final,FALSE,UNLV,,0-6,CSUN,,2-4,2,3,22,25,25,23,26,24,14,25,9,15
+2026-09-11,6615225,final,FALSE,Jacksonville,,3-4,Pittsburgh,,8-0,0,3,11,25,16,25,19,25,,,,
+2026-09-11,6615783,final,TRUE,UC Riverside,,2-6,Omaha,,4-3,0,3,13,25,20,25,18,25,,,,
+2026-09-11,6615817,final,FALSE,Ball St.,,7-0,Campbell,,2-4,3,0,25,13,25,22,25,20,,,,
+2026-09-11,6616033,final,FALSE,William & Mary,,3-4,App State,,4-4,0,3,18,25,16,25,19,25,,,,
+2026-09-11,6616224,final,TRUE,UAlbany,,2-5,Dartmouth,,3-1,1,3,25,18,12,25,22,25,25,27,,
+2026-09-11,6616560,final,TRUE,Bethune-Cookman,,1-5,Cal St. Fullerton,,3-4,0,3,16,25,16,25,23,25,,,,
+2026-09-11,6617142,final,FALSE,Marist,,2-6,Bryant,,3-6,3,1,25,20,21,25,25,14,25,17,,
+2026-09-11,6618664,final,TRUE,Ball St.,,6-0,Stetson,,3-4,3,0,25,15,25,20,25,15,,,,
+2026-09-11,6619154,final,FALSE,San Diego St.,,4-2,Santa Clara,,2-6,3,0,25,15,25,15,25,22,,,,
+2026-09-11,6620238,final,TRUE,Arkansas,,5-2,Robert Morris,,0-7,3,0,25,13,25,18,25,23,,,,
+2026-09-11,6620240,final,FALSE,Arkansas,,6-2,Towson,,4-3,3,0,26,24,25,16,25,15,,,,
+2026-09-11,6620312,final,FALSE,Wisconsin,,4-3,Texas A&M,,4-5,3,2,18,25,25,23,23,25,25,22,15,11
+2026-09-11,6620364,final,FALSE,Central Ark.,,0-7,Hawaii,,6-2,0,3,14,25,20,25,26,28,,,,
+2026-09-11,6620688,final,TRUE,NIU,,3-4,Chicago St.,,0-7,3,0,25,9,25,11,25,17,,,,
+2026-09-11,6621042,final,FALSE,Merrimack,,0-8,Bryant,,4-6,1,3,25,21,18,25,13,25,13,25,,
+2026-09-11,6621292,final,TRUE,Washington St.,,4-2,Lipscomb,,5-2,2,3,25,20,25,22,18,25,18,25,11,15
+2026-09-11,6621487,final,FALSE,Winthrop,,2-3,Ohio St.,,3-3,2,3,25,20,25,23,23,25,24,26,12,15
+2026-09-11,6621532,final,FALSE,Georgetown,,5-2,Morgan St.,,1-6,3,0,25,22,25,19,25,18,,,,
+2026-09-11,6621943,final,FALSE,Chicago St.,,0-8,SIUE,,2-6,0,3,15,25,19,25,12,25,,,,
+2026-09-11,6623646,final,TRUE,Nicholls,,5-3,Miami (OH),,6-1,0,3,10,25,20,25,9,25,,,,
+2026-09-11,6623647,final,FALSE,Miami (OH),,7-1,Alabama St.,,1-8,3,0,25,19,25,20,25,10,,,,
+2026-09-11,6623710,final,TRUE,New Mexico,,2-5,Georgia Tech,,8-1,0,3,13,25,16,25,17,25,,,,
+2026-09-11,6624115,final,FALSE,South Carolina St.,,2-6,Alabama St.,,1-7,1,3,25,23,28,30,15,25,23,25,,
+2026-09-11,6624797,final,TRUE,Niagara,,0-4,Kent St.,,3-4,0,3,21,25,20,25,20,25,,,,
+2026-09-11,6625023,final,TRUE,South Carolina St.,,2-7,Nicholls,,6-3,0,3,17,25,14,25,16,25,,,,
+2026-09-11,6625180,final,FALSE,Delaware,,4-3,Rutgers,,6-2,1,3,19,25,26,24,16,25,21,25,,
+2026-09-11,6627758,final,TRUE,UTRGV,,3-5,Prairie View,,0-9,3,0,25,15,25,17,25,18,,,,
+2026-09-11,6630238,final,TRUE,Saint Peter's,,0-8,Princeton,,1-3,0,3,11,25,21,25,24,26,,,,
+2026-09-11,6630239,scheduled,TRUE,Columbia,,,Niagara,,0-4,,,,,,,,,,,,
+2026-09-11,6630240,final,TRUE,Niagara,,0-5,Columbia,,5-0,1,3,25,17,9,25,17,25,22,25,,
+2026-09-12,6583728,final,TRUE,Seton Hall,,5-3,Princeton,,2-3,2,3,25,22,21,25,25,23,25,27,10,15
+2026-09-12,6583732,final,TRUE,Seton Hall,,6-3,Saint Peter's,,0-9,3,1,25,14,22,25,25,22,25,15,,
+2026-09-12,6583880,final,TRUE,Utah Valley,,2-7,Radford,,2-8,3,2,25,20,17,25,25,22,19,25,16,14
+2026-09-12,6583917,final,TRUE,Western Caro.,,4-5,William & Mary,,3-5,3,1,19,25,25,17,25,21,25,23,,
+2026-09-12,6583945,final,FALSE,Michigan,,6-2,South Fla.,,1-7,3,0,26,24,25,23,25,20,,,,
+2026-09-12,6584190,final,FALSE,Michigan St.,,8-0,Morehead St.,,4-4,3,0,25,22,25,22,25,19,,,,
+2026-09-12,6584435,final,FALSE,Lindenwood,,7-2,Illinois St.,,6-2,3,1,21,25,25,12,25,20,25,20,,
+2026-09-12,6584807,final,FALSE,George Mason,,6-2,Morgan St.,,1-7,3,1,25,21,25,14,23,25,25,21,,
+2026-09-12,6585259,final,TRUE,NJIT,,1-10,St. John's (NY),,7-2,0,3,12,25,17,25,19,25,,,,
+2026-09-12,6585494,final,TRUE,UC Santa Barbara,,4-4,South Dakota,,7-2,0,3,16,25,16,25,22,25,,,,
+2026-09-12,6585610,final,TRUE,Lamar University,,2-7,Jackson St.,,4-5,3,0,25,15,25,23,25,21,,,,
+2026-09-12,6585696,final,FALSE,Portland,,4-2,Montana St.,,5-3,3,1,24,26,25,15,25,20,25,23,,
+2026-09-12,6586013,final,FALSE,Mercer,,4-4,West Ga.,,3-6,3,2,16,25,22,25,25,15,25,15,15,8
+2026-09-12,6586160,final,FALSE,Princeton,,2-4,Maryland,,6-1,0,3,17,25,15,25,20,25,,,,
+2026-09-12,6586373,final,FALSE,Abilene Christian,,5-3,Oral Roberts,,5-4,3,0,25,7,25,20,25,15,,,,
+2026-09-12,6586718,final,FALSE,Rhode Island,,3-4,Lafayette,,5-3,2,3,26,24,25,17,20,25,24,26,5,15
+2026-09-12,6586777,final,TRUE,Howard,,1-7,Arkansas,,7-2,1,3,19,25,11,25,25,22,17,25,,
+2026-09-12,6587125,final,TRUE,Louisiana,,3-6,FIU,,5-4,2,3,25,23,17,25,24,26,25,23,11,15
+2026-09-12,6587169,final,TRUE,Winthrop,,2-4,Youngstown St.,,3-5,1,3,25,18,19,25,20,25,22,25,,
+2026-09-12,6587300,final,TRUE,Fla. Atlantic,,4-3,Troy,,2-3,3,1,25,22,25,27,25,23,25,15,,
+2026-09-12,6588086,final,FALSE,Coppin St.,,4-5,Cleveland St.,,3-6,3,1,25,21,23,25,25,18,25,13,,
+2026-09-12,6588523,final,TRUE,Chattanooga,,4-5,Buffalo,,6-3,0,3,17,25,22,25,21,25,,,,
+2026-09-12,6588633,final,FALSE,Eastern Mich.,,6-4,Oakland,,4-5,0,3,19,25,16,25,20,25,,,,
+2026-09-12,6588975,final,FALSE,Northern Ky.,,3-6,Col. of Charleston,,7-2,1,3,22,25,25,20,16,25,20,25,,
+2026-09-12,6589265,final,FALSE,UNI,,4-4,Rice,,5-3,3,0,25,18,25,20,25,23,,,,
+2026-09-12,6589528,final,TRUE,TCU,,6-2,Dayton,,5-4,3,1,25,13,25,13,21,25,26,24,,
+2026-09-12,6589571,final,FALSE,George Washington,,3-5,UMBC,,3-3,3,1,25,23,23,25,25,21,25,18,,
+2026-09-12,6589766,final,TRUE,UNC Asheville,,9-2,Norfolk St.,,2-6,3,0,25,15,25,17,25,19,,,,
+2026-09-12,6590008,final,FALSE,Mississippi Val.,,1-7,ULM,,4-6,1,3,11,25,19,25,26,24,11,25,,
+2026-09-12,6590058,final,FALSE,Alabama A&M,,5-5,Loyola Chicago,,3-5,0,3,22,25,14,25,20,25,,,,
+2026-09-12,6590297,final,TRUE,Quinnipiac,,1-5,Penn,,3-1,1,3,15,25,22,25,25,22,14,25,,
+2026-09-12,6590739,final,TRUE,Belmont,,3-4,Marshall,,5-3,3,1,25,18,25,23,22,25,25,22,,
+2026-09-12,6590760,final,FALSE,Belmont,,3-5,Duke,,7-1,0,3,21,25,18,25,22,25,,,,
+2026-09-12,6590849,final,FALSE,Coastal Carolina,,4-3,Tennessee,,6-1,0,3,19,25,19,25,17,25,,,,
+2026-09-12,6590884,final,TRUE,Fairfield,,4-4,Liberty,,6-4,1,3,25,19,18,25,15,25,22,25,,
+2026-09-12,6590997,final,TRUE,Saint Mary's (CA),,4-5,Sacramento St.,,4-5,1,3,25,21,23,25,23,25,19,25,,
+2026-09-12,6591503,final,TRUE,UC Davis,,3-5,Oregon,,6-1,0,3,19,25,18,25,25,27,,,,
+2026-09-12,6591649,final,TRUE,Cornell,,3-3,New Haven,,1-8,3,0,25,20,25,20,25,23,,,,
+2026-09-12,6591650,final,FALSE,New Haven,,1-7,Binghamton,,6-3,0,3,19,25,22,25,21,25,,,,
+2026-09-12,6591850,final,FALSE,Ga. Southern,,4-4,Wake Forest,,3-5,2,3,23,25,25,20,28,26,23,25,13,15
+2026-09-12,6592121,final,FALSE,Missouri St.,,7-2,Iowa,,6-3,3,1,22,25,25,19,25,21,26,24,,
+2026-09-12,6592162,final,TRUE,James Madison,,2-5,Pepperdine,,6-3,1,3,22,25,20,25,25,21,19,25,,
+2026-09-12,6592234,final,TRUE,LSU New Orleans,,1-8,Gardner-Webb,,6-4,1,3,25,22,20,25,17,25,24,26,,
+2026-09-12,6592350,final,FALSE,UAlbany,,2-6,Colgate,,4-4,1,3,25,22,22,25,23,25,15,25,,
+2026-09-12,6592837,final,FALSE,Army West Point,,6-3,Hofstra,,5-3,2,3,25,18,25,23,23,25,18,25,11,15
+2026-09-12,6592843,final,TRUE,Central Mich.,,0-9,Auburn,,6-2,0,3,19,25,19,25,11,25,,,,
+2026-09-12,6592844,final,FALSE,Central Mich.,,0-10,UIC,,2-6,0,3,17,25,21,25,20,25,,,,
+2026-09-12,6592977,final,FALSE,Mississippi St.,,7-1,Memphis,,2-6,3,0,25,7,25,11,25,23,,,,
+2026-09-12,6593055,final,FALSE,Southern U.,,1-6,Southern Miss.,,7-1,0,3,23,25,23,25,16,25,,,,
+2026-09-12,6593057,final,FALSE,Jackson St.,,4-6,Southern Miss.,,8-1,0,3,23,25,19,25,20,25,,,,
+2026-09-12,6593169,final,FALSE,Drake,,5-3,Kansas City,,5-4,3,2,25,14,23,25,25,18,16,25,15,8
+2026-09-12,6593225,final,FALSE,Murray St.,,1-8,Middle Tenn.,,6-3,1,3,18,25,23,25,26,24,17,25,,
+2026-09-12,6593419,final,FALSE,South Carolina,,6-2,Wofford,,5-3,3,1,30,28,18,25,25,23,25,17,,
+2026-09-12,6593953,final,FALSE,USC Upstate,,5-3,Elon,,3-7,1,3,21,25,14,25,25,19,15,25,,
+2026-09-12,6594602,final,FALSE,St. John's (NY),,8-2,Iona,,4-5,3,0,25,17,25,7,25,21,,,,
+2026-09-12,6595053,final,TRUE,Brown,,1-4,LMU (CA),,7-1,0,3,20,25,13,25,18,25,,,,
+2026-09-12,6595831,final,TRUE,New Mexico,,2-6,Baylor,,6-2,0,3,20,25,17,25,22,25,,,,
+2026-09-12,6595888,final,FALSE,Stonehill,,2-8,Providence,,7-1,0,3,12,25,15,25,20,25,,,,
+2026-09-12,6595892,final,TRUE,Stonehill,,3-8,Manhattan,,0-9,3,1,25,23,22,25,25,19,25,20,,
+2026-09-12,6596138,final,FALSE,Idaho St.,,7-2,Air Force,,4-4,3,0,25,20,25,18,25,23,,,,
+2026-09-12,6596493,final,FALSE,Miami (FL),,0-7,St. Thomas (MN),,2-4,0,3,23,25,17,25,19,25,,,,
+2026-09-12,6597544,final,FALSE,Southern Ind.,,3-6,Ohio St.,,4-3,1,3,25,22,17,25,18,25,20,25,,
+2026-09-12,6597572,final,TRUE,Sam Houston,,6-4,Denver,,6-3,0,3,23,25,22,25,24,26,,,,
+2026-09-12,6597673,final,TRUE,Cal St. Fullerton,,4-5,The Citadel,,3-6,1,3,23,25,23,25,25,22,21,25,,
+2026-09-12,6597715,final,TRUE,Furman,,4-4,Ball St.,,8-0,1,3,16,25,16,25,25,23,18,25,,
+2026-09-12,6597717,final,FALSE,Furman,,5-4,Campbell,,3-5,3,1,25,16,19,25,25,19,27,25,,
+2026-09-12,6597985,final,TRUE,Tulsa,,8-0,South Dakota St.,,4-5,3,2,19,25,25,20,25,17,23,25,15,8
+2026-09-12,6598179,final,TRUE,Jacksonville St.,,1-7,North Ala.,,10-0,0,3,18,25,13,25,17,25,,,,
+2026-09-12,6598421,final,TRUE,East Carolina,,5-3,ETSU,,1-6,2,3,18,25,25,12,25,19,14,25,9,15
+2026-09-12,6598435,final,TRUE,Manhattan,,0-8,Holy Cross,,5-5,1,3,25,18,24,26,25,27,18,25,,
+2026-09-12,6598436,final,FALSE,Holy Cross,,5-6,Providence,,8-1,0,3,19,25,20,25,21,25,,,,
+2026-09-12,6598643,final,TRUE,UNLV,,1-6,Fresno St.,,3-5,3,2,25,22,26,24,20,25,19,25,15,11
+2026-09-12,6598693,final,FALSE,Wichita St.,,3-6,Missouri,,5-2,0,3,19,25,13,25,18,25,,,,
+2026-09-12,6599120,final,TRUE,Kentucky,,6-2,SMU,,6-1,1,3,25,27,25,21,21,25,25,27,,
+2026-09-12,6599311,final,TRUE,Duquesne,,7-2,Notre Dame,,1-5,3,2,25,19,18,25,24,26,26,24,16,14
+2026-09-12,6599368,final,FALSE,High Point,,3-4,Pittsburgh,,9-0,0,3,17,25,11,25,23,25,,,,
+2026-09-12,6599858,final,FALSE,Valparaiso,,5-4,Akron,,3-6,1,3,20,25,21,25,25,22,24,26,,
+2026-09-12,6599884,final,TRUE,Western Ill.,,0-8,Purdue Fort Wayne,,4-5,0,3,25,27,21,25,24,26,,,,
+2026-09-12,6599977,final,TRUE,Wichita St.,,3-5,Arkansas St.,,4-4,1,3,19,25,26,24,18,25,22,25,,
+2026-09-12,6599980,final,TRUE,FGCU,,3-4,Arkansas St.,,4-5,3,0,25,21,27,25,25,20,,,,
+2026-09-12,6600064,final,TRUE,Saint Louis,,4-3,Bowling Green,,7-1,0,3,18,25,21,25,16,25,,,,
+2026-09-12,6600067,final,TRUE,Saint Louis,,4-4,Austin Peay,,5-4,2,3,28,26,27,29,26,24,22,25,11,15
+2026-09-12,6600170,final,FALSE,Pacific,,4-4,New Mexico St.,,6-4,0,3,20,25,11,25,17,25,,,,
+2026-09-12,6600344,final,FALSE,UT Arlington,,4-5,SFA,,4-5,0,3,18,25,21,25,23,25,,,,
+2026-09-12,6600993,final,TRUE,Dartmouth,,3-2,Northeastern,,2-5,1,3,21,25,16,25,25,12,15,25,,
+2026-09-12,6601359,final,FALSE,Georgia,,6-2,South Alabama,,3-5,3,0,25,18,25,10,25,23,,,,
+2026-09-12,6601395,final,FALSE,FDU,,2-8,UConn,,5-4,0,3,19,25,17,25,20,25,,,,
+2026-09-12,6601474,final,FALSE,Western Mich.,,6-2,DePaul,,6-2,0,3,19,25,23,25,19,25,,,,
+2026-09-12,6601587,final,FALSE,LIU,,0-7,Northwestern,,5-3,0,3,19,25,18,25,18,25,,,,
+2026-09-12,6602375,final,FALSE,San Jose St.,,4-4,Long Beach St.,,5-2,1,3,15,25,21,25,25,23,13,25,,
+2026-09-12,6602566,final,FALSE,UC San Diego,,2-6,UTEP,,7-1,1,3,19,25,21,25,25,22,20,25,,
+2026-09-12,6602733,final,FALSE,Niagara,,0-6,Mercyhurst,,3-6,0,3,16,25,23,25,18,25,,,,
+2026-09-12,6603357,final,FALSE,Virginia,,3-3,UCF,,7-1,0,3,22,25,21,25,21,25,,,,
+2026-09-12,6604277,final,FALSE,Butler,,6-3,Bellarmine,,4-4,0,3,18,25,17,25,23,25,,,,
+2026-09-12,6604394,final,TRUE,Mercer,,3-4,Gardner-Webb,,5-4,2,3,25,18,25,19,26,28,20,25,12,15
+2026-09-12,6604396,final,TRUE,Creighton,,5-3,Louisville,,8-1,1,3,22,25,25,27,25,23,16,25,,
+2026-09-12,6604673,final,FALSE,A&M-Corpus Christi,,2-5,Tarleton St.,,3-6,3,0,25,22,25,18,25,21,,,,
+2026-09-12,6604765,final,FALSE,Harvard,,6-0,UNCW,,4-6,3,0,25,21,25,19,25,15,,,,
+2026-09-12,6605158,final,TRUE,Northern Colo.,,2-6,Georgia St.,,5-4,1,3,9,25,20,25,25,13,21,25,,
+2026-09-12,6605661,final,TRUE,Fordham,,5-4,Merrimack,,0-9,3,1,25,16,25,17,17,25,25,22,,
+2026-09-12,6605662,final,FALSE,Fordham,,6-4,Bryant,,4-8,3,0,25,16,25,15,26,24,,,,
+2026-09-12,6605755,final,TRUE,Houston,,5-2,Purdue,,4-2,0,3,18,25,22,25,27,29,,,,
+2026-09-12,6605846,final,TRUE,Green Bay,,4-4,Virginia Tech,,3-4,3,2,26,24,23,25,25,16,21,25,15,9
+2026-09-12,6606121,final,TRUE,New Hampshire,,7-3,Yale,,5-0,0,3,16,25,21,25,14,25,,,,
+2026-09-12,6606406,final,FALSE,Davidson,,5-4,N.C. A&T,,5-4,3,1,15,25,25,17,25,22,25,21,,
+2026-09-12,6606464,final,FALSE,McNeese,,2-7,Louisiana Tech,,6-4,3,0,26,24,25,20,25,20,,,,
+2026-09-12,6606665,final,FALSE,Utah Tech,,5-3,UC Irvine,,1-7,3,0,25,20,25,22,25,21,,,,
+2026-09-12,6606746,final,TRUE,East Texas A&M,,6-3,Gonzaga,,3-6,3,2,19,25,25,13,17,25,25,13,16,14
+2026-09-12,6607085,final,TRUE,Delaware St.,,8-2,Bucknell,,4-4,0,3,21,25,22,25,13,25,,,,
+2026-09-12,6607138,final,FALSE,Tampa,,8-1,West Florida,,6-1,3,1,30,28,25,21,13,25,25,21,,
+2026-09-12,6607574,final,FALSE,Eastern Ky.,,6-2,Western Ky.,,5-4,3,1,16,25,25,23,25,13,25,20,,
+2026-09-12,6607631,final,FALSE,Colorado St.,,6-2,Wyoming,,4-4,3,0,25,18,25,14,25,15,,,,
+2026-09-12,6607875,final,FALSE,Idaho,,6-3,California Baptist,,2-6,3,2,22,25,25,21,25,21,20,25,15,9
+2026-09-12,6607982,final,FALSE,San Diego,,3-4,Arizona St.,,7-2,1,3,15,25,25,23,11,25,14,25,,
+2026-09-12,6608036,final,TRUE,Alcorn,,0-9,Boston College,,7-1,0,3,21,25,20,25,18,25,,,,
+2026-09-12,6608064,final,FALSE,IU Indy,,4-6,UTSA,,6-2,0,3,14,25,14,25,16,25,,,,
+2026-09-12,6608107,final,TRUE,Omaha,,5-3,Grand Canyon,,5-4,3,2,28,26,15,25,25,22,13,25,15,12
+2026-09-12,6608995,final,TRUE,Texas St.,,4-4,North Texas,,5-3,1,3,23,25,19,25,25,17,19,25,,
+2026-09-12,6609215,final,FALSE,Bethune-Cookman,,2-6,Charleston So.,,6-4,0,3,24,26,15,25,15,25,,,,
+2026-09-12,6609531,scheduled,FALSE,Harvard,,5-0,UNCW,,4-5,,,,,,,,,,,,
+2026-09-12,6609819,final,TRUE,Northwestern St.,,5-6,Grambling,,2-6,3,1,20,25,25,20,26,24,29,27,,
+2026-09-12,6609943,final,FALSE,Presbyterian,,6-5,Queens (NC),,3-6,0,3,16,25,17,25,21,25,,,,
+2026-09-12,6609973,final,FALSE,Iowa St.,,5-3,American,,5-4,0,3,23,25,19,25,22,25,,,,
+2026-09-12,6610221,final,TRUE,Temple,,5-4,Cornell,,2-3,2,3,25,22,14,25,25,21,21,25,11,15
+2026-09-12,6610330,final,TRUE,Stony Brook,,6-4,Delaware,,4-4,3,0,25,19,25,16,25,18,,,,
+2026-09-12,6610372,final,FALSE,Austin Peay,,4-4,Xavier,,5-3,0,3,11,25,23,25,19,25,,,,
+2026-09-12,6611200,final,FALSE,Davidson,,4-4,UNC Greensboro,,4-3,3,1,25,17,13,25,25,22,25,19,,
+2026-09-12,6611205,final,FALSE,N.C. Central,,2-6,UNC Greensboro,,5-3,1,3,18,25,25,21,19,25,17,25,,
+2026-09-12,6611287,final,TRUE,Montana,,3-5,UAB,,6-3,0,3,14,25,21,25,22,25,,,,
+2026-09-12,6611299,final,TRUE,Le Moyne,,0-8,Delaware St.,,9-2,1,3,24,26,15,25,25,22,28,30,,
+2026-09-12,6611410,final,TRUE,Arizona,,3-5,Oregon St.,,4-4,3,1,25,23,25,23,16,25,27,25,,
+2026-09-12,6611722,final,TRUE,UMES,,1-6,Navy,,2-6,1,3,25,20,20,25,21,25,17,25,,
+2026-09-12,6612030,final,FALSE,Loyola Maryland,,2-5,Georgetown,,6-2,0,3,10,25,16,25,21,25,,,,
+2026-09-12,6612134,final,FALSE,Bucknell,,4-5,Siena,,4-5,0,3,18,25,18,25,15,25,,,,
+2026-09-12,6612660,final,TRUE,San Diego St.,,4-3,California,,6-1,2,3,21,25,20,25,25,23,26,24,13,15
+2026-09-12,6613597,final,FALSE,Colorado,,8-0,Southern California,,3-3,3,1,26,24,23,25,25,13,26,24,,
+2026-09-12,6614065,final,TRUE,Ark.-Pine Bluff,,3-7,Chicago St.,,0-9,3,0,25,23,25,23,25,21,,,,
+2026-09-12,6615564,final,TRUE,Wright St.,,4-4,Jacksonville,,4-4,0,3,24,26,26,28,22,25,,,,
+2026-09-12,6615652,final,FALSE,Eastern Wash.,,6-3,Boise St.,,6-4,0,3,16,25,19,25,22,25,,,,
+2026-09-12,6615820,final,FALSE,Stetson,,3-6,Campbell,,3-4,1,3,19,25,15,25,26,24,14,25,,
+2026-09-12,6617146,final,FALSE,Marist,,4-6,Bryant,,4-7,3,1,25,17,27,25,21,25,25,21,,
+2026-09-12,6618015,final,TRUE,Central Conn. St.,,2-6,NJIT,,1-9,3,0,25,21,25,22,25,17,,,,
+2026-09-12,6618599,final,FALSE,Ohio,,4-3,Penn St.,,6-1,0,3,21,25,23,25,9,25,,,,
+2026-09-12,6618625,final,FALSE,Rider,,1-7,Rutgers,,7-2,0,3,20,25,18,25,15,25,,,,
+2026-09-12,6619155,final,FALSE,CSU Bakersfield,,3-4,Santa Clara,,3-6,2,3,18,25,25,23,18,25,25,21,14,16
+2026-09-12,6619595,final,FALSE,Bowling Green,,7-2,Xavier,,6-3,0,3,25,27,22,25,18,25,,,,
+2026-09-12,6619793,final,FALSE,Tennessee St.,,0-9,Evansville,,2-7,1,3,15,25,25,22,11,25,20,25,,
+2026-09-12,6620689,final,FALSE,NIU,,5-4,SIUE,,2-7,3,0,25,18,25,19,25,20,,,,
+2026-09-12,6621293,final,TRUE,Washington St.,,5-2,Southern Utah,,0-8,3,0,25,22,25,22,25,11,,,,
+2026-09-12,6622163,final,TRUE,North Florida,,5-3,App State,,4-5,3,2,16,25,14,25,26,24,27,25,15,11
+2026-09-12,6622730,final,FALSE,San Francisco,,4-5,CSUN,,3-4,1,3,23,25,14,25,25,23,20,25,,
+2026-09-12,6623277,final,TRUE,Kennesaw St.,,5-3,Tulane,,5-2,0,3,15,25,17,25,18,25,,,,
+2026-09-12,6623648,final,TRUE,South Carolina St.,,2-8,Miami (OH),,8-1,0,3,13,25,18,25,11,25,,,,
+2026-09-12,6623670,final,TRUE,Tennessee Tech,,3-5,Little Rock,,6-3,0,3,24,26,20,25,23,25,,,,
+2026-09-12,6624117,final,FALSE,Nicholls,,6-4,Alabama St.,,2-8,1,3,21,25,25,12,19,25,19,25,,
+2026-09-12,6624795,final,TRUE,Kent St.,,5-4,Columbia,,5-1,3,0,25,23,25,14,25,16,,,,
+2026-09-12,6624799,final,FALSE,Robert Morris,,0-9,Towson,,5-3,0,3,17,25,22,25,17,25,,,,
+2026-09-12,6625014,final,TRUE,Hampton,,2-7,Florida A&M,,4-5,2,3,14,25,19,25,25,23,25,20,10,15
+2026-09-12,6625113,final,TRUE,Charlotte,,2-7,Texas Southern,,1-8,0,3,19,25,23,25,18,25,,,,
+2026-09-12,6630237,final,FALSE,Georgia Tech,,8-2,Nebraska,,7-0,1,3,26,24,17,25,18,25,12,25,,
+2026-09-13,6583921,final,FALSE,Western Caro.,,4-6,App State,,5-5,1,3,18,25,10,25,25,21,15,25,,
+2026-09-13,6584308,final,FALSE,Marquette,,3-4,Illinois,,5-3,2,3,15,25,11,25,27,25,25,18,13,15
+2026-09-13,6584810,final,FALSE,George Mason,,7-2,Loyola Maryland,,2-6,3,1,25,22,20,25,25,14,25,21,,
+2026-09-13,6586161,final,FALSE,Saint Peter's,,0-10,Maryland,,7-1,0,3,13,25,7,25,16,25,,,,
+2026-09-13,6586374,final,FALSE,Abilene Christian,,5-4,Oklahoma,,4-2,0,3,17,25,12,25,22,25,,,,
+2026-09-13,6586719,final,TRUE,Rhode Island,,3-5,Penn,,4-1,2,3,20,25,25,22,26,24,20,25,8,15
+2026-09-13,6586720,final,TRUE,Rhode Island,,4-5,Quinnipiac,,1-7,3,1,22,25,25,17,25,23,25,17,,
+2026-09-13,6586778,final,FALSE,Howard,,1-8,Towson,,6-3,0,3,18,25,14,25,16,25,,,,
+2026-09-13,6587173,final,FALSE,Youngstown St.,,3-6,Ohio St.,,5-3,2,3,25,23,18,25,25,21,21,25,10,15
+2026-09-13,6587305,final,FALSE,Troy,,2-4,Florida,,7-1,0,3,20,25,14,25,16,25,,,,
+2026-09-13,6588019,final,FALSE,St. Thomas (MN),,2-5,Minnesota,,4-2,0,3,22,25,20,25,22,25,,,,
+2026-09-13,6588460,final,FALSE,FIU,,6-4,Florida St.,,4-4,3,0,25,22,25,23,25,16,,,,
+2026-09-13,6588977,final,FALSE,Notre Dame,,1-6,Col. of Charleston,,8-2,0,3,19,25,13,25,22,25,,,,
+2026-09-13,6589270,final,TRUE,Louisville,,9-1,UNI,,4-5,3,0,25,11,25,17,25,23,,,,
+2026-09-13,6589566,final,TRUE,Fla. Atlantic,,4-4,Dayton,,6-4,2,3,25,22,25,18,19,25,23,25,10,15
+2026-09-13,6589572,final,FALSE,Georgetown,,6-3,UMBC,,4-3,1,3,23,25,25,19,18,25,22,25,,
+2026-09-13,6590301,final,FALSE,Penn,,5-1,Lafayette,,6-4,3,0,25,16,25,12,25,15,,,,
+2026-09-13,6590769,final,FALSE,Jacksonville St.,,1-8,Samford,,2-5,1,3,23,25,25,23,17,25,15,25,,
+2026-09-13,6590771,final,FALSE,Belmont,,3-6,NC State,,7-1,0,3,20,25,17,25,23,25,,,,
+2026-09-13,6591512,final,TRUE,San Diego,,3-5,Oregon,,7-1,1,3,25,16,19,25,25,27,17,25,,
+2026-09-13,6591853,final,TRUE,Ga. Southern,,5-4,East Carolina,,5-4,3,0,25,17,25,15,25,16,,,,
+2026-09-13,6592351,final,FALSE,Dartmouth,,3-3,Colgate,,5-4,0,3,20,25,26,28,24,26,,,,
+2026-09-13,6593326,final,FALSE,LSU,,4-3,Southeastern La.,,3-6,3,0,26,24,25,13,25,21,,,,
+2026-09-13,6594360,final,FALSE,Tulsa,,8-1,Kansas,,4-3,0,3,16,25,22,25,18,25,,,,
+2026-09-13,6595056,final,FALSE,LMU (CA),,7-2,Long Beach St.,,6-2,0,3,18,25,17,25,19,25,,,,
+2026-09-13,6597517,final,FALSE,UCLA,,6-2,Utah,,5-3,3,1,25,19,26,24,16,25,25,17,,
+2026-09-13,6597545,final,TRUE,Southern Ind.,,4-6,Winthrop,,2-5,3,2,25,20,17,25,25,27,25,21,15,12
+2026-09-13,6598644,final,FALSE,Fresno St.,,3-6,CSUN,,4-4,0,3,19,25,16,25,19,25,,,,
+2026-09-13,6598694,final,FALSE,FGCU,,3-5,Missouri,,6-2,1,3,14,25,25,16,17,25,18,25,,
+2026-09-13,6599128,final,TRUE,Purdue,,5-2,SMU,,6-2,3,0,30,28,25,23,25,22,,,,
+2026-09-13,6599374,final,TRUE,Jacksonville,,4-5,High Point,,4-4,1,3,16,25,20,25,25,16,18,25,,
+2026-09-13,6599720,final,FALSE,Clemson,,5-4,Wofford,,6-3,1,3,17,25,24,26,25,23,21,25,,
+2026-09-13,6600171,final,TRUE,UC San Diego,,3-6,Pacific,,4-5,3,0,25,17,25,21,25,20,,,,
+2026-09-13,6601007,final,TRUE,Northeastern,,2-6,UAlbany,,3-6,2,3,25,23,22,25,21,25,25,22,11,15
+2026-09-13,6601368,final,FALSE,Tulane,,6-2,South Alabama,,3-6,3,1,25,23,25,14,26,28,25,23,,
+2026-09-13,6601407,final,FALSE,Yale,,6-0,UConn,,5-5,3,1,25,15,21,25,25,22,25,23,,
+2026-09-13,6601485,final,FALSE,Western Mich.,,6-3,UIC,,3-6,0,3,18,25,15,25,23,25,,,,
+2026-09-13,6601600,final,FALSE,Green Bay,,5-4,Northwestern,,5-4,3,2,9,25,27,29,25,20,25,23,15,12
+2026-09-13,6604402,final,FALSE,Creighton,,5-4,Rice,,6-3,1,3,21,25,35,37,25,18,25,27,,
+2026-09-13,6605701,final,TRUE,Georgia,,7-2,Kennesaw St.,,5-4,3,1,19,25,25,18,25,10,25,21,,
+2026-09-13,6605765,final,TRUE,Houston,,5-3,Kentucky,,7-2,0,3,13,25,19,25,23,25,,,,
+2026-09-13,6606173,final,FALSE,Purdue Fort Wayne,,4-6,Illinois St.,,7-2,0,3,19,25,18,25,22,25,,,,
+2026-09-13,6606182,final,FALSE,George Washington,,4-5,Morgan St.,,1-8,3,1,15,25,25,10,31,29,25,13,,
+2026-09-13,6606460,final,FALSE,San Jose St.,,5-4,UC Irvine,,1-8,3,2,26,24,25,17,23,25,19,25,15,13
+2026-09-13,6607957,final,FALSE,Kansas St.,,6-0,Nevada,,0-7,3,1,21,25,25,20,25,21,25,15,,
+2026-09-13,6608428,final,FALSE,ETSU,,1-7,Wake Forest,,4-5,2,3,17,25,25,22,25,23,18,25,7,15
+2026-09-13,6609774,final,TRUE,Syracuse,,4-3,Canisius,,0-8,3,0,25,15,25,23,25,19,,,,
+2026-09-13,6611412,final,FALSE,Oregon St.,,4-5,Southern California,,4-3,0,3,15,25,21,25,21,25,,,,
+2026-09-13,6611419,final,FALSE,Auburn,,7-2,DePaul,,6-3,3,1,23,25,25,20,25,15,25,12,,
+2026-09-13,6612664,final,TRUE,San Diego St.,,5-3,CSU Bakersfield,,3-5,3,1,25,17,20,25,25,14,25,19,,
+2026-09-13,6613609,final,TRUE,Ohio,,4-4,Stanford,,5-2,0,3,18,25,17,25,16,25,,,,
+2026-09-13,6615214,final,TRUE,San Francisco,,5-5,UNLV,,1-7,3,2,27,29,21,25,25,19,25,21,15,12
+2026-09-13,6615235,final,FALSE,Wright St.,,4-5,Pittsburgh,,10-0,0,3,10,25,14,25,14,25,,,,
+2026-09-13,6616036,final,TRUE,North Florida,,5-4,William & Mary,,4-5,1,3,25,22,26,28,20,25,22,25,,
+2026-09-13,6616561,final,TRUE,Virginia Tech,,3-5,LIU,,1-7,1,3,16,25,25,23,20,25,22,25,,
+2026-09-13,6618722,final,FALSE,Wisconsin,,4-4,Texas,,4-4,1,3,25,21,21,25,20,25,16,25,,
+2026-09-13,6619156,final,FALSE,California,,7-1,Santa Clara,,3-7,3,1,24,26,25,19,28,26,25,12,,
+2026-09-13,6619362,final,FALSE,UMES,,1-7,Old Dominion,,4-4,1,3,18,25,18,25,25,18,23,25,,
+2026-09-13,6620190,final,FALSE,North Carolina,,4-2,Vanderbilt,,7-0,1,3,16,25,26,24,19,25,25,27,,
+2026-09-13,6621294,final,FALSE,Washington St.,,5-3,Washington,,7-0,1,3,17,25,25,22,18,25,20,25,,
+2026-09-13,6625150,final,FALSE,Quinnipiac,,1-6,Lafayette,,6-3,0,3,16,25,23,25,18,25,,,,
+2026-09-14,6613079,final,FALSE,North Ala.,,10-1,Florida St.,,5-4,0,3,18,25,18,25,21,25,,,,
+2026-09-15,6583881,final,FALSE,Utah Valley,,2-8,BYU,,6-1,0,3,11,25,9,25,16,25,,,,
+2026-09-15,6583929,final,FALSE,Western Caro.,,4-7,UNC Asheville,,10-2,2,3,21,25,25,16,31,33,25,19,11,15
+2026-09-15,6584199,final,FALSE,Oakland,,4-6,Michigan St.,,9-0,1,3,16,25,26,24,16,25,21,25,,
+2026-09-15,6585612,final,FALSE,Lamar University,,3-7,Prairie View,,0-10,3,0,25,15,25,21,25,23,,,,
+2026-09-15,6587142,final,FALSE,Louisiana,,4-6,Southeastern La.,,3-7,3,1,20,25,27,25,25,12,25,17,,
+2026-09-15,6589770,final,FALSE,Bowie St.,,2-3,Norfolk St.,,3-6,0,3,14,25,19,25,20,25,,,,
+2026-09-15,6590852,final,FALSE,Tennessee,,7-1,Queens (NC),,3-7,3,0,25,14,25,13,25,18,,,,
+2026-09-15,6591000,final,FALSE,CSU Bakersfield,,4-5,Saint Mary's (CA),,4-6,3,2,18,25,25,18,23,25,25,21,15,9
+2026-09-15,6592318,final,FALSE,Marshall,,5-4,Eastern Ky.,,7-2,0,3,23,25,14,25,21,25,,,,
+2026-09-15,6592978,final,FALSE,Ole Miss,,6-3,Memphis,,3-6,1,3,25,13,18,25,16,25,28,30,,
+2026-09-15,6593171,final,FALSE,Omaha,,6-3,Drake,,5-4,3,1,25,20,22,25,27,25,25,19,,
+2026-09-15,6593420,final,FALSE,South Carolina,,6-3,ETSU,,2-7,2,3,27,25,20,25,24,26,25,23,15,17
+2026-09-15,6594365,final,FALSE,Kansas,,5-3,Wichita St.,,3-7,3,0,25,17,25,17,25,12,,,,
+2026-09-15,6595896,final,FALSE,Holy Cross,,6-6,Stonehill,,3-9,3,0,25,17,25,13,25,18,,,,
+2026-09-15,6598321,scheduled,FALSE,Coastal Carolina,,4-3,Duke,,7-1,,,,,,,,,,,,
+2026-09-15,6599447,final,FALSE,Villanova,,5-4,Penn St.,,7-1,1,3,14,25,25,19,23,25,18,25,,
+2026-09-15,6600355,final,FALSE,SFA,,4-6,Texas A&M,,5-5,0,3,13,25,9,25,22,25,,,,
+2026-09-15,6603886,final,FALSE,Evansville,,2-8,UT Martin,,1-6,1,3,25,20,21,25,23,25,19,25,,
+2026-09-15,6604216,final,FALSE,Radford,,3-8,N.C. Central,,2-7,3,2,25,17,23,25,22,25,25,20,15,7
+2026-09-15,6604676,final,FALSE,Tarleton St.,,3-7,Texas Tech,,7-2,1,3,25,14,22,25,20,25,13,25,,
+2026-09-15,6606193,final,FALSE,George Washington,,4-6,Virginia,,4-3,1,3,23,25,25,13,17,25,21,25,,
+2026-09-15,6606747,final,FALSE,East Texas A&M,,6-4,Oklahoma,,5-2,0,3,22,25,21,25,13,25,,,,
+2026-09-15,6606956,final,FALSE,App State,,5-6,NC State,,8-1,0,3,14,25,10,25,17,25,,,,
+2026-09-15,6607233,final,FALSE,Florida A&M,,4-6,Mercer,,5-4,0,3,12,25,21,25,23,25,,,,
+2026-09-15,6609537,final,FALSE,Harvard,,7-0,Merrimack,,0-10,3,0,25,10,25,16,25,20,,,,
+2026-09-15,6610399,final,FALSE,Utah St.,,0-8,Weber St.,,6-2,2,3,12,25,25,23,25,18,23,25,10,15
+2026-09-15,6611958,final,FALSE,Southern U.,,2-6,Southern-N.O.,,,3,1,25,20,23,25,25,18,25,20,,
+2026-09-15,6612977,final,FALSE,Louisiana Tech,,6-5,Northwestern St.,,6-6,0,3,22,25,20,25,23,25,,,,
+2026-09-15,6618347,final,FALSE,Ball St.,,8-1,Cincinnati,,6-3,0,3,8,25,19,25,30,32,,,,
+2026-09-15,6619832,final,FALSE,Manhattan,,1-9,Central Conn. St.,,2-7,3,2,25,23,26,28,25,20,19,25,16,14
+2026-09-15,6619940,final,FALSE,FDU,,2-9,Sacred Heart,,6-4,0,3,24,26,19,25,14,25,,,,
+2026-09-15,6625025,final,FALSE,Claflin,,5-5,South Carolina St.,,3-8,0,3,23,25,12,25,23,25,,,,
+2026-09-16,6584314,final,FALSE,Illinois,,6-3,Eastern Ill.,,1-8,3,1,25,17,24,26,25,15,25,12,,
+2026-09-16,6590009,final,FALSE,Dillard,,,Mississippi Val.,,1-8,3,0,25,10,25,20,25,21,,,,
+2026-09-16,6590305,final,FALSE,Rider,,1-8,Penn,,6-1,0,3,18,25,13,25,11,25,,,,
+2026-09-16,6592120,final,FALSE,Drake,,5-5,Iowa,,7-3,0,3,21,25,21,25,17,25,,,,
+2026-09-16,6595842,final,FALSE,UIW,,2-6,Baylor,,7-2,1,3,10,25,18,25,25,23,19,25,,
+2026-09-16,6596810,final,FALSE,Little Rock,,6-4,Southeast Mo. St.,,5-5,0,3,18,25,20,25,24,26,,,,
+2026-09-16,6599277,final,FALSE,Air Force,,4-5,Denver,,7-3,0,3,20,25,17,25,25,27,,,,
+2026-09-16,6602569,final,FALSE,UTEP,,7-2,TCU,,7-2,1,3,13,25,25,22,18,25,12,25,,
+2026-09-16,6604282,final,FALSE,Butler,,6-4,IU Indy,,5-6,0,3,21,25,26,28,18,25,,,,
+2026-09-16,6604412,final,FALSE,Creighton,,5-5,Nebraska,,8-0,0,3,13,25,15,25,19,25,,,,
+2026-09-16,6604528,final,FALSE,Louisville,,10-1,Western Ky.,,5-5,3,0,25,15,25,19,25,19,,,,
+2026-09-16,6608042,final,FALSE,Alcorn,,0-10,Alabama,,6-1,0,3,11,25,19,25,18,25,,,,
+2026-09-16,6609821,final,FALSE,Grambling,,3-6,Nicholls,,6-5,3,2,25,27,22,25,25,16,25,20,15,12
+2026-09-16,6611013,final,FALSE,California,,8-1,UC Davis,,3-6,3,2,21,25,25,21,25,27,25,15,17,15
+2026-09-16,6619795,final,FALSE,Tennessee St.,,0-10,Austin Peay,,6-4,0,3,23,25,13,25,17,25,,,,
+2026-09-16,6621049,final,FALSE,Manhattan,,1-10,Bryant,,5-8,1,3,21,25,19,25,25,23,20,25,,
+2026-09-16,6625026,final,FALSE,South Carolina St.,,3-9,Claflin,,6-5,1,3,24,26,25,21,23,25,21,25,,
+2026-09-17,6583736,final,FALSE,Seton Hall,,7-3,NJIT,,1-11,3,2,25,21,19,25,21,25,25,22,15,11
+2026-09-17,6583882,in_progress,FALSE,Utah Valley,,2-8,Utah St.,,0-8,1,0,25,21,,,,,,,,
+2026-09-17,6583934,final,FALSE,USC Upstate,,6-3,Western Caro.,,4-8,3,1,25,18,25,23,21,25,27,25,,
+2026-09-17,6583947,final,FALSE,Eastern Mich.,,6-5,Michigan,,7-2,1,3,18,25,25,23,20,25,12,25,,
+2026-09-17,6585699,final,TRUE,CSU Bakersfield,,4-6,Portland,,5-2,1,3,17,25,19,25,25,19,17,25,,
+2026-09-17,6586167,final,TRUE,Campbell,,3-6,Maryland,,8-1,0,3,20,25,14,25,21,25,,,,
+2026-09-17,6586377,final,FALSE,Louisiana Tech,,6-6,Abilene Christian,,6-4,0,3,13,25,21,25,15,25,,,,
+2026-09-17,6586779,final,FALSE,Georgetown,,7-3,Howard,,1-9,3,0,26,24,25,11,25,19,,,,
+2026-09-17,6587160,final,FALSE,Mississippi St.,,8-1,Louisiana,,4-7,3,0,25,18,25,20,25,18,,,,
+2026-09-17,6587176,final,FALSE,Youngstown St.,,3-7,Akron,,4-6,1,3,25,20,15,25,13,25,21,25,,
+2026-09-17,6587312,final,FALSE,Murray St.,,1-9,Troy,,3-4,0,3,18,25,19,25,18,25,,,,
+2026-09-17,6590775,final,TRUE,South Alabama,,4-6,Samford,,2-6,3,0,31,29,25,22,25,19,,,,
+2026-09-17,6590777,final,FALSE,Vanderbilt,,8-0,Belmont,,3-7,3,1,20,25,25,21,25,21,25,17,,
+2026-09-17,6590886,final,FALSE,Central Conn. St.,,2-8,Fairfield,,5-4,1,3,15,25,27,25,14,25,15,25,,
+2026-09-17,6591002,in_progress,FALSE,New Mexico,,2-6,Saint Mary's (CA),,4-6,0,0,2,1,,,,,,,,
+2026-09-17,6591517,in_progress,FALSE,Portland St.,,4-5,Oregon,,7-1,0,0,19,23,,,,,,,,
+2026-09-17,6591857,final,FALSE,Kennesaw St.,,5-5,Ga. Southern,,6-4,1,3,25,27,21,25,25,21,17,25,,
+2026-09-17,6592241,in_progress,FALSE,Idaho,,6-3,LSU New Orleans,,1-8,2,1,21,25,26,24,25,21,13,11,,
+2026-09-17,6592979,final,FALSE,Southern Miss.,,8-2,Memphis,,4-6,0,3,19,25,21,25,21,25,,,,
+2026-09-17,6593327,final,FALSE,LSU,,4-4,Miami (FL),,1-7,1,3,20,25,19,25,25,12,20,25,,
+2026-09-17,6595059,in_progress,FALSE,CSUN,,4-4,LMU (CA),,7-2,0,0,22,24,,,,,,,,
+2026-09-17,6596142,in_progress,FALSE,Pacific,,4-5,Idaho St.,,7-2,0,1,12,25,2,2,,,,,,
+2026-09-17,6597725,final,FALSE,Furman,,6-4,Clemson,,5-5,3,2,25,15,18,25,27,25,26,28,15,12
+2026-09-17,6598181,final,FALSE,Jacksonville St.,,1-9,Alabama,,7-1,2,3,25,18,18,25,14,25,25,21,8,15
+2026-09-17,6598349,final,FALSE,Old Dominion,,4-5,East Carolina,,6-4,0,3,25,27,12,25,19,25,,,,
+2026-09-17,6598592,final,FALSE,Cal St. Fullerton,,4-6,Tulane,,7-2,0,3,13,25,18,25,21,25,,,,
+2026-09-17,6599133,final,TRUE,SMU,,7-2,Rice,,6-4,3,0,25,17,25,18,25,17,,,,
+2026-09-17,6599195,in_progress,FALSE,Marquette,,3-4,Wisconsin,,4-4,1,1,25,22,17,25,11,18,,,,
+2026-09-17,6599279,in_progress,FALSE,Denver,,7-3,Northern Colo.,,2-6,0,2,22,25,21,25,18,20,,,,
+2026-09-17,6599375,final,FALSE,Wofford,,6-4,High Point,,5-4,0,3,23,25,22,25,20,25,,,,
+2026-09-17,6599832,final,FALSE,North Ala.,,10-2,Liberty,,7-4,0,3,13,25,22,25,19,25,,,,
+2026-09-17,6600722,final,TRUE,East Texas A&M,,6-5,West Virginia,,5-3,1,3,17,25,25,21,21,25,20,25,,
+2026-09-17,6602384,scheduled,FALSE,Long Beach St.,,6-2,Washington St.,,5-3,,,,,,,,,,,,
+2026-09-17,6602421,final,TRUE,Air Force,,4-6,Utah,,6-3,0,3,14,25,20,25,19,25,,,,
+2026-09-17,6602505,final,FALSE,UIC,,4-6,Loyola Chicago,,3-6,3,2,18,25,25,17,25,20,19,25,17,15
+2026-09-17,6602607,in_progress,TRUE,UTEP,,7-2,UIW,,2-6,2,0,26,24,25,18,13,21,,,,
+2026-09-17,6603866,final,FALSE,BYU,,7-1,Weber St.,,6-3,3,0,25,18,25,16,25,17,,,,
+2026-09-17,6604682,final,FALSE,Tarleton St.,,3-8,North Texas,,6-3,0,3,14,25,23,25,14,25,,,,
+2026-09-17,6605778,final,FALSE,UAlbany,,3-7,Purdue,,6-2,0,3,17,25,11,25,21,25,,,,
+2026-09-17,6606285,scheduled,FALSE,Santa Clara,,3-7,Cal Poly,,4-3,,,,,,,,,,,,
+2026-09-17,6606412,final,FALSE,Wake Forest,,5-5,N.C. A&T,,5-5,3,0,25,20,25,10,25,23,,,,
+2026-09-17,6606467,final,FALSE,Grambling,,3-7,McNeese,,3-7,0,3,19,25,22,25,20,25,,,,
+2026-09-17,6607237,final,FALSE,Montana St.,,6-3,Mercer,,5-5,3,2,25,23,28,30,25,7,20,25,15,10
+2026-09-17,6607575,in_progress,FALSE,Oklahoma,,5-2,Western Ky.,,5-5,2,2,25,23,23,25,22,25,25,21,8,7
+2026-09-17,6607634,final,TRUE,Wyoming,,5-4,Boise St.,,6-5,3,2,25,20,16,25,25,21,20,25,15,8
+2026-09-17,6607877,in_progress,TRUE,Northern Ariz.,,5-4,California Baptist,,2-6,1,0,25,15,3,3,,,,,,
+2026-09-17,6607985,final,TRUE,Arizona St.,,8-2,Stanford,,5-3,3,0,25,19,25,21,26,24,,,,
+2026-09-17,6608550,in_progress,FALSE,Colorado St.,,6-2,Colorado,,8-0,0,0,23,22,,,,,,,,
+2026-09-17,6610568,in_progress,FALSE,Nevada,,0-7,Eastern Wash.,,6-3,0,0,22,23,,,,,,,,
+2026-09-17,6610714,in_progress,FALSE,Seattle U,,3-4,Gonzaga,,3-6,1,0,25,20,0,0,,,,,,
+2026-09-17,6611195,final,FALSE,Missouri St.,,8-2,Kansas City,,5-5,3,0,25,20,25,17,25,23,,,,
+2026-09-17,6611293,final,TRUE,North Dakota St.,,6-2,Montana,,3-6,3,1,25,17,20,25,25,23,27,25,,
+2026-09-17,6611422,final,FALSE,UAB,,6-4,Auburn,,8-2,1,3,25,19,16,25,18,25,19,25,,
+2026-09-17,6613614,scheduled,FALSE,Arizona,,3-5,San Diego,,3-5,,,,,,,,,,,,
+2026-09-17,6613748,final,FALSE,UTSA,,7-2,Houston Christian,,2-8,3,1,25,23,25,17,23,25,25,17,,
+2026-09-17,6618665,final,FALSE,Northwestern,,6-4,Ball St.,,8-2,3,1,25,17,22,25,26,24,25,23,,
+2026-09-17,6618743,final,FALSE,Cleveland St.,,3-7,Kent St.,,6-4,1,3,21,25,17,25,25,20,20,25,,
+2026-09-17,6624213,final,FALSE,VCU,,1-6,Delaware,,5-4,2,3,27,29,25,23,26,24,25,27,12,15
+2026-09-17,6625056,in_progress,TRUE,Chicago St.,,0-9,UC Riverside,,2-6,0,2,13,25,21,25,14,24,,,,
+2026-09-17,6625115,final,FALSE,Texas Southern,,1-9,San Francisco,,6-5,1,3,15,25,16,25,27,25,20,25,,
+2026-09-17,6628645,final,FALSE,Charlotte,,3-7,Queens (NC),,3-8,3,1,,,,,,,,,,
