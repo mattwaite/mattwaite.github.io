@@ -188,7 +188,7 @@ font-style: inherit;">20</span>)</span>
   <category>AI</category>
   <guid>https://www.mattwaite.com/posts/2026-09-25-using-legendary-dataviz-to-inspire-capacity-with-ai/</guid>
   <pubDate>Sun, 27 Sep 2026 05:00:00 GMT</pubDate>
-  <media:content url="https://www.mattwaite.com/posts/2026-09-25-using-legendary-dataviz-to-inspire-capacity-with-ai/image.png" medium="image" type="image/png"/>
+  <media:content url="https://www.mattwaite.com/posts/2026-09-25-using-legendary-dataviz-to-inspire-capacity-with-ai/image.png" medium="image" type="image/png" height="82" width="144"/>
 </item>
 <item>
   <title>Irrational products, editorial games, AI and 2 Live Crew</title>
@@ -811,10 +811,10 @@ When using a filter, you must use == for equal to instead of =.</div>
       <!-- user-provided yaml closeread style options -->
       <style>
         :root {
-          --cr-narrative-text-color-overlay: black;
+          --cr-section-background-color: transparent;
 --cr-narrative-background-color-sidebar: transparent;
 --cr-narrative-background-color-overlay: transparent;
---cr-section-background-color: transparent;
+--cr-narrative-text-color-overlay: black;
         }
       </style>
     
