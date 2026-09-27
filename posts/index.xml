@@ -39,7 +39,7 @@
 <h3 class="anchored" data-anchor-id="enter-sounder">Enter SoundeR</h3>
 <p>Over a handful of days, my pal Claude and I set out to create a library that first turned data into sounds and second did it in a way that anyone with familiarity with tidyverse principles would get pretty quickly. What came out is <a href="https://www.mattwaite.com/soundeR/"><code>soundeR</code></a>, a library that maps tidy data to instruments, pitches, lengths and a few other little tricks to make … songs? … out of data. It will recreate that NY Times graphic pretty well note for note – the package has some luge data from the Milan winter olympics bundled with it. You can then output your sounds as audio files (mp3, wav) or, you can output them as video files, where the library uses ggplot to overlay the playhead and make your notes appear in motion. Sixteen years ago, that NYTimes graphic seemed like <em>magic</em>. Now it’s a function in a library that you can install today.</p>
 <p>To be clear – I am a fruit fly on the shoulders of giants here. The real magic is the creativity to connect sound to data to illustrate something difficult to envision for people. What this library represents is an exercise in creating capacity. Not everyone can do magic, but some people might have ideas on how to use sound to make something hard to see perceivable. The more creative people have tools to make things the better, I believe.</p>
-<p>Here’s the <a href="https://www.mattwaite.com/soundeR/">packagedown documentation site</a>, and here’s the <a href="https://github.com/mattwaite/soundeR">Github repo</a> if you have ideas of your own. You’ll have to install it with <code>devtools</code> or <code>remotes</code> from the Github repo for now because I’m not going to submit it to CRAN for the time being. People have feelings about AI generated code, and I’m not fully convinced I’ve got it fully right and so it stays on my Github account for now. Maybe someday it’ll be on CRAN, but not now. Not yet.</p>
+<p>Here’s the <a href="https://www.mattwaite.com/soundeR/">pkgdown documentation site</a>, and here’s the <a href="https://github.com/mattwaite/soundeR">Github repo</a> if you have ideas of your own. You’ll have to install it with <code>devtools</code> or <code>remotes</code> from the Github repo for now because I’m not going to submit it to CRAN for the time being. People have feelings about AI generated code, and I’m not fully convinced I’ve got it fully right and so it stays on my Github account for now. Maybe someday it’ll be on CRAN, but not now. Not yet.</p>
 </section>
 <section id="turning-football-plays-into-sound" class="level3">
 <h3 class="anchored" data-anchor-id="turning-football-plays-into-sound">Turning football plays into sound</h3>
@@ -148,7 +148,7 @@ font-style: inherit;">"husker-plays.mp4"</span>,</span>
 background-color: null;
 font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"Nebraska's offense vs Michigan State's Defense"</span>,</span>
+font-style: inherit;">"Nebraska's offense vs Michigan State's defense"</span>,</span>
 <span id="cb3-7">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x_label =</span> <span class="st" style="color: #20794D;
@@ -169,7 +169,7 @@ font-style: inherit;">theme_minimal</span>(<span class="at" style="color: #65742
 background-color: null;
 font-style: inherit;">base_size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">16</span>)</span>
+font-style: inherit;">20</span>)</span>
 <span id="cb3-10">  )</span></code></pre></div></div>
 </div>
 <p>And this is what you get:</p>
@@ -811,10 +811,10 @@ When using a filter, you must use == for equal to instead of =.</div>
       <!-- user-provided yaml closeread style options -->
       <style>
         :root {
-          --cr-section-background-color: transparent;
+          --cr-narrative-text-color-overlay: black;
 --cr-narrative-background-color-sidebar: transparent;
---cr-narrative-text-color-overlay: black;
 --cr-narrative-background-color-overlay: transparent;
+--cr-section-background-color: transparent;
         }
       </style>
     
