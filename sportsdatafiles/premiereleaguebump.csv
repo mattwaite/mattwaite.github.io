@@ -1,4 +1,24 @@
 rank,club,matchweek
+1,Man City,1
+2,Sunderland,1
+2,Tottenham,1
+4,Liverpool,1
+5,Nott'm Forest,1
+6,Arsenal,1
+6,Leeds,1
+8,Brighton,1
+8,Fulham,1
+10,Aston Villa,1
+10,Chelsea,1
+10,Crystal Palace,1
+10,Newcastle,1
+14,Everton,1
+14,Man Utd,1
+16,Bournemouth,1
+17,Brentford,1
+18,Burnley,1
+18,West Ham,1
+20,Wolves,1
 1,Arsenal,2
 2,Tottenham,2
 3,Liverpool,2
@@ -99,23 +119,3 @@ rank,club,matchweek
 18,Burnley,6
 19,West Ham,6
 20,Wolves,6
-1,Arsenal,7
-2,Liverpool,7
-3,Tottenham,7
-4,Bournemouth,7
-5,Man City,7
-6,Crystal Palace,7
-7,Chelsea,7
-8,Everton,7
-9,Sunderland,7
-10,Man Utd,7
-11,Newcastle,7
-12,Brighton,7
-13,Aston Villa,7
-14,Fulham,7
-15,Leeds,7
-16,Brentford,7
-17,Nott'm Forest,7
-18,Burnley,7
-19,West Ham,7
-20,Wolves,7
