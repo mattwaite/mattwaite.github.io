@@ -1,0 +1,176 @@
+season,season_type,week,poll,isFinal,rank,teamId,school,conference,first_place_votes,points
+2026,regular,1,AP Top 25,NA,1,194,Ohio State,Big Ten,40,1672
+2026,regular,1,AP Top 25,NA,2,2483,Oregon,Big Ten,14,1597
+2026,regular,1,AP Top 25,NA,3,61,Georgia,SEC,0,1513
+2026,regular,1,AP Top 25,NA,4,87,Notre Dame,FBS Independents,6,1510
+2026,regular,1,AP Top 25,NA,5,251,Texas,SEC,0,1483
+2026,regular,1,AP Top 25,NA,6,84,Indiana,Big Ten,8,1440
+2026,regular,1,AP Top 25,NA,7,2390,Miami,ACC,1,1379
+2026,regular,1,AP Top 25,NA,8,245,Texas A&M,SEC,0,1131
+2026,regular,1,AP Top 25,NA,9,145,Ole Miss,SEC,0,1102
+2026,regular,1,AP Top 25,NA,10,201,Oklahoma,SEC,0,1047
+2026,regular,1,AP Top 25,NA,11,99,LSU,SEC,0,988
+2026,regular,1,AP Top 25,NA,12,2641,Texas Tech,Big 12,0,983
+2026,regular,1,AP Top 25,NA,13,333,Alabama,SEC,0,904
+2026,regular,1,AP Top 25,NA,14,30,USC,Big Ten,0,839
+2026,regular,1,AP Top 25,NA,14,252,BYU,Big 12,0,839
+2026,regular,1,AP Top 25,NA,16,130,Michigan,Big Ten,0,718
+2026,regular,1,AP Top 25,NA,17,264,Washington,Big Ten,0,501
+2026,regular,1,AP Top 25,NA,18,213,Penn State,Big Ten,0,482
+2026,regular,1,AP Top 25,NA,19,2567,SMU,ACC,0,434
+2026,regular,1,AP Top 25,NA,20,2633,Tennessee,SEC,0,394
+2026,regular,1,AP Top 25,NA,21,254,Utah,Big 12,0,304
+2026,regular,1,AP Top 25,NA,22,2294,Iowa,Big Ten,0,260
+2026,regular,1,AP Top 25,NA,23,248,Houston,Big 12,0,252
+2026,regular,1,AP Top 25,NA,24,97,Louisville,ACC,0,194
+2026,regular,1,AP Top 25,NA,25,142,Missouri,SEC,0,117
+2026,regular,2,AP Top 25,NA,1,194,Ohio State,Big Ten,46,1684
+2026,regular,2,AP Top 25,NA,2,61,Georgia,SEC,0,1532
+2026,regular,2,AP Top 25,NA,3,87,Notre Dame,FBS Independents,4,1512
+2026,regular,2,AP Top 25,NA,4,251,Texas,SEC,2,1462
+2026,regular,2,AP Top 25,NA,5,84,Indiana,Big Ten,8,1428
+2026,regular,2,AP Top 25,NA,6,2483,Oregon,Big Ten,3,1422
+2026,regular,2,AP Top 25,NA,7,2390,Miami,ACC,1,1405
+2026,regular,2,AP Top 25,NA,8,99,LSU,SEC,5,1315
+2026,regular,2,AP Top 25,NA,9,145,Ole Miss,SEC,0,1154
+2026,regular,2,AP Top 25,NA,10,245,Texas A&M,SEC,0,1079
+2026,regular,2,AP Top 25,NA,11,201,Oklahoma,SEC,0,1039
+2026,regular,2,AP Top 25,NA,12,333,Alabama,SEC,0,910
+2026,regular,2,AP Top 25,NA,13,2641,Texas Tech,Big 12,0,900
+2026,regular,2,AP Top 25,NA,14,30,USC,Big Ten,0,861
+2026,regular,2,AP Top 25,NA,15,252,BYU,Big 12,0,840
+2026,regular,2,AP Top 25,NA,16,213,Penn State,Big Ten,0,621
+2026,regular,2,AP Top 25,NA,17,2567,SMU,ACC,0,501
+2026,regular,2,AP Top 25,NA,18,2633,Tennessee,SEC,0,491
+2026,regular,2,AP Top 25,NA,19,264,Washington,Big Ten,0,489
+2026,regular,2,AP Top 25,NA,20,254,Utah,Big 12,0,381
+2026,regular,2,AP Top 25,NA,21,2294,Iowa,Big Ten,0,369
+2026,regular,2,AP Top 25,NA,22,248,Houston,Big 12,0,214
+2026,regular,2,AP Top 25,NA,23,142,Missouri,SEC,0,182
+2026,regular,2,AP Top 25,NA,24,97,Louisville,ACC,0,163
+2026,regular,2,AP Top 25,NA,25,258,Virginia,ACC,0,89
+2026,regular,3,AP Top 25,NA,1,251,Texas,SEC,56,1678
+2026,regular,3,AP Top 25,NA,2,61,Georgia,SEC,3,1551
+2026,regular,3,AP Top 25,NA,3,87,Notre Dame,FBS Independents,1,1531
+2026,regular,3,AP Top 25,NA,4,84,Indiana,Big Ten,3,1466
+2026,regular,3,AP Top 25,NA,5,2390,Miami,ACC,4,1452
+2026,regular,3,AP Top 25,NA,6,194,Ohio State,Big Ten,0,1407
+2026,regular,3,AP Top 25,NA,7,99,LSU,SEC,1,1334
+2026,regular,3,AP Top 25,NA,8,145,Ole Miss,SEC,0,1216
+2026,regular,3,AP Top 25,NA,9,245,Texas A&M,SEC,0,1165
+2026,regular,3,AP Top 25,NA,10,333,Alabama,SEC,0,1068
+2026,regular,3,AP Top 25,NA,11,252,BYU,Big 12,0,966
+2026,regular,3,AP Top 25,NA,12,30,USC,Big Ten,0,944
+2026,regular,3,AP Top 25,NA,13,2641,Texas Tech,Big 12,0,910
+2026,regular,3,AP Top 25,NA,14,213,Penn State,Big Ten,0,692
+2026,regular,3,AP Top 25,NA,15,2633,Tennessee,SEC,0,676
+2026,regular,3,AP Top 25,NA,16,2567,SMU,ACC,0,636
+2026,regular,3,AP Top 25,NA,17,254,Utah,Big 12,0,558
+2026,regular,3,AP Top 25,NA,18,2294,Iowa,Big Ten,0,391
+2026,regular,3,AP Top 25,NA,19,130,Michigan,Big Ten,0,382
+2026,regular,3,AP Top 25,NA,20,142,Missouri,SEC,0,344
+2026,regular,3,AP Top 25,NA,21,2483,Oregon,Big Ten,0,324
+2026,regular,3,AP Top 25,NA,22,248,Houston,Big 12,0,292
+2026,regular,3,AP Top 25,NA,23,97,Louisville,ACC,0,244
+2026,regular,3,AP Top 25,NA,24,201,Oklahoma,SEC,0,222
+2026,regular,3,AP Top 25,NA,25,258,Virginia,ACC,0,182
+2026,regular,4,AP Top 25,NA,1,251,Texas,SEC,58,1706
+2026,regular,4,AP Top 25,NA,2,61,Georgia,SEC,3,1580
+2026,regular,4,AP Top 25,NA,3,87,Notre Dame,FBS Independents,0,1517
+2026,regular,4,AP Top 25,NA,4,145,Ole Miss,SEC,3,1488
+2026,regular,4,AP Top 25,NA,5,84,Indiana,Big Ten,4,1467
+2026,regular,4,AP Top 25,NA,6,2390,Miami,ACC,1,1445
+2026,regular,4,AP Top 25,NA,7,194,Ohio State,Big Ten,0,1415
+2026,regular,4,AP Top 25,NA,8,333,Alabama,SEC,0,1182
+2026,regular,4,AP Top 25,NA,9,252,BYU,Big 12,0,1090
+2026,regular,4,AP Top 25,NA,10,99,LSU,SEC,0,1078
+2026,regular,4,AP Top 25,NA,11,2641,Texas Tech,Big 12,0,1067
+2026,regular,4,AP Top 25,NA,12,30,USC,Big Ten,0,907
+2026,regular,4,AP Top 25,NA,13,213,Penn State,Big Ten,0,850
+2026,regular,4,AP Top 25,NA,14,2633,Tennessee,SEC,0,826
+2026,regular,4,AP Top 25,NA,15,254,Utah,Big 12,0,752
+2026,regular,4,AP Top 25,NA,16,97,Louisville,ACC,0,692
+2026,regular,4,AP Top 25,NA,17,2294,Iowa,Big Ten,0,561
+2026,regular,4,AP Top 25,NA,18,130,Michigan,Big Ten,0,432
+2026,regular,4,AP Top 25,NA,19,142,Missouri,SEC,0,369
+2026,regular,4,AP Top 25,NA,20,2483,Oregon,Big Ten,0,364
+2026,regular,4,AP Top 25,NA,21,57,Florida,SEC,0,269
+2026,regular,4,AP Top 25,NA,22,2567,SMU,ACC,0,212
+2026,regular,4,AP Top 25,NA,23,245,Texas A&M,SEC,0,202
+2026,regular,4,AP Top 25,NA,24,344,Mississippi State,SEC,0,179
+2026,regular,4,AP Top 25,NA,25,248,Houston,Big 12,0,127
+2026,regular,5,AP Top 25,NA,1,251,Texas,SEC,62,1737
+2026,regular,5,AP Top 25,NA,2,61,Georgia,SEC,6,1646
+2026,regular,5,AP Top 25,NA,3,87,Notre Dame,FBS Independents,0,1581
+2026,regular,5,AP Top 25,NA,4,2390,Miami,ACC,1,1501
+2026,regular,5,AP Top 25,NA,5,194,Ohio State,Big Ten,0,1465
+2026,regular,5,AP Top 25,NA,6,84,Indiana,Big Ten,1,1408
+2026,regular,5,AP Top 25,NA,7,333,Alabama,SEC,0,1305
+2026,regular,5,AP Top 25,NA,8,57,Florida,SEC,0,1272
+2026,regular,5,AP Top 25,NA,9,145,Ole Miss,SEC,0,1089
+2026,regular,5,AP Top 25,NA,10,252,BYU,Big 12,0,1078
+2026,regular,5,AP Top 25,NA,11,99,LSU,SEC,0,1073
+2026,regular,5,AP Top 25,NA,12,2641,Texas Tech,Big 12,0,1053
+2026,regular,5,AP Top 25,NA,13,254,Utah,Big 12,0,903
+2026,regular,5,AP Top 25,NA,14,2294,Iowa,Big Ten,0,856
+2026,regular,5,AP Top 25,NA,15,2483,Oregon,Big Ten,0,725
+2026,regular,5,AP Top 25,NA,16,344,Mississippi State,SEC,0,715
+2026,regular,5,AP Top 25,NA,17,2633,Tennessee,SEC,0,663
+2026,regular,5,AP Top 25,NA,18,30,USC,Big Ten,0,410
+2026,regular,5,AP Top 25,NA,19,197,Oklahoma State,Big 12,0,345
+2026,regular,5,AP Top 25,NA,20,248,Houston,Big 12,0,278
+2026,regular,5,AP Top 25,NA,21,2567,SMU,ACC,0,246
+2026,regular,5,AP Top 25,NA,22,68,Boise State,Pac-12,0,221
+2026,regular,5,AP Top 25,NA,23,26,UCLA,Big Ten,0,218
+2026,regular,5,AP Top 25,NA,24,96,Kentucky,SEC,0,150
+2026,regular,5,AP Top 25,NA,25,142,Missouri,SEC,0,118
+2026,regular,6,AP Top 25,NA,1,251,Texas,SEC,61,1737
+2026,regular,6,AP Top 25,NA,2,61,Georgia,SEC,6,1647
+2026,regular,6,AP Top 25,NA,3,87,Notre Dame,FBS Independents,0,1532
+2026,regular,6,AP Top 25,NA,4,2390,Miami,ACC,2,1524
+2026,regular,6,AP Top 25,NA,5,194,Ohio State,Big Ten,0,1490
+2026,regular,6,AP Top 25,NA,6,333,Alabama,SEC,0,1460
+2026,regular,6,AP Top 25,NA,7,84,Indiana,Big Ten,1,1380
+2026,regular,6,AP Top 25,NA,8,252,BYU,Big 12,0,1144
+2026,regular,6,AP Top 25,NA,9,145,Ole Miss,SEC,0,1095
+2026,regular,6,AP Top 25,NA,10,99,LSU,SEC,0,1087
+2026,regular,6,AP Top 25,NA,11,2641,Texas Tech,Big 12,0,1062
+2026,regular,6,AP Top 25,NA,12,254,Utah,Big 12,0,996
+2026,regular,6,AP Top 25,NA,13,2483,Oregon,Big Ten,0,831
+2026,regular,6,AP Top 25,NA,14,142,Missouri,SEC,0,755
+2026,regular,6,AP Top 25,NA,15,2633,Tennessee,SEC,0,746
+2026,regular,6,AP Top 25,NA,16,57,Florida,SEC,0,691
+2026,regular,6,AP Top 25,NA,17,344,Mississippi State,SEC,0,487
+2026,regular,6,AP Top 25,NA,18,197,Oklahoma State,Big 12,0,477
+2026,regular,6,AP Top 25,NA,19,30,USC,Big Ten,0,439
+2026,regular,6,AP Top 25,NA,20,2294,Iowa,Big Ten,0,367
+2026,regular,6,AP Top 25,NA,21,26,UCLA,Big Ten,0,287
+2026,regular,6,AP Top 25,NA,22,248,Houston,Big 12,0,279
+2026,regular,6,AP Top 25,NA,23,68,Boise State,Pac-12,0,271
+2026,regular,6,AP Top 25,NA,24,2567,SMU,ACC,0,167
+2026,regular,6,AP Top 25,NA,25,221,Pittsburgh,ACC,0,162
+2026,regular,7,AP Top 25,NA,1,61,Georgia,SEC,66,1745
+2026,regular,7,AP Top 25,NA,2,87,Notre Dame,FBS Independents,1,1630
+2026,regular,7,AP Top 25,NA,3,2390,Miami,ACC,2,1594
+2026,regular,7,AP Top 25,NA,4,194,Ohio State,Big Ten,0,1508
+2026,regular,7,AP Top 25,NA,5,84,Indiana,Big Ten,1,1461
+2026,regular,7,AP Top 25,NA,6,333,Alabama,SEC,0,1372
+2026,regular,7,AP Top 25,NA,7,251,Texas,SEC,0,1371
+2026,regular,7,AP Top 25,NA,8,252,BYU,Big 12,0,1237
+2026,regular,7,AP Top 25,NA,9,145,Ole Miss,SEC,0,1135
+2026,regular,7,AP Top 25,NA,10,2641,Texas Tech,Big 12,0,1132
+2026,regular,7,AP Top 25,NA,11,254,Utah,Big 12,0,1073
+2026,regular,7,AP Top 25,NA,12,26,UCLA,Big Ten,0,951
+2026,regular,7,AP Top 25,NA,13,142,Missouri,SEC,0,882
+2026,regular,7,AP Top 25,NA,14,2633,Tennessee,SEC,0,706
+2026,regular,7,AP Top 25,NA,15,96,Kentucky,SEC,0,655
+2026,regular,7,AP Top 25,NA,16,344,Mississippi State,SEC,0,650
+2026,regular,7,AP Top 25,NA,17,2294,Iowa,Big Ten,0,621
+2026,regular,7,AP Top 25,NA,18,197,Oklahoma State,Big 12,0,604
+2026,regular,7,AP Top 25,NA,19,30,USC,Big Ten,0,505
+2026,regular,7,AP Top 25,NA,20,248,Houston,Big 12,0,380
+2026,regular,7,AP Top 25,NA,21,154,Wake Forest,ACC,0,326
+2026,regular,7,AP Top 25,NA,22,99,LSU,SEC,0,274
+2026,regular,7,AP Top 25,NA,23,68,Boise State,Pac-12,0,268
+2026,regular,7,AP Top 25,NA,24,2567,SMU,ACC,0,142
+2026,regular,7,AP Top 25,NA,25,77,Northwestern,Big Ten,0,112
