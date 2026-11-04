@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Groundhog Day Prognosticator Search</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+<main class="app">
+  <header>
+    <h1>Groundhog Day prognosticators</h1>
+    <p class="subtitle">Search for a weather-predicting critter and see its record of Feb. 2 calls since 1990.</p>
+  </header>
+
+  <form class="controls" id="controls" role="search" onsubmit="return false">
+    <div class="field field-name">
+      <label for="q">Name or town</label>
+      <input type="search" id="q" placeholder="e.g. Phil, Punxsutawney" autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="region">State / province</label>
+      <select id="region"><option value="">All</option></select>
+    </div>
+    <div class="field">
+      <label for="type">Type of creature</label>
+      <select id="type"><option value="">All</option></select>
+    </div>
+    <div class="field">
+      <label for="sort">Sort by</label>
+      <select id="sort">
+        <option value="count">Most predictions</option>
+        <option value="name">Name (A–Z)</option>
+        <option value="shadow">Most shadows seen</option>
+        <option value="noshadow">Most early springs</option>
+      </select>
+    </div>
+    <button type="button" id="reset" class="reset">Reset</button>
+  </form>
+
+  <p id="status" class="status" role="status" aria-live="polite">Loading…</p>
+
+  <ul id="results" class="results"></ul>
+  <button type="button" id="more" class="more" hidden>Show more</button>
+
+  <footer>
+    <div class="legend" aria-hidden="true">
+      <span><i class="sw shadow"></i> Saw shadow (six more weeks of winter)</span>
+      <span><i class="sw noshadow"></i> No shadow (early spring)</span>
+      <span><i class="sw na"></i> No prediction recorded</span>
+    </div>
+    <p>Data: <a href="https://groundhog-day.com" target="_blank" rel="noopener">groundhog-day.com</a>, via
+      <a href="https://the-art-of-data-journalism.github.io/tutorial-data/groundhogs/predictions.csv" target="_blank" rel="noopener">The Art of Data Journalism</a>.
+      This dataset records each prediction, not whether it came true, so the record shows what a prognosticator called, not how accurate it was.</p>
+  </footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
