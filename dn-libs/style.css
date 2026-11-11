@@ -1,0 +1,66 @@
+:root{
+  --bg:#fbfaf7; --fg:#1b1b1b; --muted:#5e6168; --line:#d9d6cf; --card:#fff;
+  --accent:#c8102e; --accent-fg:#fff;
+  --mine-bg:#ffe9a8; --mine-fg:#3a2c00; --orig-bg:#d6e8ff; --orig-fg:#0b2a4f;
+  --serif:Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#15161a; --fg:#eceae6; --muted:#a6a9b0; --line:#34363c; --card:#1d1f24;
+    --accent:#ff5a6e; --accent-fg:#15161a;
+    --mine-bg:#5c4810; --mine-fg:#fff1c7; --orig-bg:#1f3b5e; --orig-fg:#dcebff; }
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+[hidden]{display:none !important}
+.app{max-width:720px;margin:0 auto;padding:16px 16px 48px}
+
+.masthead{border-bottom:3px double var(--fg);padding-bottom:12px;margin-bottom:20px;text-align:center}
+.kicker{margin:0;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--serif);font-size:2.6rem;line-height:1.05;margin:4px 0 6px}
+.subtitle{margin:0;color:var(--muted)}
+
+.panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px}
+.teaser{font-family:var(--serif);font-size:1.15rem;margin-top:0}
+
+button{font:inherit;border-radius:6px;padding:10px 18px;min-height:44px;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg);font-weight:600}
+.primary:hover{filter:brightness(1.08)}
+.secondary:hover{border-color:var(--fg)}
+button:disabled{opacity:.4;cursor:default}
+
+.progress{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:18px}
+.progress span{display:block;height:100%;width:0;background:var(--accent);transition:width .25s}
+.count{margin:0 0 6px;color:var(--muted);font-size:.85rem}
+.ask{display:block;font-family:var(--serif);font-size:1.6rem;line-height:1.2}
+.label{text-transform:uppercase;font-family:system-ui,sans-serif;font-weight:800;letter-spacing:.03em;color:var(--accent)}
+.hint{margin:4px 0 0;color:var(--muted);font-size:.9rem}
+#word{display:block;width:100%;margin:16px 0;font:inherit;font-size:1.3rem;padding:10px 12px;border:2px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg)}
+#word:focus{border-color:var(--accent)}
+.buttons{display:flex;justify-content:space-between;gap:10px}
+
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line)}
+.tabs button{border:1px solid transparent;border-bottom:none;border-radius:6px 6px 0 0;background:none;color:var(--muted);font-weight:600}
+.tabs button[aria-selected="true"]{background:var(--card);border-color:var(--line);color:var(--fg);margin-bottom:-1px}
+.story{background:var(--card);border:1px solid var(--line);border-top:none;border-radius:0 0 10px 10px;padding:20px}
+.story .headline{font-family:var(--serif);font-size:1.6rem;line-height:1.2;margin:0 0 8px}
+.story .body p{font-family:var(--serif);font-size:1.08rem;line-height:1.65;margin:0 0 1em}
+.byline{color:var(--muted);font-size:.9rem;margin:0 0 16px}
+.disclaimer{margin:0 0 12px;font-size:.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.source{font-size:.9rem;color:var(--muted);margin:16px 0 0}
+.source a{color:var(--accent)}
+mark{border-radius:3px;padding:0 3px;font-weight:700;font-family:system-ui,sans-serif;font-size:.95em}
+mark.mine{background:var(--mine-bg);color:var(--mine-fg)}
+mark.orig{background:var(--orig-bg);color:var(--orig-fg)}
+
+.compare{margin:20px 0}
+.compare summary{cursor:pointer;font-weight:600}
+.compare table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.92rem}
+.compare th,.compare td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+.compare th{color:var(--muted);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+
+@media (max-width:480px){
+  h1{font-size:2.1rem}
+  .ask{font-size:1.35rem}
+  .story{padding:16px}
+}

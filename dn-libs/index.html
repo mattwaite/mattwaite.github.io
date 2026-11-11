@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DN Libs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header class="masthead">
+    <p class="kicker">Daily Nebraskan</p>
+    <h1>DN Libs</h1>
+    <p class="subtitle">Fill in the blanks of a real news story without seeing it. Then see how close you came.</p>
+  </header>
+
+  <!-- Intro -->
+  <section id="intro" class="panel">
+    <p class="teaser">Today’s story: <strong id="introHeadline"></strong></p>
+    <p>We’ll ask you for <strong id="introCount"></strong> words, one at a time: nouns, verbs, adjectives and a few odd ones. Don’t think too hard. Weird is good.</p>
+    <button type="button" id="start" class="primary">Start</button>
+  </section>
+
+  <!-- Turn-by-turn prompts -->
+  <section id="play" class="panel" hidden>
+    <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+    <form id="turn" autocomplete="off">
+      <p class="count" id="count"></p>
+      <label for="word" class="ask">Give me a<span id="article">n</span> <span id="label" class="label"></span></label>
+      <p class="hint" id="hint"></p>
+      <input type="text" id="word" maxlength="40" spellcheck="false" autocapitalize="off" required>
+      <div class="buttons">
+        <button type="button" id="back" class="secondary">Back</button>
+        <button type="submit" id="next" class="primary">Next</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Reveal -->
+  <section id="reveal" hidden>
+    <div class="tabs" role="tablist" aria-label="Story versions">
+      <button type="button" role="tab" id="tabYours" aria-selected="true" aria-controls="yours">Your version</button>
+      <button type="button" role="tab" id="tabReal" aria-selected="false" aria-controls="real">The real story</button>
+    </div>
+
+    <article id="yours" class="story yours" role="tabpanel" aria-labelledby="tabYours">
+      <p class="disclaimer">Your DN Libs version — not real news, and not what anyone actually said.</p>
+      <h2 class="headline"></h2>
+      <div class="body"></div>
+    </article>
+
+    <article id="real" class="story real" role="tabpanel" aria-labelledby="tabReal" hidden>
+      <h2 class="headline"></h2>
+      <p class="byline"></p>
+      <div class="body"></div>
+      <p class="source">Excerpted and lightly condensed. <a id="sourceLink" target="_blank" rel="noopener">Read the full story at dailynebraskan.com</a></p>
+    </article>
+
+    <details class="compare">
+      <summary>Word by word</summary>
+      <table>
+        <thead><tr><th scope="col">Asked for</th><th scope="col">You said</th><th scope="col">The story said</th></tr></thead>
+        <tbody id="compareRows"></tbody>
+      </table>
+    </details>
+
+    <button type="button" id="again" class="primary">Play again</button>
+  </section>
+</main>
+<script src="stories/dunkin.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
