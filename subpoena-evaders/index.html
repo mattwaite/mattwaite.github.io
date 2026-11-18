@@ -27,23 +27,22 @@
 </head>
 <body>
 <main class="app">
-  <header class="story">
-    <h1>Subpoena Evaders</h1>
-    <p>When the new Congress is sworn in this January, the House will have a new majority, and with it the power to investigate. Congressional Democrats are already sending letters to federal agencies ordering them to preserve records.</p>
-    <p>Here, you play the President, protected by four White Houses, vetoing everything that comes your way while the subpoenas keep falling. How long can you hold out?</p>
-  </header>
-
   <div class="screen" id="screen">
     <canvas id="game" aria-label="Subpoena Evaders game"></canvas>
   </div>
 
   <div class="touch" id="touch" aria-hidden="true">
     <div class="slider" id="slider">
-      <span class="slider-hint">&#9664;&#xFE0E; slide &#9654;&#xFE0E;</span>
+      <span class="slider-hint"><span>&#9664;&#xFE0E;</span><span>&#9654;&#xFE0E;</span></span>
       <span class="knob" id="knob"></span>
     </div>
     <button type="button" data-key="fire" class="fire">VETO</button>
   </div>
+
+  <section class="story">
+    <p>When the new Congress is sworn in this January, the House will have a new majority, and with it the power to investigate. Congressional Democrats are already sending letters to federal agencies ordering them to preserve records.</p>
+    <p>Here, you play the President, protected by four White Houses, vetoing everything that comes your way while the subpoenas keep falling. How long can you hold out?</p>
+  </section>
 
   <footer class="notes">
     <p class="keys">Arrow keys move &middot; Space vetoes &middot; P pause &middot; M mute</p>
