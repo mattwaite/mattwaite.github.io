@@ -70,9 +70,48 @@ canvas {
   gap: 10px;
 }
 
+.slider {
+  position: relative;
+  flex: 2;
+  height: 72px;
+  background: #1a1824;
+  border: 2px solid #34314a;
+  border-radius: 8px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.slider-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: var(--dim);
+  pointer-events: none;
+}
+
+.knob {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+  width: 36px;
+  margin-left: -18px;
+  background: #34314a;
+  border: 2px solid #5a5675;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.slider.held { border-color: #5a5675; }
+.slider.held .knob { background: #4a4664; border-color: var(--ink); }
+
 .touch button {
   flex: 1;
-  height: 64px;
+  height: 72px;
   font: inherit;
   font-size: 18px;
   color: var(--ink);
@@ -85,7 +124,6 @@ canvas {
 }
 
 .touch button.fire {
-  flex: 1.4;
   font-size: 14px;
   color: #fff;
   background: var(--accent);

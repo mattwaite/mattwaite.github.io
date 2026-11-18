@@ -358,7 +358,7 @@
     const map = { ArrowLeft: "left", KeyA: "left", ArrowRight: "right", KeyD: "right", Space: "fire", ArrowUp: "fire", Enter: "fire" };
     if (map[e.code]) { e.preventDefault(); press(map[e.code], false); }
   });
-  window.addEventListener("blur", () => { keys.left = keys.right = keys.fire = false; if (G.state === "playing") togglePause(); });
+  window.addEventListener("blur", () => { keys.left = keys.right = keys.fire = false; slideTarget = slidePointer = null; slider.classList.remove("held"); if (G.state === "playing") togglePause(); });
 
   document.querySelectorAll(".touch button").forEach((b) => {
     const k = b.dataset.key;
@@ -369,6 +369,43 @@
     b.addEventListener("pointercancel", up);
     b.addEventListener("pointerleave", up);
   });
+  // Touch slider: the finger's spot on the track is where the President heads,
+  // at the same top speed as the arrow keys.
+  const slider = document.getElementById("slider");
+  const knob = document.getElementById("knob");
+  let slideTarget = null, slidePointer = null;
+  const playerMin = () => SPR.defender.w / 2 + 4;
+  const playerMax = () => W - SPR.defender.w / 2 - 4;
+  const KNOB_PAD = 22; // keeps the knob inside the track at either end
+  function slideTo(e) {
+    const r = slider.getBoundingClientRect();
+    const t = Math.max(0, Math.min(1, (e.clientX - r.left - KNOB_PAD) / (r.width - KNOB_PAD * 2)));
+    slideTarget = playerMin() + t * (playerMax() - playerMin());
+  }
+  slider.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    Sound.init();
+    if (Sound.ac && Sound.ac.state === "suspended") Sound.ac.resume();
+    slidePointer = e.pointerId;
+    try { slider.setPointerCapture(e.pointerId); } catch (_) {}
+    slider.classList.add("held");
+    slideTo(e);
+  });
+  slider.addEventListener("pointermove", (e) => { if (e.pointerId === slidePointer) slideTo(e); });
+  const slideEnd = (e) => {
+    if (e.pointerId !== slidePointer) return;
+    slidePointer = null; slideTarget = null;
+    slider.classList.remove("held");
+  };
+  slider.addEventListener("pointerup", slideEnd);
+  slider.addEventListener("pointercancel", slideEnd);
+  function drawKnob() {
+    if (!slider.offsetWidth) return;
+    const x = slideTarget != null && G.state !== "playing" ? slideTarget : G.player.x;
+    const t = (x - playerMin()) / (playerMax() - playerMin());
+    knob.style.left = (KNOB_PAD + Math.max(0, Math.min(1, t)) * (slider.clientWidth - KNOB_PAD * 2)) + "px";
+  }
+
   canvas.addEventListener("pointerdown", (e) => {
     e.preventDefault();
     if (G.state === "paused") togglePause();
@@ -425,6 +462,7 @@
     const p = G.player, pw = SPR.defender.w;
     if (keys.left) p.x -= 2;
     if (keys.right) p.x += 2;
+    if (slideTarget != null && !keys.left && !keys.right) p.x += Math.max(-2, Math.min(2, slideTarget - p.x));
     p.x = Math.max(pw / 2 + 4, Math.min(W - pw / 2 - 4, p.x));
     if (fire && !G.shot) {
       G.shot = { x: Math.round(p.x) - 1, y: PLAYER_Y - VETO.h };
@@ -742,6 +780,7 @@
     last = now;
     while (acc >= 1000 / 60) { update(); acc -= 1000 / 60; }
     draw();
+    drawKnob();
     requestAnimationFrame(loop);
   }
   const fontReady = document.fonts && document.fonts.load ? document.fonts.load('8px "Press Start 2P"') : Promise.resolve();
