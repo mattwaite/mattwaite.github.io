@@ -1,0 +1,98 @@
+:root {
+  --bg: #07070d;
+  --ink: #e8e6df;
+  --dim: #8a8798;
+  --accent: #d6303a;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Press Start 2P", ui-monospace, monospace;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 12px 16px;
+}
+
+.screen {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+canvas {
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background: #000;
+  border: 2px solid #22202e;
+  touch-action: none;
+}
+
+.touch {
+  display: none;
+  width: 100%;
+  max-width: 520px;
+  gap: 10px;
+}
+
+.touch button {
+  flex: 1;
+  height: 64px;
+  font: inherit;
+  font-size: 18px;
+  color: var(--ink);
+  background: #1a1824;
+  border: 2px solid #34314a;
+  border-radius: 8px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.touch button.fire {
+  flex: 1.4;
+  font-size: 14px;
+  color: #fff;
+  background: var(--accent);
+  border-color: #ff5d66;
+}
+
+.touch button.held { filter: brightness(1.35); }
+
+@media (pointer: coarse) {
+  .touch { display: flex; }
+  .keys { display: none; }
+}
+
+.notes {
+  max-width: 640px;
+  text-align: center;
+  font-size: 8px;
+  line-height: 1.8;
+  color: var(--dim);
+}
+
+.notes p { margin: 4px 0; }
+
+button.link {
+  font: inherit;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}

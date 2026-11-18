@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Subpoena Evaders</title>
+<meta name="description" content="An arcade game about what's coming in the next Congress. Dodge the subpoenas. Veto everything.">
+<meta property="og:title" content="Subpoena Evaders">
+<meta property="og:description" content="An arcade game about what's coming in the next Congress. Dodge the subpoenas. Veto everything.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <div class="screen" id="screen">
+    <canvas id="game" aria-label="Subpoena Evaders game"></canvas>
+  </div>
+
+  <div class="touch" id="touch" aria-hidden="true">
+    <button type="button" data-key="left">&#9664;&#xFE0E;</button>
+    <button type="button" data-key="fire" class="fire">VETO</button>
+    <button type="button" data-key="right">&#9654;&#xFE0E;</button>
+  </div>
+
+  <footer class="notes">
+    <p class="keys">Arrow keys move &middot; Space vetoes &middot; P pause &middot; M mute</p>
+    <p><button type="button" id="mute" class="link">Sound: on</button></p>
+    <p class="credit">An editorial game. Photos are official congressional and White House portraits, which are in the public domain.</p>
+  </footer>
+</main>
+<script src="sprites.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
