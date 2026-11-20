@@ -319,6 +319,11 @@
     G.effects = [];
     newWave();
     G.state = "playing";
+    track("game_start");
+  }
+
+  function track(name, params) {
+    try { if (typeof gtag === "function") gtag("event", name, params || {}); } catch (e) {}
   }
 
   function enemyPos(e) {
@@ -642,6 +647,7 @@
     G.timer = 60;
     Sound.bonusStop();
     if (reason) Sound.playerHit();
+    track("game_over", { score: G.score, wave: G.wave });
   }
 
   // ---------------------------------------------------------------------------
